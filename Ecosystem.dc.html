@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>BWCI — The Better World Ecosystem</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
+<style>
+:root{
+  --brand-ink:#123039; --brand-slate:#16323B; --brand-teal:#1D4A54;
+  --accent-emerald:#12836B; --accent-emerald-dark:#0D6E59; --accent-gold:#B98F2D; --accent-gold-dark:#9E7720; --accent-blue:#3D5A80;
+  --surface-canvas:#FFFFFF; --surface-subtle:#F7F9F8; --surface-cloud:#EFF3F1; --surface-dark:#123039; --surface-dark-elevated:#1D4A54;
+  --text-primary:#123039; --text-secondary:#42585E; --text-muted:#5C7075; --text-disabled:#A0B0B4; --text-inverse:#FFFFFF; --text-inverse-muted:#A8C2C8;
+  --border-subtle:#E2E9E6; --border-default:#D5E0DC; --border-strong:#8A9E99; --border-inverse:#2D5964;
+  --status-op-mark:#12836B; --status-op-text:#0D6E59; --status-op-border:#A3D9C9; --status-op-bg:#E8F5F1;
+  --status-dev-mark:#B98F2D; --status-dev-text:#7D5B0F; --status-dev-border:#E8C46B; --status-dev-bg:#FDF8EB;
+  --status-pro-mark:#6C8085; --status-pro-text:#384C51; --status-pro-border:#BDCCD0; --status-pro-bg:#F0F4F5;
+  --rel-partner-mark:#3D5A80; --rel-partner-text:#253B57; --rel-partner-border:#A8BDD7; --rel-partner-bg:#EFF4FA;
+  --radius-sm:2px; --radius-md:4px; --radius-lg:8px; --radius-full:9999px;
+  --shadow-card:0 1px 3px rgba(18,48,57,.04), 0 1px 2px rgba(18,48,57,.02);
+  --shadow-elevated:0 4px 12px rgba(18,48,57,.08), 0 2px 4px rgba(18,48,57,.04);
+  --font-sans:'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  --container:1280px; --container-wide:1440px;
+  --e:cubic-bezier(.2,.8,.2,1);
+  --t-micro:180ms; --t-comp:250ms; --t-diag:500ms; --t-sys:800ms;
+}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{ margin:0; background:var(--surface-canvas); color:var(--text-primary); font-family:var(--font-sans); font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+h1,h2,h3,h4{ margin:0; font-family:var(--font-sans); color:var(--text-primary); }
+p{ margin:0; } ul{ margin:0; padding:0; list-style:none; }
+a{ color:inherit; text-decoration:none; }
+a:hover{ color:var(--accent-emerald-dark); }
+button{ font-family:inherit; cursor:pointer; background:none; border:none; padding:0; color:inherit; text-align:inherit; }
+:focus-visible{ outline:2px solid var(--accent-emerald); outline-offset:2px; }
+.container{ max-width:var(--container); margin:0 auto; padding:0 32px; }
+.section{ padding:clamp(56px,6vw,88px) 0; position:relative; }
+.eyebrow{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-gold-dark); margin-bottom:16px; }
+.eyebrow::before{ content:''; width:14px; height:1.5px; background:currentColor; }
+.eyebrow--inv{ color:var(--accent-gold); }
+.h-display{ font-size:clamp(34px,4.6vw,56px); font-weight:700; line-height:1.12; letter-spacing:-.03em; }
+.h1{ font-size:clamp(28px,3.6vw,44px); font-weight:700; line-height:1.18; letter-spacing:-.025em; }
+.h3{ font-size:clamp(19px,2vw,24px); font-weight:600; line-height:1.33; letter-spacing:-.015em; }
+.body-lg{ font-size:clamp(16px,1.4vw,18px); line-height:1.6; color:var(--text-secondary); }
+.body{ font-size:15px; line-height:1.65; color:var(--text-secondary); }
+.body-sm{ font-size:13px; line-height:1.55; color:var(--text-muted); }
+.mono{ font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+.sec-head{ max-width:720px; margin-bottom:clamp(32px,3.6vw,48px); }
+.sec-head .body-lg{ margin-top:14px; }
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:12px 24px; border-radius:var(--radius-md); font-size:14px; font-weight:600; letter-spacing:.01em; white-space:nowrap; border:1px solid transparent; transition:background-color var(--t-micro), border-color var(--t-micro), color var(--t-micro); }
+.btn--primary{ background:var(--accent-emerald); color:#fff; border-color:var(--accent-emerald); }
+.btn--primary:hover{ background:var(--accent-emerald-dark); color:#fff; }
+.btn--inverse{ background:#fff; color:var(--brand-ink); border-color:#fff; }
+.btn--inverse:hover{ background:var(--text-inverse-muted); color:var(--brand-ink); }
+.btn--sm{ min-height:36px; padding:8px 16px; font-size:13px; }
+.text-link{ display:inline-flex; align-items:center; gap:6px; font-family:var(--font-mono); font-size:11.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--brand-ink); border-bottom:1px solid var(--border-strong); padding-bottom:3px; }
+.text-link--inv{ color:#fff; border-color:rgba(255,255,255,.4); }
+.text-link--inv:hover{ color:var(--accent-gold); border-color:var(--accent-gold); }
+.icon{ width:16px; height:16px; stroke:currentColor; stroke-width:1.5; fill:none; }
+.svg-mono{ font-family:var(--font-mono); font-weight:600; letter-spacing:.08em; }
+
+/* status glyphs (never colour alone) */
+.st{ display:inline-flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:9.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+.st-g{ flex:none; width:10px; height:10px; border-radius:50%; box-sizing:border-box; display:inline-block; }
+.st--op .st-g{ background:var(--status-op-mark); border:1.5px solid var(--status-op-mark); } .st--op{ color:var(--status-op-text); }
+.st--dev .st-g{ border:1.5px solid var(--status-dev-mark); background:linear-gradient(90deg,var(--status-dev-mark) 50%,transparent 50%); } .st--dev{ color:var(--status-dev-text); }
+.st--pro .st-g{ border:1.5px solid var(--status-pro-mark); } .st--pro{ color:var(--status-pro-text); }
+.st--partner .st-g{ width:16px; height:6px; border-radius:0; background:linear-gradient(90deg,var(--rel-partner-mark) 0 5px,transparent 5px 11px,var(--rel-partner-mark) 11px) , linear-gradient(var(--rel-partner-mark),var(--rel-partner-mark)) center/100% 1.5px no-repeat; } .st--partner{ color:var(--rel-partner-text); }
+.st--none .st-g{ border:1.5px dashed var(--border-strong); } .st--none{ color:var(--text-muted); }
+
+/* reveal */
+.rv{ opacity:0; transform:translateY(14px); transition:opacity var(--t-sys) var(--e), transform var(--t-sys) var(--e); }
+.rv-in{ opacity:1; transform:none; }
+
+/* NAV */
+.nav{ position:sticky; top:0; z-index:40; display:flex; align-items:center; gap:8px; padding:16px 32px; background:rgba(255,255,255,.86); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px); border-bottom:1px solid var(--border-subtle); }
+.nav__logo{ display:flex; align-items:center; gap:10px; }
+.nav__mark{ width:30px; height:30px; border-radius:var(--radius-sm); background:var(--brand-ink); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.02em; }
+.nav__word{ font-family:var(--font-mono); font-size:13px; font-weight:700; letter-spacing:.16em; color:var(--brand-ink); }
+.nav__links{ display:flex; align-items:center; gap:28px; margin:0 0 0 56px; }
+.nav__links a{ position:relative; font-size:14px; font-weight:500; color:var(--text-secondary); padding-bottom:4px; transition:color .18s; }
+.nav__links a:hover{ color:var(--brand-ink); }
+.nav__links a[aria-current="page"]{ color:var(--brand-ink); font-weight:600; }
+.nav__links a[aria-current="page"]::after{ content:''; position:absolute; left:0; right:0; bottom:-2px; height:2px; background:var(--accent-emerald); border-radius:var(--radius-full); }
+.nav__cta{ margin-left:auto; }
+.nav__burger{ display:none; width:44px; height:44px; align-items:center; justify-content:center; border:1px solid var(--border-default); border-radius:var(--radius-md); background:#fff; margin-left:auto; }
+
+/* HERO */
+.hero{ position:relative; overflow:hidden; color:#fff; min-height:480px; display:flex; align-items:center;
+  background:radial-gradient(ellipse 720px 620px at 88% 44%, rgba(18,131,107,.20), transparent 60%), radial-gradient(ellipse 560px 460px at -4% 82%, rgba(29,74,84,.30), transparent 60%), linear-gradient(180deg,#05090B 0%,#090F11 55%,#0B1416 100%); }
+.hero::before{ content:''; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:26px 26px; -webkit-mask-image:linear-gradient(90deg,black,transparent 60%); mask-image:linear-gradient(90deg,black,transparent 60%); }
+.hero-inner{ position:relative; z-index:2; width:100%; max-width:var(--container-wide); margin:0 auto; padding:clamp(56px,6vw,80px) 50px; }
+.hero-copy{ max-width:790px; }
+.hero-copy .eyebrow{ margin-bottom:22px; }
+.hero-copy .h-display{ color:var(--text-inverse); margin:0 0 20px; max-width:790px; }
+.hero-copy .body-lg{ color:var(--text-inverse-muted); max-width:625px; margin-bottom:0; letter-spacing:-.005em; }
+.hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:32px; }
+.hero-btn{ display:inline-flex; align-items:center; gap:12px; min-height:44px; padding:0 22px; border-radius:2px; font-family:var(--font-mono); font-size:11.5px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; border:1px solid transparent; transition:background-color .18s, border-color .18s, color .18s; }
+.hero-btn--solid{ background:#F1EEE6; color:var(--brand-ink); border-color:#F1EEE6; }
+.hero-btn--solid:hover{ background:#fff; color:var(--brand-ink); }
+.hero-btn--ghost{ background:transparent; color:#fff; border-color:rgba(255,255,255,.55); }
+.hero-btn--ghost:hover{ border-color:#fff; background:rgba(255,255,255,.06); color:#fff; }
+.hero-frame{ position:absolute; left:40%; top:22%; width:28%; height:44%; border:1px solid rgba(255,255,255,.28); }
+.hero-tick{ position:absolute; padding-left:10px; font-family:var(--font-mono); font-size:10px; letter-spacing:.08em; color:rgba(255,255,255,.5); }
+.hero-tick::before{ content:""; position:absolute; left:0; top:0; height:26px; border-left:1px dashed rgba(255,255,255,.35); }
+.hero-meta{ display:flex; flex-wrap:wrap; gap:10px 28px; margin-top:40px; padding-top:20px; border-top:1px solid rgba(255,255,255,.12); max-width:540px; }
+.hero-meta span{ font-family:var(--font-mono); font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-inverse-muted); display:inline-flex; gap:8px; align-items:center; }
+.hero-meta b{ color:#fff; font-weight:700; }
+.hero-img{ position:absolute; z-index:1; top:50%; right:-2%; width:min(64vw,1000px); transform:translateY(-50%); pointer-events:none; }
+.hero-img img{ display:block; width:100%; height:auto; -webkit-user-select:none; user-select:none; }
+.hero-net{ position:absolute; z-index:1; top:50%; right:clamp(-260px,-14vw,-60px); width:min(62vw,860px); aspect-ratio:1; transform:translateY(-50%); pointer-events:none; }
+.hero-net svg{ width:100%; height:100%; display:block; overflow:visible; }
+.hn-ring{ fill:none; stroke:rgba(255,255,255,.10); }
+.hn-link{ stroke:rgba(255,255,255,.16); stroke-width:1; }
+.hn-peri{ fill:rgba(255,255,255,.02); stroke:rgba(168,194,200,.38); stroke-dasharray:3 4; }
+.hn-node{ fill:#A8C2C8; }
+.hn-sub{ fill:rgba(168,194,200,.55); }
+.hn-port{ fill:#0B1416; stroke:rgba(168,194,200,.6); }
+.hn-label{ fill:rgba(168,194,200,.85); font-size:10px; }
+.hn-coord{ fill:rgba(168,194,200,.4); font-size:8px; }
+.hn-trace{ fill:none; stroke-width:1.6; stroke-dasharray:100; stroke-dashoffset:100; animation:hnTrace 9s var(--e) infinite; }
+.hn-trace--b{ animation-delay:3s; } .hn-trace--c{ animation-delay:6s; }
+@keyframes hnTrace{ 0%{ stroke-dashoffset:100; opacity:0; } 8%{ opacity:1; } 40%{ stroke-dashoffset:0; opacity:1; } 60%{ stroke-dashoffset:0; opacity:0; } 100%{ stroke-dashoffset:0; opacity:0; } }
+.hn-pulse{ fill:none; stroke:var(--accent-emerald); transform-box:fill-box; transform-origin:center; animation:hnPulse 4.2s ease-out infinite; }
+@keyframes hnPulse{ 0%{ transform:scale(.8); opacity:.7; } 100%{ transform:scale(1.9); opacity:0; } }
+
+/* PRINCIPLE BAND */
+.band{ background:var(--surface-canvas); border-bottom:1px solid var(--border-subtle); }
+.band-grid{ display:grid; grid-template-columns:minmax(220px,.8fr) minmax(0,2fr); gap:clamp(32px,6vw,96px); align-items:start; padding:clamp(40px,5vw,64px) 0; }
+.band-mark{ display:flex; flex-direction:column; gap:18px; }
+.band-glyph{ width:112px; height:40px; }
+.band-text{ font-size:clamp(17px,1.6vw,21px); line-height:1.6; color:var(--text-primary); font-weight:500; letter-spacing:-.005em; max-width:760px; }
+
+/* 01 DIMENSIONS */
+.dim{ background:linear-gradient(180deg,var(--surface-canvas),var(--surface-subtle)); }
+.dim-frame{ position:relative; display:grid; grid-template-columns:44px minmax(0,1fr); gap:0 28px; }
+.dim-spine{ position:relative; display:flex; justify-content:center; }
+.dim-spine::before{ content:''; position:absolute; top:28px; bottom:28px; width:1.5px; background:var(--brand-ink); }
+.dim-spine span{ position:sticky; top:40%; writing-mode:vertical-rl; transform:rotate(180deg); background:var(--surface-subtle); padding:12px 0; font-family:var(--font-mono); font-size:9.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--text-muted); z-index:1; align-self:center; }
+.dim-rows{ display:flex; flex-direction:column; }
+.dim-row{ position:relative; display:grid; grid-template-columns:150px minmax(200px,.8fr) minmax(0,2.2fr); gap:32px; align-items:center; padding:34px 0; border-top:1px solid var(--border-default); transition:background-color var(--t-comp); }
+.dim-row:last-child{ border-bottom:1px solid var(--border-default); }
+.dim-row::before{ content:''; position:absolute; left:-58px; top:50%; width:28px; height:1.5px; background:var(--brand-ink); }
+.dim-row::after{ content:''; position:absolute; left:-34px; top:50%; width:9px; height:9px; margin-top:-4px; border-radius:50%; background:var(--surface-canvas); border:1.5px solid var(--brand-ink); transition:background-color var(--t-comp); }
+.dim-row:hover::after{ background:var(--accent-emerald); border-color:var(--accent-emerald); }
+.dim-plane{ position:relative; width:130px; height:84px; }
+.dim-plane i{ position:absolute; left:10px; width:110px; height:44px; border:1px solid var(--border-strong); background:var(--surface-canvas); transform:skewX(-28deg) ; transition:transform var(--t-diag) var(--e), border-color var(--t-comp), background-color var(--t-comp); }
+.dim-plane i:nth-child(1){ top:36px; opacity:.5; } .dim-plane i:nth-child(2){ top:20px; opacity:.75; } .dim-plane i:nth-child(3){ top:4px; }
+.dim-plane b{ position:absolute; left:0; right:0; top:14px; text-align:center; font-family:var(--font-mono); font-size:22px; font-weight:700; color:var(--brand-ink); z-index:2; }
+.dim-row:hover .dim-plane i:nth-child(3){ border-color:var(--accent-emerald); transform:skewX(-28deg) translateY(-6px); }
+.dim-row:hover .dim-plane i:nth-child(1){ transform:skewX(-28deg) translateY(4px); }
+.dim-code{ display:block; font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-gold-dark); margin-bottom:6px; }
+.dim-title{ font-size:19px; font-weight:600; letter-spacing:-.015em; line-height:1.3; }
+.dim-q{ display:block; font-size:13px; color:var(--text-muted); margin-top:4px; }
+.dim-rail{ position:relative; display:grid; grid-template-columns:repeat(var(--n),minmax(0,1fr)); gap:12px; padding-top:22px; }
+.dim-rail::before{ content:''; position:absolute; top:4px; left:0; right:0; height:1px; background:var(--border-strong); }
+.dim-item{ position:relative; display:flex; flex-direction:column; gap:4px; }
+.dim-item::before{ content:''; position:absolute; top:-22px; left:0; width:8px; height:8px; border-radius:50%; background:var(--surface-canvas); border:1.5px solid var(--brand-ink); transition:background-color var(--t-comp), transform var(--t-comp); }
+.dim-row:hover .dim-item::before{ background:var(--brand-ink); }
+.dim-item__code{ font-family:var(--font-mono); font-size:9px; font-weight:700; letter-spacing:.1em; color:var(--text-disabled); }
+.dim-item__t{ font-size:12.5px; font-weight:600; line-height:1.35; color:var(--text-primary); }
+.dim-item__s{ font-size:11.5px; color:var(--text-muted); line-height:1.4; }
+
+/* 02 BLUEPRINT */
+.bp-sec{ background:radial-gradient(ellipse 900px 600px at 40% 50%, rgba(29,74,84,.55), transparent 70%), linear-gradient(180deg,#0B1416 0%, var(--surface-dark) 100%); color:#fff; overflow:hidden; }
+.bp-sec .h1{ color:#fff; } .bp-sec .body-lg{ color:var(--text-inverse-muted); }
+.bp-lenses{ display:inline-grid; grid-template-columns:repeat(3,auto); border:1px solid var(--border-inverse); border-radius:var(--radius-md); overflow:hidden; margin-bottom:32px; background:rgba(255,255,255,.02); }
+.bp-lens{ display:flex; flex-direction:column; gap:3px; padding:12px 20px; min-height:44px; color:var(--text-inverse-muted); border-left:1px solid var(--border-inverse); transition:background-color var(--t-comp), color var(--t-comp); }
+.bp-lens:first-child{ border-left:none; }
+.bp-lens span{ font-family:var(--font-mono); font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; opacity:.7; }
+.bp-lens strong{ font-size:13.5px; font-weight:600; }
+.bp-lens:hover{ color:#fff; }
+.bp-lens--on{ background:var(--accent-emerald); color:#fff; }
+.bp-lens--on span{ opacity:.9; }
+.bp-grid{ display:grid; grid-template-columns:minmax(0,1.7fr) minmax(300px,1fr); gap:clamp(32px,4vw,56px); align-items:start; }
+.bp-stage{ position:relative; border:1px solid var(--border-inverse); border-radius:var(--radius-md); background:rgba(5,9,11,.35); padding:10px; }
+.bp-stage::before{ content:''; position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(rgba(168,194,200,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(168,194,200,.05) 1px,transparent 1px); background-size:40px 40px; }
+.bp-stage__tag{ position:absolute; top:14px; left:16px; font-family:var(--font-mono); font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--text-inverse-muted); display:flex; gap:8px; align-items:center; z-index:1; }
+.bp-stage__tag i{ width:6px; height:6px; border-radius:50%; background:var(--accent-emerald); box-shadow:0 0 0 3px rgba(18,131,107,.25); }
+.bp-svg{ position:relative; width:100%; height:auto; display:block; }
+.bp-ring{ fill:none; stroke:rgba(168,194,200,.14); stroke-dasharray:2 6; }
+.bp-path{ fill:none; stroke-width:2; opacity:.14; transition:opacity var(--t-diag) var(--e), stroke-width var(--t-diag); }
+.bp-path--cap{ stroke:var(--accent-emerald); } .bp-path--capa{ stroke:#A8BDD7; } .bp-path--com{ stroke:var(--accent-gold); stroke-dasharray:5 5; }
+.bp-pk{ fill:none; stroke-width:4; stroke-linecap:round; stroke-dasharray:3 97; opacity:0; transition:opacity var(--t-diag); animation:bpPk 3.6s linear infinite; }
+.bp-pk--rev{ animation-direction:reverse; }
+@keyframes bpPk{ from{ stroke-dashoffset:100; } to{ stroke-dashoffset:0; } }
+.bp-node{ opacity:.35; transition:opacity var(--t-diag) var(--e); }
+.bp-node .core{ fill:#0B1416; stroke:rgba(168,194,200,.55); stroke-width:1.2; transition:stroke var(--t-diag), fill var(--t-diag); }
+.bp-node .peri{ fill:none; stroke:rgba(168,194,200,.4); stroke-dasharray:3 4; opacity:0; transform-box:fill-box; transform-origin:center; transform:scale(.7); transition:opacity var(--t-diag) var(--e), transform var(--t-diag) var(--e); }
+.bp-node .code{ fill:var(--accent-gold); font-size:9px; }
+.bp-node .name{ fill:#fff; font-size:12px; font-family:var(--font-sans); font-weight:600; letter-spacing:0; }
+.bp-node .tag{ fill:var(--accent-emerald); font-size:9px; opacity:0; transition:opacity var(--t-diag); }
+.bp-node--anchor{ opacity:1; }
+.bp-node--anchor .core{ fill:var(--brand-ink); stroke:var(--accent-emerald); stroke-width:1.5; }
+.bp[data-lens="1"] .bp-node.on1, .bp[data-lens="2"] .bp-node.on2, .bp[data-lens="3"] .bp-node.on3{ opacity:1; }
+.bp[data-lens="1"] .bp-node.on1 .peri{ opacity:1; transform:scale(1); stroke:var(--accent-emerald); }
+.bp[data-lens="1"] .bp-node.on1 .tag.t1, .bp[data-lens="3"] .bp-node.on3 .tag.t3{ opacity:1; }
+.bp[data-lens="1"] .bp-node.on1 .core{ stroke:var(--accent-emerald); }
+.bp[data-lens="2"] .bp-path{ opacity:1; }
+.bp[data-lens="2"] .bp-pk{ opacity:1; }
+.bp[data-lens="3"] .bp-path--cap{ opacity:1; stroke-width:2.5; }
+.bp[data-lens="3"] .bp-pk--cap{ opacity:1; }
+.bp[data-lens="3"] .bp-node.on3 .core{ stroke:var(--accent-gold); }
+.bp[data-lens="3"] .bp-node.on3 .tag{ fill:var(--accent-gold); }
+.bp-panel{ border-top:2px solid var(--accent-emerald); padding-top:22px; }
+.bp-panel__code{ font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-gold); }
+.bp-panel__text{ font-size:14.5px; line-height:1.65; color:var(--text-inverse-muted); margin:14px 0 22px; }
+.bp-keys{ display:flex; flex-direction:column; border-top:1px solid var(--border-inverse); }
+.bp-key{ display:grid; grid-template-columns:44px minmax(0,1fr); gap:12px; align-items:baseline; padding:12px 0; border-bottom:1px solid var(--border-inverse); animation:fadeUp var(--t-diag) var(--e) both; }
+.bp-key b{ font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.08em; }
+.bp-key span{ font-size:13px; color:#fff; line-height:1.45; }
+.bp-key b.k-cap{ color:var(--accent-emerald); } .bp-key b.k-capa{ color:#A8BDD7; } .bp-key b.k-com{ color:var(--accent-gold); } .bp-key b.k-p{ color:var(--accent-emerald); } .bp-key b.k-o{ color:var(--accent-gold); }
+@keyframes fadeUp{ from{ opacity:0; transform:translateY(6px); } to{ opacity:1; transform:none; } }
+.bp-jump{ display:flex; flex-wrap:wrap; align-items:center; gap:10px 18px; margin-top:26px; font-family:var(--font-mono); font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-inverse-muted); }
+.bp-jump a{ color:#fff; border-bottom:1px solid rgba(255,255,255,.35); padding-bottom:2px; }
+.bp-jump a:hover{ color:var(--accent-gold); border-color:var(--accent-gold); }
+.bp-list{ display:none; flex-direction:column; gap:6px; }
+.bp-li{ display:grid; grid-template-columns:62px minmax(0,1fr); gap:10px; padding:12px 14px; border:1px dashed var(--border-inverse); border-radius:var(--radius-sm); opacity:.45; transition:opacity var(--t-comp), border-color var(--t-comp); }
+.bp-li--on{ opacity:1; border-style:solid; border-color:rgba(168,194,200,.35); }
+.bp-li--anchor{ opacity:1; background:var(--brand-teal); border-color:var(--accent-emerald); border-style:solid; }
+.bp-li b{ font-family:var(--font-mono); font-size:9.5px; letter-spacing:.08em; color:var(--accent-gold); padding-top:2px; }
+.bp-li strong{ display:block; font-size:13.5px; font-weight:600; color:#fff; }
+.bp-li em{ display:block; font-style:normal; font-size:12px; color:var(--text-inverse-muted); margin-top:3px; }
+
+/* 03 LAYERS */
+.ly-sec{ background:var(--surface-canvas); }
+.ly-grid{ display:grid; grid-template-columns:minmax(300px,.9fr) minmax(0,1.3fr); gap:clamp(40px,6vw,96px); align-items:start; }
+.ly-stack{ position:sticky; top:108px; }
+.ly-stack__head{ display:flex; justify-content:space-between; align-items:center; gap:12px; white-space:nowrap; margin-bottom:18px; font-family:var(--font-mono); font-size:9.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--text-muted); }
+.ly-stack__head b{ color:var(--brand-ink); }
+.ly-plates{ display:flex; flex-direction:column; }
+.ly-plate{ position:relative; display:grid; grid-template-columns:42px minmax(0,1fr) 20px; gap:12px; align-items:center; width:100%; padding:14px 16px; border:1px solid var(--border-default); border-radius:var(--radius-md); background:var(--surface-canvas); transition:background-color var(--t-diag) var(--e), border-color var(--t-diag), transform var(--t-diag) var(--e), box-shadow var(--t-diag); }
+.ly-plate__n{ font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--text-muted); }
+.ly-plate__t{ font-size:13.5px; font-weight:600; line-height:1.3; color:var(--text-primary); }
+.ly-plate__d{ width:8px; height:8px; border-radius:50%; border:1.5px solid var(--border-strong); justify-self:end; }
+.ly-plate:hover{ border-color:var(--border-strong); }
+.ly-plate--on{ background:var(--brand-ink); border-color:var(--brand-ink); transform:translateX(14px); box-shadow:var(--shadow-elevated); }
+.ly-plate--on .ly-plate__n{ color:var(--accent-gold); } .ly-plate--on .ly-plate__t{ color:#fff; }
+.ly-plate--on .ly-plate__d{ background:var(--accent-emerald); border-color:var(--accent-emerald); box-shadow:0 0 0 4px rgba(18,131,107,.25); }
+.ly-plate--anchor:not(.ly-plate--on){ border-color:var(--brand-ink); }
+.ly-conn{ position:relative; height:18px; margin-left:36px; width:1.5px; background:var(--border-default); transition:background-color var(--t-diag); }
+.ly-conn--on{ background:var(--accent-emerald); }
+.ly-conn--on::after{ content:''; position:absolute; left:-2.5px; width:6px; height:6px; border-radius:50%; background:var(--accent-emerald); animation:lyDrop 1.4s linear infinite; }
+@keyframes lyDrop{ from{ top:-3px; opacity:0; } 30%{ opacity:1; } to{ top:15px; opacity:0; } }
+.ly-details{ display:flex; flex-direction:column; }
+.ly-d{ display:none; padding:0 0 8px; }
+.ly-d--on{ display:block; animation:fadeUp var(--t-diag) var(--e) both; }
+.ly-d__code{ display:block; font-family:var(--font-mono); font-size:10.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-gold-dark); margin-bottom:10px; }
+.ly-d__title{ font-size:clamp(22px,2.2vw,28px); font-weight:700; letter-spacing:-.02em; line-height:1.25; margin-bottom:22px; }
+.ly-f{ display:grid; grid-template-columns:150px minmax(0,1fr); gap:20px; padding:14px 0; border-top:1px solid var(--border-subtle); }
+.ly-f__l{ font-family:var(--font-mono); font-size:9.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); padding-top:3px; }
+.ly-f__t{ font-size:14px; line-height:1.62; color:var(--text-secondary); }
+.ly-bul{ display:flex; flex-direction:column; gap:8px; }
+.ly-bul li{ position:relative; padding-left:18px; font-size:14px; line-height:1.55; color:var(--text-secondary); }
+.ly-bul li::before{ content:''; position:absolute; left:0; top:9px; width:8px; height:1.5px; background:var(--accent-emerald); }
+.ly-bul li strong{ color:var(--text-primary); font-weight:600; }
+.ly-ent{ display:flex; flex-direction:column; gap:6px; }
+.ly-ent__r{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; padding:11px 14px; border:1px solid var(--border-subtle); border-radius:var(--radius-sm); background:var(--surface-subtle); }
+.ly-ent__n{ font-size:13.5px; font-weight:600; color:var(--text-primary); }
+.ly-note{ margin-top:14px; padding:12px 14px; border-left:2px solid var(--accent-emerald); background:var(--status-op-bg); font-size:13px; color:var(--status-op-text); }
+
+/* 04 CONNECTION MECHANICS */
+.cm-sec{ background:var(--surface-cloud); overflow:hidden; }
+.cm-grid{ display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr); gap:clamp(40px,5vw,80px); align-items:center; }
+.cm-list{ display:flex; flex-direction:column; border-top:1px solid var(--border-default); }
+.cm-item{ display:grid; grid-template-columns:34px minmax(0,1fr); gap:14px; padding:22px 0; border-bottom:1px solid var(--border-default); width:100%; transition:opacity var(--t-comp); opacity:.55; }
+.cm-item--on{ opacity:1; }
+.cm-item__n{ width:26px; height:26px; border-radius:50%; border:1px solid var(--border-strong); display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10.5px; font-weight:700; color:var(--text-muted); transition:all var(--t-comp); }
+.cm-item--on .cm-item__n{ background:var(--brand-ink); border-color:var(--brand-ink); color:#fff; }
+.cm-item__t{ font-size:16px; font-weight:600; letter-spacing:-.01em; color:var(--text-primary); margin-bottom:6px; line-height:1.35; }
+.cm-item__p{ font-size:13.5px; line-height:1.6; color:var(--text-secondary); display:grid; grid-template-rows:0fr; transition:grid-template-rows var(--t-diag) var(--e); }
+.cm-item__p > span{ overflow:hidden; }
+.cm-item--on .cm-item__p{ grid-template-rows:1fr; }
+.cm-diagram{ position:relative; padding:34px clamp(18px,3vw,36px); border:1px solid var(--border-default); border-radius:var(--radius-md); background:var(--surface-canvas); box-shadow:var(--shadow-card); }
+.cm-diagram__cap{ font-family:var(--font-mono); font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--text-muted); text-align:center; margin-bottom:26px; }
+.cm-col{ display:flex; flex-direction:column; align-items:center; }
+.cm-ent{ position:relative; width:min(100%,300px); padding:14px 16px 12px; border:1.5px dashed var(--border-strong); border-radius:var(--radius-lg); text-align:center; background:var(--surface-canvas); transition:border-color var(--t-diag), background-color var(--t-diag), box-shadow var(--t-diag); }
+.cm-ent__l{ display:block; font-family:var(--font-mono); font-size:8.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--text-disabled); margin-bottom:4px; }
+.cm-ent__t{ font-family:var(--font-mono); font-size:10.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--text-primary); line-height:1.4; }
+.cm-ent--anchor{ border-style:solid; border-color:var(--brand-ink); background:var(--brand-ink); }
+.cm-ent--anchor .cm-ent__t{ color:#fff; } .cm-ent--anchor .cm-ent__l{ color:var(--accent-gold); }
+.cm-ent--partner{ border-color:var(--rel-partner-border); background:var(--rel-partner-bg); }
+.cm-v{ position:relative; width:1.5px; height:34px; background:var(--border-strong); }
+.cm-v::before,.cm-v::after{ content:''; position:absolute; left:-3.5px; border-left:4px solid transparent; border-right:4px solid transparent; }
+.cm-v::before{ top:-1px; border-bottom:5px solid var(--border-strong); } .cm-v::after{ bottom:-1px; border-top:5px solid var(--border-strong); }
+.cm-band{ position:relative; width:100%; padding:26px 12px 14px; border-top:1px solid var(--border-default); border-bottom:1px solid var(--border-default); background:repeating-linear-gradient(90deg, transparent 0 14px, rgba(18,48,57,.03) 14px 15px); }
+.cm-band__l{ position:absolute; top:8px; left:50%; transform:translateX(-50%); font-family:var(--font-mono); font-size:8.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--accent-emerald-dark); white-space:nowrap; }
+.cm-row{ display:grid; grid-template-columns:minmax(0,1fr) minmax(28px,64px) minmax(0,1fr) minmax(28px,64px) minmax(0,1fr); align-items:center; }
+.cm-row .cm-ent{ width:100%; padding:12px 8px 10px; }
+.cm-rail{ position:relative; height:1.5px; background:var(--accent-emerald); overflow:visible; }
+.cm-rail::before,.cm-rail::after{ content:''; position:absolute; top:-4px; width:8px; height:8px; background:var(--surface-canvas); border:1.5px solid var(--accent-emerald); }
+.cm-rail::before{ left:-5px; } .cm-rail::after{ right:-5px; }
+.cm-rail i{ position:absolute; top:-2.5px; width:6px; height:6px; border-radius:50%; background:var(--accent-emerald); animation:cmPk 2.4s ease-in-out infinite alternate; }
+@keyframes cmPk{ from{ left:6px; } to{ left:calc(100% - 12px); } }
+.cm-diagram[data-mech="0"] .cm-rail{ height:2.5px; } .cm-diagram[data-mech="0"] .cm-rail::before, .cm-diagram[data-mech="0"] .cm-rail::after{ background:var(--accent-emerald); }
+.cm-diagram[data-mech="0"] .cm-band{ background-color:rgba(18,131,107,.05); }
+.cm-diagram[data-mech="1"] .cm-ent{ border-width:2px; border-color:var(--accent-gold-dark); box-shadow:0 0 0 5px rgba(185,143,45,.08); }
+.cm-diagram[data-mech="1"] .cm-ent--anchor{ border-color:var(--accent-gold); }
+.cm-diagram[data-mech="2"] .cm-ent--rx{ border-style:solid; border-color:var(--accent-emerald); background:var(--status-op-bg); box-shadow:0 0 0 5px rgba(18,131,107,.08); }
+.cm-legend{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px 22px; margin-top:26px; }
+.cm-legend span{ display:inline-flex; gap:8px; align-items:center; font-family:var(--font-mono); font-size:9px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
+.lg-peri{ width:16px; height:12px; border:1.5px dashed var(--border-strong); border-radius:3px; }
+.lg-port{ width:8px; height:8px; border:1.5px solid var(--accent-emerald); }
+.lg-rail{ width:18px; height:1.5px; background:var(--accent-emerald); }
+
+/* 05 PARTICIPANTS */
+.pt-sec{ background:var(--surface-canvas); }
+.pt-grid{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(40px,5vw,80px); align-items:center; }
+.pt-map{ --r:38%; position:relative; width:100%; max-width:560px; aspect-ratio:1; margin:0 auto; }
+.pt-map svg{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
+.pt-ring{ fill:none; stroke:var(--border-default); }
+.pt-ring--d{ stroke-dasharray:2 5; stroke:var(--border-strong); }
+.pt-spoke{ stroke:var(--border-default); stroke-width:.4; transition:stroke var(--t-diag), stroke-width var(--t-diag); }
+.pt-spoke--on{ stroke:var(--accent-emerald); stroke-width:.8; }
+.pt-port{ fill:var(--surface-canvas); stroke:var(--border-strong); stroke-width:.35; transition:fill var(--t-diag), stroke var(--t-diag); }
+.pt-port--on{ fill:var(--accent-emerald); stroke:var(--accent-emerald); }
+.pt-core{ position:absolute; left:50%; top:50%; width:34%; aspect-ratio:1; transform:translate(-50%,-50%); border-radius:50%; border:1px dashed var(--border-strong); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:6px; background:radial-gradient(circle, var(--surface-subtle), var(--surface-canvas) 70%); }
+.pt-core b{ font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--brand-ink); }
+.pt-core span{ font-family:var(--font-mono); font-size:8.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); }
+.pt-node{ position:absolute; transform:translate(-50%,-50%); width:clamp(120px,15vw,156px); padding:14px 12px 12px; border:1.5px dashed var(--border-strong); border-radius:var(--radius-lg); background:var(--surface-canvas); text-align:center; display:flex; flex-direction:column; align-items:center; gap:6px; transition:border-color var(--t-comp), box-shadow var(--t-comp), transform var(--t-diag) var(--e); }
+.pt-node:hover{ border-color:var(--brand-ink); }
+.pt-node__c{ font-family:var(--font-mono); font-size:9px; font-weight:700; letter-spacing:.12em; color:var(--accent-gold-dark); }
+.pt-node__t{ font-size:12.5px; font-weight:600; line-height:1.3; color:var(--text-primary); }
+.pt-node--on{ border-style:solid; border-color:var(--accent-emerald); box-shadow:0 0 0 6px rgba(18,131,107,.08), var(--shadow-elevated); transform:translate(-50%,-50%) scale(1.04); }
+.pt-node--partner{ border-color:var(--rel-partner-border); }
+.pt-node--partner.pt-node--on{ border-color:var(--rel-partner-mark); box-shadow:0 0 0 6px rgba(61,90,128,.08), var(--shadow-elevated); }
+.pt-panel{ animation:fadeUp var(--t-diag) var(--e) both; }
+.pt-panel__c{ font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-gold-dark); }
+.pt-panel__t{ font-size:clamp(22px,2.2vw,28px); font-weight:700; letter-spacing:-.02em; line-height:1.25; margin:10px 0 20px; }
+.pt-rel{ display:inline-flex; align-items:center; gap:10px; padding:8px 12px; border:1px solid var(--status-op-border); background:var(--status-op-bg); border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--status-op-text); margin-bottom:18px; }
+.pt-rel--partner{ border-color:var(--rel-partner-border); background:var(--rel-partner-bg); color:var(--rel-partner-text); }
+.pt-fields{ display:grid; grid-template-columns:1fr 1fr; gap:0 28px; }
+.pt-f{ padding:14px 0; border-top:1px solid var(--border-subtle); }
+.pt-f__l{ display:block; font-family:var(--font-mono); font-size:9.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:6px; }
+.pt-f__t{ font-size:13.5px; line-height:1.6; color:var(--text-secondary); }
+
+/* 06 FLOWS */
+.fl-sec{ background:radial-gradient(ellipse 800px 500px at 70% 40%, rgba(18,131,107,.14), transparent 70%), linear-gradient(180deg,var(--surface-dark) 0%,#0B1416 100%); color:#fff; overflow:hidden; }
+.fl-sec .h1{ color:#fff; } .fl-sec .body-lg{ color:var(--text-inverse-muted); }
+.fl-grid{ display:grid; grid-template-columns:minmax(260px,.75fr) minmax(0,2fr); gap:clamp(32px,4vw,56px); align-items:start; }
+.fl-tabs{ display:flex; flex-direction:column; gap:8px; }
+.fl-tab{ position:relative; display:flex; flex-direction:column; gap:6px; width:100%; padding:16px 18px 16px 22px; border:1px solid var(--border-inverse); border-radius:var(--radius-md); background:rgba(255,255,255,.02); transition:background-color var(--t-comp), border-color var(--t-comp); }
+.fl-tab::before{ content:''; position:absolute; left:0; top:12px; bottom:12px; width:2px; background:var(--fc); opacity:.4; transition:opacity var(--t-comp); }
+.fl-tab__c{ font-family:var(--font-mono); font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--fc); }
+.fl-tab__t{ font-size:14px; font-weight:600; color:#fff; line-height:1.35; }
+.fl-tab:hover{ border-color:rgba(168,194,200,.4); }
+.fl-tab--on{ background:rgba(255,255,255,.06); border-color:var(--fc); }
+.fl-tab--on::before{ opacity:1; }
+.fl-stage{ position:relative; border:1px solid var(--border-inverse); border-radius:var(--radius-md); background:rgba(5,9,11,.35); padding:8px 8px 0; }
+.fl-svg{ width:100%; height:auto; display:block; }
+.fl-lane{ stroke:rgba(168,194,200,.12); stroke-dasharray:2 5; }
+.fl-lh{ fill:var(--text-inverse-muted); font-size:9.5px; }
+.fl-lh2{ fill:rgba(168,194,200,.5); font-size:8px; }
+.fl-p{ fill:none; stroke-width:2; opacity:.12; transition:opacity var(--t-diag) var(--e); }
+.fl-pk{ fill:none; stroke-width:5; stroke-linecap:round; stroke-dasharray:2.5 97.5; opacity:0; transition:opacity var(--t-diag); animation:bpPk 3.2s linear infinite; }
+.fl-n{ fill:#0B1416; stroke-width:1.5; opacity:.2; transition:opacity var(--t-diag), r var(--t-diag); }
+.fl-d{ opacity:.15; transition:opacity var(--t-diag); }
+.fl[data-flow="0"] .f0, .fl[data-flow="1"] .f1, .fl[data-flow="2"] .f2{ opacity:1; }
+.fl-stage__foot{ display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:12px 10px 14px; border-top:1px solid var(--border-inverse); font-family:var(--font-mono); font-size:9px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--text-inverse-muted); }
+.fl-detail{ margin-top:26px; display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:32px; align-items:start; animation:fadeUp var(--t-diag) var(--e) both; }
+.fl-route{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 0; }
+.fl-step{ font-family:var(--font-mono); font-size:10px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:8px 11px; border:1px solid rgba(168,194,200,.3); border-radius:var(--radius-sm); color:#fff; background:rgba(255,255,255,.03); white-space:nowrap; }
+.fl-arrow{ font-family:var(--font-mono); font-size:12px; color:var(--fc); padding:0 7px; }
+.fl-text{ font-size:14px; line-height:1.65; color:var(--text-inverse-muted); }
+
+/* 07 COMPARISON */
+.cp-sec{ background:var(--surface-canvas); }
+.cp-table{ display:grid; grid-template-columns:minmax(140px,.7fr) repeat(3,minmax(0,1fr)); border-top:1px solid var(--brand-ink); }
+.cp-hd{ padding:24px 20px 22px; border-bottom:1px solid var(--border-default); display:flex; flex-direction:column; gap:16px; }
+.cp-hd--dim{ justify-content:flex-end; }
+.cp-hd--bwci{ background:var(--surface-subtle); border-top:3px solid var(--accent-emerald); margin-top:-2px; }
+.cp-hd svg{ width:100%; max-width:240px; height:auto; display:block; }
+.cp-hd__n{ font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); }
+.cp-hd__t{ font-size:16px; font-weight:600; letter-spacing:-.01em; color:var(--text-primary); line-height:1.3; }
+.cp-dim{ padding:16px 20px; border-bottom:1px solid var(--border-subtle); font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-primary); }
+.cp-cell{ padding:16px 20px; border-bottom:1px solid var(--border-subtle); font-size:13.5px; line-height:1.55; color:var(--text-secondary); }
+.cp-cell__m{ display:none; font-family:var(--font-mono); font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px; }
+.cp-cell--bwci{ background:var(--surface-subtle); color:var(--text-primary); }
+.cp-legend{ display:flex; flex-wrap:wrap; gap:10px 22px; margin-top:22px; }
+.cp-legend span{ display:inline-flex; gap:8px; align-items:center; font-family:var(--font-mono); font-size:9px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
+.lg-node{ width:9px; height:9px; border-radius:50%; background:var(--brand-ink); }
+.lg-solid{ width:22px; height:1.5px; background:var(--brand-ink); }
+.lg-bil{ width:22px; height:0; border-top:1.5px dashed var(--border-strong); }
+
+/* 08 GOVERNANCE */
+.gv-sec{ background:linear-gradient(180deg,var(--surface-subtle),var(--surface-cloud)); }
+.gv-grid{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); gap:clamp(40px,5vw,80px); align-items:start; }
+.gv-perim{ position:relative; padding:34px 22px 22px; border:1.5px solid var(--brand-ink); border-radius:var(--radius-md); background:var(--surface-canvas); box-shadow:var(--shadow-card); }
+.gv-tag{ position:absolute; top:-9px; left:18px; padding:0 8px; white-space:nowrap; background:var(--surface-canvas); font-family:var(--font-mono); font-size:9px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--brand-ink); }
+.gv-inner{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:6px; }
+.gv-fence{ position:relative; padding:26px 14px 16px; border:1.5px dashed var(--border-strong); border-radius:var(--radius-md); background:repeating-linear-gradient(135deg, transparent 0 7px, rgba(18,48,57,.025) 7px 8px); }
+.gv-fence .gv-tag{ color:var(--text-muted); font-size:8.5px; left:12px; }
+.gv-fence__t{ font-size:13px; font-weight:600; color:var(--text-primary); line-height:1.35; }
+.gv-strat{ padding:12px 14px; border:1px solid var(--border-default); border-radius:var(--radius-sm); background:var(--surface-subtle); font-size:13px; font-weight:600; text-align:center; margin-bottom:14px; }
+.gv-gate{ display:flex; align-items:center; gap:10px; margin-top:18px; }
+.gv-gate::before,.gv-gate::after{ content:''; flex:1; height:2px; background:var(--accent-gold); }
+.gv-gate span{ font-family:var(--font-mono); font-size:9px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--accent-gold-dark); white-space:nowrap; }
+.gv-exit{ display:flex; justify-content:center; margin-top:14px; }
+.gv-exit span{ display:inline-flex; white-space:nowrap; align-items:center; gap:8px; padding:9px 14px; border:1px solid var(--accent-emerald); background:var(--status-op-bg); border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--status-op-text); }
+.gv-prin{ display:flex; flex-direction:column; border-top:1px solid var(--border-default); }
+.gv-p{ display:grid; grid-template-columns:34px minmax(0,1fr); gap:14px; padding:20px 0; border-bottom:1px solid var(--border-default); }
+.gv-p__n{ width:26px; height:26px; border-radius:50%; background:var(--brand-ink); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:10.5px; font-weight:700; }
+.gv-p__t{ font-size:15.5px; font-weight:600; margin-bottom:6px; line-height:1.35; }
+.gv-reg{ margin-top:clamp(32px,3.6vw,48px); border:1px solid var(--border-default); border-radius:var(--radius-md); background:var(--surface-canvas); overflow:hidden; }
+.gv-reg__h{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; padding:14px 20px; border-bottom:1px solid var(--border-default); background:var(--surface-subtle); font-family:var(--font-mono); font-size:9.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--text-muted); }
+.gv-reg__h b{ color:var(--brand-ink); }
+.gv-reg__axis{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)) minmax(0,1.1fr); }
+.gv-st{ position:relative; padding:20px; border-left:1px solid var(--border-subtle); display:flex; flex-direction:column; gap:10px; }
+.gv-st:first-child{ border-left:none; }
+.gv-st--partner{ border-left:1px dashed var(--rel-partner-border); background:var(--rel-partner-bg); }
+.gv-st__stage{ font-family:var(--font-mono); font-size:8.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--text-disabled); }
+.gv-st__ex{ font-size:12.5px; line-height:1.5; color:var(--text-secondary); }
+.gv-progress{ position:absolute; top:26px; right:-7px; z-index:1; font-family:var(--font-mono); font-size:11px; color:var(--text-disabled); background:var(--surface-canvas); }
+
+/* 09 ENGAGE */
+.en-sec{ position:relative; overflow:hidden; color:#fff; background:radial-gradient(ellipse 640px 560px at -6% 30%, rgba(29,74,84,.34), transparent 58%), radial-gradient(ellipse 640px 560px at 106% 30%, rgba(18,131,107,.28), transparent 58%), linear-gradient(180deg,#05090B 0%,#090F11 50%,#0B1416 100%); }
+.en-net{ position:absolute; left:50%; top:0; width:1200px; max-width:none; transform:translateX(-50%); opacity:.9; pointer-events:none; }
+.en-sec .container{ position:relative; z-index:1; }
+.en-head{ text-align:center; max-width:640px; margin:0 auto 48px; }
+.en-head .h1{ color:#fff; } .en-head .body-lg{ color:var(--text-inverse-muted); margin-top:14px; }
+.en-routes{ display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:960px; margin:0 auto; }
+.en-route{ position:relative; display:flex; flex-direction:column; gap:12px; padding:30px 28px 26px; border:1px solid rgba(255,255,255,.16); border-radius:var(--radius-md); background:rgba(247,249,248,.04); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); transition:border-color var(--t-comp), background-color var(--t-comp); }
+.en-route:hover{ border-color:var(--accent-emerald); background:rgba(18,131,107,.08); color:#fff; }
+.en-route::before{ content:''; position:absolute; top:-7px; left:28px; width:12px; height:12px; border-radius:50%; background:var(--accent-emerald); box-shadow:0 0 0 4px rgba(18,131,107,.25); }
+.en-route--inv::before{ background:var(--accent-gold); box-shadow:0 0 0 4px rgba(185,143,45,.25); }
+.en-route__c{ font-family:var(--font-mono); font-size:9.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-gold); }
+.en-route__t{ font-size:21px; font-weight:700; letter-spacing:-.015em; color:#fff; }
+.en-route__p{ font-size:14px; line-height:1.6; color:var(--text-inverse-muted); max-width:360px; }
+.en-route__go{ margin-top:10px; display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#fff; transition:gap var(--t-micro); }
+.en-route:hover .en-route__go{ gap:14px; color:var(--accent-gold); }
+.en-conv{ display:grid; grid-template-columns:minmax(0,1.4fr) auto; gap:32px; align-items:center; max-width:960px; margin:56px auto 0; padding-top:32px; border-top:1px solid rgba(255,255,255,.14); }
+.en-conv .h3{ color:#fff; margin-bottom:8px; }
+.en-conv p{ font-size:14px; color:var(--text-inverse-muted); line-height:1.6; }
+.en-actions{ display:flex; flex-direction:column; align-items:flex-end; gap:12px; }
+.en-mail{ font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; color:var(--text-inverse-muted); border-bottom:1px solid rgba(255,255,255,.3); }
+.en-mail:hover{ color:var(--accent-gold); }
+
+/* FOOTER */
+.footer{ background:var(--surface-subtle); border-top:1px solid var(--border-subtle); padding:56px 0 28px; }
+.footer__grid{ display:grid; grid-template-columns:1.6fr repeat(3,1fr); gap:32px; margin-bottom:40px; }
+.footer__col h5{ font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); margin:0 0 14px; }
+.footer__col ul{ display:flex; flex-direction:column; gap:11px; }
+.footer__col a{ font-size:13.5px; color:var(--text-secondary); }
+.footer__col a[aria-current="page"]{ color:var(--brand-ink); font-weight:600; }
+.footer__bar{ border-top:1px solid var(--border-subtle); padding-top:20px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-family:var(--font-mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--text-muted); }
+
+/* SECTION BACKGROUND PATTERNS (shared grammar with Main / Financial Engine) */
+.band, .dim, .bp-sec, .ly-sec, .cm-sec, .pt-sec, .fl-sec, .cp-sec, .gv-sec{ position:relative; isolation:isolate; overflow:clip; }
+.band::before, .dim::before, .bp-sec::before, .ly-sec::before, .cm-sec::before, .pt-sec::before, .fl-sec::before, .cp-sec::before, .gv-sec::before,
+.dim::after, .ly-sec::after, .cm-sec::after, .cp-sec::after{ content:''; position:absolute; z-index:-1; pointer-events:none; }
+/* concentric rings */
+.band::before{ top:-220px; right:-200px; width:min(38vw,520px); aspect-ratio:1; border-radius:50%; border:1px solid rgba(18,48,57,.10); box-shadow:0 0 0 52px rgba(18,48,57,.022), 0 0 0 106px rgba(18,48,57,.015), 0 0 0 160px rgba(18,48,57,.009); }
+.ly-sec::before{ top:clamp(280px,26vw,380px); left:-220px; width:min(38vw,520px); aspect-ratio:1; border-radius:50%; border:1px solid rgba(29,74,84,.09); box-shadow:0 0 0 52px rgba(29,74,84,.022), 0 0 0 104px rgba(29,74,84,.015), 0 0 0 156px rgba(29,74,84,.009); }
+.pt-sec::before{ top:50%; right:-260px; width:min(44vw,620px); aspect-ratio:1; transform:translateY(-50%); border-radius:50%; border:1px solid rgba(18,48,57,.10); box-shadow:0 0 0 52px rgba(18,48,57,.022), 0 0 0 106px rgba(18,48,57,.015), 0 0 0 160px rgba(18,48,57,.009); }
+.gv-sec::before{ bottom:-240px; left:-200px; width:min(38vw,520px); aspect-ratio:1; border-radius:50%; border:1px solid rgba(18,48,57,.10); box-shadow:0 0 0 52px rgba(18,48,57,.022), 0 0 0 106px rgba(18,48,57,.015), 0 0 0 160px rgba(18,48,57,.009); }
+/* masked dot fields */
+.dim::before{ top:0; right:0; width:620px; max-width:60%; height:440px; background-image:radial-gradient(circle, rgba(18,48,57,.14) 1px, transparent 1.6px); background-size:15px 15px; -webkit-mask-image:radial-gradient(ellipse 400px 320px at 70% 30%, black 0%, black 30%, transparent 78%); mask-image:radial-gradient(ellipse 400px 320px at 70% 30%, black 0%, black 30%, transparent 78%); }
+.bp-sec::before{ inset:0; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:26px 26px; -webkit-mask-image:linear-gradient(180deg, black, transparent 55%); mask-image:linear-gradient(180deg, black, transparent 55%); }
+.fl-sec::before{ inset:0; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:24px 24px; -webkit-mask-image:radial-gradient(ellipse 720px 360px at 80% 20%, black 0%, black 35%, transparent 80%); mask-image:radial-gradient(ellipse 720px 360px at 80% 20%, black 0%, black 35%, transparent 80%); }
+/* architectural grid fields */
+.dim::after{ left:0; right:0; bottom:0; height:60%; background-image:linear-gradient(rgba(18,48,57,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(18,48,57,.04) 1px, transparent 1px); background-size:56px 56px; -webkit-mask-image:linear-gradient(to bottom, transparent, #000 70%); mask-image:linear-gradient(to bottom, transparent, #000 70%); }
+.ly-sec::after{ top:clamp(320px,30vw,440px); right:0; bottom:0; left:0; background-image:linear-gradient(rgba(18,48,57,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(18,48,57,.045) 1px, transparent 1px); background-size:56px 56px; -webkit-mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.5) 35%, #000 70%); mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.5) 35%, #000 70%); }
+.cm-sec::before{ inset:0; opacity:.9; background:linear-gradient(90deg, transparent 0 8%, rgba(18,48,57,.05) 8.05% 8.12%, transparent 8.17% 37%, rgba(18,48,57,.03) 37.05% 37.12%, transparent 37.17% 100%), linear-gradient(0deg, transparent 0 18%, rgba(18,48,57,.05) 18.05% 18.12%, transparent 18.17% 64%, rgba(18,48,57,.03) 64.05% 64.12%, transparent 64.17% 100%); -webkit-mask-image:linear-gradient(to bottom, transparent, #000 23%, #000 78%, transparent); mask-image:linear-gradient(to bottom, transparent, #000 23%, #000 78%, transparent); }
+.cm-sec::after{ top:10%; right:-160px; width:min(34vw,460px); aspect-ratio:1; border-radius:50%; border:1px solid rgba(18,48,57,.09); box-shadow:0 0 0 52px rgba(18,48,57,.02), 0 0 0 106px rgba(18,48,57,.013); }
+.cp-sec::before{ top:0; right:0; width:640px; max-width:60%; height:480px; background-image:radial-gradient(circle, rgba(18,48,57,.12) 1px, transparent 1.6px); background-size:16px 16px; -webkit-mask-image:radial-gradient(ellipse 520px 400px at 88% 18%, black 0%, black 34%, transparent 76%); mask-image:radial-gradient(ellipse 520px 400px at 88% 18%, black 0%, black 34%, transparent 76%); }
+.cp-sec::after{ left:0; right:0; bottom:0; height:45%; background-image:linear-gradient(rgba(18,48,57,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(18,48,57,.035) 1px, transparent 1px); background-size:56px 56px; -webkit-mask-image:linear-gradient(to bottom, transparent, #000 80%); mask-image:linear-gradient(to bottom, transparent, #000 80%); }
+.gv-sec::after{ content:''; position:absolute; z-index:-1; pointer-events:none; top:0; right:0; width:560px; max-width:55%; height:420px; background-image:radial-gradient(circle, rgba(18,48,57,.12) 1px, transparent 1.6px); background-size:15px 15px; -webkit-mask-image:radial-gradient(ellipse 380px 300px at 75% 25%, black 0%, black 30%, transparent 78%); mask-image:radial-gradient(ellipse 380px 300px at 75% 25%, black 0%, black 30%, transparent 78%); }
+@media (max-width:767px){
+  .band::before, .ly-sec::before, .pt-sec::before, .gv-sec::before, .cm-sec::after{ width:320px; }
+}
+
+/* RESPONSIVE */
+@media (max-width:1180px){
+  .dim-row{ grid-template-columns:130px minmax(0,1fr); }
+  .dim-rail{ grid-column:1 / -1; }
+}
+@media (max-width:1023px){
+  .nav__links{ display:none; } .nav__burger{ display:flex; }
+  .hero{ height:auto; min-height:0; }
+  .hero-img{ top:auto; bottom:0; right:-8%; width:min(116vw,680px); transform:none; opacity:.9; }
+  .hero-tick, .hero-frame{ display:none; }
+  .hero-inner{ padding:72px 32px clamp(220px,48vw,320px); }
+  .hero-net{ top:auto; bottom:-18%; right:50%; transform:translateX(50%); width:min(110vw,620px); opacity:.8; }
+  .band-grid{ grid-template-columns:1fr; gap:20px; }
+  .bp-grid, .ly-grid, .cm-grid, .pt-grid, .fl-grid, .gv-grid{ grid-template-columns:1fr; }
+  .bp-lenses{ display:grid; grid-template-columns:1fr; width:100%; }
+  .bp-lens{ border-left:none; border-top:1px solid var(--border-inverse); } .bp-lens:first-child{ border-top:none; }
+  .ly-stack{ position:relative; top:auto; }
+  .ly-plate--on{ transform:none; }
+  .fl-tabs{ flex-direction:row; flex-wrap:wrap; } .fl-tab{ flex:1 1 200px; width:auto; }
+  .fl-detail{ grid-template-columns:1fr; gap:16px; }
+  .cp-table{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .cp-hd--dim{ display:none; }
+  .cp-dim{ grid-column:1 / -1; background:var(--surface-subtle); }
+  .gv-reg__axis{ grid-template-columns:1fr 1fr; }
+  .gv-st:nth-child(3){ border-left:none; } .gv-st{ border-top:1px solid var(--border-subtle); }
+  .gv-progress{ display:none; }
+  .en-conv{ grid-template-columns:1fr; } .en-actions{ align-items:flex-start; }
+  .footer__grid{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:767px){
+  .container{ padding:0 20px; }
+  .hero-inner{ padding-left:20px; padding-right:20px; }
+  .dim-frame{ grid-template-columns:1fr; } .dim-spine{ display:none; }
+  .dim-row::before, .dim-row::after{ display:none; }
+  .dim-row{ grid-template-columns:1fr; gap:14px; padding:26px 0; }
+  .dim-plane{ display:none; }
+  .dim-rail{ grid-template-columns:1fr; padding-top:0; padding-left:22px; gap:14px; }
+  .dim-rail::before{ top:0; bottom:0; left:3px; right:auto; width:1px; height:auto; }
+  .dim-item::before{ top:4px; left:-22px; }
+  .bp-stage{ display:none; } .bp-list{ display:flex; }
+  .ly-f{ grid-template-columns:1fr; gap:6px; }
+  .cm-row{ grid-template-columns:1fr; justify-items:center; }
+  .cm-rail{ width:1.5px; height:34px; } .cm-rail::before{ left:-4px; top:-5px; } .cm-rail::after{ right:auto; left:-4px; top:auto; bottom:-5px; }
+  .cm-rail i{ left:-2.5px; animation:cmPkV 2.4s ease-in-out infinite alternate; }
+  @keyframes cmPkV{ from{ top:6px; } to{ top:calc(100% - 12px); } }
+  .cm-diagram[data-mech="0"] .cm-rail{ height:34px; width:2.5px; }
+  .pt-map{ --r:0; aspect-ratio:auto; display:grid; grid-template-columns:1fr 1fr; gap:10px; max-width:none; }
+  .pt-map svg, .pt-core{ display:none; }
+  .pt-node{ position:relative; left:auto !important; top:auto !important; transform:none; width:auto; min-height:92px; }
+  .pt-node--on{ transform:none; }
+  .pt-fields{ grid-template-columns:1fr; }
+  .fl-stage{ display:none; }
+  .fl-route{ flex-direction:column; align-items:flex-start; }
+  .fl-arrow{ transform:rotate(90deg); padding:4px 10px; }
+  .cp-table{ grid-template-columns:1fr; }
+  .cp-hd{ border-bottom:none; } .cp-hd svg{ max-width:200px; }
+  .cp-hd--bwci{ margin-top:0; }
+  .cp-cell__m{ display:block; }
+  .gv-inner{ grid-template-columns:1fr; }
+  .gv-reg__axis{ grid-template-columns:1fr; } .gv-st{ border-left:none; }
+  .en-routes{ grid-template-columns:1fr; }
+  .footer__grid{ grid-template-columns:1fr; gap:28px; }
+}
+@media (prefers-reduced-motion:reduce){
+  *, *::before, *::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+  .hn-trace{ stroke-dashoffset:0; opacity:.8; }
+  .rv{ opacity:1; transform:none; }
+}
+
+@media (max-width:767px){ .sc-interp{ font-size:11px !important; } }
+
+@media (max-width:1023px){ .nav__burger{ margin-left:12px; } }
+
+/* 02 ECOSYSTEM LOOP */
+.lp-sec{ position:relative; isolation:isolate; overflow:clip; background:var(--surface-subtle); }
+.lp-sec::before, .lp-sec::after{ content:''; position:absolute; z-index:-1; pointer-events:none; left:50%; }
+.lp-sec::before{ top:calc(50% + 90px); width:min(62vw,760px); aspect-ratio:1; transform:translate(-50%,-50%); border-radius:50%; border:1px solid rgba(18,48,57,.10); box-shadow:0 0 0 64px rgba(18,48,57,.022), 0 0 0 130px rgba(18,48,57,.016), 0 0 0 200px rgba(18,48,57,.01); }
+.lp-sec::after{ top:0; bottom:0; width:100%; transform:translateX(-50%); background-image:radial-gradient(circle, rgba(18,48,57,.13) 1px, transparent 1.6px); background-size:16px 16px; -webkit-mask-image:radial-gradient(ellipse 46% 42% at 50% calc(50% + 90px), transparent 58%, black 72%, transparent 100%); mask-image:radial-gradient(ellipse 46% 42% at 50% calc(50% + 90px), transparent 58%, black 72%, transparent 100%); }
+.lp-anchor{ position:absolute; top:0; }
+.lp-head{ display:flex; flex-direction:column; align-items:center; text-align:center; gap:14px; max-width:720px; margin:0 auto clamp(28px,4vw,44px); }
+.lp-head .h1{ text-wrap:balance; }
+.lp-head .body-lg{ max-width:600px; text-wrap:pretty; }
+.lp-lens{ display:flex; flex-wrap:wrap; justify-content:center; gap:4px; margin-top:10px; padding:4px; background:var(--surface-canvas); border:1px solid var(--border-default); border-radius:var(--radius-full); box-shadow:var(--shadow-card); }
+.lp-lens button{ min-height:44px; padding:0 20px; border:0; border-radius:var(--radius-full); background:transparent; font-family:var(--font-sans); font-size:14px; font-weight:500; color:var(--text-secondary); cursor:pointer; white-space:nowrap; transition:background var(--t-comp), color var(--t-comp); }
+.lp-lens button:hover{ color:var(--brand-ink); background:var(--surface-cloud); }
+.lp-lens button.on{ background:var(--brand-ink); color:#fff; font-weight:600; }
+.lp-board{ position:relative; }
+.lp-measure{ position:relative; width:100%; }
+.lp-stage{ position:relative; width:100%; overflow:hidden; }
+.lp-canvas{ position:absolute; left:50%; top:0; width:1120px; height:740px; transform-origin:top center; }
+.lp-svg{ position:absolute; inset:0; }
+.lp-track{ fill:none; stroke:var(--border-strong); stroke-width:2; stroke-dasharray:2 9; stroke-linecap:round; opacity:.7; }
+.lp-flow{ fill:none; stroke:var(--accent-emerald); stroke-width:2; stroke-dasharray:60 1740; stroke-linecap:round; opacity:.35; animation:lpFlow 14s linear infinite; }
+@keyframes lpFlow{ to{ stroke-dashoffset:-1800; } }
+@keyframes lpHalo{ 0%{ box-shadow:0 0 0 0 color-mix(in srgb,var(--ac) 30%,transparent), 0 0 0 10px color-mix(in srgb,var(--ac) 12%,transparent); } 100%{ box-shadow:0 0 0 18px color-mix(in srgb,var(--ac) 0%,transparent), 0 0 0 10px color-mix(in srgb,var(--ac) 12%,transparent); } }
+.lp-cap{ position:absolute; left:560px; top:400px; transform:translate(-50%,-50%); width:350px; display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; }
+.lp-cap__eb{ font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--accent-gold-dark); }
+.lp-cap__t{ font-size:26px; font-weight:700; line-height:1.18; letter-spacing:-.02em; color:var(--text-primary); text-wrap:balance; }
+.lp-cap__b{ font-size:15px; line-height:1.6; color:var(--text-secondary); text-wrap:pretty; }
+.lp-play{ display:inline-flex; align-items:center; gap:10px; min-height:48px; margin-top:6px; padding:0 22px 0 6px; border:0; border-radius:var(--radius-full); background:var(--brand-ink); color:#fff; font-family:var(--font-sans); font-size:14px; font-weight:600; cursor:pointer; transition:background var(--t-comp); }
+.lp-play:hover{ background:var(--brand-teal); }
+.lp-play__i{ width:36px; height:36px; border-radius:50%; background:var(--accent-emerald); display:flex; align-items:center; justify-content:center; font-size:12px; }
+.lp-play--full{ width:100%; justify-content:center; padding:0 22px; }
+.lp-prog{ display:flex; align-items:center; gap:6px; min-height:48px; margin-top:6px; }
+.lp-prog__d{ width:10px; height:6px; padding:0; border:0; border-radius:3px; background:var(--border-default); cursor:pointer; transition:width .35s var(--e), background .35s; position:relative; }
+.lp-prog__d::after{ content:''; position:absolute; inset:-19px -3px; }
+.lp-prog__d.on{ width:28px; background:var(--accent-emerald); }
+.lp-prog__hint{ margin-left:8px; font-family:var(--font-mono); font-size:10px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text-muted); white-space:nowrap; }
+.lp-node{ position:absolute; width:0; height:0; padding:0; border:0; background:none; cursor:pointer; font-family:var(--font-sans); transition:opacity .35s; --ac:var(--accent-emerald); --act:var(--accent-emerald-dark); }
+.lp-node--1{ left:300px; top:400px; }
+.lp-node--2{ left:408px; top:214px; --ac:var(--brand-ink); --act:var(--brand-ink); }
+.lp-node--3{ left:712px; top:214px; --ac:var(--accent-gold); --act:var(--accent-gold-dark); }
+.lp-node--4{ left:820px; top:400px; --ac:var(--accent-blue); --act:var(--accent-blue); }
+.lp-node--5{ left:560px; top:620px; --ac:var(--accent-emerald-dark); --act:var(--accent-emerald-dark); }
+.lp-node__dot{ position:absolute; left:-36px; top:-36px; width:72px; height:72px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--surface-canvas); border:2px solid var(--ac); color:var(--act); font-family:var(--font-mono); font-size:20px; font-weight:700; letter-spacing:.02em; transition:background .35s, color .35s, transform .35s var(--e); }
+.lp-node:hover .lp-node__dot{ transform:scale(1.06); }
+.lp-node:focus-visible{ outline:none; }
+.lp-node:focus-visible .lp-node__dot{ outline:2px solid var(--accent-emerald); outline-offset:4px; }
+.lp-node.is-on .lp-node__dot{ background:var(--ac); color:#fff; transform:scale(1.08); animation:lpHalo 1.8s ease-out infinite; }
+.lp-node.is-off{ opacity:.28; }
+.lp-node.is-dim .lp-node__lbl{ opacity:.7; }
+.lp-node__lbl{ position:absolute; width:230px; display:flex; flex-direction:column; gap:5px; transition:opacity .35s; }
+.lp-node__lbl strong{ font-size:17px; font-weight:700; line-height:1.25; letter-spacing:-.01em; color:var(--text-primary); }
+.lp-node__lbl > span:last-child{ font-size:13.5px; line-height:1.45; color:var(--text-secondary); }
+.lp-node.is-on .lp-node__lbl strong{ color:var(--act); }
+.lp-node--1 .lp-node__lbl{ right:56px; top:50%; transform:translateY(-50%); align-items:flex-end; text-align:right; }
+.lp-node--4 .lp-node__lbl{ left:56px; top:50%; transform:translateY(-50%); align-items:flex-start; text-align:left; }
+.lp-node--2 .lp-node__lbl, .lp-node--3 .lp-node__lbl{ bottom:56px; left:50%; transform:translateX(-50%); align-items:center; text-align:center; }
+.lp-node--5 .lp-node__lbl{ top:56px; left:50%; transform:translateX(-50%); align-items:center; text-align:center; }
+.lp-node--3 .lp-plat{ order:3; margin-top:4px; }
+.lp-plat{ display:flex; flex-direction:column; align-items:flex-start; gap:4px; padding:8px 12px; background:var(--surface-canvas); border:1px solid var(--border-default); border-radius:var(--radius-md); box-shadow:var(--shadow-card); font-size:12px; line-height:1.3; color:var(--text-secondary); text-align:left; }
+.lp-plat > span{ display:flex; align-items:center; gap:8px; white-space:nowrap; }
+.lp-st{ width:7px; height:7px; border-radius:50%; flex:none; }
+.lp-st--op{ background:var(--status-op-mark); } .lp-st--dev{ background:var(--status-dev-mark); }
+.lp-return{ position:absolute; left:290px; top:560px; transform:translateX(-100%); font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--accent-gold-dark); white-space:nowrap; }
+.lp-foot{ position:relative; display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 28px; margin:clamp(16px,2.5vw,28px) auto 0; max-width:1040px; padding:18px 0 0; border-top:1px solid var(--border-default); font-size:13px; color:var(--text-secondary); }
+.lp-foot__m{ font-family:var(--font-mono); font-size:10.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text-muted); }
+.lp-mob{ position:relative; display:flex; flex-direction:column; gap:18px; width:100%; max-width:520px; margin:0 auto; }
+.lp-ring{ position:relative; width:min(300px,100%); aspect-ratio:280/260; align-self:center; }
+.lp-ring__svg{ position:absolute; inset:0; width:100%; height:100%; }
+.lp-ring__c{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; gap:2px; text-align:center; }
+.lp-ring__h{ font-size:12px; color:var(--text-muted); }
+.lp-mnode{ position:absolute; display:flex; align-items:center; justify-content:center; width:48px; height:48px; transform:translate(-50%,-50%); border-radius:50%; padding:0; border:2px solid var(--ac); background:var(--surface-canvas); color:var(--act); font-family:var(--font-mono); font-size:15px; font-weight:700; cursor:pointer; transition:background .3s, color .3s, opacity .3s; --ac:var(--accent-emerald); --act:var(--accent-emerald-dark); }
+.lp-mnode--1{ left:12.5%; top:50%; }
+.lp-mnode--2{ left:38.6%; top:11.5%; --ac:var(--brand-ink); --act:var(--brand-ink); }
+.lp-mnode--3{ left:80.4%; top:26.2%; --ac:var(--accent-gold); --act:var(--accent-gold-dark); }
+.lp-mnode--4{ left:80.4%; top:73.8%; --ac:var(--accent-blue); --act:var(--accent-blue); }
+.lp-mnode--5{ left:38.6%; top:88.5%; --ac:var(--accent-emerald-dark); --act:var(--accent-emerald-dark); }
+.lp-mnode.is-on{ background:var(--ac); color:#fff; animation:lpHalo 1.8s ease-out infinite; }
+.lp-mnode.is-off{ opacity:.28; }
+.lp-card{ display:flex; flex-direction:column; gap:10px; min-height:250px; padding:20px; background:var(--surface-canvas); border:1px solid var(--border-default); border-radius:var(--radius-lg); box-shadow:var(--shadow-card); }
+.lp-card__who{ font-family:var(--font-mono); font-size:10.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
+.lp-card .lp-cap__t{ font-size:22px; }
+.lp-card .lp-plat{ box-shadow:none; background:var(--surface-subtle); }
+.lp-card__act{ margin-top:auto; }
+@media (max-width:767px){ .lp-sec::before{ top:calc(50% + 40px); width:420px; } .lp-sec::after{ -webkit-mask-image:radial-gradient(ellipse 70% 30% at 50% 45%, transparent 50%, black 70%, transparent 100%); mask-image:radial-gradient(ellipse 70% 30% at 50% 45%, transparent 50%, black 70%, transparent 100%); } .lp-lens{ border-radius:var(--radius-lg); display:grid; grid-template-columns:1fr 1fr; width:100%; max-width:420px; } .lp-lens button{ padding:0 10px; border-radius:var(--radius-md); font-size:13.5px; } .lp-foot{ flex-direction:column; } }
+@media (prefers-reduced-motion:reduce){ .lp-flow{ animation:none; } .lp-node.is-on .lp-node__dot, .lp-mnode.is-on{ animation:none; box-shadow:0 0 0 8px color-mix(in srgb,var(--ac) 14%,transparent); } }
+
+.en-sec{ text-align:center; background:radial-gradient(ellipse 640px 560px at -6% 30%, rgba(29,74,84,.34), transparent 58%), radial-gradient(ellipse 640px 560px at 106% 30%, rgba(18,131,107,.28), transparent 58%), radial-gradient(ellipse 900px 420px at 50% 88%, rgba(18,131,107,.16), transparent 68%), radial-gradient(ellipse 700px 460px at 50% 18%, rgba(2,5,6,.5), transparent 66%), linear-gradient(180deg, #05090B 0%, #090F11 50%, #0B1416 100%); }
+.en-pattern{ position:absolute; inset:0; pointer-events:none; z-index:0; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:24px 24px; -webkit-mask-image:radial-gradient(ellipse 720px 320px at 50% 40%, black 0%, black 35%, transparent 80%); mask-image:radial-gradient(ellipse 720px 320px at 50% 40%, black 0%, black 35%, transparent 80%); }
+.en-sec .en-head{ margin:0 auto; max-width:680px; display:flex; flex-direction:column; align-items:center; }
+.en-sec .en-head .h1{ text-wrap:balance; }
+.en-sec .en-head .body-lg{ margin-top:16px; max-width:560px; text-wrap:pretty; }
+.en-btn{ margin-top:36px; }
+
+/* 06 FLOWS — three mechanism cards */
+.fx-head{ max-width:860px; }
+.fx-head .h1{ margin-top:14px; text-wrap:balance; }
+.fx-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border:1px solid var(--border-inverse); border-radius:var(--radius-lg); background:rgba(29,74,84,.22); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); overflow:hidden; }
+.fx-card{ --fc:var(--accent-emerald); position:relative; display:flex; flex-direction:column; gap:14px; padding:clamp(24px,2.6vw,36px); border-left:1px solid var(--border-inverse); transition:background var(--t-comp); }
+.fx-card:first-child{ border-left:0; }
+.fx-card--capa{ --fc:#A8BDD7; } .fx-card--com{ --fc:var(--accent-gold); }
+.fx-card--cap .fx-card__code, .fx-card--cap .fx-card__m span, .fx-card--cap .fx-card__ic{ color:#3FB597; }
+.fx-card::before{ content:''; position:absolute; left:0; right:0; top:0; height:2px; background:var(--fc); transform:scaleX(0); transform-origin:left; transition:transform var(--t-diag) var(--e); }
+.fx-card:hover{ background:rgba(255,255,255,.035); }
+.fx-card:hover::before{ transform:scaleX(1); }
+.fx-card__top{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.fx-card__code{ font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--fc); }
+.fx-card__ic{ width:44px; height:44px; flex:none; display:flex; align-items:center; justify-content:center; border-radius:50%; border:1px solid color-mix(in srgb,var(--fc) 40%,transparent); background:color-mix(in srgb,var(--fc) 10%,transparent); color:var(--fc); transition:transform var(--t-comp) var(--e); }
+.fx-card:hover .fx-card__ic{ transform:rotate(-8deg) scale(1.06); }
+.fx-card__line{ position:relative; display:block; height:1px; margin:4px 0 6px; background:rgba(168,194,200,.16); overflow:hidden; }
+.fx-card__line i{ position:absolute; top:0; left:0; width:28%; height:1px; background:linear-gradient(90deg,transparent,var(--fc),transparent); animation:fxRun 3.6s linear infinite; }
+.fx-card--capa .fx-card__line i{ animation-name:fxBack; }
+.fx-card--com .fx-card__line i{ animation-duration:4.8s; }
+@keyframes fxRun{ from{ transform:translateX(-100%); } to{ transform:translateX(360%); } }
+@keyframes fxBack{ 0%,100%{ transform:translateX(-100%); } 50%{ transform:translateX(360%); } }
+.fx-card__t{ font-size:clamp(19px,1.7vw,22px); font-weight:700; line-height:1.3; letter-spacing:-.015em; color:#fff; }
+.fx-card__b{ font-size:15px; line-height:1.65; color:var(--text-inverse-muted); text-wrap:pretty; }
+.fx-card__m{ margin-top:auto; padding-top:18px; border-top:1px dashed rgba(168,194,200,.22); display:flex; flex-direction:column; gap:6px; }
+.fx-card__m span{ font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--fc); }
+.fx-card__m p{ font-size:14px; line-height:1.5; font-weight:500; color:#fff; }
+.fx-card__b{ margin-bottom:10px; }
+@media (max-width:1023px){ .fx-grid{ grid-template-columns:1fr; } .fx-card{ border-left:0; border-top:1px solid var(--border-inverse); } .fx-card:first-child{ border-top:0; } .fx-card__m{ margin-top:4px; } }
+@media (prefers-reduced-motion:reduce){ .fx-card__line i{ animation:none; left:0; width:40%; } }
+
+/* 07 COMPARISON — three operating models */
+.om-head .h1{ margin-top:14px; }
+.om-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(14px,1.6vw,20px); align-items:stretch; }
+.om-card{ position:relative; display:flex; flex-direction:column; gap:16px; padding:clamp(22px,2.4vw,32px); background:var(--surface-canvas); border:1px solid var(--border-default); border-radius:var(--radius-lg); box-shadow:var(--shadow-card); transition:border-color var(--t-comp), box-shadow var(--t-comp), transform var(--t-comp) var(--e); }
+.om-card:hover{ border-color:var(--border-strong); box-shadow:var(--shadow-elevated); transform:translateY(-2px); }
+.om-card__top{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.om-card__k{ font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--text-muted); }
+.om-glyph svg{ display:block; fill:none; stroke:var(--text-muted); stroke-width:1.5; }
+.om-glyph .f{ fill:var(--brand-ink); stroke:var(--brand-ink); }
+.om-card__t{ font-size:clamp(19px,1.7vw,22px); font-weight:700; line-height:1.3; letter-spacing:-.015em; color:var(--text-primary); }
+.om-list{ display:flex; flex-direction:column; gap:10px; }
+.om-list li{ position:relative; padding-left:20px; font-size:14.5px; line-height:1.5; color:var(--text-secondary); }
+.om-list li::before{ content:''; position:absolute; left:0; top:.72em; width:10px; height:1.5px; background:var(--border-strong); }
+.om-out{ margin-top:auto; padding-top:18px; border-top:1px solid var(--border-subtle); display:flex; flex-direction:column; gap:4px; }
+.om-out span{ font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--text-muted); }
+.om-out strong{ font-size:16px; font-weight:700; color:var(--text-primary); }
+.om-card--c{ background:radial-gradient(ellipse 120% 80% at 100% 0%, rgba(18,131,107,.35), transparent 60%), var(--brand-ink); border-color:var(--brand-ink); box-shadow:0 18px 40px -18px rgba(18,48,57,.55); }
+.om-card--c:hover{ border-color:var(--accent-emerald); box-shadow:0 22px 48px -18px rgba(18,48,57,.6); }
+.om-card--c::before{ content:''; position:absolute; left:0; right:0; top:0; height:3px; border-radius:var(--radius-lg) var(--radius-lg) 0 0; background:linear-gradient(90deg,var(--accent-emerald),var(--accent-gold)); }
+.om-card--c .om-card__k{ color:var(--accent-gold); }
+.om-card--c .om-glyph svg{ stroke:#3FB597; }
+.om-card--c .om-card__t{ color:#fff; }
+.om-card--c .om-list li{ color:#DCE8E5; }
+.om-card--c .om-list li::before{ width:6px; height:6px; top:.55em; border-radius:50%; background:#3FB597; }
+.om-card--c .om-out{ border-top-color:var(--border-inverse); }
+.om-card--c .om-out span{ color:var(--text-inverse-muted); }
+.om-card--c .om-out strong{ color:#fff; }
+.om-env{ position:relative; margin-top:clamp(40px,4.5vw,56px); padding:clamp(28px,3vw,40px) clamp(18px,2.4vw,32px) clamp(20px,2.4vw,28px); border:1.5px dashed var(--border-strong); border-radius:var(--radius-lg); }
+.om-env__l{ position:absolute; top:0; left:clamp(18px,2.4vw,32px); transform:translateY(-50%); padding:0 12px; background:var(--surface-canvas); font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--accent-gold-dark); max-width:calc(100% - 36px); }
+.om-env__g{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(12px,1.4vw,16px); }
+.om-env__c{ display:flex; flex-direction:column; gap:8px; padding:20px; background:var(--surface-canvas); border:1px solid var(--border-default); border-radius:var(--radius-lg); transition:border-color var(--t-comp), box-shadow var(--t-comp); }
+.om-env__c:hover{ border-color:var(--accent-emerald); box-shadow:var(--shadow-elevated); }
+.om-env__n{ font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.1em; color:var(--accent-emerald-dark); }
+.om-env__c h4{ font-size:16px; font-weight:700; line-height:1.3; color:var(--text-primary); }
+.om-env__c p{ font-size:14px; line-height:1.55; color:var(--text-secondary); }
+.om-env__note{ margin-top:18px; font-family:var(--font-mono); font-size:11px; line-height:1.6; color:var(--text-muted); }
+@media (max-width:1023px){
+  .om-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .om-card--c{ grid-column:1 / -1; }
+  .om-card--c .om-list{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 24px; }
+  .om-env__g{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:767px){
+  .om-grid{ grid-template-columns:1fr; }
+  .om-card{ gap:14px; }
+  .om-card--c .om-list{ display:flex; }
+  .om-env{ padding:32px 16px 18px; }
+  .om-env__g{ grid-template-columns:1fr; gap:10px; }
+  .om-env__c{ display:grid; grid-template-columns:32px minmax(0,1fr); gap:4px 12px; padding:16px; }
+  .om-env__n{ grid-row:1 / span 2; padding-top:3px; }
+  .om-env__l{ font-size:10px; left:12px; padding:0 8px; }
+}
+
+/* 04 diagram — frameless */
+.cm-diagram{ padding:8px 0 0; border:0; border-radius:0; background:transparent; box-shadow:none; }
+.cm-diagram__cap{ font-size:10px; color:var(--text-secondary); margin-bottom:30px; }
+.cm-band{ border:0; background-color:transparent; }
+.cm-band::before{ content:''; position:absolute; inset:0; z-index:-1; border-top:1px solid var(--border-default); border-bottom:1px solid var(--border-default); background:linear-gradient(90deg, transparent, rgba(18,131,107,.06) 18%, rgba(18,131,107,.06) 82%, transparent); -webkit-mask-image:linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image:linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.cm-band{ isolation:isolate; }
+.cm-diagram[data-mech="0"] .cm-band{ background-color:transparent; }
+.cm-diagram[data-mech="0"] .cm-band::before{ background:linear-gradient(90deg, transparent, rgba(18,131,107,.11) 18%, rgba(18,131,107,.11) 82%, transparent); }
+.cm-ent{ box-shadow:0 1px 2px rgba(18,48,57,.04), 0 6px 18px -10px rgba(18,48,57,.14); }
+.cm-legend{ margin-top:30px; padding-top:18px; border-top:1px solid var(--border-subtle); }
+
+@media (max-width:767px){ .section{ padding:48px 0; } .sec-head{ margin-bottom:28px; } }
+
+/* Continuous background rings across light sections */
+.dim, .lp-sec, .cm-sec, .pt-sec, .cp-sec, .gv-sec{ isolation:auto; overflow:visible; }
+.dim::before, .dim::after, .lp-sec::before, .lp-sec::after, .cm-sec::before, .cm-sec::after, .pt-sec::before, .cp-sec::before, .cp-sec::after, .gv-sec::before, .gv-sec::after{ z-index:1; }
+.dim > .container, .lp-sec > .container, .cm-sec > .container, .pt-sec > .container, .cp-sec > .container, .gv-sec > .container{ position:relative; z-index:2; }
+.hero, .fl-sec, .en-sec, .footer{ position:relative; z-index:3; }
+
+/* HEADER — canonical (identical on all pages) */
+.nav{ position:sticky; top:0; z-index:40; padding:16px 32px; }
+.nav__drawer{ position:absolute; left:0; right:0; top:100%; display:flex; flex-direction:column; padding:8px 20px 20px; background:#fff; border-bottom:1px solid var(--border-subtle); box-shadow:0 18px 30px rgba(18,48,57,.10); animation:navIn .22s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes navIn{ from{ opacity:0; transform:translateY(-6px); } to{ opacity:1; transform:none; } }
+.nav__drawer a:not(.btn){ display:flex; align-items:center; min-height:48px; font-size:15px; font-weight:500; color:var(--text-primary); border-bottom:1px solid var(--border-subtle); }
+.nav__drawer a[aria-current="page"]{ color:var(--accent-emerald-dark); font-weight:600; }
+.nav__drawer .btn{ margin-top:16px; }
+.nav__burger{ cursor:pointer; color:var(--brand-ink); }
+@media (min-width:1024px){ .nav__drawer{ display:none; } }
+@media (max-width:1023px){ .nav__links{ display:none; } .nav__burger{ display:flex; margin-left:12px; } .nav__cta{ display:inline-flex; } }
+@media (max-width:767px){ .nav{ padding:12px 20px; } .nav__cta{ display:none; } .nav__burger{ margin-left:auto; } }
+
+@media (min-width:768px){ .nav__drawer .btn{ display:none; } }
+
+/* MOBILE HERO + CTA — shared across pages */
+@media (max-width:767px){
+  .hero, .hero-fe{ min-height:0 !important; display:block !important; overflow:hidden; }
+  .hero-inner, .hero-fe-inner{ position:relative; z-index:2; padding:56px 20px 64px !important; min-height:0 !important; }
+  .hero-copy, .hero-fe-copy{ max-width:none !important; width:100% !important; }
+  .hero-copy .h-display, .hero-fe-copy .h-display{ font-size:clamp(34px,9.6vw,44px) !important; line-height:1.06 !important; max-width:none !important; margin:0 0 16px !important; }
+  .hero-copy .body-lg, .hero-fe-copy .body-lg{ font-size:16px !important; line-height:1.6 !important; max-width:none !important; }
+  .hero-actions{ flex-direction:column; align-items:stretch; gap:12px; margin-top:28px !important; }
+  .hero-actions .hero-btn{ width:100%; min-height:50px; padding:0 18px; justify-content:space-between; white-space:normal; text-align:left; }
+  .hero-img, .hero-fe-visual{ position:absolute !important; inset:0 !important; top:0 !important; right:0 !important; bottom:0 !important; left:0 !important; width:auto !important; height:auto !important; max-width:none !important; margin:0 !important; transform:none !important; z-index:0 !important; opacity:1 !important; -webkit-mask-image:none !important; mask-image:none !important; }
+  .hero-img img, .hero-fe-visual img{ position:absolute; left:0; bottom:0; width:100% !important; height:62% !important; object-fit:cover; object-position:60% 50%; opacity:.55; animation:none !important; }
+  .hero-img::after, .hero-fe-visual::after{ content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg, rgba(8,14,16,.96) 0%, rgba(8,14,16,.9) 38%, rgba(8,14,16,.55) 72%, rgba(8,14,16,.72) 100%); }
+  .hero-frame, .hero-tick, .fe-node, .hero-fe-tick{ display:none !important; }
+  #cta .h1, #cta .h2, #fe-cta .h1, #fe-cta .h2, #engage .h1, #engage .h2, .en-sec .h1{ width:auto !important; height:auto !important; max-width:100% !important; font-size:clamp(28px,8vw,36px) !important; text-wrap:balance; }
+  #cta p, #fe-cta p, #engage p, .en-sec p{ width:auto !important; height:auto !important; max-width:100% !important; }
+  #cta .btn, #fe-cta .btn, #fe-cta .hero-btn, #engage .btn, #engage .hero-btn, .en-sec .btn{ width:100%; max-width:none; min-height:50px; justify-content:center; }
+}
+
+/* mobile hero object — show the shape, not a crop */
+@media (max-width:767px){
+  .hero-img img, .hero-fe-visual img{ object-fit:contain !important; height:auto !important; top:auto !important; }
+  .hero-img::after, .hero-fe-visual::after{ background:linear-gradient(180deg, rgba(8,14,16,.94) 0%, rgba(8,14,16,.78) 34%, rgba(8,14,16,.35) 64%, rgba(8,14,16,.1) 100%) !important; }
+  .hero-inner, .hero-fe-inner{ padding-bottom:clamp(150px,44vw,210px) !important; }
+  .hero-img img{ width:150% !important; left:-25% !important; bottom:0 !important; opacity:.85 !important; }
+}
+
+/* mobile hero — faded full-bleed image behind text (Ecosystem reference) */
+@media (max-width:767px){
+  .hero, .hero-fe{ position:relative !important; min-height:0 !important; }
+  .hero-inner, .hero-fe-inner{ display:block !important; position:relative !important; padding:56px 20px 64px !important; min-height:0 !important; }
+  .hero-fe-inner{ position:static !important; }
+  .hero-copy, .hero-fe-copy{ position:relative; z-index:2; }
+  .sm-hero .hero-actions{ margin-bottom:0 !important; }
+  .hero-img, .hero-fe-visual{ position:absolute !important; inset:0 !important; top:0 !important; bottom:0 !important; left:0 !important; right:0 !important; width:auto !important; height:auto !important; aspect-ratio:auto !important; z-index:0 !important; }
+  .hero-img img, .hero-fe-visual img{ position:absolute !important; inset:0 !important; top:0 !important; left:0 !important; right:auto !important; bottom:auto !important; width:100% !important; height:100% !important; object-fit:cover !important; object-position:65% 55% !important; opacity:.32 !important; }
+  .hero-img::after, .hero-fe-visual::after{ background:linear-gradient(180deg, rgba(8,14,16,.55) 0%, rgba(8,14,16,.35) 45%, rgba(8,14,16,.5) 100%) !important; }
+}
+</style>
+</helmet>
+
+<div style="width:100%; min-height:100vh; background:var(--surface-canvas); overflow-x:hidden">
+
+  <nav class="nav">
+    <a class="nav__logo" href="Main.dc.html#hero" aria-label="BWCI home"><span class="nav__mark">BW</span><span class="nav__word">BWCI</span></a>
+    <div class="nav__links">
+      <a href="Main.dc.html#what">About</a>
+      <a href="#hero" aria-current="page">Ecosystem</a>
+      <a href="FinancialEngine.dc.html#hero">Financial Engine</a>
+      <a href="Main.dc.html#platforms">Capabilities</a>
+      <a href="Main.dc.html#trust">Corporate</a>
+      <a href="Main.dc.html#insights">Insights</a>
+    </div>
+    <a class="btn btn--primary btn--sm nav__cta" href="#engage">Start a Conversation</a>
+    <button class="nav__burger" aria-label="{{menuLabel}}" aria-expanded="{{menuOpen}}" onClick="{{toggleMenu}}"><svg class="icon" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
+    <sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+      <div class="nav__drawer" onClick="{{closeMenu}}">
+        <a href="Main.dc.html#what">About</a>
+        <a href="#hero" aria-current="page">Ecosystem</a>
+        <a href="FinancialEngine.dc.html#hero">Financial Engine</a>
+        <a href="Main.dc.html#platforms">Capabilities</a>
+        <a href="Main.dc.html#trust">Corporate</a>
+        <a href="Main.dc.html#insights">Insights</a>
+        <a class="btn btn--primary" href="#engage">Start a Conversation</a>
+      </div>
+    </sc-if>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero" data-screen-label="Hero">
+    <div class="hero-img" aria-hidden="true">
+      <img src="./assets/eco-hero-waves.webp" alt="" width="1200" height="668">
+      <span class="hero-frame"></span>
+      <span class="hero-tick" style="left:22%; top:2%">01</span>
+      <span class="hero-tick" style="left:86%; top:12%">02</span>
+      <span class="hero-tick" style="left:4%; top:56%">03</span>
+      <span class="hero-tick" style="left:72%; top:88%">05</span>
+      <span class="hero-tick" style="left:94%; top:44%">06</span>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        
+        <h1 class="h-display">A connected economic network — without corporate consolidation.</h1>
+        <p class="body-lg">The Better World Ecosystem connects independent commercial enterprises, institutional capital providers, delivery platforms, and specialist partners through a shared architectural framework.</p>
+        <div class="hero-actions">
+          <a class="hero-btn hero-btn--solid" href="#blueprint">Explore the system map <span aria-hidden="true">↓</span></a>
+          <a class="hero-btn hero-btn--ghost" href="#compare">Read the economic case <span aria-hidden="true">→</span></a>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPLE BAND -->
+  
+
+  <!-- 01 NETWORK ARCHITECTURE -->
+  <section class="section dim" id="architecture" data-screen-label="01 Network Architecture">
+    <div class="container">
+      <div class="sec-head">
+        
+        <h2 class="h1">How the Ecosystem Is Organized</h2>
+        <p class="body-lg">The ecosystem is organized across three clearly defined structural dimensions:</p>
+      </div>
+      <div class="dim-frame">
+        <div class="dim-spine" aria-hidden="true"><span>One Architecture</span></div>
+        <div class="dim-rows">
+          <sc-for list="{{dims}}" as="d" hint-placeholder-count="3">
+            <div class="dim-row rv">
+              <div class="dim-plane" aria-hidden="true"><i></i><i></i><i></i><b>{{d.count}}</b></div>
+              <div>
+                <span class="dim-code">{{d.code}}</span>
+                <h3 class="dim-title">{{d.title}}</h3>
+                <span class="dim-q">{{d.q}}</span>
+              </div>
+              <div class="dim-rail" style="--n:{{d.n}}">
+                <sc-for list="{{d.items}}" as="it" hint-placeholder-count="4">
+                  <div class="dim-item">
+                    <span class="dim-item__code">{{it.code}}</span>
+                    <span class="dim-item__t">{{it.t}}</span>
+                    <span class="dim-item__s">{{it.s}}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 ECOSYSTEM LOOP -->
+  <section class="section lp-sec" id="blueprint" data-screen-label="02 Ecosystem Loop" style="background: linear-gradient(180deg, #F7F9F8, #FFFFFF)">
+    <span id="layers" class="lp-anchor" aria-hidden="true"></span>
+    <div class="container">
+      <div class="lp-head">
+        <h2 class="h1">How the ecosystem fits together</h2>
+        <p class="body-lg">Five steps, one loop. Follow a real need from a business to capital and back again.</p>
+        <div class="lp-lens" role="tablist" aria-label="View the loop as">
+          <sc-for list="{{lpLenses}}" as="l" hint-placeholder-count="4">
+            <button type="button" role="tab" class="{{l.cls}}" aria-selected="{{l.sel}}" onClick="{{l.pick}}">{{l.label}}</button>
+          </sc-for>
+        </div>
+      </div>
+
+      <div class="lp-board">
+        <div class="lp-measure" ref="{{lpRef}}">
+          <sc-if value="{{lpWide}}" hint-placeholder-val="{{true}}">
+            <div class="lp-stage" style="height:{{lpStageH}}">
+              <div class="lp-canvas" style="transform:translateX(-50%) scale({{lpScale}})">
+                <svg class="lp-svg" width="1120" height="740" viewBox="0 0 1120 740" aria-hidden="true">
+                  <path class="lp-track" d="M300,400 C300,250 420,180 560,180 C700,180 820,250 820,400 C820,550 700,620 560,620 C420,620 300,550 300,400 Z"></path>
+                  <path class="lp-flow" d="M300,400 C300,250 420,180 560,180 C700,180 820,250 820,400 C820,550 700,620 560,620 C420,620 300,550 300,400 Z"></path>
+                  <circle r="6" fill="#12836B"><animateMotion dur="14s" begin="0s" repeatCount="indefinite" path="M300,400 C300,250 420,180 560,180 C700,180 820,250 820,400 C820,550 700,620 560,620 C420,620 300,550 300,400 Z"></animateMotion></circle>
+                  <circle r="6" fill="#3D5A80"><animateMotion dur="14s" begin="-4.7s" repeatCount="indefinite" path="M300,400 C300,250 420,180 560,180 C700,180 820,250 820,400 C820,550 700,620 560,620 C420,620 300,550 300,400 Z"></animateMotion></circle>
+                  <circle r="6" fill="#B98F2D"><animateMotion dur="14s" begin="-9.3s" repeatCount="indefinite" path="M300,400 C300,250 420,180 560,180 C700,180 820,250 820,400 C820,550 700,620 560,620 C420,620 300,550 300,400 Z"></animateMotion></circle>
+                </svg>
+                <div class="lp-cap" aria-live="polite">
+                  <span class="lp-cap__eb">{{lpCap.eyebrow}}</span>
+                  <h3 class="lp-cap__t">{{lpCap.title}}</h3>
+                  <p class="lp-cap__b">{{lpCap.body}}</p>
+                  <sc-if value="{{lpPaused}}" hint-placeholder-val="{{false}}">
+                    <button type="button" class="lp-play" onClick="{{lpPlayFn}}"><span class="lp-play__i">▶</span>Play the loop</button>
+                  </sc-if>
+                  <sc-if value="{{lpPlaying}}" hint-placeholder-val="{{true}}">
+                    <div class="lp-prog">
+                      <sc-for list="{{lpProgress}}" as="d" hint-placeholder-count="5"><button type="button" class="{{d.cls}}" onClick="{{d.pick}}" aria-label="{{d.label}}"></button></sc-for>
+                      <span class="lp-prog__hint">Tap a step to pause</span>
+                    </div>
+                  </sc-if>
+                </div>
+                <sc-for list="{{lpNodes}}" as="n" hint-placeholder-count="5">
+                  <button type="button" class="{{n.cls}}" onClick="{{n.pick}}" aria-pressed="{{n.act}}" aria-label="{{n.aria}}">
+                    <span class="lp-node__dot">{{n.num}}</span>
+                    <span class="lp-node__lbl">
+                      <sc-if value="{{n.plat}}" hint-placeholder-val="{{false}}"><span class="lp-plat"><span><i class="lp-st lp-st--op"></i>Providence Asset Mgmt · operating</span><span><i class="lp-st lp-st--dev"></i>Private Capital · in development</span><span><i class="lp-st lp-st--dev"></i>Trade Finance · in development</span></span></sc-if>
+                      <strong>{{n.title}}</strong>
+                      <span>{{n.line}}</span>
+                    </span>
+                  </button>
+                </sc-for>
+                <span class="lp-return">↺ Returns &amp; learning flow back</span>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{lpNarrow}}" hint-placeholder-val="{{false}}">
+            <div class="lp-mob">
+              <div class="lp-ring">
+                <svg class="lp-ring__svg" viewBox="0 0 280 260" aria-hidden="true">
+                  <circle class="lp-track" cx="140" cy="130" r="105"></circle>
+                  <circle r="5" fill="#12836B"><animateMotion dur="10s" repeatCount="indefinite" path="M35,130 A105,105 0 1,1 245,130 A105,105 0 1,1 35,130"></animateMotion></circle>
+                </svg>
+                <div class="lp-ring__c"><span class="lp-cap__eb">{{lpCap.eyebrow}}</span><span class="lp-ring__h">{{lpHint}}</span></div>
+                <sc-for list="{{lpNodes}}" as="n" hint-placeholder-count="5">
+                  <button type="button" class="{{n.mcls}}" onClick="{{n.pick}}" aria-pressed="{{n.act}}" aria-label="{{n.aria}}">{{n.num}}</button>
+                </sc-for>
+              </div>
+              <div class="lp-card" aria-live="polite">
+                <span class="lp-card__who">{{lpCap.who}}</span>
+                <h3 class="lp-cap__t">{{lpCap.title}}</h3>
+                <p class="lp-cap__b">{{lpCap.body}}</p>
+                <sc-if value="{{lpShowPlat}}" hint-placeholder-val="{{false}}"><span class="lp-plat"><span><i class="lp-st lp-st--op"></i>Providence Asset Mgmt · operating</span><span><i class="lp-st lp-st--dev"></i>Private Capital · in development</span><span><i class="lp-st lp-st--dev"></i>Trade Finance · in development</span></span></sc-if>
+                <div class="lp-card__act">
+                  <sc-if value="{{lpPaused}}" hint-placeholder-val="{{false}}">
+                    <button type="button" class="lp-play lp-play--full" onClick="{{lpPlayFn}}"><span class="lp-play__i">▶</span>Play the loop</button>
+                  </sc-if>
+                  <sc-if value="{{lpPlaying}}" hint-placeholder-val="{{true}}">
+                    <div class="lp-prog">
+                      <sc-for list="{{lpProgress}}" as="d" hint-placeholder-count="5"><button type="button" class="{{d.cls}}" onClick="{{d.pick}}" aria-label="{{d.label}}"></button></sc-for>
+                      <span class="lp-prog__hint">Tap a step to pause</span>
+                    </div>
+                  </sc-if>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+
+        <div class="lp-foot">
+          <span>Everyone stays independent. Nobody has to sell their business to take part.</span>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 CONNECTION MECHANICS -->
+  <section class="section cm-sec" id="mechanics" data-screen-label="04 Connection Mechanics" style="background-color: #FFFFFF">
+    <div class="container">
+      <div class="sec-head">
+        
+        <h2 class="h1">How Participants Interface Without Consolidating</h2>
+        <p class="body-lg">Connection in the Better World Ecosystem is designed to occur through defined interfaces rather than corporate consolidation:</p>
+      </div>
+      <div class="cm-grid">
+        <div class="cm-list">
+          <sc-for list="{{mechs}}" as="m" hint-placeholder-count="3">
+            <button type="button" class="{{m.cls}}" onClick="{{m.pick}}" onMouseEnter="{{m.pick}}" onFocus="{{m.pick}}">
+              <span class="cm-item__n">{{m.n}}</span>
+              <span>
+                <span class="cm-item__t" style="display:block">{{m.t}}</span>
+                <span class="cm-item__p"><span>{{m.p}}</span></span>
+              </span>
+            </button>
+          </sc-for>
+        </div>
+        <div class="cm-diagram rv" data-mech="{{mech}}">
+          <p class="cm-diagram__cap">The Participant-First Value Model: Relational Network Topology</p>
+          <div class="cm-col">
+            <div class="cm-ent"><span class="cm-ent__l">Independent perimeter</span><span class="cm-ent__t">Wholesale Capital (Layer 01)</span></div>
+            <span class="cm-v"></span>
+            <div class="cm-band">
+              <span class="cm-band__l">Defined Interfaces</span>
+              <div class="cm-row">
+                <div class="cm-ent cm-ent--partner"><span class="cm-ent__l">Independent</span><span class="cm-ent__t">Strategic Partners (Layer 04)</span></div>
+                <span class="cm-rail"><i></i></span>
+                <div class="cm-ent cm-ent--anchor"><span class="cm-ent__l">Anchor</span><span class="cm-ent__t">BWCI Holding Anchor (Layer 02)</span></div>
+                <span class="cm-rail"><i></i></span>
+                <div class="cm-ent"><span class="cm-ent__l">Independent</span><span class="cm-ent__t">Delivery Platforms (Layer 03)</span></div>
+              </div>
+            </div>
+            <span class="cm-v"></span>
+            <div class="cm-ent cm-ent--rx"><span class="cm-ent__l">Independent perimeter</span><span class="cm-ent__t">Real-Economy Enterprises (Layer 05)</span></div>
+            <span class="cm-v"></span>
+            <div class="cm-ent cm-ent--rx"><span class="cm-ent__l">Outcome</span><span class="cm-ent__t">Productive Outcomes (Layer 06)</span></div>
+          </div>
+          <div class="cm-legend">
+            <span><i class="lg-peri"></i>Entity perimeter</span>
+            <span><i class="lg-port"></i>Interface</span>
+            <span><i class="lg-rail"></i>Protocol / rail</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 PARTICIPANTS -->
+  <section class="section pt-sec" id="participants" data-screen-label="05 Participants">
+    <div class="container">
+      <div class="sec-head">
+        
+        <h2 class="h1">Who Participates in the Ecosystem</h2>
+        <p class="body-lg">Four distinct institutional stakeholder groups collaborate across the network:</p>
+      </div>
+      <div class="pt-grid">
+        <div class="pt-map">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <circle class="pt-ring" cx="50" cy="50" r="38" stroke-width=".3"></circle>
+            <circle class="pt-ring pt-ring--d" cx="50" cy="50" r="48" stroke-width=".25"></circle>
+            <sc-for list="{{parts}}" as="p" hint-placeholder-count="4">
+              <line class="{{p.spokeCls}}" x1="50" y1="50" x2="{{p.x}}" y2="{{p.y}}"></line>
+              <rect class="{{p.portCls}}" x="{{p.px}}" y="{{p.py}}" width="2.4" height="2.4"></rect>
+            </sc-for>
+          </svg>
+          <div class="pt-core"><b>Shared Architecture</b><span>Defined interfaces</span></div>
+          <sc-for list="{{parts}}" as="p" hint-placeholder-count="4">
+            <button type="button" class="{{p.cls}}" style="left:{{p.x}}%; top:{{p.y}}%" aria-pressed="{{p.pressed}}" onMouseEnter="{{p.pick}}" onClick="{{p.pick}}" onFocus="{{p.pick}}">
+              <span class="pt-node__c">{{p.gid}}</span>
+              <span class="pt-node__t">{{p.short}}</span>
+            </button>
+          </sc-for>
+        </div>
+        <div class="pt-panel" key="{{partKey}}">
+          <span class="pt-panel__c">{{part.code}}</span>
+          <h3 class="pt-panel__t">{{part.title}}</h3>
+          <span class="{{part.relCls}}">{{part.rel}}</span>
+          <div class="pt-fields">
+            <sc-for list="{{part.fields}}" as="f" hint-placeholder-count="4">
+              <div class="pt-f"><span class="pt-f__l">{{f.l}}</span><p class="pt-f__t">{{f.t}}</p></div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 FLOWS -->
+  <section class="section fl-sec" id="flows" data-screen-label="06 Flows">
+    <div class="container">
+      <div class="sec-head fx-head">
+        
+        <h2 class="h1">How value circulates</h2>
+        <p class="body-lg">Capital, capability, and commerce move through the network together, each flow reinforcing real-economy growth.</p>
+      </div>
+      <div class="fx-grid">
+        <article class="fx-card fx-card--cap">
+          <div class="fx-card__top"><span class="fx-card__code">01 · Capital flows</span><span class="fx-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20V4M4 8l4-4 4 4"></path><path d="M16 4v16M12 16l4 4 4-4"></path></svg></span></div>
+          <span class="fx-card__line" aria-hidden="true"><i></i></span>
+          <h3 class="fx-card__t">Wholesale Capital Mobilised</h3>
+          <p class="fx-card__b">Wholesale institutional capital is mobilised around verified needs and deployed through regulated vehicles.</p>
+          <div class="fx-card__m"><span>Metric</span><p>Capital deployed to productive business assets.</p></div>
+        </article>
+        <article class="fx-card fx-card--capa">
+          <div class="fx-card__top"><span class="fx-card__code">02 · Capability flows</span><span class="fx-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16M16 4l4 4-4 4"></path><path d="M20 16H4M8 12l-4 4 4 4"></path></svg></span></div>
+          <span class="fx-card__line" aria-hidden="true"><i></i></span>
+          <h3 class="fx-card__t">Shared Institutional Rails</h3>
+          <p class="fx-card__b">Independent platforms share institutional-grade risk underwriting, compliance, and digital API rails.</p>
+          <div class="fx-card__m"><span>Metric</span><p>Lower structural operational overhead.</p></div>
+        </article>
+        <article class="fx-card fx-card--com">
+          <div class="fx-card__top"><span class="fx-card__code">03 · Commerce &amp; network flows</span><span class="fx-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.34-5.66"></path><path d="M20 4v5h-5"></path></svg></span></div>
+          <span class="fx-card__line" aria-hidden="true"><i></i></span>
+          <h3 class="fx-card__t">Inter-Enterprise Supply Chains</h3>
+          <p class="fx-card__b">Connected businesses discover, trade, and collaborate, building commercial resilience that unblocks trade bottlenecks and reduces credit risk naturally.</p>
+          <div class="fx-card__m"><span>Metric</span><p>Inter-ecosystem commercial trade volume and regional supply-chain continuity.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 COMPARISON -->
+  <section class="section cp-sec" id="compare" data-screen-label="07 Comparison">
+    <div class="container">
+      <div class="sec-head om-head">
+        
+        <h2 class="h1">Three operating models</h2>
+        <p class="body-lg">How businesses typically access capital and capability, and where the Better World Ecosystem differs.</p>
+      </div>
+      <div class="om-grid">
+        <article class="om-card">
+          <div class="om-card__top"><span class="om-card__k">Model A</span><span class="om-glyph" aria-hidden="true"><svg viewBox="0 0 64 14" width="64" height="14"><circle cx="7" cy="7" r="5.5"></circle><circle cx="32" cy="7" r="5.5"></circle><circle cx="57" cy="7" r="5.5"></circle></svg></span></div>
+          <h3 class="om-card__t">Standalone Isolation</h3>
+          <ul class="om-list"><li>High borrowing costs</li><li>No wholesale market access</li><li>Vulnerable to trade shocks</li><li>Limited commercial reach</li></ul>
+          <div class="om-out"><span>Structural outcome</span><strong>Subscale</strong></div>
+        </article>
+        <article class="om-card">
+          <div class="om-card__top"><span class="om-card__k">Model B</span><span class="om-glyph" aria-hidden="true"><svg viewBox="0 0 64 14" width="64" height="14"><circle cx="57" cy="7" r="6" class="f"></circle></svg></span></div>
+          <h3 class="om-card__t">Conglomerate Consolidation</h3>
+          <ul class="om-list"><li>Founders lose equity</li><li>Centralized bureaucracy</li><li>Extractive dividend focus</li><li>Cultural misalignment</li></ul>
+          <div class="om-out"><span>Structural outcome</span><strong>Acquired</strong></div>
+        </article>
+        <article class="om-card om-card--c">
+          <div class="om-card__top"><span class="om-card__k">Model C</span><span class="om-glyph" aria-hidden="true"><svg viewBox="0 0 64 14" width="64" height="14"><path d="M12.5 7h14M37.5 7h14"></path><circle cx="7" cy="7" r="5.5"></circle><circle cx="32" cy="7" r="5.5"></circle><circle cx="57" cy="7" r="5.5"></circle></svg></span></div>
+          <h3 class="om-card__t">The Better World Ecosystem</h3>
+          <ul class="om-list"><li>Operational independence without consolidation</li><li>Tailored capital structured to fit the need</li><li>Shared institutional capability and digital rails</li><li>Compounding network resilience &amp; supply-chain trade</li></ul>
+          <div class="om-out"><span>Structural outcome</span><strong>Independent, Productive Scale</strong></div>
+        </article>
+      </div>
+
+      <div class="om-env">
+        <span class="om-env__l">Governance, technology &amp; risk envelope</span>
+        <div class="om-env__g">
+          <div class="om-env__c"><span class="om-env__n">01</span><h4>Group Governance</h4><p>Board standards, capital allocation frameworks, and ethical oversight.</p></div>
+          <div class="om-env__c"><span class="om-env__n">02</span><h4>Risk &amp; Compliance</h4><p>Entity-level regulatory licensing, and robust counterparty screening.</p></div>
+          <div class="om-env__c"><span class="om-env__n">03</span><h4>Secure Digital Rails</h4><p>Institutional APIs, data segregation, and secure tokenised architecture*.</p></div>
+          <div class="om-env__c"><span class="om-env__n">04</span><h4>Audited Reporting</h4><p>Verified outcomes, traceable data, no vague ESG marketing.</p></div>
+        </div>
+        <p class="om-env__note">*Technology and tokenisation are enabling tools used where appropriate, never pre-set answers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 GOVERNANCE -->
+  
+
+  <!-- 09 ENGAGEMENT -->
+  <section class="section en-sec" id="engage" data-screen-label="09 Engagement">
+    <div class="en-pattern" aria-hidden="true"></div>
+    <div class="container">
+      <div class="en-head">
+        
+        <h2 class="h1" style="height: 53px; width: 856px">Connect with the Better World Network</h2>
+        <p class="body-lg" style="width: 562px; height: 60px">Select your route to explore how your organization can participate in the ecosystem:</p>
+        <a class="btn btn--inverse en-btn" href="Main.dc.html#cta">Start a Conversation <span aria-hidden="true">→</span></a>
+      </div>
+      
+      
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <div class="nav__logo" style="margin-bottom:14px"><span class="nav__mark">BW</span><span class="nav__word">BWCI</span></div>
+          <p class="body-sm" style="max-width:280px">Better World Capital Investments — being developed as the Financial Engine of the Better World ecosystem.</p>
+        </div>
+        <div class="footer__col"><h5>Ecosystem</h5><ul>
+          <li><a href="Main.dc.html#what">About</a></li>
+          <li><a href="#hero" aria-current="page">Our Ecosystem</a></li>
+          <li><a href="FinancialEngine.dc.html#hero">Financial Engine</a></li>
+          <li><a href="Main.dc.html#platforms">Capabilities</a></li>
+        </ul></div>
+        <div class="footer__col"><h5>Engage</h5><ul>
+          <li><a href="SMEs%20Projects.dc.html#hero">SMEs &amp; Projects</a></li>
+          <li><a href="Investors Partners.dc.html#hero">Investors &amp; Partners</a></li>
+          <li><a href="Main.dc.html#cta">Start a Conversation</a></li>
+          <li><a href="Main.dc.html#cta">Verify a Communication</a></li>
+        </ul></div>
+        <div class="footer__col"><h5>Corporate</h5><ul>
+          <li><a href="Main.dc.html#trust">Governance</a></li>
+          <li><a href="Main.dc.html#trust">Legal &amp; Documents</a></li>
+          <li><a href="Main.dc.html#trust">Regulatory Boundaries</a></li>
+          <li><a href="Main.dc.html#insights">Insights</a></li>
+        </ul></div>
+      </div>
+      <div class="footer__bar">
+        <span>© [ Year ] Better World Capital Investments PLC</span>
+        <span>Status labels as at September 2026 · subject to verification</span>
+        <span>Privacy · Terms · Disclaimers</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;defaultLens&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;full&quot;,&quot;sme&quot;,&quot;investor&quot;,&quot;partner&quot;],&quot;default&quot;:&quot;full&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ecosystem loop&quot;},&quot;intervalSec&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;min&quot;:2,&quot;max&quot;:10,&quot;step&quot;:1,&quot;unit&quot;:&quot;s&quot;,&quot;default&quot;:4,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Ecosystem loop&quot;}}">
+class Component extends DCLogic {
+  state = { lens: 1, layer: 0, mech: 0, part: 0, flow: 0, lpLens: null, lpStep: null, lpPlay: true, lpW: 1200 };
+
+  lpRef = React.createRef();
+  lpSeq(l) { return ({ full:[0,1,2,3,4], sme:[0,1,2,4], investor:[1,2,3,4], partner:[1,2,4] })[l] || [0,1,2,3,4]; }
+  lpCur() { return this.state.lpLens ?? this.props.defaultLens ?? 'full'; }
+  componentDidMount() {
+    const lpMeasure = () => { const el = this.lpRef.current; if (el && el.clientWidth !== this.state.lpW) this.setState({ lpW: el.clientWidth }); };
+    lpMeasure();
+    this._lpRO = new ResizeObserver(lpMeasure);
+    if (this.lpRef.current) this._lpRO.observe(this.lpRef.current);
+    this._lpVis = true;
+    const sec = document.getElementById('blueprint');
+    if (sec && window.IntersectionObserver) { this._lpIO = new IntersectionObserver(es => { this._lpVis = es[0].isIntersecting; }, { threshold: .15 }); this._lpIO.observe(sec); }
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) this.setState({ lpPlay: false });
+    this._lpT = setInterval(() => {
+      if (!this.state.lpPlay || !this._lpVis) return;
+      const seq = this.lpSeq(this.lpCur());
+      const i = seq.indexOf(this.state.lpStep ?? seq[0]);
+      this.setState({ lpStep: seq[(i + 1) % seq.length] });
+    }, (this.props.intervalSec ?? 4) * 1000);
+    const IO = window.IntersectionObserver;
+    const rvs = Array.from(document.querySelectorAll('.rv'));
+    if (!IO) { rvs.forEach(el => el.classList.add('rv-in')); return; }
+    this._rv = new IO((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('rv-in'); this._rv.unobserve(e.target); } }), { threshold: 0.15 });
+    rvs.forEach(el => this._rv.observe(el));
+
+  }
+  componentDidUpdate() { this._obsLayers(); }
+  _obsLayers() {
+    if (!this._ly) return;
+    document.querySelectorAll('[data-layer]').forEach(el => { if (!el.__obs) { el.__obs = true; this._ly.observe(el); } });
+  }
+  componentWillUnmount() { clearInterval(this._lpT); if (this._lpRO) this._lpRO.disconnect(); if (this._lpIO) this._lpIO.disconnect(); if (this._rv) this._rv.disconnect(); if (this._ly) this._ly.disconnect(); }
+
+  goLayer(i) {
+    if (this.state.layer !== i) this.setState({ layer: i });
+  }
+
+  renderVals() {
+    const open = !!(this.state && this.state.menu);
+    return Object.assign(this._pageVals(), { menuOpen: open, menuLabel: open ? 'Close menu' : 'Open menu',
+      toggleMenu: () => this.setState(s => ({ menu: !s.menu })), closeMenu: () => this.setState({ menu: false }) });
+  }
+  _pageVals() {
+    const S = this.state;
+
+    const dims = [
+      { count: '6', code: 'Dimension 1: Six Layers', title: 'Six Layers', q: 'What the system is made of', items: [
+        { code: 'L01', t: 'Wholesale Capital Pools' }, { code: 'L02', t: 'BWCI Holding Architecture' }, { code: 'L03', t: 'Delivery Platforms & Builds' },
+        { code: 'L04', t: 'Strategic Enablement & Rails' }, { code: 'L05', t: 'Real-Economy Enterprises' }, { code: 'L06', t: 'Productive Outcomes' } ] },
+      { count: '4', code: 'Dimension 2: Four Participants', title: 'Four Participants', q: 'Who participates in the network', items: [
+        { code: 'P-01', t: 'Real-Economy Enterprises & SMEs' }, { code: 'P-02', t: 'Institutional Capital Allocators' },
+        { code: 'P-03', t: 'Delivery Platforms & Operating Vehicles' }, { code: 'P-04', t: 'Strategic Partners & Banking Rails' } ] },
+      { count: '3', code: 'Dimension 3: Three Flows', title: 'Three Flows', q: 'What moves through the network', items: [
+        { code: 'F-01', t: 'Capital Flows', s: 'Wholesale syndication & deployment' },
+        { code: 'F-02', t: 'Capability & Infrastructure Flows', s: 'Shared interfaces, APIs & clearing' },
+        { code: 'F-03', t: 'Commerce & Performance Data Flows', s: 'Trade activity & operational telemetry' } ] }
+    ].map(d => Object.assign({}, d, { n: d.items.length, items: d.items.map(it => Object.assign({ s: '' }, it)) }));
+
+    const L = S.lens;
+    const lensDefs = [
+      { code: 'Lens 1 (Who Participates)', label: 'By Participant Group',
+        text: 'Explore how four primary stakeholder groups — Real-Economy Enterprises, Institutional Capital Allocators, Delivery Platforms, and Strategic Infrastructure Partners — interface with the architecture while retaining operational independence.',
+        keys: [ { id: 'P-01', t: 'Real-Economy Enterprises', cls: 'k-p' }, { id: 'P-02', t: 'Institutional Capital Allocators', cls: 'k-p' }, { id: 'P-03', t: 'Delivery Platforms', cls: 'k-p' }, { id: 'P-04', t: 'Strategic Infrastructure Partners', cls: 'k-p' } ] },
+      { code: 'Lens 2 (What Moves)', label: 'By Ecosystem Flow',
+        text: 'Trace the movement of three primary flows through the ecosystem: Capital Flows (structured liquidity moving into operating facilities), Capability Flows (clearing interfaces, data protocols, and compliance frameworks), and Commerce & Performance Flows (trade transactions and operational telemetry).',
+        keys: [ { id: 'F-01', t: 'Capital Flows', cls: 'k-cap' }, { id: 'F-02', t: 'Capability Flows', cls: 'k-capa' }, { id: 'F-03', t: 'Commerce & Performance Flows', cls: 'k-com' } ] },
+      { code: 'Lens 3 (What the System Delivers)', label: 'By Intended Outcome',
+        text: 'Observe the tangible real-economy outcomes supported by the network: working capital liquidity for mid-market operating businesses, structured reporting for institutional allocators, and enhanced commercial resilience across supply chains.',
+        keys: [ { id: 'O-01', t: 'Working capital liquidity for mid-market operating businesses', cls: 'k-o' }, { id: 'O-02', t: 'Structured reporting for institutional allocators', cls: 'k-o' }, { id: 'O-03', t: 'Enhanced commercial resilience across supply chains', cls: 'k-o' } ] }
+    ];
+    const lenses = lensDefs.map((d, i) => ({ code: 'Lens ' + (i + 1), label: d.label, sel: L === i + 1 ? 'true' : 'false', cls: 'bp-lens' + (L === i + 1 ? ' bp-lens--on' : ''), pick: () => this.setState({ lens: i + 1 }) }));
+    const lensInfo = Object.assign({}, lensDefs[L - 1], { keys: lensDefs[L - 1].keys.map(k => Object.assign({}, k, { k: L + k.id })) });
+
+    const base = [
+      ['LAYER 01', 'Wholesale & Institutional Capital Pools'], ['LAYER 02', 'BWCI Holding Architecture & Governance'], ['LAYER 03', 'Delivery Platforms & Operating Vehicles'],
+      ['LAYER 04', 'Strategic Enablement & Partner Rails'], ['LAYER 05', 'Real-Economy Enterprises & Projects'], ['LAYER 06', 'Productive Real-Economy Outcomes']
+    ];
+    const tags = {
+      1: ['Institutional Capital Allocators', 'Holding anchor · defined interfaces', 'Delivery Platforms & Operating Vehicles', 'Strategic Partners & Banking Rails', 'Real-Economy Enterprises & SMEs', ''],
+      2: ['Capital Flows ↓', 'Capital · Capability ⇄', 'Capital · Capability ⇄', 'Capability ⇄ · Commerce & data ←', 'Capital in · Commerce & data out', 'Capital Flows →'],
+      3: ['Structured reporting for institutional allocators', '', '', '', 'Working capital liquidity for mid-market operating businesses', 'Enhanced commercial resilience across supply chains']
+    };
+    const on = { 1: [1, 0, 1, 1, 1, 0], 2: [1, 1, 1, 1, 1, 1], 3: [1, 0, 0, 0, 1, 1] }[L];
+    const bpList = base.map((b, i) => ({ code: b[0], title: b[1], tag: tags[L][i], cls: 'bp-li' + (i === 1 ? ' bp-li--anchor' : on[i] ? ' bp-li--on' : '') }));
+
+    const ST = (s) => 'st st--' + s;
+    const LAYERS = [
+      { short: 'Wholesale & Institutional Capital Pools', code: 'Layer 01 · Capital Origination', title: 'Wholesale & Institutional Capital Pools', blocks: [
+        { label: 'Role in Network', text: 'Institutional capital providers seeking structured deployment into productive real-economy assets.' },
+        { label: 'Key Constituents', text: 'Pension allocators, sovereign wealth funds, private debt vehicles, family offices, endowments, and development finance institutions (DFIs).' },
+        { label: 'Primary Inflow', text: 'Mandate specifications, capital allocations, risk-appetite parameters.' },
+        { label: 'Primary Outflow', text: 'Structured investment or financing participation aligned with defined risk, return, and reporting requirements.' } ] },
+      { short: 'BWCI Holding Architecture & Governance', code: 'Layer 02 · System Anchor', title: 'BWCI Holding Architecture & Governance', anchor: true, blocks: [
+        { label: 'Role in Network', text: 'Providing the holding and architectural layer through which the network is structured, capital is allocated, and governance standards are maintained.' },
+        { label: 'Key Constituents', text: 'Better World Capital Investments PLC Board of Directors, Group Capital Allocation Committee, Structuring & Risk Architecture Unit.' },
+        { label: 'Core Functions', list: [
+          { v: 'Designing bespoke financial architecture around identified economic bottlenecks' }, { v: 'Establishing entity separation and balance-sheet ring-fencing parameters' },
+          { v: 'Incubating and capitalizing proprietary group platforms (Register 1)' }, { v: 'Setting governance principles, reporting standards, and network integrity benchmarks' } ] } ] },
+      { short: 'Delivery Platforms & Operating Vehicles', code: 'Layer 03 · Execution Vehicles', title: 'Delivery Platforms & Operating Vehicles', blocks: [
+        { label: 'Role in Network', text: 'Dedicated operating companies and internal group builds structured to underwrite, service, and deliver specialized financial facilities.' },
+        { label: 'Current, In-Development & Proposed Vehicles', ent: [
+          { name: 'Providence Asset Management Ltd*', meta: 'Group Company · Operating · Subject to Verification', st: 'op' },
+          { name: 'Private Capital Platform', meta: 'Group Build · In Development', st: 'dev' },
+          { name: 'Trade Finance Platform', meta: 'Group Build · In Development', st: 'dev' },
+          { name: 'Community Banking Institution', meta: 'Group Build · Proposed · Future', st: 'pro' } ] },
+        { label: 'Primary Inflow', text: 'Group capital allocations, institutional syndications, enterprise demand.' },
+        { label: 'Primary Outflow', text: 'Specialized credit facilities, equipment leases, trade liquidity, and asset management servicing.' } ] },
+      { short: 'Strategic Enablement & Partner Rails', code: 'Layer 04 · Infrastructure & Rails', title: 'Strategic Enablement Layer & Partner Rails', blocks: [
+        { label: 'Role in Network', text: 'Technical infrastructure, regulated clearing networks, and specialized domain capabilities connected via defined interfaces.' },
+        { label: 'Key Constituents', ent: [
+          { name: 'Regulated Partner Banking Rails', meta: 'Partner Capability · Connected · Subject to Verification', st: 'partner' },
+          { name: 'Financial Infrastructure & Tech Rails', meta: 'Group Build · In Development (Enabling Capability)', st: 'dev' },
+          { name: 'Licensed Custodians, Verification Agents & Industry Logistics Networks', meta: '', st: 'none' } ] },
+        { label: 'Core Rails', text: 'Technical settlement interfaces, data ledgers, compliance orchestration, and collateral monitoring frameworks where applicable.' } ] },
+      { short: 'Real-Economy Enterprises, Developers & Projects', code: 'Layer 05 · Commercial Foundation', title: 'Real-Economy Enterprises, Developers & Projects', note: 'Ownership and operating control may be retained where the applicable financing structure is non-dilutive.', blocks: [
+        { label: 'Role in Network', text: 'The commercial core of the real economy generating physical assets, employment, trade, and regional value.' },
+        { label: 'Key Constituents', text: 'Mid-market manufacturers, agricultural processors, supply-chain distributors, renewable energy developers, and sustainable infrastructure sponsors.' },
+        { label: 'Primary Inflow', text: 'Capital structures aligned with operational cashflows, working capital liquidity, and equipment financing.' },
+        { label: 'Primary Outflow', text: 'Commercial trade flows, contractual repayments, and operating performance data.' } ] },
+      { short: 'Productive Real-Economy Outcomes', code: 'Layer 06 · Systemic Impact', title: 'Productive Real-Economy Outcomes', blocks: [
+        { label: 'Role in Network', text: 'The systemic economic and operational outcomes supported by reconnecting capital with productive enterprise.' },
+        { label: 'Intended Outcomes', list: [
+          { k: 'Enterprise Resilience: ', v: 'Commercial business expansion supported by tailored financing structures' },
+          { k: 'Supply Chain Fluidity: ', v: 'Improved working-capital liquidity across qualifying trade cycles' },
+          { k: 'Sustainable Transition: ', v: 'Accelerated deployment of energy transition assets and circular infrastructure' },
+          { k: 'Regional Value: ', v: 'Preserved operating autonomy for regional employers and commercial supply networks' } ] } ] }
+    ];
+    const act = S.layer;
+    const layers = LAYERS.map((l, i) => ({
+      idx: String(i), num: String(i + 1).padStart(2, '0'), short: l.short, code: l.code, title: l.title,
+      plateCls: 'ly-plate' + (l.anchor ? ' ly-plate--anchor' : '') + (i === act ? ' ly-plate--on' : ''),
+      hasConn: i < 5, connCls: 'ly-conn' + ((i === act || i + 1 === act) ? ' ly-conn--on' : ''),
+      dCls: 'ly-d' + (i === act ? ' ly-d--on' : ''),
+      hasNote: !!l.note, note: l.note || '',
+      go: () => this.goLayer(i),
+      blocks: l.blocks.map(b => ({
+        label: b.label, isText: !!b.text, text: b.text || '', isList: !!b.list, isEnt: !!b.ent,
+        items: b.list ? b.list.map(x => ({ k: x.k || '', v: x.v })) : b.ent ? b.ent.map(e => ({ name: e.name, meta: e.meta, stCls: ST(e.st) })) : []
+      }))
+    }));
+
+    const MECHS = [
+      { t: '1. Defined Contractual & Technical Interfaces', p: 'External partner banks, custodians, and platforms connect through defined service agreements, data interfaces, and collateral monitoring protocols. Participants collaborate without merging internal systems or transferring proprietary assets.' },
+      { t: '2. Entity Separation & Balance-Sheet Protection', p: 'Where applicable, entity and contractual structures are designed to separate relevant balance-sheet exposures and limit the transmission of liabilities and risks between participating entities.' },
+      { t: '3. Participant-First Value Model', p: 'The architecture is designed to strengthen the capital access, operating autonomy, and commercial resilience of participating organizations, rather than requiring them to become part of a single consolidated corporate hierarchy.' }
+    ];
+    const mechs = MECHS.map((m, i) => ({ n: String(i + 1), t: m.t.replace(/^\d\.\s/, ''), p: m.p, cls: 'cm-item' + (S.mech === i ? ' cm-item--on' : ''), pick: () => { if (this.state.mech !== i) this.setState({ mech: i }); } }));
+
+    const PARTS = [
+      { gid: 'Group 01', short: 'Real-Economy Enterprises', x: 50, y: 88, code: 'Group 01 · Real-Economy Commercial Core', title: 'Real-Economy Enterprises & Project Sponsors', rel: 'Capital in · Commerce & data out', fields: [
+        ['Who They Are', 'Operating commercial businesses, industrial developers, and project sponsors generating real-world economic output.'],
+        ['Their Need', 'Capital structured around actual cashflow cycles, equipment lifecycles, and trade milestones.'],
+        ['What They Receive', 'Tailored capital architecture, programmatic trade liquidity where applicable, and potential access to non-dilutive financing structures.'],
+        ['What They Contribute', 'Productive economic activity, contractual cashflow repayments, and operational performance data.'] ] },
+      { gid: 'Group 02', short: 'Institutional Capital Allocators', x: 50, y: 12, code: 'Group 02 · Wholesale Capital Providers', title: 'Institutional Capital Allocators', rel: 'Capital Flows ↓', fields: [
+        ['Who They Are', 'Fiduciary asset allocators, pension funds, sovereign wealth funds, family offices, endowments, and development finance institutions.'],
+        ['Their Need', 'Structured, high-quality real-economy asset deployment with transparent risk allocation and auditable reporting.'],
+        ['What They Receive', 'Access to structured financing opportunities, defined risk allocation, and transparent reporting.'],
+        ['What They Contribute', 'Scaled wholesale liquidity, syndication capacity, and institutional investment discipline.'] ] },
+      { gid: 'Group 03', short: 'Delivery Platforms', x: 12, y: 50, code: 'Group 03 · Specialized Delivery Platforms', title: 'Delivery Platforms & Operating Vehicles', rel: 'Capital · Capability ⇄', fields: [
+        ['Who They Are', 'Dedicated operating companies and internal group builds developed by BWCI to underwrite, service, and manage specific asset classes.'],
+        ['Their Role', 'Intended to underwrite, service, and execute specialized facilities across private capital, asset management, and trade finance, subject to the applicable regulatory structure.'],
+        ['What They Receive', 'Group capital allocation, structuring architecture, and shared infrastructure interfaces.'],
+        ['What They Contribute', 'Operational underwriting, client onboarding, regulatory compliance management, and portfolio servicing.'] ] },
+      { gid: 'Group 04', short: 'Strategic Partners & Rails', x: 88, y: 50, partner: true, code: 'Group 04 · Independent Connected Capabilities', title: 'Strategic Partners & Infrastructure Rails', rel: 'Capability ⇄ · Commerce & data ←', fields: [
+        ['Who They Are', 'Independent commercial clearing banks, regulated custodians, and specialized software and logistics providers.'],
+        ['Their Role', 'Providing external clearing rails, custody services, and infrastructure interfaces.'],
+        ['What They Receive', 'Integration into defined transaction and infrastructure flows.'],
+        ['What They Contribute', 'Regulated clearing services, custodial safekeeping, and specialized infrastructure rails.'] ] }
+    ];
+    const parts = PARTS.map((p, i) => {
+      const onP = S.part === i;
+      const px = 50 + (p.x - 50) * 0.45 - 1.2, py = 50 + (p.y - 50) * 0.45 - 1.2;
+      return { gid: p.gid, short: p.short, x: p.x, y: p.y, px: px, py: py, pressed: onP ? 'true' : 'false',
+        cls: 'pt-node' + (p.partner ? ' pt-node--partner' : '') + (onP ? ' pt-node--on' : ''),
+        spokeCls: 'pt-spoke' + (onP ? ' pt-spoke--on' : ''), portCls: 'pt-port' + (onP ? ' pt-port--on' : ''),
+        pick: () => { if (this.state.part !== i) this.setState({ part: i }); } };
+    });
+    const P = PARTS[S.part];
+    const part = { code: P.code, title: P.title, rel: P.rel, relCls: 'pt-rel' + (P.partner ? ' pt-rel--partner' : ''), fields: P.fields.map(f => ({ l: f[0], t: f[1] })) };
+
+    const FLOWS = [
+      { code: 'Flow 01: Capital Flows', title: 'Capital Mobilisation & Deployment Flow', color: '#12836B',
+        steps: ['Layer 1 (Capital Pools)', 'Layer 2 (Holding Structuring)', 'Layer 3 (Platforms)', 'Layer 5 (Enterprises)', 'Layer 6 (Productive Outcomes)'], arrow: '→',
+        text: 'Institutional liquidity is mobilised, structured into tailored risk profiles, routed through dedicated delivery vehicles, and deployed into qualifying commercial operations. Repayments return to capital providers according to agreed facility terms.' },
+      { code: 'Flow 02: Capability & Infrastructure Flows', title: 'Capability & Infrastructure Enablement Flow', color: '#A8BDD7',
+        steps: ['Layer 4 (Partner Rails & Tech)', 'Layer 2 (Holding Architecture)', 'Layer 3 (Delivery Platforms)'], arrow: '⇄',
+        text: 'Shared data protocols, clearing interfaces, and compliance frameworks connect across delivery platforms, reducing operational friction and supporting operational auditability.' },
+      { code: 'Flow 03: Commerce & Performance Data Flows', title: 'Trade Activity & Performance Feedback Flow', color: '#B98F2D',
+        steps: ['Layer 5 (Enterprises)', 'Layer 4 (Data Rails)', 'Financial Engine Feedback Loop ↺'], arrow: '→',
+        text: 'Real-economy trade transactions and operational cashflow performance generate empirical data. Commerce and performance data generated within the real economy can inform the Financial Engine\u2019s diagnostic and structuring process, creating an evidence-based feedback loop for future facilities.' }
+    ];
+    const flows = FLOWS.map((f, i) => ({ code: f.code, title: f.title, color: f.color, sel: S.flow === i ? 'true' : 'false', cls: 'fl-tab' + (S.flow === i ? ' fl-tab--on' : ''), pick: () => this.setState({ flow: i }) }));
+    const F = FLOWS[S.flow];
+    const flowInfo = { code: F.code, color: F.color, text: F.text, steps: F.steps.map((t, i) => ({ t: t, hasArrow: i > 0, arrow: F.arrow })) };
+
+    const cmpRows = [
+      { dim: 'Ownership', a: 'Centralized ownership and group governance', b: 'Disconnected bilateral relationships', c: 'Independent participation via structured interfaces' },
+      { dim: 'Governance', a: 'Parent-led hierarchical control', b: 'Dispersed and unaligned', c: 'Defined by entity, relationship & regulatory status' },
+      { dim: 'Capital Structuring', a: 'Centrally allocated from headquarters', b: 'Rigid product catalogs & broker fees', c: 'Structured around identified real-economy cashflows' },
+      { dim: 'Infrastructure', a: 'Common internal corporate systems', b: 'Disparate, un-integrated software', c: 'Connected through shared technical & clearing rails' },
+      { dim: 'Value Orientation', a: 'Value concentrated at corporate apex', b: 'Independent bilateral transactions with limited coordination', c: 'Participant-First: Designed to enhance participant resilience' }
+    ];
+
+    const gov = [
+      { n: '1', t: 'Defined Entity & Regulatory Boundaries', p: 'Holding strategy, investor capital, and operating platform liabilities are structured within defined legal perimeters. Regulated services are conducted solely through authorized entities.' },
+      { n: '2', t: 'Clear Status & Lifecycle Classification', p: 'Every platform, vehicle, and capability is identified with an explicit canonical lifecycle status (OPERATING, GROUP BUILD · IN DEVELOPMENT, PARTNER CAPABILITY, PROPOSED · FUTURE) dated \u201CAs at September 2026\u201D.' },
+      { n: '3', t: 'Operational Transparency & Reporting', p: 'The architecture is designed to support auditable reporting, milestone monitoring, and operational transparency for participating institutions and investors.' }
+    ];
+    const statuses = [
+      { stage: 'Lifecycle · Stage 1', label: 'Proposed · Future', st: 'pro', ex: 'Community Banking Institution', arrow: true },
+      { stage: 'Lifecycle · Stage 2', label: 'Group Build · In Development', st: 'dev', ex: 'Private Capital Platform · Trade Finance Platform · Financial Infrastructure & Tech Rails', arrow: true },
+      { stage: 'Lifecycle · Stage 3', label: 'Operating', st: 'op', ex: 'Providence Asset Management Ltd*', arrow: false },
+      { stage: 'Relationship axis', label: 'Partner Capability', st: 'partner', ex: 'Regulated Partner Banking Rails', arrow: false, partner: true }
+    ].map(s => Object.assign({}, s, { stCls: ST(s.st), cls: 'gv-st' + (s.partner ? ' gv-st--partner' : '') }));
+
+    const LPN = [
+      { title: 'Businesses & projects', line: 'Bring a real need: to grow, trade or build.', who: 'SMEs & projects', cap: ['It starts with a real business need.', 'A manufacturer needs working capital. A solar project needs funding. The need comes first, not the product.'] },
+      { title: 'BWCI designs the route', line: 'Works out the right structure to fund it.', who: 'BWCI', cap: ['BWCI designs the route.', 'BWCI works out the right structure: which platform, which partners, what kind of capital. It designs the route; it does not lend directly.'] },
+      { title: 'Platforms & partners', line: 'Licensed platforms deliver. Partners bring tech and know-how.', who: 'Platforms & partners', cap: ['Platforms and partners bring the tools.', 'Licensed platforms deliver the finance. Partners add technology, data and expertise.'] },
+      { title: 'Investors', line: 'Put long-term capital to work in the real economy.', who: 'Investors', cap: ['Investors put capital to work.', 'Pension funds, DFIs and family offices invest through those platforms, into real businesses they can see.'] },
+      { title: 'Growth & better outcomes', line: 'Jobs, trade and resilience, and the loop starts again.', who: 'Outcomes', cap: ['Growth, then the loop repeats.', 'Businesses grow, trade and hire. What works is reused, so each new connection is easier than the last.'] }
+    ];
+    const lpL = this.lpCur(), lpSet = this.lpSeq(lpL);
+    const lpStep = S.lpStep ?? lpSet[0];
+    const lpPick = i => () => this.setState({ lpStep: i, lpPlay: false });
+    const lpNodes = LPN.map((d, i) => {
+      const act = i === lpStep, st = act ? ' is-on' : (lpSet.includes(i) ? ' is-dim' : ' is-off');
+      return Object.assign({}, d, { num: String(i + 1).padStart(2, '0'), act, plat: i === 2, pick: lpPick(i), aria: 'Step ' + (i + 1) + ': ' + d.title, cls: 'lp-node lp-node--' + (i + 1) + st, mcls: 'lp-mnode lp-mnode--' + (i + 1) + st });
+    });
+    const lpW = S.lpW || 1200, lpWide = lpW >= 900, lpScale = Math.min(1, lpW / 1120);
+    const lpLabels = [['full', 'Show everything'], ['sme', "I'm a business"], ['investor', "I'm an investor"], ['partner', "I'm a partner"]];
+    return {
+      lpRef: this.lpRef, lpWide, lpNarrow: !lpWide, lpScale: String(lpScale), lpStageH: Math.round(740 * lpScale) + 'px',
+      lpNodes, lpPlaying: S.lpPlay, lpPaused: !S.lpPlay, lpPlayFn: () => this.setState({ lpPlay: true }),
+      lpHint: S.lpPlay ? 'Auto-playing' : 'Paused', lpShowPlat: lpStep === 2,
+      lpCap: { eyebrow: 'Step ' + (lpStep + 1) + ' of 5', title: LPN[lpStep].cap[0], body: LPN[lpStep].cap[1], who: String(lpStep + 1).padStart(2, '0') + ' · ' + LPN[lpStep].who },
+      lpProgress: lpSet.map(i => ({ cls: 'lp-prog__d' + (i === lpStep ? ' on' : ''), pick: lpPick(i), label: 'Go to step ' + (i + 1) })),
+      lpLenses: lpLabels.map(([k, label]) => ({ label, sel: k === lpL, cls: k === lpL ? 'on' : '', pick: () => this.setState({ lpLens: k, lpStep: this.lpSeq(k)[0], lpPlay: true }) })),
+      dims, lens: String(L), lenses, lensInfo, bpList,
+      layers, layerNum: String(act + 1).padStart(2, '0'),
+      mechs, mech: String(S.mech),
+      parts, part, partKey: 'p' + S.part,
+      flows, flow: String(S.flow), flowInfo, flowKey: 'f' + S.flow,
+      cmpRows, gov, statuses
+    };
+  }
+}
+</script>
+</body>
+</html>

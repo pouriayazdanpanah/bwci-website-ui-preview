@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>BWCI — Investors &amp; Partners</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap">
+<style>
+:root{
+  --brand-ink:#123039; --brand-slate:#16323B; --brand-teal:#1D4A54;
+  --accent-emerald:#12836B; --accent-emerald-dark:#0D6E59; --accent-gold:#B98F2D; --accent-gold-dark:#9E7720; --accent-blue:#3D5A80;
+  --surface-canvas:#FFFFFF; --surface-subtle:#F7F9F8; --surface-cloud:#EFF3F1; --surface-dark:#123039; --surface-dark-elevated:#1D4A54;
+  --text-primary:#123039; --text-secondary:#42585E; --text-muted:#5C7075; --text-inverse:#FFFFFF; --text-inverse-muted:#A8C2C8;
+  --border-subtle:#E2E9E6; --border-default:#D5E0DC; --border-strong:#8A9E99;
+  --status-op-mark:#12836B; --status-op-text:#0D6E59; --status-dev-mark:#B98F2D; --status-dev-text:#7D5B0F; --rel-partner-mark:#3D5A80; --rel-partner-text:#253B57;
+  --radius-sm:2px; --radius-md:4px; --radius-lg:8px; --radius-full:9999px;
+  --shadow-card:0 1px 3px rgba(18,48,57,.04), 0 1px 2px rgba(18,48,57,.02);
+  --shadow-elevated:0 4px 12px rgba(18,48,57,.08), 0 2px 4px rgba(18,48,57,.04);
+  --font-sans:'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  --container:1280px; --container-wide:1440px;
+  --e:cubic-bezier(.2,.8,.2,1); --e2:cubic-bezier(.16,1,.3,1);
+  --t-micro:180ms; --t-comp:250ms; --t-diag:500ms; --t-sys:800ms;
+}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{ margin:0; background:var(--surface-canvas); color:var(--text-primary); font-family:var(--font-sans); font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+h1,h2,h3,h4{ margin:0; font-family:var(--font-sans); color:var(--text-primary); }
+p{ margin:0; } ul{ margin:0; padding:0; list-style:none; }
+a{ color:inherit; text-decoration:none; }
+a:hover{ color:var(--accent-emerald-dark); }
+button{ font-family:inherit; cursor:pointer; background:none; border:none; padding:0; color:inherit; text-align:inherit; }
+:focus-visible{ outline:2px solid var(--accent-emerald); outline-offset:2px; }
+.container{ max-width:var(--container); margin:0 auto; padding:0 32px; }
+.section{ padding:clamp(48px,5.5vw,80px) 0; position:relative; }
+.eyebrow{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-gold-dark); margin-bottom:16px; }
+.eyebrow::before{ content:''; width:14px; height:1.5px; background:currentColor; }
+.h-display{ font-size:clamp(34px,4.6vw,56px); font-weight:700; line-height:1.12; letter-spacing:-.03em; }
+.h1{ font-size:clamp(28px,3.6vw,44px); font-weight:700; line-height:1.18; letter-spacing:-.025em; text-wrap:balance; }
+.h3{ font-size:clamp(19px,2vw,24px); font-weight:600; line-height:1.33; letter-spacing:-.015em; }
+.body-lg{ font-size:clamp(16px,1.4vw,18px); line-height:1.6; color:var(--text-secondary); text-wrap:pretty; }
+.body-sm{ font-size:13px; line-height:1.55; color:var(--text-muted); }
+.sec-head{ max-width:720px; margin-bottom:clamp(40px,5vw,64px); }
+.sec-head .body-lg{ margin-top:16px; }
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; padding:12px 24px; border-radius:var(--radius-md); font-size:14px; font-weight:600; letter-spacing:.01em; white-space:nowrap; border:1px solid transparent; transition:background-color var(--t-micro), border-color var(--t-micro), color var(--t-micro); }
+.btn--primary{ background:var(--accent-emerald); color:#fff; border-color:var(--accent-emerald); }
+.btn--primary:hover{ background:var(--accent-emerald-dark); color:#fff; }
+.btn--sm{ min-height:36px; padding:8px 16px; font-size:13px; }
+.icon{ width:16px; height:16px; stroke:currentColor; stroke-width:1.5; fill:none; }
+.text-link{ display:inline-flex; align-items:center; gap:12px; font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-primary); white-space:nowrap; }
+.text-link::after{ content:''; width:25px; height:1px; background:var(--accent-gold-dark); transition:width 300ms var(--e2); }
+.text-link:hover::after{ width:40px; }
+.text-link--inv{ color:#fff; } .text-link--inv::after{ background:var(--accent-gold); } .text-link--inv:hover{ color:#fff; }
+.st{ display:inline-flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:9.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; line-height:1.5; }
+.st-g{ flex:none; width:10px; height:10px; border-radius:50%; display:inline-block; }
+.st--op .st-g{ background:var(--status-op-mark); border:1.5px solid var(--status-op-mark); } .st--op{ color:var(--status-op-text); }
+.st--dev .st-g{ border:1.5px solid var(--status-dev-mark); background:linear-gradient(90deg,var(--status-dev-mark) 50%,transparent 50%); } .st--dev{ color:var(--status-dev-text); }
+.st--partner .st-g{ width:16px; height:6px; border-radius:0; background:linear-gradient(90deg,var(--rel-partner-mark) 0 5px,transparent 5px 11px,var(--rel-partner-mark) 11px), linear-gradient(var(--rel-partner-mark),var(--rel-partner-mark)) center/100% 1.5px no-repeat; } .st--partner{ color:var(--rel-partner-text); }
+.rv{ opacity:0; transform:translateY(14px); transition:opacity var(--t-sys) var(--e), transform var(--t-sys) var(--e); }
+.rv-in{ opacity:1; transform:none; }
+.rv-d1{ transition-delay:90ms; } .rv-d2{ transition-delay:180ms; } .rv-d3{ transition-delay:270ms; }
+
+/* NAV */
+.nav{ position:sticky; top:0; z-index:40; display:flex; align-items:center; gap:8px; padding:16px 32px; background:rgba(255,255,255,.86); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px); border-bottom:1px solid var(--border-subtle); }
+.nav__logo{ display:flex; align-items:center; gap:10px; }
+.nav__mark{ width:30px; height:30px; border-radius:var(--radius-sm); background:var(--brand-ink); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.02em; }
+.nav__word{ font-family:var(--font-mono); font-size:13px; font-weight:700; letter-spacing:.16em; color:var(--brand-ink); }
+.nav__links{ display:flex; align-items:center; gap:28px; margin:0 0 0 56px; }
+.nav__links a{ position:relative; font-size:14px; font-weight:500; color:var(--text-secondary); padding-bottom:4px; transition:color .18s; }
+.nav__links a:hover{ color:var(--brand-ink); }
+.nav__links a[aria-current="page"]{ color:var(--brand-ink); font-weight:600; }
+.nav__links a[aria-current="page"]::after{ content:''; position:absolute; left:0; right:0; bottom:-2px; height:2px; background:var(--accent-emerald); border-radius:var(--radius-full); }
+.nav__cta{ margin-left:auto; }
+.nav__burger{ display:none; width:44px; height:44px; align-items:center; justify-content:center; border:1px solid var(--border-default); border-radius:var(--radius-md); background:#fff; margin-left:auto; }
+
+/* HERO */
+.hero{ position:relative; overflow:hidden; color:#fff; min-height:560px; display:flex; align-items:center;
+  background:radial-gradient(ellipse 720px 620px at 88% 44%, rgba(18,131,107,.20), transparent 60%), radial-gradient(ellipse 560px 460px at -4% 82%, rgba(29,74,84,.30), transparent 60%), linear-gradient(180deg,#05090B 0%,#090F11 55%,#0B1416 100%); }
+.hero::before{ content:''; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:26px 26px; -webkit-mask-image:linear-gradient(90deg,black,transparent 60%); mask-image:linear-gradient(90deg,black,transparent 60%); }
+.hero::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:90px; z-index:1; pointer-events:none; background:linear-gradient(180deg, transparent, rgba(11,20,22,.9)); }
+.hero-inner{ position:relative; z-index:2; width:100%; max-width:var(--container-wide); margin:0 auto; padding:clamp(64px,7vw,96px) 50px; }
+.hero-copy{ max-width:760px; }
+.hero-copy .eyebrow{ margin-bottom:22px; color:var(--accent-gold); }
+.hero-copy .eyebrow::before{ width:8px; height:8px; background:none; border:1.5px solid currentColor; transform:rotate(45deg); }
+.hero-copy .h-display{ color:var(--text-inverse); margin:0 0 22px; max-width:720px; }
+.hero-copy .body-lg{ color:var(--text-inverse-muted); max-width:580px; }
+.hero-copy .body-lg + .body-lg{ margin-top:12px; font-size:15px; color:rgba(168,194,200,.82); }
+.hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
+.hero-btn{ display:inline-flex; align-items:center; gap:12px; min-height:44px; padding:0 22px; border-radius:2px; font-family:var(--font-mono); font-size:11.5px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; border:1px solid transparent; transition:background-color .18s, border-color .18s, color .18s; }
+.hero-btn--solid{ background:#F1EEE6; color:var(--brand-ink); border-color:#F1EEE6; }
+.hero-btn--solid:hover{ background:#fff; color:var(--brand-ink); }
+.hero-btn--ghost{ background:transparent; color:#fff; border-color:rgba(255,255,255,.55); }
+.hero-btn--ghost:hover{ border-color:#fff; background:rgba(255,255,255,.06); color:#fff; }
+.hero-img{ position:absolute; z-index:1; top:48%; right:-5%; width:min(68vw,1120px); transform:translateY(-50%); pointer-events:none; -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 36%, #000 100%); mask-image:linear-gradient(90deg, transparent 0%, #000 36%, #000 100%); opacity:.9; }
+.hero-img img{ display:block; width:100%; height:auto; -webkit-user-select:none; user-select:none; animation:ivDrift 14s ease-in-out infinite alternate; }
+@keyframes ivDrift{ from{ transform:translateX(0); } to{ transform:translateX(-14px); } }
+
+/* 01 PROPOSITION */
+.pp-sec{ position:relative; overflow:hidden; isolation:isolate; background:radial-gradient(ellipse 60% 55% at 100% 0%, rgba(18,131,107,.07), transparent 70%), linear-gradient(180deg, #FFFFFF 0%, #F2F6F4 70%, #F7F9F8 100%); }
+.pp-sec::before{ content:''; position:absolute; z-index:-1; pointer-events:none; top:0; right:0; width:640px; max-width:60%; height:460px; background-image:radial-gradient(circle, rgba(18,48,57,.12) 1px, transparent 1.6px); background-size:16px 16px; -webkit-mask-image:radial-gradient(ellipse 520px 380px at 88% 18%, black 0%, black 34%, transparent 76%); mask-image:radial-gradient(ellipse 520px 380px at 88% 18%, black 0%, black 34%, transparent 76%); }
+.pp-grid{ display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1.4fr); gap:clamp(40px,7vw,112px); align-items:start; }
+.pp-head{ position:sticky; top:110px; }
+.pp-head .body-lg{ margin-top:20px; max-width:460px; }
+.pp-list{ display:flex; flex-direction:column; gap:14px; }
+.pp-item{ position:relative; display:grid; grid-template-columns:96px minmax(0,1fr); gap:24px; padding:30px 32px 30px 28px; background:rgba(255,255,255,.7); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); overflow:hidden; transition:background-color var(--t-comp) var(--e), border-color var(--t-comp) var(--e), box-shadow var(--t-comp) var(--e), transform var(--t-comp) var(--e); }
+.pp-item::before{ content:''; position:absolute; left:0; top:0; bottom:0; width:2px; background:var(--accent-gold); transform:scaleY(0); transform-origin:top; transition:transform var(--t-diag) var(--e); }
+.pp-item:nth-child(2){ margin-left:clamp(0px,3vw,40px); } .pp-item:nth-child(3){ margin-left:clamp(0px,6vw,80px); }
+.pp-item--on{ background:#fff; border-color:var(--border-default); box-shadow:var(--shadow-elevated); }
+.pp-item--on::before{ transform:scaleY(1); }
+.pp-num{ font-family:var(--font-mono); font-size:44px; font-weight:700; letter-spacing:-.06em; line-height:1; color:transparent; -webkit-text-stroke:1px var(--border-strong); transition:color var(--t-diag) var(--e), -webkit-text-stroke-color var(--t-diag); }
+.pp-item--on .pp-num{ color:var(--brand-ink); -webkit-text-stroke-color:var(--brand-ink); }
+.pp-lbl{ font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--accent-gold-dark); margin-bottom:8px; }
+.pp-item .h3{ margin-bottom:10px; }
+.pp-item p{ font-size:15px; line-height:1.65; color:var(--text-secondary); max-width:520px; }
+
+.pa-sec::before{ top:-220px; }
+.pp-sec::after{ bottom:-220px; }
+.pp-sec::after, .pa-sec::before{ content:''; position:absolute; z-index:-1; pointer-events:none; left:-220px; width:440px; height:440px; border-radius:50%; border:1px solid rgba(18,48,57,.10); box-shadow:0 0 0 52px rgba(18,48,57,.022), 0 0 0 106px rgba(18,48,57,.015), 0 0 0 160px rgba(18,48,57,.009); }
+@media (max-width:767px){ .pp-sec::after, .pa-sec::before{ left:-140px; width:280px; height:280px; } .pp-sec::after{ bottom:-140px; } .pa-sec::before{ top:-140px; } }
+/* 02 PARTICIPATION */
+.pa-sec{ background:var(--surface-subtle); position:relative; overflow:hidden; isolation:isolate; }
+.pa-sec::after{ content:''; position:absolute; z-index:-1; inset:0; pointer-events:none; background:linear-gradient(90deg, transparent 0 8%, rgba(18,48,57,.035) 8.05% 8.12%, transparent 8.17% 62%, rgba(18,48,57,.025) 62.05% 62.12%, transparent 62.17%); -webkit-mask-image:linear-gradient(to bottom, transparent, #000 20%, #000 80%, transparent); mask-image:linear-gradient(to bottom, transparent, #000 20%, #000 80%, transparent); }
+.pa-head{ display:grid; grid-template-columns:minmax(0,7fr) minmax(240px,4fr); gap:clamp(32px,6vw,96px); align-items:end; margin-bottom:clamp(40px,5vw,64px); }
+.pa-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+.pa-card{ position:relative; display:flex; flex-direction:column; min-height:280px; padding:30px 30px 26px; background:#fff; border:1px solid var(--border-default); border-radius:var(--radius-lg); box-shadow:var(--shadow-card); overflow:hidden; isolation:isolate; transition:transform var(--t-comp) var(--e), box-shadow var(--t-comp) var(--e), border-color var(--t-comp) var(--e); }
+.pa-card::before{ content:''; position:absolute; left:0; right:0; top:0; height:2px; background:var(--accent-emerald); transform:scaleX(0); transform-origin:left; transition:transform var(--t-diag) var(--e); }
+.pa-card::after{ content:attr(data-n); position:absolute; z-index:-1; right:-10px; bottom:-34px; font-family:var(--font-mono); font-size:150px; font-weight:700; letter-spacing:-.08em; line-height:1; color:rgba(18,48,57,.035); transition:color var(--t-diag) var(--e), transform var(--t-diag) var(--e); }
+.pa-card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-elevated); border-color:var(--border-strong); color:inherit; }
+.pa-card:hover::before{ transform:scaleX(1); }
+.pa-card:hover::after{ color:rgba(18,131,107,.07); transform:translateX(-6px); }
+.pa-idx{ display:flex; align-items:center; gap:10px; font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:22px; }
+.pa-idx::before{ content:''; width:8px; height:8px; border:1.5px solid var(--accent-gold); transform:rotate(45deg); }
+.pa-card .h3{ max-width:380px; margin-bottom:12px; }
+.pa-card p{ font-size:15px; line-height:1.65; color:var(--text-secondary); max-width:430px; }
+.pa-cta{ margin-top:auto; padding-top:26px; display:inline-flex; align-items:center; gap:10px; font-family:var(--font-mono); font-size:11.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--brand-ink); transition:color var(--t-micro); }
+.pa-cta span{ display:inline-block; transition:transform var(--t-micro); }
+.pa-card:hover .pa-cta{ color:var(--accent-emerald-dark); }
+.pa-card:hover .pa-cta span{ transform:translateX(4px); }
+.pa-note{ margin-top:24px; font-family:var(--font-mono); font-size:10px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:var(--text-muted); }
+
+/* 03 METHODOLOGY (Operating Model family) */
+.mt-sec{ position:relative; overflow:hidden; isolation:isolate; background:linear-gradient(180deg, var(--surface-subtle) 0%, #fff 40%, var(--surface-subtle) 100%); }
+.mt-head{ display:grid; grid-template-columns:minmax(0,7fr) minmax(240px,4fr); gap:clamp(32px,6vw,96px); align-items:end; margin-bottom:clamp(48px,6vw,80px); }
+.mt-body{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); gap:clamp(32px,5vw,80px); align-items:center; }
+.mt-wheel-col{ position:relative; height:520px; }
+.mt-wheel{ position:absolute; top:0; left:-230px; width:520px; height:520px; }
+.mt-ring{ position:absolute; border-radius:50%; border:1px solid var(--border-default); }
+.mt-ring--o{ inset:0; box-shadow:0 0 0 18px rgba(18,48,57,.018), inset 0 0 0 18px rgba(18,48,57,.014); }
+.mt-ring--i{ inset:14%; border-style:dashed; opacity:.8; }
+.mt-ring--c{ inset:36%; background:radial-gradient(circle, rgba(185,143,45,.10), transparent 70%); border-color:transparent; }
+.mt-focal{ position:absolute; left:50%; top:50%; width:50%; height:1px; transform-origin:0 50%; background:linear-gradient(90deg, rgba(185,143,45,0), var(--accent-gold)); transition:transform 650ms var(--e2); }
+.mt-node{ position:absolute; display:flex; align-items:center; gap:14px; transform:translate(-15px,-50%); white-space:nowrap; cursor:pointer; }
+.mt-mk{ width:30px; height:30px; flex:none; border-radius:50%; display:grid; place-items:center; background:#fff; border:1px solid var(--border-strong); font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--text-muted); transition:background-color var(--t-comp), border-color var(--t-comp), color var(--t-comp), box-shadow var(--t-comp), transform var(--t-comp) var(--e); }
+.mt-lb{ font-size:15px; font-weight:500; color:var(--text-muted); transition:color var(--t-comp), transform var(--t-comp) var(--e); }
+.mt-node:hover .mt-mk{ border-color:var(--brand-ink); color:var(--brand-ink); }
+.mt-node:hover .mt-lb{ color:var(--text-primary); }
+.mt-node--on .mt-mk{ background:var(--brand-ink); border-color:var(--brand-ink); color:#fff; transform:scale(1.14); box-shadow:0 0 0 6px rgba(185,143,45,.16); }
+.mt-node--on .mt-lb{ color:var(--text-primary); font-weight:700; transform:translateX(4px); }
+.mt-panel{ position:relative; min-height:340px; max-width:600px; padding-left:clamp(26px,3.5vw,48px); border-left:1px solid var(--border-default); }
+.mt-panel::before{ content:''; position:absolute; top:0; left:-1px; width:2px; height:88px; background:var(--accent-gold-dark); box-shadow:0 0 28px rgba(158,119,32,.4); }
+.mt-anim{ animation:mtIn .42s var(--e) both; }
+@keyframes mtIn{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:none; } }
+.mt-code{ display:block; font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-gold-dark); margin-bottom:14px; }
+.mt-title{ font-size:clamp(24px,2.6vw,34px); font-weight:700; letter-spacing:-.02em; line-height:1.25; margin-bottom:24px; }
+.mt-field{ padding:16px 0; border-top:1px solid var(--border-subtle); }
+.mt-lbl{ display:block; font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; }
+.mt-q{ font-size:clamp(17px,1.6vw,20px); font-weight:500; line-height:1.5; letter-spacing:-.01em; color:var(--text-primary); }
+.mt-ctrl{ display:flex; align-items:center; gap:10px; margin-top:22px; }
+.mt-ctrl button{ width:40px; height:40px; display:grid; place-items:center; border:1px solid var(--border-default); border-radius:var(--radius-sm); background:#fff; color:var(--brand-ink); font-family:var(--font-mono); transition:border-color var(--t-micro), background-color var(--t-micro); }
+.mt-ctrl button:hover{ border-color:var(--brand-ink); }
+.mt-prog{ flex:1; display:flex; gap:4px; margin-left:8px; max-width:200px; }
+.mt-prog i{ flex:1; height:2px; background:var(--border-default); transition:background-color var(--t-comp); }
+.mt-prog i.on{ background:var(--accent-gold-dark); }
+.mt-rail{ display:none; }
+.mt-foot{ display:flex; margin-top:clamp(48px,6vw,88px); padding-top:17px; gap:22px; align-items:center; justify-content:space-between; border-top:1px solid var(--border-default); }
+.mt-bridge{ display:flex; align-items:center; gap:12px; font-family:var(--font-mono); font-size:10px; font-weight:500; letter-spacing:.06em; text-transform:uppercase; color:var(--text-muted); }
+.mt-bridge b{ color:var(--text-primary); font-weight:700; }
+.mt-bridge > span:last-child{ min-width:0; }
+.pa-cta{ flex-wrap:wrap; }
+.mt-rail{ flex-wrap:wrap; }
+
+
+/* 04 PERIMETERS */
+.dp-sec{ position:relative; overflow:hidden; isolation:isolate; color:#fff; background:radial-gradient(ellipse 900px 600px at 20% 40%, rgba(29,74,84,.55), transparent 70%), linear-gradient(180deg,#0B1416 0%, var(--surface-dark) 100%); }
+.dp-sec::before{ content:''; position:absolute; z-index:-1; pointer-events:none; top:0; right:0; width:600px; max-width:55%; height:440px; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:22px 22px; -webkit-mask-image:radial-gradient(ellipse 480px 340px at 85% 20%, black 0%, black 30%, transparent 78%); mask-image:radial-gradient(ellipse 480px 340px at 85% 20%, black 0%, black 30%, transparent 78%); }
+.dp-sec .h1{ color:#fff; } .dp-sec .body-lg{ color:var(--text-inverse-muted); } .dp-sec .eyebrow{ color:var(--accent-gold); }
+.dp-grid{ display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.5fr); gap:clamp(40px,6vw,96px); align-items:start; }
+.dp-head .body-lg{ margin-top:20px; max-width:420px; }
+.dp-fn{ margin-top:36px; padding-top:18px; border-top:1px solid rgba(255,255,255,.12); font-size:13px; line-height:1.6; color:var(--text-inverse-muted); max-width:400px; }
+.dp-fn b{ color:var(--accent-gold); font-weight:700; }
+.dp-head .text-link{ margin-top:28px; }
+.dp-cards{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+.dp-card{ position:relative; display:flex; flex-direction:column; gap:12px; min-height:220px; padding:26px 24px 22px; border:1px solid rgba(255,255,255,.14); border-radius:var(--radius-lg); background:rgba(255,255,255,.03); transition:border-color var(--t-comp) var(--e), background-color var(--t-comp) var(--e), transform var(--t-comp) var(--e); }
+.dp-card:hover{ border-color:rgba(255,255,255,.32); background:rgba(255,255,255,.05); transform:translateY(-3px); }
+.dp-card--v{ border:1px dashed rgba(232,196,107,.6); background:rgba(185,143,45,.07); }
+.dp-card--v:hover{ border-color:#E8C46B; background:rgba(185,143,45,.11); }
+.dp-top{ display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-inverse-muted); }
+.dp-t{ font-size:18px; font-weight:600; line-height:1.35; letter-spacing:-.01em; color:#fff; }
+.dp-t sup{ color:#E8C46B; }
+.dp-d{ font-size:14px; line-height:1.6; color:var(--text-inverse-muted); }
+.dp-card .st{ margin-top:auto; padding-top:14px; border-top:1px solid rgba(255,255,255,.08); }
+.dp-sec .st--dev{ color:#E8C46B; } .dp-sec .st--op{ color:#E8C46B; } .dp-sec .st--op .st-g{ background:#E8C46B; border-color:#E8C46B; } .dp-sec .st--partner{ color:#A8BDD7; }
+.dp-sec .st--partner .st-g{ background:linear-gradient(90deg,#A8BDD7 0 5px,transparent 5px 11px,#A8BDD7 11px), linear-gradient(#A8BDD7,#A8BDD7) center/100% 1.5px no-repeat; }
+
+/* 05 ECOSYSTEM */
+.ec-sec{ position:relative; overflow:hidden; isolation:isolate; background:linear-gradient(180deg, #fff 0%, var(--surface-subtle) 100%); }
+.ec-sec::before{ content:''; position:absolute; z-index:-1; pointer-events:none; top:-160px; right:-180px; width:560px; aspect-ratio:1; border-radius:50%; border:1px solid rgba(18,48,57,.10); box-shadow:0 0 0 52px rgba(18,48,57,.022), 0 0 0 106px rgba(18,48,57,.015), 0 0 0 160px rgba(18,48,57,.009); }
+.ec-top{ display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:clamp(32px,6vw,96px); align-items:end; margin-bottom:clamp(44px,5vw,72px); }
+.ec-stmt{ font-size:clamp(34px,5vw,64px); font-weight:700; line-height:1.06; letter-spacing:-.035em; }
+.ec-stmt em{ font-style:normal; color:var(--accent-emerald-dark); }
+.ec-top .body-lg{ max-width:440px; }
+.ec-grid{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-top:1px solid var(--brand-ink); }
+.ec-item{ position:relative; padding:26px 26px 30px 0; margin-right:26px; border-right:0; display:flex; flex-direction:column; gap:12px; }
+.ec-item + .ec-item{ padding-left:26px; margin-right:0; border-left:1px solid var(--border-default); }
+.ec-item::before{ content:''; position:absolute; top:-1px; left:0; height:3px; width:0; background:var(--accent-emerald); transition:width var(--t-diag) var(--e); }
+.ec-item:hover::before{ width:56px; }
+.ec-n{ font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.1em; color:var(--accent-gold-dark); }
+.ec-t{ font-size:19px; font-weight:600; line-height:1.3; letter-spacing:-.015em; }
+.ec-d{ font-size:14px; line-height:1.6; color:var(--text-secondary); }
+.ec-foot{ margin-top:clamp(36px,4vw,56px); }
+
+/* 06 ROUTE */
+.rt-sec{ background:var(--surface-cloud); position:relative; overflow:hidden; isolation:isolate; }
+.rt-sec::before{ content:''; position:absolute; z-index:-1; pointer-events:none; inset:0; background-image:radial-gradient(circle, rgba(18,48,57,.10) 1px, transparent 1.6px); background-size:18px 18px; -webkit-mask-image:radial-gradient(ellipse 520px 360px at 92% 12%, black 0%, transparent 75%); mask-image:radial-gradient(ellipse 520px 360px at 92% 12%, black 0%, transparent 75%); }
+.rt-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-bottom:clamp(36px,4vw,56px); }
+.rt-hint{ flex:none; white-space:nowrap; display:inline-flex; align-items:center; gap:10px; font-family:var(--font-mono); font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); padding:8px 14px; border:1px solid var(--border-default); border-radius:var(--radius-sm); background:#fff; }
+.rt-hint::before{ content:''; width:6px; height:6px; border-radius:50%; background:var(--accent-emerald); box-shadow:0 0 0 3px rgba(18,131,107,.18); }
+.rt-tabs{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; }
+.rt-tab{ position:relative; display:flex; flex-direction:column; gap:6px; padding:20px 22px 22px; background:#fff; border:1px solid var(--border-default); border-bottom:none; border-radius:var(--radius-lg) var(--radius-lg) 0 0; text-align:left; transition:background-color var(--t-comp) var(--e), border-color var(--t-comp), color var(--t-comp); }
+.rt-tab::after{ content:''; position:absolute; left:22px; right:22px; top:0; height:2px; background:var(--accent-emerald); transform:scaleX(0); transform-origin:left; transition:transform var(--t-diag) var(--e); }
+.rt-tab:hover{ border-color:var(--border-strong); }
+.rt-tab:hover::after{ transform:scaleX(.35); }
+.rt-tab--on, .rt-tab--on:hover{ background:var(--brand-ink); border-color:var(--brand-ink); color:#fff; }
+.rt-tab--on::after{ transform:scaleX(1); }
+.rt-tab__n{ display:flex; justify-content:space-between; align-items:center; font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); transition:color var(--t-comp); }
+.rt-tab__n i{ font-style:normal; font-size:13px; transition:transform var(--t-comp) var(--e); }
+.rt-tab--on .rt-tab__n{ color:#E8C46B; }
+.rt-tab--on .rt-tab__n i{ transform:rotate(90deg); }
+.rt-tab__t{ font-size:clamp(17px,1.6vw,20px); font-weight:700; letter-spacing:-.015em; line-height:1.25; }
+.rt-panel{ position:relative; overflow:hidden; isolation:isolate; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(260px,1fr); gap:clamp(28px,5vw,80px); align-items:end; padding:clamp(32px,4vw,56px); color:#fff; border-radius:0 0 var(--radius-lg) var(--radius-lg); background:radial-gradient(ellipse 60% 90% at 100% 0%, rgba(18,131,107,.32), transparent 62%), linear-gradient(180deg, var(--brand-ink), #0B1E24); }
+.rt-panel::before{ content:''; position:absolute; z-index:-1; right:-120px; bottom:-220px; width:420px; aspect-ratio:1; border-radius:50%; border:1px solid rgba(255,255,255,.08); box-shadow:0 0 0 48px rgba(255,255,255,.02), 0 0 0 96px rgba(255,255,255,.012); }
+.rt-anim{ animation:mtIn .42s var(--e) both; }
+.rt-p__lbl{ font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#E8C46B; margin-bottom:14px; }
+.rt-p__role{ font-size:clamp(26px,3vw,40px); font-weight:700; letter-spacing:-.025em; line-height:1.15; color:#fff; max-width:620px; text-wrap:balance; }
+.rt-p__d{ margin-top:18px; font-size:clamp(15px,1.3vw,17px); line-height:1.6; color:var(--text-inverse-muted); max-width:560px; }
+.rt-p__side{ display:flex; flex-direction:column; gap:14px; padding-left:clamp(0px,3vw,40px); border-left:1px solid rgba(255,255,255,.12); }
+.rt-p__side .hero-btn{ justify-content:space-between; white-space:normal; text-align:left; }
+.rt-p__note{ font-family:var(--font-mono); font-size:10px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:var(--text-inverse-muted); }
+
+/* 07 CTA */
+#engage{ position:relative; overflow:hidden; color:#fff;
+  background:radial-gradient(ellipse 640px 560px at -6% 30%, rgba(29,74,84,.34), transparent 58%), radial-gradient(ellipse 640px 560px at 106% 30%, rgba(18,131,107,.28), transparent 58%), radial-gradient(ellipse 900px 420px at 50% 88%, rgba(18,131,107,.16), transparent 68%), linear-gradient(180deg, #05090B 0%, #090F11 50%, #0B1416 100%); }
+.cta-pattern{ position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:24px 24px; -webkit-mask-image:radial-gradient(ellipse 720px 320px at 50% 40%, black 0%, black 35%, transparent 80%); mask-image:radial-gradient(ellipse 720px 320px at 50% 40%, black 0%, black 35%, transparent 80%); }
+#engage{ text-align:center; }
+#engage .container{ position:relative; z-index:1; }
+#engage .eyebrow{ color:var(--accent-gold); justify-content:center; }
+.btn--inverse{ background:#fff; color:var(--brand-ink); border-color:#fff; }
+.btn--inverse:hover{ background:var(--text-inverse-muted); color:var(--brand-ink); }
+.cta-email{ font-size:14px; font-weight:500; color:var(--text-inverse-muted); border-bottom:1px solid rgba(255,255,255,.2); padding-bottom:2px; }
+.cta-email:hover{ color:#fff; border-color:var(--accent-gold); }
+.cta-note{ margin:28px auto 0; max-width:560px; font-size:12.5px; line-height:1.6; color:var(--text-inverse-muted); }
+.cta-grid{ display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:clamp(40px,6vw,96px); align-items:end; }
+.cta-grid .h-display{ color:#fff; max-width:640px; }
+.cta-grid .body-lg{ color:var(--text-inverse-muted); margin-top:20px; max-width:520px; }
+.cta-side{ display:flex; flex-direction:column; gap:22px; padding:28px; border:1px solid rgba(255,255,255,.14); border-radius:var(--radius-lg); background:rgba(255,255,255,.03); }
+.cta-side .hero-btn{ justify-content:space-between; }
+.cta-mail{ display:flex; flex-direction:column; gap:6px; padding-top:20px; border-top:1px solid rgba(255,255,255,.1); }
+.cta-mail span{ font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-inverse-muted); }
+.cta-mail a{ font-size:16px; font-weight:600; color:#fff; word-break:break-all; }
+.cta-mail a:hover{ color:var(--accent-gold); }
+.cta-disc{ margin-top:clamp(48px,6vw,80px); padding-top:22px; border-top:1px solid rgba(255,255,255,.12); display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:20px 48px; }
+.cta-disc p{ font-size:12.5px; line-height:1.6; color:var(--text-inverse-muted); }
+.cta-disc b{ display:block; margin-bottom:6px; font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#fff; }
+
+/* FOOTER */
+.footer{ background:var(--surface-subtle); border-top:1px solid var(--border-subtle); padding:56px 0 28px; }
+.footer__grid{ display:grid; grid-template-columns:1.6fr repeat(3,1fr); gap:32px; margin-bottom:40px; }
+.footer__col h5{ font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); margin:0 0 14px; }
+.footer__col ul{ display:flex; flex-direction:column; gap:11px; }
+.footer__col a{ font-size:13.5px; color:var(--text-secondary); }
+.footer__col a[aria-current="page"]{ color:var(--brand-ink); font-weight:600; }
+.footer__bar{ border-top:1px solid var(--border-subtle); padding-top:20px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-family:var(--font-mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--text-muted); }
+
+/* RESPONSIVE */
+@media (max-width:1180px){ .ec-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } .ec-item:nth-child(3){ padding-left:0; border-left:0; } .ec-item:nth-child(n+3){ border-top:1px solid var(--border-default); } }
+@media (max-width:1023px){
+  .nav__links{ display:none; } .nav__burger{ display:flex; }
+  .hero{ min-height:0; align-items:flex-start; }
+  .hero-inner{ padding:64px 32px 0; }
+  .hero-actions{ margin-bottom:clamp(200px,38vw,300px); }
+  .hero-img{ top:auto; bottom:24px; right:-12%; width:min(130vw,820px); transform:none; -webkit-mask-image:linear-gradient(180deg, transparent, #000 30%); mask-image:linear-gradient(180deg, transparent, #000 30%); opacity:.8; }
+  .pp-grid, .dp-grid, .ec-top, .cta-grid{ grid-template-columns:1fr; }
+  .pp-head{ position:relative; top:auto; }
+  .pa-head, .mt-head{ grid-template-columns:1fr; gap:16px; }
+  .mt-body{ grid-template-columns:1fr; }
+  .mt-wheel-col{ display:none; }
+  .mt-rail{ position:relative; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); flex-wrap:nowrap; margin:0 0 32px; padding:0; }
+  .mt-rail__track{ position:absolute; left:10%; right:10%; top:22px; height:2px; background:var(--border-default); pointer-events:none; }
+  .mt-rail__fill{ position:absolute; left:0; top:0; bottom:0; background:var(--accent-gold-dark); transition:width .45s var(--e); }
+  .mt-rail button{ position:relative; display:flex; flex-direction:column; align-items:center; gap:10px; min-height:44px; padding:0 4px; border:0; background:none; font-size:13px; font-weight:500; line-height:1.25; color:var(--text-muted); text-align:center; white-space:normal; cursor:pointer; transition:color var(--t-comp); }
+  .mt-rail button .mt-mk{ position:relative; z-index:1; width:44px; height:44px; font-size:12px; background:#fff; border:1px solid var(--border-strong); transition:all var(--t-comp); }
+  .mt-rail button.done .mt-mk{ border-color:var(--accent-gold-dark); color:var(--accent-gold-dark); }
+  .mt-rail button.on{ color:var(--text-primary); font-weight:700; }
+  .mt-rail button.on .mt-mk{ background:var(--brand-ink); color:#fff; border-color:var(--brand-ink); box-shadow:0 0 0 5px rgba(185,143,45,.16); }
+  .mt-rail button:focus-visible{ outline:none; }
+  .mt-rail button:focus-visible .mt-mk{ outline:2px solid var(--accent-gold-dark); outline-offset:3px; }
+  .mt-panel{ min-height:0; }
+  .footer__grid{ grid-template-columns:1fr 1fr; }
+  .rt-tabs{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .rt-tab{ border-bottom:1px solid var(--border-default); border-radius:var(--radius-lg); }
+  .rt-tab--on{ border-color:var(--brand-ink); }
+  .rt-panel{ grid-template-columns:1fr; margin-top:8px; border-radius:var(--radius-lg); }
+}
+@media (max-width:767px){
+  .container{ padding:0 20px; }
+  .hero-inner{ padding:56px 20px 0; }
+  .hero-actions{ flex-direction:column; align-items:stretch; }
+  .hero-btn{ justify-content:space-between; white-space:normal; }
+  .pp-item{ grid-template-columns:1fr; gap:14px; padding:24px 22px; }
+  .pp-item:nth-child(2), .pp-item:nth-child(3){ margin-left:0; }
+  .pp-num{ font-size:34px; }
+  .pa-grid, .dp-cards, .ec-grid{ grid-template-columns:1fr; }
+  .pa-card{ min-height:0; padding:26px 22px 22px; }
+  .dp-card{ min-height:0; }
+  .ec-item, .ec-item + .ec-item{ padding:22px 0 24px; margin:0; border-left:0; }
+  .ec-item + .ec-item{ border-top:1px solid var(--border-default); }
+  .rt-panel{ padding:28px 22px; } .rt-p__side{ padding-left:0; border-left:0; padding-top:20px; border-top:1px solid rgba(255,255,255,.12); }
+  .mt-foot{ display:block; } .mt-foot .text-link{ margin-top:20px; white-space:normal; }
+  .mt-panel{ padding-left:22px; }
+  .cta-disc{ grid-template-columns:1fr; }
+  .cta-side{ padding:22px; }
+  .footer__grid{ grid-template-columns:1fr; gap:28px; }
+}
+@media (prefers-reduced-motion:reduce){
+  *, *::before, *::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
+  .rv{ opacity:1; transform:none; }
+}
+
+@media (min-width:1024px){
+  .hero > .hero-img{ top:0; bottom:0; left:36%; right:0; width:auto; height:auto; transform:none; display:flex; align-items:center; -webkit-mask-image:linear-gradient(90deg, transparent 0%, rgba(0,0,0,.35) 18%, #000 42%, #000 100%); mask-image:linear-gradient(90deg, transparent 0%, rgba(0,0,0,.35) 18%, #000 42%, #000 100%); }
+  .hero > .hero-img img{ width:100%; height:100%; object-fit:contain; object-position:right center; }
+}
+
+@media (max-width:767px){ .pa-note, .mt-lbl, .sc-interp{ font-size:11px !important; } }
+
+@media (max-width:1023px){ .nav__burger{ margin-left:12px; } }
+
+@media (max-width:480px){ .mt-rail button{ font-size:11px; gap:8px; } .mt-rail button .mt-mk{ width:40px; height:40px; font-size:11px; } .mt-rail__track{ top:20px; } }
+
+/* HEADER — canonical (identical on all pages) */
+.nav{ position:sticky; top:0; z-index:40; padding:16px 32px; }
+.nav__drawer{ position:absolute; left:0; right:0; top:100%; display:flex; flex-direction:column; padding:8px 20px 20px; background:#fff; border-bottom:1px solid var(--border-subtle); box-shadow:0 18px 30px rgba(18,48,57,.10); animation:navIn .22s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes navIn{ from{ opacity:0; transform:translateY(-6px); } to{ opacity:1; transform:none; } }
+.nav__drawer a:not(.btn){ display:flex; align-items:center; min-height:48px; font-size:15px; font-weight:500; color:var(--text-primary); border-bottom:1px solid var(--border-subtle); }
+.nav__drawer a[aria-current="page"]{ color:var(--accent-emerald-dark); font-weight:600; }
+.nav__drawer .btn{ margin-top:16px; }
+.nav__burger{ cursor:pointer; color:var(--brand-ink); }
+@media (min-width:1024px){ .nav__drawer{ display:none; } }
+@media (max-width:1023px){ .nav__links{ display:none; } .nav__burger{ display:flex; margin-left:12px; } .nav__cta{ display:inline-flex; } }
+@media (max-width:767px){ .nav{ padding:12px 20px; } .nav__cta{ display:none; } .nav__burger{ margin-left:auto; } }
+
+@media (min-width:768px){ .nav__drawer .btn{ display:none; } }
+
+/* MOBILE HERO + CTA — shared across pages */
+@media (max-width:767px){
+  .hero, .hero-fe{ min-height:0 !important; display:block !important; overflow:hidden; }
+  .hero-inner, .hero-fe-inner{ position:relative; z-index:2; padding:56px 20px 64px !important; min-height:0 !important; }
+  .hero-copy, .hero-fe-copy{ max-width:none !important; width:100% !important; }
+  .hero-copy .h-display, .hero-fe-copy .h-display{ font-size:clamp(34px,9.6vw,44px) !important; line-height:1.06 !important; max-width:none !important; margin:0 0 16px !important; }
+  .hero-copy .body-lg, .hero-fe-copy .body-lg{ font-size:16px !important; line-height:1.6 !important; max-width:none !important; }
+  .hero-actions{ flex-direction:column; align-items:stretch; gap:12px; margin-top:28px !important; }
+  .hero-actions .hero-btn{ width:100%; min-height:50px; padding:0 18px; justify-content:space-between; white-space:normal; text-align:left; }
+  .hero-img, .hero-fe-visual{ position:absolute !important; inset:0 !important; top:0 !important; right:0 !important; bottom:0 !important; left:0 !important; width:auto !important; height:auto !important; max-width:none !important; margin:0 !important; transform:none !important; z-index:0 !important; opacity:1 !important; -webkit-mask-image:none !important; mask-image:none !important; }
+  .hero-img img, .hero-fe-visual img{ position:absolute; left:0; bottom:0; width:100% !important; height:62% !important; object-fit:cover; object-position:60% 50%; opacity:.55; animation:none !important; }
+  .hero-img::after, .hero-fe-visual::after{ content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg, rgba(8,14,16,.96) 0%, rgba(8,14,16,.9) 38%, rgba(8,14,16,.55) 72%, rgba(8,14,16,.72) 100%); }
+  .hero-frame, .hero-tick, .fe-node, .hero-fe-tick{ display:none !important; }
+  #cta .h1, #cta .h2, #fe-cta .h1, #fe-cta .h2, #engage .h1, #engage .h2, .en-sec .h1{ width:auto !important; height:auto !important; max-width:100% !important; font-size:clamp(28px,8vw,36px) !important; text-wrap:balance; }
+  #cta p, #fe-cta p, #engage p, .en-sec p{ width:auto !important; height:auto !important; max-width:100% !important; }
+  #cta .btn, #fe-cta .btn, #fe-cta .hero-btn, #engage .btn, #engage .hero-btn, .en-sec .btn{ width:100%; max-width:none; min-height:50px; justify-content:center; }
+}
+
+/* mobile hero object — show the shape, not a crop */
+@media (max-width:767px){
+  .hero-img img, .hero-fe-visual img{ object-fit:contain !important; height:auto !important; top:auto !important; }
+  .hero-img::after, .hero-fe-visual::after{ background:linear-gradient(180deg, rgba(8,14,16,.94) 0%, rgba(8,14,16,.78) 34%, rgba(8,14,16,.35) 64%, rgba(8,14,16,.1) 100%) !important; }
+  .hero-inner, .hero-fe-inner{ padding-bottom:clamp(150px,44vw,210px) !important; }
+  .hero-img img{ width:200% !important; left:-55% !important; bottom:0 !important; opacity:.85 !important; }
+}
+
+@media (max-width:767px){
+  .hero{ min-height:0 !important; }
+  .hero-inner{ display:block !important; min-height:0 !important; padding-bottom:clamp(120px,32vw,150px) !important; }
+  .hero-img img{ width:220% !important; left:-65% !important; }
+}
+
+/* mobile hero — faded full-bleed image behind text (Ecosystem reference) */
+@media (max-width:767px){
+  .hero, .hero-fe{ position:relative !important; min-height:0 !important; }
+  .hero-inner, .hero-fe-inner{ display:block !important; position:relative !important; padding:56px 20px 64px !important; min-height:0 !important; }
+  .hero-fe-inner{ position:static !important; }
+  .hero-copy, .hero-fe-copy{ position:relative; z-index:2; }
+  .sm-hero .hero-actions{ margin-bottom:0 !important; }
+  .hero-img, .hero-fe-visual{ position:absolute !important; inset:0 !important; top:0 !important; bottom:0 !important; left:0 !important; right:0 !important; width:auto !important; height:auto !important; aspect-ratio:auto !important; z-index:0 !important; }
+  .hero-img img, .hero-fe-visual img{ position:absolute !important; inset:0 !important; top:0 !important; left:0 !important; right:auto !important; bottom:auto !important; width:100% !important; height:100% !important; object-fit:cover !important; object-position:65% 55% !important; opacity:.32 !important; }
+  .hero-img::after, .hero-fe-visual::after{ background:linear-gradient(180deg, rgba(8,14,16,.55) 0%, rgba(8,14,16,.35) 45%, rgba(8,14,16,.5) 100%) !important; }
+}
+@media (max-width:767px){ .hero-actions{ margin-bottom:0 !important; } }
+</style>
+</helmet>
+
+<div style="width:100%; min-height:100vh; background:var(--surface-canvas); overflow-x:hidden">
+
+  <nav class="nav">
+    <a class="nav__logo" href="Main.dc.html#hero" aria-label="BWCI home"><span class="nav__mark">BW</span><span class="nav__word">BWCI</span></a>
+    <div class="nav__links">
+      <a href="Main.dc.html#what">About</a>
+      <a href="Ecosystem.dc.html#hero">Ecosystem</a>
+      <a href="FinancialEngine.dc.html#hero">Financial Engine</a>
+      <a href="Main.dc.html#platforms">Capabilities</a>
+      <a href="Main.dc.html#trust">Corporate</a>
+      <a href="Main.dc.html#insights">Insights</a>
+    </div>
+    <a class="btn btn--primary btn--sm nav__cta" href="#engage">Start a Conversation</a>
+    <button class="nav__burger" aria-label="{{menuLabel}}" aria-expanded="{{menuOpen}}" onClick="{{toggleMenu}}"><svg class="icon" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
+    <sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
+      <div class="nav__drawer" onClick="{{closeMenu}}">
+        <a href="Main.dc.html#what">About</a>
+        <a href="Ecosystem.dc.html#hero">Ecosystem</a>
+        <a href="FinancialEngine.dc.html#hero">Financial Engine</a>
+        <a href="Main.dc.html#platforms">Capabilities</a>
+        <a href="Main.dc.html#trust">Corporate</a>
+        <a href="Main.dc.html#insights">Insights</a>
+        <a class="btn btn--primary" href="#engage">Start a Conversation</a>
+      </div>
+    </sc-if>
+  </nav>
+
+  <!-- HERO -->
+  
+
+  <!-- 01 PROPOSITION -->
+  <section class="hero" id="hero" data-screen-label="Hero" style="min-height: 500px">
+    <div class="hero-img" aria-hidden="true"><img src="./assets/inv-hero-flow.png" alt="" width="2017" height="780"></div>
+    
+  <div class="hero-inner" style="align-self: stretch">
+      
+    <div class="hero-copy" style="max-width: 900px">
+        
+        <h1 class="h-display" style="max-width: 1000px">Connect capital and capability to the real economy.</h1>
+        <p class="body-lg" style="max-width: 711px">BWCI works across financial architecture, operating platforms and institutional relationships to connect appropriate capital and capabilities with productive economic activity.</p>
+        
+        <div class="hero-actions">
+          <a class="hero-btn hero-btn--solid" href="#engage">Start a Conversation <span aria-hidden="true">→</span></a>
+          <a class="hero-btn hero-btn--ghost" href="#participation">See Where Capital Can Connect <span aria-hidden="true">↓</span></a>
+        </div>
+      </div></div></section>
+
+  <!-- 02 PARTICIPATION -->
+  <section class="section pp-sec" id="proposition" data-screen-label="01 The Proposition">
+    <div class="container pp-grid">
+      <div class="pp-head rv">
+        
+        <h2 class="h1">A Structured Connection to Real-Economy Assets</h2>
+        <p class="body-lg">BWCI is designed to operate as a financial architecture and holding layer within the Better World ecosystem. It works to identify economic needs, structure appropriate pathways, connect capabilities and capital, and support productive use.</p>
+      </div>
+      <div class="pp-list">
+        <sc-for list="{{props}}" as="p" hint-placeholder-count="3">
+          <article class="{{p.cls}}" onMouseEnter="{{p.pick}}" onFocus="{{p.pick}}" tabIndex="0">
+            <span class="pp-num">{{p.num}}</span>
+            <div>
+              <p class="pp-lbl">{{p.lbl}}</p>
+              <h3 class="h3">{{p.t}}</h3>
+              <p>{{p.d}}</p>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section><section class="section pa-sec" id="participation" data-screen-label="02 Participation">
+    <div class="container">
+      <div class="pa-head rv">
+        <div>
+          
+          <h2 class="h1" style="max-width: 841px">Where Can Institutional Capital Connect?</h2><p class="body-lg" style="max-width: 815px">Capital may participate at different points within the wider architecture depending on the opportunity, structure, mandate and applicable requirements.</p>
+        </div>
+        
+      </div>
+      <div class="pa-grid">
+        <sc-for list="{{paths}}" as="c" hint-placeholder-count="4">
+          <a class="pa-card" href="{{c.href}}" data-n="{{c.num}}">
+            <span class="pa-idx">Pathway {{c.num}}</span>
+            <h3 class="h3">{{c.t}}</h3>
+            <p>{{c.d}}</p>
+            <span class="pa-cta"><span style="display:inline">{{c.cta}} <span aria-hidden="true" style="display:inline-block">→</span></span></span>
+          </a>
+        </sc-for>
+      </div>
+      <p class="pa-note">Potential participation areas · not guaranteed investment opportunities</p>
+    </div>
+  </section>
+
+  <!-- 03 METHODOLOGY -->
+  
+
+  <!-- 04 DELIVERY PERIMETERS -->
+  <section class="section mt-sec" id="methodology" data-screen-label="03 Methodology">
+    <div class="container">
+      <div class="mt-head rv">
+        <div>
+          
+          <h2 class="h1" style="max-width: 702px">How Opportunities Are Structured</h2><p class="body-lg" style="max-width: 1032px">The structure determines the appropriate route for capital participation. This may involve a BWCI platform, group company, operating entity, financial institution or qualified strategic partner, depending on the nature of the opportunity and applicable requirements.</p>
+        </div>
+        
+      </div>
+      <div class="mt-body">
+        <div class="mt-wheel-col" aria-hidden="true">
+          <div class="mt-wheel">
+            <span class="mt-ring mt-ring--o"></span>
+            <span class="mt-ring mt-ring--i"></span>
+            <span class="mt-ring mt-ring--c"></span>
+            <span class="mt-focal" style="transform:rotate({{mtAngle}}deg)"></span>
+            <sc-for list="{{steps}}" as="s" hint-placeholder-count="5">
+              <div class="{{s.nodeCls}}" style="left:{{s.x}}%; top:{{s.y}}%" onClick="{{s.pick}}" onMouseEnter="{{s.pick}}">
+                <span class="mt-mk">{{s.num}}</span>
+                <span class="mt-lb">{{s.t}}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div>
+          <div class="mt-rail" role="tablist" aria-label="Methodology steps">
+            <span class="mt-rail__track" aria-hidden="true"><span class="mt-rail__fill" style="width:{{mtFill}}%"></span></span>
+            <sc-for list="{{steps}}" as="s" hint-placeholder-count="5">
+              <button type="button" role="tab" class="{{s.railCls}}" onClick="{{s.pick}}" aria-selected="{{s.sel}}" aria-label="{{s.t}}"><span class="mt-mk">{{s.num}}</span><span>{{s.short}}</span></button>
+            </sc-for>
+          </div>
+          <div class="mt-panel" aria-live="polite">
+            <div class="mt-anim" key="{{mtKey}}">
+              <span class="mt-code">Stage {{step.num}} of 05 · {{step.code}}</span>
+              <h3 class="mt-title">{{step.t}}</h3>
+              <div class="mt-field">
+                <span class="mt-lbl">The question</span>
+                <p class="mt-q">{{step.q}}</p>
+              </div>
+            </div>
+            <div class="mt-ctrl">
+              <button type="button" aria-label="Previous step" onClick="{{mtPrev}}">←</button>
+              <button type="button" aria-label="Next step" onClick="{{mtNext}}">→</button>
+              <span class="mt-prog">
+                <sc-for list="{{steps}}" as="s" hint-placeholder-count="5"><i class="{{s.progCls}}"></i></sc-for>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section><section class="section dp-sec" id="perimeters" data-screen-label="04 Delivery Perimeters">
+    <div class="container dp-grid">
+      <div class="dp-head rv">
+        
+        <h2 class="h1" style="max-width: 440px">Connected Platforms &amp; Institutional Capabilities</h2>
+        <p class="body-lg" style="max-width: 392px">The ecosystem brings together different capabilities that may be relevant to the structuring, deployment, management or delivery of economic activity.</p>
+        <p class="dp-fn"><b>*</b> Entity verified. The scope of activities, relationship and any applicable authorisation remains subject to verification.</p>
+        <a class="text-link text-link--inv" href="Main.dc.html#platforms">View Full Platforms &amp; Institutions Directory</a>
+      </div>
+      <div class="dp-cards">
+        <sc-for list="{{perims}}" as="c" hint-placeholder-count="4">
+          <article class="{{c.cls}}">
+            <span class="dp-top"><span>Perimeter {{c.num}}</span><span>{{c.kind}}</span></span>
+            <h3 class="dp-t">{{c.t}}<sc-if value="{{c.star}}" hint-placeholder-val="{{false}}"><sup>*</sup></sc-if></h3>
+            <p class="dp-d">{{c.d}}</p>
+            <span class="{{c.stCls}}"><span class="st-g"></span>{{c.status}}</span>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 ECOSYSTEM -->
+  <section class="section ec-sec" id="ecosystem" data-screen-label="05 The Ecosystem" style="background: linear-gradient(180deg, #FFFFFF, #EFF3F1EB)">
+    <div class="container">
+      <div class="ec-top rv">
+        
+        
+      <div>
+          
+          <h2 class="ec-stmt" style="max-width: 981px">Connection <em>Without</em> Consolidation</h2><p class="body-lg" style="max-width: 1000px">BWCI operates within the broader Better World ecosystem, where businesses, projects, platforms, institutions, capital and strategic capabilities can connect around productive economic activity.</p>
+        </div></div>
+      <div class="ec-grid">
+        <sc-for list="{{ecos}}" as="e" hint-placeholder-count="4">
+          <div class="ec-item">
+            <span class="ec-n">{{e.num}}</span>
+            <h3 class="ec-t">{{e.t}}</h3>
+            <p class="ec-d">{{e.d}}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div class="ec-foot"><a class="text-link" href="Ecosystem.dc.html#blueprint">Explore the Ecosystem Topology</a></div>
+    </div>
+  </section>
+
+  <!-- 06 YOUR ROUTE -->
+  <section class="section rt-sec" id="route" data-screen-label="06 Your Route">
+    <div class="container">
+      <div class="rt-head rv">
+        <div>
+          
+          <h2 class="h1">Where Do You Fit Within the Architecture?</h2>
+        </div>
+        <span class="rt-hint">Select the route closest to your role</span>
+      </div>
+      <div class="rt-tabs" role="tablist" aria-label="Participation routes">
+        <sc-for list="{{routes}}" as="r" hint-placeholder-count="4">
+          <button type="button" role="tab" class="{{r.cls}}" aria-selected="{{r.sel}}" onClick="{{r.pick}}" onMouseEnter="{{r.pick}}" onFocus="{{r.pick}}">
+            <span class="rt-tab__n"><span>Route {{r.num}}</span><i aria-hidden="true">→</i></span>
+            <span class="rt-tab__t">{{r.t}}</span>
+          </button>
+        </sc-for>
+      </div>
+      <div class="rt-panel" role="tabpanel">
+        <div class="rt-anim" key="{{rtKey}}">
+          <p class="rt-p__lbl">Route {{route.num}} · {{route.t}}</p>
+          <h3 class="rt-p__role">{{route.role}}</h3>
+          <p class="rt-p__d">{{route.d}}</p>
+        </div>
+        <div class="rt-p__side">
+          <a class="hero-btn hero-btn--solid" href="#engage">{{route.cta}} <span aria-hidden="true">→</span></a>
+          <p class="rt-p__note">Routing category · not an application</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 CTA -->
+  <section class="section" id="engage" data-screen-label="07 Initiate a Dialogue">
+    <div class="cta-pattern" aria-hidden="true"></div>
+    <div class="container">
+      
+      <h2 class="h1" style="color:#fff; margin-bottom:16px">Start a Conversation with BWCI</h2>
+      <p class="body-lg" style="color:var(--text-inverse-muted); max-width:560px; margin:0 auto 32px; text-wrap:pretty">Share your mandate or capability. We will show where it can connect with productive activity across the ecosystem.</p>
+      <a class="btn btn--inverse" href="Main.dc.html#cta">Start a Conversation <span aria-hidden="true">→</span></a>
+      
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <div class="nav__logo" style="margin-bottom:14px"><span class="nav__mark">BW</span><span class="nav__word">BWCI</span></div>
+          <p class="body-sm" style="max-width:280px">Better World Capital Investments — being developed as the Financial Engine of the Better World ecosystem.</p>
+        </div>
+        <div class="footer__col"><h5>Ecosystem</h5><ul>
+          <li><a href="Main.dc.html#what">About</a></li>
+          <li><a href="Ecosystem.dc.html#hero">Our Ecosystem</a></li>
+          <li><a href="FinancialEngine.dc.html#hero">Financial Engine</a></li>
+          <li><a href="Main.dc.html#platforms">Capabilities</a></li>
+        </ul></div>
+        <div class="footer__col"><h5>Engage</h5><ul>
+          <li><a href="SMEs Projects.dc.html#hero">SMEs &amp; Projects</a></li>
+          <li><a href="#hero" aria-current="page">Investors &amp; Partners</a></li>
+          <li><a href="#engage">Start a Conversation</a></li>
+          <li><a href="Main.dc.html#cta">Verify a Communication</a></li>
+        </ul></div>
+        <div class="footer__col"><h5>Corporate</h5><ul>
+          <li><a href="Main.dc.html#trust">Governance</a></li>
+          <li><a href="Main.dc.html#trust">Legal &amp; Documents</a></li>
+          <li><a href="Main.dc.html#trust">Regulatory Boundaries</a></li>
+          <li><a href="Main.dc.html#insights">Insights</a></li>
+        </ul></div>
+      </div>
+      <div class="footer__bar">
+        <span>© [ Year ] Better World Capital Investments PLC</span>
+        <span>Status labels as at September 2026 · subject to verification</span>
+        <span>Privacy · Terms · Disclaimers</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { pp: 0, mt: 0, rt: 0 };
+  componentDidMount() {
+    const IO = window.IntersectionObserver;
+    const rvs = Array.from(document.querySelectorAll('.rv'));
+    if (!IO) { rvs.forEach(el => el.classList.add('rv-in')); return; }
+    this._rv = new IO((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('rv-in'); this._rv.unobserve(e.target); } }), { threshold: 0.15 });
+    rvs.forEach(el => this._rv.observe(el));
+  }
+  componentWillUnmount() { if (this._rv) this._rv.disconnect(); }
+  renderVals() {
+    const open = !!(this.state && this.state.menu);
+    return Object.assign(this._pageVals(), { menuOpen: open, menuLabel: open ? 'Close menu' : 'Open menu',
+      toggleMenu: () => this.setState(s => ({ menu: !s.menu })), closeMenu: () => this.setState({ menu: false }) });
+  }
+  _pageVals() {
+    const S = this.state;
+    const pad = (i) => String(i + 1).padStart(2, '0');
+    const PP = [
+      ['Principle', 'Start with economic need', 'Capital structures begin with the underlying economic activity and its requirements, rather than starting with a predefined financial product.'],
+      ['Principle', 'Match the execution perimeter', 'Different opportunities require different operating, financial, technological and institutional capabilities.'],
+      ['Objective', 'Build for productive use', 'The objective is to connect capital and capability with businesses, projects and platforms that contribute to productive economic activity.']
+    ];
+    const props = PP.map((p, i) => ({ num: pad(i), lbl: p[0], t: p[1], d: p[2], cls: 'pp-item' + (S.pp === i ? ' pp-item--on' : ''),
+      pick: () => { if (this.state.pp !== i) this.setState({ pp: i }); } }));
+    const PA = [
+      ['Specialized Delivery Platforms', 'Participate through or alongside financial and operating platforms within the ecosystem.', 'Explore Platform Pathways', '#perimeters'],
+      ['Established Commercial Enterprises', 'Connect capital with established businesses and productive economic activity where an appropriate structure exists.', 'Explore Private Credit Pathways', '#perimeters'],
+      ['Transition & Infrastructure Projects', 'Participate in appropriately structured long-term projects and economic initiatives.', 'Explore Transition Pathways', 'SMEs Projects.dc.html#situation'],
+      ['Strategic Capabilities & Rails', 'Contribute specialist capital, infrastructure, technology, distribution or institutional capability where relevant.', 'Explore Strategic Rails', '#perimeters']
+    ];
+    const paths = PA.map((p, i) => ({ num: pad(i), t: p[0], d: p[1], cta: p[2], href: p[3] }));
+    const ST = [
+      ['Economic need', 'Need', 'What economic activity requires support?'],
+      ['Fin. architecture', 'Architecture', 'What structure is appropriate?'],
+      ['Delivery capability', 'Capability', 'Which platform, entity or partner can deliver it?'],
+      ['Capital sources', 'Capital', 'What type of capital is appropriate?'],
+      ['Productive activity', 'Productive use', 'How does capital connect to the underlying activity?']
+    ];
+    const angs = [-60, -30, 0, 30, 60];
+    const setMt = (i) => { const n = (i + 5) % 5; if (this.state.mt !== n) this.setState({ mt: n }); };
+    const steps = ST.map((s, i) => {
+      const r = angs[i] * Math.PI / 180;
+      return { num: pad(i), t: s[0], x: (50 + 50 * Math.cos(r)).toFixed(2), y: (50 + 50 * Math.sin(r)).toFixed(2),
+        nodeCls: 'mt-node' + (S.mt === i ? ' mt-node--on' : ''), railCls: S.mt === i ? 'on' : (i < S.mt ? 'done' : ''), short: s[1], sel: S.mt === i ? 'true' : 'false',
+        progCls: i <= S.mt ? 'on' : '', pick: () => setMt(i) };
+    });
+    const cur = ST[S.mt];
+    const mtFill = S.mt * 25;
+    const PM = [
+      { t: 'Trade Finance Platform', kind: 'Trade & Working Capital', d: 'Capabilities supporting trade flows, working-capital requirements and business activity.', status: 'Group Build · In Development', st: 'dev' },
+      { t: 'Private Capital Platform', kind: 'Private Capital', d: 'Private-capital capabilities relevant to appropriately structured businesses and opportunities.', status: 'Group Build · In Development', st: 'dev' },
+      { t: 'Providence Asset Management Ltd', star: true, v: true, kind: 'Asset Management', d: 'Asset-management capabilities where applicable to the relevant structure and mandate.', status: 'Entity Verified · Scope Subject to Verification', st: 'op' },
+      { t: 'Partner Banking Rails', kind: 'Partner Capability', d: 'Specialist financial, technological, institutional or operational capabilities provided through appropriate partners.', status: 'Partner · Subject to Verification', st: 'partner' }
+    ];
+    const perims = PM.map((p, i) => Object.assign({}, p, { num: pad(i), star: !!p.star, cls: 'dp-card' + (p.v ? ' dp-card--v' : ''), stCls: 'st st--' + p.st }));
+    const ecos = [
+      ['Capital to real economy', 'Connect appropriate capital with economic needs.'],
+      ['Resilience through connection', 'Strengthen relationships between businesses, institutions, platforms and capital.'],
+      ['Scale without consolidation', 'Enable coordinated growth without requiring every capability to sit within one organisation.'],
+      ['Governance & telemetry', 'Keep the focus on productive economic activity and real-economy outcomes, with visibility across connected participants.']
+    ].map((e, i) => ({ num: pad(i), t: e[0], d: e[1] }));
+    const routes = [
+      ['Allocators', 'You provide capital', 'You are exploring structured opportunities, platforms or economic activity aligned with your mandate.', 'Discuss Institutional Participation'],
+      ['Banks & FIs', 'You provide financial capability', 'You are a bank, financial institution or other regulated organisation exploring structured collaboration.', 'Discuss Institutional Collaboration'],
+      ['Strategic partners', 'You provide specialist capability', 'You bring technology, infrastructure, distribution, advisory, operational or other specialist capability.', 'Discuss Partnership'],
+      ['Platform builders', 'You are building or connecting an economic platform', 'You are exploring opportunities to connect a platform, capital structure or institutional capability with the wider ecosystem.', 'Start a Conversation']
+    ].map((r, i) => ({ num: pad(i), t: r[0], role: r[1], d: r[2], cta: r[3], cls: 'rt-tab' + (S.rt === i ? ' rt-tab--on' : ''), sel: S.rt === i ? 'true' : 'false', pick: () => { if (this.state.rt !== i) this.setState({ rt: i }); } }));
+    return { props, paths, steps, step: { num: pad(S.mt), t: cur[0], code: cur[1], q: cur[2] }, mtKey: 'm' + S.mt, mtAngle: String(angs[S.mt]), mtFill: String(mtFill),
+      mtPrev: () => setMt(this.state.mt - 1), mtNext: () => setMt(this.state.mt + 1), perims, ecos, routes, route: routes[S.rt], rtKey: 'r' + S.rt };
+  }
+}
+</script>
+</body>
+</html>
