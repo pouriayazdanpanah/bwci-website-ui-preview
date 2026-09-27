@@ -1,6 +1,7 @@
 """Import publishable site files from a Claude Design ZIP."""
 
 import argparse
+import re
 import subprocess
 import sys
 import zipfile
@@ -8,6 +9,36 @@ from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = {"Main.dc.html", "support.js", "vendor/react.js", "vendor/react-dom.js"}
+
+VIEWPORT = b'<meta name="viewport" content="width=device-width, initial-scale=1">'
+HOME_MOBILE_FIX = b"""<style id="preview-home-responsive">
+@media (max-width:1023px) {
+  .hero-sub blockquote { margin:0; padding:0; border:0; }
+  .hero-sub p, .hero-sub p span {
+    position:static !important;
+    left:auto !important;
+    top:auto !important;
+    width:auto !important;
+    height:auto !important;
+    max-width:100% !important;
+  }
+}
+</style>
+"""
+
+
+def normalize_html(name, data):
+    if not name.endswith(".dc.html"):
+        return data
+    if not re.search(rb'<meta\s+name=["\']viewport["\']', data, re.I):
+        data, count = re.subn(rb"(<head\b[^>]*>)", lambda m: m.group(1) + b"\n" + VIEWPORT, data, count=1, flags=re.I)
+        if count != 1:
+            raise ValueError(f"HTML document has no <head>: {name}")
+    if name == "Main.dc.html" and b'id="preview-home-responsive"' not in data:
+        data, count = re.subn(rb"</head>", lambda m: HOME_MOBILE_FIX + m.group(0), data, count=1, flags=re.I)
+        if count != 1:
+            raise ValueError("Main.dc.html has no </head>")
+    return data
 
 
 def git(*args):
@@ -46,7 +77,7 @@ def collect(archive):
         total_size += item.file_size
         if total_size > 100 * 1024 * 1024:
             raise ValueError("publishable ZIP contents exceed 100 MiB")
-        files[name] = archive.read(item)
+        files[name] = normalize_html(name, archive.read(item))
     missing = REQUIRED - files.keys()
     if missing:
         raise ValueError(f"ZIP is missing required files: {', '.join(sorted(missing))}")

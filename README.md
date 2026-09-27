@@ -26,8 +26,9 @@ They are ignored by Git and omitted from the published site.
 Claude Design exports in this project's format contain `Main.dc.html`, other
 `*.dc.html` pages, `support.js`, `assets/`, and `vendor/`. The import command
 copies only these publishable files. It also makes `index.html` match
-`Main.dc.html`, so the exported home page appears at the site root. It leaves
-`ghl/` and the existing deployment workflow alone. New pages in the ZIP become
+`Main.dc.html`, so the exported home page appears at the site root. The importer also restores
+mobile viewport metadata and keeps the home hero text in normal flow on
+narrow screens. It leaves `ghl/` and the existing deployment workflow alone. New pages in the ZIP become
 available at their `.dc.html` URLs; add navigation links separately if needed.
 
 Preview what a ZIP would change:
