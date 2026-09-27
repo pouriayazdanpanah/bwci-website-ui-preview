@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>body{ margin:0; background:#EEF2F1; font-family:'Plus Jakarta Sans',sans-serif; color:#123039; } a{ color:#0D6E59; } a:hover{ color:#12836B; }</style>
+</helmet>
+<section style="display:flex; flex-direction:column; gap:56px; padding:64px; width:1640px; box-sizing:border-box;">
+  <div style="display:flex; flex-direction:column; gap:10px;">
+    <span style="font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#8A6A1F;">BWCI · 26 September 2026</span>
+    <h1 style="margin:0; font-size:44px; font-weight:700; letter-spacing:-.02em;">Before &amp; after</h1>
+    <p style="margin:0; font-size:17px; line-height:1.6; color:#3F555B; max-width:820px;">Left: the screenshot or wireframe you sent. Right: the page as it is now, loaded live at the same section.</p>
+  </div>
+  <sc-for list="{{rows}}" as="r" hint-placeholder-count="8">
+    <div id="{{r.id}}" style="display:flex; flex-direction:column; gap:18px; padding:32px; background:#fff; border:1px solid #D6E0DE; border-radius:16px;">
+      <div style="display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:600; color:#fff; background:#123039; padding:4px 10px; border-radius:6px;">{{r.id}}</span>
+        <h2 style="margin:0; font-size:24px; font-weight:700;">{{r.title}}</h2>
+        <span style="font-size:14px; color:#5B6F74;">{{r.page}}</span>
+      </div>
+      <p style="margin:0; font-size:15px; line-height:1.6; color:#3F555B; max-width:1100px;">{{r.note}}</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start;">
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; letter-spacing:.12em; color:#8A2F2F;">BEFORE</span>
+          <div style="height:{{r.boxH}}; display:flex; align-items:flex-start; justify-content:center; background:#F4F6F6; border:1px solid #D6E0DE; border-radius:10px; overflow:hidden;">
+            <img src="{{r.before}}" alt="Before" style="max-width:100%; max-height:100%; object-fit:contain; display:block;">
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <span style="font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; letter-spacing:.12em; color:#0D6E59;">AFTER</span>
+          <div style="height:{{r.boxH}}; display:flex; justify-content:center; background:#F4F6F6; border:1px solid #D6E0DE; border-radius:10px; overflow:hidden;">
+            <div style="width:{{r.frameOuterW}}; height:{{r.boxH}}; overflow:hidden; position:relative;">
+              <iframe src="{{r.after}}" onLoad="{{r.onLoad}}" title="After" style="width:{{r.frameW}}; height:{{r.frameH}}; border:0; transform:scale({{r.scale}}); transform-origin:0 0; position:absolute; left:0; top:0; background:#fff;"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-for>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    let n = 0;
+    this._t = setInterval(() => {
+      n++;
+      document.querySelectorAll('iframe').forEach(fr => {
+        const a = (fr.getAttribute('src') || '').split('#')[1]; if (!a) return;
+        try {
+          const d = fr.contentDocument, el = d && d.getElementById(a);
+          if (el && el.offsetHeight > 0) { d.documentElement.style.scrollBehavior = 'auto'; const top = el.getBoundingClientRect().top + fr.contentWindow.scrollY - 72; if (Math.abs(fr.contentWindow.scrollY - top) > 4) fr.contentWindow.scrollTo({ top: Math.max(0, top), behavior: 'instant' }); }
+        } catch (e) {}
+      });
+      if (n > 80) clearInterval(this._t);
+    }, 300);
+  }
+  componentWillUnmount() { clearInterval(this._t); }
+  renderVals() {
+    const U = 'uploads/pasted-', D = (id, title, page, note, before, after, mobile) => {
+      const fw = mobile ? 390 : 1440, fh = mobile ? 844 : 880, boxH = mobile ? 560 : 440;
+      const scale = mobile ? boxH / fh : 720 / fw;
+      const anchor = after.split('#')[1];
+      const onLoad = e => {
+        const fr = e.currentTarget; let n = 0;
+        const t = setInterval(() => {
+          n++;
+          try {
+            const d = fr.contentDocument, el = d && d.getElementById(anchor);
+            if (el && el.offsetHeight > 0) { d.documentElement.style.scrollBehavior = 'auto'; const top = el.getBoundingClientRect().top + fr.contentWindow.scrollY; fr.contentWindow.scrollTo({ top: Math.max(0, top - 72), behavior: 'instant' }); if (n > 6) clearInterval(t); }
+          } catch (err) { clearInterval(t); }
+          if (n > 60) clearInterval(t);
+        }, 250);
+      };
+      return { id, title, page, note, onLoad, before: U + before + '-0.png', after, boxH: boxH + 'px', frameW: fw + 'px', frameH: fh + 'px', scale: String(scale), frameOuterW: Math.round(fw * scale) + 'px' };
+    };
+    return { rows: [
+      D('1', 'Hero — globe and spacing', 'Main · desktop', 'Dotted dome replaced with the new globe. The globe is wider, its top fades behind the text, and the space above the heading and below the link is equal.', '1790417997330', 'Main.dc.html#hero'),
+      D('2', 'Hero — globe fade', 'Main · desktop', 'Earlier globe version: the top of the globe was fully visible behind "Explore the Financial Engine". It now fades out so the link and buttons read clearly.', '1790424299450', 'Main.dc.html#hero'),
+      D('3', 'Capabilities', 'Main · desktop', 'New icons for all four capabilities, larger with rounded strokes. "View all capabilities" moved beside the title. Card text updated from your editor edits.', '1790429031466', 'Main.dc.html#platforms'),
+      D('4', 'What\u2019s Different', 'Main · desktop', 'Copy updated from your editor edits for Need-led, Connected and Outcome-focused.', '1790416557430', 'Main.dc.html#different'),
+      D('5', 'Hero on phone', 'Financial Engine · mobile', 'The globe used to sit below the buttons in a corner. The image now covers the whole hero, faded, with text on top — matching the Ecosystem hero.', '1790431711066', 'FinancialEngine.dc.html#hero', true),
+      D('6', 'Flows', 'Ecosystem · desktop', 'Built from your wireframe. Shorter title "How value circulates" plus a description; card 01 labels made readable on dark.', '1790413596237', 'Ecosystem.dc.html#flows'),
+      D('7', 'Three operating models', 'Ecosystem · desktop', 'Built from your wireframe, with a new description. Model C is the featured dark card; the governance envelope holds four numbered cards.', '1790413897513', 'Ecosystem.dc.html#compare'),
+      D('8', 'How Participants Interface Without Consolidating', 'Ecosystem · desktop', 'The diagram no longer sits in a big card; it sits on the section background, and the Defined interfaces band fades at the ends.', '1790414250333', 'Ecosystem.dc.html#mechanics'),
+      D('9', 'Closing call to action', 'Ecosystem · desktop', 'Lines and circles replaced with the dark gradient and dot pattern used on SMEs & Projects; centred layout with an arrow button.', '1790410512705', 'Ecosystem.dc.html#engage')
+    ] };
+  }
+}
+</script>
+</body>
+</html>
