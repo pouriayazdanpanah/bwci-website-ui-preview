@@ -1180,40 +1180,17 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
 </style>
 </helmet>
 
-<div style="width:100%; min-height:100vh; background:var(--surface-canvas); overflow-x:hidden">
+<div style="width:100%; min-height:100vh; background:var(--surface-canvas); overflow-x:clip">
 
   <!-- ============================================================
        NAVIGATION
        ============================================================ -->
-  <nav class="nav">
-    <a class="nav__logo" href="Main.dc.html#hero" aria-label="BWCI home"><span class="nav__mark">BW</span><span class="nav__word">BWCI</span></a>
-    <div class="nav__links">
-      <a href="Main.dc.html#what">About</a>
-      <a href="Ecosystem.dc.html#hero">Ecosystem</a>
-      <a href="#hero" aria-current="page">Financial Engine</a>
-      <a href="Main.dc.html#platforms">Capabilities</a>
-      <a href="Main.dc.html#trust">Corporate</a>
-      <a href="Main.dc.html#insights">Insights</a>
-    </div>
-    <a class="btn btn--primary btn--sm nav__cta" href="Main.dc.html#cta">Start a Conversation</a>
-    <button class="nav__burger" aria-label="{{menuLabel}}" aria-expanded="{{menuOpen}}" onClick="{{toggleMenu}}"><svg class="icon" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
-    <sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
-      <div class="nav__drawer" onClick="{{closeMenu}}">
-        <a href="Main.dc.html#what">About</a>
-        <a href="Ecosystem.dc.html#hero">Ecosystem</a>
-        <a href="#hero" aria-current="page">Financial Engine</a>
-        <a href="Main.dc.html#platforms">Capabilities</a>
-        <a href="Main.dc.html#trust">Corporate</a>
-        <a href="Main.dc.html#insights">Insights</a>
-        <a class="btn btn--primary" href="Main.dc.html#cta">Start a Conversation</a>
-      </div>
-    </sc-if>
-  </nav>
+  <dc-import name="SiteHeader" current="engine" cta-href="Main.dc.html#cta" style="position:sticky; top:calc(var(--util-h, 0px) * -1); z-index:60; display:block; width:100%" hint-size="100%,116px"></dc-import>
 
   <!-- ============================================================
        HERO — THE FINANCIAL ENGINE
        ============================================================ -->
-  <section class="hero-fe" id="hero" >
+  <section class="hero-fe" id="hero">
     <div class="hero-fe-pattern" aria-hidden="true"></div>
     
     
@@ -1225,7 +1202,7 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
       <div class="hero-fe-copy" style="max-width: 800px">
         
         <h1 class="h-display" style="color: var(--text-inverse)">How economic need becomes financial architecture.</h1>
-        <p class="body-lg" style="max-width: 700px">We do not offer “products”. We architect financial engines that connect capital with the productive activity of the real economy.</p>
+        <p class="body-lg" style="max-width: 700px">We don’t start from a product. We start from what a business or project needs, then design the structure that connects it with capital, partners and the capability to deliver.</p>
 
         <div class="hero-actions">
           <a class="hero-btn hero-btn--solid" href="#ops-model">See the Operating Model <span aria-hidden="true">↓</span></a>

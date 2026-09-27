@@ -796,32 +796,9 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
 </style>
 </helmet>
 
-<div style="width:100%; min-height:100vh; background:var(--surface-canvas); overflow-x:hidden">
+<div style="width:100%; min-height:100vh; background:var(--surface-canvas); overflow-x:clip">
 
-  <nav class="nav">
-    <a class="nav__logo" href="Main.dc.html#hero" aria-label="BWCI home"><span class="nav__mark">BW</span><span class="nav__word">BWCI</span></a>
-    <div class="nav__links">
-      <a href="Main.dc.html#what">About</a>
-      <a href="#hero" aria-current="page">Ecosystem</a>
-      <a href="FinancialEngine.dc.html#hero">Financial Engine</a>
-      <a href="Main.dc.html#platforms">Capabilities</a>
-      <a href="Main.dc.html#trust">Corporate</a>
-      <a href="Main.dc.html#insights">Insights</a>
-    </div>
-    <a class="btn btn--primary btn--sm nav__cta" href="#engage">Start a Conversation</a>
-    <button class="nav__burger" aria-label="{{menuLabel}}" aria-expanded="{{menuOpen}}" onClick="{{toggleMenu}}"><svg class="icon" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
-    <sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
-      <div class="nav__drawer" onClick="{{closeMenu}}">
-        <a href="Main.dc.html#what">About</a>
-        <a href="#hero" aria-current="page">Ecosystem</a>
-        <a href="FinancialEngine.dc.html#hero">Financial Engine</a>
-        <a href="Main.dc.html#platforms">Capabilities</a>
-        <a href="Main.dc.html#trust">Corporate</a>
-        <a href="Main.dc.html#insights">Insights</a>
-        <a class="btn btn--primary" href="#engage">Start a Conversation</a>
-      </div>
-    </sc-if>
-  </nav>
+  <dc-import name="SiteHeader" current="ecosystem" cta-href="#engage" style="position:sticky; top:calc(var(--util-h, 0px) * -1); z-index:60; display:block; width:100%" hint-size="100%,116px"></dc-import>
 
   <!-- HERO -->
   <section class="hero" id="hero" data-screen-label="Hero">

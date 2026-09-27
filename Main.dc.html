@@ -867,35 +867,12 @@ button{ font-family:inherit; cursor:pointer; }
 </style>
 </helmet>
 
-<div style="width:100%; min-height:100vh; background:var(--surface-canvas); overflow-x:hidden">
+<div style="width:100%; min-height:100vh; background:var(--surface-canvas); overflow-x:clip">
 
   <!-- ============================================================
        NAVIGATION
        ============================================================ -->
-  <nav class="nav">
-    <a class="nav__logo" href="#hero" aria-label="BWCI home"><span class="nav__mark">BW</span><span class="nav__word">BWCI</span></a>
-    <div class="nav__links">
-      <a href="#what">About</a>
-      <a href="Ecosystem.dc.html#hero">Ecosystem</a>
-      <a href="FinancialEngine.dc.html#hero">Financial Engine</a>
-      <a href="#platforms">Capabilities</a>
-      <a href="#trust">Corporate</a>
-      <a href="#insights">Insights</a>
-    </div>
-    <a class="btn btn--primary btn--sm nav__cta" href="#cta">Start a Conversation</a>
-    <button class="nav__burger" aria-label="{{menuLabel}}" aria-expanded="{{menuOpen}}" onClick="{{toggleMenu}}"><svg class="icon" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
-  <sc-if value="{{menuOpen}}" hint-placeholder-val="{{false}}">
-      <div class="nav__drawer" onClick="{{closeMenu}}">
-        <a href="#what">About</a>
-        <a href="Ecosystem.dc.html#hero">Ecosystem</a>
-        <a href="FinancialEngine.dc.html#hero">Financial Engine</a>
-        <a href="#platforms">Capabilities</a>
-        <a href="#trust">Corporate</a>
-        <a href="#insights">Insights</a>
-        <a class="btn btn--primary" href="#cta">Start a Conversation</a>
-      </div>
-    </sc-if>
-  </nav>
+  <dc-import name="SiteHeader" current="home" cta-href="#cta" style="position:sticky; top:calc(var(--util-h, 0px) * -1); z-index:60; display:block; width:100%" hint-size="100%,116px"></dc-import>
 
   <!-- ============================================================
        01 — HERO
@@ -905,13 +882,16 @@ button{ font-family:inherit; cursor:pointer; }
       
       <h1 class="h-display" style="color: var(--surface-canvas)">Reconnecting capital with<br>the real economy.</h1>
       
-      <div class="body-lg hero-sub" style="width: 747px; height: 128px; max-width: 750px"><!-- obsidian --><blockquote>
-<div><!-- obsidian --><p>Better World Capital Investments PLC is being developed as the financial holding company and Financial Engine of the Better World ecosystem — connecting economic needs with financial architecture, capital, institutional capability, technology and strategic relationships.</p></div></blockquote></div><div class="hero-ctas">
-        <a class="btn btn--inverse" href="SMEs%20Projects.dc.html#hero">SMEs &amp; Projects</a>
-        <a class="btn btn--ghost-inverse" href="Investors Partners.dc.html#hero">Investors &amp; Partners</a>
+      <div class="body-lg hero-sub" style="width: 747px; height: 128px; max-width: 750px; position: static"><!-- obsidian --><blockquote>
+<div><!-- obsidian --><p style="width: 566px; height: 77px; position: static"><span class="" style="width: 587px; height: 69px; position: absolute; left: 223px; top: 147px">Better World Capital Investments PLC is building the 
+Financial Engine of the Better World ecosystem. It starts with what a 
+business or project actually needs, then connects it with the right 
+structure, capital, and partners.</span></p></div></blockquote></div><div class="hero-ctas">
+        <a class="btn btn--inverse" href="SMEs%20Projects.dc.html#hero">I’m an SME or project</a>
+        <a class="btn btn--ghost-inverse" href="Investors Partners.dc.html#hero">I’m an investor or partner</a>
       </div>
       <div class="hero-secondary">
-        <a class="text-link text-link--inverse" href="#engine">Explore the Financial Engine</a>
+        <a class="text-link text-link--inverse" href="#engine">See how the Financial Engine works</a>
       </div>
     </div><div class="hero-globe" aria-hidden="true">
       <img class="hero-globe__img" src="assets/hero-globe.png" alt="" width="1448" height="1086" decoding="async">
@@ -939,19 +919,19 @@ button{ font-family:inherit; cursor:pointer; }
         <div class="pcard" data-num="01">
           <div class="pcard__top"><div class="pcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="10" width="7" height="10"></rect><rect x="14" y="5" width="7" height="15"></rect></svg></div><span class="pcard__num">01</span></div>
           <h4 class="h4">SMEs &amp; Projects</h4>
-          <p>Every real business differs, so the right financial architecture starts with economic requirements.</p>
+          <p><span class="">Each business has its own cash cycle, risks and plans. Standard financial products rarely fit that shape.</span></p>
         </div>
         <div class="pb-gap" aria-hidden="true"><span>×</span></div>
         <div class="pcard" data-num="02">
           <div class="pcard__top"><div class="pcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="10" width="16" height="10" rx="1"></rect><path d="M6 10V7l6-4 6 4v3"></path></svg></div><span class="pcard__num">02</span></div>
           <h4 class="h4">Financial Institutions</h4>
-          <p>Financial institutions work within fixed boundaries, so bridging real-economy needs requires additional architecture.</p>
+          <p>Banks and funds operate within defined mandates and risk limits. Good opportunities often fall just outside those parameters.</p>
         </div>
         <div class="pb-gap" aria-hidden="true"><span>×</span></div>
         <div class="pcard" data-num="03">
           <div class="pcard__top"><div class="pcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="9" width="16" height="11" rx="1"></rect><path d="M8 9V7a4 4 0 0 1 8 0v2"></path><circle cx="12" cy="14.5" r="1.6"></circle></svg></div><span class="pcard__num">03</span></div>
           <h4 class="h4">Productive Businesses</h4>
-          <p>Growth takes more than capital, so businesses need coordinated access to specialist capabilities.</p>
+          <p>Growth requires more than capital. It also requires structuring, technology, and the right relationships&nbsp; and these rarely arrive together.</p>
         </div>
       </div>
     </div>
@@ -960,7 +940,7 @@ button{ font-family:inherit; cursor:pointer; }
       <div class="whatis-grid">
         <div class="whatis-copy">
           <h2 class="h2">The financial architecture layer of the Better World ecosystem.</h2>
-          <div class="body-lg whatis-body"><!-- obsidian --><p>BWCI is being developed as the holding company and Financial Engine of the Better World ecosystem.<br><!-- obsidian --></p><p>Its role is to connect economic requirements with appropriate financial architecture, capital, institutions, technology and relationships — creating pathways between the needs of productive activity and the capabilities required to support it.</p></div>
+          <div class="body-lg whatis-body"><!-- obsidian --><div><div style="margin-top: 0.5em; margin-bottom: 0.5em;">BWCI is a holding company at the center of the Better World ecosystem.</div></div><p>We design the structure that sits between a real need and the people who can meet it: how a deal is shaped, who provides the capital, which institutions take part and what technology holds it together.</p></div>
         </div>
         <div class="whatis-visual">
           <div class="whatis-diagram" aria-hidden="true">
@@ -1017,17 +997,17 @@ button{ font-family:inherit; cursor:pointer; }
         <div class="df-p df-p--01">
           <span class="df-num">01</span>
           <h4 class="h4">Need-led</h4>
-          <div><!-- obsidian --><p>Start with the economic requirement, operating reality and intended outcome&nbsp;</p></div>
+          <div><!-- obsidian --><div><div style="margin-top: 0.5em; margin-bottom: 0.5em;">We start with the business's needs, how it really operates, and what it needs to achieve business value.&nbsp;</div></div></div>
         </div>
         <div class="df-core">
           <span class="df-core-n">02</span>
           <span class="diff-word">Connected</span>
-          <p>Assemble capabilities, institutions, capital , technologies, and relationships across the wider ecosystem.</p>
+          <div style="text-align: center"><div style="text-align: left; margin-top: 0.5em; margin-bottom: 0.5em;">We bring in the right partners from across the ecosystem, rather than forcing everything through one product, because that is a better fit.</div></div>
         </div>
         <div class="df-p df-p--03">
           <span class="df-num">03</span>
           <h4 class="h4">Outcome-focused</h4>
-          <p>Structure pathways around productive use,&nbsp; sustainable development and long-term economic outcomes.</p>
+          <p>We measure success by what the capital builds: productive activity, sustainable development and lasting results.</p>
         </div>
       </div>
     </div>
@@ -1054,15 +1034,15 @@ button{ font-family:inherit; cursor:pointer; }
             <path class="en-main" d="M190,90 H300 V170 M390,240 H500 V160 M590,90 H700 V170 M790,240 H900 V160"></path>
             <path class="en-flow" d="M190,90 H300 V170 M390,240 H500 V160 M590,90 H700 V170 M790,240 H900 V160"></path>
           </svg>
-          <div class="en-stage en-s1"><span class="en-badge">01</span><span class="en-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7"></circle><line x1="12" y1="5" x2="12" y2="8"></line><line x1="12" y1="16" x2="12" y2="19"></line><line x1="5" y1="12" x2="8" y2="12"></line><line x1="16" y1="12" x2="19" y2="12"></line></svg></span><span class="en-txt"><span class="en-l">Need</span><span class="en-d">Economic requirement</span></span></div>
-          <div class="en-stage en-s2"><span class="en-badge">02</span><span class="en-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="1"></rect><line x1="4" y1="10" x2="20" y2="10"></line><line x1="10" y1="4" x2="10" y2="20"></line></svg></span><span class="en-txt"><span class="en-l">Architecture</span><span class="en-d">Structuring logic</span></span></div>
-          <div class="en-stage en-s3"><span class="en-badge">03</span><span class="en-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12,4 20,9 12,14 4,9"></polygon><polyline points="4,14 12,19 20,14"></polyline></svg></span><span class="en-txt"><span class="en-l">Capability</span><span class="en-d">Deployable capacity</span></span></div>
-          <div class="en-stage en-s4"><span class="en-badge">04</span><span class="en-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12a8 8 0 0 1 14-5"></path><polyline points="18 3 18 7 14 7"></polyline><path d="M20 12a8 8 0 0 1-14 5"></path><polyline points="6 21 6 17 10 17"></polyline></svg></span><span class="en-txt"><span class="en-l">Capital</span><span class="en-d">Wholesale &amp; structured</span></span></div>
-          <div class="en-stage en-s5 en-stage--accent"><span class="en-badge">05</span><span class="en-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="4 17 10 10 14 14 20 6"></polyline><polyline points="14 6 20 6 20 12"></polyline></svg></span><span class="en-txt"><span class="en-l">Productive Use</span><span class="en-d">Real-economy outcome</span></span></div>
+          <div class="en-stage en-s1"><span class="en-badge">01</span><span class="en-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="7"></circle><line x1="12" y1="5" x2="12" y2="8"></line><line x1="12" y1="16" x2="12" y2="19"></line><line x1="5" y1="12" x2="8" y2="12"></line><line x1="16" y1="12" x2="19" y2="12"></line></svg></span><span class="en-txt"><span class="en-l">Need<br></span><span class="en-d">Economic requirement</span></span></div>
+          <div class="en-stage en-s2"><span class="en-badge">02</span><span class="en-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="1"></rect><line x1="4" y1="10" x2="20" y2="10"></line><line x1="10" y1="4" x2="10" y2="20"></line></svg></span><span class="en-txt"><span class="en-l">Architecture</span><span class="en-d"><br>Structuring logic</span></span></div>
+          <div class="en-stage en-s3"><span class="en-badge">03</span><span class="en-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12,4 20,9 12,14 4,9"></polygon><polyline points="4,14 12,19 20,14"></polyline></svg></span><span class="en-txt"><span class="en-l">Capability<br></span><span class="en-d">Deployable capacity</span></span></div>
+          <div class="en-stage en-s4"><span class="en-badge">04</span><span class="en-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12a8 8 0 0 1 14-5"></path><polyline points="18 3 18 7 14 7"></polyline><path d="M20 12a8 8 0 0 1-14 5"></path><polyline points="6 21 6 17 10 17"></polyline></svg></span><span class="en-txt"><span class="en-l">Capital</span><span class="en-d"><br>Wholesale &amp; structured</span></span></div>
+          <div class="en-stage en-s5 en-stage--accent"><span class="en-badge">05</span><span class="en-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="4 17 10 10 14 14 20 6"></polyline><polyline points="14 6 20 6 20 12"></polyline></svg></span><span class="en-txt"><span class="en-l">Productive Use<br></span><span class="en-d">Real-economy outcome</span></span></div>
           <span class="en-ret-arrow" aria-hidden="true"></span>
           <span class="en-ret-lbl" aria-hidden="true">Return &amp; reinvestment</span>
         </div>
-        <p class="engine-cond">Depending on the requirement and capabilities available, the model may involve:</p>
+        <p class="engine-cond">DEPENDING ON THE NEED AND THE CAPABILITIES AVAILABLE, A STRUCTURE MAY DRAW ON:</p>
         <div class="cap-row">
           <span class="cap-chip">Asset Management</span>
           <span class="cap-chip">Private Capital</span>
@@ -1084,7 +1064,9 @@ button{ font-family:inherit; cursor:pointer; }
   <section class="section section--dark" id="ecosystem" data-screen-label="06 The Ecosystem">
     <div class="container">
       <div class="ec-head">
-        <h2 class="h2">Capital, commerce, knowledge and technology — connected.</h2><p class="body">"Better World is a connected network, not a hierarchy — BWCI connects, coordinates and partners across distinct, independent layers."</p>
+        <h2 class="h2">Capital, commerce, knowledge and technology — connected.</h2><p class="body"><span class="">Better World is a network, not a hierarchy. Its parts 
+stay independent; BWCI connects, coordinates, and partners with them 
+across the network.</span></p>
         
       </div>
       <div class="ec-body">
@@ -1101,7 +1083,7 @@ button{ font-family:inherit; cursor:pointer; }
             </svg>
             <div class="ec-core"><span class="t">BWCI</span><span class="s">Financial Engine</span></div>
           <div class="ec-node ec-n1"><span class="ec-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12a8 8 0 0 1 14-5"></path><polyline points="18 3 18 7 14 7"></polyline><path d="M20 12a8 8 0 0 1-14 5"></path><polyline points="6 21 6 17 10 17"></polyline></svg></span><span class="ec-node__txt"><span class="ec-node__rel">Connects</span><span class="ec-node__label">Investors &amp; Capital</span></span></div>
-          <div class="ec-node ec-n2"><span class="ec-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="10" width="16" height="10" rx="1"></rect><path d="M6 10V7l6-4 6 4v3"></path></svg></span><span class="ec-node__txt"><span class="ec-node__rel">Coordinates</span><span class="ec-node__label">Financial Institutions</span></span></div>
+          <div class="ec-node ec-n2"><span class="ec-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="10" width="16" height="10" rx="1"></rect><path d="M6 10V7l6-4 6 4v3"></path></svg></span><span class="ec-node__txt"><span class="ec-node__rel">Coordinates</span><span class="ec-node__label" style="width: 96px; height: 19px">Financial Institutions</span></span></div>
           <div class="ec-node ec-n3"><span class="ec-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="9" r="3"></circle><circle cx="17" cy="9" r="3"></circle><path d="M2 20c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5"></path><path d="M12 20c0-3 2.2-5 5-5s5 2 5 5"></path></svg></span><span class="ec-node__txt"><span class="ec-node__rel">Partners</span><span class="ec-node__label">Strategic Partners</span></span></div>
           <div class="ec-node ec-n4"><span class="ec-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="10" width="7" height="10"></rect><rect x="14" y="5" width="7" height="15"></rect></svg></span><span class="ec-node__txt"><span class="ec-node__rel">Connects</span><span class="ec-node__label">SMEs &amp; Projects</span></span></div>
           </div>
@@ -1150,7 +1132,7 @@ button{ font-family:inherit; cursor:pointer; }
             <div class="cap-core"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="34" height="34" aria-hidden="true"><path d="M5 26h22"></path><rect x="7" y="17" width="4" height="7" rx="1"></rect><rect x="14" y="13" width="4" height="11" rx="1"></rect><rect x="21" y="9" width="4" height="15" rx="1"></rect><path d="M6 13l6-5 5 3 8-6"></path><path d="M21 5h4v4"></path></svg></div>
           </div>
           <h4>Asset Management</h4>
-          <div><!-- obsidian --><p>Asset management capability supporting disciplined capital deployment and long-term value creation.</p></div>
+          <div><!-- obsidian --><p><span class="">Managing capital today with a disciplined, long-term approach to where and how it is invested.</span></p></div>
         </div>
 
         <div class="cap cap--dev">
@@ -1161,7 +1143,7 @@ button{ font-family:inherit; cursor:pointer; }
             <div class="cap-core"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="34" height="34" aria-hidden="true"><rect x="4" y="12" width="17" height="11" rx="1.5"></rect><path d="M9 12v11M14.5 12v11"></path><path d="M21 16h4l3 3.5V23h-7"></path><circle cx="9" cy="25.5" r="1.8"></circle><circle cx="24" cy="25.5" r="1.8"></circle><path d="M8 8h11"></path><path d="M16 5l3 3-3 3"></path></svg></div>
           </div>
           <h4>Trade Finance</h4>
-          <div><!-- obsidian --><p>A developing capability connecting trade requirements with&nbsp; financial structures and institutional relationships.</p></div>
+          <div><!-- obsidian --><p><span class="">Built to match trade needs with the right financial structures and institutional partners.</span></p></div>
         </div>
 
         <div class="cap cap--future">
@@ -1172,7 +1154,7 @@ button{ font-family:inherit; cursor:pointer; }
             <div class="cap-core"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="34" height="34" aria-hidden="true"><path d="M16 4.5v11.5h11.5A11.5 11.5 0 1 1 16 4.5z"></path><path d="M19.5 3.5a9 9 0 0 1 9 9h-9z"></path></svg></div>
           </div>
           <h4>Private Capital</h4>
-          <p>A developing pathway connecting private-market capital with opportunities across the wider ecosystem</p>
+          <p>Planned to connect<br>&nbsp;private-market capital with opportunities across the wider ecosystem.</p>
         </div>
 
         <div class="cap cap--future">
@@ -1183,15 +1165,11 @@ button{ font-family:inherit; cursor:pointer; }
             <div class="cap-core"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="34" height="34" aria-hidden="true"><ellipse cx="13" cy="8" rx="7" ry="2.8"></ellipse><path d="M6 8v5c0 1.5 3.1 2.8 7 2.8s7-1.3 7-2.8V8"></path><path d="M6 13v5c0 1.5 3.1 2.8 7 2.8"></path><path d="M6 18v5c0 1.5 3.1 2.8 7 2.8"></path><path d="M24 17c2.2 2.7 3.5 4.6 3.5 6.2a3.5 3.5 0 0 1-7 0c0-1.6 1.3-3.5 3.5-6.2z"></path></svg></div>
           </div>
           <h4>Treasury &amp; Liquidity</h4>
-          <p>A future capability focused on liquidity coordination, treasury and more resilient financial structures.</p>
+          <p>Planned to coordinate liquidity and treasury, making financial structures more resilient.</p>
         </div>
       </div>
 
-      <div class="caps-legend" style="justify-content: center">
-        <span class="caps-legend-item"><span class="dot" style="background:var(--accent-emerald)"></span>Operating now</span>
-        <span class="caps-legend-item"><span class="dot" style="background:var(--accent-gold-dark)"></span>In development</span>
-        <span class="caps-legend-item"><span class="dot" style="background:var(--accent-blue)"></span>Future capability</span>
-      </div>
+      
       
       
     </div>
@@ -1216,7 +1194,7 @@ button{ font-family:inherit; cursor:pointer; }
           <span class="fd-num">01</span>
           
           <h4 style="padding-top: 10px">SMEs &amp; Projects</h4>
-          <p class="body">Looking for an appropriate financial structure, capital pathway, institutional relationship or capability?</p>
+          <p class="body"><span class="">Need finance that fits how your business works? Or partners who can help your business grow?</span></p>
           <a class="text-link go" href="#">Explore
             <svg class="icon icon--sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
           </a>
@@ -1231,7 +1209,7 @@ button{ font-family:inherit; cursor:pointer; }
           <span class="fd-num">02</span>
           
           <h4 style="padding-top: 10px">Investors &amp; Partners</h4>
-          <p class="body">Looking to participate through capital, institutions, technology or strategic capability?</p>
+          <p class="body"><span class="">Want to take part by bringing capital, institutional capacity, technology, or strategic capability?</span></p>
           <a class="text-link go" href="#">Explore
             <svg class="icon icon--sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
           </a>
@@ -1332,7 +1310,7 @@ button{ font-family:inherit; cursor:pointer; }
     <div class="cta-pattern" aria-hidden="true"></div>
     <div class="container--wide">
       <h2 class="h2" style="color:#fff; margin-bottom:14px">Start the right conversation</h2>
-      <div class="body-lg" style="color:var(--text-inverse-muted); margin-bottom:44px"><!-- obsidian --><p>Different needs require different pathways— share your goal and we’ll identify the right route.</p></div>
+      <div class="body-lg" style="color:var(--text-inverse-muted); margin-bottom:44px"><!-- obsidian --><p>Tell us what you’re trying to achieve, and we’ll point you to the right route and the right people.</p></div>
 
       <div class="cta-actions">
         <a class="btn btn--inverse" href="#">SME / Project</a>
