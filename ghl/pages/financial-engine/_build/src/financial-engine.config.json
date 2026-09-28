@@ -1,0 +1,24 @@
+{
+  "financialEngineImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/financial-engine-hero.webp",
+  "showHeader": true,
+  "showFooter": true,
+  "links": {
+    "home": "/",
+    "ecosystem": "/ecosystem",
+    "platforms": "/platforms",
+    "smes": "/smes-projects",
+    "investors": "/investors-partners",
+    "about": "/#bwci-what",
+    "whatsDifferent": "/#bwci-different",
+    "capabilities": "/#bwci-platforms",
+    "explorePlatforms": "/#bwci-platforms",
+    "governance": "/#bwci-trust",
+    "corporate": "/#bwci-trust",
+    "legal": "/#bwci-trust",
+    "regulatory": "/#bwci-trust",
+    "insights": "#",
+    "contact": "/#bwci-cta",
+    "startConversation": "/#bwci-cta",
+    "verify": "/#bwci-cta"
+  }
+}

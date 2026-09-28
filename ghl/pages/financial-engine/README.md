@@ -26,34 +26,62 @@ ghl/pages/financial-engine/
 ## Installation in GoHighLevel
 
 1. Upload `assets/financial-engine-hero.webp` to **Media Storage** and copy its URL.
-2. Open `financial-engine.ghl.html` and, at the top of the `<script>`, paste that URL:
-   ```js
-   var ASSETS = { financialEngineImage: 'https://…/financial-engine-hero.webp' };
-   ```
-3. Set the page links in `ROUTES` (same place) to your GHL page paths.
-4. In the GHL page, add a section → set it to **full width**, remove its padding/margins, add one
+2. Open `financial-engine.ghl.html`. The **first block** is the configuration (same pattern as the
+   Main page's `bwci-main-config`). Paste the image URL into `"financialEngineImage"` and set the
+   `"links"` to your GHL page paths.
+3. In the GHL page, add a section → set it to **full width**, remove its padding/margins, add one
    row/column with no padding, and drop a **Custom Code** element in it.
-5. Paste the **entire** file (the `<style>`, the `<div id="bwci-financial-engine">` and the `<script>`).
-6. Save and preview the **published** page (GHL does not run custom-code scripts in the editor canvas).
+4. Paste the **entire** file (config block, `<style>`, `<div id="bwci-financial-engine">`, `<script>`).
+5. Save and preview the **published** page (GHL does not run custom-code scripts in the editor canvas).
 
-`financial-engine.inline.ghl.html` works the same way without step 1–2 (the image is embedded as a
-data URI), but it is ~480 KB; use it for testing or as a fallback.
+`financial-engine.inline.ghl.html` works the same way without step 1 (the image is embedded as a
+data URI in the config), but it is ~480 KB; use it for testing or as a fallback.
 
-## Configuration (top of the `<script>`)
+## Configuration — the JSON block at the top of the paste
 
-| Setting | Default | Purpose |
+```html
+<script type="application/json" id="bwci-financial-engine-config">
+{
+  "financialEngineImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/financial-engine-hero.webp",
+  "showHeader": true,
+  "showFooter": true,
+  "links": { "home": "/", "ecosystem": "/ecosystem", … }
+}
+</script>
+```
+
+It is plain JSON: keep the double quotes, and no comma after the last entry. If it is ever
+malformed, the page still works with the default links written in the markup.
+
+| Key | Default | Used by |
 |---|---|---|
-| `ASSETS.financialEngineImage` | `REPLACE_WITH_HOSTED_IMAGE_URL` | The only asset URL. Until replaced, no image request is made. |
-| `ROUTES.home / ecosystem / platforms / smes / investors` | `/`, `/ecosystem`, `/platforms`, `/smes-projects`, `/investors-partners` | Replace the source's `Main.dc.html`, `Ecosystem.dc.html`, … links. Anchors (`#trust`, `#cta`, `#platforms`, …) are appended as in the source. |
-| `ROUTES.contact` | `/#cta` | "Start a Conversation", "Contact", "Discuss your need"-style targets (source: `Main.dc.html#cta`). |
-| `OPTIONS.opsLockOffset` | `64` | Viewport offset at which the Operating Model locks (source value). |
-| `OPTIONS.opsDesktopMin` / `headerDesktopMin` | `1024` / `1200` | Source breakpoints for the orbit/lock and the header burger. |
-| `OPTIONS.opsWheelThreshold`, `opsTransitionMs`, `opsReleaseNudge`, `opsRearmMs` | `80`, `550`, `140`, `450` | Source lock tuning. |
+| `financialEngineImage` | placeholder (no request is made until replaced) | Hero globe |
+| `showHeader` / `showFooter` | `true` | `false` removes the built-in header / footer (e.g. when GHL global sections are used) |
+| `links.home` | `/` | Header + drawer logo |
+| `links.ecosystem` | `/ecosystem` | "Ecosystem Topology" (dropdown, drawer) |
+| `links.platforms` | `/platforms` | "Platforms & Institutions" (header, drawer) |
+| `links.smes` | `/smes-projects` | "SMEs & Projects" (header, drawer, footer) |
+| `links.investors` | `/investors-partners` | "Investors & Partners" (header, drawer, footer) |
+| `links.about` | `/#bwci-what` | Footer "About" |
+| `links.whatsDifferent` | `/#bwci-different` | Footer "What's Different" |
+| `links.capabilities` | `/#bwci-platforms` | Footer "Capabilities" |
+| `links.explorePlatforms` | `/#bwci-platforms` | Capabilities section "Explore Platforms" |
+| `links.governance` | `/#bwci-trust` | "Governance" (top bar, drawer, footer) |
+| `links.corporate` | `/#bwci-trust` | "Corporate/IR" (top bar, drawer) |
+| `links.legal` | `/#bwci-trust` | Footer "Legal & Documents" |
+| `links.regulatory` | `/#bwci-trust` | Footer "Regulatory Boundaries" |
+| `links.insights` | `#` | Footer "Insights" (the Main page has no Insights section yet) |
+| `links.contact` | `/#bwci-cta` | "Contact" (top bar, drawer) |
+| `links.startConversation` | `/#bwci-cta` | "Start a Conversation" (drawer button, final CTA, footer) |
+| `links.verify` | `/#bwci-cta` | Footer "Verify a Communication" |
 
-Root attributes on `<div id="bwci-financial-engine">`:
+The `/#bwci-…` defaults point at the section ids of the Main page GHL port. Links to places on this
+page (`#fe-hero`, `#fe-ops-model`, `#fe-cta`) are not configurable because they never change.
+The build fails if a `data-fe-link` key in the markup is missing from the config (or vice versa).
 
-- `data-show-header="false"` hides the built-in site header (use when a GHL global header is used).
-- `data-show-footer="false"` hides the built-in footer.
+Behaviour tuning (developers only) stays in the `OPTIONS` object inside the `<script>`:
+`opsLockOffset` 64, `opsDesktopMin` 1024, `headerDesktopMin` 1200, `opsWheelThreshold` 80,
+`opsTransitionMs` 550, `opsReleaseNudge` 140, `opsRearmMs` 450 (all source values).
 
 In-page anchor ids are prefixed to avoid collisions with GHL element ids:
 `#fe-hero`, `#fe-principle`, `#fe-ops-model`, `#fe-capabilities`, `#fe-structure`, `#fe-cta`.
@@ -135,4 +163,4 @@ node ghl/pages/financial-engine/_build/make-previews.js  # writes _build/preview
   scroll capture); it returns immediately unless the section is locked.
 - `SiteHeader` and the footer are shared by every Claude Design page. They are included here so the
   page is complete; when more pages are ported, consider moving them to a shared GHL global section
-  and setting `data-show-header="false"` / `data-show-footer="false"`.
+  and setting `"showHeader": false` / `"showFooter": false`.
