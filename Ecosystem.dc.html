@@ -793,6 +793,50 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
   .hero-img img, .hero-fe-visual img{ position:absolute !important; inset:0 !important; top:0 !important; left:0 !important; right:auto !important; bottom:auto !important; width:100% !important; height:100% !important; object-fit:cover !important; object-position:65% 55% !important; opacity:.32 !important; }
   .hero-img::after, .hero-fe-visual::after{ background:linear-gradient(180deg, rgba(8,14,16,.55) 0%, rgba(8,14,16,.35) 45%, rgba(8,14,16,.5) 100%) !important; }
 }
+
+/* TABLET HERO (768–1023) — no reserved empty space; visual sits right, faded behind copy */
+@media (min-width:768px) and (max-width:1023px){
+  .hero, .hero-fe{ min-height:0 !important; height:auto !important; }
+  .hero-inner, .hero-fe-inner{ padding:72px 32px 88px !important; min-height:0 !important; }
+  .hero-actions{ margin-bottom:0 !important; }
+  .hero-copy, .hero-fe-copy{ position:relative; z-index:2; }
+  .hero-img, .hero-fe-visual, .hero-net{ top:50% !important; bottom:auto !important; left:auto !important; right:-24% !important; width:min(72vw,640px) !important; max-width:none !important; transform:translateY(-50%) !important; opacity:.4 !important; z-index:0 !important; -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 45%) !important; mask-image:linear-gradient(90deg, transparent 0%, #000 45%) !important; }
+}
+
+/* MOBILE TYPE SCALE — shared across all pages */
+@media (max-width:767px){
+  .h1, .h2, .pr-title{ font-size:clamp(26px,7.2vw,30px) !important; line-height:1.2 !important; letter-spacing:-.02em !important; }
+  .h3, .pr-reading-title, .ops-panel__title{ font-size:20px !important; line-height:1.3 !important; letter-spacing:-.015em !important; }
+  .pr-chapter-title{ font-size:18px !important; line-height:1.3 !important; }
+  .body-lg, .pr-masthead-copy{ font-size:16px !important; line-height:1.6 !important; }
+  .body, .pr-reading-copy, .ops-panel__text{ font-size:15px !important; line-height:1.6 !important; }
+  .body-sm, .pr-proof p{ font-size:14px !important; line-height:1.55 !important; }
+  .eyebrow, .pr-eyebrow, .pr-reading-label, .ops-panel__label, .ops-panel__code, .pr-chapter-num{ font-size:11px !important; }
+  .pr-reading-title{ margin:12px 0 16px !important; }
+  .ops-panel__title{ margin-bottom:16px !important; }
+}
+
+/* MOBILE READABILITY FLOOR — auto-raised small text */
+@media (max-width:767px){
+  .eyebrow, .mono, .text-link, .st, .hero-btn, .hero-tick, .hero-meta span, .dim-spine span, .dim-code, .dim-item__code, .bp-lens span, .bp-stage__tag, .bp-panel__code, .bp-key b, .bp-jump, .bp-li b, .ly-stack__head, .ly-plate__n, .ly-d__code, .ly-f__l, .cm-item__n, .cm-diagram__cap, .cm-ent__l, .cm-ent__t, .cm-band__l, .cm-legend span, .pt-core b, .pt-core span, .pt-node__c, .pt-panel__c, .pt-rel, .pt-f__l, .fl-tab__c, .fl-stage__foot, .fl-step, .cp-hd__n, .cp-dim, .cp-cell__m, .cp-legend span, .gv-tag, .gv-gate span, .gv-exit span, .gv-p__n, .gv-reg__h, .gv-st__stage, .gv-progress, .en-route__c, .en-route__go, .en-mail, .footer__col h5, .footer__bar, .lp-cap__eb, .lp-prog__hint, .lp-return, .lp-foot__m, .lp-card__who, .fx-card__code, .fx-card__m span, .om-card__k, .om-out span, .om-env__l, .om-env__n, .om-env__note{ font-size:12px !important; }
+  .btn--sm, .hn-label, .hn-coord, .dim-q, .dim-item__t, .dim-item__s, .bp-lens strong, .bp-node .code, .bp-node .name, .bp-node .tag, .bp-key span, .bp-li strong, .bp-li em, .ly-plate__t, .ly-ent__n, .ly-note, .cm-item__p, .pt-node__t, .pt-f__t, .fl-lh, .fl-lh2, .cp-cell, .gv-fence .gv-tag, .gv-fence__t, .gv-strat, .gv-st__ex, .footer__col a, .sc-interp, .lp-lens button, .lp-play__i, .lp-node__lbl > span:last-child, .lp-plat, .lp-foot, .lp-ring__h, .pr-eyebrow, .pr-reading-label, .ops-panel__label, .ops-panel__code, .pr-chapter-num{ font-size:14px !important; }
+  .btn, .bp-panel__text, .ly-f__t, .ly-bul li, .fl-tab__t, .fl-text, .en-route__p, .en-conv p, .lp-play, .fx-card__m p, .om-list li, .om-env__c p, .pr-proof p{ font-size:15px !important; }
+}
+
+/* MOBILE OVERFLOW FIXES */
+@media (max-width:767px){
+  .text-link, .rx-go{ white-space:normal !important; }
+  .rx-foot{ flex-wrap:wrap; gap:8px; }
+}
+
+/* MOBILE COMPACT BADGES — keep status tags/pills small after readability floor */
+@media (max-width:767px){
+  [class*="-tag"]:not([class*="-tags"]), [class*="status-tag"], [class*="badge"], .sp-tag{ font-size:10px !important; letter-spacing:.06em !important; padding:3px 7px !important; line-height:1.3 !important; }
+  .ops-routing__label-mono{ font-size:10.5px !important; letter-spacing:.08em !important; }
+  .ops-routing__label{ font-size:14px !important; }
+  .ops-routing__row{ padding:10px 12px !important; gap:10px !important; }
+  .sp-chip{ font-size:14px !important; }
+}
 </style>
 </helmet>
 

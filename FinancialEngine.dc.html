@@ -1178,6 +1178,69 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
   .hero-img img, .hero-fe-visual img{ position:absolute !important; inset:0 !important; top:0 !important; left:0 !important; right:auto !important; bottom:auto !important; width:100% !important; height:100% !important; object-fit:cover !important; object-position:65% 55% !important; opacity:.32 !important; }
   .hero-img::after, .hero-fe-visual::after{ background:linear-gradient(180deg, rgba(8,14,16,.55) 0%, rgba(8,14,16,.35) 45%, rgba(8,14,16,.5) 100%) !important; }
 }
+
+/* DESKTOP HERO — same height/spacing as other pages */
+@media (min-width:1024px){
+  .hero-fe{ min-height:560px; display:flex; align-items:center; }
+  .hero-fe-inner{ width:100%; padding:clamp(64px,7vw,96px) 50px !important; }
+}
+
+/* TABLET HERO (768–1023) — no reserved empty space; visual sits right, faded behind copy */
+@media (min-width:768px) and (max-width:1023px){
+  .hero, .hero-fe{ min-height:0 !important; height:auto !important; }
+  .hero-inner, .hero-fe-inner{ padding:72px 32px 88px !important; min-height:0 !important; }
+  .hero-actions{ margin-bottom:0 !important; }
+  .hero-copy, .hero-fe-copy{ position:relative; z-index:2; }
+  .hero-img, .hero-fe-visual, .hero-net{ top:50% !important; bottom:auto !important; left:auto !important; right:-24% !important; width:min(72vw,640px) !important; max-width:none !important; transform:translateY(-50%) !important; opacity:.4 !important; z-index:0 !important; -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 45%) !important; mask-image:linear-gradient(90deg, transparent 0%, #000 45%) !important; }
+}
+
+/* MOBILE TYPE SCALE — shared across all pages */
+@media (max-width:767px){
+  .h1, .h2, .pr-title{ font-size:clamp(26px,7.2vw,30px) !important; line-height:1.2 !important; letter-spacing:-.02em !important; }
+  .h3, .pr-reading-title, .ops-panel__title{ font-size:20px !important; line-height:1.3 !important; letter-spacing:-.015em !important; }
+  .pr-chapter-title{ font-size:18px !important; line-height:1.3 !important; }
+  .body-lg, .pr-masthead-copy{ font-size:16px !important; line-height:1.6 !important; }
+  .body, .pr-reading-copy, .ops-panel__text{ font-size:15px !important; line-height:1.6 !important; }
+  .body-sm, .pr-proof p{ font-size:14px !important; line-height:1.55 !important; }
+  .eyebrow, .pr-eyebrow, .pr-reading-label, .ops-panel__label, .ops-panel__code, .pr-chapter-num{ font-size:11px !important; }
+  .pr-reading-title{ margin:12px 0 16px !important; }
+  .ops-panel__title{ margin-bottom:16px !important; }
+}
+
+/* MOBILE READABILITY FLOOR — auto-raised small text */
+@media (max-width:767px){
+  .eyebrow, .text-link, .hero-fe-pipeline__step, .problem-network__chevron, .problem-network__gap-label, .problem-fe-label, .problem-tab, .problem-panel__label, .problem-panel__flow span:not(.arrow), .problem-panel__flow .arrow, .ops-stage-marker, .ops-stage-label, .ops-loop-note, .ops-panel__code, .ops-panel__label, .ops-routing__label-mono, .ops-status-tag, .ex04-case-tag__label, .ex04-case-meta, .ex04-node__marker, .ex04-node__label, .ex04-rail-note, .ex04-outcome-label, .ex04-outcome__step, .ex04-disclaimer__mark, .caps-hub__sub, .caps-illustrative-label, .cap-item__label, .caps-partner__label, .status-axis__label, .gov-layer, .gov-boundary__label, .pr-eyebrow, .pr-reading-label, .pr-small-link, .pr-source-note, .pr-chapter-num, .pr-proof-mark, .sp-level, .sp-tag, .sp-badge, .sp-legend-item, .sp-principle__title, .footer__col h5, .footer__bar, .ops-rail-count, .ops-rail-dot, .hero-btn{ font-size:12px !important; }
+  .btn--sm, .ops-stage-node--active .ops-stage-marker, .ops-stage-node--active .ops-stage-label, .ops-routing__label, .ex04-case-tag__value, .ex04-node__text, .ex04-disclaimer__text, .cap-item__detail-text, .pr-chapter-sub, .pr-proof p, .sp-core-roles span, .sp-chip, .footer__col a, .sc-interp{ font-size:14px !important; }
+  .btn, .problem-panel__text, .ops-panel__text, .sp-list{ font-size:15px !important; }
+}
+
+/* MOBILE CAPABILITIES LIST — aligned rows, calm active state */
+@media (max-width:767px){
+  .caps-row{ border-bottom:1px solid var(--border-subtle); }
+  .caps-arch .cap-item, .cap-item{ align-items:center; gap:0 12px; padding:16px 14px !important; margin:0 !important; border-radius:0; transform:none !important; box-shadow:none !important; background:transparent; border-top:1px solid var(--border-subtle); }
+  .cap-item:hover{ transform:none !important; box-shadow:none !important; background:transparent; }
+  .caps-arch .cap-item--active{ background:var(--surface-canvas) !important; border-radius:var(--radius-sm); box-shadow:var(--shadow-elevated) !important; border-top-color:transparent; }
+  .caps-arch .cap-item--active + .cap-item{ border-top-color:transparent; }
+  .cap-item__dot, .caps-arch .cap-item--active .cap-item__dot{ width:8px !important; height:8px !important; }
+  .caps-arch .cap-item--active .cap-item__dot{ box-shadow:0 0 0 3px rgba(185,143,45,.2); }
+  .cap-item__label{ font-size:13px !important; letter-spacing:.06em; line-height:1.4; flex:1 1 0; min-width:0; }
+  .cap-item__detail-text{ padding:8px 0 2px 20px !important; font-size:15px !important; line-height:1.55 !important; }
+}
+
+/* MOBILE OVERFLOW FIXES */
+@media (max-width:767px){
+  .text-link, .rx-go{ white-space:normal !important; }
+  .rx-foot{ flex-wrap:wrap; gap:8px; }
+}
+
+/* MOBILE COMPACT BADGES — keep status tags/pills small after readability floor */
+@media (max-width:767px){
+  [class*="-tag"]:not([class*="-tags"]), [class*="status-tag"], [class*="badge"], .sp-tag{ font-size:10px !important; letter-spacing:.06em !important; padding:3px 7px !important; line-height:1.3 !important; }
+  .ops-routing__label-mono{ font-size:10.5px !important; letter-spacing:.08em !important; }
+  .ops-routing__label{ font-size:14px !important; }
+  .ops-routing__row{ padding:10px 12px !important; gap:10px !important; }
+  .sp-chip{ font-size:14px !important; }
+}
 </style>
 </helmet>
 
@@ -1202,12 +1265,12 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
     <div class="hero-fe-inner">
       <div class="hero-fe-copy" style="max-width: 800px">
         
-        <h1 class="h-display" style="color: var(--text-inverse)">How economic need becomes financial architecture.</h1>
-        <p class="body-lg" style="max-width: 700px">We don’t start from a product. We start from what a business or project needs, then design the structure that connects it with capital, partners and the capability to deliver.</p>
+        <h1 class="h-display" style="color: var(--text-inverse)">Financial structures built around business and project needs.</h1>
+        <p class="body-lg" style="max-width: 700px">Start with what your business or project needs. BWCI’s Financial Engine is being developed to connect that need with a suitable financial structure, capital sources and delivery partners.</p>
 
         <div class="hero-actions">
-          <a class="hero-btn hero-btn--solid" href="#ops-model">See the Operating Model <span aria-hidden="true">↓</span></a>
-          <a class="hero-btn hero-btn--ghost" href="#fe-cta">Start a Conversation <span aria-hidden="true">→</span></a>
+          <a class="hero-btn hero-btn--solid" href="#ops-model">SEE HOW IT WORKS<span aria-hidden="true">↓</span></a>
+          <a class="hero-btn hero-btn--ghost" href="#fe-cta">DISCUSS YOUR NEED<span aria-hidden="true">→</span></a>
         </div>
       </div>
 
@@ -1269,7 +1332,7 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
       </div>
 
       <footer class="pr-foot">
-        <p class="pr-source-note">BWCI acts as a holding-company architect. Delivery occurs through appropriately authorised operating entities or independent partners, where relevant.</p>
+        <p class="pr-source-note"><span class="">BWCI’s intended role is to design and coordinate structures at holding-company level. Regulated activity would be carried out by appropriately authorised operating entities or independent partners.</span></p>
         
       </footer>
     </div>
@@ -1280,12 +1343,13 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
        02 -- THE OPERATING MODEL  (scroll-driven Financial Engine sequence)
        ============================================================ -->
   <section class="ops-model" id="ops-model">
-    <div class="ops-viewport" id="ops-viewport">
+    
+  <div class="ops-viewport" id="ops-viewport">
 
       <div class="ops-head">
           
-          <h2 class="h1" style="text-align: left">The Operating Model</h2>
-        <p class="body-lg" style="max-width: 653px">One sequence. Starting from the requirement, not the product.</p>
+          <h2 class="h1" style="text-align: left">How the model works</h2>
+        <p class="body-lg" style="max-width: 653px">Seven stages connect the initial need with delivery, monitoring and potential expansion.</p>
       </div>
 
       <ul class="ops-sr-only">
@@ -1295,6 +1359,8 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
       </ul>
 
       <div class="ops-body">
+        
+
         <div class="ops-orbit-col">
           
 
@@ -1324,9 +1390,7 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
               </sc-for>
             </div>
           </div>
-        </div>
-
-        <div class="ops-panels">
+        </div><div class="ops-panels">
           <sc-for list="{{opsStages}}" as="stage" hint-placeholder-count="7">
             <div class="{{stage.panelClass}}">
               <span class="ops-panel__code">{{stage.code}}</span>
@@ -1352,7 +1416,7 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
               </div>
 
               <div class="ops-panel__field">
-                <span class="ops-panel__label">Who / What Enables It</span>
+                <span class="ops-panel__label">WHO</span>
                 <p class="ops-panel__text">{{stage.who}}</p>
               </div>
 
@@ -1370,8 +1434,7 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
         </div>
       </div>
 
-    </div>
-  </section>
+    </div></section>
 
   <!-- ============================================================
        04 — ILLUSTRATIVE EXAMPLE  (case architecture canvas)
@@ -1391,8 +1454,8 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
   <div class="container">
       <div class="caps-head">
         
-        <h2 class="h1" style="max-width: 735px">Capabilities Across the Architecture</h2>
-        <p class="body-lg">Different capabilities may be brought together depending on the requirement.</p>
+        <h2 class="h1" style="max-width: 735px">The capabilities we can bring together</h2>
+        <p class="body-lg">Which ones we use depends on the requirement.</p>
       </div>
 
       <div class="caps-system">
@@ -1431,7 +1494,7 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
         </div>
 
         <div class="caps-footer">
-          <p class="body-sm caps-footer__note">Capabilities may be provided through BWCI entities, group companies or external partners.</p>
+          <p class="body-sm caps-footer__note">Capabilities may come from BWCI entities, group companies, or external partners.</p>
           <a class="text-link" href="Main.dc.html#platforms">Explore Platforms
             <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
           </a>
@@ -1455,7 +1518,7 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
   <section class="section sp-arch" id="structure">
     <div class="container">
       <div class="sp-head" style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px">
-        <h2 class="h1" style="max-width: 900px">Structural Position &amp; Operating Boundaries</h2><p class="body-lg" style="max-width: 900px">How holding architecture connects institutional capital to productive enterprise without demanding corporate consolidation.</p>
+        <h2 class="h1" style="max-width: 900px">Our structure and its boundaries</h2><p class="body-lg" style="max-width: 900px">How the holding company connects institutional capital with productive businesses, without taking control of the partners involved.</p>
         
       </div>
 
@@ -1463,8 +1526,8 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
         <div class="sp-box sp-box--pools">
           <span class="sp-level">Institutional Capital Pools</span>
           <ul class="sp-list">
-            <li>Pensions</li>
-            <li>SWFs</li>
+            <li>Pension funds</li>
+            <li>Sovereign wealth funds</li>
             <li>Family Offices</li>
           </ul>
         </div>
@@ -1473,13 +1536,13 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
 
         <div class="sp-box sp-box--core">
           <span class="sp-badge">1</span>
-          <span class="sp-level">Level 1: System Architect</span>
+          <span class="sp-level">Level 1: Architect</span>
           <h3 class="sp-name">Better World Capital Investments PLC</h3>
           <div class="sp-core-roles">
-            <span>Holding Company Anchor</span>
-            <span>System Architecture</span>
-            <span>Group Capital Allocation</span>
-            <span>Governance Standards</span>
+            <span>Holding company</span>
+            <span>Structure design</span>
+            <span>Group capital allocation</span>
+            <span>Governance standards</span>
           </div>
         </div>
 
@@ -1488,10 +1551,10 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
 
         <div class="sp-box sp-box--own">
           <span class="sp-badge">2</span>
-          <span class="sp-level">Level 2A: Proprietary Delivery</span>
-          <h3 class="sp-name">Delivery Platforms &amp; Group Builds</h3>
+          <span class="sp-level">Level 2A: Group Delivery</span>
+          <h3 class="sp-name">Group Platforms &amp; New Builds</h3>
           <div class="sp-chips">
-            <span class="sp-chip">Providence Asset Management Ltd*</span>
+            <span class="sp-chip">Providence Asset Management Ltd</span>
             <span class="sp-chip">Private Capital Platform <span class="sp-tag sp-tag--dev">In Dev</span></span>
             <span class="sp-chip">Financial Infrastructure &amp; Tech <span class="sp-tag sp-tag--pro">Enabling</span></span>
             <span class="sp-chip">Trade Finance Platform <span class="sp-tag sp-tag--dev">In Dev</span></span>
@@ -1501,13 +1564,13 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
 
         <div class="sp-box sp-box--partner">
           <span class="sp-badge" style="background:var(--rel-partner-mark)">3</span>
-          <span class="sp-level">Level 2B: Partner Rails</span>
+          <span class="sp-level">Level 2B: Partner Delivery</span>
           <h3 class="sp-name">Strategic Partner Capabilities</h3>
           <div class="sp-chips">
-            <span class="sp-chip">Independent Partner Governance</span>
-            <span class="sp-chip">External Partner Balance Sheets</span>
-            <span class="sp-chip">Regulated Specialized Execution</span>
-            <span class="sp-chip">Shared Clearing &amp; Distribution Rails</span>
+            <span class="sp-chip">Independently governed</span>
+            <span class="sp-chip">Their own balance sheets</span>
+            <span class="sp-chip">Specialist-regulated delivery</span>
+            <span class="sp-chip">Shared Clearing &amp; Distribution</span>
           </div>
         </div>
 
@@ -1515,11 +1578,11 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
         <span class="sp-link sp-link--e sp-link--partner sp-link--end" aria-hidden="true"></span>
 
         <div class="sp-box sp-box--impact">
-          <span class="sp-level">Level 3: Real-Economy Impact</span>
+          <span class="sp-level">Level 3: Real-Economy outcome</span>
           <h3 class="sp-name">Productive Economic Activity</h3>
           <ul class="sp-list">
-            <li>Mid-Market SMEs</li>
-            <li>Trade Logistics</li>
+            <li>SMEs &amp; Mid-market Firms</li>
+            <li>Trade &amp; Logistics</li>
             <li>Sustainable Infrastructure</li>
             <li>Regional Enterprises</li>
           </ul>
@@ -1536,21 +1599,21 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
           <span class="sp-badge">1</span>
           <div>
             <p class="sp-principle__title">Architecture</p>
-            <p class="body-sm" style="color:var(--text-secondary)">BWCI designs the appropriate financial structure, capital terms, and delivery rails at the holding level.</p>
+            <p class="body-sm" style="color:var(--text-secondary)">BWCI designs the financial structure, capital terms, and delivery route at holding-company level.</p>
           </div>
         </div>
         <div class="sp-principle">
           <span class="sp-badge">2</span>
           <div>
             <p class="sp-principle__title">Delivery</p>
-            <p class="body-sm" style="color:var(--text-secondary)">Regulated execution occurs strictly through authorized operating entities and licensed partner perimeters.</p>
+            <p class="body-sm" style="color:var(--text-secondary)">Regulated activity is carried out only by authorized operating entities and licensed partners.</p>
           </div>
         </div>
         <div class="sp-principle">
           <span class="sp-badge" style="background:var(--rel-partner-mark)">3</span>
           <div>
             <p class="sp-principle__title">Independence</p>
-            <p class="body-sm" style="color:var(--text-secondary)">Participation in the ecosystem does not require corporate consolidation or equity surrender. Partners remain autonomous.</p>
+            <p class="body-sm" style="color:var(--text-secondary)">Partners don't need to merge with BWCI or give up equity to take part. They stay independent.</p>
           </div>
         </div>
       </div>
@@ -1561,7 +1624,7 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
     <div class="fe-cta-pattern" aria-hidden="true"></div>
     <div class="container fe-cta-inner">
       <h2 class="h1" style="color:#fff; margin-bottom:14px">Have a requirement to explore?</h2>
-      <p class="body-lg" style="color:var(--text-inverse-muted); max-width:520px; margin:0 auto 36px">Whether you represent a business, project, institution or capital provider, start with the requirement.</p>
+      <p class="body-lg" style="color:var(--text-inverse-muted); max-width:520px; margin:0 auto 36px">Whether you run a business or project, or represent an institution or capital provider, start by telling us what you need.</p>
       <a class="btn btn--inverse" href="Main.dc.html#cta">Start a Conversation</a>
     </div>
   </section>
@@ -1876,12 +1939,12 @@ class Component extends DCLogic {
     // Tokenisation have no such copy elsewhere on the site, so a short
     // line matching that tone was written for them.
     const CAP_DATA = [
-      { label: 'Private Capital', text: 'Access to differentiated opportunities across private markets.' },
-      { label: 'Trade Finance', text: 'Connecting global trade with flexible, sustainable capital solutions.' },
-      { label: 'Asset Management', text: 'Active strategies, responsible capital and long-term value creation.' },
+      { label: 'Private Capital', text: 'Planned to connect\nprivate-market capital with opportunities across the wider ecosystem\n\n' },
+      { label: 'Trade Finance', text: 'Being built to match\ntrade needs with the right financial structures and institutional partners.' },
+      { label: 'Asset Management', text: 'Managing capital\ntoday with a disciplined, long-term approach to where and how it is invested.' },
       { label: 'Community Banking', text: 'Deposit and lending access connected to local economic activity.' },
-      { label: 'Treasury & Liquidity', text: 'Smarter liquidity, greater efficiency and more resilient balance sheets.' },
-      { label: 'FinTech & Tokenisation', text: 'Digital infrastructure and tokenised rails for modern capital markets.' }
+      { label: 'Treasury & Liquidity', text: 'Planned to coordinate liquidity and treasury, making\nfinancial structures more resilient.' },
+      { label: 'FinTech & Tokenisation', text: 'Digital infrastructure, including tokenised assets, for\nmodern capital markets.' }
     ];
     const activeCapIdx = (this.state.activeCap >= 0 && this.state.activeCap < CAP_DATA.length) ? this.state.activeCap : 1;
     const capItems = CAP_DATA.map((c, i) => {
@@ -1897,39 +1960,39 @@ class Component extends DCLogic {
 
     const OPS_STAGES = [
       { code: 'STAGE 01 \u00b7 DIAGNOSTIC', title: 'Identify Need',
-        what: 'A rigorous diagnostic assessment of the enterprise or project requirement. We analyze the underlying commercial reality, trade cycle, asset lifecycle, working capital cadence, and the structural constraints of standard bank offerings that created the funding gap.',
-        who: 'Financial Engineering & Structuring, supported by real-economy market intelligence and industry operating telemetry.',
-        where: 'Holding-level strategic diagnostic and feasibility assessment. Regulated client onboarding and statutory checks remain within authorized operating perimeters.' },
-      { code: 'STAGE 02 \u00b7 STRUCTURING', title: 'Engineer Solution',
-        what: 'Bespoke structuring of the financial instrument: determining debt/equity tenor, risk-tranche slicing (senior, mezzanine, junior), collateral covenants, cashflow water-falling, and asset ring-fencing to ensure fiduciary safety.',
-        who: 'Capital Architecture and Institutional Governance & Ring-Fencing, supported by legal and regulatory engineering.',
-        where: 'Holding structuring office in coordination with institutional risk committees. Legal ring-fencing is formally established prior to vehicle assignment.' },
+        what: 'We assess what the business or project needs: its commercial\nreality, trade cycle, asset life and working-capital pattern, and why standard\nbank finance has not filled the gap.',
+        who: 'Our financial\nengineering and structuring team, supported by market and industry insight.',
+        where: 'Assessment and\nfeasibility work happen at holding-company level. Regulated client onboarding and statutory checks are conducted through authorized operating entities.' },
+      { code: 'STAGE 02 \u00b7 STRUCTURING', title: 'Design the Struture',
+        what: 'We design the financial structure: debt or equity, tenor,\nrisk layers (senior, mezzanine, junior), collateral and covenants, the\ncash-flow waterfall, and how assets are ring-fenced to protect investors.',
+        who: 'Capital architecture\nand governance specialists, supported by legal and regulatory advisors.\n',
+        where: 'Designed at\nholding-company level with input from institutional risk committees. Legal\nring-fencing is put in place before the structure is assigned to a vehicle.' },
       { code: 'STAGE 03 \u00b7 ROUTING', title: 'Connect Capability',
-        what: 'Routing the engineered solution to the optimal delivery perimeter based on asset class, regulatory requirements, and jurisdictional scope:',
-        who: 'Strategic Partnerships & Capability Networks and Technology & Rails*.',
-        where: 'Contractual bridge routing to the specific platform vehicle directory (/platforms).',
+        what: 'We route the\nstructure to the best-placed delivery vehicle, based on asset class,\nregulation, and jurisdiction:',
+        who: 'Our strategic\npartnerships team, supported by our technology and infrastructure capability',
+        where: 'A contractual\nhandover to the relevant group platform or independent partner.',
         routing: [
-          { label: 'Group Company', text: 'Providence Asset Management Ltd* \u2014 Fund Management & Private Credit', status: 'op', tag: 'OPERATING' },
-          { label: 'Group Build', text: 'Private Capital Platform / Trade Finance Platform', status: 'dev', tag: 'IN DEV' },
-          { label: 'Partner Capability', text: 'Regulated Commercial Partner Banking Rails', status: 'connected', tag: 'CONNECTED' },
-          { label: 'Enabling Layer', text: 'Financial Infrastructure & Tech Rails', status: 'enabling', tag: 'ENABLING' }
+          { label: 'Group Company', text: 'Providence Asset\nManagement Ltd— fund management and private credit ', status: 'op', tag: 'OPERATING' },
+          { label: 'Group Build', text: 'Capital Platform /\nTrade Finance Platform ', status: 'dev', tag: 'IN DEV' },
+          { label: 'Partner Capability', text: 'Regulated commercial\npartner banks ', status: 'connected', tag: 'CONNECTED' },
+          { label: 'Enabling Layer', text: 'Financial\ninfrastructure and technology ', status: 'enabling', tag: 'ENABLING' }
         ] },
       { code: 'STAGE 04 \u00b7 MOBILISATION', title: 'Mobilise Capital',
-        what: 'Syndicating wholesale institutional liquidity into the structured facility. Aggregating capital from pension allocators, sovereign wealth funds, private debt vehicles, family offices, and DFIs tailored to specific risk-return mandates.',
-        who: 'Capital Architecture, supported by institutional investor syndication networks and Providence Asset Management Ltd*.',
-        where: 'Institutional syndication desks and regulated fund vehicles. Capital is ring-fenced per facility.' },
-      { code: 'STAGE 05 \u00b7 EXECUTION', title: 'Activate',
-        what: 'Deploying capital into commercial operations: funding trade invoices, financing plant equipment, or advancing infrastructure construction milestones. Capital is disbursed against verified operational deliverables.',
-        who: 'Authorized operating subsidiaries, regulated partner banks, and automated disbursement ledgers.',
-        where: 'Strictly through appropriately authorised operating entities, licensed partner perimeters, or specialized SPVs into real-economy commercial bank accounts.' },
-      { code: 'STAGE 06 \u00b7 TELEMETRY', title: 'Learn',
-        what: 'Continuous monitoring of operational cashflows, invoice clearing velocities, collateral valuations, and debt service coverage. Empirical telemetry is captured and analyzed to validate underwriting assumptions.',
-        who: 'Technology & Rails*, supported by performance ledgers, collateral management agents (CMAs), and independent audit rails.',
-        where: 'Operating platform analytics informing holding-level governance, risk management, and underwriting criteria.' },
+        what: 'We bring in money\nfrom institutions like pension funds, sovereign wealth funds, private debt\nfunds, family offices, and development finance institutions (DFIs). Each\ninstitution has its own risk and return requirements.',
+        who: 'Our capital\narchitecture team, supported by institutional investor networks and Providence\nAsset Management Ltd',
+        where: 'Through institutional\nsyndication and regulated fund vehicles, with capital ring-fenced for each\nfacility' },
+      { code: 'STAGE 05 \u00b7 EXECUTION', title: 'Deploy capital',
+        what: 'Capital goes to work:\nfunding trade invoices, financing equipment, or paying for construction\nmilestones. Money is released as agreed. Operational milestones are verified.',
+        who: 'Authorized operating subsidiaries and regulated partner\nbanks, using controlled disbursement systems.',
+        where: 'Disbursements flow only through authorized entities,\nlicensed partners, or special-purpose vehicles (SPVs), into the operating\naccounts of real businesses. ' },
+      { code: 'STAGE 06 · Monitoring', title: 'Learn',
+        what: 'We track how each\nstructure performs: cash flows, how quickly invoices are paid, collateral\nvalues, and debt service cover. This data tests whether the original\nassumptions were right.',
+        who: 'Our technology and\ninfrastructure capability, supported by performance reporting, collateral\nmanagement agents (CMAs) and independent audit.',
+        where: 'Platform data feeds\nback into holding-level governance, risk management, and lending criteria.' },
       { code: 'STAGE 07 \u00b7 EXPANSION', title: 'Scale',
-        what: 'Standardizing and scaling proven financial structures across adjacent sectors, supply chains, and geographical corridors. Successful structures become repeatable platform programs.',
-        who: 'Cross-cutting application of all five Financial Engine disciplines.',
-        where: 'Corporate expansion, platform scaling, and multi-jurisdiction licensing where applicable.' }
+        what: 'Structures that work\nare standardized and rolled out to similar sectors, supply chains, and regions,\nbecoming repeatable programs.',
+        who: 'Every team across the\nFinancial Engine, working together.',
+        where: 'Through platform\ngrowth, and, where needed, licenses in new jurisdictions.' }
     ];
 
     const activeOps = this.state.opsStage;
@@ -1962,11 +2025,11 @@ class Component extends DCLogic {
     const loopActive = activeOps >= 5;
 
     const PR_CONTENT = [
-      { title: 'Economic need', sub: 'The real constraint, first.', label: '01 \u00b7 The starting point', heading: 'Begin with the real constraint.', body: 'A business, place or sector has an economic requirement that existing products do not properly serve. That requirement\u2014rather than an available product\u2014sets the direction.', proof: 'Need-first design avoids forcing a transaction into the wrong financial container.' },
-      { title: 'Architecture', sub: 'A structure built around reality.', label: '02 \u00b7 The response', heading: 'Make the route fit the need.', body: 'The financial architecture is engineered around the commercial reality: its risk, time horizon, governance requirements and practical route to delivery.', proof: 'The objective is an appropriate structure\u2014not a pre-existing product with a new label.' },
-      { title: 'Capability', sub: 'The right delivery perimeter.', label: '03 \u00b7 The delivery perimeter', heading: 'Connect the capability that can act.', body: 'BWCI identifies the most appropriate route: a group company, a new build, an independent partner or enabling financial infrastructure.', proof: 'The capability is selected because it fits the structure, regulation and practical work required.' },
-      { title: 'Capital', sub: 'Mobilised with the right terms.', label: '04 \u00b7 The enabling resource', heading: 'Mobilise capital with purpose.', body: 'Capital is connected to the structure with terms, governance and risk allocation designed for the economic activity it is intended to enable.', proof: 'Capital is a means to productive activity\u2014not the starting point of the system.' },
-      { title: 'Productive activity', sub: 'Capital becomes useful in the real economy.', label: '05 \u00b7 The outcome', heading: 'Turn the connection into activity.', body: 'The final measure is useful economic activity: a viable enterprise, enabled infrastructure or a solution that can operate in the real economy.', proof: 'Evidence from activity can then inform how the next architecture is designed.' }
+      { title: 'Economic need', sub: 'The real constraint, first.', label: '01 \u00b7 The starting point', heading: 'Begin with the real constraint.', body: 'A business, place, or sector has a need that existing \nfinancial products do not serve well. That need — not whatever product \nhappens to be available — sets the direction.', proof: 'Starting from the need avoids forcing a deal into the wrong financial structure.' },
+      { title: 'Financial structure', sub: 'A structure built around reality.', label: '02 \u00b7 The response', heading: 'Make the route fit the need.', body: 'he structure is designed around the business’s commercial\n reality: \nits risks, its timeline, its governance needs, and a practical\n route to delivery.', proof: 'The aim is a\nstructure that fits, not an existing product with a new label' },
+      { title: 'Delivery Capability', sub: 'The right team to\ndeliver.\n', label: '03 \u00b7 The delivery perimeter', heading: 'Connect the capability that can act.', body: 'BWCI chooses the best delivery route: through a group \ncompany, a platform under construction, an independent partner, or \nfinancial infrastructure that enables delivery.', proof: 'The route is chosen\nbecause it fits the structure, the regulations, and the work involved' },
+      { title: 'Capital', sub: 'Brought in on the\nright terms.\n', label: '04 \u00b7 The enabling resource', heading: 'Mobilise capital with purpose.', body: 'Capital is matched to the structure, with terms, \ngovernance, and risk sharing designed around the activity the capital is\n meant to fund.\n', proof: 'Capital is the means, not the starting point' },
+      { title: 'Productive activity', sub: 'Capital put to work\nin the real economy.\n', label: '05 \u00b7 The outcome', heading: 'Turn the connection into activity.', body: 'Success is measured by tangible outcomes: a \nviable business, infrastructure that gets built, or a solution that \nworks in practice.\n', proof: 'What we learn from each outcome shapes how we design the next structure.' }
     ].map((c) => Object.assign({}, c, { title: c.title, chapterTitle: c.title }));
     const prStep = (this.state.prActive >= 1 && this.state.prActive <= 5) ? this.state.prActive : 1;
     const prChapters = PR_CONTENT.map((c, i) => ({

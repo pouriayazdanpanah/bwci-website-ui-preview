@@ -410,6 +410,55 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
   .hero-img::after, .hero-fe-visual::after{ background:linear-gradient(180deg, rgba(8,14,16,.55) 0%, rgba(8,14,16,.35) 45%, rgba(8,14,16,.5) 100%) !important; }
 }
 @media (max-width:767px){ .hero-actions{ margin-bottom:0 !important; } }
+
+/* TABLET HERO (768–1023) — no reserved empty space; visual sits right, faded behind copy */
+@media (min-width:768px) and (max-width:1023px){
+  .hero, .hero-fe{ min-height:0 !important; height:auto !important; }
+  .hero-inner, .hero-fe-inner{ padding:72px 32px 88px !important; min-height:0 !important; }
+  .hero-actions{ margin-bottom:0 !important; }
+  .hero-copy, .hero-fe-copy{ position:relative; z-index:2; }
+  .hero-img, .hero-fe-visual, .hero-net{ top:50% !important; bottom:auto !important; left:auto !important; right:-24% !important; width:min(72vw,640px) !important; max-width:none !important; transform:translateY(-50%) !important; opacity:.4 !important; z-index:0 !important; -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 45%) !important; mask-image:linear-gradient(90deg, transparent 0%, #000 45%) !important; }
+}
+
+/* MOBILE TYPE SCALE — shared across all pages */
+@media (max-width:767px){
+  .h1, .h2, .pr-title{ font-size:clamp(26px,7.2vw,30px) !important; line-height:1.2 !important; letter-spacing:-.02em !important; }
+  .h3, .pr-reading-title, .ops-panel__title{ font-size:20px !important; line-height:1.3 !important; letter-spacing:-.015em !important; }
+  .pr-chapter-title{ font-size:18px !important; line-height:1.3 !important; }
+  .body-lg, .pr-masthead-copy{ font-size:16px !important; line-height:1.6 !important; }
+  .body, .pr-reading-copy, .ops-panel__text{ font-size:15px !important; line-height:1.6 !important; }
+  .body-sm, .pr-proof p{ font-size:14px !important; line-height:1.55 !important; }
+  .eyebrow, .pr-eyebrow, .pr-reading-label, .ops-panel__label, .ops-panel__code, .pr-chapter-num{ font-size:11px !important; }
+  .pr-reading-title{ margin:12px 0 16px !important; }
+  .ops-panel__title{ margin-bottom:16px !important; }
+}
+
+/* MOBILE READABILITY FLOOR — auto-raised small text */
+@media (max-width:767px){
+  .eyebrow, .text-link, .st, .hero-btn, .pp-lbl, .pa-idx, .pa-cta, .pa-note, .mt-mk, .mt-code, .mt-lbl, .mt-bridge, .dp-top, .ec-n, .rt-hint, .rt-tab__n, .rt-p__lbl, .rt-p__note, .cta-mail span, .cta-disc b, .footer__col h5, .footer__bar{ font-size:12px !important; }
+  .btn--sm, .dp-fn, .rt-tab__n i, .cta-note, .cta-disc p, .footer__col a, .mt-rail button, .mt-rail button .mt-mk, .sc-interp, .pr-eyebrow, .pr-reading-label, .ops-panel__label, .ops-panel__code, .pr-chapter-num{ font-size:14px !important; }
+  .btn, .dp-d, .ec-d, .cta-email, .pr-proof p{ font-size:15px !important; }
+}
+
+/* MOBILE OVERFLOW FIXES */
+@media (max-width:767px){
+  .text-link, .rx-go{ white-space:normal !important; }
+  .rt-head{ flex-wrap:wrap; }
+  .rt-hint{ white-space:normal !important; min-width:0; flex:1 1 100% !important; }
+  .rx-foot{ flex-wrap:wrap; gap:8px; }
+  .dp-grid{ grid-template-columns:minmax(0,1fr) !important; }
+  .dp-grid > *{ min-width:0; }
+  .dp-head .body-lg{ max-width:100% !important; width:auto !important; }
+}
+
+/* MOBILE COMPACT BADGES — keep status tags/pills small after readability floor */
+@media (max-width:767px){
+  [class*="-tag"]:not([class*="-tags"]), [class*="status-tag"], [class*="badge"], .sp-tag{ font-size:10px !important; letter-spacing:.06em !important; padding:3px 7px !important; line-height:1.3 !important; }
+  .ops-routing__label-mono{ font-size:10.5px !important; letter-spacing:.08em !important; }
+  .ops-routing__label{ font-size:14px !important; }
+  .ops-routing__row{ padding:10px 12px !important; gap:10px !important; }
+  .sp-chip{ font-size:14px !important; }
+}
 </style>
 </helmet>
 

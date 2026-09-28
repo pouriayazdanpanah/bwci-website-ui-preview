@@ -260,6 +260,20 @@ button{ font-family:inherit; cursor:pointer; }
 
 .hero-horizon{ position:relative; z-index:4; width:100%; line-height:0; margin-top:-70px; }
 .hero-horizon svg{ width:100%; height:auto; display:block; }
+:root{ --hz-r:200px; --hz-b:52px; --hz-x:100%; }
+@media (max-width:767px){ :root{ --hz-r:110px; --hz-b:30px; --hz-x:100%; } }
+.hero-horizon::after{ content:''; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(circle at var(--hz-x) 100%, transparent 0 calc(var(--hz-r) - 1px), rgba(18,48,57,.12) calc(var(--hz-r) - 1px) var(--hz-r), rgba(18,48,57,.055) var(--hz-r) calc(var(--hz-r) + var(--hz-b)), rgba(18,48,57,.03) calc(var(--hz-r) + var(--hz-b)) calc(var(--hz-r) + var(--hz-b)*2), rgba(18,48,57,.014) calc(var(--hz-r) + var(--hz-b)*2) calc(var(--hz-r) + var(--hz-b)*3), transparent calc(var(--hz-r) + var(--hz-b)*3)) no-repeat;
+  clip-path:polygon(0 85%, 33.3% 85%, 35.4% 83.5%, 36.8% 70%, 38.2% 56.5%, 38.9% 55%, 62.5% 55%, 64.6% 53.5%, 66% 40%, 67.4% 26.5%, 68% 25%, 100% 25%, 100% 100%, 0 100%); }
+#problem::after{ content:''; position:absolute; z-index:-1; pointer-events:none; top:0; left:0; right:0; height:420px;
+  background:radial-gradient(circle at var(--hz-x) 0, transparent 0 calc(var(--hz-r) - 1px), rgba(18,48,57,.12) calc(var(--hz-r) - 1px) var(--hz-r), rgba(18,48,57,.055) var(--hz-r) calc(var(--hz-r) + var(--hz-b)), rgba(18,48,57,.03) calc(var(--hz-r) + var(--hz-b)) calc(var(--hz-r) + var(--hz-b)*2), rgba(18,48,57,.014) calc(var(--hz-r) + var(--hz-b)*2) calc(var(--hz-r) + var(--hz-b)*3), transparent calc(var(--hz-r) + var(--hz-b)*3)) no-repeat; }
+.hero-horizon::after, #problem::after{ opacity:0; transition:opacity .5s ease; }
+@supports (animation-timeline: scroll()){
+  .hero-horizon::after, #problem::after{ transition:none; animation:hzReveal linear both; animation-timeline:scroll(root); animation-range:15vh 50vh; }
+  @keyframes hzReveal{ from{ opacity:0; } to{ opacity:1; } }
+}
+@supports not (animation-timeline: scroll()){ .hero-horizon::after, #problem::after{ opacity:1; } }
+@media (prefers-reduced-motion:reduce){ .hero-horizon::after, #problem::after{ animation:none; opacity:1; } }
 
 /* ============================================================
    02 — THE PROBLEM
@@ -373,9 +387,11 @@ button{ font-family:inherit; cursor:pointer; }
 .df-p h4{ font-size:19px; letter-spacing:-.01em; margin-bottom:8px; }
 .df-p p{ font-size:14.5px; line-height:1.6; color:var(--text-secondary); }
 .df-core{ grid-column:2; grid-row:1 / span 2; align-self:center; text-align:center; padding:clamp(24px,3vw,40px) 0; min-width:0; container-type:inline-size; }
-.df-core-n{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--text-muted); margin-bottom:10px; }
-.df-core-n::before, .df-core-n::after{ content:''; width:18px; height:1px; background:var(--border-strong); }
+.df-core-n{ display:inline-flex; align-items:center; gap:14px; font-family:var(--font-mono); font-size:44px; font-weight:700; line-height:1; letter-spacing:-.04em; color:var(--accent-blue); margin-bottom:18px; }
+.df-core-n::before, .df-core-n::after{ content:''; width:32px; height:1.5px; background:currentColor; opacity:.35; }
 .diff-word{ display:block; font-size:clamp(44px,18.5cqi,108px); font-weight:700; letter-spacing:-.04em; line-height:.95; color:var(--brand-ink); }
+.df-core-txt{ max-width:487px; margin:.5em auto; font-size:14.5px; line-height:1.6; color:var(--text-secondary); text-align:left; }
+.df-p--03{ max-width:260px; }
 .df-core p{ max-width:300px; margin:16px auto 0; font-size:14.5px; line-height:1.6; color:var(--text-secondary); }
 @media (max-width:1023px){ .df-stage{ grid-template-columns:1fr; grid-template-rows:none; row-gap:8px; } .df-p--01, .df-p--03, .df-core{ grid-column:1; grid-row:auto; justify-self:stretch; max-width:none; } .df-core{ text-align:left; padding:16px 0; } .df-core p{ margin-left:0; } .df-core-n::before{ display:none; } .df-lines{ display:none; } .df-glow{ left:30%; } }
 
@@ -448,6 +464,9 @@ button{ font-family:inherit; cursor:pointer; }
 .ec-head{ display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:clamp(24px,5vw,80px); align-items:end; margin-bottom:clamp(32px,4vw,56px); }
 .ec-head .h2{ color:#fff; text-wrap:balance; }
 .ec-head p{ color:var(--text-inverse-muted); max-width:460px; }
+.ec-head{ display:flex !important; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; }
+.ec-head .h2{ max-width:680px; }
+.ec-head .text-link{ flex:none; white-space:nowrap; }
 .ec-body{ display:grid; grid-template-columns:minmax(0,1.5fr) minmax(260px,1fr); gap:clamp(32px,5vw,72px); align-items:center; }
 .ec-map{ position:relative; width:100%; max-width:640px; aspect-ratio:600/500; margin:0 auto; }
 .ec-map > svg{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
@@ -471,7 +490,13 @@ button{ font-family:inherit; cursor:pointer; }
 .ec-node:hover{ transform:translate(-50%,calc(-50% - 3px)); border-color:var(--nc); background:rgba(29,74,84,.95); box-shadow:0 16px 36px rgba(0,0,0,.3); }
 .ec-node:hover .ec-node__icon{ background:var(--nc); color:#0B1E24; }
 .ec-n1{ --nc:#8FA9CC; left:50%; top:11%; } .ec-n2{ --nc:#8FA9CC; left:14%; top:50%; } .ec-n3{ --nc:#E8C46B; left:86%; top:50%; } .ec-n4{ --nc:#5FC2A6; left:50%; top:89%; }
-.ec-n2, .ec-n3{ width:28%; }
+.ec-n2, .ec-n3{ width:auto; min-width:0; }
+@media (min-width:1024px){
+  .ec-n2, .ec-n3{ max-width:34%; }
+  .ec-n2{ left:0; transform:translateY(-50%); } .ec-n2:hover{ transform:translateY(calc(-50% - 3px)); }
+  .ec-n3{ left:auto; right:0; transform:translateY(-50%); } .ec-n3:hover{ transform:translateY(calc(-50% - 3px)); }
+}
+.ec-n2 .ec-node__label, .ec-n3 .ec-node__label{ white-space:normal; }
 .ec-map:has(.ec-node:hover) .ec-ln{ opacity:.2; }
 .ec-map:has(.ec-n1:hover) .l1, .ec-map:has(.ec-n2:hover) .l2, .ec-map:has(.ec-n3:hover) .l3, .ec-map:has(.ec-n4:hover) .l4{ opacity:1; stroke-width:2.5; }
 .ec-sub{ position:relative; max-width:640px; margin:22px auto 0; display:flex; justify-content:center; align-items:center; gap:14px; flex-wrap:wrap; padding:12px 20px; border:1px dashed rgba(255,255,255,.2); border-radius:var(--radius-md); }
@@ -486,12 +511,19 @@ button{ font-family:inherit; cursor:pointer; }
 .ec-out__i:hover{ padding-left:6px; }
 .ec-out__i:hover span{ color:#5FC2A6; }
 @media (max-width:1023px){ .ec-head, .ec-body{ grid-template-columns:1fr; } }
-@media (max-width:640px){
-  .ec-map{ aspect-ratio:auto; display:flex; flex-direction:column; gap:10px; }
+@media (max-width:1023px){
+  .ec-map{ max-width:560px; margin:0; aspect-ratio:auto; display:flex; flex-direction:column; gap:10px; }
   .ec-map > svg{ display:none; }
   .ec-core{ position:relative; left:auto; top:auto; transform:none; width:100%; aspect-ratio:auto; flex-direction:row; justify-content:flex-start; padding:16px 18px; border-radius:var(--radius-lg); order:-1; }
   .ec-core::after{ display:none; }
-  .ec-node, .ec-node:hover{ position:relative; left:auto; top:auto; transform:none; width:100%; }
+  .ec-map{ padding-left:18px; }
+  .ec-map::before{ content:''; position:absolute; left:6px; top:28px; bottom:28px; width:1.5px; background:linear-gradient(180deg, rgba(95,194,166,.6), rgba(255,255,255,.12)); }
+  .ec-core{ margin-left:-18px; width:calc(100% + 18px) !important; gap:12px; }
+  .ec-node, .ec-node:hover{ position:relative !important; left:auto !important; top:auto !important; transform:none !important; width:100% !important; height:auto !important; min-height:64px; box-sizing:border-box; }
+  .ec-node::after{ content:''; position:absolute; left:-17px; top:50%; width:10px; height:10px; margin-top:-5px; border-radius:50%; background:#0F2A32; border:1.5px solid var(--nc); }
+  .ec-node__label{ white-space:normal; font-size:15px; }
+  .ec-node__rel{ font-size:10px; }
+  .ec-body{ gap:36px; }
 }
 
 /* ============================================================
@@ -510,7 +542,7 @@ button{ font-family:inherit; cursor:pointer; }
 
 .caps-row{ position:relative; z-index:1; display:grid; grid-template-columns:repeat(4,1fr); margin-top:60px; }
 .caps-line{
-  position:absolute; left:12.5%; right:12.5%; top:96px; height:2px; z-index:0;
+  position:absolute; left:12.5%; right:12.5%; top:112px; height:2px; z-index:0;
   background:linear-gradient(to right, var(--accent-emerald) 0%, var(--accent-emerald) 33.3%, var(--accent-gold-dark) 33.3%, var(--accent-gold-dark) 66.6%, var(--accent-blue) 66.6%, var(--accent-blue) 100%);
 }
 .caps-line::before, .caps-line::after{ content:''; position:absolute; top:50%; width:24px; border-top:2px dashed var(--border-strong); transform:translateY(-50%); }
@@ -586,6 +618,30 @@ button{ font-family:inherit; cursor:pointer; }
 .fd:nth-child(2) .fd-labels--top{ color:var(--accent-blue); }
 .fd-labels--end{ bottom:30px; right:14px; text-align:left; color:var(--text-muted); }
 
+.fd2{ --c:var(--accent-emerald); --cd:var(--accent-emerald-dark); --tint:rgba(18,131,107,.08); position:relative; overflow:hidden; isolation:isolate; display:flex; flex-direction:column; gap:28px; min-height:320px; padding:32px 34px 28px; background:#fff; border:1px solid var(--border-subtle); border-radius:var(--radius-lg); color:var(--text-primary); text-decoration:none; transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease; }
+.fd2--inv{ --c:var(--accent-blue); --cd:var(--accent-blue); --tint:rgba(61,90,128,.08); }
+.fd2::before{ content:''; position:absolute; left:0; top:0; right:0; height:3px; background:var(--c); transform-origin:left; transform:scaleX(.18); transition:transform .5s cubic-bezier(.2,.8,.2,1); }
+.fd2:hover, .fd2:focus-visible{ transform:translateY(-4px); border-color:transparent; box-shadow:0 28px 56px -28px rgba(18,48,57,.28), 0 0 0 1px var(--c); color:var(--text-primary); }
+.fd2:hover::before, .fd2:focus-visible::before{ transform:scaleX(1); }
+.fd2:focus-visible{ outline:none; }
+.fd2-rings{ position:absolute; z-index:-1; right:-120px; bottom:-120px; width:300px; aspect-ratio:1; border-radius:50%; border:1px solid var(--c); opacity:.22; box-shadow:0 0 0 40px var(--tint), 0 0 0 80px color-mix(in srgb, var(--tint) 55%, transparent); transition:transform .6s cubic-bezier(.2,.8,.2,1), opacity .4s; }
+.fd2:hover .fd2-rings{ transform:scale(1.12); opacity:.4; }
+.fd2-top{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.fd2-num{ font-family:var(--font-mono); font-size:13px; font-weight:700; letter-spacing:.08em; color:var(--cd); }
+.fd2-tag{ padding:5px 11px; border-radius:var(--radius-full); background:var(--tint); color:var(--cd); font-family:var(--font-mono); font-size:10.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
+.fd2-main{ display:flex; flex-direction:column; gap:12px; max-width:400px; }
+.fd2-title{ font-size:clamp(24px,2.2vw,30px); font-weight:700; letter-spacing:-.02em; line-height:1.15; color:var(--brand-ink); }
+.fd2-body{ font-size:15.5px; line-height:1.6; color:var(--text-secondary); text-wrap:pretty; }
+.fd2-foot{ margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:16px; padding-top:20px; border-top:1px dashed var(--border-default); }
+.fd2-cta{ font-size:14.5px; font-weight:600; color:var(--brand-ink); transition:color .25s; }
+.fd2:hover .fd2-cta{ color:var(--cd); }
+.fd2-btn{ flex:none; width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; border:1px solid var(--border-default); color:var(--brand-ink); background:#fff; transition:background-color .3s, color .3s, border-color .3s; }
+.fd2-btn svg{ width:18px; height:18px; transition:transform .3s cubic-bezier(.2,.8,.2,1); }
+.fd2:hover .fd2-btn{ background:var(--c); border-color:var(--c); color:#fff; }
+.fd2:hover .fd2-btn svg{ transform:translateX(3px); }
+@media (max-width:767px){ .fd2{ min-height:0; padding:24px 22px 20px; gap:22px; } .fd2-rings{ width:200px; right:-90px; bottom:-90px; } }
+@media (prefers-reduced-motion:reduce){ .fd2, .fd2 *, .fd2::before{ transition:none !important; } }
+
 /* ============================================================
    09 — TRUST & TRANSPARENCY
    ============================================================ */
@@ -594,6 +650,61 @@ button{ font-family:inherit; cursor:pointer; }
 .tr-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap; margin-bottom:var(--space-2xl); }
 .tr-head .h2{ max-width:620px; }
 .tr-head .text-link{ flex:none; white-space:nowrap; }
+.tr2-head{ display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); gap:32px 64px; align-items:start; margin-bottom:var(--space-2xl); }
+.tr2-head{ grid-template-columns:1fr !important; gap:14px !important; }
+.tr2-eyebrow2{ display:inline-flex; align-items:center; gap:10px; font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--text-muted); }
+.tr2-eyebrow2::before{ content:''; width:24px; height:1.5px; background:var(--accent-emerald); }
+.tr2-title{ display:flex; flex-direction:column; margin:0; color:var(--brand-ink); }
+.tr2-line{ display:flex; align-items:center; gap:clamp(12px,1.2vw,18px); }
+.tr2-line--next{ color:var(--accent-emerald); }
+.tr2-mk{ flex:none; width:.32em; height:.32em; border-radius:50%; }
+.tr2-mk--op{ background:var(--status-op-mark); box-shadow:0 0 0 .14em rgba(18,131,107,.16); }
+.tr2-mk--dev{ border:2px solid var(--accent-emerald); background:transparent; }
+.tr2-lede{ margin:8px 0 0; font-size:16px; line-height:1.65; color:var(--text-secondary); max-width:380px; text-wrap:pretty; }
+.tr2-grid{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:16px; align-items:stretch; }
+.tr2-status{ position:relative; overflow:hidden; background:var(--brand-ink); color:#fff; border-radius:var(--radius-lg); padding:clamp(28px,3.4vw,44px); display:flex; flex-direction:column; isolation:isolate; }
+.tr2-status::after{ content:''; position:absolute; z-index:-1; right:-140px; bottom:-140px; width:360px; aspect-ratio:1; border-radius:50%; border:1px solid rgba(255,255,255,.07); box-shadow:0 0 0 48px rgba(255,255,255,.025); pointer-events:none; }
+.tr2-eyebrow{ display:inline-flex; align-items:center; gap:10px; font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.72); }
+.tr2-eyebrow svg{ width:16px; height:16px; }
+.tr2-status h3{ margin:28px 0 12px; font-size:clamp(22px,2.2vw,28px); line-height:1.2; font-weight:600; letter-spacing:-.015em; color:#fff; max-width:480px; text-wrap:balance; }
+.tr2-sub{ margin:0 0 32px; font-size:15px; line-height:1.6; color:rgba(255,255,255,.78); max-width:480px; }
+.tr2-legend{ list-style:none; margin:0 0 28px; padding:0; border-top:1px solid var(--border-inverse); }
+.tr2-legend li{ display:flex; align-items:center; gap:16px; padding:17px 0; border-bottom:1px solid var(--border-inverse); }
+.tr2-legend b{ flex:1; font-size:15px; font-weight:600; color:#fff; }
+.tr2-legend em{ font-style:normal; font-family:var(--font-mono); font-size:10.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.62); }
+.tr2-dot{ flex:none; width:9px; height:9px; border-radius:50%; }
+.tr2-dot--op{ background:var(--status-op-mark); box-shadow:0 0 0 4px rgba(18,131,107,.22); }
+.tr2-dot--dev{ background:var(--status-dev-border); }
+.tr2-dot--pro{ border:1.5px solid rgba(255,255,255,.8); }
+.tr2-foot{ margin-top:auto; display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+.tr2-foot p{ margin:0; font-size:13px; line-height:1.55; color:rgba(255,255,255,.7); max-width:300px; }
+.tr2-link{ display:inline-flex; align-items:center; gap:12px; font-size:15px; font-weight:600; color:#fff; text-decoration:none; padding-bottom:4px; border-bottom:1px solid rgba(255,255,255,.6); transition:border-color .2s; }
+.tr2-link span{ display:inline-flex; transition:transform .25s cubic-bezier(.2,.8,.2,1); }
+.tr2-link svg, .tr2-go svg{ width:20px; height:20px; }
+.tr2-link:hover{ color:#fff; border-color:#fff; }
+.tr2-link:hover span{ transform:translateX(4px); }
+.tr2-cards{ display:grid; grid-template-rows:1fr 1fr; gap:16px; }
+.tr2-card{ position:relative; display:flex; flex-direction:column; background:#fff; border:1px solid var(--border-default); border-radius:var(--radius-lg); padding:clamp(24px,2.6vw,32px); color:var(--text-primary); text-decoration:none; overflow:hidden; transition:border-color .25s, box-shadow .25s, transform .25s cubic-bezier(.2,.8,.2,1); }
+.tr2-card::before{ content:''; position:absolute; left:0; right:0; top:0; height:2px; background:var(--accent-emerald); transform:scaleX(0); transform-origin:left; transition:transform .5s cubic-bezier(.2,.8,.2,1); }
+.tr2-card:hover{ transform:translateY(-2px); border-color:var(--border-strong); box-shadow:var(--shadow-elevated); color:var(--text-primary); }
+.tr2-card:hover::before{ transform:scaleX(1); }
+.tr2-card__top{ grid-column:1; grid-row:2 / span 2; align-self:start; margin:0; display:block; }
+.tr2-card{ display:grid !important; grid-template-columns:48px minmax(0,1fr); grid-template-rows:minmax(0,.6fr) auto auto minmax(20px,1fr) auto; column-gap:20px; }
+.tr2-card > h3{ grid-column:2; grid-row:2; align-self:center; min-height:48px; display:flex; align-items:center; margin:0 0 6px !important; }
+.tr2-card > p{ grid-column:2; grid-row:3; margin:0 !important; }
+.tr2-card > .tr2-card__foot{ grid-column:1 / -1; grid-row:5; margin:0; padding-top:18px; border-top:1px solid var(--border-subtle); }
+.tr2-kicker{ font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--text-muted); }
+.tr2-ic{ flex:none; width:48px; height:48px; display:grid; place-items:center; background:var(--status-op-bg); border:1px solid var(--status-op-border); border-radius:var(--radius-md); color:var(--accent-emerald); transition:background-color .25s, border-color .25s, color .25s; }
+.tr2-ic svg{ width:20px; height:20px; }
+@media (max-width:480px){ .tr2-card{ grid-template-columns:1fr; grid-template-rows:none; } .tr2-card__top{ grid-row:auto; margin-bottom:14px; } .tr2-card > h3, .tr2-card > p, .tr2-card > .tr2-card__foot{ grid-column:1; grid-row:auto; } .tr2-card > h3{ min-height:0; } .tr2-card > .tr2-card__foot{ margin-top:20px; } }
+.tr2-card:hover .tr2-ic{ background:var(--brand-ink); border-color:var(--brand-ink); color:#fff; }
+.tr2-card h3{ margin:0 0 8px; font-size:clamp(20px,1.9vw,24px); font-weight:600; letter-spacing:-.015em; color:var(--brand-ink); }
+.tr2-card p{ margin:0 0 24px; font-size:14.5px; line-height:1.6; color:var(--text-secondary); max-width:440px; }
+.tr2-card__foot{ margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:16px; font-family:var(--font-mono); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-emerald-dark); }
+.tr2-go{ display:inline-flex; color:var(--brand-ink); transition:transform .25s cubic-bezier(.2,.8,.2,1); }
+.tr2-card:hover .tr2-go{ transform:translateX(4px); }
+@media (max-width:960px){ .tr2-head, .tr2-grid{ grid-template-columns:1fr; } .tr2-lede{ max-width:560px; margin:0; } .tr2-cards{ grid-template-rows:none; } }
+@media (max-width:480px){ .tr2-legend em{ display:none; } .tr2-foot{ flex-direction:column; align-items:flex-start; } }
 .trust-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
 .trust-item{ position:relative; display:flex; align-items:center; gap:16px; min-height:88px; padding:20px 20px 20px 22px; background:#fff; border:1px solid var(--border-default); border-radius:var(--radius-lg); box-shadow:var(--shadow-card); overflow:hidden; font-size:15px; font-weight:600; letter-spacing:-.005em; color:var(--text-primary); transition:transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .25s, border-color .25s, color .18s; }
 .trust-item::before{ content:''; position:absolute; left:0; right:0; top:0; height:2px; background:var(--accent-emerald); transform:scaleX(0); transform-origin:left; transition:transform .5s cubic-bezier(.2,.8,.2,1); }
@@ -878,6 +989,83 @@ button{ font-family:inherit; cursor:pointer; }
   .hero-sub{ font-size:clamp(16px, min(1.15vw, 2.1vh), 20px) !important; margin-bottom:clamp(16px,2.6vh,28px) !important; }
 }
 @media (min-width:1024px) and (max-height:760px){ .hero-sub{ max-width:760px !important; } }
+.hero-sub{ margin-left:auto; margin-right:auto; }
+/* hero: text centred, globe rises behind it and fades */
+@media (min-width:1024px){
+  .hero{ justify-content:center !important; padding-top:0 !important; padding-bottom:clamp(90px,10vh,140px) !important; }
+  .hero-globe{ top:calc(var(--globe-top,55%) - min(1480px,112vw) * .165 - 80px) !important; }
+}
+@media (max-width:1023px){ .hero-globe{ top:calc(44% - min(1100px,126vw) * .165) !important; } }
+@media (max-width:767px){
+  .hero-globe{ top:calc(var(--globe-top,60%) - 150vw * .165 - 24px) !important; }
+  .hero-secondary{ position:relative; z-index:4; }
+}
+.hero-globe__img{ opacity:.85; -webkit-mask-image:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.08) 12%, rgba(0,0,0,.35) 22%, rgba(0,0,0,.75) 32%, #000 42%) !important; mask-image:linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.08) 12%, rgba(0,0,0,.35) 22%, rgba(0,0,0,.75) 32%, #000 42%) !important; }
+.hero-inner::before{ top:50% !important; height:150% !important; width:min(1200px,130%) !important; background:radial-gradient(ellipse 50% 50% at 50% 50%, rgba(5,9,11,.82) 0%, rgba(5,9,11,.6) 50%, rgba(5,9,11,0) 100%) !important; }
+.hero-inner .h-display{ text-shadow:0 2px 24px rgba(0,0,0,.45); }
+.hero-sub{ text-shadow:0 1px 12px rgba(0,0,0,.7); }
+@media (max-width:1023px){
+  .df-stage{ row-gap:28px !important; }
+  .df-p, .df-core{ max-width:560px !important; }
+  .df-core.df-p--02{ --pc:var(--accent-blue); --pcs:rgba(47,94,140,.16); position:relative; text-align:left; padding:20px 0 20px 22px; border-left:1.5px solid var(--border-default); }
+  .df-core.df-p--02::before{ content:''; position:absolute; left:-5px; top:26px; width:8px; height:8px; border-radius:50%; background:#fff; border:1.5px solid var(--pc); }
+  .df-core-n{ font-size:44px; gap:0; margin-bottom:12px; }
+  .df-core-n::before, .df-core-n::after{ display:none !important; }
+  .diff-word{ font-size:19px !important; font-weight:600 !important; letter-spacing:-.01em !important; line-height:1.3 !important; margin-bottom:8px; }
+  .df-core-txt{ max-width:none; margin:0; }
+  .df-p > div > div > div{ margin:0 !important; }
+  .df-glow{ display:none; }
+}
+@media (max-width:1023px){ .hero{ padding-top:clamp(80px,12vw,120px) !important; } }
+@media (max-width:767px){ .hero{ padding-top:clamp(56px,16vw,72px) !important; } }
+@media (max-width:767px){
+  .df-stage{ position:relative; row-gap:14px !important; margin-top:8px; }
+  .df-stage::before{ content:''; position:absolute; z-index:0; left:37px; top:40px; bottom:40px; width:0; border-left:1.5px dashed var(--border-strong); }
+  .df-p, .df-core.df-p--02{ position:relative; z-index:1; max-width:none !important; width:auto !important; height:auto !important; margin:0 !important; padding:18px 18px 20px 74px !important; background:#fff; border:1px solid var(--border-default) !important; border-radius:var(--radius-lg); box-shadow:var(--shadow-card); text-align:left; }
+  .df-p::before, .df-core.df-p--02::before{ display:none !important; }
+  .df-p:hover{ border-color:var(--pc) !important; }
+  .df-num, .df-core-n{ position:absolute; left:18px; top:16px; width:40px; height:40px; margin:0 !important; display:grid !important; place-items:center; border-radius:50%; font-size:14px !important; letter-spacing:0 !important; color:var(--pc) !important; background:#fff; border:1.5px solid var(--pc); box-shadow:0 0 0 5px var(--pcs); }
+  .df-p h4, .diff-word{ font-size:18px !important; font-weight:600 !important; line-height:1.3 !important; margin:9px 0 6px !important; color:var(--brand-ink); }
+  .df-p p, .df-p > div, .df-core-txt{ font-size:14.5px !important; line-height:1.55 !important; color:var(--text-secondary); }
+  .df-p > div > div > div{ margin:0 !important; }
+  #different::before{ display:none; }
+}
+
+/* MOBILE TYPE SCALE — shared across all pages */
+@media (max-width:767px){
+  .h1, .h2, .pr-title{ font-size:clamp(26px,7.2vw,30px) !important; line-height:1.2 !important; letter-spacing:-.02em !important; }
+  .h3, .pr-reading-title, .ops-panel__title{ font-size:20px !important; line-height:1.3 !important; letter-spacing:-.015em !important; }
+  .pr-chapter-title{ font-size:18px !important; line-height:1.3 !important; }
+  .body-lg, .pr-masthead-copy{ font-size:16px !important; line-height:1.6 !important; }
+  .body, .pr-reading-copy, .ops-panel__text{ font-size:15px !important; line-height:1.6 !important; }
+  .body-sm, .pr-proof p{ font-size:14px !important; line-height:1.55 !important; }
+  .eyebrow, .pr-eyebrow, .pr-reading-label, .ops-panel__label, .ops-panel__code, .pr-chapter-num{ font-size:11px !important; }
+  .pr-reading-title{ margin:12px 0 16px !important; }
+  .ops-panel__title{ margin-bottom:16px !important; }
+}
+
+/* MOBILE READABILITY FLOOR — auto-raised small text */
+@media (max-width:767px){
+  .eyebrow, .text-link, .badge, .as-at, .pb-key, .pcard__num, .stat-source, .whatis-hint, .whatis-core .s, .whatis-node, .whatis-stack-core .s, .whatis-stack-row span, .engine-panel__tag, .engine-legend-item, .en-ret-lbl, .en-badge, .en-l, .engine-cond, .cap-chip, .ec-core .s, .ec-node__rel, .ec-sub span, .ec-sub b, .ec-out__lbl, .ec-out__i span, .cap-status, .caps-legend-item, .frontdoors-sub, .fd-labels, .fd2-tag, .tr2-eyebrow2, .tr2-eyebrow, .tr2-legend em, .tr2-kicker, .tr2-card__foot, .trust-item__n, .insight-num, .insight-media .tag, .insight-read, .cta-card .go, .footer__col h5, .footer__bar{ font-size:12px !important; }
+  .caption, .btn--sm, .stat-label, .whatis-node__n, .en-d, .ec-node__label, .cap p, .tr2-foot p, .fraud p, .cta-actions .btn, .cta-card .t, .footer__col a, .whatis .s, .pr-eyebrow, .pr-reading-label, .ops-panel__label, .ops-panel__code, .pr-chapter-num{ font-size:14px !important; }
+  .btn, .hero-ctas .btn, .pcard p, .df-p p, .df-core-txt, .df-core p, .fd2-cta, .tr2-card p, .df-p > div, .pr-proof p{ font-size:15px !important; }
+}
+
+/* MOBILE OVERFLOW FIXES */
+@media (max-width:767px){
+  .text-link, .rx-go{ white-space:normal !important; }
+  .rx-foot{ flex-wrap:wrap; gap:8px; }
+  #frontdoors h2{ width:auto !important; max-width:100% !important; }
+}
+
+/* MOBILE COMPACT BADGES — keep status tags/pills small after readability floor */
+@media (max-width:767px){
+  [class*="-tag"]:not([class*="-tags"]), [class*="status-tag"], [class*="badge"], .sp-tag{ font-size:10px !important; letter-spacing:.06em !important; padding:3px 7px !important; line-height:1.3 !important; }
+  .ops-routing__label-mono{ font-size:10.5px !important; letter-spacing:.08em !important; }
+  .ops-routing__label{ font-size:14px !important; }
+  .ops-routing__row{ padding:10px 12px !important; gap:10px !important; }
+  .sp-chip{ font-size:14px !important; }
+}
 </style>
 </helmet>
 
@@ -892,15 +1080,12 @@ button{ font-family:inherit; cursor:pointer; }
        01 — HERO
        ============================================================ -->
   <section class="hero" id="hero" data-screen-label="01 Hero" style="padding-top: clamp(50px,11vw,110px)">
-    <div class="hero-inner" style="max-width: 950px; width: 939px; height: 406px">
+    <div class="hero-inner" style="max-width: 950px">
       
-      <h1 class="h-display" style="color: var(--surface-canvas)">Reconnecting capital with<br>the real economy.</h1>
+      <h1 class="h-display" style="color: var(--surface-canvas)">Reconnecting capital with <br>the real economy</h1>
       
-      <div class="body-lg hero-sub" style="width: 747px; height: 128px; max-width: 750px; position: static"><!-- obsidian --><blockquote>
-<div><!-- obsidian --><p style="width: 566px; height: 77px; position: static"><span class="" style="width: 587px; height: 69px; position: absolute; left: 223px; top: 147px">Better World Capital Investments PLC is building the 
-Financial Engine of the Better World ecosystem. It starts with what a 
-business or project actually needs, then connects it with the right 
-structure, capital, and partners.</span></p></div></blockquote></div><div class="hero-ctas">
+      <p class="body-lg hero-sub">Better World Capital Investments PLC is building the Financial Engine of the Better World ecosystem. It starts with what a business or project actually needs, then connects it with the right structure, capital, and partners.</p>
+      <div class="hero-ctas">
         <a class="btn btn--inverse" href="SMEs%20Projects.dc.html#hero">I’m an SME or project</a>
         <a class="btn btn--ghost-inverse" href="Investors Partners.dc.html#hero">I’m an investor or partner</a>
       </div>
@@ -931,19 +1116,19 @@ structure, capital, and partners.</span></p></div></blockquote></div><div class=
       </div>
       <div class="pb-row">
         <div class="pcard" data-num="01">
-          <div class="pcard__top"><div class="pcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="10" width="7" height="10"></rect><rect x="14" y="5" width="7" height="15"></rect></svg></div><span class="pcard__num">01</span></div>
+          <div class="pcard__top"><div class="pcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="10" width="7" height="10"></rect><rect x="14" y="5" width="7" height="15"></rect></svg></div></div>
           <h4 class="h4">SMEs &amp; Projects</h4>
           <p><span class="">Each business has its own cash cycle, risks and plans. Standard financial products rarely fit that shape.</span></p>
         </div>
         <div class="pb-gap" aria-hidden="true"><span>×</span></div>
         <div class="pcard" data-num="02">
-          <div class="pcard__top"><div class="pcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="10" width="16" height="10" rx="1"></rect><path d="M6 10V7l6-4 6 4v3"></path></svg></div><span class="pcard__num">02</span></div>
+          <div class="pcard__top"><div class="pcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="10" width="16" height="10" rx="1"></rect><path d="M6 10V7l6-4 6 4v3"></path></svg></div></div>
           <h4 class="h4">Financial Institutions</h4>
           <p>Banks and funds operate within defined mandates and risk limits. Good opportunities often fall just outside those parameters.</p>
         </div>
         <div class="pb-gap" aria-hidden="true"><span>×</span></div>
         <div class="pcard" data-num="03">
-          <div class="pcard__top"><div class="pcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="9" width="16" height="11" rx="1"></rect><path d="M8 9V7a4 4 0 0 1 8 0v2"></path><circle cx="12" cy="14.5" r="1.6"></circle></svg></div><span class="pcard__num">03</span></div>
+          <div class="pcard__top"><div class="pcard__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="9" width="16" height="11" rx="1"></rect><path d="M8 9V7a4 4 0 0 1 8 0v2"></path><circle cx="12" cy="14.5" r="1.6"></circle></svg></div></div>
           <h4 class="h4">Productive Businesses</h4>
           <p>Growth requires more than capital. It also requires structuring, technology, and the right relationships&nbsp; and these rarely arrive together.</p>
         </div>
@@ -968,11 +1153,11 @@ structure, capital, and partners.</span></p></div></blockquote></div><div class=
               <path class="wd-path p5" d="M180,200 C260,200 250,360 330,360" stroke-dasharray="3 5"></path><path class="wd-flow f5" d="M180,200 C260,200 250,360 330,360"></path>
             </svg>
             <div class="whatis-core"><span class="t">BWCI</span><span class="s">Financial Engine</span></div>
-            <div class="whatis-node n1" style="top:10%"><span class="whatis-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="1"></rect><line x1="4" y1="10" x2="20" y2="10"></line><line x1="10" y1="4" x2="10" y2="20"></line></svg></span>Architecture<span class="whatis-node__n">01</span></div>
-            <div class="whatis-node n2" style="top:30%"><span class="whatis-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12a8 8 0 0 1 14-5"></path><polyline points="18 3 18 7 14 7"></polyline><path d="M20 12a8 8 0 0 1-14 5"></path><polyline points="6 21 6 17 10 17"></polyline></svg></span>Capital<span class="whatis-node__n">02</span></div>
-            <div class="whatis-node n3" style="top:50%"><span class="whatis-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="10" width="16" height="10" rx="1"></rect><path d="M6 10V7l6-4 6 4v3"></path></svg></span>Institutions<span class="whatis-node__n">03</span></div>
-            <div class="whatis-node n4" style="top:70%"><span class="whatis-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="3"></circle><circle cx="17" cy="17" r="3"></circle><line x1="9.2" y1="9.2" x2="14.8" y2="14.8"></line></svg></span>Technology<span class="whatis-node__n">04</span></div>
-            <div class="whatis-node n5" style="top:90%"><span class="whatis-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="9" r="3"></circle><circle cx="17" cy="9" r="3"></circle><path d="M2 20c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5"></path><path d="M12 20c0-3 2.2-5 5-5s5 2 5 5"></path></svg></span>Relationships<span class="whatis-node__n">05</span></div>
+            <div class="whatis-node n1" style="top:10%"><span class="whatis-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="1"></rect><line x1="4" y1="10" x2="20" y2="10"></line><line x1="10" y1="4" x2="10" y2="20"></line></svg></span>Architecture</div>
+            <div class="whatis-node n2" style="top:30%"><span class="whatis-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12a8 8 0 0 1 14-5"></path><polyline points="18 3 18 7 14 7"></polyline><path d="M20 12a8 8 0 0 1-14 5"></path><polyline points="6 21 6 17 10 17"></polyline></svg></span>Capital</div>
+            <div class="whatis-node n3" style="top:50%"><span class="whatis-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="10" width="16" height="10" rx="1"></rect><path d="M6 10V7l6-4 6 4v3"></path></svg></span>Institutions</div>
+            <div class="whatis-node n4" style="top:70%"><span class="whatis-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="3"></circle><circle cx="17" cy="17" r="3"></circle><line x1="9.2" y1="9.2" x2="14.8" y2="14.8"></line></svg></span>Technology</div>
+            <div class="whatis-node n5" style="top:90%"><span class="whatis-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="9" r="3"></circle><circle cx="17" cy="9" r="3"></circle><path d="M2 20c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5"></path><path d="M12 20c0-3 2.2-5 5-5s5 2 5 5"></path></svg></span>Relationships</div>
           </div>
           <div class="whatis-stack">
             <div class="whatis-stack-core"><span class="t">BWCI</span><span class="s">Financial Engine</span></div>
@@ -1001,8 +1186,7 @@ structure, capital, and partners.</span></p></div></blockquote></div><div class=
     <div class="container">
       <div class="df-head">
         <h2 class="h2">Start with the economic need, not the financial product.</h2>
-      </div>
-      <div class="df-stage">
+      </div><div class="df-stage">
         <span class="df-glow" aria-hidden="true"></span>
         <svg class="df-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
           <path d="M18,30 C30,30 32,50 40,50"></path>
@@ -1013,10 +1197,10 @@ structure, capital, and partners.</span></p></div></blockquote></div><div class=
           <h4 class="h4">Need-led</h4>
           <div><!-- obsidian --><div><div style="margin-top: 0.5em; margin-bottom: 0.5em;">We start with the business's needs, how it really operates, and what it needs to achieve business value.&nbsp;</div></div></div>
         </div>
-        <div class="df-core">
+        <div class="df-core df-p--02">
           <span class="df-core-n">02</span>
           <span class="diff-word">Connected</span>
-          <div style="text-align: center"><div style="text-align: left; margin-top: 0.5em; margin-bottom: 0.5em;">We bring in the right partners from across the ecosystem, rather than forcing everything through one product, because that is a better fit.</div></div>
+          <div class="df-core-txt">We bring in the right partners from across the ecosystem, rather than forcing everything through one product, because that is a better fit.</div>
         </div>
         <div class="df-p df-p--03">
           <span class="df-num">03</span>
@@ -1024,6 +1208,7 @@ structure, capital, and partners.</span></p></div></blockquote></div><div class=
           <p>We measure success by what the capital builds: productive activity, sustainable development and lasting results.</p>
         </div>
       </div>
+      
     </div>
   </section><section class="section" id="engine" data-screen-label="05 The Financial Engine">
     <div class="container">
@@ -1078,9 +1263,9 @@ structure, capital, and partners.</span></p></div></blockquote></div><div class=
   <section class="section section--dark" id="ecosystem" data-screen-label="06 The Ecosystem">
     <div class="container">
       <div class="ec-head">
-        <h2 class="h2">Capital, commerce, knowledge and technology — connected.</h2><p class="body"><span class="">Better World is a network, not a hierarchy. Its parts 
-stay independent; BWCI connects, coordinates, and partners with them 
-across the network.</span></p>
+        <h2 class="h2">Capital, commerce, knowledge and technology — connected.</h2><a class="text-link text-link--inverse" href="Ecosystem.dc.html#hero">Explore the ecosystem
+          <svg class="icon icon--sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+        </a>
         
       </div>
       <div class="ec-body">
@@ -1097,7 +1282,7 @@ across the network.</span></p>
             </svg>
             <div class="ec-core"><span class="t">BWCI</span><span class="s">Financial Engine</span></div>
           <div class="ec-node ec-n1"><span class="ec-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12a8 8 0 0 1 14-5"></path><polyline points="18 3 18 7 14 7"></polyline><path d="M20 12a8 8 0 0 1-14 5"></path><polyline points="6 21 6 17 10 17"></polyline></svg></span><span class="ec-node__txt"><span class="ec-node__rel">Connects</span><span class="ec-node__label">Investors &amp; Capital</span></span></div>
-          <div class="ec-node ec-n2"><span class="ec-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="10" width="16" height="10" rx="1"></rect><path d="M6 10V7l6-4 6 4v3"></path></svg></span><span class="ec-node__txt"><span class="ec-node__rel">Coordinates</span><span class="ec-node__label" style="width: 96px; height: 19px">Financial Institutions</span></span></div>
+          <div class="ec-node ec-n2"><span class="ec-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="10" width="16" height="10" rx="1"></rect><path d="M6 10V7l6-4 6 4v3"></path></svg></span><span class="ec-node__txt"><span class="ec-node__rel">Coordinates</span><span class="ec-node__label">Financial Institutions</span></span></div>
           <div class="ec-node ec-n3"><span class="ec-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="9" r="3"></circle><circle cx="17" cy="9" r="3"></circle><path d="M2 20c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5"></path><path d="M12 20c0-3 2.2-5 5-5s5 2 5 5"></path></svg></span><span class="ec-node__txt"><span class="ec-node__rel">Partners</span><span class="ec-node__label">Strategic Partners</span></span></div>
           <div class="ec-node ec-n4"><span class="ec-node__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="10" width="7" height="10"></rect><rect x="14" y="5" width="7" height="15"></rect></svg></span><span class="ec-node__txt"><span class="ec-node__rel">Connects</span><span class="ec-node__label">SMEs &amp; Projects</span></span></div>
           </div>
@@ -1199,39 +1384,29 @@ across the network.</span></p>
     <div class="container">
       <div class="frontdoors-header">
         
-        <h2 class="h2">Find your route into the ecosystem</h2>
-        <div class="frontdoors-sub"><!-- obsidian --><p><strong>Different perspectives. Shared economic purpose.</strong></p></div>
+        <h2 class="h2" style="width: 636px; height: 53px">Find your route into the ecosystem</h2>
+        
       </div>
 
       <div class="frontdoors">
-        <div class="fd card">
-          <span class="fd-num">01</span>
-          
-          <h4 style="padding-top: 10px">SMEs &amp; Projects</h4>
-          <p class="body"><span class="">Need finance that fits how your business works? Or partners who can help your business grow?</span></p>
-          <a class="text-link go" href="#">Explore
-            <svg class="icon icon--sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
-          </a>
-
-          <div class="fd-route" aria-hidden="true">
-            
-          </div>
-          
-          
-        </div>
-        <div class="fd card">
-          <span class="fd-num">02</span>
-          
-          <h4 style="padding-top: 10px">Investors &amp; Partners</h4>
-          <p class="body"><span class="">Want to take part by bringing capital, institutional capacity, technology, or strategic capability?</span></p>
-          <a class="text-link go" href="#">Explore
-            <svg class="icon icon--sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
-          </a>
-
-          
-          
-          
-        </div>
+        <a class="fd2 fd2--sme" href="SMEs%20Projects.dc.html">
+          <span class="fd2-rings" aria-hidden="true"></span>
+          <span class="fd2-top"><span class="fd2-tag">For businesses</span></span>
+          <span class="fd2-main">
+            <span class="fd2-title">SMEs &amp; Projects</span>
+            <span class="fd2-body">Need finance that fits how your business works? Or partners who can help your business grow?</span>
+          </span>
+          <span class="fd2-foot"><span class="fd2-cta">Explore the SME route</span><span class="fd2-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></span></span>
+        </a>
+        <a class="fd2 fd2--inv" href="Investors%20Partners.dc.html">
+          <span class="fd2-rings" aria-hidden="true"></span>
+          <span class="fd2-top"><span class="fd2-tag">For capital &amp; partners</span></span>
+          <span class="fd2-main">
+            <span class="fd2-title">Investors &amp; Partners</span>
+            <span class="fd2-body">Want to take part by bringing capital, institutional capacity, technology, or strategic capability?</span>
+          </span>
+          <span class="fd2-foot"><span class="fd2-cta">Explore the partner route</span><span class="fd2-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></span></span>
+        </a>
       </div>
     </div>
   </section>
@@ -1241,21 +1416,40 @@ across the network.</span></p>
        ============================================================ -->
   <section class="section tr-sec" id="trust" data-screen-label="09 Trust &amp; Transparency">
     <div class="container">
-      
-      <div class="tr-head">
-        <h2 class="h2">Clear about what exists today and what is being built.</h2>
-        <a class="text-link" href="#">Corporate / IR
-          <svg class="icon icon--sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
-        </a>
+      <div class="tr2-head">
+        
+        <h2 class="h2 tr2-title"><span class="tr2-line">Clear on what exists today.</span></h2>
+        
       </div>
-
-      <div class="trust-grid">
-        <a class="trust-item" href="#"><span class="trust-item__icon"><svg class="icon icon--sm" viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"></path></svg></span><span class="trust-item__txt"><span class="trust-item__n">01</span>Governance</span><span class="trust-item__go" aria-hidden="true"><svg class="icon icon--sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></span></a>
-        <a class="trust-item" href="#"><span class="trust-item__icon"><svg class="icon icon--sm" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 20c0-4 3-6 7-6s7 2 7 6"></path></svg></span><span class="trust-item__txt"><span class="trust-item__n">02</span>Leadership</span><span class="trust-item__go" aria-hidden="true"><svg class="icon icon--sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></span></a>
-        <a class="trust-item" href="#"><span class="trust-item__icon"><svg class="icon icon--sm" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1"></rect><line x1="8" y1="9" x2="16" y2="9"></line><line x1="8" y1="13" x2="16" y2="13"></line></svg></span><span class="trust-item__txt"><span class="trust-item__n">03</span>Corporate information</span><span class="trust-item__go" aria-hidden="true"><svg class="icon icon--sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></span></a>
-        <a class="trust-item" href="#"><span class="trust-item__icon"><svg class="icon icon--sm" viewBox="0 0 24 24"><path d="M6 4h9l3 3v13H6z"></path><line x1="9" y1="11" x2="15" y2="11"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg></span><span class="trust-item__txt"><span class="trust-item__n">04</span>Legal &amp; documents</span><span class="trust-item__go" aria-hidden="true"><svg class="icon icon--sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></span></a>
-        <a class="trust-item" href="#"><span class="trust-item__icon"><svg class="icon icon--sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><line x1="12" y1="8" x2="12" y2="13"></line><line x1="12" y1="16" x2="12" y2="16.01"></line></svg></span><span class="trust-item__txt"><span class="trust-item__n">05</span>Regulatory boundaries</span><span class="trust-item__go" aria-hidden="true"><svg class="icon icon--sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></span></a>
-        <a class="trust-item" href="#"><span class="trust-item__icon"><svg class="icon icon--sm" viewBox="0 0 24 24"><path d="M9 12l2 2 4-5"></path><circle cx="12" cy="12" r="8"></circle></svg></span><span class="trust-item__txt"><span class="trust-item__n">06</span>Status transparency</span><span class="trust-item__go" aria-hidden="true"><svg class="icon icon--sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></span></a>
+      <div class="tr2-grid">
+        <div class="tr2-status">
+          <span class="tr2-eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"></circle><line x1="12" y1="11" x2="12" y2="16"></line><line x1="12" y1="8" x2="12" y2="8.01"></line></svg>How to read our status</span>
+          <h3>A clear distinction between current capabilities and planned capabilities.</h3>
+          <p class="tr2-sub">Platform pages identify the delivery entity or partner and show a timestamped stage of development.</p>
+          <ul class="tr2-legend">
+            <li><span class="tr2-dot tr2-dot--op"></span><b>Operating</b><em>Active capability</em></li>
+            <li><span class="tr2-dot tr2-dot--dev"></span><b>In development</b><em>Being built</em></li>
+            <li><span class="tr2-dot tr2-dot--pro"></span><b>Proposed / future</b><em>Long-term plan</em></li>
+          </ul>
+          <div class="tr2-foot">
+            <p>The platform record also shows BWCI’s relationship to each entity and partner.</p>
+            <a class="tr2-link" href="Platforms.dc.html">View platform status <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><polyline points="14 6 20 12 14 18"></polyline></svg></span></a>
+          </div>
+        </div>
+        <div class="tr2-cards">
+          <a class="tr2-card" href="#">
+            <div class="tr2-card__top"><span class="tr2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.4"></circle><path d="M5 20c0-4 3-6 7-6s7 2 7 6"></path></svg></span></div>
+            <h3>People &amp; governance</h3>
+            <p>Learn about the people responsible for BWCI and how decisions are governed and overseen.</p>
+            <div class="tr2-card__foot"><span>Meet our leadership</span><span class="tr2-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><polyline points="14 6 20 12 14 18"></polyline></svg></span></div>
+          </a>
+          <a class="tr2-card" href="#">
+            <div class="tr2-card__top"><span class="tr2-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h8l4 4v14H6z"></path><line x1="9" y1="12" x2="15" y2="12"></line><line x1="9" y1="16" x2="15" y2="16"></line></svg></span></div>
+            <h3>Corporate &amp; investor relations</h3>
+            <p>View corporate information, reports, filings and shareholder resources.</p>
+            <div class="tr2-card__foot"><span>View the corporate record</span><span class="tr2-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><polyline points="14 6 20 12 14 18"></polyline></svg></span></div>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -1273,54 +1467,7 @@ across the network.</span></p>
   <!-- ============================================================
        FOOTER
        ============================================================ -->
-  <section class="section in-sec" id="insights" data-screen-label="10 Insights">
-    <div class="container">
-      <div class="in-head">
-        <h2 class="h2">Thinking about capital, SMEs and the real economy.</h2>
-        <a class="text-link" href="#">View all insights
-          <svg class="icon icon--sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
-        </a>
-      </div>
-      <div class="insights-grid">
-        <a class="insight insight--feat" href="#">
-          <div class="insight-media" style="background:linear-gradient(150deg, var(--brand-ink), var(--brand-teal) 80%)">
-            <span class="insight-num">01</span>
-            <span class="tag">Research</span>
-          </div>
-          <div class="insight-body">
-            <span class="cat">Research</span>
-            <h4>Article / report placeholder</h4>
-            <p>Placeholder summary for a research piece.</p>
-            <span class="insight-read">Read <span class="insight-arrow"><svg class="icon icon--sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></span></span>
-          </div>
-        </a>
-        <a class="insight insight--side" href="#">
-          <div class="insight-media" style="background:linear-gradient(150deg, var(--brand-teal), var(--accent-emerald-dark) 85%)">
-            <span class="insight-num">02</span>
-            <span class="tag">Ecosystem</span>
-          </div>
-          <div class="insight-body">
-            <span class="cat">Ecosystem Developments</span>
-            <h4>Announcement placeholder</h4>
-            <p>Placeholder summary for an announcement.</p>
-            <span class="insight-read">Read <span class="insight-arrow"><svg class="icon icon--sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></span></span>
-          </div>
-        </a>
-        <a class="insight insight--side" href="#">
-          <div class="insight-media" style="background:linear-gradient(150deg, var(--brand-slate), var(--accent-blue) 85%)">
-            <span class="insight-num">03</span>
-            <span class="tag">Perspective</span>
-          </div>
-          <div class="insight-body">
-            <span class="cat">Market Perspective</span>
-            <h4>Selected insight placeholder</h4>
-            <p>Placeholder summary for a market perspective.</p>
-            <span class="insight-read">Read <span class="insight-arrow"><svg class="icon icon--sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></span></span>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section><section class="section section--dark" id="cta" data-screen-label="11 Start a Conversation" style="text-align: center">
+  <section class="section section--dark" id="cta" data-screen-label="11 Start a Conversation" style="text-align: center">
     <div class="cta-pattern" aria-hidden="true"></div>
     <div class="container--wide">
       <h2 class="h2" style="color:#fff; margin-bottom:14px">Start the right conversation</h2>
@@ -1373,7 +1520,6 @@ across the network.</span></p>
             <li><a href="#trust">Governance</a></li>
             <li><a href="#trust">Legal &amp; Documents</a></li>
             <li><a href="#trust">Regulatory Boundaries</a></li>
-            <li><a href="#insights">Insights</a></li>
           </ul>
         </div>
       </div>

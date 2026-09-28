@@ -35,12 +35,12 @@
 .hdr__panel{ position:absolute; top:calc(100% + 14px); left:-8px; width:400px; padding:8px; background:#fff; border:1px solid var(--border-subtle); border-radius:10px; box-shadow:0 24px 48px -16px rgba(18,48,57,.22), 0 4px 12px rgba(18,48,57,.06); animation:hdrIn .18s cubic-bezier(0,0,.2,1); }
 .hdr__panel::before{ content:''; position:absolute; left:0; right:0; top:-16px; height:16px; }
 @keyframes hdrIn{ from{ opacity:0; transform:translateY(-6px); } to{ opacity:1; transform:none; } }
-.hdr__item{ display:grid; grid-template-columns:34px 1fr 16px; align-items:start; gap:4px 10px; padding:14px 14px; border-radius:var(--radius-lg); transition:background-color .15s; }
+.hdr__item{ display:grid; grid-template-columns:1fr 16px; align-items:start; gap:4px 10px; padding:14px 14px; border-radius:var(--radius-lg); transition:background-color .15s; }
 .hdr__item:hover{ background:var(--surface-subtle); }
 .hdr__idx{ font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent-gold-dark); padding-top:3px; }
 .hdr__item-t{ display:block; font-size:15px; font-weight:700; color:var(--brand-ink); letter-spacing:-.005em; }
 .hdr__item-d{ display:block; margin-top:3px; font-size:13px; line-height:1.45; color:var(--text-secondary); }
-.hdr__item svg{ width:16px; height:16px; margin-top:3px; color:var(--text-disabled); transition:transform .18s, color .18s; }
+.hdr__item svg{ width:16px; height:16px; margin-top:3px; color:var(--text-disabled, var(--text-muted)); transition:transform .18s, color .18s; }
 .hdr__item:hover svg{ color:var(--accent-emerald); transform:translateX(2px); }
 .hdr__item[aria-current="page"] .hdr__item-t{ color:var(--accent-emerald-dark); }
 .hdr__burger{ display:none; margin-left:auto; width:44px; height:44px; align-items:center; justify-content:center; border:1px solid var(--border-default); border-radius:var(--radius-md); background:transparent; color:var(--brand-ink); cursor:pointer; }
@@ -79,13 +79,20 @@
   .hdr__scrim{ display:none; }
 }
 @media (prefers-reduced-motion:reduce){ .hdr *, .hdr__bar{ animation:none !important; transition:none !important; } }
+
+/* MOBILE READABILITY FLOOR — auto-raised small text */
+@media (max-width:767px){
+  .hdr__tag, .hdr__idx{ font-size:12px !important; }
+  .hdr__util a, .hdr__item-d, .hdr__sub-d{ font-size:14px !important; }
+  .hdr__link, .hdr__cta{ font-size:15px !important; }
+}
 </style>
 </helmet>
 <header class="hdr {{ stuckCls }}">
   <div class="hdr__util" ref="{{ utilRef }}">
     <div class="hdr__in">
       <a href="Main.dc.html#trust">Governance</a>
-      <a href="Main.dc.html#insights">Corporate/IR</a>
+      <a href="Main.dc.html#trust">Corporate/IR</a>
       <a href="{{ ctaHref }}">Contact</a>
     </div>
   </div>
@@ -101,12 +108,10 @@
           <sc-if value="{{ ddOpen }}" hint-placeholder-val="{{ false }}">
             <div class="hdr__panel" role="menu">
               <a class="hdr__item" role="menuitem" href="FinancialEngine.dc.html#hero" aria-current="{{ curEngine }}" onClick="{{ ddClose }}">
-                <span class="hdr__idx">01</span>
                 <span><span class="hdr__item-t">The Financial Engine</span><span class="hdr__item-d">The 7-stage operational method</span></span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
               </a>
               <a class="hdr__item" role="menuitem" href="Ecosystem.dc.html#hero" aria-current="{{ curEco }}" onClick="{{ ddClose }}">
-                <span class="hdr__idx">02</span>
                 <span><span class="hdr__item-t">Ecosystem Topology</span><span class="hdr__item-d">The 6-layer relational network</span></span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
               </a>
@@ -151,7 +156,7 @@
             <div class="hdr__sub-wrap">
               <div class="hdr__sub">
                 <a href="Main.dc.html#trust" onClick="{{ closeMenu }}"><span class="hdr__sub-t">Governance</span></a>
-                <a href="Main.dc.html#insights" onClick="{{ closeMenu }}"><span class="hdr__sub-t">Corporate/IR</span></a>
+                <a href="Main.dc.html#trust" onClick="{{ closeMenu }}"><span class="hdr__sub-t">Corporate/IR</span></a>
                 <a href="{{ ctaHref }}" onClick="{{ closeMenu }}"><span class="hdr__sub-t">Contact</span></a>
               </div>
             </div>
