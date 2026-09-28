@@ -1,22 +1,22 @@
-<div id="bwci-financial-engine" data-show-header="true" data-show-footer="true">
+<div id="bwci-financial-engine">
 
   <!-- ============================================================
        SITE HEADER  (source: SiteHeader.dc.html, current="engine")
-       Set data-show-header="false" on the root to hide it when a
+       Hide it with "showHeader": false in the config block when a
        GoHighLevel global header is used instead.
        ============================================================ -->
-  <div class="fe-hdr-host">
+  <div class="fe-hdr-host" data-fe-hdr-host>
     <header class="fe-hdr" data-fe-hdr>
       <div class="fe-hdr__util" data-fe-hdr-util>
         <div class="fe-hdr__in">
-          <a href="/#trust" data-fe-href="home#trust">Governance</a>
-          <a href="/#trust" data-fe-href="home#trust">Corporate/IR</a>
-          <a href="/#cta" data-fe-href="contact">Contact</a>
+          <a href="/#bwci-trust" data-fe-link="governance">Governance</a>
+          <a href="/#bwci-trust" data-fe-link="corporate">Corporate/IR</a>
+          <a href="/#bwci-cta" data-fe-link="contact">Contact</a>
         </div>
       </div>
       <div class="fe-hdr__bar">
         <div class="fe-hdr__in">
-          <a class="fe-hdr__logo" href="/#hero" data-fe-href="home#hero" aria-label="BWCI PLC home">
+          <a class="fe-hdr__logo" href="/" data-fe-link="home" aria-label="BWCI PLC home">
             <span class="fe-hdr__mark">BW</span>
             <span class="fe-hdr__name"><span class="fe-hdr__word">BWCI PLC</span><span class="fe-hdr__tag">Better World Capital Investment</span></span>
           </a>
@@ -28,15 +28,15 @@
                   <span><span class="fe-hdr__item-t">The Financial Engine</span><span class="fe-hdr__item-d">The 7-stage operational method</span></span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
                 </a>
-                <a class="fe-hdr__item" role="menuitem" href="/ecosystem#hero" data-fe-href="ecosystem#hero" data-fe-dd-close>
+                <a class="fe-hdr__item" role="menuitem" href="/ecosystem" data-fe-link="ecosystem" data-fe-dd-close>
                   <span><span class="fe-hdr__item-t">Ecosystem Topology</span><span class="fe-hdr__item-d">The 6-layer relational network</span></span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
                 </a>
               </div>
             </div>
-            <a class="fe-hdr__link" href="/platforms#hero" data-fe-href="platforms#hero">Platforms &amp; Institutions</a>
-            <a class="fe-hdr__link" href="/smes-projects" data-fe-href="smes">SMEs &amp; Projects</a>
-            <a class="fe-hdr__link" href="/investors-partners" data-fe-href="investors">Investors &amp; Partners</a>
+            <a class="fe-hdr__link" href="/platforms" data-fe-link="platforms">Platforms &amp; Institutions</a>
+            <a class="fe-hdr__link" href="/smes-projects" data-fe-link="smes">SMEs &amp; Projects</a>
+            <a class="fe-hdr__link" href="/investors-partners" data-fe-link="investors">Investors &amp; Partners</a>
           </nav>
           <button class="fe-hdr__burger" type="button" aria-label="Open menu" aria-expanded="false" data-fe-menu-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
         </div>
@@ -44,7 +44,7 @@
       <div class="fe-hdr__scrim" data-fe-menu-close data-fe-menu-part hidden></div>
       <aside class="fe-hdr__drawer" role="dialog" aria-modal="true" aria-label="Site menu" data-fe-menu-part hidden>
         <div class="fe-hdr__dhead">
-          <a class="fe-hdr__logo" href="/#hero" data-fe-href="home#hero" aria-label="BWCI PLC home" data-fe-menu-close>
+          <a class="fe-hdr__logo" href="/" data-fe-link="home" aria-label="BWCI PLC home" data-fe-menu-close>
             <span class="fe-hdr__mark">BW</span>
             <span class="fe-hdr__name"><span class="fe-hdr__word">BWCI PLC</span><span class="fe-hdr__tag">Financial Holding</span></span>
           </a>
@@ -56,25 +56,25 @@
             <div class="fe-hdr__sub-wrap" data-fe-acc-panel="hiw">
               <div class="fe-hdr__sub">
                 <a href="#fe-hero" aria-current="page" data-fe-menu-close><span class="fe-hdr__sub-t">The Financial Engine</span><span class="fe-hdr__sub-d">The 7-stage operational method</span></a>
-                <a href="/ecosystem#hero" data-fe-href="ecosystem#hero" data-fe-menu-close><span class="fe-hdr__sub-t">Ecosystem Topology</span><span class="fe-hdr__sub-d">The 6-layer relational network</span></a>
+                <a href="/ecosystem" data-fe-link="ecosystem" data-fe-menu-close><span class="fe-hdr__sub-t">Ecosystem Topology</span><span class="fe-hdr__sub-d">The 6-layer relational network</span></a>
               </div>
             </div>
           </div>
-          <a class="fe-hdr__drow" href="/platforms#hero" data-fe-href="platforms#hero" data-fe-menu-close>Platforms &amp; Institutions<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
-          <a class="fe-hdr__drow" href="/smes-projects" data-fe-href="smes" data-fe-menu-close>SMEs &amp; Projects<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
-          <a class="fe-hdr__drow" href="/investors-partners" data-fe-href="investors" data-fe-menu-close>Investors &amp; Partners<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
+          <a class="fe-hdr__drow" href="/platforms" data-fe-link="platforms" data-fe-menu-close>Platforms &amp; Institutions<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
+          <a class="fe-hdr__drow" href="/smes-projects" data-fe-link="smes" data-fe-menu-close>SMEs &amp; Projects<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
+          <a class="fe-hdr__drow" href="/investors-partners" data-fe-link="investors" data-fe-menu-close>Investors &amp; Partners<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
           <div>
             <button class="fe-hdr__drow" type="button" aria-expanded="false" data-fe-acc="gov">Governance &amp; Purpose<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><line class="fe-hdr__v" x1="12" y1="5" x2="12" y2="19"></line></svg></button>
             <div class="fe-hdr__sub-wrap" data-fe-acc-panel="gov" hidden>
               <div class="fe-hdr__sub">
-                <a href="/#trust" data-fe-href="home#trust" data-fe-menu-close><span class="fe-hdr__sub-t">Governance</span></a>
-                <a href="/#trust" data-fe-href="home#trust" data-fe-menu-close><span class="fe-hdr__sub-t">Corporate/IR</span></a>
-                <a href="/#cta" data-fe-href="contact" data-fe-menu-close><span class="fe-hdr__sub-t">Contact</span></a>
+                <a href="/#bwci-trust" data-fe-link="governance" data-fe-menu-close><span class="fe-hdr__sub-t">Governance</span></a>
+                <a href="/#bwci-trust" data-fe-link="corporate" data-fe-menu-close><span class="fe-hdr__sub-t">Corporate/IR</span></a>
+                <a href="/#bwci-cta" data-fe-link="contact" data-fe-menu-close><span class="fe-hdr__sub-t">Contact</span></a>
               </div>
             </div>
           </div>
         </div>
-        <div class="fe-hdr__dfoot"><a class="fe-hdr__cta" href="/#cta" data-fe-href="contact" data-fe-menu-close>Start a Conversation</a></div>
+        <div class="fe-hdr__dfoot"><a class="fe-hdr__cta" href="/#bwci-cta" data-fe-link="startConversation" data-fe-menu-close>Start a Conversation</a></div>
       </aside>
     </header>
   </div>
@@ -98,7 +98,7 @@
       </div>
 
       <div class="hero-fe-visual" aria-hidden="true">
-        <!-- Image URL is set from ASSETS.financialEngineImage in the script below (single replacement point). -->
+        <!-- Image URL comes from "financialEngineImage" in the config block at the top (single replacement point). -->
         <img data-fe-asset="financialEngineImage" alt="" width="1100" height="766" decoding="async" fetchpriority="high">
         <div class="fe-node" style="left:40.0%; top:1.0%"><span class="fe-node__tick"></span><span class="fe-node__dot"></span></div>
         <div class="fe-node" style="left:66.0%; top:14.5%"><span class="fe-node__tick"></span><span class="fe-node__dot"></span></div>
@@ -407,7 +407,7 @@
 
         <div class="caps-footer">
           <p class="fe-body-sm caps-footer__note">Capabilities may come from BWCI entities, group companies, or external partners.</p>
-          <a class="fe-text-link" href="/#platforms" data-fe-href="home#platforms">Explore Platforms
+          <a class="fe-text-link" href="/#bwci-platforms" data-fe-link="explorePlatforms">Explore Platforms
             <svg class="fe-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
           </a>
         </div>
@@ -530,14 +530,14 @@
     <div class="fe-container fe-cta-inner">
       <h2 class="fe-h1" style="color:#fff; margin-bottom:14px">Have a requirement to explore?</h2>
       <p class="fe-body-lg" style="color:var(--text-inverse-muted); max-width:520px; margin:0 auto 36px">Whether you run a business or project, or represent an institution or capital provider, start by telling us what you need.</p>
-      <a class="fe-btn fe-btn--inverse" href="/#cta" data-fe-href="contact">Start a Conversation</a>
+      <a class="fe-btn fe-btn--inverse" href="/#bwci-cta" data-fe-link="startConversation">Start a Conversation</a>
     </div>
   </section>
 
   <!-- ============================================================
-       FOOTER  (set data-show-footer="false" on the root to hide it)
+       FOOTER  (hide with "showFooter": false in the config block)
        ============================================================ -->
-  <footer class="fe-footer">
+  <footer class="fe-footer" data-fe-footer>
     <div class="fe-container">
       <div class="fe-footer__grid">
         <div class="fe-footer__col">
@@ -554,30 +554,30 @@
         <div class="fe-footer__col">
           <h5>Ecosystem</h5>
           <ul>
-            <li><a href="/#what" data-fe-href="home#what">About</a></li>
-            <li><a href="/#different" data-fe-href="home#different">What's Different</a></li>
+            <li><a href="/#bwci-what" data-fe-link="about">About</a></li>
+            <li><a href="/#bwci-different" data-fe-link="whatsDifferent">What's Different</a></li>
             <li><a href="#fe-hero" aria-current="page">Financial Engine</a></li>
-            <li><a href="/#platforms" data-fe-href="home#platforms">Capabilities</a></li>
+            <li><a href="/#bwci-platforms" data-fe-link="capabilities">Capabilities</a></li>
           </ul>
         </div>
 
         <div class="fe-footer__col">
           <h5>Engage</h5>
           <ul>
-            <li><a href="/smes-projects#hero" data-fe-href="smes#hero">SMEs &amp; Projects</a></li>
-            <li><a href="/investors-partners#hero" data-fe-href="investors#hero">Investors &amp; Partners</a></li>
-            <li><a href="/#cta" data-fe-href="contact">Start a Conversation</a></li>
-            <li><a href="/#cta" data-fe-href="contact">Verify a Communication</a></li>
+            <li><a href="/smes-projects" data-fe-link="smes">SMEs &amp; Projects</a></li>
+            <li><a href="/investors-partners" data-fe-link="investors">Investors &amp; Partners</a></li>
+            <li><a href="/#bwci-cta" data-fe-link="startConversation">Start a Conversation</a></li>
+            <li><a href="/#bwci-cta" data-fe-link="verify">Verify a Communication</a></li>
           </ul>
         </div>
 
         <div class="fe-footer__col">
           <h5>Corporate</h5>
           <ul>
-            <li><a href="/#trust" data-fe-href="home#trust">Governance</a></li>
-            <li><a href="/#trust" data-fe-href="home#trust">Legal &amp; Documents</a></li>
-            <li><a href="/#trust" data-fe-href="home#trust">Regulatory Boundaries</a></li>
-            <li><a href="/#insights" data-fe-href="home#insights">Insights</a></li>
+            <li><a href="/#bwci-trust" data-fe-link="governance">Governance</a></li>
+            <li><a href="/#bwci-trust" data-fe-link="legal">Legal &amp; Documents</a></li>
+            <li><a href="/#bwci-trust" data-fe-link="regulatory">Regulatory Boundaries</a></li>
+            <li><a href="#" data-fe-link="insights">Insights</a></li>
           </ul>
         </div>
       </div>

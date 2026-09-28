@@ -222,9 +222,6 @@
   .fe-hdr__util a, .fe-hdr__item-d, .fe-hdr__sub-d{ font-size:14px !important; }
   .fe-hdr__link, .fe-hdr__cta{ font-size:15px !important; }
 }
-/* header hidden via data-show-header="false" (e.g. when a GHL global header is used) */
-:scope[data-show-header="false"] .fe-hdr-host{ display:none; }
-:scope[data-show-footer="false"] .fe-footer{ display:none; }
 
 /* ==========================================================================
    HERO — THE FINANCIAL ENGINE

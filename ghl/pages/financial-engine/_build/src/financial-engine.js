@@ -4,22 +4,12 @@
 (function () {
   'use strict';
 
-  /* ======================= CONFIGURATION ======================= */
-  // 1) Hero image. Upload the webp to GoHighLevel Media Storage (or any CDN) and paste its URL here.
-  var ASSETS = {
-    financialEngineImage: '__FE_IMAGE_URL__'
-  };
-  // 2) Page URLs used by header / footer / CTA links (replace the Claude Design page files).
-  //    A link written as data-fe-href="home#trust" resolves to ROUTES.home + "#trust".
-  var ROUTES = {
-    home: '/',
-    ecosystem: '/ecosystem',
-    platforms: '/platforms',
-    smes: '/smes-projects',
-    investors: '/investors-partners',
-    contact: '/#cta'            // "Start a Conversation" / "Contact" / "Discuss" targets
-  };
-  // 3) Behaviour (values mirror the source implementation).
+  /* Editable settings (hero image URL, page links, header/footer toggles) live in the
+     <script type="application/json" id="bwci-financial-engine-config"> block at the very
+     top of the Custom Code paste, not here. */
+
+  /* ======================= BEHAVIOUR ======================= */
+  // Values mirror the source implementation.
   var OPTIONS = {
     opsLockOffset: 64,          // px from viewport top where the Operating Model locks (source navOffset)
     opsDesktopMin: 1024,        // wheel/keyboard capture + orbit wheel only at >= this width
@@ -32,6 +22,7 @@
   /* ============================================================= */
 
   var ROOT_ID = 'bwci-financial-engine';
+  var CONFIG_ID = 'bwci-financial-engine-config';
   var INSTANCE_KEY = '__bwciFinancialEngine';
 
   var PR_CONTENT = [
@@ -68,20 +59,28 @@
     function q(sel) { return root.querySelector(sel); }
     function qa(sel) { return Array.prototype.slice.call(root.querySelectorAll(sel)); }
 
-    /* ---------- assets + routes (single configuration points) ---------- */
-    qa('img[data-fe-asset]').forEach(function (img) {
-      var url = ASSETS[img.getAttribute('data-fe-asset')];
-      if (url && url.indexOf('__FE_') !== 0 && url.indexOf('REPLACE_WITH') === -1 && img.getAttribute('src') !== url) {
-        img.setAttribute('src', url);
-      }
+    /* ---------- config: image, links, header/footer toggles ---------- */
+    var cfg = {};
+    try {
+      var cfgEl = document.getElementById(CONFIG_ID);
+      if (cfgEl) cfg = JSON.parse(cfgEl.textContent || '{}') || {};
+    } catch (err) { cfg = {}; }
+    var links = cfg.links || {};
+
+    qa('[data-fe-link]').forEach(function (a) {
+      var v = links[a.getAttribute('data-fe-link')];
+      if (typeof v === 'string' && v) a.setAttribute('href', v);
     });
-    qa('a[data-fe-href]').forEach(function (a) {
-      var spec = a.getAttribute('data-fe-href');
-      var i = spec.indexOf('#');
-      var key = i === -1 ? spec : spec.slice(0, i);
-      var hash = i === -1 ? '' : spec.slice(i);
-      if (Object.prototype.hasOwnProperty.call(ROUTES, key)) a.setAttribute('href', ROUTES[key] + hash);
-    });
+
+    var heroImg = q('[data-fe-asset="financialEngineImage"]');
+    var heroUrl = cfg.financialEngineImage;
+    // the untouched placeholder is skipped so it never produces a 404 request
+    if (heroImg && typeof heroUrl === 'string' && heroUrl && heroUrl.indexOf('REPLACE-WITH') === -1) heroImg.src = heroUrl;
+
+    var hdrHostEl = q('[data-fe-hdr-host]');
+    if (cfg.showHeader === false && hdrHostEl) hdrHostEl.parentNode.removeChild(hdrHostEl);
+    var footerEl = q('[data-fe-footer]');
+    if (cfg.showFooter === false && footerEl) footerEl.parentNode.removeChild(footerEl);
 
     /* ---------- in-page anchors: smooth scroll (source used html{scroll-behavior:smooth}) ---------- */
     on(root, 'click', function (e) {
@@ -99,9 +98,8 @@
 
     /* ================= SITE HEADER ================= */
     var header = null;
-    var hdrHost = q('.fe-hdr-host');
     var hdr = q('[data-fe-hdr]');
-    if (hdr && root.getAttribute('data-show-header') !== 'false') {
+    if (hdr) {
       header = (function () {
         var util = q('[data-fe-hdr-util]');
         var dd = q('[data-fe-dd]');
@@ -178,7 +176,7 @@
           destroy: function () { if (menuOpen) setMenu(false); clearTimeout(timers.dd); }
         };
       })();
-    } else if (hdrHost) {
+    } else {
       root.style.setProperty('--util-h', '0px');
     }
 
