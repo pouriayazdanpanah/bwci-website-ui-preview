@@ -111,7 +111,14 @@ scoped.split('\n').forEach((line) => {
   const sel = t.slice(0, t.indexOf('{'));
   splitSelectors(sel).forEach((s) => { if (!s.startsWith(ROOT)) throw new Error('Unscoped selector: ' + s); });
 });
-const css = imports.join('\n') + '\n' + scoped;
+if (imports.length) throw new Error('Do not use @import in the CSS; fonts are loaded by FONT_LINKS');
+const css = scoped;
+// Identical to the Main page GHL block (loads correctly in GoHighLevel, unlike @import inside <style>).
+const FONT_LINKS = [
+  '<link rel="preconnect" href="https://fonts.googleapis.com">',
+  '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
+  '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">',
+].join('\n');
 
 /* ---------------- HTML + JS ---------------- */
 const html = fs.readFileSync(path.join(SRC, 'financial-engine.html'), 'utf8').trim();
@@ -144,7 +151,7 @@ function banner(variant) {
 function assemble(imageValue, variant) {
   const cfg = Object.assign({}, config, { financialEngineImage: imageValue });
   const cfgBlock = '<script type="application/json" id="bwci-financial-engine-config">\n' + JSON.stringify(cfg, null, 2) + '\n</script>';
-  return banner(variant) + '\n' + cfgBlock + '\n<style>\n' + css + '</style>\n\n' + html + '\n\n<script>\n' + js + '\n</script>\n';
+  return banner(variant) + '\n' + cfgBlock + '\n' + FONT_LINKS + '\n<style>\n' + css + '</style>\n\n' + html + '\n\n<script>\n' + js + '\n</script>\n';
 }
 
 const ghl = assemble(config.financialEngineImage, 'production — hosted image');

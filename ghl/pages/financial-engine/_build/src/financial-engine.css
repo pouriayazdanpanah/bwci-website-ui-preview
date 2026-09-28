@@ -9,7 +9,8 @@
    with GoHighLevel/Bootstrap classes (container, section, btn, h1, ...).
    ========================================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
+/* Fonts (Plus Jakarta Sans + JetBrains Mono) are loaded by <link> tags that build.js places
+   before this <style>, exactly as on the Main page. */
 
 /* ---------- TOKENS (source :root, now on the widget root) ---------- */
 :scope{

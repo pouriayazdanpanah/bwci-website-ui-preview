@@ -106,7 +106,7 @@ In-page anchor ids are prefixed to avoid collisions with GHL element ids:
 - **Mobile/tablet (<1024 px)**: orbit replaced by the source's stepper rail (prev/next, 7 dots,
   done/active states, scroll-into-view on change).
 - `html{scroll-behavior:smooth}` is reproduced per-link (in-page anchors) and per-`scrollBy` call.
-- **Fonts**: Plus Jakarta Sans + JetBrains Mono via Google Fonts `@import`, used only inside the widget.
+- **Fonts**: Plus Jakarta Sans + JetBrains Mono, loaded with the same three `<link>` tags as the Main page GHL block (placed right after the config block). A CSS `@import` inside the `<style>` did not load in GoHighLevel, and the build now rejects `@import`. The font families are used only inside the widget.
 
 ### Intentional differences (robustness fixes, no visual change)
 
