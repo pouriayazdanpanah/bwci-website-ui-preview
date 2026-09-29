@@ -1,25 +1,34 @@
 # Page porting workflow
 
-This guide turns a finished Claude Design page in design/ into one pasteable GoHighLevel Website Builder Custom Code block. CLAUDE.md holds project-wide rules; pages/<slug>.md records source-specific requirements; ghl/pages/<slug>/README.md explains the delivered port and installation.
+This guide turns a finished Claude Design page in design/ into one pasteable GoHighLevel Website Builder Custom Code block. CLAUDE.md holds project-wide rules. pages/<slug>.md is a brief for a page not yet ported; ghl/pages/<slug>/README.md is the durable record for a completed port.
 
 ## Reading and execution order
 
-1. Read CLAUDE.md, this guide, and the page brief. If no brief exists, inspect the source and create one using page-template.md.
+1. Read CLAUDE.md and this guide. For a new page, read its pending brief; if absent, inspect the source and create one using page-template.md. For a completed port, read its GHL README.
 2. Inspect the source page, imported components such as design/SiteHeader.dc.html, design/support.js and vendor files only to understand export behavior, and all referenced assets/fonts/helpers. Inventory sections, state, animations, events, routes, breakpoints, sticky/scroll logic, and source quirks. Capture source render and behavior where possible.
 3. Preserve unrelated files. Branch from current main. Create ghl/pages/<slug>/ and keep the design export intact. Port to browser-ready HTML, root-scoped CSS, and isolated native JavaScript. Preserve difficult interactions.
 4. Resolve hosted assets and cross-page routes in a top config. Deliver one complete Custom Code block; optional development tools under _build/ must not run in GHL.
 5. Compare the port with the source: section order, content, fonts, spacing, imagery, geometry, menus, controls, hover/focus, animations, scroll capture/release, anchors, and mobile behavior. Check reduced motion and repeat execution.
 6. Validate 320, 360, 375, 390, 430, 768, 1024, 1280, 1366, 1440, 1600, 1920, and 2560 px; vary height/orientation where relevant. Check document scrollWidth versus clientWidth, console/network errors, and a host page with global element/Bootstrap-like rules and surrounding content. A local browser check is not a published GHL check.
-7. Document differences and limits in the page README and brief. Commit page-scoped changes, push, open a PR to main, and stop for manual review/merge.
+7. Document differences and limits in the page README; after confirming the brief's requirements are covered, remove the pending brief. Commit page-scoped changes, push, open a PR to main, and stop for manual review/merge.
 
-## Existing implementations
+## Pages awaiting a GHL port
 
-| Page | Source | Brief | GHL folder | Maintenance |
-| --- | --- | --- | --- | --- |
-| Main | design/Main.dc.html | pages/main.md | ghl/pages/main/ | Edit two pasteable variants directly. |
-| Financial Engine | design/FinancialEngine.dc.html | pages/financial-engine.md | ghl/pages/financial-engine/ | Edit _build/src/, then regenerate both variants. |
+| Page | Design source | Brief | Planned GHL folder |
+| --- | --- | --- | --- |
+| Ecosystem | design/Ecosystem.dc.html | pages/ecosystem.md | ghl/pages/ecosystem/ |
+| Investors & Partners | design/Investors Partners.dc.html | pages/investors-partners.md | ghl/pages/investors-partners/ |
+| SMEs & Projects | design/SMEs Projects.dc.html | pages/smes-projects.md | ghl/pages/smes-projects/ |
+| Platforms | design/Platforms.dc.html | pages/platforms.md | ghl/pages/platforms/ |
 
-Other .dc.html files are design sources, not proof that a GHL port exists. Create a page brief when work on one begins. The older ghl-ecosystem-standalone branch is not a page folder on current main.
+These are source-backed implementation briefs, not completed ports. The older ghl-ecosystem-standalone branch contains separate Ecosystem work but has not been merged into current main.
+
+## Completed ports
+
+- Main: ghl/pages/main/README.md. Its hosted and inline files are edited directly.
+- Financial Engine: ghl/pages/financial-engine/README.md. Its hosted and inline files are generated from _build/src/.
+
+The completed-page README is the source of maintenance instructions; no duplicate brief is kept under docs/implementation/pages/. design/SiteHeader.dc.html is a shared source component. design/Before After.dc.html is a visual comparison/QA canvas, not a production website page.
 
 ## Git workflow
 

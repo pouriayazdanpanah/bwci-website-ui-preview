@@ -1,6 +1,6 @@
 # PAGE_NAME — GHL implementation brief
 
-Copy to docs/implementation/pages/<page-slug>.md after inspecting the actual source. Replace every placeholder with verified facts and delete inapplicable items. The brief guides future work; reread the source before each port.
+Copy to docs/implementation/pages/<page-slug>.md for a page that has no completed GHL port, after inspecting its actual source. Replace every placeholder with verified facts and delete inapplicable items. When the port is completed and the same facts are captured in its GHL README, remove the pending brief.
 
 ## Files and destination
 
@@ -27,7 +27,7 @@ Deliver one browser-ready Custom Code block with configuration, root-scoped CSS 
 - Responsive: RESPONSIVE_NOTES; test 320, 360, 375, 390, 430, 768, 1024, 1280, 1366, 1440, 1600, 1920, and 2560 px, plus varied heights/orientation where needed. Check overflow, clipping, overlap, menus, geometry, and sticky release.
 - Interaction: SPECIAL_INTERACTIONS; test click, hover, focus, keyboard, wheel/trackpad-like deltas, touch, anchors, resize, and reduced motion as applicable. Scroll capture must release in both directions.
 - Runtime/GHL: no exceptions, broken assets, source runtime imports, duplicate listeners/timers/markup, or global CSS leaks. Test in a hostile host with generic element/Bootstrap-like CSS and surrounding content where practical. Distinguish local QA from a published GHL check.
-- Document exact differences, source quirks, assets/routes, and remaining limits in DESTINATION_FOLDER/README.md before PR.
+- Document exact differences, source quirks, assets/routes, and remaining limits in DESTINATION_FOLDER/README.md before PR; then remove this pending brief after checking that its requirements were carried over.
 
 ## Git and handoff
 
