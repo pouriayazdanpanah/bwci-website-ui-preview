@@ -2,7 +2,7 @@
 
 GoHighLevel (GHL) **Website Builder → Custom Code** version of the Claude Design page
 `Main.dc.html` (published at the site root as `index.html`). The Claude Design export in the
-repository root is the unchanged reference; everything GHL-specific for this page lives here.
+design/ folder is the reference; everything GHL-specific for this page lives here.
 
 ```
 ghl/pages/main/

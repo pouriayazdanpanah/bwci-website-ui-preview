@@ -1,8 +1,8 @@
 # Financial Engine — GoHighLevel port
 
 GoHighLevel (GHL) **Website Builder → Custom Code** version of the Claude Design page
-`FinancialEngine.dc.html`. The Claude Design export in the repository root is the
-unchanged reference implementation; everything GHL-specific for this page lives in this folder.
+`FinancialEngine.dc.html`. The Claude Design export in the design/ folder is the
+reference implementation; everything GHL-specific for this page lives in this folder.
 
 ```
 ghl/pages/financial-engine/

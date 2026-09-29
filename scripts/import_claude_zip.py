@@ -8,6 +8,7 @@ import zipfile
 from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
+DESIGN_ROOT = ROOT / "design"
 REQUIRED = {"Main.dc.html", "support.js", "vendor/react.js", "vendor/react-dom.js"}
 
 VIEWPORT = b'<meta name="viewport" content="width=device-width, initial-scale=1">'
@@ -106,19 +107,19 @@ def main():
             files = collect(archive)
         changed = sorted(
             name for name, data in files.items()
-            if not (ROOT / name).is_file() or (ROOT / name).read_bytes() != data
+            if not (DESIGN_ROOT / name).is_file() or (DESIGN_ROOT / name).read_bytes() != data
         )
         print(f"{len(files)} publishable files; {len(changed)} changed:")
         for name in changed:
-            print(f"  {name}")
+            print(f"  design/{name}")
         if args.check or not changed:
             return 0
         for name in changed:
-            destination = ROOT / name
+            destination = DESIGN_ROOT / name
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_bytes(files[name])
         if args.publish:
-            subprocess.run(["git", "add", "--", *changed], cwd=ROOT, check=True)
+            subprocess.run(["git", "add", "--", *[f"design/{name}" for name in changed]], cwd=ROOT, check=True)
             subprocess.run(
                 ["git", "commit", "-m", "Import Claude Design site export"], cwd=ROOT, check=True
             )
