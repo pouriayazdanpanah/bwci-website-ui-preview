@@ -1,0 +1,25 @@
+{
+  "platformsHeroImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/plat-hero-rails.png",
+  "showHeader": true,
+  "showFooter": true,
+  "directory": {
+    "syncUrl": true
+  },
+  "links": {
+    "home": "/",
+    "financialEngine": "/financial-engine",
+    "ecosystem": "/ecosystem",
+    "smes": "/smes-projects",
+    "investors": "/investors-partners",
+    "investorsRoute": "/investors-partners#route",
+    "investorsParticipation": "/investors-partners#participation",
+    "about": "/#bwci-what",
+    "governance": "/#bwci-trust",
+    "corporate": "/#bwci-trust",
+    "legal": "/#bwci-trust",
+    "regulatory": "/#bwci-trust",
+    "insights": "#",
+    "startConversation": "/#bwci-cta",
+    "verify": "/#bwci-cta"
+  }
+}
