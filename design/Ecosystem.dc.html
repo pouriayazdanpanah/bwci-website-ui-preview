@@ -837,6 +837,16 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
   .ops-routing__row{ padding:10px 12px !important; gap:10px !important; }
   .sp-chip{ font-size:14px !important; }
 }
+
+.cm-ent[data-tip]{ cursor:help; outline:none; }
+.cm-ent[data-tip]::after{ content:attr(data-tip); position:absolute; left:50%; bottom:calc(100% + 10px); transform:translate(-50%,4px); width:max-content; max-width:min(280px,80vw); padding:10px 12px; border-radius:6px; background:#0F2A30; color:#fff; font-family:var(--font-sans); font-size:13px; font-weight:400; letter-spacing:0; text-transform:none; line-height:1.5; text-align:left; box-shadow:0 8px 24px rgba(0,0,0,.18); opacity:0; pointer-events:none; transition:opacity .18s, transform .18s; z-index:10; }
+.cm-ent[data-tip]:hover::after, .cm-ent[data-tip]:focus-visible::after, .cm-ent[data-tip]:focus::after{ opacity:1; transform:translate(-50%,0); }
+.cm-ent[data-tip]:hover, .cm-ent[data-tip]:focus{ border-color:var(--accent-emerald); }
+.pt-rel{ white-space:normal; text-align:left; line-height:1.45; }
+.lp-plat em{ font-style:italic; opacity:.8; }
+#governance .om-env__g{ margin-top:8px; }
+@media (max-width:1023px){ #governance .om-env__g{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:767px){ #governance .om-env__g{ grid-template-columns:minmax(0,1fr); } .en-routes{ grid-template-columns:minmax(0,1fr) !important; } }
 </style>
 </helmet>
 
@@ -857,9 +867,9 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
     </div>
     <div class="hero-inner">
       <div class="hero-copy">
-        
-        <h1 class="h-display">A connected economic network — without corporate consolidation.</h1>
-        <p class="body-lg">The Better World Ecosystem connects independent commercial enterprises, institutional capital providers, delivery platforms, and specialist partners through a shared architectural framework.</p>
+        <span class="eyebrow eyebrow--inv">Our Ecosystem</span>
+        <h1 class="h-display">A connected economic network, without corporate consolidation.</h1>
+        <p class="body-lg">The Better World Ecosystem is designed to connect independent businesses, institutional capital providers, delivery platforms and specialist partners through one shared architecture. Every participant keeps its own ownership, management and identity.</p>
         <div class="hero-actions">
           <a class="hero-btn hero-btn--solid" href="#blueprint">Explore the system map <span aria-hidden="true">↓</span></a>
           <a class="hero-btn hero-btn--ghost" href="#compare">Read the economic case <span aria-hidden="true">→</span></a>
@@ -877,17 +887,16 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
     <div class="container">
       <div class="sec-head">
         
-        <h2 class="h1">How the Ecosystem Is Organized</h2>
-        <p class="body-lg">The ecosystem is organized across three clearly defined structural dimensions:</p>
+        <h2 class="h1">How the ecosystem is organised</h2>
+        <p class="body-lg">One architecture, read in three dimensions: the layers it is built from, the people who take part and the flows that move between them.</p>
       </div>
       <div class="dim-frame">
-        <div class="dim-spine" aria-hidden="true"><span>One Architecture</span></div>
+        <div class="dim-spine" aria-hidden="true"><span>One architecture</span></div>
         <div class="dim-rows">
           <sc-for list="{{dims}}" as="d" hint-placeholder-count="3">
             <div class="dim-row rv">
               <div class="dim-plane" aria-hidden="true"><i></i><i></i><i></i><b>{{d.count}}</b></div>
               <div>
-                <span class="dim-code">{{d.code}}</span>
                 <h3 class="dim-title">{{d.title}}</h3>
                 <span class="dim-q">{{d.q}}</span>
               </div>
@@ -896,7 +905,7 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
                   <div class="dim-item">
                     <span class="dim-item__code">{{it.code}}</span>
                     <span class="dim-item__t">{{it.t}}</span>
-                    <span class="dim-item__s">{{it.s}}</span>
+                    
                   </div>
                 </sc-for>
               </div>
@@ -913,7 +922,7 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
     <div class="container">
       <div class="lp-head">
         <h2 class="h1">How the ecosystem fits together</h2>
-        <p class="body-lg">Five steps, one loop. Follow a real need from a business to capital and back again.</p>
+        <p class="body-lg">Five steps, one loop. Follow a real business need from identification to capital and back again.</p>
         <div class="lp-lens" role="tablist" aria-label="View the loop as">
           <sc-for list="{{lpLenses}}" as="l" hint-placeholder-count="4">
             <button type="button" role="tab" class="{{l.cls}}" aria-selected="{{l.sel}}" onClick="{{l.pick}}">{{l.label}}</button>
@@ -951,7 +960,7 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
                   <button type="button" class="{{n.cls}}" onClick="{{n.pick}}" aria-pressed="{{n.act}}" aria-label="{{n.aria}}">
                     <span class="lp-node__dot">{{n.num}}</span>
                     <span class="lp-node__lbl">
-                      <sc-if value="{{n.plat}}" hint-placeholder-val="{{false}}"><span class="lp-plat"><span><i class="lp-st lp-st--op"></i>Providence Asset Mgmt · operating</span><span><i class="lp-st lp-st--dev"></i>Private Capital · in development</span><span><i class="lp-st lp-st--dev"></i>Trade Finance · in development</span></span></sc-if>
+                      <sc-if value="{{n.plat}}" hint-placeholder-val="{{false}}"><span class="lp-plat"><span><i class="lp-st lp-st--op"></i>Providence Asset Management · Operating</span><span><i class="lp-st lp-st--dev"></i>Private Capital · In development</span><span><i class="lp-st lp-st--dev"></i>Trade Finance · In development</span><span><em>Status as at September 2026</em></span></span></sc-if>
                       <strong>{{n.title}}</strong>
                       <span>{{n.line}}</span>
                     </span>
@@ -978,7 +987,7 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
                 <span class="lp-card__who">{{lpCap.who}}</span>
                 <h3 class="lp-cap__t">{{lpCap.title}}</h3>
                 <p class="lp-cap__b">{{lpCap.body}}</p>
-                <sc-if value="{{lpShowPlat}}" hint-placeholder-val="{{false}}"><span class="lp-plat"><span><i class="lp-st lp-st--op"></i>Providence Asset Mgmt · operating</span><span><i class="lp-st lp-st--dev"></i>Private Capital · in development</span><span><i class="lp-st lp-st--dev"></i>Trade Finance · in development</span></span></sc-if>
+                <sc-if value="{{lpShowPlat}}" hint-placeholder-val="{{false}}"><span class="lp-plat"><span><i class="lp-st lp-st--op"></i>Providence Asset Management · Operating</span><span><i class="lp-st lp-st--dev"></i>Private Capital · In development</span><span><i class="lp-st lp-st--dev"></i>Trade Finance · In development</span><span><em>Status as at September 2026</em></span></span></sc-if>
                 <div class="lp-card__act">
                   <sc-if value="{{lpPaused}}" hint-placeholder-val="{{false}}">
                     <button type="button" class="lp-play lp-play--full" onClick="{{lpPlayFn}}"><span class="lp-play__i">▶</span>Play the loop</button>
@@ -996,7 +1005,7 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
         </div>
 
         <div class="lp-foot">
-          <span>Everyone stays independent. Nobody has to sell their business to take part.</span>
+          <span>Everyone stays independent. No one has to sell their business to take part.</span>
           
         </div>
       </div>
@@ -1008,8 +1017,8 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
     <div class="container">
       <div class="sec-head">
         
-        <h2 class="h1">How Participants Interface Without Consolidating</h2>
-        <p class="body-lg">Connection in the Better World Ecosystem is designed to occur through defined interfaces rather than corporate consolidation:</p>
+        <h2 class="h1">How participants connect without consolidating</h2>
+        <p class="body-lg">Participants connect through defined interfaces, not through mergers or acquisitions. Each relationship is agreed, bounded and two-way.</p>
       </div>
       <div class="cm-grid">
         <div class="cm-list">
@@ -1024,29 +1033,28 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
           </sc-for>
         </div>
         <div class="cm-diagram rv" data-mech="{{mech}}">
-          <p class="cm-diagram__cap">The Participant-First Value Model: Relational Network Topology</p>
+          <p class="cm-diagram__cap">Participant-first model: how the network is connected</p>
           <div class="cm-col">
-            <div class="cm-ent"><span class="cm-ent__l">Independent perimeter</span><span class="cm-ent__t">Wholesale Capital (Layer 01)</span></div>
+            <div class="cm-ent" tabindex="0" data-tip="Institutional capital providers who choose where and how they participate."><span class="cm-ent__l">Layer 01 · Independent</span><span class="cm-ent__t">Wholesale Capital</span></div>
             <span class="cm-v"></span>
             <div class="cm-band">
               <span class="cm-band__l">Defined Interfaces</span>
               <div class="cm-row">
-                <div class="cm-ent cm-ent--partner"><span class="cm-ent__l">Independent</span><span class="cm-ent__t">Strategic Partners (Layer 04)</span></div>
+                <div class="cm-ent cm-ent--partner" tabindex="0" data-tip="Specialist organisations that contribute expertise, technology or market access."><span class="cm-ent__l">Layer 04 · Independent</span><span class="cm-ent__t">Strategic Partners</span></div>
                 <span class="cm-rail"><i></i></span>
-                <div class="cm-ent cm-ent--anchor"><span class="cm-ent__l">Anchor</span><span class="cm-ent__t">BWCI Holding Anchor (Layer 02)</span></div>
+                <div class="cm-ent cm-ent--anchor" tabindex="0" data-tip="Designs the architecture and connects participants. BWCI owns and develops, but does not deliver regulated services directly."><span class="cm-ent__l">Layer 02 · Anchor</span><span class="cm-ent__t">BWCI Holding Anchor</span></div>
                 <span class="cm-rail"><i></i></span>
-                <div class="cm-ent"><span class="cm-ent__l">Independent</span><span class="cm-ent__t">Delivery Platforms (Layer 03)</span></div>
+                <div class="cm-ent" tabindex="0" data-tip="Platforms and authorised entities that deliver specific capabilities, such as asset management."><span class="cm-ent__l">Layer 03 · Independent</span><span class="cm-ent__t">Delivery Platforms</span></div>
               </div>
             </div>
             <span class="cm-v"></span>
-            <div class="cm-ent cm-ent--rx"><span class="cm-ent__l">Independent perimeter</span><span class="cm-ent__t">Real-Economy Enterprises (Layer 05)</span></div>
+            <div class="cm-ent cm-ent--rx" tabindex="0" data-tip="Businesses and impact projects that take part without giving up ownership."><span class="cm-ent__l">Layer 05 · Independent</span><span class="cm-ent__t">Real-Economy Enterprises</span></div>
             <span class="cm-v"></span>
-            <div class="cm-ent cm-ent--rx"><span class="cm-ent__l">Outcome</span><span class="cm-ent__t">Productive Outcomes (Layer 06)</span></div>
+            <div class="cm-ent cm-ent--rx" tabindex="0" data-tip="Growth, jobs and resilient supply chains, which is what the whole system is for."><span class="cm-ent__l">Layer 06 · Outcome</span><span class="cm-ent__t">Productive Outcomes</span></div>
           </div>
           <div class="cm-legend">
             <span><i class="lg-peri"></i>Entity perimeter</span>
-            <span><i class="lg-port"></i>Interface</span>
-            <span><i class="lg-rail"></i>Protocol / rail</span>
+            <span><i class="lg-rail"></i>Interface protocol</span>
           </div>
         </div>
       </div>
@@ -1058,8 +1066,8 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
     <div class="container">
       <div class="sec-head">
         
-        <h2 class="h1">Who Participates in the Ecosystem</h2>
-        <p class="body-lg">Four distinct institutional stakeholder groups collaborate across the network:</p>
+        <h2 class="h1">Who participates in the ecosystem</h2>
+        <p class="body-lg">Four groups of participants, each independent, all connected through a shared architecture.</p>
       </div>
       <div class="pt-grid">
         <div class="pt-map">
@@ -1071,7 +1079,7 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
               <rect class="{{p.portCls}}" x="{{p.px}}" y="{{p.py}}" width="2.4" height="2.4"></rect>
             </sc-for>
           </svg>
-          <div class="pt-core"><b>Shared Architecture</b><span>Defined interfaces</span></div>
+          <div class="pt-core"><b>Shared architecture</b><span>Defined interfaces</span></div>
           <sc-for list="{{parts}}" as="p" hint-placeholder-count="4">
             <button type="button" class="{{p.cls}}" style="left:{{p.x}}%; top:{{p.y}}%" aria-pressed="{{p.pressed}}" onMouseEnter="{{p.pick}}" onClick="{{p.pick}}" onFocus="{{p.pick}}">
               <span class="pt-node__c">{{p.gid}}</span>
@@ -1099,29 +1107,29 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
       <div class="sec-head fx-head">
         
         <h2 class="h1">How value circulates</h2>
-        <p class="body-lg">Capital, capability, and commerce move through the network together, each flow reinforcing real-economy growth.</p>
+        <p class="body-lg">Capital, capability and commerce move through the network together, and each flow is designed to reinforce the others.</p>
       </div>
       <div class="fx-grid">
         <article class="fx-card fx-card--cap">
           <div class="fx-card__top"><span class="fx-card__code">01 · Capital flows</span><span class="fx-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 20V4M4 8l4-4 4 4"></path><path d="M16 4v16M12 16l4 4 4-4"></path></svg></span></div>
           <span class="fx-card__line" aria-hidden="true"><i></i></span>
-          <h3 class="fx-card__t">Wholesale Capital Mobilised</h3>
-          <p class="fx-card__b">Wholesale institutional capital is mobilised around verified needs and deployed through regulated vehicles.</p>
-          <div class="fx-card__m"><span>Metric</span><p>Capital deployed to productive business assets.</p></div>
+          <h3 class="fx-card__t">Wholesale capital, matched to real needs</h3>
+          <p class="fx-card__b">The model is designed to bring wholesale and institutional capital to verified business needs, through appropriately authorised vehicles.</p>
+          <div class="fx-card__m"><span>What we intend to measure</span><p>Capital deployed into productive business activity.</p></div>
         </article>
         <article class="fx-card fx-card--capa">
           <div class="fx-card__top"><span class="fx-card__code">02 · Capability flows</span><span class="fx-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16M16 4l4 4-4 4"></path><path d="M20 16H4M8 12l-4 4 4 4"></path></svg></span></div>
           <span class="fx-card__line" aria-hidden="true"><i></i></span>
-          <h3 class="fx-card__t">Shared Institutional Rails</h3>
-          <p class="fx-card__b">Independent platforms share institutional-grade risk underwriting, compliance, and digital API rails.</p>
-          <div class="fx-card__m"><span>Metric</span><p>Lower structural operational overhead.</p></div>
+          <h3 class="fx-card__t">Shared institutional infrastructure</h3>
+          <p class="fx-card__b">Independent platforms can share institutional-grade underwriting, compliance and digital infrastructure,&nbsp;<strong><span style="font-weight: normal;">so each one does not have to build its own</span></strong>.</p>
+          <div class="fx-card__m"><span>What we intend to measure</span><p>Reduction in duplicated operating overhead across participants.</p></div>
         </article>
         <article class="fx-card fx-card--com">
-          <div class="fx-card__top"><span class="fx-card__code">03 · Commerce &amp; network flows</span><span class="fx-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.34-5.66"></path><path d="M20 4v5h-5"></path></svg></span></div>
+          <div class="fx-card__top"><span class="fx-card__code">03 · Commerce flows</span><span class="fx-card__ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.34-5.66"></path><path d="M20 4v5h-5"></path></svg></span></div>
           <span class="fx-card__line" aria-hidden="true"><i></i></span>
-          <h3 class="fx-card__t">Inter-Enterprise Supply Chains</h3>
-          <p class="fx-card__b">Connected businesses discover, trade, and collaborate, building commercial resilience that unblocks trade bottlenecks and reduces credit risk naturally.</p>
-          <div class="fx-card__m"><span>Metric</span><p>Inter-ecosystem commercial trade volume and regional supply-chain continuity.</p></div>
+          <h3 class="fx-card__t">Connected supply chains</h3>
+          <p class="fx-card__b">Businesses in the network can find, trade and work with each other. That builds commercial relationships which may strengthen resilience across regional supply chains.</p>
+          <div class="fx-card__m"><span>What we intend to measure</span><p>Trade volume between participants and continuity of regional supply chains.</p></div>
         </article>
       </div>
     </div>
@@ -1132,45 +1140,50 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
     <div class="container">
       <div class="sec-head om-head">
         
-        <h2 class="h1">Three operating models</h2>
-        <p class="body-lg">How businesses typically access capital and capability, and where the Better World Ecosystem differs.</p>
+        <h2 class="h1">Three ways to access capital and capability</h2>
+        <p class="body-lg">How growing businesses typically get capital and capability, and where the Better World model differs.</p>
       </div>
       <div class="om-grid">
         <article class="om-card">
           <div class="om-card__top"><span class="om-card__k">Model A</span><span class="om-glyph" aria-hidden="true"><svg viewBox="0 0 64 14" width="64" height="14"><circle cx="7" cy="7" r="5.5"></circle><circle cx="32" cy="7" r="5.5"></circle><circle cx="57" cy="7" r="5.5"></circle></svg></span></div>
-          <h3 class="om-card__t">Standalone Isolation</h3>
-          <ul class="om-list"><li>High borrowing costs</li><li>No wholesale market access</li><li>Vulnerable to trade shocks</li><li>Limited commercial reach</li></ul>
-          <div class="om-out"><span>Structural outcome</span><strong>Subscale</strong></div>
+          <h3 class="om-card__t">Standalone</h3>
+          <ul class="om-list"><li>Often faces higher borrowing costs</li><li>Experiences little or no access to wholesale capital</li><li>Remains more exposed to trade and market shocks</li><li>Achieves limited commercial reach</li></ul>
+          <div class="om-out"><span>Typical outcome</span><strong>Constrained growth</strong></div>
         </article>
         <article class="om-card">
           <div class="om-card__top"><span class="om-card__k">Model B</span><span class="om-glyph" aria-hidden="true"><svg viewBox="0 0 64 14" width="64" height="14"><circle cx="57" cy="7" r="6" class="f"></circle></svg></span></div>
-          <h3 class="om-card__t">Conglomerate Consolidation</h3>
-          <ul class="om-list"><li>Founders lose equity</li><li>Centralized bureaucracy</li><li>Extractive dividend focus</li><li>Cultural misalignment</li></ul>
-          <div class="om-out"><span>Structural outcome</span><strong>Acquired</strong></div>
+          <h3 class="om-card__t">Consolidation</h3>
+          <ul class="om-list"><li>Founders typically give up ownership and control</li><li>Decisions move to a central corporate structure</li><li>Priorities may shift&nbsp;towards the acquirer's returns</li><li>Culture and foundational identity can be lost</li></ul>
+          <div class="om-out"><span>Typical outcome</span><strong>Absorbed</strong></div>
         </article>
         <article class="om-card om-card--c">
           <div class="om-card__top"><span class="om-card__k">Model C</span><span class="om-glyph" aria-hidden="true"><svg viewBox="0 0 64 14" width="64" height="14"><path d="M12.5 7h14M37.5 7h14"></path><circle cx="7" cy="7" r="5.5"></circle><circle cx="32" cy="7" r="5.5"></circle><circle cx="57" cy="7" r="5.5"></circle></svg></span></div>
           <h3 class="om-card__t">The Better World Ecosystem</h3>
-          <ul class="om-list"><li>Operational independence without consolidation</li><li>Tailored capital structured to fit the need</li><li>Shared institutional capability and digital rails</li><li>Compounding network resilience &amp; supply-chain trade</li></ul>
-          <div class="om-out"><span>Structural outcome</span><strong>Independent, Productive Scale</strong></div>
+          <ul class="om-list"><li>Retains complete independence without requiring a sale or merger</li><li>Accesses capital structures designed around specific needs, where appropriate</li><li>Leverages shared institutional capability and infrastructure</li><li>Connects to a growing network of aligned businesses and partners</li></ul>
+          <div class="om-out"><span>Intended outcome</span><strong>Independent, productive growth</strong></div>
         </article>
       </div>
 
-      <div class="om-env">
-        <span class="om-env__l">Governance, technology &amp; risk envelope</span>
-        <div class="om-env__g">
-          <div class="om-env__c"><span class="om-env__n">01</span><h4>Group Governance</h4><p>Board standards, capital allocation frameworks, and ethical oversight.</p></div>
-          <div class="om-env__c"><span class="om-env__n">02</span><h4>Risk &amp; Compliance</h4><p>Entity-level regulatory licensing, and robust counterparty screening.</p></div>
-          <div class="om-env__c"><span class="om-env__n">03</span><h4>Secure Digital Rails</h4><p>Institutional APIs, data segregation, and secure tokenised architecture*.</p></div>
-          <div class="om-env__c"><span class="om-env__n">04</span><h4>Audited Reporting</h4><p>Verified outcomes, traceable data, no vague ESG marketing.</p></div>
-        </div>
-        <p class="om-env__note">*Technology and tokenisation are enabling tools used where appropriate, never pre-set answers.</p>
-      </div>
     </div>
   </section>
 
   <!-- 08 GOVERNANCE -->
-  
+  <section class="section" id="governance" data-screen-label="08 Governance" style="background:#F7F9F8">
+    <div class="container">
+      <div class="sec-head">
+        <h2 class="h1">Governance, technology and risk</h2>
+        <p class="body-lg">These safeguards apply across the whole ecosystem, not just to individual participants.</p>
+      </div>
+      <div class="om-env__g">
+        <div class="om-env__c"><span class="om-env__n">01</span><h4>Group governance</h4><p>Board oversight, capital-allocation frameworks and ethical standards set at group level.</p></div>
+        <div class="om-env__c"><span class="om-env__n">02</span><h4>Risk &amp; compliance</h4><p>Regulated activities sit with appropriately authorised entities. Counterparties are screened before any engagement.</p></div>
+        <div class="om-env__c"><span class="om-env__n">03</span><h4>Secure digital infrastructure</h4><p>Institutional-grade interfaces with strict data segregation, using tokenised structures only where appropriate.*</p></div>
+        <div class="om-env__c"><span class="om-env__n">04</span><h4>Transparent reporting</h4><p>Reporting built to be verified. We will publish outcomes as the ecosystem matures and state clearly what exists today and what is still in development.</p></div>
+      </div>
+      <p class="om-env__note" style="margin-top:20px">*Technology, including tokenisation, is used only where it serves the need. It is never a default answer.</p>
+    </div>
+  </section>
+
 
   <!-- 09 ENGAGEMENT -->
   <section class="section en-sec" id="engage" data-screen-label="09 Engagement">
@@ -1178,14 +1191,30 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
     <div class="container">
       <div class="en-head">
         
-        <h2 class="h1" style="height: 53px; width: 856px">Connect with the Better World Network</h2>
-        <p class="body-lg" style="width: 562px; height: 60px">Select your route to explore how your organization can participate in the ecosystem:</p>
-        <a class="btn btn--inverse en-btn" href="Main.dc.html#cta">Start a Conversation <span aria-hidden="true">→</span></a>
+        <h2 class="h1">Connect with the Better World network</h2>
+        <p class="body-lg">Choose the route that fits your organisation.</p>
+      </div>
+      <div class="en-routes" style="margin-top:40px; text-align:left">
+        <a class="en-route" href="SMEs%20Projects.dc.html#hero">
+          <span class="en-route__c">For businesses &amp; impact projects</span>
+          <span class="en-route__p">Explore how your business or project could engage with the ecosystem.</span>
+          <span class="en-route__go">Engage with the Ecosystem <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="en-route en-route--inv" href="Investors Partners.dc.html#hero">
+          <span class="en-route__c">For investors &amp; partners</span>
+          <span class="en-route__p">Explore institutional pathways into the ecosystem.</span>
+          <span class="en-route__go">Partner with Better World <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+      <div style="display:flex; justify-content:center; margin-top:28px">
+        <a href="Main.dc.html#what" style="font-family:var(--font-mono); font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text-inverse-muted); border-bottom:1px solid rgba(255,255,255,.3); padding-bottom:3px">Why the ecosystem matters →</a>
       </div>
       
       
     </div>
   </section>
+
+  
 
   <footer class="footer">
     <div class="container">
@@ -1227,7 +1256,7 @@ class Component extends DCLogic {
   state = { lens: 1, layer: 0, mech: 0, part: 0, flow: 0, lpLens: null, lpStep: null, lpPlay: true, lpW: 1200 };
 
   lpRef = React.createRef();
-  lpSeq(l) { return ({ full:[0,1,2,3,4], sme:[0,1,2,4], investor:[1,2,3,4], partner:[1,2,4] })[l] || [0,1,2,3,4]; }
+  lpSeq(l) { return ({ full:[0,1,2,3,4], sme:[0,1,3,4], investor:[1,2,3,4], partner:[1,3,4] })[l] || [0,1,2,3,4]; }
   lpCur() { return this.state.lpLens ?? this.props.defaultLens ?? 'full'; }
   componentDidMount() {
     const lpMeasure = () => { const el = this.lpRef.current; if (el && el.clientWidth !== this.state.lpW) this.setState({ lpW: el.clientWidth }); };
@@ -1271,16 +1300,14 @@ class Component extends DCLogic {
     const S = this.state;
 
     const dims = [
-      { count: '6', code: 'Dimension 1: Six Layers', title: 'Six Layers', q: 'What the system is made of', items: [
-        { code: 'L01', t: 'Wholesale Capital Pools' }, { code: 'L02', t: 'BWCI Holding Architecture' }, { code: 'L03', t: 'Delivery Platforms & Builds' },
-        { code: 'L04', t: 'Strategic Enablement & Rails' }, { code: 'L05', t: 'Real-Economy Enterprises' }, { code: 'L06', t: 'Productive Outcomes' } ] },
-      { count: '4', code: 'Dimension 2: Four Participants', title: 'Four Participants', q: 'Who participates in the network', items: [
-        { code: 'P-01', t: 'Real-Economy Enterprises & SMEs' }, { code: 'P-02', t: 'Institutional Capital Allocators' },
-        { code: 'P-03', t: 'Delivery Platforms & Operating Vehicles' }, { code: 'P-04', t: 'Strategic Partners & Banking Rails' } ] },
-      { count: '3', code: 'Dimension 3: Three Flows', title: 'Three Flows', q: 'What moves through the network', items: [
-        { code: 'F-01', t: 'Capital Flows', s: 'Wholesale syndication & deployment' },
-        { code: 'F-02', t: 'Capability & Infrastructure Flows', s: 'Shared interfaces, APIs & clearing' },
-        { code: 'F-03', t: 'Commerce & Performance Data Flows', s: 'Trade activity & operational telemetry' } ] }
+      { count: '6', title: 'Structural layers', q: 'What is the ecosystem made of?', items: [
+        { code: 'L01', t: 'Wholesale capital' }, { code: 'L02', t: 'Holding Anchor' }, { code: 'L03', t: 'Delivery platforms' },
+        { code: 'L04', t: 'Strategic partners' }, { code: 'L05', t: 'Real-economy enterprises' }, { code: 'L06', t: 'Productive outcomes' } ] },
+      { count: '4', title: 'Participant groups', q: 'Who takes part?', items: [
+        { code: 'P01', t: 'Businesses & impact projects' }, { code: 'P02', t: 'Investors & capital providers' },
+        { code: 'P03', t: 'Platforms & institutions' }, { code: 'P04', t: 'Strategic partners' } ] },
+      { count: '3', title: 'Value flows', q: 'What moves between them?', items: [
+        { code: 'F01', t: 'Capital' }, { code: 'F02', t: 'Capability' }, { code: 'F03', t: 'Commerce' } ] }
     ].map(d => Object.assign({}, d, { n: d.items.length, items: d.items.map(it => Object.assign({ s: '' }, it)) }));
 
     const L = S.lens;
@@ -1367,33 +1394,26 @@ class Component extends DCLogic {
     }));
 
     const MECHS = [
-      { t: '1. Defined Contractual & Technical Interfaces', p: 'External partner banks, custodians, and platforms connect through defined service agreements, data interfaces, and collateral monitoring protocols. Participants collaborate without merging internal systems or transferring proprietary assets.' },
-      { t: '2. Entity Separation & Balance-Sheet Protection', p: 'Where applicable, entity and contractual structures are designed to separate relevant balance-sheet exposures and limit the transmission of liabilities and risks between participating entities.' },
-      { t: '3. Participant-First Value Model', p: 'The architecture is designed to strengthen the capital access, operating autonomy, and commercial resilience of participating organizations, rather than requiring them to become part of a single consolidated corporate hierarchy.' }
+      { t: 'Defined agreements', p: "Each relationship is set out in its own terms: what is exchanged, who is responsible and how it ends. No participant takes on obligations it has not agreed to" },
+      { t: 'Shared standards', p: 'Participants work to common standards for governance, risk and reporting, so they can work together without merging operations.' },
+      { t: 'Secure data rails', p: 'Where appropriate, participants exchange information through secure, segregated digital interfaces. Each organisation keeps control of its own data.' },
+      { t: 'Clear accountability', p: 'Every regulated activity is attributed to the authorised entity carrying it out, so it is always clear who is responsible for what.' }
     ];
-    const mechs = MECHS.map((m, i) => ({ n: String(i + 1), t: m.t.replace(/^\d\.\s/, ''), p: m.p, cls: 'cm-item' + (S.mech === i ? ' cm-item--on' : ''), pick: () => { if (this.state.mech !== i) this.setState({ mech: i }); } }));
+    const mechs = MECHS.map((m, i) => ({ n: String(i + 1).padStart(2, '0'), t: m.t, p: m.p, cls: 'cm-item' + (S.mech === i ? ' cm-item--on' : ''), pick: () => { if (this.state.mech !== i) this.setState({ mech: i }); } }));
 
     const PARTS = [
-      { gid: 'Group 01', short: 'Real-Economy Enterprises', x: 50, y: 88, code: 'Group 01 · Real-Economy Commercial Core', title: 'Real-Economy Enterprises & Project Sponsors', rel: 'Capital in · Commerce & data out', fields: [
-        ['Who They Are', 'Operating commercial businesses, industrial developers, and project sponsors generating real-world economic output.'],
-        ['Their Need', 'Capital structured around actual cashflow cycles, equipment lifecycles, and trade milestones.'],
-        ['What They Receive', 'Tailored capital architecture, programmatic trade liquidity where applicable, and potential access to non-dilutive financing structures.'],
-        ['What They Contribute', 'Productive economic activity, contractual cashflow repayments, and operational performance data.'] ] },
-      { gid: 'Group 02', short: 'Institutional Capital Allocators', x: 50, y: 12, code: 'Group 02 · Wholesale Capital Providers', title: 'Institutional Capital Allocators', rel: 'Capital Flows ↓', fields: [
-        ['Who They Are', 'Fiduciary asset allocators, pension funds, sovereign wealth funds, family offices, endowments, and development finance institutions.'],
-        ['Their Need', 'Structured, high-quality real-economy asset deployment with transparent risk allocation and auditable reporting.'],
-        ['What They Receive', 'Access to structured financing opportunities, defined risk allocation, and transparent reporting.'],
-        ['What They Contribute', 'Scaled wholesale liquidity, syndication capacity, and institutional investment discipline.'] ] },
-      { gid: 'Group 03', short: 'Delivery Platforms', x: 12, y: 50, code: 'Group 03 · Specialized Delivery Platforms', title: 'Delivery Platforms & Operating Vehicles', rel: 'Capital · Capability ⇄', fields: [
-        ['Who They Are', 'Dedicated operating companies and internal group builds developed by BWCI to underwrite, service, and manage specific asset classes.'],
-        ['Their Role', 'Intended to underwrite, service, and execute specialized facilities across private capital, asset management, and trade finance, subject to the applicable regulatory structure.'],
-        ['What They Receive', 'Group capital allocation, structuring architecture, and shared infrastructure interfaces.'],
-        ['What They Contribute', 'Operational underwriting, client onboarding, regulatory compliance management, and portfolio servicing.'] ] },
-      { gid: 'Group 04', short: 'Strategic Partners & Rails', x: 88, y: 50, partner: true, code: 'Group 04 · Independent Connected Capabilities', title: 'Strategic Partners & Infrastructure Rails', rel: 'Capability ⇄ · Commerce & data ←', fields: [
-        ['Who They Are', 'Independent commercial clearing banks, regulated custodians, and specialized software and logistics providers.'],
-        ['Their Role', 'Providing external clearing rails, custody services, and infrastructure interfaces.'],
-        ['What They Receive', 'Integration into defined transaction and infrastructure flows.'],
-        ['What They Contribute', 'Regulated clearing services, custodial safekeeping, and specialized infrastructure rails.'] ] }
+      { gid: 'G1', short: 'Businesses & Impact Projects', x: 50, y: 88, code: 'G1', title: 'Businesses & Impact Projects', rel: 'The reason the ecosystem exists.', fields: [
+        ['They bring', 'Real economic activity, commercial knowledge and demand grounded in real needs.'],
+        ['They may gain', 'Potential access to capital structured around their needs, shared capability and connections to other businesses in the network.'] ] },
+      { gid: 'G2', short: 'Investors & Capital Providers', x: 50, y: 12, code: 'G2', title: 'Investors & Capital Providers', rel: 'Capital partners, participating on their own terms.', fields: [
+        ['They bring', 'Institutional, wholesale and impact capital.'],
+        ['They may gain', 'Access to a pipeline of real-economy opportunities, structures designed around real needs and transparent governance and reporting.'] ] },
+      { gid: 'G3', short: 'Platforms & Institutions', x: 12, y: 50, code: 'G3', title: 'Platforms & Institutions', rel: 'The delivery layer, each with its own mandate.', fields: [
+        ['They bring', 'Specialist capability and regulatory authorisation where required\n'],
+        ['They may gain', 'Shared infrastructure, a steady flow of relevant engagements and lower duplication of operating costs.'] ] },
+      { gid: 'G4', short: 'Strategic Partners', x: 88, y: 50, partner: true, code: 'G4', title: 'Strategic Partners', rel: 'Enablers, independent and aligned.', fields: [
+        ['They bring', 'Technology, expertise, distribution and market access.'],
+        ['They may gain', 'Long-term relationships across the network and a role in shaping how it develops.'] ] }
     ];
     const parts = PARTS.map((p, i) => {
       const onP = S.part === i;
@@ -1442,26 +1462,26 @@ class Component extends DCLogic {
     ].map(s => Object.assign({}, s, { stCls: ST(s.st), cls: 'gv-st' + (s.partner ? ' gv-st--partner' : '') }));
 
     const LPN = [
-      { title: 'Businesses & projects', line: 'Bring a real need: to grow, trade or build.', who: 'SMEs & projects', cap: ['It starts with a real business need.', 'A manufacturer needs working capital. A solar project needs funding. The need comes first, not the product.'] },
-      { title: 'BWCI designs the route', line: 'Works out the right structure to fund it.', who: 'BWCI', cap: ['BWCI designs the route.', 'BWCI works out the right structure: which platform, which partners, what kind of capital. It designs the route; it does not lend directly.'] },
-      { title: 'Platforms & partners', line: 'Licensed platforms deliver. Partners bring tech and know-how.', who: 'Platforms & partners', cap: ['Platforms and partners bring the tools.', 'Licensed platforms deliver the finance. Partners add technology, data and expertise.'] },
-      { title: 'Investors', line: 'Put long-term capital to work in the real economy.', who: 'Investors', cap: ['Investors put capital to work.', 'Pension funds, DFIs and family offices invest through those platforms, into real businesses they can see.'] },
-      { title: 'Growth & better outcomes', line: 'Jobs, trade and resilience, and the loop starts again.', who: 'Outcomes', cap: ['Growth, then the loop repeats.', 'Businesses grow, trade and hire. What works is reused, so each new connection is easier than the last.'] }
+      { key: 'Need', title: 'Need', line: 'A business or impact project', who: 'A business or impact project', cap: ['It starts with a real need', 'A growing business or project identifies a specific need, such as working capital, growth finance or a supply-chain gap. The need comes first, not a product.'] },
+      { key: 'Structure', title: 'Structure', line: 'The Financial Engine', who: 'The Financial Engine', cap: ['The right structure is designed', "BWCI's Financial Engine assesses the need and designs a structure that fits it. The structure may be debt, equity, trade finance or a combination."] },
+      { key: 'Capital', title: 'Capital', line: 'Investors & capital providers', who: 'Investors & capital providers', cap: ['Capital is mobilised around the need', 'Institutional and wholesale capital can be brought in through appropriately authorised vehicles, matched to the structure rather than forced into a standard product.'] },
+      { key: 'Delivery', title: 'Delivery', line: 'Platforms & authorised entities', who: 'Platforms & authorised entities', cap: ['Delivered by the responsible entity', 'Delivery sits with the relevant platform or authorised entity, which carries responsibility for any regulated activity. BWCI does not provide regulated services itself.'] },
+      { key: 'Return', title: 'Return', line: 'The whole network', who: 'The whole network', cap: ['Returns and learning flow back', 'Returns go to capital providers. What each engagement teaches strengthens the next one. The business stays independent throughout.'] }
     ];
     const lpL = this.lpCur(), lpSet = this.lpSeq(lpL);
     const lpStep = S.lpStep ?? lpSet[0];
     const lpPick = i => () => this.setState({ lpStep: i, lpPlay: false });
     const lpNodes = LPN.map((d, i) => {
       const act = i === lpStep, st = act ? ' is-on' : (lpSet.includes(i) ? ' is-dim' : ' is-off');
-      return Object.assign({}, d, { num: String(i + 1).padStart(2, '0'), act, plat: i === 2, pick: lpPick(i), aria: 'Step ' + (i + 1) + ': ' + d.title, cls: 'lp-node lp-node--' + (i + 1) + st, mcls: 'lp-mnode lp-mnode--' + (i + 1) + st });
+      return Object.assign({}, d, { num: String(i + 1).padStart(2, '0'), act, plat: i === 3, pick: lpPick(i), aria: 'Step ' + (i + 1) + ': ' + d.title, cls: 'lp-node lp-node--' + (i + 1) + st, mcls: 'lp-mnode lp-mnode--' + (i + 1) + st });
     });
     const lpW = S.lpW || 1200, lpWide = lpW >= 900, lpScale = Math.min(1, lpW / 1120);
     const lpLabels = [['full', 'Show everything'], ['sme', "I'm a business"], ['investor', "I'm an investor"], ['partner', "I'm a partner"]];
     return {
       lpRef: this.lpRef, lpWide, lpNarrow: !lpWide, lpScale: String(lpScale), lpStageH: Math.round(740 * lpScale) + 'px',
       lpNodes, lpPlaying: S.lpPlay, lpPaused: !S.lpPlay, lpPlayFn: () => this.setState({ lpPlay: true }),
-      lpHint: S.lpPlay ? 'Auto-playing' : 'Paused', lpShowPlat: lpStep === 2,
-      lpCap: { eyebrow: 'Step ' + (lpStep + 1) + ' of 5', title: LPN[lpStep].cap[0], body: LPN[lpStep].cap[1], who: String(lpStep + 1).padStart(2, '0') + ' · ' + LPN[lpStep].who },
+      lpHint: S.lpPlay ? 'Auto-playing' : 'Paused', lpShowPlat: lpStep === 3,
+      lpCap: { eyebrow: 'Step ' + String(lpStep + 1).padStart(2, '0') + ' · ' + LPN[lpStep].key, title: LPN[lpStep].cap[0], body: LPN[lpStep].cap[1], who: LPN[lpStep].who },
       lpProgress: lpSet.map(i => ({ cls: 'lp-prog__d' + (i === lpStep ? ' on' : ''), pick: lpPick(i), label: 'Go to step ' + (i + 1) })),
       lpLenses: lpLabels.map(([k, label]) => ({ label, sel: k === lpL, cls: k === lpL ? 'on' : '', pick: () => this.setState({ lpLens: k, lpStep: this.lpSeq(k)[0], lpPlay: true }) })),
       dims, lens: String(L), lenses, lensInfo, bpList,
