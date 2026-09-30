@@ -1,0 +1,25 @@
+{
+  "ecosystemHeroImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/ecosystem-hero-waves.webp",
+  "showHeader": true,
+  "showFooter": true,
+  "loop": {
+    "defaultLens": "full",
+    "intervalSec": 4
+  },
+  "links": {
+    "home": "/",
+    "financialEngine": "/financial-engine",
+    "platforms": "/platforms",
+    "smes": "/smes-projects",
+    "investors": "/investors-partners",
+    "about": "/#bwci-what",
+    "capabilities": "/#bwci-platforms",
+    "governance": "/#bwci-trust",
+    "corporate": "/#bwci-trust",
+    "legal": "/#bwci-trust",
+    "regulatory": "/#bwci-trust",
+    "insights": "#",
+    "startConversation": "/#bwci-cta",
+    "verify": "/#bwci-cta"
+  }
+}
