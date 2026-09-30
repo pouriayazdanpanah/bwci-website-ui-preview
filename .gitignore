@@ -4,3 +4,6 @@
 /.thumbnail
 .DS_Store
 Thumbs.db
+
+# Local session handovers (any directory/case)
+*[Hh][Aa][Nn][Dd][Oo][Vv][Ee][Rr]*.[Mm][Dd]
