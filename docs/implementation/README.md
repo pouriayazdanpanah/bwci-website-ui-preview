@@ -16,17 +16,17 @@ This guide turns a finished Claude Design page in design/ into one pasteable GoH
 
 | Page | Design source | Brief | Planned GHL folder |
 | --- | --- | --- | --- |
-| Ecosystem | design/Ecosystem.dc.html | pages/ecosystem.md | ghl/pages/ecosystem/ |
 | Investors & Partners | design/Investors Partners.dc.html | pages/investors-partners.md | ghl/pages/investors-partners/ |
 | SMEs & Projects | design/SMEs Projects.dc.html | pages/smes-projects.md | ghl/pages/smes-projects/ |
 | Platforms | design/Platforms.dc.html | pages/platforms.md | ghl/pages/platforms/ |
 
-These are source-backed implementation briefs, not completed ports. The older ghl-ecosystem-standalone branch contains separate Ecosystem work but has not been merged into current main.
+These are source-backed implementation briefs, not completed ports.
 
 ## Completed ports
 
 - Main: ghl/pages/main/README.md. Its hosted and inline files are edited directly.
 - Financial Engine: ghl/pages/financial-engine/README.md. Its hosted and inline files are generated from _build/src/.
+- Ecosystem: ghl/pages/ecosystem/README.md. Its hosted and inline files are generated from _build/src/. It supersedes the older, unmerged ghl-ecosystem-standalone branch.
 
 The completed-page README is the source of maintenance instructions; no duplicate brief is kept under docs/implementation/pages/. design/SiteHeader.dc.html is a shared source component. design/Before After.dc.html is a visual comparison/QA canvas, not a production website page.
 
