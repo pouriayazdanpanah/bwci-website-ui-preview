@@ -52,12 +52,14 @@ Import locally for review:
 python scripts/import_claude_zip.py "C:\path\to\BWCI - Website UI.zip"
 ```
 
-To import and deploy in one command, use a clean, up-to-date `main` branch:
+To import and deploy in one command, use a clean `main` branch:
 
 ```powershell
 python scripts/import_claude_zip.py "C:\path\to\BWCI - Website UI.zip" --publish
 ```
 
-`--publish` commits the changed files under `design/` and pushes `main`.
-GitHub Actions then deploys the site. Keep the large ZIP outside the
-repository; only its publishable files are committed.
+`--publish` first fast-forwards from `origin/main`; if local commits diverge,
+it stops before importing so you can integrate them. It then commits changed
+files under `design/` and pushes `main`. GitHub Actions deploys the site.
+Keep the large ZIP outside the repository; only its publishable files are
+committed.

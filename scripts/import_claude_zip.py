@@ -42,6 +42,19 @@ def normalize_html(name, data):
     return data
 
 
+def matches_existing(name, data):
+    destination = DESIGN_ROOT / name
+    if not destination.is_file():
+        return False
+    existing = destination.read_bytes()
+    if existing == data:
+        return True
+    # Git autocrlf can check out text as CRLF on Windows while ZIP exports use LF.
+    if name.lower().endswith((".html", ".js", ".css", ".svg")):
+        return existing.replace(b"\r\n", b"\n") == data.replace(b"\r\n", b"\n")
+    return False
+
+
 def git(*args):
     return subprocess.check_output(["git", *args], cwd=ROOT, text=True).strip()
 
@@ -103,11 +116,23 @@ def main():
             if git("status", "--porcelain"):
                 raise ValueError("--publish requires a clean working tree before import")
             git("remote", "get-url", "origin")
+            try:
+                subprocess.run(
+                    ["git", "pull", "--ff-only", "origin", "main"], cwd=ROOT, check=True
+                )
+            except subprocess.CalledProcessError as exc:
+                raise ValueError(
+                    "main diverged from origin/main; integrate the remote changes before --publish"
+                ) from exc
+            if git("rev-parse", "HEAD") != git("rev-parse", "origin/main"):
+                raise ValueError(
+                    "--publish requires main to match origin/main; review/push local commits first"
+                )
         with zipfile.ZipFile(args.zip_path) as archive:
             files = collect(archive)
         changed = sorted(
             name for name, data in files.items()
-            if not (DESIGN_ROOT / name).is_file() or (DESIGN_ROOT / name).read_bytes() != data
+            if not matches_existing(name, data)
         )
         print(f"{len(files)} publishable files; {len(changed)} changed:")
         for name in changed:
@@ -123,7 +148,13 @@ def main():
             subprocess.run(
                 ["git", "commit", "-m", "Import Claude Design site export"], cwd=ROOT, check=True
             )
-            subprocess.run(["git", "push", "origin", "main"], cwd=ROOT, check=True)
+            try:
+                subprocess.run(["git", "push", "origin", "main"], cwd=ROOT, check=True)
+            except subprocess.CalledProcessError as exc:
+                raise ValueError(
+                    "import committed locally, but push failed; inspect origin/main "
+                    "and integrate remote changes before pushing the local commit"
+                ) from exc
             print("Pushed to main. GitHub Pages deployment will start automatically.")
         else:
             print("Imported locally. Review changes, then commit and push main to deploy.")
