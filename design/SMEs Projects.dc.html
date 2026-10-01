@@ -170,14 +170,14 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
 .sit-card__top{ display:flex; align-items:center; gap:14px; }
 .sit-card__num{ flex:none; display:grid; place-items:center; width:36px; height:36px; border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:12px; font-weight:700; letter-spacing:.04em; color:var(--text-muted); background:var(--surface-subtle); border:1px solid var(--border-default); transition:background var(--t-comp), color var(--t-comp), border-color var(--t-comp); }
 .sit-card--on .sit-card__num{ color:#fff; border-color:var(--accent-emerald); background:var(--accent-emerald); }
-.sit-card__cat{ flex:1; min-width:0; display:flex; flex-direction:column; gap:2px; font-family:var(--font-mono); font-size:10px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); line-height:1.4; }
+.sit-card__cat{ flex:1; min-width:0; display:flex; flex-direction:column; gap:3px; font-family:var(--font-mono); font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); line-height:1.4; }
 .sit-card__cat b{ color:var(--accent-gold-dark); font-weight:700; }
 .sit-card__radio{ flex:none; width:20px; height:20px; border-radius:50%; border:1.5px solid var(--border-strong); display:grid; place-items:center; transition:border-color var(--t-comp); }
 .sit-card__radio::after{ content:''; width:10px; height:10px; border-radius:50%; background:var(--accent-emerald); transform:scale(0); transition:transform var(--t-comp) var(--e); }
 .sit-card:hover .sit-card__radio{ border-color:var(--brand-ink); }
 .sit-card--on .sit-card__radio{ border-color:var(--accent-emerald); }
 .sit-card--on .sit-card__radio::after{ transform:scale(1); }
-.sit-card .h3{ max-width:460px; margin-top:6px; min-height:2.66em; display:flex; align-items:flex-end; }
+.sit-card .h3{ max-width:460px; margin-top:4px; }
 .sit-card__copy{ font-size:15px; line-height:1.65; color:var(--text-secondary); max-width:480px; min-height:3.3em; }
 .sit-card__foot{ margin-top:auto; padding-top:6px; display:flex; flex-direction:column; gap:16px; }
 .sit-card__match{ display:grid; grid-template-columns:auto minmax(0,1fr); align-items:center; gap:4px 14px; padding:12px 14px; border:1px solid var(--border-subtle); border-radius:var(--radius-md); background:var(--surface-subtle); transition:border-color var(--t-comp), background var(--t-comp); }
@@ -222,11 +222,11 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
   mask-image:linear-gradient(to bottom, transparent, #000 23%, #000 78%, transparent);
 }
 .pr-wrap{ width:min(100%,1280px); margin:0 auto; }
-.pr-masthead{ display:grid; grid-template-columns:minmax(0,7fr) minmax(240px,4fr); gap:clamp(38px,7vw,112px); align-items:end; margin-bottom:clamp(58px,8vw,108px); }
+.pr-masthead{ display:grid; grid-template-columns:minmax(0,1fr); gap:16px; max-width:760px; margin-bottom:clamp(48px,6vw,72px); }
 .pr-eyebrow,.pr-reading-label,.pr-small-link,.pr-source-note{ margin:0; font-family:var(--font-mono); font-size:10px; font-weight:700; line-height:1.3; letter-spacing:.12em; text-transform:uppercase; }
 .pr-eyebrow{ color:var(--accent-gold-dark); }
 .pr-title{ max-width:760px; margin:14px 0 0; font-size:clamp(28px,3.6vw,44px); font-weight:700; letter-spacing:-.025em; line-height:1.18; color:var(--text-primary); }
-.pr-masthead-copy{ margin:0; padding-bottom:6px; color:var(--text-secondary); font-size:clamp(16px,1.4vw,18px); line-height:1.6; letter-spacing:-.005em; }
+.pr-masthead-copy{ margin:0; max-width:640px; text-wrap:pretty; color:var(--text-secondary); font-size:clamp(16px,1.4vw,18px); line-height:1.6; letter-spacing:-.005em; }
 .pr-masthead-copy strong{ color:var(--text-primary); font-weight:600; }
 .pr-journey{ display:grid; grid-template-columns:minmax(0,1.08fr) minmax(360px,.92fr); gap:clamp(42px,7vw,110px); align-items:start; }
 .pr-chapters{ display:flex; flex-direction:column; border-top:1px solid var(--border-default); }
@@ -513,6 +513,9 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
   .eyebrow, .mono, .text-link, .st, .hero-btn, .hero-tick, .hero-meta span, .footer__col h5, .footer__bar, .sm-tags__lbl, .sm-perim__lbl, .sit-hint, .sit-card__cat, .sit-card__match i, .sit-card__link, .pr-eyebrow, .pr-reading-label, .pr-small-link, .pr-source-note, .pr-chapter-num, .pr-proof-mark, .pm-card__idx, .pm-detail__l, .pm-detail__fit, .pm-detail__cta a, .pc-count span{ font-size:12px !important; }
   .btn--sm, .footer__col a, .sm-chip, .sm-perim p, .sit-card__match b, .pr-chapter-sub, .pr-proof p, .cta-note, .sc-interp, #situation i, .sit-card i, .ops-panel__label, .ops-panel__code{ font-size:14px !important; }
   .btn, .sit-card__arrow, .pm-card__go, .pm-detail__t{ font-size:15px !important; }
+  .pm-card .st{ font-size:11px !important; letter-spacing:.06em; line-height:1.45; align-items:flex-start; }
+  .pm-card .st .st-g{ margin-top:3px; }
+  .pm-card__t{ font-size:16px !important; }
 }
 
 /* MOBILE OVERFLOW FIXES */
@@ -529,6 +532,13 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
   .ops-routing__row{ padding:10px 12px !important; gap:10px !important; }
   .sp-chip{ font-size:14px !important; }
 }
+
+html{ -webkit-text-size-adjust:100%; -moz-text-size-adjust:100%; text-size-adjust:100%; }
+@media (max-width:767px){
+  .pm-card .st{ font-size:12px !important; letter-spacing:0 !important; line-height:1.45 !important; text-transform:none !important; font-family:var(--font-sans) !important; font-weight:500 !important; }
+  .pm-card__t{ font-size:16px !important; font-weight:600 !important; }
+  .pm-detail__fit{ font-size:12px !important; letter-spacing:0 !important; line-height:1.45 !important; text-transform:none !important; font-family:var(--font-sans) !important; font-weight:500 !important; }
+}
 </style>
 </helmet>
 
@@ -544,12 +554,12 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
   <div class="hero-inner">
       <div class="hero-copy">
         
-        <h1 class="h-display">Capital structured around the needs of the real economy.</h1>
-        <p class="body-lg" style="max-width: 604px">Commercial enterprises and infrastructure projects do not always fit standard bank product shelves. BWCI begins by diagnosing your underlying commercial cashflows.</p>
+        <h1 class="h-display">Capital structured around how your business actually works</h1>
+        <p class="body-lg" style="max-width: 604px">Many businesses and projects don't fit standard bank products. We start by understanding your cash flows and the need behind them before any structure is considered.</p>
         
         <div class="hero-actions">
-          <a class="hero-btn hero-btn--solid" href="#engage">Start a Conversation <span aria-hidden="true">→</span></a>
-          <a class="hero-btn hero-btn--ghost" href="#process">See How We Approach Your Need <span aria-hidden="true">↓</span></a>
+          <a class="hero-btn hero-btn--solid" href="#engage">Start a conversation <span aria-hidden="true">→</span></a>
+          <a class="hero-btn hero-btn--ghost" href="#process">See how we approach your need <span aria-hidden="true">↓</span></a>
         </div>
       </div>
       
@@ -561,7 +571,8 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
       <div class="sec-head sit-head rv" style="max-width:none">
         <div>
           
-          <h2 class="h1">What Are You Trying to Achieve?</h2>
+          <h2 class="h1">What are you trying to achieve?</h2>
+          <p class="body-lg" style="margin-top:12px">Choose the situation closest to yours to see which parts of the ecosystem may be relevant.</p>
         </div>
         
       </div>
@@ -591,9 +602,9 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
       <header class="pr-masthead">
         <div>
           
-          <h2 class="pr-title" id="process-title">How BWCI Approaches Your Requirement</h2>
+          <h2 class="pr-title" id="process-title">How we approach your need</h2>
         </div>
-        <p class="pr-masthead-copy">A disciplined, transparent <strong>5-step journey</strong> from initial diagnostic to capital deployment.</p>
+        <p class="pr-masthead-copy">A clear, five-step process, from understanding your need to finding the right route forward.</p>
       </header>
       <div class="pr-journey">
         <nav class="pr-chapters" aria-label="The five steps">
@@ -624,7 +635,8 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
     <div class="container">
       <div class="sec-head rv">
         
-        <h2 class="h1">The Right Capability for the Right Requirement</h2>
+        <h2 class="h1">Which platforms and capabilities are relevant</h2>
+        <p class="body-lg">How each part of the ecosystem relates to the needs above, and what exists today.</p>
       </div>
       <div class="pm-layout">
       <div class="pm-row" role="group" aria-label="Delivery capabilities">
@@ -647,13 +659,14 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
             <p class="pm-detail__t">{{cap.mandate}}</p>
           </div>
           <div>
-            <p class="pm-detail__l">Relevance for SMEs</p>
+            <p class="pm-detail__l">Relevance</p>
             <p class="pm-detail__t">{{cap.rel}}</p>
           </div>
         </div>
-        <div class="pm-detail__cta"><a href="#engage">Discuss this requirement</a></div>
+        <div class="pm-detail__cta"><a href="#engage">Discuss this need</a></div>
       </div>
       </div>
+      <p style="margin:20px 0 0; font-size:14px; line-height:1.55; color:var(--text-secondary); text-wrap:pretty"><b>*</b> Entity identity verified. The scope of activities and any regulatory permissions remain subject to verification.</p>
     </div>
   </section>
 
@@ -662,7 +675,7 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
     <div class="container pc-grid">
       <div class="pc-head rv">
         
-        <h2 class="h1">How We Approach Real-Economy Structuring</h2>
+        <h2 class="h1">How we approach real economy finance</h2>
         
       </div>
       <div class="pc-list">
@@ -685,9 +698,10 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
     <div class="cta-pattern" aria-hidden="true"></div>
     <div class="container">
       
-      <h2 class="h1" style="color:#fff; margin-bottom:16px">Start a Conversation with BWCI</h2>
-      <p class="body-lg" style="color:var(--text-inverse-muted); max-width:560px; margin:0 auto 32px; text-wrap:pretty">Tell us about your business or project. We start by understanding your cashflows, then design the right route to capital.</p>
-      <a class="btn btn--inverse" href="Main.dc.html#cta">Start a Conversation <span aria-hidden="true">→</span></a>
+      <h2 class="h1" style="color:#fff; margin-bottom:16px">Start a conversation</h2>
+      <p class="body-lg" style="color:var(--text-inverse-muted); max-width:560px; margin:0 auto 32px; text-wrap:pretty">Tell us about your business or project. We'll start by understanding your cash flows and the need behind them, then explore whether a suitable route exists.</p>
+      <a class="btn btn--inverse" href="Main.dc.html#cta">Start a conversation <span aria-hidden="true">→</span></a>
+      
       
     </div>
   </section>
@@ -746,16 +760,16 @@ class Component extends DCLogic {
   _pageVals() {
     const S = this.state;
     const CAPS = [
-      { name: 'Trade Finance Platform', status: 'Group Build · In Development', st: 'dev', mandate: 'Programmatic supply chain liquidity, invoice clearing & collateral management agreements (CMA).', rel: 'Resolving trade cashflow locks (£250k–£5M facilities).', fit: 'Matched to requirement 01 · Working Capital & Trade Liquidity' },
-      { name: 'Private Capital Platform', status: 'Group Build · In Development', st: 'dev', mandate: 'Bespoke growth capital, asset leasing & subordinated debt facilities.', rel: 'Mid-market growth without equity dilution (£1M–£10M).', fit: 'Matched to requirements 02 & 03 · Growth and Productive Assets' },
-      { name: 'Providence Asset Management Ltd*', status: 'Group Company · Operating · Subject to Verification', st: 'op', mandate: 'Institutional asset management, private credit & infrastructure funds.', rel: 'Large-scale asset expansion & transition projects (£5M+).', fit: 'Matched to requirement 04 · Transition & Infrastructure Projects' },
-      { name: 'Regulated Partner Banking Rails', status: 'Partner Capability · Connected · Subject to Verification', st: 'partner', mandate: 'Regulated deposit accounts, clearing APIs, FX & domestic rails.', rel: 'Direct settlement connectivity with licensed partners.', fit: 'Settlement connectivity across requirements' }
+      { name: 'Trade Finance Platform', status: 'Group build · In development', st: 'dev', mandate: 'Being designed to support trade and supply-chain finance, including invoice-based and stock-based working capital.', rel: 'Intended for businesses with cash tied up in trade cycles. Not yet available.', fit: 'Relevant to need 01 · Working capital & trade' },
+      { name: 'Private Capital Platform', status: 'Group build · In development', st: 'dev', mandate: 'Being designed to provide growth capital, asset finance, and flexible debt structures.', rel: "Intended for established businesses seeking growth capital that doesn't require selling equity. Not yet available.", fit: 'Relevant to needs 02 & 03 · Growth and productive assets' },
+      { name: 'Providence Asset Management Ltd*', status: 'Group company · Operating · Subject to verification', st: 'op', mandate: 'An asset management company focused on private-market strategies, which may include private credit and infrastructure.', rel: 'The funds it manages may invest in larger infrastructure and transition projects, subject to their own mandates and approval processes.', fit: 'Relevant to need 04 · Infrastructure & energy transition projects' },
+      { name: 'Partner Capabilities', status: 'Partner capability · Operating · Subject to verification', st: 'partner', mandate: 'Specialist services delivered by independent, authorised partner institutions.', rel: 'Where relevant, we may introduce you to a partner. Each partner operates under its own authorisation and terms.', fit: 'May support any of the needs above' }
     ];
     const SITS = [
-      { cat: 'Enterprise Requirement', sub: 'Liquidity & Timing', title: 'Working Capital & Trade Liquidity', copy: 'Cash tied up in supply chains, trade invoices, inventory cycles, or customer payment terms.', link: 'Explore Trade & Working Capital', cap: 0 },
-      { cat: 'Enterprise Requirement', sub: 'Capacity Expansion', title: 'Business Growth & Commercial Expansion', copy: 'Expanding plant capacity, entering new markets, or executing commercial contracts.', link: 'Explore Private Capital', cap: 1 },
-      { cat: 'Enterprise Requirement', sub: 'Asset Lifecycle', title: 'Productive Assets & Equipment', copy: 'Financing machinery, equipment, or plant matched to economic lifespan and depreciation.', link: 'Explore Asset Financing', cap: 1 },
-      { cat: 'Project Requirement', sub: 'Long-Term Infrastructure', title: 'Transition & Infrastructure Projects', copy: 'Structured capital for sustainable assets, energy facilities, or regional infrastructure.', link: 'Explore Transition & Infrastructure', cap: 2 }
+      { cat: 'Business need', sub: 'Cash flow & timing', title: 'Working capital & trade', copy: 'Cash tied up in supply chains, unpaid invoices, stock, or long customer payment terms.', link: 'How trade finance may help', cap: 0 },
+      { cat: 'Business need', sub: 'Growth', title: 'Growth & expansion', copy: 'Adding capacity, entering new markets, or delivering a large new contract.', link: 'How private capital may help', cap: 1 },
+      { cat: 'Business need', sub: 'Assets', title: 'Equipment & productive assets', copy: "Machinery, equipment, or plant, with repayment designed around the asset's working life.", link: 'How asset finance may help', cap: 1 },
+      { cat: 'Project need', sub: 'Long-term', title: 'Infrastructure & energy transition projects', copy: 'Long-term capital for energy, infrastructure, and regional development projects.', link: 'How project capital may help', cap: 2 }
     ];
     const pickSit = (i) => { if (this.state.sit !== i) this.setState({ sit: i, cap: SITS[i].cap }); };
     const sits = SITS.map((s, i) => Object.assign({}, s, {
@@ -767,11 +781,11 @@ class Component extends DCLogic {
       cls: 'pm-card' + (S.cap === i ? ' pm-card--on' : ''), pressed: S.cap === i ? 'true' : 'false',
       pick: () => { if (this.state.cap !== i) this.setState({ cap: i }); } }));
     const PR = [
-      { title: 'Economic Need', sub: 'Understand the operational requirement.', heading: 'Understand the operational requirement.', body: 'A deep assessment of enterprise cashflow, contracts and the underlying bottleneck, before any structure is proposed.', proof: 'Starts with an enterprise cashflow diagnostic, not a rigid product catalogue.' },
-      { title: 'Financial Architecture', sub: 'Design the structure to fit cashflows.', heading: 'Design the structure to fit cashflows.', body: 'Capital terms, risk tranches, covenants and tenor are aligned to how the business actually generates cash.', proof: 'Tenors matched to the economic lifecycle of the asset.' },
-      { title: 'Delivery Capability', sub: 'Select the appropriate execution rail.', heading: 'Select the appropriate execution rail.', body: 'The requirement is matched to a Group Build platform or a connected Partner Rail capability.', proof: 'Transparent structuring criteria and partner routing.' },
-      { title: 'Capital Sources', sub: 'Align with appropriate capital sources.', heading: 'Align with appropriate capital sources.', body: 'Institutional liquidity is pooled around the structure, on terms designed for the activity it supports.', proof: 'Non-dilutive, ring-fenced institutional participation.' },
-      { title: 'Productive Activity', sub: 'Capital supports the underlying business.', heading: 'Capital supports the underlying business.', body: 'Execution occurs through the appropriate entity perimeter, and capital becomes useful in the operating business.', proof: 'Operational continuity with retained ownership.' }
+      { title: 'Your need', sub: 'Understand what the business actually needs.', heading: 'Understand what the business actually needs.', body: 'We look at your cash flows, contracts, and the real constraints holding you back before suggesting anything.', proof: 'We start from your situation, not from a product list.' },
+      { title: 'The structure', sub: 'Design a structure that fits your cash flows.', heading: 'Design a structure that fits your cash flows.', body: 'Terms, timing, and repayment are considered against how your business actually earns money.', proof: 'Repayment is designed around the life of the asset or contract.' },
+      { title: 'The right provider', sub: 'Identify who could deliver it.', heading: 'Identify who could deliver it.', body: "Your need is considered against the group's platforms and independent partner institutions. Any regulated activity is carried out by the authorised entity responsible for it.", proof: "You'll always know which organisation you are dealing with." },
+      { title: 'The capital', sub: 'Identify suitable sources of capital.', heading: 'Identify suitable sources of capital.', body: 'Where a suitable route exists, we explore which capital providers may be aligned with the structure and the activity it supports.', proof: "Any capital is subject to the provider's own assessment and approval." },
+      { title: 'Your business', sub: 'Capital put to work in your business.', heading: 'Capital put to work in your business.', body: 'If a route is agreed, it is delivered by the appropriate entity, and the capital goes into your operations.', proof: 'You keep ownership and control of your business.' }
     ];
     const prStep = S.prActive;
     const prChapters = PR.map((c, i) => ({ step: String(i + 1), num: String(i + 1).padStart(2, '0'), title: c.title, sub: c.sub,
@@ -779,11 +793,11 @@ class Component extends DCLogic {
     const cur = PR[prStep - 1];
     const prItem = Object.assign({}, cur, { label: 'Step ' + String(prStep).padStart(2, '0') + ' · ' + cur.title });
     const PC = [
-      ['Start with the Economic Need', 'BWCI diagnoses the specific cashflow reality of the enterprise before any structure is considered.'],
-      ['Structure Around Real-World Cashflows', 'Tenors, risk tranches and covenants are matched to operating cycles and asset lifecycles.'],
-      ['Match the Execution Perimeter to the Solution', 'Execution occurs through the appropriate operating entity or authorised partner rail.'],
-      ['Consider Enterprise Autonomy', 'Participation does not require giving away equity stakes or board control.'],
-      ['Orient Toward Productive Economic Activity', 'The focus is capital access and operational continuity for real-economy businesses.']
+      ['Start with the need', 'We understand your cash flows and the actual problem before any structure is considered.'],
+      ['Fit the structure to the cash flows', 'Timing, terms, and repayment are considered against your operating cycle and the life of your assets.'],
+      ['The right entity for the job', "Any regulated activity is carried out by the authorised entity or partner responsible for it, and we'll tell you which one."],
+      ['Your business stays yours', "Taking part in the ecosystem doesn't require giving up equity or board control."],
+      ['Focused on productive activity', 'The aim is to provide capital that keeps real businesses operating and growing.']
     ];
     const pcs = PC.map((p, i) => ({ n: String(i + 1).padStart(2, '0'), t: p[0], d: p[1], open: S.pc === i ? 'true' : 'false',
       cls: 'pc-row' + (S.pc === i ? ' pc-row--on' : ''), pick: () => { if (this.state.pc !== i) this.setState({ pc: i }); } }));
