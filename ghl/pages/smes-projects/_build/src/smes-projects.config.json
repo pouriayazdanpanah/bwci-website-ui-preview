@@ -1,0 +1,21 @@
+{
+  "smesHeroImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/sme-hero-flow.webp",
+  "showHeader": true,
+  "showFooter": true,
+  "links": {
+    "home": "/",
+    "financialEngine": "/financial-engine",
+    "ecosystem": "/ecosystem",
+    "platforms": "/platforms",
+    "investors": "/investors-partners",
+    "about": "/#bwci-what",
+    "capabilities": "/#bwci-platforms",
+    "governance": "/#bwci-trust",
+    "corporate": "/#bwci-trust",
+    "legal": "/#bwci-trust",
+    "regulatory": "/#bwci-trust",
+    "insights": "#",
+    "startConversation": "/#bwci-cta",
+    "verify": "/#bwci-cta"
+  }
+}
