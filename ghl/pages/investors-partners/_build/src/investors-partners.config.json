@@ -1,0 +1,24 @@
+{
+  "investorsHeroImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/inv-hero-flow.png",
+  "showHeader": true,
+  "showFooter": true,
+  "links": {
+    "home": "/",
+    "financialEngine": "/financial-engine",
+    "ecosystem": "/ecosystem",
+    "platforms": "/platforms",
+    "smes": "/smes-projects",
+    "smesSituation": "/smes-projects#sme-situation",
+    "platformsDirectory": "/platforms#plt-directory",
+    "ecosystemBlueprint": "/ecosystem#eco-blueprint",
+    "about": "/#bwci-what",
+    "capabilities": "/#bwci-platforms",
+    "governance": "/#bwci-trust",
+    "corporate": "/#bwci-trust",
+    "legal": "/#bwci-trust",
+    "regulatory": "/#bwci-trust",
+    "insights": "#",
+    "startConversation": "/#bwci-cta",
+    "verify": "/#bwci-cta"
+  }
+}
