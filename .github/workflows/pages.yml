@@ -31,6 +31,7 @@ jobs:
           mkdir public
           cp design/index.html design/*.dc.html design/support.js public/
           cp -R design/assets design/vendor public/
+          cp -R design/wireframes public/
           touch public/.nojekyll
       - uses: actions/upload-pages-artifact@v4
         with:

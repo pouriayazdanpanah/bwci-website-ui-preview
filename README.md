@@ -7,7 +7,7 @@ implementation files separate:
 | --- | --- |
 | `design/` | Published static site: `index.html`, `*.dc.html`, `support.js`, `assets/`, and `vendor/`. |
 | `ghl/` | GHL Custom Code implementations and their build sources. Not published by GitHub Pages. |
-| `scripts/` | Claude Design ZIP importer. |
+| `scripts/` | Claude Design ZIP importer; `scripts/wireframes/` builds the Next Version wireframe prototypes into `design/wireframes/` (see its README). |
 | `.github/workflows/pages.yml` | Publishes only `design/` to GitHub Pages. |
 
 The repository location of the design files changes, but public page URLs stay
