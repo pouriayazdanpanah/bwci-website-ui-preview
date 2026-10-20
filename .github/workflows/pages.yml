@@ -29,7 +29,7 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir public
-          cp design/index.html design/*.dc.html design/support.js public/
+          cp design/index.html design/*.dc.html design/*.css design/*.js public/
           cp -R design/assets design/vendor public/
           cp -R design/wireframes public/
           touch public/.nojekyll

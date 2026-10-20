@@ -5,11 +5,30 @@ import re
 import subprocess
 import sys
 import zipfile
+from html.parser import HTMLParser
 from pathlib import Path, PurePosixPath
+from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 DESIGN_ROOT = ROOT / "design"
 REQUIRED = {"Main.dc.html", "support.js", "vendor/react.js", "vendor/react-dom.js"}
+
+
+class LocalDependencyParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.dependencies = set()
+
+    def handle_starttag(self, tag, attrs):
+        if tag not in {"link", "script"}:
+            return
+        values = dict(attrs)
+        reference = values.get("href") if tag == "link" else values.get("src")
+        if not reference or not reference.startswith("./"):
+            return
+        path = unquote(urlsplit(reference).path.removeprefix("./"))
+        if len(PurePosixPath(path).parts) == 1 and path.lower().endswith((".css", ".js")):
+            self.dependencies.add(path)
 
 VIEWPORT = b'<meta name="viewport" content="width=device-width, initial-scale=1">'
 HOME_MOBILE_FIX = b"""<style id="preview-home-responsive">
@@ -81,7 +100,7 @@ def collect(archive):
         seen.add(key)
         publishable = (
             (len(path.parts) == 1 and name.endswith(".dc.html"))
-            or name == "support.js"
+            or (len(path.parts) == 1 and name.lower().endswith((".css", ".js")))
             or path.parts[0] in {"assets", "vendor"}
         )
         if not publishable:
@@ -95,6 +114,16 @@ def collect(archive):
     missing = REQUIRED - files.keys()
     if missing:
         raise ValueError(f"ZIP is missing required files: {', '.join(sorted(missing))}")
+    for name, data in files.items():
+        if not name.endswith(".dc.html"):
+            continue
+        parser = LocalDependencyParser()
+        parser.feed(data.decode("utf-8", errors="replace"))
+        missing_dependencies = parser.dependencies - files.keys()
+        if missing_dependencies:
+            raise ValueError(
+                f"{name} references missing CSS/JS: {', '.join(sorted(missing_dependencies))}"
+            )
     files["index.html"] = files["Main.dc.html"]
     return files
 

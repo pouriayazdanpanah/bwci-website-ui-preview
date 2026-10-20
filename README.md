@@ -5,7 +5,7 @@ implementation files separate:
 
 | Folder | Purpose |
 | --- | --- |
-| `design/` | Published static site: `index.html`, `*.dc.html`, `support.js`, `assets/`, and `vendor/`. |
+| `design/` | Published static site: `index.html`, `*.dc.html`, root CSS/JS, `assets/`, and `vendor/`. |
 | `ghl/` | GHL Custom Code implementations and their build sources. Not published by GitHub Pages. |
 | `scripts/` | Claude Design ZIP importer; `scripts/wireframes/` builds the Next Version wireframe prototypes into `design/wireframes/` (see its README). |
 | `.github/workflows/pages.yml` | Publishes only `design/` to GitHub Pages. |
@@ -33,8 +33,9 @@ changes only in `ghl/` do not redeploy the preview.
 
 ## Update from a Claude Design ZIP
 
-The ZIP importer accepts the exported root `*.dc.html` pages, `support.js`,
-`assets/`, and `vendor/`. It writes only to `design/`, maps `Main.dc.html`
+The ZIP importer accepts the exported root `*.dc.html` pages, root CSS/JS,
+`assets/`, and `vendor/`. It checks local CSS/JS references, writes only to
+`design/`, maps `Main.dc.html`
 to `design/index.html`, and ignores reference uploads, scratch files, and QA
 material. It also restores mobile viewport metadata and keeps the home hero
 text in normal flow on narrow screens. New pages become available at their
