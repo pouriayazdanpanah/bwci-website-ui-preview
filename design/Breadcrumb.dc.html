@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<nav aria-label="Breadcrumb" style="display:block; margin:0 0 28px; font-family:'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+  <ol style="display:flex; flex-wrap:wrap; align-items:center; gap:6px 10px; margin:0; padding:0; list-style:none; font-size:max(13.5px,var(--fs-floor-sm,0px)); font-weight:500; line-height:1.4;">
+    <sc-for list="{{ crumbs }}" as="c" hint-placeholder-count="2">
+      <li style="display:flex; align-items:center; gap:10px; min-width:0;">
+        <sc-if value="{{ c.isLink }}" hint-placeholder-val="{{ true }}">
+          <a href="{{ c.href }}" style="color:#A8C2C8; text-decoration:none; border-radius:4px; transition:color .2s ease;" style-hover="color:#FFFFFF;" style-focus="outline:2px solid #E8C46B; outline-offset:3px;">{{ c.t }}</a>
+        </sc-if>
+        <sc-if value="{{ c.isText }}" hint-placeholder-val="{{ false }}">
+          <span style="color:#A8C2C8;">{{ c.t }}</span>
+        </sc-if>
+        <sc-if value="{{ c.isCur }}" hint-placeholder-val="{{ false }}">
+          <span aria-current="page" style="color:#FFFFFF; font-weight:600;">{{ c.t }}</span>
+        </sc-if>
+        <sc-if value="{{ c.sep }}" hint-placeholder-val="{{ true }}">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#5F7F86" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><polyline points="9 6 15 12 9 18"></polyline></svg>
+        </sc-if>
+      </li>
+    </sc-for>
+  </ol>
+</nav>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:720,&quot;height&quot;:80},&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;who&quot;,&quot;engine&quot;,&quot;ecosystem&quot;,&quot;platforms&quot;,&quot;smes&quot;,&quot;investors&quot;,&quot;private&quot;,&quot;governance&quot;,&quot;ir&quot;,&quot;contact&quot;,&quot;verify&quot;,&quot;legal&quot;],&quot;default&quot;:&quot;engine&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const HOME = ['Home', 'Main.dc.html'];
+const HIW = ['How It Works', null];
+const INV = ['Investors & Partners', 'Investors%20Partners.dc.html'];
+const GOV = ['Governance', 'Governance.dc.html'];
+const TRAILS = {
+  who: [HOME, ['Who We Are']],
+  engine: [HOME, HIW, ['The Financial Engine']],
+  ecosystem: [HOME, HIW, ['Ecosystem']],
+  platforms: [HOME, ['Platforms & Institutions']],
+  smes: [HOME, ['SMEs & Projects']],
+  investors: [HOME, ['Investors & Partners']],
+  private: [HOME, INV, ['Private Investors & Family Offices']],
+  governance: [HOME, ['Governance']],
+  'gov-board': [HOME, GOV, ['Board of Directors']],
+  'gov-leadership': [HOME, GOV, ['Leadership']],
+  ir: [HOME, ['Corporate/IR']],
+  contact: [HOME, ['Contact']],
+  verify: [HOME, ['Verify a Communication']],
+  legal: [HOME, ['Legal']],
+};
+class Component extends DCLogic {
+  renderVals() {
+    const via = this.props.via === 'board' ? ['Board of Directors', 'Governance%20Board.dc.html'] : ['Leadership', 'Governance%20Leadership.dc.html'];
+    const t = this.props.current === 'gov-profile' ? [HOME, GOV, via, [this.props.label || '']] : (TRAILS[this.props.current] || [HOME]);
+    return {
+      crumbs: t.map(([label, href], i) => {
+        const last = i === t.length - 1;
+        return { t: label, href, isLink: !last && !!href, isText: !last && !href, isCur: last, sep: !last };
+      }),
+    };
+  }
+}
+</script>
+</body>
+</html>

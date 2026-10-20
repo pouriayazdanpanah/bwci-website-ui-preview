@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+.sft{ background:var(--surface-subtle); border-top:1px solid var(--border-subtle); padding:64px 0 32px; font-family:var(--font-sans); }
+.sft__in{ max-width:1280px; margin:0 auto; padding:0 clamp(20px,4vw,40px); }
+.sft__grid{ display:grid; grid-template-columns:1.4fr repeat(4,minmax(0,1fr)); gap:32px; margin-bottom:48px; }
+.sft__brand{ display:flex; flex-direction:column; gap:14px; }
+.sft__brand img{ display:block; height:44px; width:auto; }
+.sft__brand p{ margin:0; font-size:max(14px,var(--fs-floor-body,0px)); line-height:1.6; color:var(--text-muted); max-width:280px; }
+.sft h2{ margin:0 0 16px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
+.sft ul{ display:flex; flex-direction:column; gap:10px; margin:0; padding:0; list-style:none; }
+.sft a{ color:var(--text-secondary); text-decoration:none; border-radius:2px; transition:color .18s; }
+.sft a:hover{ color:var(--accent-emerald-dark); }
+.sft a:focus-visible{ outline:2px solid var(--accent-emerald); outline-offset:3px; }
+.sft ul a{ font-size:14px; }
+.sft__legal{ padding-top:20px; border-top:1px solid var(--border-default); display:flex; flex-direction:column; gap:14px; }
+.sft__reg{ margin:0; max-width:880px; font-size:max(13px,var(--fs-floor-sm,0px)); line-height:1.6; color:var(--text-secondary); text-wrap:pretty; }
+.sft__bar{ display:flex; flex-wrap:wrap; gap:12px 24px; justify-content:space-between; font-size:max(13px,var(--fs-floor-sm,0px)); color:var(--text-muted); }
+.sft__bar ul{ flex-direction:row; flex-wrap:wrap; gap:8px 18px; }
+.sft__bar a{ font-size:max(13px,var(--fs-floor-sm,0px)); color:var(--text-muted); }
+@media (max-width:1023px){ .sft__grid{ grid-template-columns:repeat(2,minmax(0,1fr)); } .sft__brand{ grid-column:1 / -1; } }
+@media (max-width:479px){ .sft__grid{ grid-template-columns:minmax(0,1fr); } .sft{ padding-top:48px; } }
+</style>
+</helmet>
+<footer class="sft">
+  <div class="sft__in">
+    <div class="sft__grid">
+      <div class="sft__brand">
+        <a href="Main.dc.html" style="display:inline-block; align-self:flex-start"><img src="assets/bwci-logo.png" alt="Better World Capital Investments PLC — home" width="640" height="153"></a>
+        <p>Better World Capital Investments PLC, developing the Financial Engine of the Better World ecosystem.</p>
+      </div>
+      <nav aria-label="Who We Are"><h2>Who We Are</h2><ul>
+        <li><a href="Who%20We%20Are.dc.html#purpose">Our Purpose</a></li>
+        <li><a href="Who%20We%20Are.dc.html#role">Our Role</a></li>
+        <li><a href="Who%20We%20Are.dc.html#principles">Our Principles</a></li>
+        <li><a href="Governance%20Leadership.dc.html">Leadership</a></li>
+        <li><a href="Who%20We%20Are.dc.html#story">Our Story</a></li>
+      </ul></nav>
+      <nav aria-label="How It Works"><h2>How It Works</h2><ul>
+        <li><a href="FinancialEngine.dc.html">Financial Engine</a></li>
+        <li><a href="Ecosystem.dc.html">Our Ecosystem</a></li>
+        <li><a href="Main.dc.html#impact">Better World &amp; Impact</a></li>
+        <li><a href="Main.dc.html#today">The Platform Today</a></li>
+      </ul></nav>
+      <nav aria-label="Engage"><h2>Engage</h2><ul>
+        <li><a href="Platforms.dc.html">Platforms &amp; Institutions</a></li>
+        <li><a href="SMEs%20Projects.dc.html">SMEs &amp; Projects</a></li>
+        <li><a href="Investors%20Partners.dc.html">Investors &amp; Partners</a></li>
+        <li><a href="Contact.dc.html">Start a Conversation</a></li>
+      </ul></nav>
+      <nav aria-label="Corporate"><h2>Corporate</h2><ul>
+        <li><a href="Governance.dc.html">Governance</a></li>
+        <li><a href="Corporate%20IR.dc.html">Corporate/IR</a></li>
+        <li><a href="Contact.dc.html">Contact</a></li>
+        <li><a href="Verify%20a%20Communication.dc.html">Verify a Communication</a></li>
+      </ul></nav>
+    </div>
+    <div class="sft__legal">
+      <sc-if value="{{ hasReg }}" hint-placeholder-val="{{ false }}"><p class="sft__reg">{{ reg }}</p></sc-if>
+      <div class="sft__bar">
+        <span>{{ legalLine }}</span>
+        <nav aria-label="Legal"><ul>
+          <li><a href="Legal.dc.html#privacy">Privacy</a></li>
+          <li><a href="Legal.dc.html#terms">Terms</a></li>
+          <li><a href="Legal.dc.html#cookies">Cookies</a></li>
+          <li><a href="Legal.dc.html#disclosures">Disclosures</a></li>
+          <li><a href="Legal.dc.html#accessibility">Accessibility</a></li>
+          <li><a href="Legal.dc.html#sitemap">Sitemap</a></li>
+        </ul></nav>
+      </div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:420}}">
+// Fill these only with Management-approved / confirmed wording. Empty values are not shown.
+const REGULATORY_LINE = '';
+const REGISTERED = { jurisdiction: '', companyNo: '', office: '' };
+class Component extends DCLogic {
+  renderVals() {
+    const parts = ['Better World Capital Investments PLC'];
+    if (REGISTERED.jurisdiction) parts.push('Registered in ' + REGISTERED.jurisdiction);
+    if (REGISTERED.companyNo) parts.push('Company no. ' + REGISTERED.companyNo);
+    if (REGISTERED.office) parts.push('Registered office: ' + REGISTERED.office);
+    return { reg: REGULATORY_LINE, hasReg: !!REGULATORY_LINE, legalLine: parts.join(' · ') };
+  }
+}
+</script>
+</body>
+</html>

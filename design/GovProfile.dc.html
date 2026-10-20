@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./bwci-people.js"></script><script src="./image-slot.js"></script></helmet>
+<section class="pg-hero pg-hero--in" id="top" data-screen-label="Profile">
+  <div class="wrap">
+    <dc-import name="Breadcrumb" current="gov-profile" via="{{ via }}" label="{{ name }}" style="display:block" hint-size="100%,47px"></dc-import>
+    <div style="display:flex; flex-wrap:wrap; align-items:flex-start; gap:28px clamp(28px,4vw,56px); position:relative; z-index:1;">
+      <div class="gv-portrait" style="position:relative; flex:none; width:min(300px,64vw); aspect-ratio:4/5; border-radius:16px; overflow:hidden; background:#1D4A54; color:#A8C2C8; font-family:'JetBrains Mono', 'SF Mono', Menlo, monospace; font-size:48px; font-weight:600; letter-spacing:.06em;">
+        <image-slot id="{{ slotId }}" shape="rect" src="{{ photo }}" placeholder="{{ initials }}" style="position:absolute; inset:0; width:100%; height:100%;"></image-slot>
+      </div>
+      <div style="flex:1 1 320px; min-width:0; display:flex; flex-direction:column;">
+        <h1 style="margin:-0.12em 0 16px;">{{ name }}</h1>
+        <sc-for list="{{ roles }}" as="r" hint-placeholder-count="1">
+          <p class="lead" style="margin:0;">{{ r.line }}</p>
+        </sc-for>
+        <ul style="display:flex; flex-wrap:wrap; gap:8px; margin:24px 0 0; padding:0; list-style:none;">
+          <sc-for list="{{ labels }}" as="l" hint-placeholder-count="1">
+            <li style="display:inline-flex; align-items:center; min-height:28px; padding:4px 10px; border-radius:6px; border:1px solid rgba(232,196,107,.45); color:#E8C46B; font-family:'JetBrains Mono', 'SF Mono', Menlo, monospace; font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase;">{{ l }}</li>
+          </sc-for>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<dc-import name="GovNav" current="{{ via }}" style="display:block; position:sticky; top:calc(var(--nav-h, 116px) - var(--util-h, 0px)); z-index:50" hint-size="100%,57px"></dc-import>
+<section class="sec" id="biography" data-screen-label="Biography">
+  <div class="wrap">
+    <div style="display:grid; gap:32px;">
+      <h2 class="h1" style="margin:0;">Biography</h2>
+      <div style="display:grid; gap:36px; min-width:0;">
+        <div class="pg-body" style="display:grid; gap:18px; max-width:none; width:100%;"><sc-for list="{{ bio }}" as="para" hint-placeholder-count="3"><p style="margin:0; max-width:none; text-wrap:pretty; font-size:max(17px,var(--fs-floor-body,0px)); line-height:1.65;">{{ para }}</p></sc-for></div>
+        <dl class="pg-kv" style="margin:0;">
+          <sc-for list="{{ fields }}" as="f" hint-placeholder-count="5">
+            <div><dt>{{ f.k }}</dt><dd>{{ f.v }}</dd></div>
+          </sc-for>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec sec--subtle sec--line" id="related" data-screen-label="Back links + Also on the Board">
+  <div class="wrap" style="display:grid; gap:40px;">
+    <div style="display:flex; flex-wrap:wrap; gap:16px 32px;">
+      <a class="link" href="Governance%20Board.dc.html"><span aria-hidden="true">←</span> Board of Directors</a>
+      <a class="link" href="Governance%20Leadership.dc.html"><span aria-hidden="true">←</span> Leadership</a>
+    </div>
+    <div style="display:grid; gap:20px;">
+      <h2 class="h3">Also on the Board</h2>
+      <ul class="gv-also" ref="{{ alsoRef }}" aria-label="Also on the Board">
+        <sc-for list="{{ also }}" as="a" hint-placeholder-count="2">
+          <li style="display:flex;"><dc-import name="PersonCard" slug="{{ a.slug }}" size="sm" from="board" style="display:block; width:100%" hint-size="100%,360px"></dc-import></li>
+        </sc-for>
+      </ul>
+    </div>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:1400},&quot;slug&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;farhad-reyazat&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { from: null };
+  componentDidMount() {
+    if (!window.BWCI_PEOPLE) { this._h = () => this.forceUpdate(); window.addEventListener('bwci-people', this._h); }
+    this._bindDrag();
+    try { const f = new URLSearchParams(location.search).get('from'); if (f === 'board' || f === 'leadership') this.setState({ from: f }); } catch (e) {}
+  }
+  alsoRef = React.createRef();
+  componentDidUpdate() { this._bindDrag(); }
+  _bindDrag() {
+    const el = this.alsoRef.current;
+    if (!el || el.__drag) return;
+    el.__drag = true;
+    let x0 = 0, s0 = 0, down = false, moved = false;
+    el.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'mouse' || el.scrollWidth <= el.clientWidth) return;
+      down = true; moved = false; x0 = e.clientX; s0 = el.scrollLeft;
+    });
+    el.addEventListener('pointermove', (e) => {
+      if (!down) return;
+      const dx = e.clientX - x0;
+      if (!moved && Math.abs(dx) > 6) { moved = true; el.setPointerCapture(e.pointerId); el.classList.add('is-drag'); }
+      if (moved) el.scrollLeft = s0 - dx;
+    });
+    const up = () => { if (!down) return; down = false; el.classList.remove('is-drag'); };
+    el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up);
+    el.addEventListener('click', (e) => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+  }
+  componentWillUnmount() { if (this._h) window.removeEventListener('bwci-people', this._h); }
+  renderVals() {
+    const D = window.BWCI_PEOPLE;
+    const p = D && D.get(this.props.slug);
+    if (!p) return { alsoRef: this.alsoRef, via: 'leadership', name: '', slotId: 'person-tbc', photo: '', initials: '', roles: [], labels: [], bio: '', fields: [], also: [] };
+    const via = this.state.from || (p.board ? 'board' : 'leadership');
+    const T = D.tbc;
+    return {
+      via, name: p.name, slotId: 'person-' + p.slug, initials: p.initials, photo: p.photo || '',
+      roles: p.roles.map(r => ({ line: [r.title, r.entity].filter(Boolean).join(', ') })).filter(r => r.line),
+      labels: (p.board ? ['Board of Directors'] : []).concat(['Leadership']),
+      bio: Array.isArray(p.bio) ? p.bio : (p.bio ? [p.bio] : []),
+      fields: [
+        { k: 'Principal experience', v: T(p.experience, 'Principal experience') },
+        { k: 'Qualifications', v: T(p.qualifications, 'Qualifications') },
+        { k: 'Area of responsibility', v: T(p.responsibility, 'Area of responsibility') },
+        { k: 'Board / committee role', v: T(p.committee, 'Board / committee role') },
+      ].concat(p.linkedin ? [{ k: 'LinkedIn', v: p.linkedin }] : []),
+      also: D.board.filter(b => b.slug !== p.slug).map(b => ({ slug: b.slug })), alsoRef: this.alsoRef,
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><link rel="stylesheet" href="./bwci-system.css"><script src="./bwci-people.js"></script><script src="./image-slot.js"></script></helmet>
+<a href="{{ href }}" aria-label="{{ aria }}" class="{{ cls }}">
+  <div class="gv-card-img">
+    <image-slot id="{{ slotId }}" shape="rect" src="{{ photo }}" placeholder="{{ initials }}"></image-slot>
+    <div class="gv-card-ov" aria-hidden="true"><span>View profile <span>→</span></span></div>
+  </div>
+  <div class="gv-card-t">
+    <b>{{ name }}</b>
+    <sc-for list="{{ roles }}" as="r" hint-placeholder-count="1">
+      <div class="gv-role"><span>{{ r.title }}</span><span>{{ r.entity }}</span></div>
+    </sc-for>
+  </div>
+</a>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:280,&quot;height&quot;:520},&quot;slug&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;farhad-reyazat&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;size&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;md&quot;,&quot;sm&quot;],&quot;default&quot;:&quot;md&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;from&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;board&quot;,&quot;leadership&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    if (!window.BWCI_PEOPLE) { this._h = () => this.forceUpdate(); window.addEventListener('bwci-people', this._h); }
+  }
+  componentWillUnmount() { if (this._h) window.removeEventListener('bwci-people', this._h); }
+  renderVals() {
+    const D = window.BWCI_PEOPLE;
+    const sm = this.props.size === 'sm';
+    const base = { cls: 'gv-card' + (sm ? ' gv-card--sm' : '') };
+    const p = D && D.get(this.props.slug);
+    if (!p) return Object.assign(base, { href: '#', aria: '', photo: '', slotId: 'person-tbc', initials: '', name: '', roles: [] });
+    return Object.assign(base, {
+      href: D.href(p, this.props.from),
+      aria: p.name + ', view profile',
+      slotId: 'person-' + p.slug,
+      initials: p.initials,
+      photo: p.photo || '',
+      name: p.name,
+      roles: p.roles.map(r => ({ title: r.title || '', entity: r.entity || '' })).filter(r => r.title || r.entity),
+    });
+  }
+}
+</script>
+</body>
+</html>

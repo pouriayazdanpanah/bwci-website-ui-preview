@@ -12,186 +12,220 @@
 .hdr{ position:relative; width:100%; font-family:var(--font-sans); }
 .hdr__in{ max-width:var(--container-wide,1440px); margin:0 auto; padding:0 clamp(20px,3vw,40px); display:flex; align-items:center; }
 .hdr__util{ height:40px; background:var(--brand-ink); }
-.hdr__util .hdr__in{ height:100%; justify-content:flex-end; gap:28px; }
-.hdr__util a{ font-size:12.5px; font-weight:500; letter-spacing:.01em; color:var(--text-inverse-muted); transition:color .18s; }
-.hdr__util a:hover{ color:#fff; }
+.hdr__util .hdr__in{ height:100%; justify-content:flex-end; }
+.hdr__util ul{ display:flex; gap:28px; margin:0; padding:0; list-style:none; }
+.hdr__util a{ font-size:max(12.5px,var(--fs-floor-sm,0px)); font-weight:500; letter-spacing:.01em; color:var(--text-inverse-muted); transition:color .18s; border-radius:2px; }
+.hdr__util a:hover, .hdr__util a[aria-current="page"]{ color:#fff; }
+.hdr__util a:focus-visible{ outline:2px solid #fff; outline-offset:3px; }
 .hdr__bar{ position:relative; background:#fff; border-bottom:1px solid var(--border-subtle); transition:background-color .3s ease, box-shadow .3s ease, border-color .3s ease, backdrop-filter .3s ease; }
-.hdr__bar .hdr__in{ height:76px; gap:24px; }
+.hdr__bar .hdr__in{ height:76px; gap:20px; }
 .hdr--stuck .hdr__bar{ background:rgba(255,255,255,.66); -webkit-backdrop-filter:blur(20px) saturate(170%); backdrop-filter:blur(20px) saturate(170%); border-bottom-color:rgba(18,48,57,.08); box-shadow:0 10px 30px -12px rgba(18,48,57,.18), inset 0 -1px 0 rgba(255,255,255,.5); }
-.hdr__logo{ display:flex; align-items:center; gap:12px; flex:none; color:var(--brand-ink); }
-.hdr__mark{ width:42px; height:42px; flex:none; border:1.5px solid var(--brand-ink); border-radius:var(--radius-lg); display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:13px; font-weight:700; letter-spacing:.04em; }
-.hdr__name{ display:flex; flex-direction:column; gap:3px; line-height:1; }
-.hdr__word{ font-size:16px; font-weight:800; letter-spacing:.06em; }
-.hdr__tag{ font-family:var(--font-mono); font-size:9.5px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--text-muted); }
-.hdr__nav{ margin-left:auto; display:flex; align-items:center; gap:clamp(4px,1vw,12px); }
-.hdr__link{ position:relative; display:inline-flex; align-items:center; gap:6px; height:40px; padding:0 12px; border:none; background:transparent; border-radius:var(--radius-md); font-family:var(--font-sans); font-size:14.5px; font-weight:500; color:var(--text-secondary); white-space:nowrap; cursor:pointer; transition:color .18s, background-color .18s; }
+.hdr__logo{ display:flex; align-items:center; flex:none; border-radius:6px; }
+.hdr__logo img{ display:block; height:46px; width:auto; }
+.hdr a:focus-visible, .hdr button:focus-visible{ outline:2px solid var(--accent-emerald); outline-offset:2px; }
+.hdr__nav{ margin-left:auto; }
+.hdr__list{ display:flex; align-items:center; gap:clamp(2px,.6vw,8px); margin:0; padding:0; list-style:none; }
+.hdr__link{ position:relative; display:inline-flex; align-items:center; gap:6px; height:40px; padding:0 11px; border:none; background:transparent; border-radius:6px; font-family:var(--font-sans); font-size:14.5px; font-weight:500; color:var(--text-secondary); white-space:nowrap; cursor:pointer; transition:color .18s, background-color .18s; }
 .hdr__link:hover{ color:var(--brand-ink); background:var(--surface-subtle); }
 .hdr__link[aria-current="page"]{ color:var(--brand-ink); font-weight:600; }
-.hdr__link[aria-current="page"]::after{ content:''; position:absolute; left:12px; right:12px; bottom:2px; height:2px; border-radius:var(--radius-full); background:var(--accent-emerald); }
+.hdr__link[aria-current="page"]::after{ content:''; position:absolute; left:11px; right:11px; bottom:2px; height:2px; border-radius:var(--radius-full); background:var(--accent-emerald); }
 .hdr__trigger svg{ width:14px; height:14px; transition:transform .2s ease; }
 .hdr__trigger[aria-expanded="true"]{ color:var(--brand-ink); background:var(--surface-cloud); }
 .hdr__trigger[aria-expanded="true"] svg{ transform:rotate(180deg); }
 .hdr__dd{ position:relative; }
-.hdr__panel{ position:absolute; top:calc(100% + 14px); left:-8px; width:400px; padding:8px; background:#fff; border:1px solid var(--border-subtle); border-radius:10px; box-shadow:0 24px 48px -16px rgba(18,48,57,.22), 0 4px 12px rgba(18,48,57,.06); animation:hdrIn .18s cubic-bezier(0,0,.2,1); }
+.hdr__panel{ position:absolute; top:calc(100% + 14px); left:-8px; width:380px; margin:0; padding:8px; list-style:none; background:#fff; border:1px solid var(--border-subtle); border-radius:10px; box-shadow:0 24px 48px -16px rgba(18,48,57,.22), 0 4px 12px rgba(18,48,57,.06); animation:hdrIn .18s cubic-bezier(0,0,.2,1); }
 .hdr__panel::before{ content:''; position:absolute; left:0; right:0; top:-16px; height:16px; }
 @keyframes hdrIn{ from{ opacity:0; transform:translateY(-6px); } to{ opacity:1; transform:none; } }
-.hdr__item{ display:grid; grid-template-columns:1fr 16px; align-items:start; gap:4px 10px; padding:14px 14px; border-radius:var(--radius-lg); transition:background-color .15s; }
-.hdr__item:hover{ background:var(--surface-subtle); }
-.hdr__idx{ font-family:var(--font-mono); font-size:11px; font-weight:700; color:var(--accent-gold-dark); padding-top:3px; }
+.hdr__item{ display:grid; grid-template-columns:1fr 16px; align-items:start; gap:4px 10px; padding:12px 14px; border-radius:8px; transition:background-color .15s; }
+.hdr__item:hover, .hdr__item:focus-visible{ background:var(--surface-subtle); }
 .hdr__item-t{ display:block; font-size:15px; font-weight:700; color:var(--brand-ink); letter-spacing:-.005em; }
-.hdr__item-d{ display:block; margin-top:3px; font-size:13px; line-height:1.45; color:var(--text-secondary); }
-.hdr__item svg{ width:16px; height:16px; margin-top:3px; color:var(--text-disabled, var(--text-muted)); transition:transform .18s, color .18s; }
+.hdr__item-d{ display:block; margin-top:3px; font-size:max(13px,var(--fs-floor-sm,0px)); line-height:1.45; color:var(--text-secondary); }
+.hdr__item svg{ width:16px; height:16px; margin-top:3px; color:var(--text-muted); transition:transform .18s, color .18s; }
 .hdr__item:hover svg{ color:var(--accent-emerald); transform:translateX(2px); }
 .hdr__item[aria-current="page"] .hdr__item-t{ color:var(--accent-emerald-dark); }
-.hdr__burger{ display:none; margin-left:auto; width:44px; height:44px; align-items:center; justify-content:center; border:1px solid var(--border-default); border-radius:var(--radius-md); background:transparent; color:var(--brand-ink); cursor:pointer; }
+.hdr__cta{ display:inline-flex; align-items:center; justify-content:center; flex:none; min-height:44px; padding:0 20px; border-radius:6px; background:var(--accent-emerald); color:#fff; font-size:14.5px; font-weight:600; white-space:nowrap; transition:background-color .18s; }
+.hdr__cta:hover{ background:var(--accent-emerald-dark); color:#fff; }
+.hdr__cta[aria-current="page"]{ background:var(--accent-emerald-dark); }
+.hdr__burger{ display:none; margin-left:auto; width:44px; height:44px; align-items:center; justify-content:center; border:1px solid var(--border-default); border-radius:6px; background:transparent; color:var(--brand-ink); cursor:pointer; }
 .hdr__burger svg, .hdr__x svg{ width:22px; height:22px; }
 .hdr__scrim{ position:fixed; inset:0; z-index:1; background:rgba(18,48,57,.36); -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); animation:hdrFade .2s ease; }
 @keyframes hdrFade{ from{ opacity:0; } to{ opacity:1; } }
 .hdr__drawer{ position:fixed; top:0; right:0; bottom:0; z-index:2; width:min(440px,100%); display:flex; flex-direction:column; background:#fff; box-shadow:-24px 0 48px -24px rgba(18,48,57,.3); animation:hdrSlide .28s cubic-bezier(.2,.8,.2,1); }
 @keyframes hdrSlide{ from{ transform:translateX(24px); opacity:0; } to{ transform:none; opacity:1; } }
-.hdr__dhead{ flex:none; height:76px; display:flex; align-items:center; justify-content:space-between; padding:0 clamp(20px,3vw,32px); border-bottom:1px solid var(--border-subtle); }
-.hdr__x{ width:44px; height:44px; display:flex; align-items:center; justify-content:center; border:none; background:var(--surface-subtle); border-radius:var(--radius-md); color:var(--brand-ink); cursor:pointer; }
+.hdr__dhead{ flex:none; height:76px; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:0 clamp(20px,3vw,32px); border-bottom:1px solid var(--border-subtle); }
+.hdr__x{ width:44px; height:44px; flex:none; display:flex; align-items:center; justify-content:center; border:none; background:var(--surface-subtle); border-radius:6px; color:var(--brand-ink); cursor:pointer; }
 .hdr__dbody{ flex:1; overflow-y:auto; padding:8px clamp(20px,3vw,32px) 24px; }
-.hdr__drow{ width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:64px; padding:0; border:none; border-bottom:1px dashed var(--border-default); background:transparent; font-family:var(--font-sans); font-size:18px; font-weight:700; letter-spacing:-.01em; color:var(--brand-ink); text-align:left; cursor:pointer; }
-.hdr__drow svg{ width:18px; height:18px; flex:none; color:var(--text-muted); transition:transform .2s; }
+.hdr__dlist{ margin:0; padding:0; list-style:none; }
+.hdr__drow{ width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:60px; padding:0; border:none; border-bottom:1px dashed var(--border-default); background:transparent; font-family:var(--font-sans); font-size:18px; font-weight:700; letter-spacing:-.01em; color:var(--brand-ink); text-align:left; cursor:pointer; }
+.hdr__drow svg{ width:18px; height:18px; flex:none; color:var(--text-muted); }
 .hdr__drow[aria-expanded="true"] .hdr__v{ opacity:0; }
 .hdr__drow[aria-current="page"]{ color:var(--accent-emerald-dark); }
-.hdr__acc--open .hdr__drow{ border-bottom-color:transparent; }
-.hdr__sub{ display:flex; flex-direction:column; gap:4px; margin:0 0 16px; padding:0 0 0 16px; border-left:2px solid var(--brand-ink); padding-bottom:16px; border-bottom:1px dashed var(--border-default); }
-.hdr__sub-wrap{ padding-bottom:16px; border-bottom:1px dashed var(--border-default); }
-.hdr__sub-wrap .hdr__sub{ border-bottom:none; margin:0; padding-bottom:0; }
-.hdr__sub a{ display:block; padding:8px 0; }
+.hdr__sub{ display:flex; flex-direction:column; gap:2px; margin:0; padding:4px 0 14px 16px; list-style:none; border-bottom:1px dashed var(--border-default); }
+.hdr__sub a{ display:block; padding:9px 0 9px 14px; border-left:2px solid var(--border-default); }
+.hdr__sub a[aria-current="page"]{ border-left-color:var(--accent-emerald); }
 .hdr__sub-t{ display:block; font-size:15.5px; font-weight:600; color:var(--brand-ink); }
-.hdr__sub-d{ display:block; margin-top:2px; font-size:13px; line-height:1.4; color:var(--text-muted); }
+.hdr__sub-d{ display:block; margin-top:2px; font-size:max(13px,var(--fs-floor-sm,0px)); line-height:1.4; color:var(--text-muted); }
 .hdr__sub a[aria-current="page"] .hdr__sub-t{ color:var(--accent-emerald-dark); }
+.hdr__dutil{ display:flex; flex-wrap:wrap; gap:4px 20px; margin:20px 0 0; padding:0; list-style:none; }
+.hdr__dutil a{ display:inline-flex; align-items:center; min-height:44px; font-size:14px; font-weight:500; color:var(--text-secondary); }
+.hdr__dutil a[aria-current="page"]{ color:var(--accent-emerald-dark); font-weight:600; }
 .hdr__dfoot{ flex:none; padding:16px clamp(20px,3vw,32px) calc(16px + env(safe-area-inset-bottom)); border-top:1px solid var(--border-subtle); }
-.hdr__cta{ display:flex; align-items:center; justify-content:center; min-height:48px; border-radius:var(--radius-md); background:var(--accent-emerald); color:#fff; font-size:14.5px; font-weight:600; transition:background-color .18s; }
-.hdr__cta:hover{ background:var(--accent-emerald-dark); color:#fff; }
-@media (max-width:1199px){
-  .hdr__util, .hdr__nav{ display:none; }
+.hdr__dfoot .hdr__cta{ display:flex; width:100%; min-height:48px; }
+.hdr__sr{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+@media (max-width:1279px){
+  .hdr__util, .hdr__nav, .hdr__bar .hdr__cta{ display:none; }
   .hdr__burger{ display:flex; }
 }
 @media (max-width:767px){
   .hdr__bar .hdr__in, .hdr__dhead{ height:68px; }
-  .hdr__bar .hdr__tag{ display:none; }
-  .hdr__mark{ width:38px; height:38px; }
+  .hdr__logo img{ height:38px; }
   .hdr__drawer{ width:100%; box-shadow:none; }
   .hdr__scrim{ display:none; }
-}
-@media (prefers-reduced-motion:reduce){ .hdr *, .hdr__bar{ animation:none !important; transition:none !important; } }
-
-/* MOBILE READABILITY FLOOR — auto-raised small text */
-@media (max-width:767px){
-  .hdr__tag, .hdr__idx{ font-size:12px !important; }
-  .hdr__util a, .hdr__item-d, .hdr__sub-d{ font-size:14px !important; }
+  .hdr__item-d, .hdr__sub-d, .hdr__dutil a{ font-size:14px !important; }
   .hdr__link, .hdr__cta{ font-size:15px !important; }
 }
-
+@media (prefers-reduced-motion:reduce){ .hdr *, .hdr__bar{ animation:none !important; transition:none !important; } }
 html{ -webkit-text-size-adjust:100%; -moz-text-size-adjust:100%; text-size-adjust:100%; }
 </style>
 </helmet>
 <header class="hdr {{ stuckCls }}">
   <div class="hdr__util" ref="{{ utilRef }}">
     <div class="hdr__in">
-      <a href="Main.dc.html#trust">Governance</a>
-      <a href="Main.dc.html#trust">Corporate/IR</a>
-      <a href="{{ ctaHref }}">Contact</a>
+      <nav aria-label="Corporate">
+        <ul>
+          <sc-for list="{{ util }}" as="u" hint-placeholder-count="4">
+            <li><a href="{{ u.href }}" aria-current="{{ u.cur }}">{{ u.t }}</a></li>
+          </sc-for>
+        </ul>
+      </nav>
     </div>
   </div>
   <div class="hdr__bar">
     <div class="hdr__in">
-      <a class="hdr__logo" href="Main.dc.html#hero" aria-label="BWCI PLC home">
-        <span class="hdr__mark">BW</span>
-        <span class="hdr__name"><span class="hdr__word">BWCI PLC</span><span class="hdr__tag">Better World Capital Investment</span></span>
-      </a>
+      <a class="hdr__logo" href="Main.dc.html"><img src="assets/bwci-logo.png" alt="Better World Capital Investments PLC — home" width="640" height="153"></a>
       <nav class="hdr__nav" aria-label="Primary">
-        <div class="hdr__dd" ref="{{ ddRef }}" onMouseEnter="{{ ddEnter }}" onMouseLeave="{{ ddLeave }}">
-          <button class="hdr__link hdr__trigger" type="button" aria-haspopup="true" aria-expanded="{{ ddOpen }}" aria-current="{{ curHiw }}" onClick="{{ ddToggle }}">How It Works<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-          <sc-if value="{{ ddOpen }}" hint-placeholder-val="{{ false }}">
-            <div class="hdr__panel" role="menu">
-              <a class="hdr__item" role="menuitem" href="FinancialEngine.dc.html#hero" aria-current="{{ curEngine }}" onClick="{{ ddClose }}">
-                <span><span class="hdr__item-t">The Financial Engine</span><span class="hdr__item-d">The 7-stage operational method</span></span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
-              </a>
-              <a class="hdr__item" role="menuitem" href="Ecosystem.dc.html#hero" aria-current="{{ curEco }}" onClick="{{ ddClose }}">
-                <span><span class="hdr__item-t">Ecosystem Topology</span><span class="hdr__item-d">The 6-layer relational network</span></span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
-              </a>
-            </div>
-          </sc-if>
-        </div>
-        <a class="hdr__link" href="Platforms.dc.html#hero" aria-current="{{ curPlatforms }}">Platforms &amp; Institutions</a>
-        <a class="hdr__link" href="SMEs%20Projects.dc.html" aria-current="{{ curSmes }}">SMEs &amp; Projects</a>
-        <a class="hdr__link" href="Investors%20Partners.dc.html" aria-current="{{ curInvestors }}">Investors &amp; Partners</a>
+        <ul class="hdr__list">
+          <sc-for list="{{ groups }}" as="g" hint-placeholder-count="5">
+            <li class="hdr__dd" onMouseEnter="{{ g.enter }}" onMouseLeave="{{ g.leave }}" onBlur="{{ g.blur }}">
+              <sc-if value="{{ g.isDd }}" hint-placeholder-val="{{ false }}">
+                <button class="hdr__link hdr__trigger" type="button" ref="{{ g.btnRef }}" aria-expanded="{{ g.expanded }}" aria-controls="{{ g.panelId }}" aria-current="{{ g.cur }}" onClick="{{ g.toggle }}" onKeyDown="{{ g.key }}">{{ g.label }}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <sc-if value="{{ g.open }}" hint-placeholder-val="{{ false }}">
+                  <ul class="hdr__panel" id="{{ g.panelId }}" onKeyDown="{{ g.panelKey }}">
+                    <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="2">
+                      <li><a class="hdr__item" href="{{ it.href }}" aria-current="{{ it.cur }}" onClick="{{ ddClose }}">
+                        <span><span class="hdr__item-t">{{ it.t }}</span><span class="hdr__item-d">{{ it.d }}</span></span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
+                      </a></li>
+                    </sc-for>
+                  </ul>
+                </sc-if>
+              </sc-if>
+              <sc-if value="{{ g.isLink }}" hint-placeholder-val="{{ true }}">
+                <a class="hdr__link" href="{{ g.href }}" aria-current="{{ g.cur }}">{{ g.label }}</a>
+              </sc-if>
+            </li>
+          </sc-for>
+        </ul>
       </nav>
-      <button class="hdr__burger" type="button" aria-label="Open menu" aria-expanded="{{ menuOpen }}" onClick="{{ openMenu }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
+      <a class="hdr__cta" href="Contact.dc.html" aria-current="{{ curContact }}">Start a Conversation</a>
+      <button class="hdr__burger" type="button" ref="{{ burgerRef }}" aria-label="Open menu" aria-expanded="{{ menuExpanded }}" aria-controls="hdr-drawer" onClick="{{ openMenu }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
     </div>
   </div>
   <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-    <div class="hdr__scrim" onClick="{{ closeMenu }}"></div>
-    <aside class="hdr__drawer" role="dialog" aria-modal="true" aria-label="Site menu">
+    <div class="hdr__scrim" onClick="{{ closeMenu }}" aria-hidden="true"></div>
+    <div class="hdr__drawer" id="hdr-drawer" role="dialog" aria-modal="true" aria-label="Site menu" ref="{{ drawerRef }}" onKeyDown="{{ drawerKey }}">
       <div class="hdr__dhead">
-        <a class="hdr__logo" href="Main.dc.html#hero" aria-label="BWCI PLC home" onClick="{{ closeMenu }}">
-          <span class="hdr__mark">BW</span>
-          <span class="hdr__name"><span class="hdr__word">BWCI PLC</span><span class="hdr__tag">Financial Holding</span></span>
-        </a>
-        <button class="hdr__x" type="button" aria-label="Close menu" onClick="{{ closeMenu }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></button>
+        <a class="hdr__logo" href="Main.dc.html" onClick="{{ closeMenu }}"><img src="assets/bwci-logo.png" alt="Better World Capital Investments PLC — home" width="640" height="153"></a>
+        <button class="hdr__x" type="button" ref="{{ closeRef }}" aria-label="Close menu" onClick="{{ closeMenu }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></button>
       </div>
-      <div class="hdr__dbody">
-        <div>
-          <button class="hdr__drow" type="button" aria-expanded="{{ accHiw }}" onClick="{{ toggleHiw }}">How It Works<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"></line><line class="hdr__v" x1="12" y1="5" x2="12" y2="19"></line></svg></button>
-          <sc-if value="{{ accHiw }}" hint-placeholder-val="{{ false }}">
-            <div class="hdr__sub-wrap">
-              <div class="hdr__sub">
-                <a href="FinancialEngine.dc.html#hero" aria-current="{{ curEngine }}" onClick="{{ closeMenu }}"><span class="hdr__sub-t">The Financial Engine</span><span class="hdr__sub-d">The 7-stage operational method</span></a>
-                <a href="Ecosystem.dc.html#hero" aria-current="{{ curEco }}" onClick="{{ closeMenu }}"><span class="hdr__sub-t">Ecosystem Topology</span><span class="hdr__sub-d">The 6-layer relational network</span></a>
-              </div>
-            </div>
-          </sc-if>
-        </div>
-        <a class="hdr__drow" href="Platforms.dc.html#hero" aria-current="{{ curPlatforms }}" onClick="{{ closeMenu }}">Platforms &amp; Institutions<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
-        <a class="hdr__drow" href="SMEs%20Projects.dc.html" aria-current="{{ curSmes }}" onClick="{{ closeMenu }}">SMEs &amp; Projects<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
-        <a class="hdr__drow" href="Investors%20Partners.dc.html" aria-current="{{ curInvestors }}" onClick="{{ closeMenu }}">Investors &amp; Partners<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
-        <div>
-          <button class="hdr__drow" type="button" aria-expanded="{{ accGov }}" onClick="{{ toggleGov }}">Governance &amp; Purpose<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"></line><line class="hdr__v" x1="12" y1="5" x2="12" y2="19"></line></svg></button>
-          <sc-if value="{{ accGov }}" hint-placeholder-val="{{ false }}">
-            <div class="hdr__sub-wrap">
-              <div class="hdr__sub">
-                <a href="Main.dc.html#trust" onClick="{{ closeMenu }}"><span class="hdr__sub-t">Governance</span></a>
-                <a href="Main.dc.html#trust" onClick="{{ closeMenu }}"><span class="hdr__sub-t">Corporate/IR</span></a>
-                <a href="{{ ctaHref }}" onClick="{{ closeMenu }}"><span class="hdr__sub-t">Contact</span></a>
-              </div>
-            </div>
-          </sc-if>
-        </div>
-      </div>
-      <div class="hdr__dfoot"><a class="hdr__cta" href="{{ ctaHref }}" onClick="{{ closeMenu }}">Start a Conversation</a></div>
-    </aside>
+      <nav class="hdr__dbody" aria-label="Primary">
+        <ul class="hdr__dlist">
+          <sc-for list="{{ groups }}" as="g" hint-placeholder-count="5">
+            <li>
+              <sc-if value="{{ g.isDd }}" hint-placeholder-val="{{ false }}">
+                <button class="hdr__drow" type="button" aria-expanded="{{ g.accExpanded }}" aria-controls="{{ g.accId }}" onClick="{{ g.accToggle }}">{{ g.label }}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><line class="hdr__v" x1="12" y1="5" x2="12" y2="19"></line></svg></button>
+                <sc-if value="{{ g.accOpen }}" hint-placeholder-val="{{ false }}">
+                  <ul class="hdr__sub" id="{{ g.accId }}">
+                    <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="2">
+                      <li><a href="{{ it.href }}" aria-current="{{ it.cur }}" onClick="{{ closeMenu }}"><span class="hdr__sub-t">{{ it.t }}</span><span class="hdr__sub-d">{{ it.d }}</span></a></li>
+                    </sc-for>
+                  </ul>
+                </sc-if>
+              </sc-if>
+              <sc-if value="{{ g.isLink }}" hint-placeholder-val="{{ true }}">
+                <a class="hdr__drow" href="{{ g.href }}" aria-current="{{ g.cur }}" onClick="{{ closeMenu }}">{{ g.label }}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
+              </sc-if>
+            </li>
+          </sc-for>
+        </ul>
+        <ul class="hdr__dutil" aria-label="Corporate">
+          <sc-for list="{{ util }}" as="u" hint-placeholder-count="4">
+            <li><a href="{{ u.href }}" aria-current="{{ u.cur }}" onClick="{{ closeMenu }}">{{ u.t }}</a></li>
+          </sc-for>
+        </ul>
+      </nav>
+      <div class="hdr__dfoot"><a class="hdr__cta" href="Contact.dc.html" aria-current="{{ curContact }}" onClick="{{ closeMenu }}">Start a Conversation</a></div>
+    </div>
   </sc-if>
 </header>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:420},&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;engine&quot;,&quot;ecosystem&quot;,&quot;platforms&quot;,&quot;smes&quot;,&quot;investors&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;ctaHref&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Main.dc.html#cta&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:460},&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;who&quot;,&quot;leadership&quot;,&quot;engine&quot;,&quot;impact&quot;,&quot;today&quot;,&quot;ecosystem&quot;,&quot;platforms&quot;,&quot;smes&quot;,&quot;investors&quot;,&quot;private&quot;,&quot;governance&quot;,&quot;ir&quot;,&quot;contact&quot;,&quot;verify&quot;,&quot;legal&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const NAV = [
+  { k: 'who', label: 'Who We Are', items: [
+    { t: 'Who We Are', d: 'Purpose, role and principles', href: 'Who%20We%20Are.dc.html', c: 'who' },
+    { t: 'Leadership', d: 'The people leading the company', href: 'Governance%20Leadership.dc.html', c: 'leadership' },
+  ] },
+  { k: 'hiw', label: 'How It Works', items: [
+    { t: 'The Financial Engine', d: 'How capital is structured and connected', href: 'FinancialEngine.dc.html', c: 'engine' },
+    { t: 'Better World & Impact', d: 'What the capital is for', href: 'Main.dc.html#impact', c: 'impact' },
+    { t: 'The Platform Today', d: 'What is operating and in development', href: 'Main.dc.html#today', c: 'today' },
+    { t: 'Ecosystem', d: 'How the parts of the group relate', href: 'Ecosystem.dc.html', c: 'ecosystem' },
+  ] },
+  { k: 'platforms', label: 'Platforms & Institutions', href: 'Platforms.dc.html' },
+  { k: 'smes', label: 'SMEs & Projects', href: 'SMEs%20Projects.dc.html' },
+  { k: 'inv', label: 'Investors & Partners', items: [
+    { t: 'Investors & Partners', d: 'Institutional and strategic participation', href: 'Investors%20Partners.dc.html', c: 'investors' },
+    { t: 'Private Investors & Family Offices', d: 'Routes for private capital', href: 'Private%20Investors.dc.html', c: 'private' },
+  ] },
+];
+const UTIL = [
+  { t: 'Governance', href: 'Governance.dc.html', c: 'governance' },
+  { t: 'Corporate/IR', href: 'Corporate%20IR.dc.html', c: 'ir' },
+  { t: 'Contact', href: 'Contact.dc.html', c: 'contact' },
+  { t: 'Verify a Communication', href: 'Verify%20a%20Communication.dc.html', c: 'verify' },
+];
+const FOCUSABLE = 'a[href], button:not([disabled])';
 class Component extends DCLogic {
-  state = { stuck: false, dd: false, menu: false, hiw: null, gov: false };
-  utilRef = React.createRef();
-  ddRef = React.createRef();
+  state = { stuck: false, dd: null, menu: false, acc: {} };
+  utilRef = React.createRef(); burgerRef = React.createRef(); closeRef = React.createRef(); drawerRef = React.createRef();
+  btns = {};
   componentDidMount() {
     this._measure = () => {
-      const u = this.utilRef.current, h = u ? u.offsetHeight : 0;
+      const u = this.utilRef.current;
+      const h = u ? u.offsetHeight : 0;
       this._utilH = h;
       const root = document.documentElement;
       root.style.setProperty('--util-h', h + 'px');
       const hdr = u && u.parentElement;
       if (hdr) root.style.setProperty('--nav-h', hdr.offsetHeight + 'px');
-      if (window.innerWidth >= 1200 && this.state.menu) this.setMenu(false);
+      if (window.innerWidth >= 1280 && this.state.menu) this.setMenu(false);
       this._onScroll();
     };
     this._onScroll = () => {
       const s = window.scrollY > (this._utilH || 0) + 2;
       if (s !== this.state.stuck) this.setState({ stuck: s });
     };
-    this._onDown = (e) => { if (this.state.dd && this.ddRef.current && !this.ddRef.current.contains(e.target)) this.setState({ dd: false }); };
-    this._onKey = (e) => { if (e.key === 'Escape') { if (this.state.dd) this.setState({ dd: false }); if (this.state.menu) this.setMenu(false); } };
+    this._onDown = (e) => {
+      if (!this.state.dd) return;
+      const b = this.btns[this.state.dd];
+      const li = b && b.closest('li');
+      if (li && !li.contains(e.target)) this.setState({ dd: null });
+    };
+    this._onKey = (e) => {
+      if (e.key !== 'Escape') return;
+      if (this.state.dd) { const b = this.btns[this.state.dd]; this.setState({ dd: null }); b && b.focus(); }
+      if (this.state.menu) this.setMenu(false);
+    };
     window.addEventListener('scroll', this._onScroll, { passive: true });
     window.addEventListener('resize', this._measure);
     document.addEventListener('mousedown', this._onDown);
@@ -209,31 +243,77 @@ class Component extends DCLogic {
   }
   setMenu(open) {
     document.body.style.overflow = open ? 'hidden' : '';
-    this.setState({ menu: open });
+    this.setState({ menu: open }, () => {
+      const el = open ? this.closeRef.current : this.burgerRef.current;
+      el && el.focus();
+    });
+  }
+  focusIn(k, which) {
+    const p = document.getElementById('hdr-p-' + k);
+    const links = p ? [...p.querySelectorAll('a')] : [];
+    if (!links.length) return;
+    const i = links.indexOf(document.activeElement);
+    const n = which === 'first' ? 0 : which === 'last' ? links.length - 1 : which === 'next' ? (i + 1) % links.length : (i - 1 + links.length) % links.length;
+    links[n].focus();
   }
   renderVals() {
     const c = this.props.current ?? 'home';
-    const inHiw = c === 'engine' || c === 'ecosystem';
-    const cur = (k) => (c === k ? 'page' : undefined);
-    const hiw = this.state.hiw ?? true;
+    const cur = (k) => (k === c ? 'page' : undefined);
+    const hover = () => window.matchMedia('(hover:hover)').matches;
+    const groups = NAV.map((g) => {
+      const isDd = !!g.items;
+      const open = this.state.dd === g.k;
+      const has = isDd && g.items.some((it) => it.c === c);
+      const accOpen = this.state.acc[g.k] ?? has;
+      return {
+        label: g.label, isDd, isLink: !isDd, href: g.href, open,
+        expanded: open ? 'true' : 'false',
+        cur: isDd ? (has ? 'page' : undefined) : cur(g.k),
+        panelId: 'hdr-p-' + g.k, accId: 'hdr-a-' + g.k,
+        accOpen, accExpanded: accOpen ? 'true' : 'false',
+        items: isDd ? g.items.map((it) => ({ t: it.t, d: it.d, href: it.href, cur: cur(it.c) })) : [],
+        btnRef: (el) => { if (el) this.btns[g.k] = el; },
+        enter: isDd ? () => { clearTimeout(this._t); if (hover() && this.state.dd !== g.k) { this._hov = true; this.setState({ dd: g.k }); } } : undefined,
+        leave: isDd ? () => { clearTimeout(this._t); if (this.state.dd === g.k) this._t = setTimeout(() => this.setState({ dd: null }), 160); } : undefined,
+        blur: isDd ? (e) => { if (!e.currentTarget.contains(e.relatedTarget) && this.state.dd === g.k) this.setState({ dd: null }); } : undefined,
+        toggle: () => {
+          const keep = this._hov && this.state.dd === g.k;
+          this._hov = false;
+          if (!keep) this.setState((s) => ({ dd: s.dd === g.k ? null : g.k }));
+        },
+        key: (e) => {
+          if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            const w = e.key === 'ArrowDown' ? 'first' : 'last';
+            this.setState({ dd: g.k }, () => this.focusIn(g.k, w));
+          }
+        },
+        panelKey: (e) => {
+          const m = { ArrowDown: 'next', ArrowUp: 'prev', Home: 'first', End: 'last' }[e.key];
+          if (m) { e.preventDefault(); this.focusIn(g.k, m); }
+        },
+        accToggle: () => this.setState((s) => ({ acc: { ...s.acc, [g.k]: !accOpen } })),
+      };
+    });
     return {
       stuckCls: this.state.stuck ? 'hdr--stuck' : '',
-      ctaHref: this.props.ctaHref ?? 'Main.dc.html#cta',
-      utilRef: this.utilRef, ddRef: this.ddRef,
-      ddOpen: this.state.dd,
-      curHiw: inHiw ? 'page' : undefined,
-      curEngine: cur('engine'), curEco: cur('ecosystem'),
-      curPlatforms: cur('platforms'), curSmes: cur('smes'), curInvestors: cur('investors'),
-      ddEnter: () => { clearTimeout(this._t); if (window.matchMedia('(hover:hover)').matches) this.setState({ dd: true }); },
-      ddLeave: () => { clearTimeout(this._t); this._t = setTimeout(() => this.setState({ dd: false }), 160); },
-      ddToggle: () => this.setState(s => ({ dd: !s.dd })),
-      ddClose: () => this.setState({ dd: false }),
+      utilRef: this.utilRef, burgerRef: this.burgerRef, closeRef: this.closeRef, drawerRef: this.drawerRef,
+      groups,
+      util: UTIL.map((u) => ({ t: u.t, href: u.href, cur: cur(u.c) })),
+      curContact: cur('contact'),
+      ddClose: () => this.setState({ dd: null }),
       menuOpen: this.state.menu,
+      menuExpanded: this.state.menu ? 'true' : 'false',
       openMenu: () => this.setMenu(true),
       closeMenu: () => this.setMenu(false),
-      accHiw: hiw, accGov: this.state.gov,
-      toggleHiw: () => this.setState({ hiw: !hiw }),
-      toggleGov: () => this.setState(s => ({ gov: !s.gov })),
+      drawerKey: (e) => {
+        if (e.key !== 'Tab' || !this.drawerRef.current) return;
+        const f = [...this.drawerRef.current.querySelectorAll(FOCUSABLE)];
+        if (!f.length) return;
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      },
     };
   }
 }
