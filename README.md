@@ -5,7 +5,7 @@ implementation files separate:
 
 | Folder | Purpose |
 | --- | --- |
-| `design/` | Published static site: `index.html`, `*.dc.html`, root CSS/JS, `.image-slots.state.json`, `assets/`, and `vendor/`. |
+| `design/` | Published static site: `index.html`, `*.dc.html`, root CSS/JS, `image-slots.state.json`, `assets/`, and `vendor/`. |
 | `ghl/` | GHL Custom Code implementations and their build sources. Not published by GitHub Pages. |
 | `scripts/` | Claude Design ZIP importer; `scripts/wireframes/` builds the Next Version wireframe prototypes into `design/wireframes/` (see its README). |
 | `.github/workflows/pages.yml` | Publishes only `design/` to GitHub Pages. |
@@ -34,8 +34,10 @@ changes only in `ghl/` do not redeploy the preview.
 ## Update from a Claude Design ZIP
 
 The ZIP importer accepts the exported root `*.dc.html` pages, root CSS/JS,
-the image-slot state file, `assets/`, and `vendor/`. It checks local CSS/JS
-references and requires the state file when `image-slot.js` is present. It
+the image-slot state file, `assets/`, and `vendor/`. It publishes the ZIP's
+`.image-slots.state.json` as `image-slots.state.json` and updates
+`image-slot.js` to load that path. It checks local CSS/JS references and
+requires the state file when `image-slot.js` is present. It
 writes only to `design/`, maps `Main.dc.html`
 to `design/index.html`, and ignores reference uploads, scratch files, and QA
 material. It also restores mobile viewport metadata and keeps the home hero

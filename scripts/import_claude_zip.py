@@ -12,7 +12,8 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 DESIGN_ROOT = ROOT / "design"
 REQUIRED = {"Main.dc.html", "support.js", "vendor/react.js", "vendor/react-dom.js"}
-IMAGE_SLOT_STATE = ".image-slots.state.json"
+IMAGE_SLOT_SOURCE = ".image-slots.state.json"
+IMAGE_SLOT_STATE = "image-slots.state.json"
 
 
 class LocalDependencyParser(HTMLParser):
@@ -62,6 +63,16 @@ def normalize_html(name, data):
     return data
 
 
+def normalize_script(name, data):
+    if name != "image-slot.js":
+        return data
+    source = b"const STATE_FILE = '.image-slots.state.json';"
+    published = b"const STATE_FILE = 'image-slots.state.json';"
+    if source not in data:
+        raise ValueError("image-slot.js has an unrecognized image state path")
+    return data.replace(source, published, 1)
+
+
 def matches_existing(name, data):
     destination = DESIGN_ROOT / name
     if not destination.is_file():
@@ -102,7 +113,7 @@ def collect(archive):
         publishable = (
             (len(path.parts) == 1 and name.endswith(".dc.html"))
             or (len(path.parts) == 1 and name.lower().endswith((".css", ".js")))
-            or name == IMAGE_SLOT_STATE
+            or name == IMAGE_SLOT_SOURCE
             or path.parts[0] in {"assets", "vendor"}
         )
         if not publishable:
@@ -112,7 +123,11 @@ def collect(archive):
         total_size += item.file_size
         if total_size > 100 * 1024 * 1024:
             raise ValueError("publishable ZIP contents exceed 100 MiB")
-        files[name] = normalize_html(name, archive.read(item))
+        destination_name = IMAGE_SLOT_STATE if name == IMAGE_SLOT_SOURCE else name
+        if destination_name in files:
+            raise ValueError(f"duplicate publishable path: {destination_name}")
+        data = archive.read(item)
+        files[destination_name] = normalize_script(name, normalize_html(name, data))
     missing = REQUIRED - files.keys()
     if "image-slot.js" in files and IMAGE_SLOT_STATE not in files:
         missing.add(IMAGE_SLOT_STATE)
