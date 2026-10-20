@@ -12,6 +12,7 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 DESIGN_ROOT = ROOT / "design"
 REQUIRED = {"Main.dc.html", "support.js", "vendor/react.js", "vendor/react-dom.js"}
+IMAGE_SLOT_STATE = ".image-slots.state.json"
 
 
 class LocalDependencyParser(HTMLParser):
@@ -101,6 +102,7 @@ def collect(archive):
         publishable = (
             (len(path.parts) == 1 and name.endswith(".dc.html"))
             or (len(path.parts) == 1 and name.lower().endswith((".css", ".js")))
+            or name == IMAGE_SLOT_STATE
             or path.parts[0] in {"assets", "vendor"}
         )
         if not publishable:
@@ -112,6 +114,8 @@ def collect(archive):
             raise ValueError("publishable ZIP contents exceed 100 MiB")
         files[name] = normalize_html(name, archive.read(item))
     missing = REQUIRED - files.keys()
+    if "image-slot.js" in files and IMAGE_SLOT_STATE not in files:
+        missing.add(IMAGE_SLOT_STATE)
     if missing:
         raise ValueError(f"ZIP is missing required files: {', '.join(sorted(missing))}")
     for name, data in files.items():
