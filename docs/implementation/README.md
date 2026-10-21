@@ -16,7 +16,7 @@ This guide turns a finished Claude Design page in design/ into one pasteable GoH
 
 The October 2026 export added these production pages, which have no GHL port yet. Each needs its own brief in pages/<slug>.md (from page-template.md) and its own feat/ghl-<slug> branch:
 
-- Six profile pages, each importing SiteHeader, GovProfile and SiteFooter: Profile Alexander Alegria Saif, Profile Gabriella Karlova, Profile Professor Richard Werner, Profile Ewa Dudek, Profile Agnes Gradzewicz and Profile Christie Osarenren (.dc.html).
+- Five profile pages, each importing SiteHeader, GovProfile and SiteFooter: Profile Gabriella Karlova, Profile Professor Richard Werner, Profile Ewa Dudek, Profile Agnes Gradzewicz and Profile Christie Osarenren (.dc.html).
 
 A generated port does not establish a live GHL URL. Governance and profile routes remain configurable; keys without known published destinations default to "#" and are listed as unresolved in each page README. design/Main v1 (archive).dc.html is an archived earlier homepage, not a page to port.
 
@@ -33,6 +33,7 @@ A generated port does not establish a live GHL URL. Governance and profile route
 - Governance Leadership: ghl/pages/governance-leadership/README.md. Its hosted and inline files are generated from _build/src/. PersonCard comes from the shared site chrome (people option), as on the Board page.
 
 - Dr Farhad Reyazat: ghl/pages/profile-farhad-reyazat/README.md. Hosted and inline outputs are generated from _build/src/. Reusable GovProfile markup/context/drag support is in ghl/shared/site-chrome/; one profile handles Board and Leadership entry.
+- Alex Alegria-Seif: ghl/pages/profile-alexander-alegria-saif/README.md. Hosted and inline outputs are generated from _build/src/ using the existing shared profile renderer. The source filename/slug is Alexander Alegria Saif; displayed content follows bwci-people.js.
 
 The completed-page README is the source of maintenance instructions; no duplicate brief is kept under docs/implementation/pages/. design/SiteHeader.dc.html, design/SiteFooter.dc.html, design/Breadcrumb.dc.html, design/GovNav.dc.html, design/GovProfile.dc.html and design/PersonCard.dc.html are shared source components. design/Before After.dc.html is a visual comparison/QA canvas, not a production website page.
 
