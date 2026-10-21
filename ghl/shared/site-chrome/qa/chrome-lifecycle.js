@@ -1,18 +1,19 @@
 // Dev-only QA for a built port: shared-chrome config keys, asset loading, host isolation and the
 // GoHighLevel lifecycle (duplicate script execution, widget re-render).
 //   NODE_PATH=$(npm root -g) node chrome-lifecycle.js <slug> <prefix> <httpBase>
-//   e.g. node chrome-lifecycle.js platforms plt http://localhost:8123/
+//   e.g. node chrome-lifecycle.js platforms plt http://localhost:8123/   (optional 4th argument: root id,
+//   5th: config script id when it is not <root id>-config, e.g. main bw <base> bwci-main-page bwci-main-config)
 // The real built blocks are served with edited config blocks, inside a plain host and a hostile host (aggressive
 // global CSS, a <section> wrapper, content above and below, and the script executed twice).
 const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
-const [slug, P, httpBase] = process.argv.slice(2);
+const [slug, P, httpBase, rootArg, cfgArg] = process.argv.slice(2);
 const PAGE = path.resolve(__dirname, '../../../pages', slug);
 const INLINE = fs.readFileSync(path.join(PAGE, slug + '.inline.ghl.html'), 'utf8');
 const HOSTED = fs.readFileSync(path.join(PAGE, slug + '.ghl.html'), 'utf8');
-const ROOT = 'bwci-' + slug;
-const CFG_RE = new RegExp('(<script type="application/json" id="' + ROOT + '-config">)([\\s\\S]*?)(</script>)');
+const ROOT = rootArg || 'bwci-' + slug;
+const CFG_RE = new RegExp('(<script type="application/json" id="' + (cfgArg || ROOT + '-config') + '">)([\\s\\S]*?)(</script>)');
 const base = httpBase.replace(/\/?$/, '/') + 'ghl/pages/' + slug + '/_build/preview/';
 const HOSTILE_CSS = 'html{font-size:10px}body{margin:0;font-family:Georgia,serif;font-size:20px;line-height:1.1;color:#f00;letter-spacing:.2em}*{box-sizing:content-box}' +
   'h1,h2,h3,h4,h5{font-family:Impact;font-size:50px;color:purple;margin:30px 0;text-transform:uppercase}p{margin:0 0 2em;font-size:22px}a{color:orange;text-decoration:underline}' +
