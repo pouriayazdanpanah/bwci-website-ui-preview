@@ -29,19 +29,19 @@ const CFG_RE = /(<script type="application\/json" id="bwci-smes-projects-config"
   
   /* config variants */
   await run('default (inline image)', PLAIN, async (page) => ({
-    header: !!(await page.$('#bwci-smes-projects .sme-hdr')), footer: !!(await page.$('#bwci-smes-projects .sme-footer')),
-    img: await page.evaluate(() => { const i = document.querySelector('[data-sme-asset]'); return i.src.slice(0, 22) + ' ' + i.naturalWidth + 'x' + i.naturalHeight; }),
+    header: !!(await page.$('#bwci-smes-projects .sme-hdr')), footer: !!(await page.$('#bwci-smes-projects .sme-sft')),
+    img: await page.evaluate(() => { const i = document.querySelector('[data-sme-asset="smesHeroImage"]'); return i.src.slice(0, 22) + ' ' + i.naturalWidth + 'x' + i.naturalHeight; }),
     links: (await hrefs(page)).length,
   }));
   await run('hosted placeholder', HOSTED, async (page, reqs) => ({
-    imgSrc: await page.evaluate(() => document.querySelector('[data-sme-asset]').getAttribute('src')),
+    imgSrc: await page.evaluate(() => document.querySelector('[data-sme-asset="smesHeroImage"]').getAttribute('src')),
     placeholderRequested: reqs.some((u) => u.includes('REPLACE-WITH')),
   }));
   await run('hosted real URL', withCfg(HOSTED, (c) => Object.assign(c, { smesHeroImage: base.replace(/_build\/preview\/$/, 'assets/sme-hero-flow.webp') })), async (page) => ({
-    img: await page.evaluate(() => { const i = document.querySelector('[data-sme-asset]'); return i.getAttribute('src').replace(/^.*\//, '') + ' ' + i.naturalWidth + 'x' + i.naturalHeight; }),
+    img: await page.evaluate(() => { const i = document.querySelector('[data-sme-asset="smesHeroImage"]'); return i.getAttribute('src').replace(/^.*\//, '') + ' ' + i.naturalWidth + 'x' + i.naturalHeight; }),
   }));
   await run('showHeader/showFooter false', withCfg(PLAIN, (c) => Object.assign(c, { showHeader: false, showFooter: false })), async (page) => ({
-    header: !!(await page.$('#bwci-smes-projects .sme-hdr')), footer: !!(await page.$('#bwci-smes-projects .sme-footer')),
+    header: !!(await page.$('#bwci-smes-projects .sme-hdr')), footer: !!(await page.$('#bwci-smes-projects .sme-sft')),
     utilH: await page.evaluate(() => getComputedStyle(document.getElementById('bwci-smes-projects')).getPropertyValue('--util-h')),
     heroTop: await page.evaluate(() => Math.round(document.getElementById('sme-hero').getBoundingClientRect().top)),
   }));

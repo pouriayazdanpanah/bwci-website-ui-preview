@@ -23,7 +23,13 @@ const STATES = {
       const page = await browser.newPage({ viewport: { width: w, height: 900 }, reducedMotion: 'reduce' });
       await routeReact(page);
       await page.goto(url, { waitUntil: 'networkidle' });
-      await page.waitForTimeout(400);
+      // after the last scan of the shared scroll motion (~2.6 s after load), so it cannot hide re-mounted cards mid-test
+      await page.waitForTimeout(3200);
+      // scroll the whole section through the viewport and let the shared scroll motion finish its fade-ins
+      // before acting, otherwise the capture catches a reveal mid-fade (timing differs run to run on both sides)
+      await page.evaluate(async (s) => { const e = document.querySelector(s); const top = e.getBoundingClientRect().top + scrollY;
+        for (let y = Math.max(0, top - innerHeight); y < top + e.offsetHeight; y += 300) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 50)); } }, st.sel);
+      await page.waitForTimeout(1200);
       await st.act(page);
       await page.mouse.move(0, 0);
       await page.waitForTimeout(700);

@@ -4,23 +4,34 @@ GoHighLevel (GHL) **Website Builder → Custom Code** version of `design/SMEs Pr
 ("SMEs & Projects"). The design export is the unchanged reference; everything GHL-specific for this page
 lives in this folder.
 
-**Status:** QA done locally in headless Chromium (see Validation). Not yet checked on a published GHL page.
+**Status:** updated to the October 2026 design export (header, breadcrumb and footer from the shared
+site chrome). QA done locally in headless Chromium (see Validation). Not yet checked on a published GHL page.
 
 ```
 ghl/pages/smes-projects/
-├── smes-projects.ghl.html          ← production block (hosted hero image)        ~107 KB
-├── smes-projects.inline.ghl.html   ← self-contained block (hero image embedded)  ~538 KB
+├── smes-projects.ghl.html          ← production block (hosted hero image)        ~132 KB
+├── smes-projects.inline.ghl.html   ← self-contained block (hero image embedded)  ~609 KB
 ├── assets/sme-hero-flow.webp       ← hero artwork, 1400×511 RGBA WebP, unchanged from the export (upload this to GHL)
 ├── _build/                         ← dev tooling only, never loaded at runtime
 └── README.md
 ```
+
+## October 2026 design update
+
+- CSS regenerated from the current export: mobile type floors (`--fs-floor-*`) and a transition tweak; the
+  perimeters footnote takes the new inline `font-size:max(14px, var(--fs-floor-body))`.
+- The old header and footer were replaced by the shared site chrome (new SiteHeader, Breadcrumb and SiteFooter,
+  `bwci-system.css`, `bwci-motion.js`); the config gains `logoImage` and `footer`, and the old footer keys
+  (`about`, `capabilities`, `corporate`, `legal`, `regulatory`, `insights`) are gone with the old footer.
 
 ## Source
 
 | Source file | What was taken from it |
 |---|---|
 | `design/SMEs Projects.dc.html` (import 08e0a09, 2026-10-01) | All markup, CSS and the `text/x-dc` component: situations, matched capability, process steps, capability detail, operating principles, reveals |
-| `design/SiteHeader.dc.html` (`current="smes"`, `cta-href="#engage"`) | Sticky header, "How It Works" dropdown, mobile drawer and accordions (same header block as the Ecosystem and Platforms ports) |
+| `design/SiteHeader.dc.html` (`current="smes"`), `design/Breadcrumb.dc.html`, `design/SiteFooter.dc.html` | Header, drawer, breadcrumb and footer via the shared site chrome (see below) |
+| `design/bwci-system.css`, `design/bwci-motion.js` | Tokens, type scale, buttons and font floors the page uses (scoped, pruned); the section fade-up on scroll |
+| `design/assets/bwci-logo.png` | Logo, from `ghl/shared/site-chrome/assets/bwci-logo.png` |
 | `design/support.js` | Template runtime only. It loads React 18.3.1 from unpkg.com and wraps every `{{value}}` in `<span class="sc-interp">`, which the page's mobile CSS resizes (reproduced as `.sme-i`) |
 | `design/assets/sme-hero-flow.webp` | Hero artwork (1400×511, transparent). Desktop: right-hand 64% of the hero, `object-fit:contain` with a left fade and a 14 s drift; tablet: faded behind the copy; phone: full-bleed cover at 32% opacity |
 
@@ -28,15 +39,15 @@ No React, `support.js`, `/vendor/`, unpkg or `./assets/` path is used by the del
 
 ## Installation in GoHighLevel
 
-1. Upload `assets/sme-hero-flow.webp` to **Media Storage** and copy its URL.
-2. Open `smes-projects.ghl.html`. The **first block** is the configuration: paste the URL into
-   `"smesHeroImage"` and set the `"links"`.
+1. Upload `assets/sme-hero-flow.webp` and `ghl/shared/site-chrome/assets/bwci-logo.png` to **Media Storage** and copy their URLs.
+2. Open `smes-projects.ghl.html`. The **first block** is the configuration: paste the URLs into
+   `"smesHeroImage"` and `"logoImage"`, and set the `"links"` (and `"footer"` wording if needed).
 3. In the GHL page, add a **full-width** section with no padding/margins, one row/column with no padding,
    and a **Custom Code** element in it.
 4. Paste the **entire** file (config block, font links, `<style>`, markup, `<script>`).
 5. Check the **published** page (GHL does not run custom-code scripts in the editor canvas).
 
-`smes-projects.inline.ghl.html` needs no upload (image embedded) but is ~538 KB.
+`smes-projects.inline.ghl.html` needs no upload (images embedded) but is ~609 KB.
 
 ## Configuration — the JSON block at the top of the paste
 
@@ -44,8 +55,10 @@ No React, `support.js`, `/vendor/`, unpkg or `./assets/` path is used by the del
 <script type="application/json" id="bwci-smes-projects-config">
 {
   "smesHeroImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/sme-hero-flow.webp",
+  "logoImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/bwci-logo.png",
   "showHeader": true,
   "showFooter": true,
+  "footer": { "regulatoryLine": "", "registeredJurisdiction": "", "companyNumber": "", "registeredOffice": "" },
   "links": { "home": "/", "financialEngine": "/financial-engine", … }
 }
 </script>
@@ -57,34 +70,32 @@ links in the markup (the image then stays empty).
 | Key | Default | Used by |
 |---|---|---|
 | `smesHeroImage` | placeholder (no request is made until replaced) | Hero artwork |
-| `showHeader` / `showFooter` | `true` | `false` removes the built-in header / footer |
-| `links.home` | `/` | Header and drawer logo |
-| `links.financialEngine` | `/financial-engine` | "The Financial Engine" (dropdown, drawer), footer "Financial Engine" |
-| `links.ecosystem` | `/ecosystem` | "Ecosystem Topology" (dropdown, drawer), footer "Our Ecosystem" |
-| `links.platforms` | `/platforms` | "Platforms & Institutions" (header, drawer) |
-| `links.investors` | `/investors-partners` | "Investors & Partners" (header, drawer, footer) |
-| `links.about` | `/#bwci-what` | Footer "About" |
-| `links.capabilities` | `/#bwci-platforms` | Footer "Capabilities" (source `Main.dc.html#platforms`) |
-| `links.governance` | `/#bwci-trust` | "Governance" (top bar, drawer, footer) |
-| `links.corporate` | `/#bwci-trust` | "Corporate/IR" (top bar, drawer) |
-| `links.legal` | `/#bwci-trust` | Footer "Legal & Documents" |
-| `links.regulatory` | `/#bwci-trust` | Footer "Regulatory Boundaries" |
-| `links.insights` | `#` | Footer "Insights" (the Main page has no Insights section yet) |
+| `logoImage` | placeholder | Header, drawer and footer logo (upload `ghl/shared/site-chrome/assets/bwci-logo.png`) |
+| `showHeader` / `showFooter` | `true` | `false` removes the built-in header / footer (the breadcrumb is part of the page and stays) |
+| `footer.regulatoryLine` | `""` | Optional regulatory sentence above the footer legal line |
+| `footer.registeredJurisdiction`, `footer.companyNumber`, `footer.registeredOffice` | `""` | Optional parts of the footer legal line (left out while empty, as in the source) |
+| `links.home` | `/` | Logos, breadcrumb "Home" |
+| `links.financialEngine`, `ecosystem`, `platforms`, `smes`, `investors` | `/financial-engine`, `/ecosystem`, `/platforms`, `/smes-projects`, `/investors-partners` | Nav, dropdowns, drawer, footer |
+| `links.impact`, `links.today` | `/#bwci-impact`, `/#bwci-today` | "Better World & Impact", "The Platform Today" (sections of the Main port) |
+| `links.whoWeAre`, `whoPurpose`, `whoRole`, `whoPrinciples`, `whoStory`, `leadership`, `privateInvestors`, `governance`, `corporateIR`, `contact`, `verify`, `legalPrivacy`, `legalTerms`, `legalCookies`, `legalDisclosures`, `legalAccessibility`, `legalSitemap` | `#` | Who We Are menu, Leadership, Private Investors, Governance, Corporate/IR, Contact, Verify, legal links — **unresolved** (see below) |
 | `links.startConversation` | `/#bwci-cta` | "Start a conversation" button in the last section (source `Main.dc.html#cta`) |
-| `links.verify` | `/#bwci-cta` | Footer "Verify a Communication" |
 
-The `/#bwci-…` defaults are section ids of the Main page port. Links within this page are fixed:
-"Contact" and "Start a Conversation" in the header, footer "Start a Conversation", "Discuss this need" and
+
+**Unresolved routes.** The design links the keys marked unresolved to pages that have no GHL port yet
+(Governance, Governance Board, Governance Leadership, the profile pages) or that are not in the export at all
+(Who We Are, Private Investors, Corporate IR, Contact, Verify a Communication, Legal). They default to `#`;
+set them here once the live GHL URLs exist. No URL was invented for them.
+
+`/#bwci-cta` is the Main port's closing section. Links within this page are fixed: "Discuss this need" and
 the hero's "Start a conversation" go to `#sme-engage` (source `#engage`); "See how we approach your need"
-goes to `#sme-process`; each situation card's link goes to `#sme-perimeters`; the current-page links
-("SMEs & Projects" in header, drawer and footer) go to `#sme-hero`. Page ids carry an `sme-` prefix
+goes to `#sme-process`; each situation card's link goes to `#sme-perimeters`. Header, drawer and footer items for this page use its configured route (`links.smes`) and are marked `aria-current="page"`, as in the source. Page ids carry an `sme-` prefix
 (`#sme-hero`, `#sme-situation`, `#sme-process`, `#sme-perimeters`, `#sme-principles`, `#sme-engage`).
 
 ## Sections and interactions reproduced
 
 | Section | Behaviour |
 |---|---|
-| Site header | Sticky, turns translucent once scrolled; dropdown on hover or click, closes on outside click or Escape; burger drawer below 1200 px with two accordions; scroll lock while the drawer is open |
+| Site header, breadcrumb | Shared site chrome — see "Header, breadcrumb and footer" below |
 | Hero | Gradient, dot field, flow artwork drifting 14 px (14 s, alternate); separate tablet and phone treatments |
 | 01 What are you trying to achieve? | Four situation cards (click, or Enter/Space when focused). The chosen card gets the emerald border, number, radio and matched-perimeter treatment, **and selects its matched capability in 03**: 01 → Trade Finance Platform, 02 and 03 → Private Capital Platform, 04 → Providence Asset Management. The card's "How … may help" link selects the card and scrolls to 03 |
 | 02 How we approach your need | Five steps; hovering, focusing or clicking a step selects it: number and title shift, the sub-line appears (desktop), the reading panel text and accent colour (gold / blue for step 3 / emerald for step 5) change, and the large background step number and its ring move |
@@ -92,6 +103,27 @@ goes to `#sme-process`; each situation card's link goes to `#sme-perimeters`; th
 | 04 How we approach real economy finance | Five principle rows; hovering, focusing or clicking one opens it (height animates, gold underline grows, "+" turns into "×"); one open at a time. The heading column is sticky on desktop |
 | Start a conversation, footer | Dark CTA; 4-column footer reflowing to 2 and 1 |
 | Reveals | Section heads fade up once when 15% visible |
+
+## Header, breadcrumb and footer (shared site chrome)
+
+The header, mobile drawer, breadcrumb and footer are generated by `ghl/shared/site-chrome/` (see its README)
+from `design/SiteHeader.dc.html` (`current="smes"`), `design/Breadcrumb.dc.html` (`current="smes"`) and
+`design/SiteFooter.dc.html`, together with the parts of `design/bwci-system.css` the page uses and a
+root-scoped port of `design/bwci-motion.js` (the fade-up the source adds to sections as they scroll in). The
+same generated chrome is in every page port.
+
+- Utility bar, logo and five nav groups (Who We Are, How It Works, Platforms & Institutions, SMEs & Projects,
+  Investors & Partners). Dropdowns open on hover for fine pointers (closing 160 ms after the pointer leaves),
+  on click, or from the keyboard (ArrowDown/Up/Home/End; Escape closes and returns focus); an outside click
+  or focus leaving closes them.
+- The bar sticks once the utility strip has scrolled away; this is measured relative to the widget, so GHL
+  content above it does not break the sticky state.
+- Below 1280 px a burger opens the drawer: accordions (the current section starts open), focus moves to
+  the close button and Tab stays inside, Escape and links close it, and the body scroll is locked and then
+  restored to the host's own value. It closes itself when the viewport grows to 1280 px or more.
+- Breadcrumb "Home › …" with the source's inline styles and hover/focus colours.
+- Footer link columns, logo, legal line and bottom links; the regulatory sentence and legal-line parts come
+  from the `footer` config.
 
 ## How it is built
 
@@ -115,6 +147,23 @@ new `html{text-size-adjust:100%}` (import 08e0a09) is applied to the widget root
 inherited by everything inside the widget.
 
 ## Validation (local, headless Chromium)
+
+### October 2026 design update — checks re-run
+
+Local headless Chromium against the current export (`design/` at the time of this branch), with the shared
+scroll motion settled before each capture:
+
+| Check | Result |
+|---|---|
+| Full-page pixel diff vs the source, reduced motion, shared motion settled (`_build/shoot.js`, `diff.py`) | 0 % differing pixels at all 13 widths (320 … 2560 px), identical page heights |
+| Element-by-element box and computed-style comparison at 320, 375, 390, 768, 1024, 1280, 1440, 1920 and 2560 px (`_build/domdiff.js`) | 0 differences at every width |
+| Section states × 1440/1024/768/390/320 px (`_build/states-shoot.js`) | 0 % in all 40 captures; the script now settles the shared scroll motion and scrolls the section through first |
+| Interaction trace, source vs port vs hostile host (`_build/behaviour.js`) | Identical |
+| Shared chrome trace (`ghl/shared/site-chrome/qa/chrome-behaviour.js`): dropdowns, keyboard, drawer, focus trap, sticky, footer, scroll motion | Identical to the source |
+| Lifecycle (`chrome-lifecycle.js`): config keys, header/footer off, footer wording, link overrides, broken JSON, placeholders never requested, hostile host with the script run twice (one instance, no overflow, no style leakage), GHL re-render, body overflow restored, reduced motion | All pass; no JavaScript errors |
+
+The table below is from the original port (its header/footer rows describe the previous chrome). The page
+logic it covers did not change in this update except where "October 2026 design update" above says so.
 
 | Check | Result |
 |---|---|
@@ -142,8 +191,8 @@ three `<link>` tags as the other GHL blocks.
    page; it smooth-scrolls its own in-page links instead (instantly with reduced motion) and, like a native
    fragment jump, moves focus off the clicked link. Scripted or keyboard jumps elsewhere on the host page are
    instant.
-3. Source header links to `#engage` point at `#sme-engage`; other pages' `.dc.html` links come from the
-   config.
+3. Source links to `#engage` and other in-page ids point at the prefixed ids; links to other `.dc.html` pages come
+   from the config (`#` while unresolved).
 
 ### Source behaviour kept as is
 
