@@ -1,0 +1,64 @@
+<div id="bwci-governance-board" class="gvb-bw">
+
+  <!-- ============================================================
+       SITE HEADER  (source: design/SiteHeader.dc.html, current="governance"; shared site chrome)
+       Hide it with "showHeader": false in the config block when a
+       GoHighLevel global header is used instead.
+       ============================================================ -->
+<!--chrome:header-->
+
+  <main id="gvb-main">
+
+    <!-- ============================================================
+         HERO  (bwci-system.css part E: .pg-hero--in ground and entrance)
+         ============================================================ -->
+    <section class="pg-hero pg-hero--in" id="gvb-top">
+      <div class="gvb-wrap">
+<!--chrome:breadcrumb-->
+        <h1 style="margin-top:0">Board of Directors</h1>
+        <p class="gvb-lead">The Board is responsible for the oversight of Better World Capital Investments PLC.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         GOVERNANCE SECTION BAR  (source: design/GovNav.dc.html, current="board"; shared site chrome)
+         ============================================================ -->
+<!--chrome:govnav-->
+
+    <!-- ============================================================
+         BOARD CARDS  (source: design/PersonCard.dc.html from="board"; people from design/bwci-people.js)
+         Portrait URLs: "peopleImages" in the config block; profile links: "links.profile…".
+         ============================================================ -->
+    <section class="gvb-sec" id="gvb-board">
+      <div class="gvb-wrap">
+        <ul style="display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr)); gap:16px; margin:0; padding:0; list-style:none;">
+          <li style="display:flex;"><div class="gvb-pc-host" style="display:block; width:100%">
+<!--person:alexander-alegria-saif-->
+          </div></li>
+          <li style="display:flex;"><div class="gvb-pc-host" style="display:block; width:100%">
+<!--person:farhad-reyazat-->
+          </div></li>
+          <li style="display:flex;"><div class="gvb-pc-host" style="display:block; width:100%">
+<!--person:gabriella-karlova-->
+          </div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         LINK BAND — to the governance framework on the Governance page
+         ============================================================ -->
+    <section class="gvb-sec gvb-sec--line" id="gvb-framework-link" style="padding:48px 0;">
+      <div class="gvb-wrap" style="display:flex; flex-wrap:wrap; align-items:center; gap:16px 28px;">
+        <p style="font-size:clamp(18px,1.6vw,20px); font-weight:600; color:var(--brand-ink);">How decisions are made and overseen</p>
+        <a class="gvb-link" href="#" data-gvb-link="governanceFramework">Governance Framework <span class="gvb-ar" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER  (source: design/SiteFooter.dc.html; shared site chrome)
+       ============================================================ -->
+<!--chrome:footer-->
+
+</div>
