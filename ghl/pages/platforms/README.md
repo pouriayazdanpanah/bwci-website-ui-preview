@@ -4,23 +4,35 @@ GoHighLevel (GHL) **Website Builder → Custom Code** version of `design/Platfor
 ("Platforms, Institutions & Connected Capabilities"). The design export is the unchanged reference;
 everything GHL-specific for this page lives in this folder.
 
-**Status:** QA done locally in headless Chromium (see Validation). Not yet checked on a published GHL page.
+**Status:** updated to the October 2026 design export (header, breadcrumb and footer from the shared
+site chrome). QA done locally in headless Chromium (see Validation). Not yet checked on a published GHL page.
 
 ```
 ghl/pages/platforms/
-├── platforms.ghl.html              ← production block (hosted hero image)        ~147 KB
+├── platforms.ghl.html              ← production block (hosted hero image)        ~173 KB
 ├── platforms.inline.ghl.html       ← self-contained block (hero image embedded)  ~2.7 MB
 ├── assets/plat-hero-rails.png      ← hero artwork, 2020×778 RGBA PNG, unchanged from the export (upload this to GHL)
 ├── _build/                         ← dev tooling only, never loaded at runtime
 └── README.md
 ```
 
+## October 2026 design update
+
+- CSS regenerated from the current export: mobile type floors (`--fs-floor-*`), transition and grid tweaks.
+- The old header and footer were replaced by the shared site chrome (new SiteHeader, Breadcrumb and SiteFooter,
+  `bwci-system.css`, `bwci-motion.js`); the config gains `logoImage` and `footer`, and the old footer keys
+  (`about`, `corporate`, `legal`, `regulatory`, `insights`) are gone with the old footer.
+- `investorsRoute` / `investorsParticipation` now default to the Investors & Partners port's real ids
+  (`#inv-route`, `#inv-participation`).
+
 ## Source
 
 | Source file | What was taken from it |
 |---|---|
 | `design/Platforms.dc.html` (last changed in 9154c4b) | All markup, CSS and the `text/x-dc` component: the six capabilities, register tiles and links, maturity mix, filter chips with live counts, active-filter chips, card/list views, list rows, register jumps, URL parameters, reveals |
-| `design/SiteHeader.dc.html` (`current="platforms"`, `cta-href="#engage"`) | Sticky header, "How It Works" dropdown, mobile drawer and accordions (same header block as the Ecosystem port) |
+| `design/SiteHeader.dc.html` (`current="platforms"`), `design/Breadcrumb.dc.html`, `design/SiteFooter.dc.html` | Header, drawer, breadcrumb and footer via the shared site chrome (see below) |
+| `design/bwci-system.css`, `design/bwci-motion.js` | Tokens, type scale, buttons and font floors the page uses (scoped, pruned); the section fade-up on scroll |
+| `design/assets/bwci-logo.png` | Logo, from `ghl/shared/site-chrome/assets/bwci-logo.png` |
 | `design/support.js` | Template runtime only. It loads React 18.3.1 from unpkg.com and wraps every `{{value}}` in `<span class="sc-interp">`, which the page's mobile CSS resizes (reproduced as `.plt-i`) |
 | `design/assets/plat-hero-rails.png` | Hero artwork (2020×778, transparent). Desktop: right-hand 64% of the hero, `object-fit:contain` with a left fade and a 14 s drift; tablet: faded behind the copy; phone: full-bleed cover at 32% opacity |
 
@@ -28,9 +40,9 @@ No React, `support.js`, `/vendor/`, unpkg or `./assets/` path is used by the del
 
 ## Installation in GoHighLevel
 
-1. Upload `assets/plat-hero-rails.png` to **Media Storage** and copy its URL.
-2. Open `platforms.ghl.html`. The **first block** is the configuration: paste the URL into
-   `"platformsHeroImage"` and set the `"links"`.
+1. Upload `assets/plat-hero-rails.png` and `ghl/shared/site-chrome/assets/bwci-logo.png` to **Media Storage** and copy their URLs.
+2. Open `platforms.ghl.html`. The **first block** is the configuration: paste the URLs into
+   `"platformsHeroImage"` and `"logoImage"`, and set the `"links"` (and `"footer"` wording if needed).
 3. In the GHL page, add a **full-width** section with no padding/margins, one row/column with no padding,
    and a **Custom Code** element in it.
 4. Paste the **entire** file (config block, font links, `<style>`, markup, `<script>`).
@@ -46,8 +58,10 @@ make both blocks lighter but is a design-asset decision.
 <script type="application/json" id="bwci-platforms-config">
 {
   "platformsHeroImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/plat-hero-rails.png",
+  "logoImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/bwci-logo.png",
   "showHeader": true,
   "showFooter": true,
+  "footer": { "regulatoryLine": "", "registeredJurisdiction": "", "companyNumber": "", "registeredOffice": "" },
   "directory": { "syncUrl": true },
   "links": { "home": "/", "financialEngine": "/financial-engine", … }
 }
@@ -60,31 +74,28 @@ links in the markup and URL sync on (the image then stays empty).
 | Key | Default | Used by |
 |---|---|---|
 | `platformsHeroImage` | placeholder (no request is made until replaced) | Hero artwork |
-| `showHeader` / `showFooter` | `true` | `false` removes the built-in header / footer |
-| `directory.syncUrl` | `true` | `false` stops the directory from writing `?maturity=` / `?relationship=` into the address bar (reading them on load still works) |
-| `links.home` | `/` | Header and drawer logo |
-| `links.financialEngine` | `/financial-engine` | "The Financial Engine" (dropdown, drawer), footer "Financial Engine" |
-| `links.ecosystem` | `/ecosystem` | "Ecosystem Topology" (dropdown, drawer), "Explore the full ecosystem →", footer "Our Ecosystem" |
-| `links.smes` | `/smes-projects` | "SMEs & Projects" (header, drawer, footer), pathway card 03 |
-| `links.investors` | `/investors-partners` | "Investors & Partners" (header, drawer, footer) |
-| `links.investorsRoute` | `/investors-partners#route` | Pathway card 01 "Partner with Better World" (source `Investors Partners.dc.html#route`) |
-| `links.investorsParticipation` | `/investors-partners#participation` | Pathway card 02 "Explore institutional pathways" (source `#participation`) |
-| `links.about` | `/#bwci-what` | Footer "About" |
-| `links.governance` | `/#bwci-trust` | "Governance" (top bar, drawer, footer) |
-| `links.corporate` | `/#bwci-trust` | "Corporate/IR" (top bar, drawer) |
-| `links.legal` | `/#bwci-trust` | Footer "Legal & Documents" |
-| `links.regulatory` | `/#bwci-trust` | Footer "Regulatory Boundaries" |
-| `links.insights` | `#` | Footer "Insights" (the Main page has no Insights section yet) |
+| `logoImage` | placeholder | Header, drawer and footer logo (upload `ghl/shared/site-chrome/assets/bwci-logo.png`) |
+| `showHeader` / `showFooter` | `true` | `false` removes the built-in header / footer (the breadcrumb is part of the page and stays) |
+| `footer.regulatoryLine` | `""` | Optional regulatory sentence above the footer legal line |
+| `footer.registeredJurisdiction`, `footer.companyNumber`, `footer.registeredOffice` | `""` | Optional parts of the footer legal line (left out while empty, as in the source) |
+| `links.home` | `/` | Logos, breadcrumb "Home" |
+| `links.financialEngine`, `ecosystem`, `platforms`, `smes`, `investors` | `/financial-engine`, `/ecosystem`, `/platforms`, `/smes-projects`, `/investors-partners` | Nav, dropdowns, drawer, footer |
+| `links.impact`, `links.today` | `/#bwci-impact`, `/#bwci-today` | "Better World & Impact", "The Platform Today" (sections of the Main port) |
+| `links.whoWeAre`, `whoPurpose`, `whoRole`, `whoPrinciples`, `whoStory`, `leadership`, `privateInvestors`, `governance`, `corporateIR`, `contact`, `verify`, `legalPrivacy`, `legalTerms`, `legalCookies`, `legalDisclosures`, `legalAccessibility`, `legalSitemap` | `#` | Who We Are menu, Leadership, Private Investors, Governance, Corporate/IR, Contact, Verify, legal links — **unresolved** (see below) |
+|
+**Unresolved routes.** The design links the keys marked unresolved to pages that have no GHL port yet
+(Governance, Governance Board, Governance Leadership, the profile pages) or that are not in the export at all
+(Who We Are, Private Investors, Corporate IR, Contact, Verify a Communication, Legal). They default to `#`;
+set them here once the live GHL URLs exist. No URL was invented for them.
+ `directory.syncUrl` | `true` | `false` stops the directory from writing `?maturity=` / `?relationship=` into the address bar (reading them on load still works) |
+| `links.investorsRoute` | `/investors-partners#inv-route` | Pathway card 01 "Partner with Better World" (source `Investors Partners.dc.html#route`; `#inv-route` is the Investors & Partners port's id) |
+| `links.investorsParticipation` | `/investors-partners#inv-participation` | Pathway card 02 "Explore institutional pathways" (source `#participation`) |
 | `links.startConversation` | `/#bwci-cta` | "Start a conversation" button in the last section (source `Main.dc.html#cta`) |
-| `links.verify` | `/#bwci-cta` | Footer "Verify a Communication" |
 
-The `/#bwci-…` defaults are section ids of the Main page port. The Investors & Partners page has no GHL port
-yet: once it exists, point `investorsRoute` and `investorsParticipation` at its real section ids.
+`/#bwci-cta` is the Main port's closing section; `#inv-…` are the Investors & Partners port's section ids.
 
-Links within this page are fixed: "Contact" and "Start a Conversation" in the header, footer "Start a
-Conversation", every card/row call to action and the hero's "Partner with Better World" go to `#plt-engage`
-(source `#engage`); "Explore the platform directory" goes to `#plt-directory`; the current-page links
-("Platforms & Institutions" in header, drawer and footer) go to `#plt-hero`. Page ids carry a `plt-` prefix
+Links within this page are fixed: every card/row call to action and the hero's "Partner with Better World" go
+to `#plt-engage` (source `#engage`); "Explore the platform directory" goes to `#plt-directory`. Header, drawer and footer items for this page use its configured route (`links.platforms`) and are marked `aria-current="page"`, as in the source. Page ids carry a `plt-` prefix
 (`#plt-hero`, `#plt-registers`, `#plt-directory`, `#plt-governance`, `#plt-connection`, `#plt-pathways`,
 `#plt-engage`).
 
@@ -92,7 +103,7 @@ Conversation", every card/row call to action and the hero's "Partner with Better
 
 | Section | Behaviour |
 |---|---|
-| Site header | Sticky, turns translucent once scrolled; dropdown on hover or click, closes on outside click or Escape; burger drawer below 1200 px with two accordions; scroll lock while the drawer is open |
+| Site header, breadcrumb | Shared site chrome — see "Header, breadcrumb and footer" below |
 | Hero | Gradient, dot field, rails artwork drifting 14 px (14 s, alternate); separate tablet and phone treatments |
 | One holding company, two registers | Holding-company band; "Operating now" (2) and "In development and proposed" (4) registers. Each tile jumps to the directory filtered by its maturity **and** relationship and highlights that capability; each register link ("Operating · 2", "In development · 3", "Proposed · 1") filters by maturity only. The jump scrolls the toolbar to 88 px below the top |
 | Platform directory | Maturity mix bar (segments outside the filter dim) and three mix buttons (click again to clear). Maturity chips (4) and relationship chips (5) with live counts: each count is computed against the other filter; a zero count gets a dashed chip. "Showing N of 6", removable active-filter chips and "Clear all". Every filter change clears the jump banner and re-mounts the results, which replays the staggered entrance (60 ms apart) |
@@ -114,6 +125,27 @@ On load, `?maturity=` and `?relationship=` preselect the filters. Values use the
 On every filter change the port updates just these two parameters with `history.replaceState`. It keeps
 every other query parameter (e.g. `utm_*`), the `#hash` and `history.state` of the host page, and never
 adds history entries. Set `"directory": { "syncUrl": false }` to leave the address bar untouched.
+
+## Header, breadcrumb and footer (shared site chrome)
+
+The header, mobile drawer, breadcrumb and footer are generated by `ghl/shared/site-chrome/` (see its README)
+from `design/SiteHeader.dc.html` (`current="platforms"`), `design/Breadcrumb.dc.html` (`current="platforms"`) and
+`design/SiteFooter.dc.html`, together with the parts of `design/bwci-system.css` the page uses and a
+root-scoped port of `design/bwci-motion.js` (the fade-up the source adds to sections as they scroll in). The
+same generated chrome is in every page port.
+
+- Utility bar, logo and five nav groups (Who We Are, How It Works, Platforms & Institutions, SMEs & Projects,
+  Investors & Partners). Dropdowns open on hover for fine pointers (closing 160 ms after the pointer leaves),
+  on click, or from the keyboard (ArrowDown/Up/Home/End; Escape closes and returns focus); an outside click
+  or focus leaving closes them.
+- The bar sticks once the utility strip has scrolled away; this is measured relative to the widget, so GHL
+  content above it does not break the sticky state.
+- Below 1280 px a burger opens the drawer: accordions (the current section starts open), focus moves to
+  the close button and Tab stays inside, Escape and links close it, and the body scroll is locked and then
+  restored to the host's own value. It closes itself when the viewport grows to 1280 px or more.
+- Breadcrumb "Home › …" with the source's inline styles and hover/focus colours.
+- Footer link columns, logo, legal line and bottom links; the regulatory sentence and legal-line parts come
+  from the `footer` config.
 
 ## How it is built
 
@@ -137,6 +169,23 @@ namespaced, and element resets neutralise host typography, buttons, lists, `dl`,
 `blockquote`. `html`/`body` are never styled.
 
 ## Validation (local, headless Chromium)
+
+### October 2026 design update — checks re-run
+
+Local headless Chromium against the current export (`design/` at the time of this branch), with the shared
+scroll motion settled before each capture:
+
+| Check | Result |
+|---|---|
+| Full-page pixel diff vs the source, reduced motion, shared motion settled (`_build/shoot.js`, `diff.py`) | 0 % differing pixels at all 13 widths (320 … 2560 px), identical page heights |
+| Element-by-element box and computed-style comparison at 320, 375, 390, 768, 1024, 1280, 1440, 1920 and 2560 px (`_build/domdiff.js`) | 0 differences at 320–1280 px. At 1440, 1920 and 2560 px one reported value differs: the governance container's resolved `margin: 0 auto` reads `0px` in the source and `0px 80px` in the port, with the same matched rule and an identical box (x 80, width 1280) — a difference in how Chrome reports a resolved `auto` margin, not in layout |
+| Section states × 1440/1024/768/390/320 px (`_build/states-shoot.js`) | 0 % in all 25 captures (register jump, list with an open row, jump + list, empty state, mix button); the script now settles the shared scroll motion and scrolls the section through first |
+| Interaction trace, source vs port vs hostile host (`_build/behaviour.js`) | Identical |
+| Shared chrome trace (`ghl/shared/site-chrome/qa/chrome-behaviour.js`): dropdowns, keyboard, drawer, focus trap, sticky, footer, scroll motion | Identical to the source |
+| Lifecycle (`chrome-lifecycle.js`): config keys, header/footer off, footer wording, link overrides, broken JSON, placeholders never requested, hostile host with the script run twice (one instance, no overflow, no style leakage), GHL re-render, body overflow restored, reduced motion | All pass; no JavaScript errors |
+
+The table below is from the original port (its header/footer rows describe the previous chrome). The page
+logic it covers did not change in this update except where "October 2026 design update" above says so.
 
 | Check | Result |
 |---|---|
@@ -173,8 +222,8 @@ three `<link>` tags as the Main, Financial Engine and Ecosystem blocks.
    page; it smooth-scrolls its own in-page links instead. Scripted or keyboard jumps elsewhere on the host
    page are therefore instant, and reveal blocks skipped by an instant jump fade in when they are scrolled
    back into view.
-6. Source header links to `#engage` point at `#plt-engage`; other pages' `.dc.html` links come from the
-   config.
+6. Source links to `#engage` and other in-page ids point at the prefixed ids; links to other `.dc.html` pages come
+   from the config (`#` while unresolved).
 
 ### Source behaviour kept as is
 

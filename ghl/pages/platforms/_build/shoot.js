@@ -1,7 +1,7 @@
 // Dev-only: full-page screenshots of a page at a list of viewport widths.
 // Usage: NODE_PATH=$(npm root -g) node shoot.js <url> <outDir> [w1,w2,...] [height] [motion|reduce]
 // Default is prefers-reduced-motion: reduce, which freezes the hero drift, card entrances and reveals so
-// source and port screenshots are deterministic and comparable.
+// source and port screenshots are deterministic and comparable. The shared scroll motion is settled first.
 const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
@@ -22,6 +22,15 @@ const reducedMotion = process.argv[6] === 'motion' ? 'no-preference' : 'reduce';
     page.on('pageerror', (e) => errors.push(String(e)));
     await page.goto(url, { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts && document.fonts.ready);
+    // settle the shared scroll motion (bwci-motion.js scans ~0.3/1.2/2.6 s after load): wait for the last
+    // scan, scroll through the page so every tagged block fades in, then return to the top
+    await page.waitForTimeout(3000);
+    await page.evaluate(async () => {
+      const step = Math.round(window.innerHeight * 0.6);
+      for (let y = 0; y < document.documentElement.scrollHeight; y += step) { window.scrollTo({ top: y, behavior: 'instant' }); await new Promise((r) => setTimeout(r, 60)); }
+      await new Promise((r) => setTimeout(r, 1800));
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    });
     await page.waitForTimeout(600);
     const info = await page.evaluate(() => ({
       docW: document.documentElement.scrollWidth,

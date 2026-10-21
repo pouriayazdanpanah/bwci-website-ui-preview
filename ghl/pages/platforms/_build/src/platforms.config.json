@@ -1,25 +1,45 @@
 {
   "platformsHeroImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/plat-hero-rails.png",
+  "logoImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/bwci-logo.png",
   "showHeader": true,
   "showFooter": true,
+  "footer": {
+    "regulatoryLine": "",
+    "registeredJurisdiction": "",
+    "companyNumber": "",
+    "registeredOffice": ""
+  },
   "directory": {
     "syncUrl": true
   },
   "links": {
     "home": "/",
+    "whoWeAre": "#",
+    "leadership": "#",
     "financialEngine": "/financial-engine",
+    "impact": "/#bwci-impact",
+    "today": "/#bwci-today",
     "ecosystem": "/ecosystem",
+    "platforms": "/platforms",
     "smes": "/smes-projects",
     "investors": "/investors-partners",
-    "investorsRoute": "/investors-partners#route",
-    "investorsParticipation": "/investors-partners#participation",
-    "about": "/#bwci-what",
-    "governance": "/#bwci-trust",
-    "corporate": "/#bwci-trust",
-    "legal": "/#bwci-trust",
-    "regulatory": "/#bwci-trust",
-    "insights": "#",
-    "startConversation": "/#bwci-cta",
-    "verify": "/#bwci-cta"
+    "privateInvestors": "#",
+    "governance": "#",
+    "corporateIR": "#",
+    "contact": "#",
+    "verify": "#",
+    "whoPurpose": "#",
+    "whoRole": "#",
+    "whoPrinciples": "#",
+    "whoStory": "#",
+    "legalPrivacy": "#",
+    "legalTerms": "#",
+    "legalCookies": "#",
+    "legalDisclosures": "#",
+    "legalAccessibility": "#",
+    "legalSitemap": "#",
+    "investorsRoute": "/investors-partners#inv-route",
+    "investorsParticipation": "/investors-partners#inv-participation",
+    "startConversation": "/#bwci-cta"
   }
 }
