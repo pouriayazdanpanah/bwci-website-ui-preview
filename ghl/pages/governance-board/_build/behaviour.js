@@ -64,7 +64,7 @@ const LINKSTYLE = ([NAV, i]) => {
     log('hover nav 1', await page.evaluate(LINKSTYLE, [NAV, 1]));
     await page.locator(NAV + ' ul a').nth(0).hover(); await page.waitForTimeout(300);
     log('hover nav 0 (current)', await page.evaluate(LINKSTYLE, [NAV, 0]));
-    await page.mouse.move(5, 5);
+    await page.mouse.move(5, 5); await page.waitForTimeout(400); // let the hover colour transition (0.2 s) finish
     await page.locator(NAV + ' ul a').nth(0).focus(); await page.waitForTimeout(60);
     log('focus nav 0', await page.evaluate(LINKSTYLE, [NAV, 0]));
     await toCards(page);
