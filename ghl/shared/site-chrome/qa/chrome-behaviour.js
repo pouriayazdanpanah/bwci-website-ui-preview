@@ -15,7 +15,7 @@ async function routeReact(page) {
 
 const STATE = () => {
   const vis = (el) => !!(el && el.getClientRects().length && getComputedStyle(el).visibility !== 'hidden');
-  const norm = (c) => (c || '').split(/\s+/).filter((x) => x && x !== 'sc-interp').map((x) => x.replace(/^(plt|sme|inv|eco|fe|bwci)-/, '')).join('.');
+  const norm = (c) => (c || '').split(/\s+/).filter((x) => x && x !== 'sc-interp').map((x) => x.replace(/^(plt|sme|inv|eco|fe|bw|bwci)-/, '')).join('.');
   const t = (el) => (el ? el.textContent.replace(/\s+/g, ' ').trim() : null);
   const q = (s) => document.querySelector(s);
   const qa = (s) => [...document.querySelectorAll(s)];
@@ -131,7 +131,7 @@ const STATE = () => {
   /* ---- shared scroll motion (motion on, then reduced) ---- */
   for (const rm of ['no-preference', 'reduce']) {
     const page = await open({ viewport: { width: 1440, height: 900 }, reducedMotion: rm, motionTest: true });
-    const tags = () => page.evaluate(() => [...document.querySelectorAll('[data-bw-rv]')].map((e) => e.getAttribute('data-bw-rv')[0] + (e.style.getPropertyValue('--bw-d') || '') + ':' + e.tagName + '.' + (e.getAttribute('class') || '').split(' ')[0].replace(/^(plt|sme|inv|eco|fe|bwci)-/, '')).join(' '));
+    const tags = () => page.evaluate(() => [...document.querySelectorAll('[data-bw-rv]')].map((e) => e.getAttribute('data-bw-rv')[0] + (e.style.getPropertyValue('--bw-d') || '') + ':' + e.tagName + '.' + (e.getAttribute('class') || '').split(' ')[0].replace(/^(plt|sme|inv|eco|fe|bw|bwci)-/, '')).join(' '));
     await page.waitForTimeout(2600); log('motion@3.2s ' + rm, await tags());
     log('hero anim ' + rm, await page.evaluate(() => document.getAnimations().map((a) => (a.animationName || '').replace(/^[a-z]+-/, '')).filter((s) => /bw/.test(s)).length));
     log('wait opacity ' + rm, await page.evaluate(() => { const e = document.querySelector('[data-bw-rv="wait"]'); return e ? getComputedStyle(e).opacity + ' ' + getComputedStyle(e).translate : null; }));
