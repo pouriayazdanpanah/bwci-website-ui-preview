@@ -15,7 +15,9 @@ async function routeReact(page) {
 
 const STATE = () => {
   const vis = (el) => !!(el && el.getClientRects().length && getComputedStyle(el).visibility !== 'hidden');
-  const norm = (c) => (c || '').split(/\s+/).filter((x) => x && x !== 'sc-interp').map((x) => x.replace(/^(plt|sme|inv|eco|fe|gov|bw|bwci)-/, '')).join('.');
+  // the source runtime's generated style-hover/style-focus classes (scpN) and the port's classes for the same rules
+  // (breadcrumb and GovNav links) are left out, so the trace compares elements, not how their hover is wired
+  const norm = (c) => (c || '').split(/\s+/).filter((x) => x && x !== 'sc-interp' && !/^scp[0-9a-z]+$/.test(x)).map((x) => x.replace(/^(plt|sme|inv|eco|fe|gov|gvb|gvl|bw|bwci)-/, '')).filter((x) => !/^(bc__a|gn__a|gn__a--off)$/.test(x)).join('.');
   const t = (el) => (el ? el.textContent.replace(/\s+/g, ' ').trim() : null);
   const q = (s) => document.querySelector(s);
   const qa = (s) => [...document.querySelectorAll(s)];
@@ -81,7 +83,9 @@ const STATE = () => {
     await page.locator(T).nth(0).click(); await page.locator(T).nth(1).click(); await page.waitForTimeout(40); log('click who then hiw', await snap(page));
     await page.keyboard.press('Escape');
     // Tab order through the header
-    await page.mouse.click(700, 899); await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+    // a click on empty space at the top left (the utility bar has no link there), so Tab starts at the header;
+    // the middle of the viewport can be a link, e.g. a person card on the Board page
+    await page.mouse.click(5, 5); await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
     await page.evaluate(() => document.activeElement && document.activeElement.blur());
     const tabs = [];
     for (let i = 0; i < 14; i++) { await page.keyboard.press('Tab'); tabs.push((await snap(page)).focus); }
@@ -131,7 +135,7 @@ const STATE = () => {
   /* ---- shared scroll motion (motion on, then reduced) ---- */
   for (const rm of ['no-preference', 'reduce']) {
     const page = await open({ viewport: { width: 1440, height: 900 }, reducedMotion: rm, motionTest: true });
-    const tags = () => page.evaluate(() => [...document.querySelectorAll('[data-bw-rv]')].map((e) => e.getAttribute('data-bw-rv')[0] + (e.style.getPropertyValue('--bw-d') || '') + ':' + e.tagName + '.' + (e.getAttribute('class') || '').split(' ')[0].replace(/^(plt|sme|inv|eco|fe|gov|bw|bwci)-/, '')).join(' '));
+    const tags = () => page.evaluate(() => [...document.querySelectorAll('[data-bw-rv]')].map((e) => e.getAttribute('data-bw-rv')[0] + (e.style.getPropertyValue('--bw-d') || '') + ':' + e.tagName + '.' + (e.getAttribute('class') || '').split(' ')[0].replace(/^(plt|sme|inv|eco|fe|gov|gvb|gvl|bw|bwci)-/, '')).join(' '));
     await page.waitForTimeout(2600); log('motion@3.2s ' + rm, await tags());
     log('hero anim ' + rm, await page.evaluate(() => document.getAnimations().map((a) => (a.animationName || '').replace(/^[a-z]+-/, '')).filter((s) => /bw/.test(s)).length));
     log('wait opacity ' + rm, await page.evaluate(() => { const e = document.querySelector('[data-bw-rv="wait"]'); return e ? getComputedStyle(e).opacity + ' ' + getComputedStyle(e).translate : null; }));
