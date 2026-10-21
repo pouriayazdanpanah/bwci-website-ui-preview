@@ -57,7 +57,6 @@ const LINK_DEFAULTS = {
   privateInvestors: '#', governance: '#', corporateIR: '#', contact: '#', verify: '#',
   legalPrivacy: '#', legalTerms: '#', legalCookies: '#', legalDisclosures: '#', legalAccessibility: '#', legalSitemap: '#',
 };
-const UNRESOLVED = Object.keys(LINK_DEFAULTS).filter((k) => LINK_DEFAULTS[k] === '#');
 
 const read = (f) => fs.readFileSync(path.join(DESIGN, f), 'utf8');
 const between = (s, a, b) => { const i = s.indexOf(a); const j = s.indexOf(b, i + a.length); if (i < 0 || j < 0) throw new Error('Marker not found: ' + a); return s.slice(i + a.length, j); };
@@ -106,6 +105,8 @@ module.exports = function siteChrome(opts) {
   const current = opts.current;          // SiteHeader `current` prop, e.g. 'platforms'
   const crumb = opts.breadcrumb || null; // Breadcrumb `current` prop, or null when the page has none
   const rename = opts.rename || ((n) => n); // page class vocabulary for bwci-system.css (e.g. container → plt-container)
+  const withSystem = opts.system !== false;  // false for a page that does not load bwci-system.css / bwci-motion.js (Main)
+  const defaults = Object.assign({}, LINK_DEFAULTS, opts.links || {}); // per-page default routes (e.g. Main's in-page #bwci-impact)
   const L = (k) => 'data-' + P + '-link="' + k + '"';
   const I = (t) => '<span class="' + P + '-i">' + esc(t) + '</span>'; // {{value}} → span.sc-interp in the source runtime
 
@@ -284,9 +285,11 @@ module.exports = function siteChrome(opts) {
       '   Cascade order of the source page: page <style> → bwci-system.css → Breadcrumb hover/focus →',
       '   SiteHeader → SiteFooter.',
       '   ========================================================================== */',
+    ].concat(withSystem ? [
       '/* bwci-system.css — parts A, A2, B, D (class names in this page\'s vocabulary) */',
       partsABD.trim(),
       '',
+    ] : []).concat([
       '/* Breadcrumb.dc.html — style-hover / style-focus (the inline styles stay on the elements) */',
       '.' + P + '-bc__a:hover{ color:#FFFFFF !important; }',
       '.' + P + '-bc__a:focus{ outline:2px solid #E8C46B !important; outline-offset:3px !important; }',
@@ -299,21 +302,21 @@ module.exports = function siteChrome(opts) {
       '.' + F + '-host{ display:block; width:100%; }',
       ftCss.trim(),
       '',
-    ].join('\n');
+    ]).join('\n');
   }
 
   /* ---------------- runtime (inlined into the page script) ---------------- */
   const runtime = fs.readFileSync(RUNTIME, 'utf8').replace(/__P__/g, P).trim();
 
   const links = {};
-  for (const m of (header + breadcrumb + footer).matchAll(new RegExp('data-' + P + '-link="([^"]+)"', 'g'))) links[m[1]] = LINK_DEFAULTS[m[1]];
+  for (const m of (header + breadcrumb + footer).matchAll(new RegExp('data-' + P + '-link="([^"]+)"', 'g'))) links[m[1]] = defaults[m[1]];
   // the generated markup keeps the design hrefs; the page build swaps them for the config defaults
-  const swap = (h) => h.replace(new RegExp('href="([^"]+)" data-' + P + '-link="([^"]+)"', 'g'), (_, href, k) => 'href="' + esc(LINK_DEFAULTS[k]) + '" data-' + P + '-link="' + k + '"');
+  const swap = (h) => h.replace(new RegExp('href="([^"]+)" data-' + P + '-link="([^"]+)"', 'g'), (_, href, k) => 'href="' + esc(defaults[k]) + '" data-' + P + '-link="' + k + '"');
 
   return {
     header: swap(header), breadcrumb: swap(breadcrumb), footer: swap(footer), css, runtime,
     links,                                  // chrome link keys used by this page, with default routes
-    unresolved: UNRESOLVED.filter((k) => k in links),
+    unresolved: Object.keys(links).filter((k) => links[k] === '#'),
     dynamicClasses: [H + '--stuck', P + '-motion', F + '__reg'],
     logoPath: LOGO,
   };
