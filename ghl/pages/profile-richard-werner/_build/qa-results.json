@@ -1,0 +1,151 @@
+{
+  "date": "2026-10-22",
+  "base": "f13cda8",
+  "profile": "richard-werner",
+  "environment": "Local installed Chrome / development Playwright; published GHL NOT VERIFIED",
+  "defaultContext": "leadership",
+  "biographyParagraphs": 4,
+  "roleLines": 0,
+  "baselineHeight": 900,
+  "baseline": [
+    {
+      "width": 320,
+      "height": 4357,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 360,
+      "height": 4277,
+      "differencePercent": 0.001104
+    },
+    {
+      "width": 375,
+      "height": 4202,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 390,
+      "height": 4172,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 430,
+      "height": 4108,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 768,
+      "height": 3055,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 1024,
+      "height": 2706,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 1280,
+      "height": 2852,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 1366,
+      "height": 2889,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 1440,
+      "height": 2905,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 1600,
+      "height": 2905,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 1920,
+      "height": 2905,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 2560,
+      "height": 2905,
+      "differencePercent": 0.0
+    }
+  ],
+  "extra": [
+    {
+      "case": "desktop-short",
+      "height": 2905,
+      "differencePercent": 0.0
+    },
+    {
+      "case": "desktop-tall",
+      "height": 2905,
+      "differencePercent": 0.0
+    },
+    {
+      "case": "landscape",
+      "height": 3049,
+      "differencePercent": 0.0
+    },
+    {
+      "case": "motion",
+      "height": 2905,
+      "differencePercent": 0.0
+    },
+    {
+      "case": "phone-short",
+      "height": 4172,
+      "differencePercent": 0.0
+    }
+  ],
+  "pixelChannelThreshold": 24,
+  "horizontalOverflow": false,
+  "staticPose": "Pending reveal tags normalized only in static QA after full content/assets/fonts readiness; natural interactions tested separately",
+  "sourceAndPortNaturalTraces": "Identical",
+  "domComparisons": [
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "context": "direct",
+      "differences": 0
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "context": "board",
+      "differences": 0
+    }
+  ],
+  "hostileHostWidths": [
+    390,
+    1440
+  ],
+  "actualNavigationMouseKeyboardSelect": "PASS",
+  "dragTouchReducedMotion": "PASS",
+  "duplicateReplaceRemoveDeferredInit": "PASS",
+  "hostedImagesPlaceholders": "PASS",
+  "googleFonts": [
+    "JetBrains Mono",
+    "Plus Jakarta Sans"
+  ],
+  "acceptanceErrors": [],
+  "acceptanceNetworkFailures": [],
+  "headerAndLifecycleErrors": [],
+  "sharedCRLFRegression": "PASS; eleven previous chrome variants identical with canonical LF and checkout CRLF source",
+  "sourceQASRI": "Canonical LF React bytes served; equal to original reference bytes; integrity kept",
+  "sourceMountReadiness": "One explicit remount allowed by QA; a transient Richard source remount occurred; final captures and comparisons passed",
+  "deterministicBuild": true,
+  "designModified": false,
+  "previousOutputsModified": false,
+  "limits": [
+    "Published GHL/host wrappers/live routes NOT VERIFIED",
+    "Touch emulated in local Chrome, not physical-device QA"
+  ]
+}
