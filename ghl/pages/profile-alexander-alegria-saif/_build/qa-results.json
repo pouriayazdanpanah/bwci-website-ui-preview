@@ -1,0 +1,147 @@
+{
+  "date": "2026-10-21",
+  "base": "abe7f98",
+  "environment": "Local installed Chrome / development Playwright; GHL published page NOT VERIFIED",
+  "staticPose": "Source/port pending reveal tags cleared after scrolling for screenshot and computed-style comparisons only; no production change",
+  "baselineViewportHeight": 900,
+  "pixelChannelThreshold": 24,
+  "baseline": [
+    {
+      "width": 320,
+      "documentHeight": 5084,
+      "pixelDifferencePercent": 0.0
+    },
+    {
+      "width": 360,
+      "documentHeight": 4859,
+      "pixelDifferencePercent": 0.0
+    },
+    {
+      "width": 375,
+      "documentHeight": 4756,
+      "pixelDifferencePercent": 0.002019
+    },
+    {
+      "width": 390,
+      "documentHeight": 4754,
+      "pixelDifferencePercent": 0.002211
+    },
+    {
+      "width": 430,
+      "documentHeight": 4608,
+      "pixelDifferencePercent": 0.002624
+    },
+    {
+      "width": 768,
+      "documentHeight": 3343,
+      "pixelDifferencePercent": 0.002688
+    },
+    {
+      "width": 1024,
+      "documentHeight": 2938,
+      "pixelDifferencePercent": 0.002293
+    },
+    {
+      "width": 1280,
+      "documentHeight": 3028,
+      "pixelDifferencePercent": 0.00178
+    },
+    {
+      "width": 1366,
+      "documentHeight": 3065,
+      "pixelDifferencePercent": 0.001648
+    },
+    {
+      "width": 1440,
+      "documentHeight": 3081,
+      "pixelDifferencePercent": 0.001555
+    },
+    {
+      "width": 1600,
+      "documentHeight": 3081,
+      "pixelDifferencePercent": 0.0014
+    },
+    {
+      "width": 1920,
+      "documentHeight": 3081,
+      "pixelDifferencePercent": 0.001166
+    },
+    {
+      "width": 2560,
+      "documentHeight": 3081,
+      "pixelDifferencePercent": 0.000875
+    }
+  ],
+  "extra": [
+    {
+      "case": "desktop-short",
+      "documentHeight": 3081,
+      "pixelDifferencePercent": 0.0
+    },
+    {
+      "case": "desktop-tall",
+      "documentHeight": 3081,
+      "pixelDifferencePercent": 0.001555
+    },
+    {
+      "case": "landscape",
+      "documentHeight": 3337,
+      "pixelDifferencePercent": 0.00245
+    },
+    {
+      "case": "motion",
+      "documentHeight": 3081,
+      "pixelDifferencePercent": 0.001555
+    },
+    {
+      "case": "phone-short",
+      "documentHeight": 4754,
+      "pixelDifferencePercent": 0.002211
+    }
+  ],
+  "horizontalOverflow": false,
+  "pageErrors": [],
+  "domComparisons": [
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "from": "direct",
+      "differences": 0
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "from": "leadership",
+      "differences": 0
+    }
+  ],
+  "naturalSourcePortContentAndBehaviorTraces": "Identical; assertions PASS",
+  "mouseDragScrollPx": 170,
+  "touchSwipeScrollPx": 170,
+  "configuredRoutesMouseKeyboardSelect": "PASS",
+  "dragClickSuppressionAndNextClick": "PASS",
+  "hostileHostAndLifecycle": "PASS at 390/1440",
+  "delayedMarkupAndRepeatedBootstrap": "PASS",
+  "hostedImagesAndPlaceholders": "PASS",
+  "googleFontsLoaded": [
+    "JetBrains Mono",
+    "Plus Jakarta Sans"
+  ],
+  "acceptanceNetworkFailures": [],
+  "sharedChromeLifecycleErrors": [],
+  "profileLifecycleErrors": [],
+  "headerDrawerKeyboardTraceErrors": [],
+  "naturalSourceTimingCaveat": "Initial comparison had two source-only hidden reveal tags (detail table and return link block); final-pose comparisons normalize tags; natural interaction assertions run without normalization",
+  "designOrSharedChanges": false,
+  "previousOutputChanges": false,
+  "deterministicBuild": true,
+  "remaining": [
+    "Published GHL installation and actual host wrapper NOT VERIFIED",
+    "Actual Governance and related-profile URLs unresolved",
+    "5 profile ports remain outside scope"
+  ]
+}
