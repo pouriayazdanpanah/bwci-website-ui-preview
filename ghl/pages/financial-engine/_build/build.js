@@ -1,19 +1,45 @@
 #!/usr/bin/env node
 // Dev-only build: assembles the GoHighLevel Custom Code blocks for the Financial Engine page.
 //   node ghl/pages/financial-engine/_build/build.js
-// Inputs : _build/src/financial-engine.{config.json,css,html,js}, assets/financial-engine-hero.webp
-// Outputs: financial-engine.ghl.html (hosted image URL) and financial-engine.inline.ghl.html (embedded image)
+// Inputs : _build/src/financial-engine.{config.json,css,html,js}, assets/financial-engine-hero.webp, and the shared
+//          site chrome (ghl/shared/site-chrome: header, breadcrumb, footer, bwci-system.css, bwci-motion.js)
+// Outputs: financial-engine.ghl.html (hosted image URLs) and financial-engine.inline.ghl.html (embedded images)
 // Nothing in _build/ is needed at runtime.
+//
+// What it does beyond concatenation:
+//   -. inserts the shared site chrome at the <!--chrome:header|breadcrumb|footer--> markers, after the page
+//      CSS (the source cascade order) and at the /*@site-chrome*/ marker of the script;
+//   0. fills the <!--view:NAME--> markers in the markup with the default loop state (step 01), rendered by
+//      the VIEW part of financial-engine.js (so the static HTML and the runtime markup cannot drift apart);
+//   1. prefixes every CSS selector with #bwci-financial-engine (":scope" = the root itself) and fails on any
+//      unscoped selector;
+//   2. drops selectors that can never match: a selector naming a class or id that appears neither in
+//      the markup, in any loop state the VIEW code can render, nor in DYNAMIC_CLASSES. The source export carries
+//      CSS for sections it no longer renders; this keeps them out of the paste. Every drop is listed
+//      with --report;
+//   3. drops @keyframes nothing references, and requires fe- namespaced keyframe names;
+//   4. checks the link keys in the markup against the config, and rejects Claude Design / local paths.
 'use strict';
 const fs = require('fs');
 const path = require('path');
 
 const ROOT = '#bwci-financial-engine';
+const KEYFRAME_PREFIX = 'fe-';
 const PAGE_DIR = path.resolve(__dirname, '..');
 const SRC = path.join(__dirname, 'src');
 const IMAGE = path.join(PAGE_DIR, 'assets', 'financial-engine-hero.webp');
+const REPORT = process.argv.includes('--report');
+// classes the runtime adds outside the VIEW markup (keep in sync with financial-engine.js)
+const DYNAMIC_CLASSES = ['cap-item--active'];
+// shared site chrome for this page (SiteHeader current="engine", Breadcrumb current="engine"). rename: the
+// page's own class vocabulary, so bwci-system.css targets the same elements as in the source
+const pageCss = fs.readFileSync(path.join(__dirname, 'src', 'financial-engine.css'), 'utf8');
+const chrome = require('../../../shared/site-chrome/site-chrome')({
+  prefix: 'fe', current: 'engine', breadcrumb: 'engine',
+  rename: (n) => (new RegExp('\\.' + 'fe-' + n + '(?![\\w-])').test(pageCss) ? 'fe-' + n : n),
+});
 
-/* ---------------- CSS scoping ---------------- */
+/* ---------------- CSS parsing helpers ---------------- */
 function stripComments(css) {
   let out = '', i = 0, quote = null;
   while (i < css.length) {
@@ -25,7 +51,6 @@ function stripComments(css) {
   }
   return out;
 }
-// index of the next `stop` char at depth 0 (outside quotes / parens / brackets)
 function scanTo(s, i, stops) {
   let depth = 0, quote = null;
   for (; i < s.length; i++) {
@@ -63,8 +88,49 @@ function scopeSelector(s) {
   if (s.startsWith(ROOT)) return s;
   return ROOT + ' ' + s;
 }
-const imports = [];
-const keyframeNames = [];
+
+/* ---------------- inputs ---------------- */
+const htmlSrc = fs.readFileSync(path.join(SRC, 'financial-engine.html'), 'utf8').trim()
+  .replace(/<!--chrome:(header|breadcrumb|footer)-->/g, (_, k) => chrome[k]);
+const jsSrc = fs.readFileSync(path.join(SRC, 'financial-engine.js'), 'utf8').trim();
+if (!jsSrc.includes('/*@site-chrome*/')) throw new Error('/*@site-chrome*/ marker missing from financial-engine.js');
+const js = jsSrc.replace('/*@site-chrome*/', () => chrome.runtime);
+const config = JSON.parse(fs.readFileSync(path.join(SRC, 'financial-engine.config.json'), 'utf8'));
+const cssSrc = pageCss + '\n' + chrome.css();
+
+/* ---------------- 0. default loop state from the script's VIEW code ---------------- */
+const viewStart = js.indexOf('/* VIEW:start');
+const viewEnd = js.indexOf('/* VIEW:end */');
+if (viewStart < 0 || viewEnd < 0) throw new Error('VIEW markers missing from financial-engine.js');
+// eslint-disable-next-line no-new-func
+const V = new Function(js.slice(viewStart, viewEnd) + '\nreturn { VIEW: VIEW, ENG_STEPS: ENG_STEPS };')();
+const views = { engProgress: V.VIEW.progress(0), engNodes: V.VIEW.nodes(0), engPanes: V.VIEW.panes(0) };
+const html = htmlSrc.replace(/<!--view:(\w+)-->/g, (_, k) => { if (!(k in views)) throw new Error('Unknown view marker: ' + k); return views[k]; });
+// every markup the loop can produce (each active step)
+const viewClasses = new Set();
+const collect = (h) => { for (const m of h.matchAll(/\bclass="([^"]*)"/g)) m[1].split(/\s+/).filter(Boolean).forEach((c) => viewClasses.add(c)); };
+V.ENG_STEPS.forEach((_, i) => { collect(V.VIEW.nodes(i)); collect(V.VIEW.panes(i)); });
+
+const htmlCode = html.replace(/<!--[\s\S]*?-->/g, '');
+const usedClasses = new Set(DYNAMIC_CLASSES.concat(chrome.dynamicClasses, [...viewClasses]));
+for (const m of htmlCode.matchAll(/\bclass="([^"]*)"/g)) m[1].split(/\s+/).filter(Boolean).forEach((c) => usedClasses.add(c));
+const usedIds = new Set(['bwci-financial-engine']);
+for (const m of htmlCode.matchAll(/\bid="([^"]+)"/g)) usedIds.add(m[1]);
+// every dynamic class must really be added by the script
+DYNAMIC_CLASSES.concat(chrome.dynamicClasses).forEach((c) => { if (!js.includes("'" + c + "'")) throw new Error('DYNAMIC_CLASSES entry not found in financial-engine.js: ' + c); });
+
+// a selector is dead when it requires a class/id that never exists. :not(...) and [attr] parts are
+// ignored (a :not() of an absent class is always true).
+function deadReason(sel) {
+  const bare = sel.replace(/:not\((?:[^()]|\([^()]*\))*\)/g, '').replace(/\[[^\]]*\]/g, '').replace(/"[^"]*"|'[^']*'/g, '');
+  for (const m of bare.matchAll(/\.(-?[_a-zA-Z][\w-]*)/g)) if (!usedClasses.has(m[1])) return '.' + m[1];
+  for (const m of bare.matchAll(/#(-?[_a-zA-Z][\w-]*)/g)) if (!usedIds.has(m[1])) return '#' + m[1];
+  return null;
+}
+
+/* ---------------- CSS: scope + prune ---------------- */
+const pruned = [];
+const keyframes = new Map(); // name -> css text
 function processBlock(css, indent) {
   let out = '', i = 0;
   while (i < css.length) {
@@ -72,94 +138,106 @@ function processBlock(css, indent) {
     if (i >= css.length) break;
     if (css[i] === '@') {
       const name = /^@[\w-]+/.exec(css.slice(i))[0];
-      if (name === '@import') {
-        const end = scanTo(css, i, [';']);
-        imports.push(css.slice(i, end + 1).trim());
-        i = end + 1; continue;
-      }
+      if (name === '@import') throw new Error('Do not use @import; fonts are loaded by FONT_LINKS');
       const open = scanTo(css, i, ['{']);
       const close = matchBrace(css, open);
       const prelude = css.slice(i, open).trim().replace(/\s+/g, ' ');
       if (/^@(-webkit-)?keyframes/.test(name)) {
         const kf = prelude.split(' ')[1];
-        if (!kf.startsWith('fe-')) throw new Error('Keyframes must be fe- namespaced: ' + kf);
-        keyframeNames.push(kf);
-        const body = css.slice(open + 1, close).replace(/\s+/g, ' ').trim();
-        out += indent + prelude + '{ ' + body + ' }\n';
+        if (!kf.startsWith(KEYFRAME_PREFIX)) throw new Error('Keyframes must be ' + KEYFRAME_PREFIX + ' namespaced: ' + kf);
+        keyframes.set(kf, indent + prelude + '{ ' + css.slice(open + 1, close).replace(/\s+/g, ' ').trim() + ' }\n');
+        out += '\u0000KF:' + kf + '\u0000';
       } else {
-        out += indent + prelude + '{\n' + processBlock(css.slice(open + 1, close), indent + '  ') + indent + '}\n';
+        const inner = processBlock(css.slice(open + 1, close), indent + '  ');
+        if (inner.replace(/\u0000KF:[^\u0000]*\u0000/g, '').trim() || inner.includes('\u0000KF:')) out += indent + prelude + '{\n' + inner + indent + '}\n';
       }
       i = close + 1; continue;
     }
     const open = scanTo(css, i, ['{']);
     if (open === -1) throw new Error('Dangling CSS: ' + css.slice(i, i + 80));
     const close = matchBrace(css, open);
-    const selectors = splitSelectors(css.slice(i, open)).map(scopeSelector);
+    const live = [];
+    splitSelectors(css.slice(i, open)).forEach((s) => {
+      const why = deadReason(s);
+      if (why) pruned.push(s + '   (' + why + ' never rendered)'); else live.push(scopeSelector(s));
+    });
     const body = css.slice(open + 1, close).replace(/\s+/g, ' ').trim();
-    out += indent + selectors.join(', ') + '{ ' + body + ' }\n';
+    if (live.length) out += indent + live.join(', ') + '{ ' + body + ' }\n';
     i = close + 1;
   }
   return out;
 }
-
-const cssSrc = fs.readFileSync(path.join(SRC, 'financial-engine.css'), 'utf8');
-const scoped = processBlock(stripComments(cssSrc), '');
-// every selector line must be scoped
+let scoped = processBlock(stripComments(cssSrc), '');
+// keep only keyframes the remaining CSS uses
+const bodyText = scoped.replace(/\u0000KF:[^\u0000]*\u0000/g, '');
+const keptKf = [], droppedKf = [];
+scoped = scoped.replace(/\u0000KF:([^\u0000]*)\u0000/g, (_, kf) => {
+  if (new RegExp('\\b' + kf + '\\b').test(bodyText)) { keptKf.push(kf); return keyframes.get(kf); }
+  droppedKf.push(kf); return '';
+});
+// remove @media blocks left empty
+for (let prev; prev !== scoped;) { prev = scoped; scoped = scoped.replace(/^@[^{\n]+\{\n\}\n/gm, ''); }
+// every referenced keyframe must exist
+for (const m of bodyText.matchAll(/animation(?:-name)?\s*:\s*([^;}]+)/g)) {
+  m[1].split(',').forEach((part) => part.trim().split(/\s+/).forEach((tok) => {
+    if (/^fe-[\w-]+$/.test(tok) && !keyframes.has(tok)) throw new Error('Animation references missing keyframes: ' + tok);
+  }));
+}
+// every selector must be scoped
 scoped.split('\n').forEach((line) => {
   const t = line.trim();
   if (!t || t === '}' || t.startsWith('@') || /^(from|to|\d+%)/.test(t)) return;
-  const sel = t.slice(0, t.indexOf('{'));
-  splitSelectors(sel).forEach((s) => { if (!s.startsWith(ROOT)) throw new Error('Unscoped selector: ' + s); });
+  splitSelectors(t.slice(0, t.indexOf('{'))).forEach((s) => { if (!s.startsWith(ROOT)) throw new Error('Unscoped selector: ' + s); });
 });
-if (imports.length) throw new Error('Do not use @import in the CSS; fonts are loaded by FONT_LINKS');
 const css = scoped;
-// Identical to the Main page GHL block (loads correctly in GoHighLevel, unlike @import inside <style>).
+
+// Identical to the Main and Financial Engine GHL blocks (loads correctly in GoHighLevel).
 const FONT_LINKS = [
   '<link rel="preconnect" href="https://fonts.googleapis.com">',
   '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
   '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">',
 ].join('\n');
 
-/* ---------------- HTML + JS ---------------- */
-const html = fs.readFileSync(path.join(SRC, 'financial-engine.html'), 'utf8').trim();
-const js = fs.readFileSync(path.join(SRC, 'financial-engine.js'), 'utf8').trim();
-const config = JSON.parse(fs.readFileSync(path.join(SRC, 'financial-engine.config.json'), 'utf8'));
-// every link key used in the markup must exist in the config, and vice versa
-const usedKeys = new Set([...html.matchAll(/data-fe-link="([^"]+)"/g)].map((m) => m[1]));
+/* ---------------- checks ---------------- */
+const usedKeys = new Set([...htmlCode.matchAll(/data-fe-link="([^"]+)"/g)].map((m) => m[1]));
 const cfgKeys = new Set(Object.keys(config.links));
 usedKeys.forEach((k) => { if (!cfgKeys.has(k)) throw new Error('Link key missing from config: ' + k); });
 cfgKeys.forEach((k) => { if (!usedKeys.has(k)) throw new Error('Unused link key in config: ' + k); });
-// markup sanity: no project-relative / Claude Design references may survive
-// (comments are ignored: they may legitimately name the source files)
-const htmlCode = html.replace(/<!--[\s\S]*?-->/g, '');
+// in-page anchors must point at ids that exist
+for (const m of htmlCode.matchAll(/href="#([^"]+)"/g)) if (!usedIds.has(m[1])) throw new Error('In-page link to missing id: #' + m[1]);
 const jsCode = js.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
-[/\.dc\.html/, /\.\/assets\//, /\/vendor\//, /support\.js/, /localhost/, /file:\/\//, /\{\{/].forEach((re) => {
-  if (re.test(htmlCode) || re.test(jsCode) || re.test(scoped)) throw new Error('Forbidden reference ' + re + ' in output');
+[/\.dc\.html/, /\.\/assets\//, /\/vendor\//, /support\.js/, /localhost/, /file:\/\//, /\{\{/, /unpkg\.com/].forEach((re) => {
+  if (re.test(htmlCode) || re.test(jsCode) || re.test(css)) throw new Error('Forbidden reference ' + re + ' in output');
 });
 
+/* ---------------- assemble ---------------- */
 function banner(variant) {
   return [
     '<!--',
     '  BWCI — THE FINANCIAL ENGINE · GoHighLevel Custom Code block (' + variant + ')',
-    '  Source: FinancialEngine.dc.html (+ SiteHeader.dc.html) · generated by ghl/pages/financial-engine/_build/build.js',
+    '  Source: design/FinancialEngine.dc.html (+ SiteHeader, Breadcrumb, SiteFooter, bwci-system.css, bwci-motion.js)',
+    '  Generated by ghl/pages/financial-engine/_build/build.js',
     '  Paste this whole file into ONE GoHighLevel "Custom Code" element placed in a full-width section with no padding.',
-    '  Edit ONLY the JSON block below: "financialEngineImage" (hero image URL), "showHeader",',
-    '  "showFooter" and "links" (every link on the page that points to another page).',
+    '  Edit ONLY the JSON block below: "financialEngineImage" and "logoImage" (image URLs), "showHeader",',
+    '  "showFooter", "footer" (legal wording) and "links" (every link to another page; "#" marks a destination',
+    '  that has no GoHighLevel page yet).',
     '-->',
   ].join('\n');
 }
-function assemble(imageValue, variant) {
-  const cfg = Object.assign({}, config, { financialEngineImage: imageValue });
+function assemble(imageValue, logoValue, variant) {
+  const cfg = Object.assign({}, config, { financialEngineImage: imageValue, logoImage: logoValue });
   const cfgBlock = '<script type="application/json" id="bwci-financial-engine-config">\n' + JSON.stringify(cfg, null, 2) + '\n</script>';
   return banner(variant) + '\n' + cfgBlock + '\n' + FONT_LINKS + '\n<style>\n' + css + '</style>\n\n' + html + '\n\n<script>\n' + js + '\n</script>\n';
 }
-
-const ghl = assemble(config.financialEngineImage, 'production — hosted image');
-const dataUri = 'data:image/webp;base64,' + fs.readFileSync(IMAGE).toString('base64');
-const inline = assemble(dataUri, 'self-contained — embedded image');
-
+const ghl = assemble(config.financialEngineImage, config.logoImage, 'production — hosted images');
+const inline = assemble('data:image/webp;base64,' + fs.readFileSync(IMAGE).toString('base64'),
+  'data:image/png;base64,' + fs.readFileSync(chrome.logoPath).toString('base64'), 'self-contained — embedded images');
 fs.writeFileSync(path.join(PAGE_DIR, 'financial-engine.ghl.html'), ghl);
 fs.writeFileSync(path.join(PAGE_DIR, 'financial-engine.inline.ghl.html'), inline);
-console.log('keyframes:', keyframeNames.join(', '));
+
+console.log('keyframes kept   :', keptKf.join(', '));
+console.log('keyframes dropped:', droppedKf.join(', ') || '-');
+console.log('selectors dropped:', pruned.length + (REPORT ? '' : ' (run with --report to list)'));
+if (REPORT) pruned.forEach((p) => console.log('   ' + p));
 console.log('financial-engine.ghl.html        ', (Buffer.byteLength(ghl) / 1024).toFixed(1) + ' KB');
 console.log('financial-engine.inline.ghl.html ', (Buffer.byteLength(inline) / 1024).toFixed(1) + ' KB');

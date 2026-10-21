@@ -1,137 +1,108 @@
-// Dev-only behavioural QA. Runs the same interaction script against the source page and the port
-// and prints a comparable trace.   NODE_PATH=$(npm root -g) node behaviour.js <url> [label]
+// Dev-only behavioural QA. Runs the same interaction script against the source page and the port and
+// prints a comparable trace (port class names are normalised by dropping the fe- prefix).
+//   NODE_PATH=$(npm root -g) node behaviour.js <url> [label]
 const { chromium } = require('playwright');
+const routeReact = require('./qa-routes');
 const url = process.argv[2];
 const label = process.argv[3] || url;
 
-async function state(page) {
-  return page.evaluate(() => {
-    const nodes = [...document.querySelectorAll('.ops-stage-node')];
-    const vp = document.querySelector('.ops-viewport');
-    const pr = document.querySelector('.pr');
-    const cap = [...document.querySelectorAll('.cap-item')].findIndex((c) => c.classList.contains('cap-item--active'));
-    const panel = [...document.querySelectorAll('.ops-panel')].findIndex((p) => p.classList.contains('ops-panel--active'));
-    return {
-      y: Math.round(window.scrollY),
-      opsTop: Math.round(vp.getBoundingClientRect().top),
-      stage: nodes.findIndex((n) => n.classList.contains('ops-stage-node--active')),
-      panel,
-      loop: document.querySelector('.ops-loop-note').classList.contains('ops-loop-note--active'),
-      pr: pr.getAttribute('data-active'),
-      prTitle: document.querySelector('.pr-reading-title').textContent.trim(),
-      cap,
-    };
-  });
-}
+// snapshot of the interactive sections; works on the source and on the port
+const STATE = () => {
+  const n = (el) => (el ? el.textContent.replace(/\s+/g, ' ').trim() : null);
+  const cls = (el) => (el.getAttribute('class') || '').split(/\s+/).filter((c) => c && c !== 'sc-interp').map((c) => c.replace(/^fe-/, '')).join('.');
+  const pr = document.querySelector('.pr');
+  const lp = document.querySelector('.lp');
+  const nodes = [...document.querySelectorAll('.lp-n')].map((b) => (b.classList.contains('is-on') ? 'X' : b.classList.contains('is-past') ? 'p' : 'o') + b.getAttribute('aria-selected')[0] + b.getAttribute('aria-expanded')[0]).join(',');
+  const items = [...document.querySelectorAll('.lp-item')].map((e) => (e.classList.contains('is-on') ? 'X' : 'o')).join('');
+  const panes = [...document.querySelectorAll('.lpd-pane')].map((e) => (e.classList.contains('is-on') ? 'X' : 'o') + e.getAttribute('aria-hidden')[0]).join(',');
+  const acc = [...document.querySelectorAll('.lp-acc')].map((e) => Math.round(e.getBoundingClientRect().height)).join(',');
+  const lpd = document.querySelector('.lpd').getBoundingClientRect();
+  const ae = document.activeElement;
+  return {
+    pr: pr.getAttribute('data-active') + ' ' + document.querySelector('.pr-reading').getAttribute('data-num') + ' ' + [...document.querySelectorAll('.pr-chapter')].map((b) => b.getAttribute('aria-pressed')[0]).join('') + ' ' + n(document.querySelector('.pr-reading-title')),
+    p: lp.style.getPropertyValue('--p').trim(), prog: Math.round(document.querySelector('.lp-prog').getBoundingClientRect().width),
+    nodes, items, panes, acc,
+    cap: [...document.querySelectorAll('.cap-item')].map((c) => (c.classList.contains('cap-item--active') ? 'X' : 'o') + c.getAttribute('aria-pressed')[0]).join(','),
+    ops: Math.round(document.querySelector('.ops-model').getBoundingClientRect().top), lpd: Math.round(lpd.top) + '..' + Math.round(lpd.bottom),
+    focus: ae && ae !== document.body ? ae.tagName + ':' + cls(ae) + ':' + (ae.getAttribute('aria-label') || n(ae).replace(/\s/g, '').slice(0, 20)) : 'body',
+  };
+};
 
 (async () => {
   const browser = await chromium.launch();
   const out = [];
-  const log = (k, v) => out.push(k + ' ' + JSON.stringify(v));
+  const log = (k, v) => out.push(k.padEnd(24) + ' ' + JSON.stringify(v));
   const errors = [];
-
-  /* ---------- desktop: wheel capture sequence ---------- */
-  {
-    const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
-    page.on('pageerror', (e) => errors.push(String(e)));
+  const open = async (opts) => {
+    const page = await browser.newPage(opts);
+    page.on('pageerror', (e) => errors.push(String(e).slice(0, 120)));
+    await routeReact(page);
     await page.goto(url, { waitUntil: 'networkidle' });
-    await page.waitForTimeout(500);
-    await page.mouse.move(900, 500);
-    // scroll down in 100px wheel notches until 7 stages have been walked and released
-    let last = null; const seq = [];
-    for (let i = 0; i < 80; i++) {
-      await page.mouse.wheel(0, 100);
-      await page.waitForTimeout(650);
-      const s = await state(page);
-      const key = s.stage + (s.opsTop === 64 ? 'L' : '');
-      if (key !== last) { seq.push(`${s.stage + 1}@top${s.opsTop}`); last = key; }
-      if (s.opsTop < -600) break;
-    }
-    log('down-sequence', seq.join(' '));
-    // back up
-    last = null; const up = [];
-    for (let i = 0; i < 80; i++) {
-      await page.mouse.wheel(0, -100);
-      await page.waitForTimeout(650);
-      const s = await state(page);
-      const key = s.stage + (s.opsTop === 64 ? 'L' : '');
-      if (key !== last) { up.push(`${s.stage + 1}@top${s.opsTop}`); last = key; }
-      if (s.opsTop > 900) break;
-    }
-    log('up-sequence', up.join(' '));
-    const s = await state(page);
-    log('after-up', { stage: s.stage, panel: s.panel });
+    // after the last scan of the shared scroll motion (~2.6 s after load), so it cannot move things mid-test
+    await page.waitForTimeout(3200);
+    // the source sets html{scroll-behavior:smooth}, which also animates Playwright's own scroll-into-view;
+    // switch it off on both sides so pointer actions land on the same element (the port never sets it)
+    await page.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; });
+    return page;
+  };
+  const snap = (page) => page.evaluate(STATE);
+  // jump to a section, then let the shared scroll motion finish revealing what came on screen (0.7 s fade-up)
+  const toTop = async (page, sel, off) => { await page.evaluate(([s, o]) => { const e = document.querySelector(s); window.scrollTo({ top: e.getBoundingClientRect().top + scrollY - o, behavior: 'instant' }); }, [sel, off]); await page.waitForTimeout(1300); };
 
-    // keyboard capture: scroll to lock via wheel, then ArrowDown
-    await page.evaluate(() => window.scrollTo(0, 0));
-    await page.waitForTimeout(300);
-    for (let i = 0; i < 40; i++) {
-      await page.mouse.wheel(0, 100); await page.waitForTimeout(120);
-      const t = await state(page); if (t.opsTop === 64) break;
-    }
-    await page.waitForTimeout(700);
-    const k0 = await state(page);
-    await page.keyboard.press('ArrowDown'); await page.waitForTimeout(650);
-    await page.keyboard.press('ArrowDown'); await page.waitForTimeout(650);
-    const k1 = await state(page);
-    await page.keyboard.press('ArrowUp'); await page.waitForTimeout(650);
-    const k2 = await state(page);
-    log('keys', { lockedTop: k0.opsTop, before: k0.stage, afterDown2: k1.stage, afterUp: k2.stage, yStable: k0.y === k1.y });
-
-    // click neighbour node while locked
-    await page.evaluate(() => {
-      const n = [...document.querySelectorAll('.ops-stage-node')].find((x) => x.style.opacity === '0.7' && [...document.querySelectorAll('.ops-stage-node')].indexOf(x) > [...document.querySelectorAll('.ops-stage-node')].findIndex((y) => y.classList.contains('ops-stage-node--active')));
-      if (n) n.click();
-    });
-    await page.waitForTimeout(700);
-    log('node-click', (await state(page)).stage);
-
-    // principle chapters: hover each
-    const prs = [];
-    for (let i = 0; i < 5; i++) {
-      await page.locator('.pr-chapter').nth(i).hover();
-      await page.waitForTimeout(80);
-      const t = await state(page); prs.push(t.pr + ':' + t.prTitle);
-    }
-    log('pr-hover', prs);
-    // capabilities hover each
-    const cs = [];
-    for (let i = 0; i < 6; i++) {
-      await page.locator('.cap-item').nth(i).hover();
-      await page.waitForTimeout(60);
-      cs.push((await state(page)).cap);
-    }
-    log('cap-hover', cs.join(','));
+  /* ---- desktop: principle chapters, loop nodes + reveal scroll, prev/next, capabilities ---- */
+  for (const [w, h] of [[1440, 900], [1280, 720]]) {
+    const page = await open({ viewport: { width: w, height: h } });
+    log('initial ' + w, await snap(page));
+    await toTop(page, '.pr', 0);
+    for (const i of [1, 3]) { await page.locator('.pr-chapter').nth(i).hover(); await page.waitForTimeout(60); log('hover chapter ' + i, await snap(page)); }
+    await page.locator('.pr-chapter').nth(0).focus(); await page.waitForTimeout(60); log('focus chapter 0', await snap(page));
+    // the loop: section head at the top, then pick nodes (source scrolls the detail card into view)
+    await toTop(page, '.ops-model', 0);
+    // desktop buttons are 0×0 anchors; their visible content (.lp-in) is what a pointer hits
+    await page.locator('.lp-n .lp-dot').nth(2).click(); await page.waitForTimeout(1600); log('click node 2 ' + w, await snap(page));
+    await page.locator('.lp-n .lp-t').nth(2).click(); await page.waitForTimeout(1600); log('click node 2 again ' + w, await snap(page));
+    const next = '.lpd-ctrl button >> nth=1', prev = '.lpd-ctrl button >> nth=0';
+    for (let k = 0; k < 4; k++) { await page.locator(next).click(); await page.waitForTimeout(60); }
+    await page.waitForTimeout(700); log('next x4 (wraps)', await snap(page));
+    await page.locator(prev).click(); await page.waitForTimeout(700); log('prev (wraps)', await snap(page));
+    await page.locator(prev).focus(); await page.keyboard.press('Enter'); await page.keyboard.press('Space'); await page.waitForTimeout(700); log('kbd prev x2', await snap(page));
+    await page.locator('.lp-n').nth(5).focus(); await page.keyboard.press('Enter'); await page.waitForTimeout(1600); log('kbd node 5', await snap(page));
+    await page.keyboard.press('Shift+Tab'); log('shift+tab', (await snap(page)).focus);
+    await page.locator('.lp-n .lp-dot').nth(3).hover(); await page.waitForTimeout(500);
+    log('node hover', await page.evaluate(() => { const d = document.querySelectorAll('.lp-dot')[3]; return getComputedStyle(d).transform + ' ' + getComputedStyle(d).borderColor; }));
+    // capabilities
+    await toTop(page, '.caps-arch', 0);
+    for (const i of [0, 3]) { await page.locator('.cap-item').nth(i).hover(); await page.waitForTimeout(60); log('hover cap ' + i, (await snap(page)).cap); }
+    await page.locator('.cap-item').nth(5).click(); await page.waitForTimeout(60); log('click cap 5', (await snap(page)).cap);
     await page.close();
   }
 
-  /* ---------- mobile rail ---------- */
+  /* ---- tablet + phone: accordion ---- */
+  for (const [w, h] of [[1023, 800], [768, 1024], [390, 844], [320, 640]]) {
+    const page = await open({ viewport: { width: w, height: h }, hasTouch: true, isMobile: true });
+    await toTop(page, '.ops-model', 0);
+    await page.locator('.lp-n').nth(2).tap(); await page.waitForTimeout(600);
+    const a = await snap(page);
+    await page.locator('.lp-n').nth(2).tap(); await page.waitForTimeout(600);
+    const b = await snap(page);
+    await page.locator('.lp-n').nth(5).tap(); await page.waitForTimeout(600);
+    log('touch ' + w, [a, b, await snap(page), await page.evaluate(() => [getComputedStyle(document.querySelector('.lpd-stack')).display, getComputedStyle(document.querySelector('.lp-loopnote')).display, getComputedStyle(document.querySelector('.lp-ring')).display])]);
+    await page.locator('.pr-chapter').nth(2).tap(); await page.locator('.cap-item').nth(4).tap(); await page.waitForTimeout(80);
+    log('touch pr/cap ' + w, [(await snap(page)).pr, (await snap(page)).cap]);
+    await page.close();
+  }
+
+  /* ---- reduced motion: instant reveal scroll, no transitions ---- */
   {
-    const page = await browser.newPage({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
-    page.on('pageerror', (e) => errors.push(String(e)));
-    await page.goto(url, { waitUntil: 'networkidle' });
-    await page.waitForTimeout(400);
-    const r = [];
-    const snap = async () => page.evaluate(() => ({
-      num: document.querySelector('.ops-rail-count b').textContent.trim(),
-      title: document.querySelector('.ops-rail-title').textContent.trim(),
-      prev: document.querySelector('.ops-rail-arrow--prev').disabled,
-      next: document.querySelector('.ops-rail-arrow--next').disabled,
-      done: document.querySelectorAll('.ops-rail-dot--done').length,
-    }));
-    r.push(await snap());
-    for (let i = 0; i < 7; i++) { await page.locator('.ops-rail-arrow--next').click({ force: true }); await page.waitForTimeout(150); }
-    r.push(await snap());
-    await page.locator('.ops-rail-dot').nth(2).click(); await page.waitForTimeout(150);
-    r.push(await snap());
-    await page.locator('.ops-rail-arrow--prev').click(); await page.waitForTimeout(150);
-    r.push(await snap());
-    log('mobile-rail', r);
+    const page = await open({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' });
+    await toTop(page, '.ops-model', 0);
+    await page.locator('.lp-n .lp-dot').nth(4).click(); await page.waitForTimeout(150);
+    log('reduced motion', [await snap(page), await page.evaluate(() => [getComputedStyle(document.querySelector('.lpd-pane')).transitionDuration, getComputedStyle(document.querySelector('.lp-prog')).transitionDuration])]);
     await page.close();
   }
 
   console.log('== ' + label);
   out.forEach((l) => console.log(l));
-  console.log('errors ' + JSON.stringify(errors));
+  console.log('errors'.padEnd(24) + ' ' + JSON.stringify([...new Set(errors)]));
   await browser.close();
 })();
