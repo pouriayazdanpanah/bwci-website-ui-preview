@@ -1,0 +1,49 @@
+{
+  "logoImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/bwci-logo.png",
+  "peopleImages": {
+    "ewa-dudek": "https://REPLACE-WITH-YOUR-HOSTED-URL/ewa-dudek.webp",
+    "alexander-alegria-saif": "https://REPLACE-WITH-YOUR-HOSTED-URL/alexander-alegria-saif.jpg",
+    "farhad-reyazat": "https://REPLACE-WITH-YOUR-HOSTED-URL/farhad-reyazat.jpg",
+    "gabriella-karlova": "https://REPLACE-WITH-YOUR-HOSTED-URL/gabriella-karlova.webp"
+  },
+  "showHeader": true,
+  "showFooter": true,
+  "footer": {
+    "regulatoryLine": "",
+    "registeredJurisdiction": "",
+    "companyNumber": "",
+    "registeredOffice": ""
+  },
+  "links": {
+    "home": "/",
+    "whoWeAre": "#",
+    "leadership": "#",
+    "financialEngine": "/financial-engine",
+    "impact": "/#bwci-impact",
+    "today": "/#bwci-today",
+    "ecosystem": "/ecosystem",
+    "platforms": "/platforms",
+    "smes": "/smes-projects",
+    "investors": "/investors-partners",
+    "privateInvestors": "#",
+    "governance": "#",
+    "corporateIR": "#",
+    "contact": "#",
+    "verify": "#",
+    "whoPurpose": "#",
+    "whoRole": "#",
+    "whoPrinciples": "#",
+    "whoStory": "#",
+    "legalPrivacy": "#",
+    "legalTerms": "#",
+    "legalCookies": "#",
+    "legalDisclosures": "#",
+    "legalAccessibility": "#",
+    "legalSitemap": "#",
+    "governanceBoard": "#",
+    "governanceFramework": "#",
+    "profileAlexanderAlegriaSaif": "#",
+    "profileFarhadReyazat": "#",
+    "profileGabriellaKarlova": "#"
+  }
+}
