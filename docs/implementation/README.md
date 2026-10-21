@@ -16,7 +16,6 @@ This guide turns a finished Claude Design page in design/ into one pasteable GoH
 
 The October 2026 export added these production pages, which have no GHL port yet. Each needs its own brief in pages/<slug>.md (from page-template.md) and its own feat/ghl-<slug> branch:
 
-- Governance: design/Governance.dc.html (imports SiteHeader, Breadcrumb, GovNav, SiteFooter).
 - Governance Board: design/Governance Board.dc.html (imports SiteHeader, Breadcrumb, GovNav, PersonCard, SiteFooter).
 - Governance Leadership: design/Governance Leadership.dc.html (imports SiteHeader, Breadcrumb, GovNav, PersonCard, SiteFooter).
 - Seven profile pages, each importing SiteHeader, GovProfile and SiteFooter: Profile Agnes Gradzewicz, Profile Alexander Alegria Saif, Profile Christie Osarenren, Profile Ewa Dudek, Profile Farhad Reyazat, Profile Gabriella Karlova and Profile Professor Richard Werner (.dc.html).
@@ -31,6 +30,7 @@ Until they are live in GHL, the other ports' links to them (config keys such as 
 - Platforms: ghl/pages/platforms/README.md. Its hosted and inline files are generated from _build/src/.
 - SMEs & Projects: ghl/pages/smes-projects/README.md. Its hosted and inline files are generated from _build/src/.
 - Investors & Partners: ghl/pages/investors-partners/README.md. Its hosted and inline files are generated from _build/src/.
+- Governance: ghl/pages/governance/README.md. Its hosted and inline files are generated from _build/src/. GovNav and bwci-system.css parts C/E come from the shared site chrome (ghl/shared/site-chrome/), which the Board and Leadership ports can reuse.
 
 The completed-page README is the source of maintenance instructions; no duplicate brief is kept under docs/implementation/pages/. design/SiteHeader.dc.html, design/SiteFooter.dc.html, design/Breadcrumb.dc.html, design/GovNav.dc.html, design/GovProfile.dc.html and design/PersonCard.dc.html are shared source components. design/Before After.dc.html is a visual comparison/QA canvas, not a production website page.
 

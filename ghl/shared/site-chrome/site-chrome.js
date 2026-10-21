@@ -8,7 +8,8 @@
 //   SiteHeader.dc.html  → header CSS, plus the NAV and UTIL data of its text/x-dc component
 //   SiteFooter.dc.html  → footer CSS and the link columns of its markup
 //   Breadcrumb.dc.html  → TRAILS, plus its inline styles (kept inline, as in the source)
-//   bwci-system.css     → parts A, A2, B and D (C and E style content pages that have no port yet)
+//   bwci-system.css     → parts A, A2, B and D; with content:true also C and E (the .bw content pages)
+//   GovNav.dc.html      → the governance section bar (govnav option), with its own runtime part
 // Every design href must map to a config link key (HREF_KEYS below). An unknown href fails the build,
 // so a new design destination cannot slip through without a config key.
 'use strict';
@@ -17,6 +18,7 @@ const path = require('path');
 
 const DESIGN = path.resolve(__dirname, '../../../design');
 const RUNTIME = path.join(__dirname, 'site-chrome.runtime.js');
+const GOVNAV_RUNTIME = path.join(__dirname, 'site-chrome.govnav.js');
 const LOGO = path.join(__dirname, 'assets', 'bwci-logo.png');
 
 // design href → config link key
@@ -28,6 +30,8 @@ const HREF_KEYS = {
   'Who%20We%20Are.dc.html#principles': 'whoPrinciples',
   'Who%20We%20Are.dc.html#story': 'whoStory',
   'Governance%20Leadership.dc.html': 'leadership',
+  'Governance%20Board.dc.html': 'governanceBoard',
+  'Governance.dc.html#framework': 'governanceFramework',
   'FinancialEngine.dc.html': 'financialEngine',
   'Main.dc.html#impact': 'impact',
   'Main.dc.html#today': 'today',
@@ -55,6 +59,7 @@ const LINK_DEFAULTS = {
   smes: '/smes-projects', investors: '/investors-partners', impact: '/#bwci-impact', today: '/#bwci-today',
   whoWeAre: '#', whoPurpose: '#', whoRole: '#', whoPrinciples: '#', whoStory: '#', leadership: '#',
   privateInvestors: '#', governance: '#', corporateIR: '#', contact: '#', verify: '#',
+  governanceBoard: '#', governanceFramework: '#',
   legalPrivacy: '#', legalTerms: '#', legalCookies: '#', legalDisclosures: '#', legalAccessibility: '#', legalSitemap: '#',
 };
 
@@ -106,6 +111,8 @@ module.exports = function siteChrome(opts) {
   const crumb = opts.breadcrumb || null; // Breadcrumb `current` prop, or null when the page has none
   const rename = opts.rename || ((n) => n); // page class vocabulary for bwci-system.css (e.g. container → plt-container)
   const withSystem = opts.system !== false;  // false for a page that does not load bwci-system.css / bwci-motion.js (Main)
+  const withContent = !!opts.content;      // true for a .bw content page: adds bwci-system.css parts C and E
+  const govCur = opts.govnav || null;       // GovNav current prop ('hub', 'board', 'leadership'), or null when the page has none
   const defaults = Object.assign({}, LINK_DEFAULTS, opts.links || {}); // per-page default routes (e.g. Main's in-page #bwci-impact)
   const L = (k) => 'data-' + P + '-link="' + k + '"';
   const I = (t) => '<span class="' + P + '-i">' + esc(t) + '</span>'; // {{value}} → span.sc-interp in the source runtime
@@ -232,6 +239,59 @@ module.exports = function siteChrome(opts) {
     if (!/style-hover="color:#FFFFFF;"/.test(bcSrc) || !/style-focus="outline:2px solid #E8C46B; outline-offset:3px;"/.test(bcSrc)) throw new Error('Breadcrumb hover/focus styles changed; update site-chrome.js');
   }
 
+  /* ---------------- governance section bar (GovNav; inline styles kept, as in the source) ---------------- */
+  let govnav = '';
+  if (govCur) {
+    const gnSrc = read('GovNav.dc.html');
+    const { SECTIONS } = constants(between(gnSrc, 'data-dc-script', '</script>'), ['SECTIONS']);
+    const style = (re) => { const m = re.exec(gnSrc); if (!m) throw new Error('GovNav style not found: ' + re); return m[1]; };
+    const sNav = style(/<nav aria-label="Governance sections" style="([^"]*)"/);
+    const sIn = style(/<nav [^>]*>\s*<div style="([^"]*)"/);
+    const sUl = style(/<ul style="([^"]*)"/);
+    const sLi = style(/<li style="([^"]*)"/);
+    const sOn = style(/aria-current="page" style="([^"]*)"/);
+    const sOff = style(/<sc-if value="\{\{ it\.off \}\}"[^>]*><a href="\{\{ it\.href \}\}" style="([^"]*)"/);
+    const sLabel = style(/<label style="([^"]*)"/);
+    const sLabelT = style(/<label [^>]*>\s*<span style="([^"]*)">Section<\/span>/);
+    const sWrap = style(/Section<\/span>\s*<span style="([^"]*)"/);
+    const sSel = style(/<select [^>]*style="([^"]*)"/);
+    const svg = /(<svg width="14"[\s\S]*?<\/svg>)/.exec(gnSrc)[1];
+    // the source emits style-hover / style-focus as !important :hover / :focus rules (see css())
+    if (!/style-hover="color:#123039; border-bottom-color:#D5E0DC;"/.test(gnSrc) || (gnSrc.match(/style-focus="outline:2px solid #12836B; outline-offset:-2px;"/g) || []).length !== 2) throw new Error('GovNav hover/focus styles changed; update site-chrome.js');
+    if (!/window\.matchMedia\('\(max-width:767px\)'\)/.test(gnSrc)) throw new Error('GovNav breakpoint changed; update site-chrome.govnav.js');
+    // on the hub the framework link stays on the page; elsewhere it is a configured route
+    const target = (href) => (govCur === 'hub' && href === 'Governance.dc.html#framework' ? { href: '#' + P + '-framework', attr: '' } : { href: defaults[keyOf(href)], attr: ' ' + L(keyOf(href)) });
+    const items = SECTIONS.map((sct) => {
+      const on = sct.k === govCur, tg = target(sct.href);
+      return '          <li style="' + esc(sLi) + '"><a class="' + P + '-gn__a' + (on ? '' : ' ' + P + '-gn__a--off') + '" href="' + esc(tg.href) + '"' + tg.attr +
+        (on ? ' aria-current="page" style="' + esc(sOn) + '"' : ' style="' + esc(sOff) + '"') + '>' + I(sct.t) + '</a></li>';
+    });
+    const opts = (govCur === 'hub' ? [{ t: 'Governance overview', href: 'Governance.dc.html' }] : []).concat(SECTIONS);
+    const curS = SECTIONS.find((sct) => sct.k === govCur);
+    const curHref = curS ? curS.href : 'Governance.dc.html';
+    const options = opts.map((o) => { const tg = target(o.href); return '              <option value="' + esc(tg.href) + '"' + tg.attr + (o.href === curHref ? ' selected' : '') + '>' + esc(o.t) + '</option>'; });
+    govnav = [
+      '<div class="' + P + '-gn-host" data-' + P + '-govnav>',
+      '  <nav aria-label="Governance sections" style="' + esc(sNav) + '">',
+      '    <div style="' + esc(sIn) + '">',
+      '      <ul style="' + esc(sUl) + '" data-' + P + '-gn-wide>',
+      items.join('\n'),
+      '      </ul>',
+      '      <label style="' + esc(sLabel) + '" data-' + P + '-gn-narrow hidden>',
+      '        <span style="' + esc(sLabelT) + '">Section</span>',
+      '        <span style="' + esc(sWrap) + '">',
+      '          <select style="' + esc(sSel) + '" data-' + P + '-gn-select>',
+      options.join('\n'),
+      '          </select>',
+      '          ' + svg,
+      '        </span>',
+      '      </label>',
+      '    </div>',
+      '  </nav>',
+      '</div>',
+    ].join('\n');
+  }
+
   /* ---------------- footer ---------------- */
   const ftSrc = read('SiteFooter.dc.html');
   const F = P + '-sft';
@@ -276,6 +336,10 @@ module.exports = function siteChrome(opts) {
       .replace(/\.bw-motion \[data-bw-rv/g, ':scope.__motion__ [data-bw-rv');
     partsABD = expandIs(renameClasses(partsABD, (n) => (n === '__motion__' ? P + '-motion' : rename(n))))
       .replace(/\bbw(HeroIn|MediaIn)\b/g, P + '-bw$1');
+    // parts C and E: .bw is the page wrapper, i.e. the widget root (class <prefix>-bw), so every selector keeps
+    // the source's class count and gains the root id, which keeps the source's specificity order
+    let partsCE = stripComments(sys.slice(sys.indexOf('/* C — content-page components'))).replace(/\.bw(?![\w-])/g, ':scope.__bw__');
+    partsCE = expandIs(renameClasses(partsCE, (n) => (n === '__bw__' ? P + '-bw' : rename(n)))).replace(/\bbw(HeroIn|MediaIn)\b/g, P + '-bw$1');
     const comp = (src) => stripComments(between(src, '<style>', '</style>')).replace(/html\{[^}]*\}\s*/g, '');
     const hdrCss = renameClasses(comp(hdrSrc), (n) => n.replace(/^hdr(?![a-zA-Z0-9])/, H)).replace(/\bhdr(In|Fade|Slide)\b/g, P + '-hdr$1');
     const ftCss = renameClasses(comp(ftSrc), (n) => n.replace(/^sft(?![a-zA-Z0-9])/, F));
@@ -288,6 +352,17 @@ module.exports = function siteChrome(opts) {
     ].concat(withSystem ? [
       '/* bwci-system.css — parts A, A2, B, D (class names in this page\'s vocabulary) */',
       partsABD.trim(),
+      '',
+    ] : []).concat(withSystem && withContent ? [
+      '/* bwci-system.css — parts C, E (content pages; .bw = this widget root) */',
+      partsCE.trim(),
+      '',
+    ] : []).concat(govCur ? [
+      '/* GovNav.dc.html — the dc-import wrapper, and style-hover / style-focus (the inline styles stay on the elements) */',
+      '.' + P + '-gn-host{ display:block; position:sticky; top:calc(var(--nav-h, 116px) - var(--util-h, 0px)); z-index:50; }',
+      '.' + P + '-gn-host [hidden]{ display:none !important; }',
+      '.' + P + '-gn__a--off:hover{ color:#123039 !important; border-bottom-color:#D5E0DC !important; }',
+      '.' + P + '-gn__a:focus{ outline:2px solid #12836B !important; outline-offset:-2px !important; }',
       '',
     ] : []).concat([
       '/* Breadcrumb.dc.html — style-hover / style-focus (the inline styles stay on the elements) */',
@@ -306,15 +381,15 @@ module.exports = function siteChrome(opts) {
   }
 
   /* ---------------- runtime (inlined into the page script) ---------------- */
-  const runtime = fs.readFileSync(RUNTIME, 'utf8').replace(/__P__/g, P).trim();
+  const runtime = (fs.readFileSync(RUNTIME, 'utf8') + (govCur ? '\n' + fs.readFileSync(GOVNAV_RUNTIME, 'utf8') : '')).replace(/__P__/g, P).trim();
 
   const links = {};
-  for (const m of (header + breadcrumb + footer).matchAll(new RegExp('data-' + P + '-link="([^"]+)"', 'g'))) links[m[1]] = defaults[m[1]];
+  for (const m of (header + breadcrumb + govnav + footer).matchAll(new RegExp('data-' + P + '-link="([^"]+)"', 'g'))) links[m[1]] = defaults[m[1]];
   // the generated markup keeps the design hrefs; the page build swaps them for the config defaults
   const swap = (h) => h.replace(new RegExp('href="([^"]+)" data-' + P + '-link="([^"]+)"', 'g'), (_, href, k) => 'href="' + esc(defaults[k]) + '" data-' + P + '-link="' + k + '"');
 
   return {
-    header: swap(header), breadcrumb: swap(breadcrumb), footer: swap(footer), css, runtime,
+    header: swap(header), breadcrumb: swap(breadcrumb), govnav, footer: swap(footer), css, runtime,
     links,                                  // chrome link keys used by this page, with default routes
     unresolved: Object.keys(links).filter((k) => links[k] === '#'),
     dynamicClasses: [H + '--stuck', P + '-motion', F + '__reg'],

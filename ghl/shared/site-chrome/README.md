@@ -7,8 +7,9 @@ root and class prefix. A pasted page never loads a file from this folder.
 
 ```
 ghl/shared/site-chrome/
-├── site-chrome.js           ← generator: require(...)({ prefix, current, breadcrumb, rename, system, links })
+├── site-chrome.js           ← generator: require(...)({ prefix, current, breadcrumb, govnav, content, rename, system, links })
 ├── site-chrome.runtime.js   ← vanilla runtime template (__P__ = page prefix), inlined into each page script
+├── site-chrome.govnav.js    ← GovNav runtime part, appended only for pages with a govnav option
 ├── assets/bwci-logo.png     ← logo (640×153) — upload once to GHL Media Storage, set logoImage in each page
 └── qa/
     ├── chrome-behaviour.js  ← same header/drawer/sticky/footer/motion script on a source page and a port
@@ -23,6 +24,8 @@ ghl/shared/site-chrome/
 | `SiteFooter.dc.html` — CSS and link columns | Footer (`.<prefix>-sft`), legal line and optional regulatory line from config |
 | `Breadcrumb.dc.html` — `TRAILS` and inline styles | Breadcrumb for inner pages (inline styles kept, hover/focus reproduced) |
 | `bwci-system.css` parts A, A2, B, D | Tokens, type scale, buttons, badges, font floors (pruned per page; `system:false` skips it) |
+| `bwci-system.css` parts C, E (`content:true`) | Content-page components and the governance hero, for the `.bw` pages (Governance, …). `.bw` is the widget root (class `<prefix>-bw`), so each selector gains the root id and keeps its class count |
+| `GovNav.dc.html` (`govnav: 'hub' \| 'board' \| 'leadership'`) | Governance section bar: sticky list ≥ 768 px, native select below (matchMedia, as the source), hover/focus as the source's `style-hover` / `style-focus` rules. On the hub the framework item is the in-page `#<prefix>-framework` |
 | `bwci-motion.js` | `siteMotion()`: root-scoped port of the scroll reveal (scans at 300/1200/2600 ms after load) |
 
 Every design `href` maps to a config link key (`HREF_KEYS`). An unknown href fails the build, so a
@@ -36,7 +39,7 @@ Ported pages use their GHL paths: `home` `/`, `financialEngine` `/financial-engi
 
 Everything else defaults to `#` and is listed as **unresolved** in each page README until a live GHL
 URL exists: `whoWeAre`, `whoPurpose`, `whoRole`, `whoPrinciples`, `whoStory`, `leadership`,
-`privateInvestors`, `governance`, `corporateIR`, `contact`, `verify`, `legalPrivacy`, `legalTerms`,
+`privateInvestors`, `governance`, `governanceBoard`, `governanceFramework`, `corporateIR`, `contact`, `verify`, `legalPrivacy`, `legalTerms`,
 `legalCookies`, `legalDisclosures`, `legalAccessibility`, `legalSitemap`. Set them in each page's
 config `links` once the pages exist (no URL is invented here).
 
