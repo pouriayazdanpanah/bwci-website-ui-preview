@@ -10,6 +10,7 @@
 //   Breadcrumb.dc.html  → TRAILS, plus its inline styles (kept inline, as in the source)
 //   bwci-system.css     → parts A, A2, B and D; with content:true also C and E (the .bw content pages)
 //   GovNav.dc.html      → the governance section bar (govnav option), with its own runtime part
+//   PersonCard.dc.html + bwci-people.js + image-slot.js → person cards (people option), with their own runtime part
 // Every design href must map to a config link key (HREF_KEYS below). An unknown href fails the build,
 // so a new design destination cannot slip through without a config key.
 'use strict';
@@ -19,6 +20,7 @@ const path = require('path');
 const DESIGN = path.resolve(__dirname, '../../../design');
 const RUNTIME = path.join(__dirname, 'site-chrome.runtime.js');
 const GOVNAV_RUNTIME = path.join(__dirname, 'site-chrome.govnav.js');
+const PEOPLE_RUNTIME = path.join(__dirname, 'site-chrome.people.js');
 const LOGO = path.join(__dirname, 'assets', 'bwci-logo.png');
 
 // design href → config link key
@@ -105,6 +107,18 @@ function expandIs(css) {
 }
 const stripComments = (css) => css.replace(/\/\*[\s\S]*?\*\//g, '');
 
+/* ---------------- people (design/bwci-people.js, the single source for Board, Leadership and profiles) ---------------- */
+function loadPeople() {
+  const win = { dispatchEvent() {} };
+  // eslint-disable-next-line no-new-func
+  new Function('window', 'Event', read('bwci-people.js'))(win, function Event() {});
+  if (!win.BWCI_PEOPLE || !win.BWCI_PEOPLE.all) throw new Error('bwci-people.js changed; review site-chrome.js');
+  return win.BWCI_PEOPLE;
+}
+const camel = (s) => s.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+// config link key of a person's profile page, e.g. profileFarhadReyazat
+const profileKey = (slug) => camel('profile-' + slug);
+
 module.exports = function siteChrome(opts) {
   const P = opts.prefix;                 // e.g. 'plt'
   const current = opts.current;          // SiteHeader `current` prop, e.g. 'platforms'
@@ -113,6 +127,7 @@ module.exports = function siteChrome(opts) {
   const withSystem = opts.system !== false;  // false for a page that does not load bwci-system.css / bwci-motion.js (Main)
   const withContent = !!opts.content;      // true for a .bw content page: adds bwci-system.css parts C and E
   const govCur = opts.govnav || null;       // GovNav current prop ('hub', 'board', 'leadership'), or null when the page has none
+  const withPeople = !!opts.people;         // true for a page with PersonCard components (Board, Leadership)
   const defaults = Object.assign({}, LINK_DEFAULTS, opts.links || {}); // per-page default routes (e.g. Main's in-page #bwci-impact)
   const L = (k) => 'data-' + P + '-link="' + k + '"';
   const I = (t) => '<span class="' + P + '-i">' + esc(t) + '</span>'; // {{value}} → span.sc-interp in the source runtime
@@ -292,6 +307,38 @@ module.exports = function siteChrome(opts) {
     ].join('\n');
   }
 
+  /* ---------------- person cards (PersonCard; data from bwci-people.js, portrait in an image-slot) ---------------- */
+  const D = withPeople ? loadPeople() : null;
+  let personCard = null;
+  if (withPeople) {
+    const pcSrc = read('PersonCard.dc.html');
+    // the template this mirrors; fail loudly if the component changes
+    ['<div class="gv-card-img">', '<image-slot id="{{ slotId }}" shape="rect" src="{{ photo }}" placeholder="{{ initials }}"></image-slot>',
+      '<div class="gv-card-ov" aria-hidden="true"><span>View profile <span>→</span></span></div>', '<div class="gv-card-t">', '<b>{{ name }}</b>',
+      '<div class="gv-role"><span>{{ r.title }}</span><span>{{ r.entity }}</span></div>', "cls: 'gv-card' + (sm ? ' gv-card--sm' : '')",
+      ".filter(r => r.title || r.entity)", "aria: p.name + ', view profile'"]
+      .forEach((t) => { if (!pcSrc.includes(t)) throw new Error('PersonCard.dc.html changed; review site-chrome.js: ' + t); });
+    // markup of one card, as the source renders it (each {{value}} in span.sc-interp → .<prefix>-i, empty values included)
+    personCard = (slug, from, size) => {
+      const p = D.get(slug);
+      if (!p) throw new Error('Unknown person: ' + slug);
+      if (encodeURI(p.file) !== D.href(p, '')) throw new Error('bwci-people.js href rule changed; review site-chrome.js');
+      const roles = p.roles.map((r) => ({ title: r.title || '', entity: r.entity || '' })).filter((r) => r.title || r.entity);
+      return [
+        '<a href="#" aria-label="' + esc(p.name + ', view profile') + '" class="gv-card' + (size === 'sm' ? ' gv-card--sm' : '') + '" ' + L(profileKey(slug)) + (from ? ' data-' + P + '-from="' + esc(from) + '"' : '') + '>',
+        '  <div class="gv-card-img">',
+        '    <div class="' + P + '-slot" data-' + P + '-slot="person-' + esc(slug) + '"><div class="' + P + '-slot__frame"><img data-' + P + '-person="' + esc(slug) + '" alt="" draggable="false"></div></div>',
+        '    <div class="gv-card-ov" aria-hidden="true"><span>View profile <span>→</span></span></div>',
+        '  </div>',
+        '  <div class="gv-card-t">',
+        '    <b>' + I(p.name) + '</b>',
+      ].concat(roles.map((r) => '    <div class="gv-role"><span>' + I(r.title) + '</span><span>' + I(r.entity) + '</span></div>'), [
+        '  </div>',
+        '</a>',
+      ]).join('\n');
+    };
+  }
+
   /* ---------------- footer ---------------- */
   const ftSrc = read('SiteFooter.dc.html');
   const F = P + '-sft';
@@ -338,8 +385,10 @@ module.exports = function siteChrome(opts) {
       .replace(/\bbw(HeroIn|MediaIn)\b/g, P + '-bw$1');
     // parts C and E: .bw is the page wrapper, i.e. the widget root (class <prefix>-bw), so every selector keeps
     // the source's class count and gains the root id, which keeps the source's specificity order
-    let partsCE = stripComments(sys.slice(sys.indexOf('/* C — content-page components'))).replace(/\.bw(?![\w-])/g, ':scope.__bw__');
-    partsCE = expandIs(renameClasses(partsCE, (n) => (n === '__bw__' ? P + '-bw' : rename(n)))).replace(/\bbw(HeroIn|MediaIn)\b/g, P + '-bw$1');
+    // the image-slot custom element becomes a plain .<prefix>-slot block (same geometry, see site-chrome.people.js)
+    let partsCE = stripComments(sys.slice(sys.indexOf('/* C — content-page components'))).replace(/\.bw(?![\w-])/g, ':scope.__bw__')
+      .replace(/(^|[\s,>+~(])image-slot(?![\w-])/gm, '$1.__slot__');
+    partsCE = expandIs(renameClasses(partsCE, (n) => (n === '__bw__' ? P + '-bw' : n === '__slot__' ? P + '-slot' : rename(n)))).replace(/\bbw(HeroIn|MediaIn)\b/g, P + '-bw$1');
     const comp = (src) => stripComments(between(src, '<style>', '</style>')).replace(/html\{[^}]*\}\s*/g, '');
     const hdrCss = renameClasses(comp(hdrSrc), (n) => n.replace(/^hdr(?![a-zA-Z0-9])/, H)).replace(/\bhdr(In|Fade|Slide)\b/g, P + '-hdr$1');
     const ftCss = renameClasses(comp(ftSrc), (n) => n.replace(/^sft(?![a-zA-Z0-9])/, F));
@@ -356,6 +405,12 @@ module.exports = function siteChrome(opts) {
     ] : []).concat(withSystem && withContent ? [
       '/* bwci-system.css — parts C, E (content pages; .bw = this widget root) */',
       partsCE.trim(),
+      '',
+    ] : []).concat(withPeople ? [
+      '/* image-slot.js — the custom element\'s own (shadow) styles: host, frame and image; part E positions it in the card */',
+      '.' + P + '-slot{ display:block; position:relative; font:13px/1.3 system-ui,-apple-system,sans-serif; width:100%; height:100%; aspect-ratio:3/2; }',
+      '.' + P + '-slot__frame{ position:absolute; inset:0; overflow:hidden; background:rgba(127,127,127,.08); }',
+      '.' + P + '-slot__frame img{ display:block; position:absolute; max-width:none; left:50%; top:50%; width:100%; height:100%; transform:translate(-50%,-50%); -webkit-user-drag:none; user-select:none; touch-action:none; }',
       '',
     ] : []).concat(govCur ? [
       '/* GovNav.dc.html — the dc-import wrapper, and style-hover / style-focus (the inline styles stay on the elements) */',
@@ -381,7 +436,8 @@ module.exports = function siteChrome(opts) {
   }
 
   /* ---------------- runtime (inlined into the page script) ---------------- */
-  const runtime = (fs.readFileSync(RUNTIME, 'utf8') + (govCur ? '\n' + fs.readFileSync(GOVNAV_RUNTIME, 'utf8') : '')).replace(/__P__/g, P).trim();
+  const runtime = (fs.readFileSync(RUNTIME, 'utf8') + (govCur ? '\n' + fs.readFileSync(GOVNAV_RUNTIME, 'utf8') : '') +
+    (withPeople ? '\n' + fs.readFileSync(PEOPLE_RUNTIME, 'utf8') : '')).replace(/__P__/g, P).trim();
 
   const links = {};
   for (const m of (header + breadcrumb + govnav + footer).matchAll(new RegExp('data-' + P + '-link="([^"]+)"', 'g'))) links[m[1]] = defaults[m[1]];
@@ -394,6 +450,9 @@ module.exports = function siteChrome(opts) {
     unresolved: Object.keys(links).filter((k) => links[k] === '#'),
     dynamicClasses: [H + '--stuck', P + '-motion', F + '__reg'],
     logoPath: LOGO,
+    // person cards: markup function, and per person the profile link key and the portrait file (for the page config)
+    personCard,
+    people: D ? D.all.map((p) => ({ slug: p.slug, name: p.name, linkKey: profileKey(p.slug), photoPath: p.photo ? path.join(DESIGN, p.photo) : null })) : null,
   };
 };
 module.exports.HREF_KEYS = HREF_KEYS;
