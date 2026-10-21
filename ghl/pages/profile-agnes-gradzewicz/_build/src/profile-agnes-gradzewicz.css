@@ -1,0 +1,73 @@
+/* ==========================================================================
+   BWCI - GOVERNANCE PROFILE: AGNES GRADZEWICZ - GoHighLevel port
+   Source of truth: design/Profile Agnes Gradzewicz.dc.html + GovProfile.dc.html (+ the shared site chrome, appended by the build: header,
+   breadcrumb, GovNav, person cards, footer and bwci-system.css parts Aâ€“E, which style almost the whole page).
+   Written UNSCOPED for readability; _build/build.js prefixes every selector with #bwci-profile-agnes-gradzewicz
+   (":scope" = the root, which is also the source's .bw page wrapper) and drops selectors for classes the
+   page never renders. Generic source class names carry a pag- prefix (wrap, sec, sec--line, lead, link, ar).
+   ========================================================================== */
+
+:scope{
+  --brand-ink:#123039; --brand-slate:#16323B; --brand-teal:#1D4A54;
+  --accent-emerald:#12836B; --accent-emerald-dark:#0D6E59; --accent-gold:#B98F2D; --accent-gold-dark:#9E7720; --accent-blue:#3D5A80;
+  --surface-canvas:#FFFFFF; --surface-subtle:#F7F9F8; --surface-cloud:#EFF3F1; --surface-dark:#123039; --surface-dark-elevated:#1D4A54;
+  --text-primary:#123039; --text-secondary:#42585E; --text-muted:#5C7075; --text-disabled:#A0B0B4; --text-inverse:#FFFFFF; --text-inverse-muted:#A8C2C8;
+  --border-subtle:#E2E9E6; --border-default:#D5E0DC; --border-strong:#8A9E99; --border-inverse:#2D5964;
+  --status-op-mark:#12836B; --status-op-text:#0D6E59; --status-op-border:#A3D9C9; --status-op-bg:#E8F5F1;
+  --status-dev-mark:#B98F2D; --status-dev-text:#7D5B0F; --status-dev-border:#E8C46B; --status-dev-bg:#FDF8EB;
+  --status-pro-mark:#6C8085; --status-pro-text:#384C51; --status-pro-border:#BDCCD0; --status-pro-bg:#F0F4F5;
+  --rel-partner-mark:#3D5A80; --rel-partner-text:#253B57; --rel-partner-border:#A8BDD7; --rel-partner-bg:#EFF4FA;
+  --radius-sm:2px; --radius-md:4px; --radius-lg:8px; --radius-full:9999px;
+  --shadow-card:0 1px 3px rgba(18,48,57,.04), 0 1px 2px rgba(18,48,57,.02);
+  --shadow-elevated:0 4px 12px rgba(18,48,57,.08), 0 2px 4px rgba(18,48,57,.04);
+  --font-sans:'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  --container:1280px; --container-wide:1440px;
+  --e:cubic-bezier(.2,.8,.2,1);
+  --t-micro:180ms; --t-comp:250ms; --t-diag:500ms; --t-sys:800ms;
+}
+/* source: *{box-sizing:border-box} -- pseudo-elements stay content-box, as in the source */
+:scope, :scope *{ box-sizing:border-box; }
+/* source body + page wrapper .bw (width:100%; min-height:100vh; background; overflow-x:clip) */
+:scope{
+  display:block; position:relative; width:100%; min-height:100vh; margin:0; padding:0;
+  overflow-x:hidden; overflow-x:clip; /* clip keeps the sticky header working; hidden is the pre-2022 fallback */
+  background:var(--surface-canvas); color:var(--text-primary); font-family:var(--font-sans);
+  font-size:max(15px,var(--fs-floor-body,0px)); font-weight:400; font-style:normal; line-height:1.65; letter-spacing:normal; word-spacing:normal;
+  text-align:left; text-transform:none; text-shadow:none; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  -webkit-text-size-adjust:100%; text-size-adjust:100%;
+}
+/* Defensive resets: neutralise host-page (GoHighLevel/Bootstrap/normalize) element styling so the
+   widget renders like the standalone source. The source's own element rules follow and win ties. */
+:is(h1,h2,h3,h4,h5,h6){ margin:0; padding:0; font-weight:700; line-height:inherit; letter-spacing:normal; text-transform:none; text-align:inherit; background:none; border:0; }
+:is(p,li,span,a,small,b,strong,em,i,article,label,option){ font-family:inherit; font-size:inherit; line-height:inherit; letter-spacing:inherit; text-transform:inherit; text-align:inherit; color:inherit; }
+:is(p){ margin:0; padding:0; }
+:is(a){ background:none; text-decoration:none; }
+:is(img){ max-width:none; border:0; }
+:is(ul,ol){ margin:0; padding:0; list-style:none; }
+:is(li){ margin:0; padding:0; }
+:is(li)::marker{ content:none; }
+:is(section,header,footer,nav,aside,article,main){ display:block; margin:0; padding:0; border:0; }
+:is(label){ margin:0; font-weight:inherit; }
+:is(b,strong){ font-weight:bolder; }
+:is(svg){ vertical-align:baseline; }
+:is(button){
+  font-size:13.3333px; font-weight:400; font-style:normal; line-height:normal; letter-spacing:normal; text-transform:none;
+  text-indent:0; text-shadow:none; margin:0; border-radius:0; box-shadow:none; min-width:auto; min-height:auto; max-width:none; width:auto; height:auto;
+  -webkit-appearance:none; appearance:none;
+}
+:is(select){ margin:0; max-width:none; height:auto; line-height:normal; letter-spacing:normal; text-transform:none; box-shadow:none; }
+[hidden]{ display:none !important; }
+
+/* source page <style> */
+h1,h2,h3,h4,h5{ margin:0; color:var(--text-primary); } p{ margin:0; } ul,ol{ margin:0; padding:0; list-style:none; }
+a{ color:var(--accent-emerald-dark); text-decoration:none; } a:hover{ color:var(--brand-ink); }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{ outline:2px solid var(--accent-emerald); outline-offset:2px; }
+[id]{ scroll-margin-top:calc(var(--nav-h, 116px) - var(--util-h, 40px) + 16px); }
+/* mobile type floors â€” mirrors bwci-system.css A2 */
+:scope{ --fs-floor-sm:0px; --fs-floor-body:0px; }
+@media (max-width:767px){ :scope{ --fs-floor-sm:14px; --fs-floor-body:16px; } }
+/* source: .bw{visibility:hidden} until bwci-system.css loads (2.5 s failsafe). Not needed: the system CSS is
+   inline in this block, so it is always applied with the markup. */
+
+:is(dl,dt,dd){ margin:0; padding:0; font:inherit; color:inherit; text-transform:inherit; letter-spacing:inherit; }
