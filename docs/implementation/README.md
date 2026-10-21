@@ -14,20 +14,9 @@ This guide turns a finished Claude Design page in design/ into one pasteable GoH
 
 ## Pages awaiting a GHL port
 
-The October 2026 export added these production pages, which have no GHL port yet. Each needs its own brief in pages/<slug>.md (from page-template.md) and its own feat/ghl-<slug> branch:
+The current October 2026 export has **16 production pages**, all with a GHL implementation, including the Christie profile delivered in this PR. No production page in this export remains awaiting a port. A new page added by a future design import needs a fresh brief and its own branch as described above.
 
-- One profile page importing SiteHeader, GovProfile and SiteFooter: Profile Christie Osarenren.dc.html.
-
-A generated port does not establish a live GHL URL. Governance and profile routes remain configurable; keys without known published destinations default to "#" and are listed as unresolved in each page README. design/Main v1 (archive).dc.html is an archived earlier homepage, not a page to port.
-
-## Profiles delivered in the next 22 October 2026 review batch
-
-These two implementations were requested together and prepared independently from main `0014375`, one page per branch/PR. Their linked delivery records contain hosted/inline blocks, original assets, configuration, source coverage and current local QA. PR merge state and published GHL installation are separate checks. A checkout may contain only its own new profile until both PRs are merged.
-
-- Ewa Dudek: [implementation README](https://github.com/pouriayazdanpanah/bwci-website-ui-preview/blob/aceed52235b291aede738401a123c08c4fe992f4/ghl/pages/profile-ewa-dudek/README.md), `feat/ghl-profile-ewa-dudek`. Source role Operational Manager; no biography; default Leadership.
-- Agnes Gradzewicz: [implementation README](https://github.com/pouriayazdanpanah/bwci-website-ui-preview/blob/c1c94a8b7d0df5cef4913f340135feee4744aa40/ghl/pages/profile-agnes-gradzewicz/README.md), `feat/ghl-profile-agnes-gradzewicz`. Source role Chief Marketing Officer; no biography; default Leadership.
-
-Both PRs carry this identical inventory update so the shared documentation agrees. Neither profile runtime depends on the other new folder, and neither changes the shared renderer. Links use immutable implementation commits. Gabriella/Richard PRs #23/#24 were confirmed merged before starting this batch.
+Implementation, merge and publication are separate states. A generated block or merged PR does not establish a live GHL URL. Unconfirmed governance/profile routes stay configurable and default to "#" until the published destinations are verified. `design/Main v1 (archive).dc.html` is an archive, `Before After.dc.html` is a QA canvas, and the shared component files are not additional production pages.
 
 ## Completed ports
 
@@ -46,6 +35,10 @@ Both PRs carry this identical inventory update so the shared documentation agree
 
 - Gabriella Karlova: ghl/pages/profile-gabriella-karlova/README.md. Hosted/inline profile outputs; no biography, two roles, default Board. Merged through PR #23.
 - Professor Richard A. Werner: ghl/pages/profile-richard-werner/README.md. Hosted/inline profile outputs; four biography paragraphs, no role line, default Leadership. Merged through PR #24.
+
+- Ewa Dudek: ghl/pages/profile-ewa-dudek/README.md. Hosted/inline profile outputs; Operational Manager role, no biography, default Leadership. Merged through PR #25.
+- Agnes Gradzewicz: ghl/pages/profile-agnes-gradzewicz/README.md. Hosted/inline profile outputs; Chief Marketing Officer role, no biography, default Leadership. Merged through PR #26.
+- Christie Osarenren: ghl/pages/profile-christie-osarenren/README.md. Hosted/inline outputs generated from _build/src/; Senior Market Strategy & Research Analyst role, no biography, default Leadership. Delivered in this PR from main `b954288`; published GHL NOT VERIFIED.
 
 The completed-page README is the source of maintenance instructions; no duplicate brief is kept under docs/implementation/pages/. design/SiteHeader.dc.html, design/SiteFooter.dc.html, design/Breadcrumb.dc.html, design/GovNav.dc.html, design/GovProfile.dc.html and design/PersonCard.dc.html are shared source components. design/Before After.dc.html is a visual comparison/QA canvas, not a production website page.
 
