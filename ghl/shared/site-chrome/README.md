@@ -69,3 +69,19 @@ config `links` once the pages exist (no URL is invented here).
    `main*.ghl.html` files by hand, keeping them identical.
 3. Re-run `qa/chrome-behaviour.js` (source vs port) and `qa/chrome-lifecycle.js <slug> <prefix> <base>
    [rootId] [configId]` for each page.
+
+## Profile ports (development only)
+
+`site-chrome.profile.js` consumes the actual `design/GovProfile.dc.html` template and `bwci-people.js`, using the existing chrome generator for header/footer, Breadcrumb, GovNav, cards and system CSS. It expands the five profile loops at build time, preserves empty source fields and source copy, excludes the current person from related Board cards, and returns `hero`, `biography`, `related`, `chrome`, `runtime` and `imageSlugs`.
+
+```js
+const profile = require('../../../shared/site-chrome/site-chrome.profile')({
+  slug: 'farhad-reyazat', prefix: 'pfr', rename: pageClassRename,
+});
+```
+
+The existing chrome generator accepts opt-in `breadcrumb: 'gov-profile', profile: {name, via}` to produce the source's four-item profile trail. Existing breadcrumb options and all nine previous page outputs are unchanged; the profile's `_build/shared-regression.js` compares generated markup, CSS, runtime, routes and cards against base `05e32a1`. `loadPeople()` is exported only for development generators.
+
+`site-chrome.profile.runtime.js` is inlined by the page build. It selects Board/Leadership breadcrumb and GovNav from `?from=`, using Board membership for the default, before applying route config and binding GovNav. It implements the source's 6px mouse-drag threshold, pointer capture, click suppression and cleanup. Native touch scrolling/snap remains in the source system CSS. Each person keeps a separate page folder, editable `_build/src/` files, prefix/root/config and hosted/inline outputs; neither shared profile file is fetched in GHL.
+
+First consumer: `ghl/pages/profile-farhad-reyazat/README.md`, including current local browser evidence, actual route/image configuration and publication limits. These additions do not require rebuilding unrelated completed ports.

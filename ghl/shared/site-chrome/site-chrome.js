@@ -223,7 +223,11 @@ module.exports = function siteChrome(opts) {
     const bcSrc = read('Breadcrumb.dc.html');
     const bcScript = between(bcSrc, 'data-dc-script', '</script>');
     const C = constants(bcScript, ['HOME', 'HIW', 'INV', 'GOV', 'TRAILS']);
-    const t = C.TRAILS[crumb];
+    const t = crumb === 'gov-profile' && opts.profile
+      ? [C.HOME, C.GOV, opts.profile.via === 'board'
+        ? ['Board of Directors', 'Governance%20Board.dc.html']
+        : ['Leadership', 'Governance%20Leadership.dc.html'], [opts.profile.name || '']]
+      : C.TRAILS[crumb];
     if (!t) throw new Error('No breadcrumb trail for ' + crumb);
     const style = (re) => { const m = re.exec(bcSrc); if (!m) throw new Error('Breadcrumb style not found: ' + re); return m[1]; };
     const sNav = style(/<nav aria-label="Breadcrumb" style="([^"]*)"/);
@@ -457,3 +461,6 @@ module.exports = function siteChrome(opts) {
 };
 module.exports.HREF_KEYS = HREF_KEYS;
 module.exports.LINK_DEFAULTS = LINK_DEFAULTS;
+
+// Development-only data access for the reusable profile generator.
+module.exports.loadPeople = loadPeople;

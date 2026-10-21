@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-21",
+  "environment": "Local installed Chrome via development Playwright; published GHL NOT VERIFIED",
+  "base": "05e32a1",
+  "responsiveWidths": [
+    320,
+    360,
+    375,
+    390,
+    430,
+    768,
+    1024,
+    1280,
+    1366,
+    1440,
+    1600,
+    1920,
+    2560
+  ],
+  "baselineViewportHeight": 900,
+  "pixelChannelThreshold": 24,
+  "horizontalOverflow": false,
+  "sourcePortDocumentHeightsEqual": true,
+  "domStyleComparisons": [
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "from": "direct",
+      "differences": 0
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "from": "leadership",
+      "differences": 0
+    }
+  ],
+  "extraViewports": [
+    [
+      390,
+      600
+    ],
+    [
+      1440,
+      600
+    ],
+    [
+      1440,
+      1200
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      1440,
+      900
+    ]
+  ],
+  "extraPhoneFirstDifferencePercent": 0.09044,
+  "extraPhoneFirstDifferenceReason": "Source Biography heading remained hidden after its asynchronous global motion scan; port heading visible",
+  "extraPhoneSourceRecheckDifferencePercent": 0.00326,
+  "sourceAndPortBehaviorAssertions": "PASS",
+  "mouseDragScrollPx": 170,
+  "touchSwipeScrollPx": 170,
+  "configuredNavigationAndLifecycle": "PASS",
+  "hostileHostWidths": [
+    390,
+    1440
+  ],
+  "deferredMarkupAndRepeatedBootstrap": "PASS",
+  "googleFontsLoaded": [
+    "JetBrains Mono",
+    "Plus Jakarta Sans"
+  ],
+  "acceptancePageErrors": [],
+  "acceptanceNetworkFailures": [],
+  "existingChromeGenerationRegression": "PASS for all 9 previous pages",
+  "deterministicBuild": "PASS",
+  "designModified": false,
+  "remaining": [
+    "Actual GHL publication and host wrapper QA NOT VERIFIED",
+    "Actual Governance and related profile URLs unresolved",
+    "6 other profile ports remain outside this PR"
+  ],
+  "baselineMaxPixelDifferencePercent": 0.003259
+}
