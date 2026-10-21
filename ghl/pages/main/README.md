@@ -1,84 +1,154 @@
 # Main (Homepage) — GoHighLevel port
 
 GoHighLevel (GHL) **Website Builder → Custom Code** version of the Claude Design page
-`Main.dc.html` (published at the site root as `index.html`). The Claude Design export in the
-design/ folder is the reference; everything GHL-specific for this page lives here.
+`design/Main.dc.html` (published at the site root as `index.html`), including the shared
+`design/SiteHeader.dc.html` and `design/SiteFooter.dc.html` components it imports. The Claude Design
+export in design/ is the reference; everything GHL-specific for this page lives here.
 
 ```
 ghl/pages/main/
-├── main.ghl.html                  ← production block (hosted hero image)        ~165 KB
-├── main.inline.ghl.html           ← self-contained block (hero image embedded)   ~780 KB
-├── assets/bwci-hero-globe.webp    ← hero globe, 1448×1086 RGBA webp (upload this to GHL)
+├── main.ghl.html          ← production block (hosted images)                      ~205 KB
+├── main.inline.ghl.html   ← self-contained block (all images embedded as data URIs) ~4.7 MB
+├── assets/                ← images to upload to GHL Media Storage (see below)
+├── qa/                    ← development-only QA scripts (not part of the paste)
 └── README.md
 ```
 
-These two files are the Main page blocks that were built and tested earlier, added to the
-repository as-is. The two blocks are identical except for the hero image: the inline one has
-it embedded and an empty `"heroGlobeImage"`. This page has no `_build/` folder; edit the
-`.ghl.html` files directly and keep both variants in sync.
+This page has no `_build/` folder: edit the two `.ghl.html` files directly and keep them identical
+except for the image values in the config block (the inline file embeds them). The header, drawer and
+footer markup/CSS/JS in both files came from the shared generator in `ghl/shared/site-chrome/`
+(see that folder), so a header/footer change in design/ should be made there first and then copied
+into these files.
+
+## Source coverage
+
+The page was re-ported in full from the current export (the previous port matched an older design
+with different sections and ids). Source dependencies inspected and replaced:
+
+| Source | Port |
+|---|---|
+| `Main.dc.html` markup, `<style>`, `text/x-dc` logic | Scoped markup and CSS under `#bwci-main-page` (class prefix `bw-`, ids `bwci-*`); the `text/x-dc` state is re-implemented in native JS |
+| `SiteHeader.dc.html` (utility bar, main nav, 4 dropdowns, mobile drawer with accordions, sticky state) | Shared chrome runtime (same links, labels, timings, keyboard model) |
+| `SiteFooter.dc.html` (columns, regulatory text, legal line, bottom links) | Shared chrome footer; legal wording in config `footer` |
+| `bwci-system.css`, `bwci-motion.js` | Not loaded by `Main.dc.html` (its tokens and type scale are in the page's own `<style>`), so neither is included; the page's own `.rv` reveal is ported |
+| `image-slot.js` + `image-slots.state.json` (`home-who-photo`, `home-impact-1…4`) | Static images in `.bw-slot` frames that reproduce the slot's saved crop (size %, centre offset, cover at scale 1), recomputed on load and resize |
+| `assets/home-hero-port.png`, `assets/people/*` | `assets/` here, configured by URL |
+| `support.js`, React | Removed |
+
+Sections, in source order: hero (`#bwci-hero`, with the key-facts strip), problem (`#bwci-problem`),
+need (`#bwci-need`), the financial-engine loop (`#bwci-engine`), platforms by status (`#bwci-platforms`),
+impact (`#bwci-impact`), audiences (`#bwci-audiences`), leadership (`#bwci-leadership`), today
+(`#bwci-today`), closing CTA (`#bwci-cta`), then the footer. Other pages' configs link to
+`/#bwci-impact`, `/#bwci-today` and `/#bwci-cta`, so keep these ids stable.
+
+### Interactions ported
+
+- **Header/drawer** (shared chrome): hover-intent dropdowns on fine pointers (160 ms close delay),
+  click/keyboard dropdowns (ArrowDown/Up/Home/End, Escape returns focus, outside click closes), sticky
+  bar after the utility strip scrolls away, mobile drawer below 1280 px with accordions, focus trap,
+  Escape, and a body scroll lock that restores the host's own `overflow` value.
+- **Hero key facts:** mouse hover, keyboard `:focus-visible` and click/tap select a fact; leaving the
+  strip clears it; a second tap on touch closes it.
+- **Engine loop:** node buttons and prev/next (wrapping) switch the step; progress ring `--p`; at
+  ≥ 1024 px picking a step scrolls the detail card fully into view (smooth, or instant under reduced
+  motion); below that the steps are an accordion.
+- **Platforms by status:** filter tabs re-render the cards with the source's index-keyed reuse (kept
+  cards stay in place, new ones animate in), counts and the "showing" label update; the tab strip
+  shows edge arrows when it overflows, drags with the mouse, and keeps the picked tab in view.
+- **Impact cards:** open 70 ms after hover, immediately on click/focus/tap.
+- **Reveal on scroll** (`.rv`, IntersectionObserver, `0px 0px -8% 0px`, 0.08).
+- **In-page anchors** scroll smoothly (instant under reduced motion).
+- **Reduced motion:** ticker stops, no reveal/entrance animation, all content and controls visible.
 
 ## Installation in GoHighLevel
 
-1. Upload `assets/bwci-hero-globe.webp` to **Media Storage** and copy its URL.
-2. Open `main.ghl.html`. The **first block** is the configuration: paste the image URL into
-   `"heroGlobeImage"` and set the `"links"`.
-3. In the GHL page, add a section → **full width**, no padding/margins, one row/column with no
+1. Upload to **Media Storage** and copy each URL:
+   `assets/home-hero-port.png` (1448×1086), `assets/home-who-photo.webp` (1200×600),
+   `assets/home-impact-1.webp` … `home-impact-4.webp`, `assets/alexander-alegria-saif.jpg`,
+   `assets/farhad-reyazat.jpg`, `assets/gabriella-karlova.webp`, and the logo
+   `ghl/shared/site-chrome/assets/bwci-logo.png`.
+2. Open `main.ghl.html`. The **first block** is the configuration: paste the URLs into `heroImage`,
+   `images.*` and `logoImage`, and set the `links`.
+3. In the GHL page add a **full-width** section with no padding/margins, one row/column with no
    padding, and a **Custom Code** element in it.
 4. Paste the **entire** file (config block, font `<link>` tags, `<style>`, markup, `<script>`).
 5. Check the **published** page (GHL does not run custom-code scripts in the editor canvas).
 
-`main.inline.ghl.html` works without steps 1–2, but it is ~780 KB.
+`main.inline.ghl.html` works without steps 1–2 but is ~4.7 MB; GHL may reject or slow down a paste
+that large, so use it for previews only. A placeholder (`REPLACE-WITH…`) URL is never requested: that
+image simply stays empty until a real URL is set.
 
 ## Configuration — the JSON block at the top of the paste
 
 ```html
 <script type="application/json" id="bwci-main-config">
-{
-  "heroGlobeImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/bwci-hero-globe.webp",
-  "showHeader": true,
-  "links": { "home": "#bwci-hero", "financialEngine": "/financial-engine", … }
-}
+{ "heroImage": "…", "images": { … }, "logoImage": "…", "showHeader": true, "showFooter": true,
+  "footer": { … }, "links": { … } }
 </script>
 ```
 
 | Key | Default | Used by |
 |---|---|---|
-| `heroGlobeImage` | placeholder URL | Hero globe (replace before publishing, otherwise the browser requests the placeholder URL) |
-| `showHeader` | `true` | `false` removes the built-in header (e.g. when a GHL global header is used) |
-| `links.home` | `#bwci-hero` | Header + drawer logo |
-| `links.financialEngine` | `/financial-engine` | "The Financial Engine" (dropdown, drawer), "Explore" |
-| `links.ecosystem` | `/ecosystem` | "Ecosystem Topology" (dropdown, drawer), "Explore the ecosystem" |
-| `links.platforms` | `/platforms` | "Platforms & Institutions" (header, drawer), "View platform status" |
-| `links.smes` | `/smes-projects` | "SMEs & Projects" (header, drawer, footer), "I’m an SME or project", SME route card |
-| `links.investors` | `/investors-partners` | "Investors & Partners" (header, drawer, footer), "I’m an investor or partner", partner route card |
-| `links.capabilities` | `#` | "View all capabilities" |
-| `links.leadership` | `#` | Leadership card (trust section) |
-| `links.corporate` | `#` | Corporate card (trust section) |
-| `links.ctaSme` | `#` | Final CTA "SME / Project" |
-| `links.ctaInvestor` | `#` | Final CTA "Investor / Partner" |
-| `links.ctaCorporate` | `#` | Final CTA "Corporate Information" |
-| `links.ctaVerify` | `#` | Final CTA "Verify a Communication" |
+| `heroImage` | placeholder | Hero visual |
+| `images.whoPhoto`, `images.impact1…4` | placeholder | Need photo, impact cards (image-slot frames) |
+| `images.leaderAlexander`, `leaderFarhad`, `leaderGabriela` | placeholder | Leadership cards |
+| `logoImage` | placeholder | Header, drawer and footer logo |
+| `showHeader` / `showFooter` | `true` | `false` removes the built-in header / footer (e.g. when a GHL global one is used) |
+| `footer.regulatoryLine` | `""` | Optional regulatory sentence above the footer legal line |
+| `footer.registeredJurisdiction`, `companyNumber`, `registeredOffice` | `""` | Optional parts of the footer legal line (omitted while empty, as in the source) |
+| `links.home` | `/` | Logos |
+| `links.financialEngine` | `/financial-engine` | Nav, drawer, footer, engine section |
+| `links.ecosystem` | `/ecosystem` | Nav, drawer, footer |
+| `links.platforms` | `/platforms` | Nav, drawer, footer |
+| `links.platformsDirectory` | `/platforms#plt-directory` | Platform cards, "View the directory" |
+| `links.platformsRegisters` | `/platforms#plt-registers` | Registers link |
+| `links.smes`, `links.smesProcess`, `links.smesEngage` | `/smes-projects`, `…#sme-process`, `…#sme-engage` | SME nav and audience links |
+| `links.investors`, `links.investorsRoute`, `links.investorsEngage` | `/investors-partners`, `…#inv-route`, `…#inv-engage` | Investor nav and audience links |
+| `links.impact`, `links.today` | `#bwci-impact`, `#bwci-today` | Nav "Impact" / "Today" (same-page anchors here) |
+| `links.whoWeAre`, `whoPurpose`, `whoRole`, `whoPrinciples`, `whoStory` | `#` | "Who we are" menu — **unresolved** |
+| `links.leadership` | `#` | Nav, leadership cards and link — **unresolved** |
+| `links.governance`, `governanceBoard`, `governanceCommittees`, `governanceCapital`, `governanceRisk`, `governancePerimeter` | `#` | Governance menu and "today" links — **unresolved** |
+| `links.privateInvestors`, `corporateIR`, `contact`, `verify` | `#` | Nav, CTA, footer — **unresolved** |
+| `links.legalPrivacy`, `legalTerms`, `legalCookies`, `legalDisclosures`, `legalAccessibility`, `legalSitemap` | `#` | Footer bottom links — **unresolved** |
 
-Keys left as `#` still need real destinations. Links to sections on this page are fixed and not
-in the config.
+**Unresolved routes:** the design links these to pages that are not ported to GHL yet (Governance,
+Governance Board, Governance Leadership, the profile pages) or that do not exist in the export
+(who-we-are, private investors, corporate/IR, contact, verify, legal pages). They stay `#` until the
+live GHL URLs exist; no URL has been invented for them.
 
-## Section ids other pages link to
+## QA (local headless Chromium — not a published GHL page)
 
-The Financial Engine block's default links point here, so keep these ids stable:
+Source `design/Main.dc.html` served locally vs the port inside a plain host page
+(`qa/make-previews.js`):
 
-`#bwci-hero`, `#bwci-problem`, `#bwci-what`, `#bwci-engine`, `#bwci-different`,
-`#bwci-ecosystem`, `#bwci-platforms`, `#bwci-frontdoors`, `#bwci-trust`, `#bwci-cta`.
+- **Pixel comparison** (`qa/shootv.js` + `qa/diff.py`, full page, reduced motion, viewport-stitched to
+  avoid resize side-effects on the `svh`-sized hero): 0 % differing pixels at 320, 360, 390, 430,
+  1280, 1366, 1440, 1600, 1920 and 2560 px; 375 px 0.36 % (sub-pixel image resampling in the impact
+  cards, identical boxes); 768 and 1024 px ≈ 0.02 % (backdrop-blur rasterisation behind the facts strip).
+- **DOM/computed-style walk** (`qa/domdiff.js`, every section + header + footer): 0 differences at all 13
+  widths, and at 320×640, 390×844, 768×1024, 1024×600, 1440×1100, 1920×700 and 2560×1440.
+- **Behaviour trace** (`qa/behaviour.js`: facts, engine, tabs/cards/drag/arrows, impact, anchors, touch
+  at 390/320, reduced motion) identical to the source, except the one intentional difference below.
+- **Shared chrome** (`ghl/shared/site-chrome/qa/chrome-behaviour.js`): header/dropdown/drawer/sticky/
+  footer trace identical to the source.
+- **Lifecycle** (`chrome-lifecycle.js main bw <base> bwci-main-page bwci-main-config`): config keys,
+  `showHeader/showFooter:false`, footer wording, link overrides, broken JSON fallback, placeholders not
+  requested, hostile host (aggressive global CSS, content above/below, `<section>` wrapper, the script
+  executed twice → one instance, no horizontal overflow, host styles do not leak in), widget re-render
+  (re-attaches, controls work), body overflow restored after the drawer. No console or network errors
+  (Google Fonts are blocked by the local QA proxy only).
+- **Reduced motion:** the same 7 elements as the source are invisible (hover-only fact detail, inactive
+  impact media, leader overlays); all images load once scrolled into view (the leader images are lazy
+  in the source too).
 
-## Shared with other pages
+Run the scripts with `NODE_PATH=$(npm root -g)` from the repository root with a static server on it
+(e.g. `npx http-server -p 8123 -c-1 .`); `node ghl/pages/main/qa/make-previews.js` writes
+`qa/preview/plain.html` and `hostile.html` (git-ignored).
 
-- **Fonts:** the three Google Fonts `<link>` tags after the config block are the reference.
-  `ghl/pages/financial-engine` uses exactly the same tags.
-- **Config pattern:** a JSON block at the top, `data-*-link="key"` on anchors, and flat
-  key → URL links. Financial Engine follows it (`bwci-financial-engine-config`, `data-fe-link`).
-- **Header/footer:** each page includes its own copy of the site header and footer.
+## Intentional differences and limits
 
-## Smoke test (added to the repository)
-
-Rendered in headless Chromium at 320, 390, 768, 1024, 1440 and 1920 px: no JavaScript
-errors and no horizontal overflow at any width, and the hero globe renders. This is a smoke
-test only; there is no pixel comparison against `Main.dc.html` for this page.
+- The source's image slots are editable in Claude Design (`image-slot.js` adds an editor control that
+  takes keyboard focus). The port shows the saved crop as a static image; Tab skips that control.
+- Remaining pixel differences are rasterisation only (see QA); no layout difference was found.
+- The inline variant is ~4.7 MB; publish with the hosted variant.
+- QA was local; installation in a published GHL page has not been verified.
