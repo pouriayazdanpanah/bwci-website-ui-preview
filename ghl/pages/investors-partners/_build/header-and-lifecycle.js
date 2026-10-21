@@ -1,4 +1,4 @@
-// Dev-only QA for the port: header interactions, duplicate init, GHL-style re-render, reduced motion.
+// Dev-only QA for the port: duplicate init, GHL-style re-render, reduced motion.
 //   NODE_PATH=$(npm root -g) node header-and-lifecycle.js <url>
 const { chromium } = require('playwright');
 // (Investors & Partners copy of ghl/pages/financial-engine/_build/header-and-lifecycle.js)
@@ -9,30 +9,13 @@ const url = process.argv[2];
   const errors = [];
   const res = {};
 
-  /* desktop header */
+  /* page lifecycle (header, drawer, config, hostile host and re-render are covered by
+     ghl/shared/site-chrome/qa/chrome-behaviour.js and chrome-lifecycle.js) */
   {
     const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
     page.on('pageerror', (e) => errors.push(String(e)));
     await page.goto(url, { waitUntil: 'networkidle' });
-    const hdr = () => page.evaluate(() => ({
-      stuck: document.querySelector('.inv-hdr').classList.contains('inv-hdr--stuck'),
-      dd: !document.querySelector('[data-inv-dd-panel]').hidden,
-      hostTop: Math.round(document.querySelector('.inv-hdr-host').getBoundingClientRect().top),
-      utilH: getComputedStyle(document.getElementById('bwci-investors-partners')).getPropertyValue('--util-h').trim(),
-    }));
-    res.initial = await hdr();
-    await page.locator('.inv-hdr__trigger').hover(); await page.waitForTimeout(100);
-    res.hoverOpen = (await hdr()).dd;
-    await page.mouse.move(700, 600); await page.waitForTimeout(300);
-    res.leaveClosed = !(await hdr()).dd;
-    await page.locator('.inv-hdr__trigger').click(); await page.waitForTimeout(50);
-    await page.mouse.move(10, 890); await page.mouse.down(); await page.mouse.up(); await page.waitForTimeout(250);
-    res.outsideClosed = !(await hdr()).dd;
-    await page.evaluate(() => window.scrollTo(0, 400)); await page.waitForTimeout(200);
-    res.scrolled = await hdr();
-    // instance count after duplicate script execution
     res.instances = await page.evaluate(() => !!window.__bwciInvestorsPartners && document.querySelectorAll('[data-inv-init="true"]').length);
-
     // simulate GHL re-rendering the widget (root replaced by a fresh copy), then scroll
     await page.evaluate(() => {
       const old = document.getElementById('bwci-investors-partners');
@@ -51,27 +34,10 @@ const url = process.argv[2];
     res.rerenderWorks = await page.evaluate(() => document.querySelector('.rt-p__role').textContent + ' / ' + document.querySelector('[data-inv-rt-cta]').textContent);
     await page.close();
   }
-
-  /* mobile drawer */
   {
     const page = await browser.newPage({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
     page.on('pageerror', (e) => errors.push(String(e)));
     await page.goto(url, { waitUntil: 'networkidle' });
-    const d = () => page.evaluate(() => ({
-      open: !document.querySelector('.inv-hdr__drawer').hidden,
-      bodyOverflow: document.body.style.overflow,
-      hiw: !document.querySelector('[data-inv-acc-panel="hiw"]').hidden,
-      gov: !document.querySelector('[data-inv-acc-panel="gov"]').hidden,
-    }));
-    await page.locator('.inv-hdr__burger').tap(); await page.waitForTimeout(350);
-    res.drawerOpen = await d();
-    await page.locator('[data-inv-acc="gov"]').tap(); await page.locator('[data-inv-acc="hiw"]').tap(); await page.waitForTimeout(100);
-    res.accToggled = await d();
-    await page.keyboard.press('Escape'); await page.waitForTimeout(100);
-    res.escClosed = await d();
-    await page.locator('.inv-hdr__burger').tap(); await page.waitForTimeout(300);
-    await page.locator('.inv-hdr__x').tap(); await page.waitForTimeout(100);
-    res.xClosed = await d();
     // hero anchor scrolls smoothly to the operating model
     await page.locator('.inv-hero-btn--ghost').tap(); await page.waitForTimeout(1500);
     res.anchor = await page.evaluate(() => ({ top: Math.round(document.getElementById('inv-participation').getBoundingClientRect().top), hash: location.hash }));

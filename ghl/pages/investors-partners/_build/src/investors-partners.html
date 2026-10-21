@@ -1,83 +1,11 @@
 <div id="bwci-investors-partners">
 
   <!-- ============================================================
-       SITE HEADER  (source: design/SiteHeader.dc.html, current="investors", cta-href="#engage")
+       SITE HEADER  (source: design/SiteHeader.dc.html, current="investors"; shared site chrome)
        Hide it with "showHeader": false in the config block when a
        GoHighLevel global header is used instead.
        ============================================================ -->
-  <div class="inv-hdr-host" data-inv-hdr-host>
-    <header class="inv-hdr" data-inv-hdr>
-      <div class="inv-hdr__util" data-inv-hdr-util>
-        <div class="inv-hdr__in">
-          <a href="/#bwci-trust" data-inv-link="governance">Governance</a>
-          <a href="/#bwci-trust" data-inv-link="corporate">Corporate/IR</a>
-          <a href="#inv-engage">Contact</a>
-        </div>
-      </div>
-      <div class="inv-hdr__bar">
-        <div class="inv-hdr__in">
-          <a class="inv-hdr__logo" href="/" data-inv-link="home" aria-label="BWCI PLC home">
-            <span class="inv-hdr__mark">BW</span>
-            <span class="inv-hdr__name"><span class="inv-hdr__word">BWCI PLC</span><span class="inv-hdr__tag">Better World Capital Investment</span></span>
-          </a>
-          <nav class="inv-hdr__nav" aria-label="Primary">
-            <div class="inv-hdr__dd" data-inv-dd>
-              <button class="inv-hdr__link inv-hdr__trigger" type="button" aria-haspopup="true" aria-expanded="false" data-inv-dd-toggle>How It Works<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-              <div class="inv-hdr__panel" role="menu" data-inv-dd-panel hidden>
-                <a class="inv-hdr__item" role="menuitem" href="/financial-engine" data-inv-link="financialEngine" data-inv-dd-close>
-                  <span><span class="inv-hdr__item-t">The Financial Engine</span><span class="inv-hdr__item-d">The 7-stage operational method</span></span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
-                </a>
-                <a class="inv-hdr__item" role="menuitem" href="/ecosystem" data-inv-link="ecosystem" data-inv-dd-close>
-                  <span><span class="inv-hdr__item-t">Ecosystem Topology</span><span class="inv-hdr__item-d">The 6-layer relational network</span></span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
-                </a>
-              </div>
-            </div>
-            <a class="inv-hdr__link" href="/platforms" data-inv-link="platforms">Platforms &amp; Institutions</a>
-            <a class="inv-hdr__link" href="/smes-projects" data-inv-link="smes">SMEs &amp; Projects</a>
-            <a class="inv-hdr__link" href="#inv-hero" aria-current="page">Investors &amp; Partners</a>
-          </nav>
-          <button class="inv-hdr__burger" type="button" aria-label="Open menu" aria-expanded="false" data-inv-menu-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
-        </div>
-      </div>
-      <div class="inv-hdr__scrim" data-inv-menu-close data-inv-menu-part hidden></div>
-      <aside class="inv-hdr__drawer" role="dialog" aria-modal="true" aria-label="Site menu" data-inv-menu-part hidden>
-        <div class="inv-hdr__dhead">
-          <a class="inv-hdr__logo" href="/" data-inv-link="home" aria-label="BWCI PLC home" data-inv-menu-close>
-            <span class="inv-hdr__mark">BW</span>
-            <span class="inv-hdr__name"><span class="inv-hdr__word">BWCI PLC</span><span class="inv-hdr__tag">Financial Holding</span></span>
-          </a>
-          <button class="inv-hdr__x" type="button" aria-label="Close menu" data-inv-menu-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></button>
-        </div>
-        <div class="inv-hdr__dbody">
-          <div>
-            <button class="inv-hdr__drow" type="button" aria-expanded="true" data-inv-acc="hiw">How It Works<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><line class="inv-hdr__v" x1="12" y1="5" x2="12" y2="19"></line></svg></button>
-            <div class="inv-hdr__sub-wrap" data-inv-acc-panel="hiw">
-              <div class="inv-hdr__sub">
-                <a href="/financial-engine" data-inv-link="financialEngine" data-inv-menu-close><span class="inv-hdr__sub-t">The Financial Engine</span><span class="inv-hdr__sub-d">The 7-stage operational method</span></a>
-                <a href="/ecosystem" data-inv-link="ecosystem" data-inv-menu-close><span class="inv-hdr__sub-t">Ecosystem Topology</span><span class="inv-hdr__sub-d">The 6-layer relational network</span></a>
-              </div>
-            </div>
-          </div>
-          <a class="inv-hdr__drow" href="/platforms" data-inv-link="platforms" data-inv-menu-close>Platforms &amp; Institutions<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
-          <a class="inv-hdr__drow" href="/smes-projects" data-inv-link="smes" data-inv-menu-close>SMEs &amp; Projects<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
-          <a class="inv-hdr__drow" href="#inv-hero" aria-current="page" data-inv-menu-close>Investors &amp; Partners<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
-          <div>
-            <button class="inv-hdr__drow" type="button" aria-expanded="false" data-inv-acc="gov">Governance &amp; Purpose<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><line class="inv-hdr__v" x1="12" y1="5" x2="12" y2="19"></line></svg></button>
-            <div class="inv-hdr__sub-wrap" data-inv-acc-panel="gov" hidden>
-              <div class="inv-hdr__sub">
-                <a href="/#bwci-trust" data-inv-link="governance" data-inv-menu-close><span class="inv-hdr__sub-t">Governance</span></a>
-                <a href="/#bwci-trust" data-inv-link="corporate" data-inv-menu-close><span class="inv-hdr__sub-t">Corporate/IR</span></a>
-                <a href="#inv-engage" data-inv-menu-close><span class="inv-hdr__sub-t">Contact</span></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="inv-hdr__dfoot"><a class="inv-hdr__cta" href="#inv-engage" data-inv-menu-close>Start a Conversation</a></div>
-      </aside>
-    </header>
-  </div>
+<!--chrome:header-->
 
   <!-- ============================================================
        HERO
@@ -87,6 +15,7 @@
     <div class="inv-hero-img" aria-hidden="true"><img data-inv-asset="investorsHeroImage" alt="" width="2017" height="780" decoding="async" fetchpriority="high"></div>
     <div class="inv-hero-inner" style="align-self: stretch">
       <div class="inv-hero-copy" style="max-width: 900px">
+<!--chrome:breadcrumb-->
         <h1 class="inv-h-display" style="max-width: 1000px">Institutional pathways into the real economy</h1>
         <p class="inv-body-lg" style="max-width: 711px">Better World Capital Investments PLC (BWCI) designs the financial architecture that connects institutional capital and specialist capability with productive businesses and projects. This page explains how that works and where you might fit. It is not a fundraising communication.</p>
         <div class="inv-hero-actions">
@@ -172,7 +101,7 @@
     <div class="inv-container dp-grid">
       <div class="dp-head rv">
         <h2 class="inv-h1" style="max-width: 440px">Platforms and capabilities in the ecosystem</h2>
-        <p class="inv-body-lg" style="max-width: 392px">Each of these capabilities may be relevant to how an opportunity is structured, managed, or delivered. Each is shown with its current status.</p><a class="inv-text-link inv-text-link--inv" href="/platforms#plt-directory" data-inv-link="platformsDirectory" style="width: 427px; height: 14px">View the full Platforms &amp; Institutions directory →</a>
+        <p class="inv-body-lg" style="max-width: 392px">Each of these capabilities may be relevant to how an opportunity is structured, managed, or delivered. Each is shown with its current status.</p><a class="inv-text-link inv-text-link--inv" href="/platforms#plt-directory" data-inv-link="platformsDirectory" style="max-width: 427px">View the full Platforms &amp; Institutions directory →</a>
       </div>
       <div class="dp-cards"><!--view:perims--></div>
     </div>
@@ -228,40 +157,9 @@
   </section>
 
   <!-- ============================================================
-       FOOTER  (hide with "showFooter": false when a GoHighLevel global footer is used)
+       FOOTER  (source: design/SiteFooter.dc.html; shared site chrome)
+       Hide it with "showFooter": false when a GoHighLevel global footer is used.
        ============================================================ -->
-  <footer class="inv-footer" data-inv-footer>
-    <div class="inv-container">
-      <div class="inv-footer__grid">
-        <div class="inv-footer__col">
-          <div class="inv-logo" style="margin-bottom:14px"><span class="inv-logo__mark">BW</span><span class="inv-logo__word">BWCI</span></div>
-          <p class="inv-body-sm" style="max-width:280px">Better World Capital Investments — being developed as the Financial Engine of the Better World ecosystem.</p>
-        </div>
-        <div class="inv-footer__col"><h5>Ecosystem</h5><ul>
-          <li><a href="/#bwci-what" data-inv-link="about">About</a></li>
-          <li><a href="/ecosystem" data-inv-link="ecosystem">Our Ecosystem</a></li>
-          <li><a href="/financial-engine" data-inv-link="financialEngine">Financial Engine</a></li>
-          <li><a href="/#bwci-platforms" data-inv-link="capabilities">Capabilities</a></li>
-        </ul></div>
-        <div class="inv-footer__col"><h5>Engage</h5><ul>
-          <li><a href="/smes-projects" data-inv-link="smes">SMEs &amp; Projects</a></li>
-          <li><a href="#inv-hero" aria-current="page">Investors &amp; Partners</a></li>
-          <li><a href="#inv-engage">Start a Conversation</a></li>
-          <li><a href="/#bwci-cta" data-inv-link="verify">Verify a Communication</a></li>
-        </ul></div>
-        <div class="inv-footer__col"><h5>Corporate</h5><ul>
-          <li><a href="/#bwci-trust" data-inv-link="governance">Governance</a></li>
-          <li><a href="/#bwci-trust" data-inv-link="legal">Legal &amp; Documents</a></li>
-          <li><a href="/#bwci-trust" data-inv-link="regulatory">Regulatory Boundaries</a></li>
-          <li><a href="#" data-inv-link="insights">Insights</a></li>
-        </ul></div>
-      </div>
-      <div class="inv-footer__bar">
-        <span>© [ Year ] Better World Capital Investments PLC</span>
-        <span>Status labels as at September 2026 · subject to verification</span>
-        <span>Privacy · Terms · Disclaimers</span>
-      </div>
-    </div>
-  </footer>
+<!--chrome:footer-->
 
 </div>
