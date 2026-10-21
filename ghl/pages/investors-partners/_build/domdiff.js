@@ -10,7 +10,7 @@ const reducedMotion = motionArg === 'motion' ? 'no-preference' : 'reduce';
 const PAIRS = [
   ['#hero', '#inv-hero'], ['#proposition', '#inv-proposition'], ['#participation', '#inv-participation'], ['#methodology', '#inv-methodology'],
   ['#perimeters', '#inv-perimeters'], ['#ecosystem', '#inv-ecosystem'], ['#route', '#inv-route'], ['#engage', '#inv-engage'],
-  ['footer.footer', 'footer.inv-footer'], ['header.hdr', 'header.inv-hdr'],
+  ['footer.sft', 'footer.inv-sft'], ['header.hdr', 'header.inv-hdr'],
 ];
 const PROPS = ['display', 'position', 'font-family', 'font-size', 'font-weight', 'line-height', 'letter-spacing', 'color',
   'background-color', 'background-image', 'opacity', 'transform', 'padding', 'margin', 'border-top-width', 'border-top-style',
@@ -22,7 +22,15 @@ const PROPS = ['display', 'position', 'font-family', 'font-size', 'font-weight',
     const page = await browser.newPage({ viewport: { width, height }, reducedMotion });
     await routeReact(page);
     await page.goto(url, { waitUntil: 'networkidle' });
-    await page.waitForTimeout(800);
+    // settle the shared scroll motion (see shoot.js)
+    await page.waitForTimeout(3000);
+    await page.evaluate(async () => {
+      const step = Math.round(window.innerHeight * 0.6);
+      for (let y = 0; y < document.documentElement.scrollHeight; y += step) { window.scrollTo({ top: y, behavior: 'instant' }); await new Promise((r) => setTimeout(r, 60)); }
+      await new Promise((r) => setTimeout(r, 1800));
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    });
+    await page.waitForTimeout(600);
     const res = {};
     for (const [s, p] of PAIRS) res[s] = await page.evaluate(([sel, props]) => {
       const root = document.querySelector(sel);

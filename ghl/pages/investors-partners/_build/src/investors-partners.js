@@ -10,7 +10,6 @@
 
   /* ======================= BEHAVIOUR (source values) ======================= */
   var OPTIONS = {
-    headerDesktopMin: 1200,   // header switches to burger/drawer below this width
     revealThreshold: 0.15
   };
 
@@ -152,6 +151,8 @@
   var DEFAULT_STATE = { pp: 0, mt: 0, rt: 0 };
   /* VIEW:end */
 
+/*@site-chrome*/
+
   function prefersReducedMotion() {
     return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   }
@@ -199,10 +200,6 @@
     var heroUrl = cfg.investorsHeroImage;
     // the untouched placeholder is skipped so it never produces a 404 request
     if (heroImg && typeof heroUrl === 'string' && heroUrl && heroUrl.indexOf('REPLACE-WITH') === -1) heroImg.src = heroUrl;
-    var hdrHostEl = q('[data-inv-hdr-host]');
-    if (cfg.showHeader === false && hdrHostEl) hdrHostEl.parentNode.removeChild(hdrHostEl);
-    var footerEl = q('[data-inv-footer]');
-    if (cfg.showFooter === false && footerEl) footerEl.parentNode.removeChild(footerEl);
 
     /* ---------- in-page anchors: smooth scroll (source used html{scroll-behavior:smooth}) ---------- */
     on(root, 'click', function (e) {
@@ -220,84 +217,8 @@
       try { if (history.pushState) history.pushState(null, '', '#' + id); } catch (err) { /* sandboxed */ }
     });
 
-    /* ================= SITE HEADER ================= */
-    var header = null;
-    var hdr = q('[data-inv-hdr]');
-    if (hdr) {
-      header = (function () {
-        var util = q('[data-inv-hdr-util]');
-        var dd = q('[data-inv-dd]');
-        var ddToggle = q('[data-inv-dd-toggle]');
-        var ddPanel = q('[data-inv-dd-panel]');
-        var burger = q('[data-inv-menu-open]');
-        var menuParts = qa('[data-inv-menu-part]');
-        var utilH = 0, stuck = false, ddOpen = false, menuOpen = false, prevBodyOverflow = '';
-        var acc = { hiw: true, gov: false };
-
-        function setDd(open) {
-          ddOpen = open;
-          ddToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-          ddPanel.hidden = !open;
-        }
-        function setMenu(open) {
-          if (open === menuOpen) return;
-          menuOpen = open;
-          // source behaviour: lock page scroll while the drawer is open; restored on close/teardown
-          if (open) { prevBodyOverflow = document.body.style.overflow; document.body.style.overflow = 'hidden'; }
-          else { document.body.style.overflow = prevBodyOverflow; }
-          burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-          menuParts.forEach(function (el) { el.hidden = !open; });
-        }
-        function setAcc(key, open) {
-          acc[key] = open;
-          var btn = q('[data-inv-acc="' + key + '"]');
-          var panel = q('[data-inv-acc-panel="' + key + '"]');
-          if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-          if (panel) panel.hidden = !open;
-        }
-        function onScroll() {
-          // Source: stuck = window.scrollY > utilH + 2 (header at page top). Measured relative to the
-          // widget so it stays correct when GHL content sits above it.
-          var s = -root.getBoundingClientRect().top > utilH + 2;
-          if (s !== stuck) { stuck = s; hdr.classList.toggle('inv-hdr--stuck', s); }
-        }
-        function measure() {
-          utilH = util ? util.offsetHeight : 0;
-          root.style.setProperty('--util-h', utilH + 'px');
-          root.style.setProperty('--nav-h', hdr.offsetHeight + 'px');
-          if (window.innerWidth >= OPTIONS.headerDesktopMin && menuOpen) setMenu(false);
-          onScroll();
-        }
-        on(dd, 'mouseenter', function () {
-          clearTimeout(timers.dd);
-          if (window.matchMedia && window.matchMedia('(hover:hover)').matches) setDd(true);
-        });
-        on(dd, 'mouseleave', function () {
-          clearTimeout(timers.dd);
-          timers.dd = setTimeout(function () { setDd(false); }, 160);
-        });
-        on(ddToggle, 'click', function () { setDd(!ddOpen); });
-        qa('[data-inv-dd-close]').forEach(function (el) { on(el, 'click', function () { setDd(false); }); });
-        on(burger, 'click', function () { setMenu(true); });
-        qa('[data-inv-menu-close]').forEach(function (el) { on(el, 'click', function () { setMenu(false); }); });
-        qa('[data-inv-acc]').forEach(function (btn) {
-          on(btn, 'click', function () { var k = btn.getAttribute('data-inv-acc'); setAcc(k, !acc[k]); });
-        });
-        on(document, 'mousedown', function (e) { if (ddOpen && !dd.contains(e.target)) setDd(false); });
-        on(document, 'keydown', function (e) {
-          if (e.key === 'Escape') { if (ddOpen) setDd(false); if (menuOpen) setMenu(false); }
-        });
-        measure();
-        timers.hdrRaf = requestAnimationFrame(measure);
-        return {
-          onScroll: onScroll,
-          measure: measure,
-          destroy: function () { if (menuOpen) setMenu(false); clearTimeout(timers.dd); }
-        };
-      })();
-    } else {
-      root.style.setProperty('--util-h', '0px');
-    }
+    /* ================= SITE HEADER + FOOTER (shared site chrome) ================= */
+    var chrome = siteChrome(root, cfg, on, timers);
 
     /* ================= SCROLL REVEAL (.rv → .rv-in once, 15% visible) ================= */
     var reveals = qa('.rv');
@@ -312,6 +233,9 @@
       reveals.forEach(function (el) { rvIO.observe(el); });
       observers.push(rvIO);
     }
+
+    /* ================= SHARED SCROLL MOTION (design/bwci-motion.js) ================= */
+    var motion = siteMotion(root, { heroId: 'inv-hero', heroSel: '.inv-hero' }, on);
 
     /* ================= 01 PROPOSITION · 03 METHODOLOGY · 06 ROUTE ================= */
     // Source state { pp, mt, rt }. Lists are updated in place, as React reconciled them; the methodology
@@ -392,34 +316,21 @@
       requestAnimationFrame(boot);
       return false;
     }
-    function onScroll() {
-      if (!guardConnected()) return;
-      if (header) header.onScroll();
-    }
-    function onResize() {
-      if (!guardConnected()) return;
-      if (timers.resizeRaf) cancelAnimationFrame(timers.resizeRaf);
-      timers.resizeRaf = requestAnimationFrame(function () {
-        timers.resizeRaf = 0;
-        if (header) header.measure();
-      });
-    }
-    on(window, 'scroll', onScroll, { passive: true });
-    on(window, 'resize', onResize, { passive: true });
-    on(window, 'orientationchange', onResize, { passive: true });
+    // the header keeps its own scroll/resize listeners (shared site chrome); these only detect a re-render
+    on(window, 'scroll', guardConnected, { passive: true });
+    on(window, 'resize', guardConnected, { passive: true });
+    on(window, 'orientationchange', guardConnected, { passive: true });
 
     instance = {
       root: root,
       destroy: function () {
         if (instance.destroyed) return;
         instance.destroyed = true;
-        if (header) header.destroy();
+        if (chrome) chrome.destroy();
+        if (motion) motion.destroy();
         if (ac) ac.abort();
         cleanups.forEach(function (fn) { fn(); });
         observers.forEach(function (o) { o.disconnect(); });
-        clearTimeout(timers.dd);
-        if (timers.resizeRaf) cancelAnimationFrame(timers.resizeRaf);
-        if (timers.hdrRaf) cancelAnimationFrame(timers.hdrRaf);
         delete root.dataset.invInit;
         if (window[INSTANCE_KEY] === instance) window[INSTANCE_KEY] = null;
       }

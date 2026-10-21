@@ -29,19 +29,19 @@ const CFG_RE = /(<script type="application\/json" id="bwci-investors-partners-co
   
   /* config variants */
   await run('default (inline image)', PLAIN, async (page) => ({
-    header: !!(await page.$('#bwci-investors-partners .inv-hdr')), footer: !!(await page.$('#bwci-investors-partners .inv-footer')),
-    img: await page.evaluate(() => { const i = document.querySelector('[data-inv-asset]'); return i.src.slice(0, 22) + ' ' + i.naturalWidth + 'x' + i.naturalHeight; }),
+    header: !!(await page.$('#bwci-investors-partners .inv-hdr')), footer: !!(await page.$('#bwci-investors-partners .inv-sft')),
+    img: await page.evaluate(() => { const i = document.querySelector('[data-inv-asset="investorsHeroImage"]'); return i.src.slice(0, 22) + ' ' + i.naturalWidth + 'x' + i.naturalHeight; }),
     links: (await hrefs(page)).length,
   }));
   await run('hosted placeholder', HOSTED, async (page, reqs) => ({
-    imgSrc: await page.evaluate(() => document.querySelector('[data-inv-asset]').getAttribute('src')),
+    imgSrc: await page.evaluate(() => document.querySelector('[data-inv-asset="investorsHeroImage"]').getAttribute('src')),
     placeholderRequested: reqs.some((u) => u.includes('REPLACE-WITH')),
   }));
   await run('hosted real URL', withCfg(HOSTED, (c) => Object.assign(c, { investorsHeroImage: base.replace(/_build\/preview\/$/, 'assets/inv-hero-flow.png') })), async (page) => ({
-    img: await page.evaluate(() => { const i = document.querySelector('[data-inv-asset]'); return i.getAttribute('src').replace(/^.*\//, '') + ' ' + i.naturalWidth + 'x' + i.naturalHeight; }),
+    img: await page.evaluate(() => { const i = document.querySelector('[data-inv-asset="investorsHeroImage"]'); return i.getAttribute('src').replace(/^.*\//, '') + ' ' + i.naturalWidth + 'x' + i.naturalHeight; }),
   }));
   await run('showHeader/showFooter false', withCfg(PLAIN, (c) => Object.assign(c, { showHeader: false, showFooter: false })), async (page) => ({
-    header: !!(await page.$('#bwci-investors-partners .inv-hdr')), footer: !!(await page.$('#bwci-investors-partners .inv-footer')),
+    header: !!(await page.$('#bwci-investors-partners .inv-hdr')), footer: !!(await page.$('#bwci-investors-partners .inv-sft')),
     utilH: await page.evaluate(() => getComputedStyle(document.getElementById('bwci-investors-partners')).getPropertyValue('--util-h')),
     heroTop: await page.evaluate(() => Math.round(document.getElementById('inv-hero').getBoundingClientRect().top)),
   }));
