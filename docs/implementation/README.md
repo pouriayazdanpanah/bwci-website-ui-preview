@@ -16,18 +16,18 @@ This guide turns a finished Claude Design page in design/ into one pasteable GoH
 
 The October 2026 export added these production pages, which have no GHL port yet. Each needs its own brief in pages/<slug>.md (from page-template.md) and its own feat/ghl-<slug> branch:
 
-- Three profile pages, each importing SiteHeader, GovProfile and SiteFooter: Profile Ewa Dudek, Profile Agnes Gradzewicz and Profile Christie Osarenren (.dc.html).
+- One profile page importing SiteHeader, GovProfile and SiteFooter: Profile Christie Osarenren.dc.html.
 
 A generated port does not establish a live GHL URL. Governance and profile routes remain configurable; keys without known published destinations default to "#" and are listed as unresolved in each page README. design/Main v1 (archive).dc.html is an archived earlier homepage, not a page to port.
 
-## Profiles delivered in the 22 October 2026 review batch
+## Profiles delivered in the next 22 October 2026 review batch
 
-These two implementations were requested together and prepared independently from main `f13cda8`, one page per branch/PR. Their linked delivery records include generated hosted/inline blocks, assets, configuration, source coverage and current local QA. They are implemented review deliverables; actual PR merge state and published GHL installation are separate checks. A checkout may contain only its own page until both PRs are merged.
+These two implementations were requested together and prepared independently from main `0014375`, one page per branch/PR. Their linked delivery records contain hosted/inline blocks, original assets, configuration, source coverage and current local QA. PR merge state and published GHL installation are separate checks. A checkout may contain only its own new profile until both PRs are merged.
 
-- Gabriella Karlova: [implementation README](https://github.com/pouriayazdanpanah/bwci-website-ui-preview/blob/f57c09f0ac06e0691602281e6426e0984f31957b/ghl/pages/profile-gabriella-karlova/README.md), `feat/ghl-profile-gabriella-karlova`. Source has no biography and two roles; default Board context.
-- Professor Richard A. Werner: [implementation README](https://github.com/pouriayazdanpanah/bwci-website-ui-preview/blob/c3162b6f7b5733e623ca1d23830c107e7f3df3c7/ghl/pages/profile-richard-werner/README.md), `feat/ghl-profile-richard-werner`. Source has four biography paragraphs, no role line and default Leadership context.
+- Ewa Dudek: [implementation README](https://github.com/pouriayazdanpanah/bwci-website-ui-preview/blob/aceed52235b291aede738401a123c08c4fe992f4/ghl/pages/profile-ewa-dudek/README.md), `feat/ghl-profile-ewa-dudek`. Source role Operational Manager; no biography; default Leadership.
+- Agnes Gradzewicz: [implementation README](https://github.com/pouriayazdanpanah/bwci-website-ui-preview/blob/c1c94a8b7d0df5cef4913f340135feee4744aa40/ghl/pages/profile-agnes-gradzewicz/README.md), `feat/ghl-profile-agnes-gradzewicz`. Source role Chief Marketing Officer; no biography; default Leadership.
 
-Both PRs carry this same inventory update and the same CRLF build-reader fix so their shared edits agree; neither page runtime depends on the other page's new folder. The links above use immutable implementation commits.
+Both PRs carry this identical inventory update so the shared documentation agrees. Neither profile runtime depends on the other new folder, and neither changes the shared renderer. Links use immutable implementation commits. Gabriella/Richard PRs #23/#24 were confirmed merged before starting this batch.
 
 ## Completed ports
 
@@ -43,6 +43,9 @@ Both PRs carry this same inventory update and the same CRLF build-reader fix so 
 
 - Dr Farhad Reyazat: ghl/pages/profile-farhad-reyazat/README.md. Hosted and inline outputs are generated from _build/src/. Reusable GovProfile markup/context/drag support is in ghl/shared/site-chrome/; one profile handles Board and Leadership entry.
 - Alex Alegria-Seif: ghl/pages/profile-alexander-alegria-saif/README.md. Hosted and inline outputs are generated from _build/src/ using the existing shared profile renderer. The source filename/slug is Alexander Alegria Saif; displayed content follows bwci-people.js.
+
+- Gabriella Karlova: ghl/pages/profile-gabriella-karlova/README.md. Hosted/inline profile outputs; no biography, two roles, default Board. Merged through PR #23.
+- Professor Richard A. Werner: ghl/pages/profile-richard-werner/README.md. Hosted/inline profile outputs; four biography paragraphs, no role line, default Leadership. Merged through PR #24.
 
 The completed-page README is the source of maintenance instructions; no duplicate brief is kept under docs/implementation/pages/. design/SiteHeader.dc.html, design/SiteFooter.dc.html, design/Breadcrumb.dc.html, design/GovNav.dc.html, design/GovProfile.dc.html and design/PersonCard.dc.html are shared source components. design/Before After.dc.html is a visual comparison/QA canvas, not a production website page.
 
