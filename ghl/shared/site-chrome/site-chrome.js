@@ -65,7 +65,8 @@ const LINK_DEFAULTS = {
   legalPrivacy: '#', legalTerms: '#', legalCookies: '#', legalDisclosures: '#', legalAccessibility: '#', legalSitemap: '#',
 };
 
-const read = (f) => fs.readFileSync(path.join(DESIGN, f), 'utf8');
+// Git for Windows may check design files out with CRLF; parser markers use canonical LF.
+const read = (f) => fs.readFileSync(path.join(DESIGN, f), 'utf8').replace(/\r\n?/g, '\n');
 const between = (s, a, b) => { const i = s.indexOf(a); const j = s.indexOf(b, i + a.length); if (i < 0 || j < 0) throw new Error('Marker not found: ' + a); return s.slice(i + a.length, j); };
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 function keyOf(href) { if (!(href in HREF_KEYS)) throw new Error('Design href without a config link key: ' + href); return HREF_KEYS[href]; }
