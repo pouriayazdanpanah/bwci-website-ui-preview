@@ -38,8 +38,8 @@ const hostileCss = `
   .ghl-above{height:300px;background:#223;color:#fff;display:flex;align-items:center;justify-content:center}
 `;
 fs.writeFileSync(path.join(OUT, 'hostile.html'),
-  head + '<style>' + hostileCss + '</style></head><body>\n<div class="ghl-above">GHL content above widget</div>\n<div class="ghl-wrap"><div class="c-custom-code">\n' + block +
-  '\n</div></div>\n<div class="ghl-above">GHL content below widget</div>\n' +
+  head + '<style>' + hostileCss + '</style></head><body>\n<div class="ghl-above">GHL content above widget</div>\n<section class="ghl-wrap"><div class="c-custom-code">\n' + block +
+  '\n</div></section>\n<div class="ghl-above">GHL content below widget</div>\n' +
   // simulate GHL executing the custom-code script a second time
   '<script>' + block.slice(block.lastIndexOf('<script>') + 8, block.lastIndexOf('</script>')) + '</script>\n</body></html>\n');
 console.log('previews written to', OUT);

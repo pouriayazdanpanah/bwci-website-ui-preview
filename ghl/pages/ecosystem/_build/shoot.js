@@ -22,7 +22,23 @@ const reducedMotion = process.argv[6] === 'motion' ? 'no-preference' : 'reduce';
     page.on('pageerror', (e) => errors.push(String(e)));
     await page.goto(url, { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts && document.fonts.ready);
+    // settle the shared scroll motion (bwci-motion.js scans ~0.3/1.2/2.6 s after load): wait for the last
+    // scan, scroll through the page so every tagged block fades in, then return to the top
+    await page.waitForTimeout(3000);
+    // NOSCROLL=1 skips the scroll-through: the loop then never autoplays (it only plays while on screen), which
+    // makes the capture deterministic; blocks the shared motion tagged below the fold stay hidden on both sides
+    if (!process.env.NOSCROLL) await page.evaluate(async () => {
+      const step = Math.round(window.innerHeight * 0.6);
+      for (let y = 0; y < document.documentElement.scrollHeight; y += step) { window.scrollTo({ top: y, behavior: 'instant' }); await new Promise((r) => setTimeout(r, 60)); }
+      await new Promise((r) => setTimeout(r, 1800));
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    });
     await page.waitForTimeout(600);
+    // the loop's SVG dots move on the SMIL timeline (not affected by reduced motion): freeze them at t=0
+    await page.evaluate(() => document.querySelectorAll('svg').forEach((s) => { if (s.pauseAnimations) { s.pauseAnimations(); s.setCurrentTime(0); } }));
+    // infinite decorative CSS animations (flow lines) keep running under reduced motion too: same frame on both sides
+    await page.evaluate(() => document.getAnimations().forEach((an) => { if (an.effect && an.effect.getTiming().iterations === Infinity) { an.pause(); an.currentTime = 0; } }));
+    await page.waitForTimeout(100);
     const info = await page.evaluate(() => ({
       docW: document.documentElement.scrollWidth,
       docH: document.documentElement.scrollHeight,

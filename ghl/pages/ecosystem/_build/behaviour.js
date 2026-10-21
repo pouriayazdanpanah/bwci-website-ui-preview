@@ -46,7 +46,8 @@ async function waitChange(page, prev, ms) {
     page.on('pageerror', (e) => errors.push(String(e)));
     await routeReact(page);
     await page.goto(url, { waitUntil: 'networkidle' });
-    await page.waitForTimeout(500);
+    // after the last scan of the shared scroll motion (~2.6 s after load), so it cannot move things mid-test
+    await page.waitForTimeout(3200);
     return page;
   };
   const clickLoop = (page, sel, i) => page.evaluate(([sel, i]) => {

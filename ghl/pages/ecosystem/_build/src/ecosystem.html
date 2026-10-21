@@ -1,83 +1,11 @@
 <div id="bwci-ecosystem">
 
   <!-- ============================================================
-       SITE HEADER  (source: design/SiteHeader.dc.html, current="ecosystem", cta-href="#engage")
+       SITE HEADER  (source: design/SiteHeader.dc.html, current="ecosystem"; shared site chrome)
        Hide it with "showHeader": false in the config block when a
        GoHighLevel global header is used instead.
        ============================================================ -->
-  <div class="eco-hdr-host" data-eco-hdr-host>
-    <header class="eco-hdr" data-eco-hdr>
-      <div class="eco-hdr__util" data-eco-hdr-util>
-        <div class="eco-hdr__in">
-          <a href="/#bwci-trust" data-eco-link="governance">Governance</a>
-          <a href="/#bwci-trust" data-eco-link="corporate">Corporate/IR</a>
-          <a href="#eco-engage">Contact</a>
-        </div>
-      </div>
-      <div class="eco-hdr__bar">
-        <div class="eco-hdr__in">
-          <a class="eco-hdr__logo" href="/" data-eco-link="home" aria-label="BWCI PLC home">
-            <span class="eco-hdr__mark">BW</span>
-            <span class="eco-hdr__name"><span class="eco-hdr__word">BWCI PLC</span><span class="eco-hdr__tag">Better World Capital Investment</span></span>
-          </a>
-          <nav class="eco-hdr__nav" aria-label="Primary">
-            <div class="eco-hdr__dd" data-eco-dd>
-              <button class="eco-hdr__link eco-hdr__trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-current="page" data-eco-dd-toggle>How It Works<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-              <div class="eco-hdr__panel" role="menu" data-eco-dd-panel hidden>
-                <a class="eco-hdr__item" role="menuitem" href="/financial-engine" data-eco-link="financialEngine" data-eco-dd-close>
-                  <span><span class="eco-hdr__item-t">The Financial Engine</span><span class="eco-hdr__item-d">The 7-stage operational method</span></span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
-                </a>
-                <a class="eco-hdr__item" role="menuitem" href="#eco-hero" aria-current="page" data-eco-dd-close>
-                  <span><span class="eco-hdr__item-t">Ecosystem Topology</span><span class="eco-hdr__item-d">The 6-layer relational network</span></span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
-                </a>
-              </div>
-            </div>
-            <a class="eco-hdr__link" href="/platforms" data-eco-link="platforms">Platforms &amp; Institutions</a>
-            <a class="eco-hdr__link" href="/smes-projects" data-eco-link="smes">SMEs &amp; Projects</a>
-            <a class="eco-hdr__link" href="/investors-partners" data-eco-link="investors">Investors &amp; Partners</a>
-          </nav>
-          <button class="eco-hdr__burger" type="button" aria-label="Open menu" aria-expanded="false" data-eco-menu-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
-        </div>
-      </div>
-      <div class="eco-hdr__scrim" data-eco-menu-close data-eco-menu-part hidden></div>
-      <aside class="eco-hdr__drawer" role="dialog" aria-modal="true" aria-label="Site menu" data-eco-menu-part hidden>
-        <div class="eco-hdr__dhead">
-          <a class="eco-hdr__logo" href="/" data-eco-link="home" aria-label="BWCI PLC home" data-eco-menu-close>
-            <span class="eco-hdr__mark">BW</span>
-            <span class="eco-hdr__name"><span class="eco-hdr__word">BWCI PLC</span><span class="eco-hdr__tag">Financial Holding</span></span>
-          </a>
-          <button class="eco-hdr__x" type="button" aria-label="Close menu" data-eco-menu-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></button>
-        </div>
-        <div class="eco-hdr__dbody">
-          <div>
-            <button class="eco-hdr__drow" type="button" aria-expanded="true" data-eco-acc="hiw">How It Works<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><line class="eco-hdr__v" x1="12" y1="5" x2="12" y2="19"></line></svg></button>
-            <div class="eco-hdr__sub-wrap" data-eco-acc-panel="hiw">
-              <div class="eco-hdr__sub">
-                <a href="/financial-engine" data-eco-link="financialEngine" data-eco-menu-close><span class="eco-hdr__sub-t">The Financial Engine</span><span class="eco-hdr__sub-d">The 7-stage operational method</span></a>
-                <a href="#eco-hero" aria-current="page" data-eco-menu-close><span class="eco-hdr__sub-t">Ecosystem Topology</span><span class="eco-hdr__sub-d">The 6-layer relational network</span></a>
-              </div>
-            </div>
-          </div>
-          <a class="eco-hdr__drow" href="/platforms" data-eco-link="platforms" data-eco-menu-close>Platforms &amp; Institutions<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
-          <a class="eco-hdr__drow" href="/smes-projects" data-eco-link="smes" data-eco-menu-close>SMEs &amp; Projects<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
-          <a class="eco-hdr__drow" href="/investors-partners" data-eco-link="investors" data-eco-menu-close>Investors &amp; Partners<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
-          <div>
-            <button class="eco-hdr__drow" type="button" aria-expanded="false" data-eco-acc="gov">Governance &amp; Purpose<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><line class="eco-hdr__v" x1="12" y1="5" x2="12" y2="19"></line></svg></button>
-            <div class="eco-hdr__sub-wrap" data-eco-acc-panel="gov" hidden>
-              <div class="eco-hdr__sub">
-                <a href="/#bwci-trust" data-eco-link="governance" data-eco-menu-close><span class="eco-hdr__sub-t">Governance</span></a>
-                <a href="/#bwci-trust" data-eco-link="corporate" data-eco-menu-close><span class="eco-hdr__sub-t">Corporate/IR</span></a>
-                <a href="#eco-engage" data-eco-menu-close><span class="eco-hdr__sub-t">Contact</span></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="eco-hdr__dfoot"><a class="eco-hdr__cta" href="#eco-engage" data-eco-menu-close>Start a Conversation</a></div>
-      </aside>
-    </header>
-  </div>
+<!--chrome:header-->
 
   <!-- ============================================================
        HERO
@@ -95,6 +23,7 @@
     </div>
     <div class="eco-hero-inner">
       <div class="eco-hero-copy">
+<!--chrome:breadcrumb-->
         <span class="eco-eyebrow eco-eyebrow--inv">Our Ecosystem</span>
         <h1 class="eco-h-display">A connected economic network, without corporate consolidation.</h1>
         <p class="eco-body-lg">The Better World Ecosystem is designed to connect independent businesses, institutional capital providers, delivery platforms and specialist partners through one shared architecture. Every participant keeps its own ownership, management and identity.</p>
@@ -477,40 +406,9 @@
   </section>
 
   <!-- ============================================================
-       FOOTER  (hide with "showFooter": false in the config block)
+       FOOTER  (source: design/SiteFooter.dc.html; shared site chrome)
+       Hide it with "showFooter": false when a GoHighLevel global footer is used.
        ============================================================ -->
-  <footer class="eco-footer" data-eco-footer>
-    <div class="eco-container">
-      <div class="eco-footer__grid">
-        <div class="eco-footer__col">
-          <div class="eco-logo" style="margin-bottom:14px"><span class="eco-logo__mark">BW</span><span class="eco-logo__word">BWCI</span></div>
-          <p class="eco-body-sm" style="max-width:280px">Better World Capital Investments — being developed as the Financial Engine of the Better World ecosystem.</p>
-        </div>
-        <div class="eco-footer__col"><h5>Ecosystem</h5><ul>
-          <li><a href="/#bwci-what" data-eco-link="about">About</a></li>
-          <li><a href="#eco-hero" aria-current="page">Our Ecosystem</a></li>
-          <li><a href="/financial-engine" data-eco-link="financialEngine">Financial Engine</a></li>
-          <li><a href="/#bwci-platforms" data-eco-link="capabilities">Capabilities</a></li>
-        </ul></div>
-        <div class="eco-footer__col"><h5>Engage</h5><ul>
-          <li><a href="/smes-projects" data-eco-link="smes">SMEs &amp; Projects</a></li>
-          <li><a href="/investors-partners" data-eco-link="investors">Investors &amp; Partners</a></li>
-          <li><a href="/#bwci-cta" data-eco-link="startConversation">Start a Conversation</a></li>
-          <li><a href="/#bwci-cta" data-eco-link="verify">Verify a Communication</a></li>
-        </ul></div>
-        <div class="eco-footer__col"><h5>Corporate</h5><ul>
-          <li><a href="/#bwci-trust" data-eco-link="governance">Governance</a></li>
-          <li><a href="/#bwci-trust" data-eco-link="legal">Legal &amp; Documents</a></li>
-          <li><a href="/#bwci-trust" data-eco-link="regulatory">Regulatory Boundaries</a></li>
-          <li><a href="#" data-eco-link="insights">Insights</a></li>
-        </ul></div>
-      </div>
-      <div class="eco-footer__bar">
-        <span>© [ Year ] Better World Capital Investments PLC</span>
-        <span>Status labels as at September 2026 · subject to verification</span>
-        <span>Privacy · Terms · Disclaimers</span>
-      </div>
-    </div>
-  </footer>
+<!--chrome:footer-->
 
 </div>
