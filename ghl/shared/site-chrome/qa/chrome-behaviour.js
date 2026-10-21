@@ -79,7 +79,8 @@ const STATE = () => {
     await page.keyboard.press('Shift+Tab'); await page.keyboard.press('Shift+Tab'); await page.keyboard.press('Shift+Tab'); await page.keyboard.press('Shift+Tab'); await page.keyboard.press('Shift+Tab');
     await page.waitForTimeout(40); log('Shift+Tab out (blur)', await snap(page));
     await page.locator(T).nth(2).click(); await page.waitForTimeout(40); log('click inv', await snap(page));
-    await page.mouse.click(700, 700); await page.waitForTimeout(40); log('mousedown outside', await snap(page));
+    // outside the header, on empty space (the left page margin; the page body can be a link, e.g. a person card)
+    await page.mouse.click(5, 700); await page.waitForTimeout(40); log('mousedown outside', await snap(page));
     await page.locator(T).nth(0).click(); await page.locator(T).nth(1).click(); await page.waitForTimeout(40); log('click who then hiw', await snap(page));
     await page.keyboard.press('Escape');
     // Tab order through the header
