@@ -41,7 +41,8 @@ const STATE = () => {
     page.on('pageerror', (e) => errors.push(String(e).slice(0, 120)));
     await routeReact(page);
     await page.goto(u || url, { waitUntil: 'networkidle' });
-    await page.waitForTimeout(500);
+    // after the last scan of the shared scroll motion (~2.6 s after load), so it cannot move things mid-test
+    await page.waitForTimeout(3200);
     return page;
   };
   const click = async (page, css, i = 0) => { await page.locator(css).nth(i).click(); await page.waitForTimeout(150); };

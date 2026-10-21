@@ -30,19 +30,19 @@ const CFG_RE = /(<script type="application\/json" id="bwci-platforms-config">)([
 
   /* config variants */
   await run('default (inline image)', PLAIN, async (page) => ({
-    header: !!(await page.$('#bwci-platforms .plt-hdr')), footer: !!(await page.$('#bwci-platforms .plt-footer')),
-    img: await page.evaluate(() => { const i = document.querySelector('[data-plt-asset]'); return i.src.slice(0, 22) + ' ' + i.naturalWidth + 'x' + i.naturalHeight; }),
+    header: !!(await page.$('#bwci-platforms .plt-hdr')), footer: !!(await page.$('#bwci-platforms .plt-sft')),
+    img: await page.evaluate(() => { const i = document.querySelector('[data-plt-asset="platformsHeroImage"]'); return i.src.slice(0, 22) + ' ' + i.naturalWidth + 'x' + i.naturalHeight; }),
     links: (await hrefs(page)).length,
   }));
   await run('hosted placeholder', HOSTED, async (page, reqs) => ({
-    imgSrc: await page.evaluate(() => document.querySelector('[data-plt-asset]').getAttribute('src')),
+    imgSrc: await page.evaluate(() => document.querySelector('[data-plt-asset="platformsHeroImage"]').getAttribute('src')),
     placeholderRequested: reqs.some((u) => u.includes('REPLACE-WITH')),
   }));
   await run('hosted real URL', withCfg(HOSTED, (c) => Object.assign(c, { platformsHeroImage: base.replace(/_build\/preview\/$/, 'assets/plat-hero-rails.png') })), async (page) => ({
-    img: await page.evaluate(() => { const i = document.querySelector('[data-plt-asset]'); return i.getAttribute('src').replace(/^.*\//, '') + ' ' + i.naturalWidth + 'x' + i.naturalHeight; }),
+    img: await page.evaluate(() => { const i = document.querySelector('[data-plt-asset="platformsHeroImage"]'); return i.getAttribute('src').replace(/^.*\//, '') + ' ' + i.naturalWidth + 'x' + i.naturalHeight; }),
   }));
   await run('showHeader/showFooter false', withCfg(PLAIN, (c) => Object.assign(c, { showHeader: false, showFooter: false })), async (page) => ({
-    header: !!(await page.$('#bwci-platforms .plt-hdr')), footer: !!(await page.$('#bwci-platforms .plt-footer')),
+    header: !!(await page.$('#bwci-platforms .plt-hdr')), footer: !!(await page.$('#bwci-platforms .plt-sft')),
     utilH: await page.evaluate(() => getComputedStyle(document.getElementById('bwci-platforms')).getPropertyValue('--util-h')),
     heroTop: await page.evaluate(() => Math.round(document.getElementById('plt-hero').getBoundingClientRect().top)),
   }));

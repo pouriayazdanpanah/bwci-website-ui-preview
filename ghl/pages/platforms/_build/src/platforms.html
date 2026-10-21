@@ -1,83 +1,11 @@
 <div id="bwci-platforms">
 
   <!-- ============================================================
-       SITE HEADER  (source: design/SiteHeader.dc.html, current="platforms", cta-href="#engage")
+       SITE HEADER  (source: design/SiteHeader.dc.html, current="platforms"; shared site chrome)
        Hide it with "showHeader": false in the config block when a
        GoHighLevel global header is used instead.
        ============================================================ -->
-  <div class="plt-hdr-host" data-plt-hdr-host>
-    <header class="plt-hdr" data-plt-hdr>
-      <div class="plt-hdr__util" data-plt-hdr-util>
-        <div class="plt-hdr__in">
-          <a href="/#bwci-trust" data-plt-link="governance">Governance</a>
-          <a href="/#bwci-trust" data-plt-link="corporate">Corporate/IR</a>
-          <a href="#plt-engage">Contact</a>
-        </div>
-      </div>
-      <div class="plt-hdr__bar">
-        <div class="plt-hdr__in">
-          <a class="plt-hdr__logo" href="/" data-plt-link="home" aria-label="BWCI PLC home">
-            <span class="plt-hdr__mark">BW</span>
-            <span class="plt-hdr__name"><span class="plt-hdr__word">BWCI PLC</span><span class="plt-hdr__tag">Better World Capital Investment</span></span>
-          </a>
-          <nav class="plt-hdr__nav" aria-label="Primary">
-            <div class="plt-hdr__dd" data-plt-dd>
-              <button class="plt-hdr__link plt-hdr__trigger" type="button" aria-haspopup="true" aria-expanded="false" data-plt-dd-toggle>How It Works<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-              <div class="plt-hdr__panel" role="menu" data-plt-dd-panel hidden>
-                <a class="plt-hdr__item" role="menuitem" href="/financial-engine" data-plt-link="financialEngine" data-plt-dd-close>
-                  <span><span class="plt-hdr__item-t">The Financial Engine</span><span class="plt-hdr__item-d">The 7-stage operational method</span></span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
-                </a>
-                <a class="plt-hdr__item" role="menuitem" href="/ecosystem" data-plt-link="ecosystem" data-plt-dd-close>
-                  <span><span class="plt-hdr__item-t">Ecosystem Topology</span><span class="plt-hdr__item-d">The 6-layer relational network</span></span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
-                </a>
-              </div>
-            </div>
-            <a class="plt-hdr__link" href="#plt-hero" aria-current="page">Platforms &amp; Institutions</a>
-            <a class="plt-hdr__link" href="/smes-projects" data-plt-link="smes">SMEs &amp; Projects</a>
-            <a class="plt-hdr__link" href="/investors-partners" data-plt-link="investors">Investors &amp; Partners</a>
-          </nav>
-          <button class="plt-hdr__burger" type="button" aria-label="Open menu" aria-expanded="false" data-plt-menu-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
-        </div>
-      </div>
-      <div class="plt-hdr__scrim" data-plt-menu-close data-plt-menu-part hidden></div>
-      <aside class="plt-hdr__drawer" role="dialog" aria-modal="true" aria-label="Site menu" data-plt-menu-part hidden>
-        <div class="plt-hdr__dhead">
-          <a class="plt-hdr__logo" href="/" data-plt-link="home" aria-label="BWCI PLC home" data-plt-menu-close>
-            <span class="plt-hdr__mark">BW</span>
-            <span class="plt-hdr__name"><span class="plt-hdr__word">BWCI PLC</span><span class="plt-hdr__tag">Financial Holding</span></span>
-          </a>
-          <button class="plt-hdr__x" type="button" aria-label="Close menu" data-plt-menu-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></button>
-        </div>
-        <div class="plt-hdr__dbody">
-          <div>
-            <button class="plt-hdr__drow" type="button" aria-expanded="true" data-plt-acc="hiw">How It Works<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><line class="plt-hdr__v" x1="12" y1="5" x2="12" y2="19"></line></svg></button>
-            <div class="plt-hdr__sub-wrap" data-plt-acc-panel="hiw">
-              <div class="plt-hdr__sub">
-                <a href="/financial-engine" data-plt-link="financialEngine" data-plt-menu-close><span class="plt-hdr__sub-t">The Financial Engine</span><span class="plt-hdr__sub-d">The 7-stage operational method</span></a>
-                <a href="/ecosystem" data-plt-link="ecosystem" data-plt-menu-close><span class="plt-hdr__sub-t">Ecosystem Topology</span><span class="plt-hdr__sub-d">The 6-layer relational network</span></a>
-              </div>
-            </div>
-          </div>
-          <a class="plt-hdr__drow" href="#plt-hero" aria-current="page" data-plt-menu-close>Platforms &amp; Institutions<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
-          <a class="plt-hdr__drow" href="/smes-projects" data-plt-link="smes" data-plt-menu-close>SMEs &amp; Projects<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
-          <a class="plt-hdr__drow" href="/investors-partners" data-plt-link="investors" data-plt-menu-close>Investors &amp; Partners<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
-          <div>
-            <button class="plt-hdr__drow" type="button" aria-expanded="false" data-plt-acc="gov">Governance &amp; Purpose<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><line class="plt-hdr__v" x1="12" y1="5" x2="12" y2="19"></line></svg></button>
-            <div class="plt-hdr__sub-wrap" data-plt-acc-panel="gov" hidden>
-              <div class="plt-hdr__sub">
-                <a href="/#bwci-trust" data-plt-link="governance" data-plt-menu-close><span class="plt-hdr__sub-t">Governance</span></a>
-                <a href="/#bwci-trust" data-plt-link="corporate" data-plt-menu-close><span class="plt-hdr__sub-t">Corporate/IR</span></a>
-                <a href="#plt-engage" data-plt-menu-close><span class="plt-hdr__sub-t">Contact</span></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="plt-hdr__dfoot"><a class="plt-hdr__cta" href="#plt-engage" data-plt-menu-close>Start a Conversation</a></div>
-      </aside>
-    </header>
-  </div>
+<!--chrome:header-->
 
   <!-- ============================================================
        HERO
@@ -87,6 +15,7 @@
     <div class="plt-hero-img" aria-hidden="true"><img data-plt-asset="platformsHeroImage" alt="" width="2020" height="778" decoding="async" fetchpriority="high"></div>
     <div class="plt-hero-inner" style="align-self: stretch">
       <div class="plt-hero-copy" style="max-width: 900px">
+<!--chrome:breadcrumb-->
         <h1 class="plt-h-display" style="max-width: 860px">The institutions of the Financial Engine</h1>
         <p class="plt-body-lg" style="max-width: 640px">Better World Capital Investments PLC oversees the overall structure at the holding-company level. Each platform, group company, and partner institution plays a clear role in linking capital to the real economy. We show each one at its verified stage.</p>
         <div class="plt-hero-actions">
@@ -273,12 +202,12 @@
         <h2 class="plt-h1">Choose your pathway</h2>
       </div>
       <div class="pw-grid">
-        <a class="pw-card rv" href="/investors-partners#route" data-plt-link="investorsRoute">
+        <a class="pw-card rv" href="/investors-partners#inv-route" data-plt-link="investorsRoute">
           <div class="pw-top"><span class="pw-lbl">For strategic partners</span><span class="pw-num" aria-hidden="true">01</span></div>
           <p class="pw-t">Bring your capabilities, technology or distribution to the network.</p>
           <span class="pw-cta">Partner with Better World <span class="pw-arr" aria-hidden="true">→</span></span>
         </a>
-        <a class="pw-card rv rv-d1" href="/investors-partners#participation" data-plt-link="investorsParticipation">
+        <a class="pw-card rv rv-d1" href="/investors-partners#inv-participation" data-plt-link="investorsParticipation">
           <div class="pw-top"><span class="pw-lbl">For institutional investors</span><span class="pw-num" aria-hidden="true">02</span></div>
           <p class="pw-t">Explore how institutional capital can take part in the ecosystem.</p>
           <span class="pw-cta">Explore institutional pathways <span class="pw-arr" aria-hidden="true">→</span></span>
@@ -305,40 +234,9 @@
   </section>
 
   <!-- ============================================================
-       FOOTER  (hide with "showFooter": false when a GoHighLevel global footer is used)
+       FOOTER  (source: design/SiteFooter.dc.html; shared site chrome)
+       Hide it with "showFooter": false when a GoHighLevel global footer is used.
        ============================================================ -->
-  <footer class="plt-footer" data-plt-footer>
-    <div class="plt-container">
-      <div class="plt-footer__grid">
-        <div class="plt-footer__col">
-          <div class="plt-logo" style="margin-bottom:14px"><span class="plt-logo__mark">BW</span><span class="plt-logo__word">BWCI</span></div>
-          <p class="plt-body-sm" style="max-width:280px">Better World Capital Investments — being developed as the Financial Engine of the Better World ecosystem.</p>
-        </div>
-        <div class="plt-footer__col"><h5>Ecosystem</h5><ul>
-          <li><a href="/#bwci-what" data-plt-link="about">About</a></li>
-          <li><a href="/ecosystem" data-plt-link="ecosystem">Our Ecosystem</a></li>
-          <li><a href="/financial-engine" data-plt-link="financialEngine">Financial Engine</a></li>
-          <li><a href="#plt-hero" aria-current="page">Platforms &amp; Institutions</a></li>
-        </ul></div>
-        <div class="plt-footer__col"><h5>Engage</h5><ul>
-          <li><a href="/smes-projects" data-plt-link="smes">SMEs &amp; Projects</a></li>
-          <li><a href="/investors-partners" data-plt-link="investors">Investors &amp; Partners</a></li>
-          <li><a href="#plt-engage">Start a Conversation</a></li>
-          <li><a href="/#bwci-cta" data-plt-link="verify">Verify a Communication</a></li>
-        </ul></div>
-        <div class="plt-footer__col"><h5>Corporate</h5><ul>
-          <li><a href="/#bwci-trust" data-plt-link="governance">Governance</a></li>
-          <li><a href="/#bwci-trust" data-plt-link="legal">Legal &amp; Documents</a></li>
-          <li><a href="/#bwci-trust" data-plt-link="regulatory">Regulatory Boundaries</a></li>
-          <li><a href="#" data-plt-link="insights">Insights</a></li>
-        </ul></div>
-      </div>
-      <div class="plt-footer__bar">
-        <span>© [ Year ] Better World Capital Investments PLC</span>
-        <span>Status labels as at September 2026 · subject to verification</span>
-        <span>Privacy · Terms · Disclaimers</span>
-      </div>
-    </div>
-  </footer>
+<!--chrome:footer-->
 
 </div>
