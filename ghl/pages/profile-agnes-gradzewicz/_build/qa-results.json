@@ -1,0 +1,159 @@
+{
+  "date": "2026-10-22",
+  "base": "0014375",
+  "profile": "agnes-gradzewicz",
+  "environment": "Local installed Chrome / development Playwright; published GHL NOT VERIFIED",
+  "defaultContext": "leadership",
+  "biographyParagraphs": 0,
+  "roleLines": [
+    "Chief Marketing Officer"
+  ],
+  "membership": [
+    "Leadership"
+  ],
+  "baselineHeight": 900,
+  "baseline": [
+    {
+      "width": 320,
+      "height": 3255,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 360,
+      "height": 3285,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 375,
+      "height": 3266,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 390,
+      "height": 3292,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 430,
+      "height": 3312,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 768,
+      "height": 2580,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 1024,
+      "height": 2343,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 1280,
+      "height": 2517,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 1366,
+      "height": 2554,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 1440,
+      "height": 2570,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 1600,
+      "height": 2570,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 1920,
+      "height": 2570,
+      "differencePercent": 0.0
+    },
+    {
+      "width": 2560,
+      "height": 2570,
+      "differencePercent": 0.0
+    }
+  ],
+  "extra": [
+    {
+      "case": "desktop-short",
+      "height": 2570,
+      "differencePercent": 0.0
+    },
+    {
+      "case": "desktop-tall",
+      "height": 2570,
+      "differencePercent": 0.0
+    },
+    {
+      "case": "landscape",
+      "height": 2602,
+      "differencePercent": 0.0
+    },
+    {
+      "case": "motion",
+      "height": 2570,
+      "differencePercent": 0.0
+    },
+    {
+      "case": "phone-short",
+      "height": 3292,
+      "differencePercent": 0.0
+    }
+  ],
+  "pixelChannelThreshold": 24,
+  "horizontalOverflow": false,
+  "staticPose": "Pending reveal tags normalized only in static QA after actual content/assets/fonts readiness; natural interaction traces separate",
+  "sourceAndPortNaturalTraces": "Identical",
+  "domComparisons": [
+    {
+      "viewport": [
+        1440,
+        900
+      ],
+      "context": "direct",
+      "differences": 0
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "context": "board",
+      "differences": 0
+    }
+  ],
+  "hostileHostWidths": [
+    390,
+    1440
+  ],
+  "actualNavigationMouseKeyboardSelect": "PASS",
+  "dragTouchReducedMotion": "PASS",
+  "duplicateReplaceRemoveDeferredInit": "PASS",
+  "hostedImagesPlaceholders": "PASS; all four real hosted URLs loaded, placeholders never requested",
+  "googleFonts": [
+    "JetBrains Mono",
+    "Plus Jakarta Sans"
+  ],
+  "acceptanceErrors": [],
+  "acceptanceNetworkFailures": [],
+  "headerAndLifecycleErrors": [],
+  "sharedRuntimeModified": false,
+  "sourceQASRI": "Canonical LF React bytes served by QA; integrity preserved",
+  "sourceMountReadiness": "QA permits one explicit remount for transient asynchronous source mounting; warnings retained in ignored raw logs",
+  "deterministicBuild": true,
+  "generatedRuntimeSyntax": "PASS",
+  "originalAssetBytes": "PASS; build checks originals",
+  "designModified": false,
+  "previousOutputsModified": false,
+  "limits": [
+    "Published GHL wrappers/live routes NOT VERIFIED",
+    "Touch emulated in Chrome, not physical-device QA"
+  ],
+  "qaRetry": "Initial asynchronous source interaction mount timed out; affected source trace rerun and compared against the port. Raw failure retained."
+}
