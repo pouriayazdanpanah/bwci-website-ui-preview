@@ -16,9 +16,18 @@ This guide turns a finished Claude Design page in design/ into one pasteable GoH
 
 The October 2026 export added these production pages, which have no GHL port yet. Each needs its own brief in pages/<slug>.md (from page-template.md) and its own feat/ghl-<slug> branch:
 
-- Five profile pages, each importing SiteHeader, GovProfile and SiteFooter: Profile Gabriella Karlova, Profile Professor Richard Werner, Profile Ewa Dudek, Profile Agnes Gradzewicz and Profile Christie Osarenren (.dc.html).
+- Three profile pages, each importing SiteHeader, GovProfile and SiteFooter: Profile Ewa Dudek, Profile Agnes Gradzewicz and Profile Christie Osarenren (.dc.html).
 
 A generated port does not establish a live GHL URL. Governance and profile routes remain configurable; keys without known published destinations default to "#" and are listed as unresolved in each page README. design/Main v1 (archive).dc.html is an archived earlier homepage, not a page to port.
+
+## Profiles delivered in the 22 October 2026 review batch
+
+These two implementations were requested together and prepared independently from main `f13cda8`, one page per branch/PR. Their linked delivery records include generated hosted/inline blocks, assets, configuration, source coverage and current local QA. They are implemented review deliverables; actual PR merge state and published GHL installation are separate checks. A checkout may contain only its own page until both PRs are merged.
+
+- Gabriella Karlova: [implementation README](https://github.com/pouriayazdanpanah/bwci-website-ui-preview/blob/f57c09f0ac06e0691602281e6426e0984f31957b/ghl/pages/profile-gabriella-karlova/README.md), `feat/ghl-profile-gabriella-karlova`. Source has no biography and two roles; default Board context.
+- Professor Richard A. Werner: [implementation README](https://github.com/pouriayazdanpanah/bwci-website-ui-preview/blob/c3162b6f7b5733e623ca1d23830c107e7f3df3c7/ghl/pages/profile-richard-werner/README.md), `feat/ghl-profile-richard-werner`. Source has four biography paragraphs, no role line and default Leadership context.
+
+Both PRs carry this same inventory update and the same CRLF build-reader fix so their shared edits agree; neither page runtime depends on the other page's new folder. The links above use immutable implementation commits.
 
 ## Completed ports
 
