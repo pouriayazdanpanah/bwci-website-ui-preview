@@ -1,25 +1,19 @@
 /* BWCI — The Financial Engine · GoHighLevel runtime (vanilla JS, no dependencies).
-   Replaces the Claude Design runtime (support.js + React) used by the Financial Engine Claude Design page
-   and its SiteHeader component. Everything is scoped to #bwci-financial-engine. */
+   Replaces the Claude Design runtime (support.js + React) used by the Financial Engine design page and its
+   SiteHeader / SiteFooter / Breadcrumb components and bwci-motion.js. Everything is scoped to #bwci-financial-engine. */
 (function () {
   'use strict';
 
-  /* Editable settings (hero image URL, page links, header/footer toggles) live in the
+  /* Editable settings (hero and logo image URLs, page links, header/footer toggles, footer legal wording) live in the
      <script type="application/json" id="bwci-financial-engine-config"> block at the very
      top of the Custom Code paste, not here. */
 
-  /* ======================= BEHAVIOUR ======================= */
-  // Values mirror the source implementation.
+  /* ======================= BEHAVIOUR (source values) ======================= */
   var OPTIONS = {
-    opsLockOffset: 64,          // px from viewport top where the Operating Model locks (source navOffset)
-    opsDesktopMin: 1024,        // wheel/keyboard capture + orbit wheel only at >= this width
-    opsWheelThreshold: 80,      // accumulated wheel delta needed to advance one stage
-    opsTransitionMs: 550,       // cooldown between stage changes
-    opsReleaseNudge: 140,       // px scrolled when the lock releases past stage 1 / 7
-    opsRearmMs: 450,            // delay before the lock can re-engage after release
-    headerDesktopMin: 1200      // header switches to burger/drawer below this width
+    engRevealMin: 1024,   // >= this width, picking a step scrolls the detail card fully into view
+    engRevealGap: 16,     // px kept below the detail card
+    engRevealTop: 80      // the card's top never scrolls above this line
   };
-  /* ============================================================= */
 
   var ROOT_ID = 'bwci-financial-engine';
   var CONFIG_ID = 'bwci-financial-engine-config';
@@ -32,14 +26,57 @@
     { label: '04 · The enabling resource', title: 'Mobilise capital with purpose.', body: 'Capital is matched to the structure, with terms, governance, and risk sharing designed around the activity the capital is meant to fund. ', proof: 'Capital is the means, not the starting point' },
     { label: '05 · The outcome', title: 'Turn the connection into activity.', body: 'Success is measured by tangible outcomes: a viable business, infrastructure that gets built, or a solution that works in practice. ', proof: 'What we learn from each outcome shapes how we design the next structure.' }
   ];
-  var OPS_COUNT = 7;
-  var ANGLE_STEP = 360 / OPS_COUNT;
+
+  /* VIEW:start — the Financial Engine loop (source text/x-dc STEPS / SH). _build/build.js also runs this
+     part to write the default (step 01) markup into the page, so the static HTML and the script agree. */
+  var ENG_STEPS = [
+    ['Economic Need', 'A real business or project need is identified and understood: its cash flows, contracts and constraints.', 'A regional food manufacturer wins a large export order. It needs working capital to buy inputs now, but the buyer pays in 120 days.'],
+    ['Financial Architecture', 'A structure is designed around the need, with terms, timing and repayment matched to how the activity earns.', 'The facility is sized to the order and repaid from the buyer’s payment, rather than through a standard term loan.'],
+    ['Appropriate Institution / Delivery Capability', 'The structure is matched to the platform, group company or authorised partner able to deliver it.', 'Delivery sits with the entity that holds the relevant capability and, where needed, the regulatory permission.'],
+    ['Capital', 'Capital whose mandate fits the structure, risk and tenor is connected through the appropriate authorised vehicle.', 'Capital providers looking for short-tenor, trade-linked exposure are matched to the facility.'],
+    ['Productive Economic Activity', 'Capital reaches the underlying activity and is put to productive use.', 'The manufacturer buys its inputs, fulfils the order and keeps its workforce and suppliers busy.'],
+    ['Performance / Learning / Reinvestment', 'Performance is tracked, returns flow back, and what was learned informs the next structure.', 'The buyer pays, the facility is repaid, and the engagement informs how the next order is structured.']
+  ];
+  var ENG_SH = [['Need', 'Economic Need'], ['Architecture', 'Financial Architecture'], ['Institution', 'Appropriate Institution / Delivery Capability'], ['Capital', ''], ['Activity', 'Productive Economic Activity'], ['Reinvestment', 'Performance / Learning / Reinvestment']];
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) { return c === '&' ? '&amp;' : c === '<' ? '&lt;' : c === '>' ? '&gt;' : '&quot;'; });
+  }
+  // the source runtime wraps every interpolated value in span.sc-interp (reproduced as .fe-i)
+  function ip(s) { return '<span class="fe-i">' + esc(s) + '</span>'; }
+  var VIEW = {
+    progress: function (cur) { return String(cur / (ENG_STEPS.length - 1)); },
+    nodeCls: function (i, cur) { return 'lp-n' + (i === cur ? ' is-on' : i < cur ? ' is-past' : ''); },
+    nodes: function (cur) {
+      return ENG_STEPS.map(function (st, i) {
+        var n = (i < 9 ? '0' : '') + (i + 1), on = i === cur;
+        var ex = '<div class="lpd-ex"><span class="fe-badge fe-b-dev"><i></i>Illustrative example</span><span>' + ip(st[2]) + '</span></div>';
+        return '\n            \n              <div class="lp-item' + (on ? ' is-on' : '') + '">\n' +
+          '              <button class="' + VIEW.nodeCls(i, cur) + '" type="button" role="tab" aria-selected="' + on + '" aria-expanded="' + on + '" aria-label="' + esc(st[0]) + '" data-fe-eng-step="' + i + '">\n' +
+          '                <span class="lp-in"><span class="lp-num">' + ip(n) + '</span><span class="lp-dot"></span><span class="lp-t"><span class="lp-tn">' + ip(n) + '</span>' + ip(ENG_SH[i][0]) + '</span><span class="lp-s">' + ip(ENG_SH[i][1]) + '</span><span class="lp-pm" aria-hidden="true"></span></span>\n' +
+          '              </button>\n' +
+          '              <div class="lp-acc"><div><p class="lpd-d">' + ip(st[1]) + '</p>' + ex + '</div></div>\n' +
+          '              </div>\n            ';
+      }).join('') + '\n          ';
+    },
+    panes: function (cur) {
+      return ENG_STEPS.map(function (st, i) {
+        var n = (i < 9 ? '0' : '') + (i + 1), on = i === cur;
+        return '\n            \n              <div class="lpd-pane' + (on ? ' is-on' : '') + '" role="tabpanel" aria-hidden="' + !on + '">\n' +
+          '                <div><span class="lpd-k">Step ' + ip(n) + ' of 06</span><div class="lpd-h">' + ip(ENG_SH[i][0]) + '</div></div>\n' +
+          '                <div><span class="lpd-full">' + ip(st[0]) + '</span><p class="lpd-d">' + ip(st[1]) + '</p><div class="lpd-ex"><span class="fe-badge fe-b-dev"><i></i>Illustrative example</span><span>' + ip(st[2]) + '</span></div></div>\n' +
+          '              </div>\n            ';
+      }).join('') + '\n          ';
+    }
+  };
+  /* VIEW:end */
 
   function pad2(n) { return (n < 10 ? '0' : '') + n; }
   function prefersReducedMotion() {
     return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   }
   function scrollBehavior() { return prefersReducedMotion() ? 'auto' : 'smooth'; }
+
+/*@site-chrome*/
 
   /* ---------------------------------------------------------------- */
   function init(root) {
@@ -77,10 +114,6 @@
     // the untouched placeholder is skipped so it never produces a 404 request
     if (heroImg && typeof heroUrl === 'string' && heroUrl && heroUrl.indexOf('REPLACE-WITH') === -1) heroImg.src = heroUrl;
 
-    var hdrHostEl = q('[data-fe-hdr-host]');
-    if (cfg.showHeader === false && hdrHostEl) hdrHostEl.parentNode.removeChild(hdrHostEl);
-    var footerEl = q('[data-fe-footer]');
-    if (cfg.showFooter === false && footerEl) footerEl.parentNode.removeChild(footerEl);
 
     /* ---------- in-page anchors: smooth scroll (source used html{scroll-behavior:smooth}) ---------- */
     on(root, 'click', function (e) {
@@ -96,89 +129,11 @@
       try { if (history.pushState) history.pushState(null, '', '#' + id); } catch (err) { /* sandboxed */ }
     });
 
-    /* ================= SITE HEADER ================= */
-    var header = null;
-    var hdr = q('[data-fe-hdr]');
-    if (hdr) {
-      header = (function () {
-        var util = q('[data-fe-hdr-util]');
-        var dd = q('[data-fe-dd]');
-        var ddToggle = q('[data-fe-dd-toggle]');
-        var ddPanel = q('[data-fe-dd-panel]');
-        var burger = q('[data-fe-menu-open]');
-        var menuParts = qa('[data-fe-menu-part]');
-        var utilH = 0;
-        var stuck = false;
-        var ddOpen = false;
-        var menuOpen = false;
-        var prevBodyOverflow = '';
-        var acc = { hiw: true, gov: false };
+    /* ================= SITE HEADER + FOOTER (shared site chrome) ================= */
+    var chrome = siteChrome(root, cfg, on, timers);
 
-        function setDd(open) {
-          ddOpen = open;
-          ddToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-          ddPanel.hidden = !open;
-        }
-        function setMenu(open) {
-          if (open === menuOpen) return;
-          menuOpen = open;
-          if (open) { prevBodyOverflow = document.body.style.overflow; document.body.style.overflow = 'hidden'; }
-          else { document.body.style.overflow = prevBodyOverflow; }
-          burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-          menuParts.forEach(function (el) { el.hidden = !open; });
-        }
-        function setAcc(key, open) {
-          acc[key] = open;
-          var btn = q('[data-fe-acc="' + key + '"]');
-          var panel = q('[data-fe-acc-panel="' + key + '"]');
-          if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-          if (panel) panel.hidden = !open;
-        }
-        function onScroll() {
-          // Source: stuck = window.scrollY > utilH + 2 (header at page top). Measured relative to
-          // the widget so it stays correct when GHL content sits above the widget.
-          var s = -root.getBoundingClientRect().top > utilH + 2;
-          if (s !== stuck) { stuck = s; hdr.classList.toggle('fe-hdr--stuck', s); }
-        }
-        function measure() {
-          utilH = util ? util.offsetHeight : 0;
-          root.style.setProperty('--util-h', utilH + 'px');
-          root.style.setProperty('--nav-h', hdr.offsetHeight + 'px');
-          if (window.innerWidth >= OPTIONS.headerDesktopMin && menuOpen) setMenu(false);
-          onScroll();
-        }
-
-        on(dd, 'mouseenter', function () {
-          clearTimeout(timers.dd);
-          if (window.matchMedia && window.matchMedia('(hover:hover)').matches) setDd(true);
-        });
-        on(dd, 'mouseleave', function () {
-          clearTimeout(timers.dd);
-          timers.dd = setTimeout(function () { setDd(false); }, 160);
-        });
-        on(ddToggle, 'click', function () { setDd(!ddOpen); });
-        qa('[data-fe-dd-close]').forEach(function (el) { on(el, 'click', function () { setDd(false); }); });
-        on(burger, 'click', function () { setMenu(true); });
-        qa('[data-fe-menu-close]').forEach(function (el) { on(el, 'click', function () { setMenu(false); }); });
-        qa('[data-fe-acc]').forEach(function (btn) {
-          on(btn, 'click', function () { var k = btn.getAttribute('data-fe-acc'); setAcc(k, !acc[k]); });
-        });
-        on(document, 'mousedown', function (e) { if (ddOpen && !dd.contains(e.target)) setDd(false); });
-        on(document, 'keydown', function (e) {
-          if (e.key === 'Escape') { if (ddOpen) setDd(false); if (menuOpen) setMenu(false); }
-        });
-
-        measure();
-        requestAnimationFrame(measure);
-        return {
-          onScroll: onScroll,
-          measure: measure,
-          destroy: function () { if (menuOpen) setMenu(false); clearTimeout(timers.dd); }
-        };
-      })();
-    } else {
-      root.style.setProperty('--util-h', '0px');
-    }
+    /* ================= SHARED SCROLL MOTION (design/bwci-motion.js) ================= */
+    var motion = siteMotion(root, { heroId: 'fe-hero', heroSel: '.hero-fe' }, on);
 
     /* ================= 01 · OPERATING PRINCIPLE ================= */
     var pr = q('[data-fe-pr]');
@@ -206,168 +161,49 @@
       on(b, 'click', pick);
     });
 
-    /* ================= 02 · OPERATING MODEL ================= */
-    var opsViewport = q('[data-fe-ops-viewport]');
-    var opsNodes = qa('[data-fe-ops-node]');
-    var opsPanels = qa('[data-fe-ops-panel]');
-    var opsDots = qa('[data-fe-ops-dot]');
-    var opsPrev = q('[data-fe-ops-prev]');
-    var opsNext = q('[data-fe-ops-next]');
-    var opsNum = q('[data-fe-ops-num]');
-    var opsTitle = q('[data-fe-ops-title]');
-    var opsLoop = q('[data-fe-ops-loop]');
-    var opsTitles = opsPanels.map(function (p) {
-      var t = p.querySelector('.ops-panel__title');
-      return t ? t.textContent.trim() : '';
-    });
-
-    var ops = {
-      stage: 0, locked: false, transitioning: false, wheelDelta: 0,
-      entryArmed: true, lastTop: null, correctingUntil: 0,
-      pendingJump: null, pendingJumpUntil: 0
-    };
-
-    function opsRender() {
-      var active = ops.stage;
-      opsNodes.forEach(function (node, i) {
-        var delta = i - active;
-        var abs = Math.abs(delta);
-        var isActive = delta === 0;
-        node.style.setProperty('--stage-total-angle', (delta * ANGLE_STEP).toFixed(2) + 'deg');
-        node.style.opacity = abs === 0 ? '1' : (abs === 1 ? '0.7' : '0');
-        node.style.pointerEvents = abs <= 1 ? 'auto' : 'none';
-        node.classList.toggle('ops-stage-node--active', isActive);
-      });
-      opsPanels.forEach(function (p, i) { p.classList.toggle('ops-panel--active', i === active); });
-      opsDots.forEach(function (d, i) {
-        d.classList.toggle('ops-rail-dot--active', i === active);
-        d.classList.toggle('ops-rail-dot--done', i < active);
-        d.setAttribute('aria-selected', i === active ? 'true' : 'false');
-      });
-      if (opsNum) opsNum.textContent = pad2(active + 1);
-      if (opsTitle) opsTitle.textContent = opsTitles[active];
-      if (opsPrev) opsPrev.disabled = active === 0;
-      if (opsNext) opsNext.disabled = active === OPS_COUNT - 1;
-      if (opsLoop) opsLoop.classList.toggle('ops-loop-note--active', active >= 5);
-    }
-    function opsSetStage(i) {
-      if (i === ops.stage) return;
-      ops.stage = i;
-      opsRender();
-    }
-    function opsIsDesktop() { return window.innerWidth >= OPTIONS.opsDesktopMin; }
-
-    function opsEngageLock(direction) {
-      ops.locked = true;
-      ops.entryArmed = false;
-      ops.wheelDelta = 0;
-      var initial = direction === 'down' ? 0 : OPS_COUNT - 1;
-      // Port fix: a stage chosen by clicking the orbit just before the lock engages is kept.
-      if (ops.pendingJump !== null && Date.now() < ops.pendingJumpUntil) initial = ops.pendingJump;
-      ops.pendingJump = null;
-      opsSetStage(initial);
-      // Corrective snap to the lock line (source: a couple of px at most).
-      var correction = opsViewport.getBoundingClientRect().top - OPTIONS.opsLockOffset;
-      if (Math.abs(correction) > 0.5) {
-        ops.correctingUntil = Date.now() + 900;
-        window.scrollBy({ top: correction, left: 0, behavior: scrollBehavior() });
-      }
-    }
-    function opsReleaseLock(direction, nudge) {
-      ops.locked = false;
-      ops.wheelDelta = 0;
-      if (nudge) {
-        // Hand control back with one real gesture's worth of movement.
-        window.scrollBy({ top: direction === 'down' ? OPTIONS.opsReleaseNudge : -OPTIONS.opsReleaseNudge, left: 0, behavior: scrollBehavior() });
-      }
-      clearTimeout(timers.rearm);
-      timers.rearm = setTimeout(function () { ops.entryArmed = true; }, OPTIONS.opsRearmMs);
-    }
-    function opsGoToStage(next) {
-      ops.transitioning = true;
-      opsSetStage(next);
-      clearTimeout(timers.transition);
-      timers.transition = setTimeout(function () { ops.transitioning = false; }, OPTIONS.opsTransitionMs);
-    }
-    function opsStep(dir) {
-      var current = ops.stage;
-      if (dir > 0) { if (current >= OPS_COUNT - 1) opsReleaseLock('down', true); else opsGoToStage(current + 1); }
-      else { if (current <= 0) opsReleaseLock('up', true); else opsGoToStage(current - 1); }
-    }
-
-    // Passive watcher: detects the moment the section's top edge crosses the lock line.
-    function opsCheckEntry() {
-      if (!opsViewport || !opsIsDesktop()) return;
-      var top = opsViewport.getBoundingClientRect().top;
-      if (ops.locked) {
-        // Port safety: if the page was moved by something other than the wheel
-        // (scrollbar drag, touch, anchor link, find-in-page) release the lock so it
-        // cannot keep capturing the wheel/keys while the section is off-screen.
-        if (Date.now() > ops.correctingUntil && Math.abs(top - OPTIONS.opsLockOffset) > 120) {
-          opsReleaseLock(top > OPTIONS.opsLockOffset ? 'up' : 'down', false);
-          ops.lastTop = top;
+    /* ================= 02 · THE FINANCIAL ENGINE (six-step loop) =================
+       Source: one active step (state opsStage). Nodes and the phone accordion share the step; previous /
+       next wrap around. Elements update in place (no re-mount), so the CSS transitions run as in React. */
+    var eng = q('[data-fe-eng]');
+    if (eng) {
+      (function () {
+        var cur = 0;
+        var lp = q('[data-fe-eng-lp]');
+        var items = qa('.lp-item');
+        var nodes = qa('[data-fe-eng-step]');
+        var panes = qa('.lpd-pane');
+        var lpd = q('#fe-ops-model .lpd');
+        function go(i) {
+          var next = (i + ENG_STEPS.length) % ENG_STEPS.length;
+          if (next === cur) return;
+          cur = next;
+          lp.style.setProperty('--p', VIEW.progress(cur));
+          nodes.forEach(function (b, j) {
+            b.className = VIEW.nodeCls(j, cur);
+            b.setAttribute('aria-selected', String(j === cur));
+            b.setAttribute('aria-expanded', String(j === cur));
+          });
+          items.forEach(function (el, j) { el.className = 'lp-item' + (j === cur ? ' is-on' : ''); });
+          panes.forEach(function (el, j) {
+            el.className = 'lpd-pane' + (j === cur ? ' is-on' : '');
+            el.setAttribute('aria-hidden', String(j !== cur));
+          });
         }
-        return;
-      }
-      var prevTop = ops.lastTop === null ? top : ops.lastTop;
-      var scrollingDown = top <= prevTop;
-      ops.lastTop = top;
-      if (!ops.entryArmed) return;
-      var off = OPTIONS.opsLockOffset;
-      if (scrollingDown && prevTop > off && top <= off) opsEngageLock('down');
-      else if (!scrollingDown && prevTop < off && top >= off) opsEngageLock('up');
-    }
-
-    // Non-passive wheel capture: while locked this is the ONLY thing that changes the stage.
-    function opsOnWheel(e) {
-      if (!ops.locked) return;
-      if (!opsIsDesktop()) { ops.locked = false; return; }
-      e.preventDefault();
-      if (ops.transitioning) return;
-      var dy = e.deltaY;
-      if (e.deltaMode === 1) dy *= 16; else if (e.deltaMode === 2) dy *= window.innerHeight;
-      ops.wheelDelta += dy;
-      if (ops.wheelDelta > OPTIONS.opsWheelThreshold) { ops.wheelDelta = 0; opsStep(1); }
-      else if (ops.wheelDelta < -OPTIONS.opsWheelThreshold) { ops.wheelDelta = 0; opsStep(-1); }
-    }
-    // Keyboard: secondary capture path with the same lock/release semantics.
-    function opsOnKey(e) {
-      if (!ops.locked) return;
-      var t = e.target;
-      var tag = (t && t.tagName) || '';
-      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) return;
-      var k = e.key;
-      var down = k === 'ArrowDown' || k === 'PageDown' || k === ' ' || k === 'Spacebar';
-      var up = k === 'ArrowUp' || k === 'PageUp';
-      if (!down && !up) return;
-      e.preventDefault();
-      if (ops.transitioning) return;
-      opsStep(down ? 1 : -1);
-    }
-    function opsJump(i) {
-      if (ops.locked) {
-        if (ops.transitioning) return;
-        opsGoToStage(i);
-      } else {
-        opsSetStage(i);
-        ops.pendingJump = i;
-        ops.pendingJumpUntil = Date.now() + 1500;
-        if (opsViewport && opsViewport.scrollIntoView) opsViewport.scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
-      }
-    }
-
-    if (opsViewport) {
-      opsNodes.forEach(function (node) {
-        on(node, 'click', function () { opsJump(Number(node.getAttribute('data-fe-ops-node'))); });
-      });
-      opsDots.forEach(function (d) {
-        on(d, 'click', function () { opsJump(Number(d.getAttribute('data-fe-ops-dot'))); });
-      });
-      if (opsPrev) on(opsPrev, 'click', function () { opsJump(Math.max(0, ops.stage - 1)); });
-      if (opsNext) on(opsNext, 'click', function () { opsJump(Math.min(OPS_COUNT - 1, ops.stage + 1)); });
-      on(window, 'wheel', opsOnWheel, { passive: false });
-      on(window, 'keydown', opsOnKey, { passive: false });
-      opsRender();
+        // source lpdReveal: on desktop, bring the whole detail card on screen after picking a step
+        function reveal() {
+          if (window.innerWidth < OPTIONS.engRevealMin) return;
+          cancelAnimationFrame(timers.engRaf);
+          timers.engRaf = requestAnimationFrame(function () {
+            if (!lpd) return;
+            var r = lpd.getBoundingClientRect();
+            var over = r.bottom - (window.innerHeight - OPTIONS.engRevealGap);
+            if (over > 0) window.scrollBy({ top: Math.min(over, r.top - OPTIONS.engRevealTop), behavior: scrollBehavior() });
+          });
+        }
+        nodes.forEach(function (b, i) { on(b, 'click', function () { go(i); reveal(); }); });
+        on(q('[data-fe-eng-prev]'), 'click', function () { go(cur - 1); });
+        on(q('[data-fe-eng-next]'), 'click', function () { go(cur + 1); });
+      })();
     }
 
     /* ================= 05 · CAPABILITIES ================= */
@@ -397,35 +233,21 @@
       requestAnimationFrame(boot);
       return false;
     }
-    function onScroll() {
-      if (!guardConnected()) return;
-      if (header) header.onScroll();
-      opsCheckEntry();
-    }
-    function onResize() {
-      if (!guardConnected()) return;
-      if (ops.locked && !opsIsDesktop()) { ops.locked = false; ops.wheelDelta = 0; }
-      if (timers.resizeRaf) cancelAnimationFrame(timers.resizeRaf);
-      timers.resizeRaf = requestAnimationFrame(function () {
-        timers.resizeRaf = 0;
-        if (header) header.measure();
-        ops.lastTop = null;
-      });
-    }
-    on(window, 'scroll', onScroll, { passive: true });
-    on(window, 'resize', onResize, { passive: true });
-    on(window, 'orientationchange', onResize, { passive: true });
-    opsCheckEntry();
+    // the header keeps its own scroll/resize listeners (shared site chrome); these only detect a re-render
+    on(window, 'scroll', guardConnected, { passive: true });
+    on(window, 'resize', guardConnected, { passive: true });
+    on(window, 'orientationchange', guardConnected, { passive: true });
 
     instance = {
       root: root,
       destroy: function () {
         if (instance.destroyed) return;
         instance.destroyed = true;
-        if (header) header.destroy();
+        if (chrome) chrome.destroy();
+        if (motion) motion.destroy();
         if (ac) ac.abort();
         cleanups.forEach(function (fn) { fn(); });
-        Object.keys(timers).forEach(function (k) { clearTimeout(timers[k]); if (k === 'resizeRaf') cancelAnimationFrame(timers[k]); });
+        cancelAnimationFrame(timers.engRaf);
         delete root.dataset.feInit;
         if (window[INSTANCE_KEY] === instance) window[INSTANCE_KEY] = null;
       }

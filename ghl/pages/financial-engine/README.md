@@ -1,14 +1,18 @@
 # Financial Engine — GoHighLevel port
 
 GoHighLevel (GHL) **Website Builder → Custom Code** version of the Claude Design page
-`FinancialEngine.dc.html`. The Claude Design export in the design/ folder is the
-reference implementation; everything GHL-specific for this page lives in this folder.
+`design/FinancialEngine.dc.html`. The Claude Design export in design/ is the reference; everything
+GHL-specific for this page lives in this folder.
+
+**Status:** updated to the October 2026 design export (new six-step Financial Engine loop; header,
+breadcrumb and footer from the shared site chrome). QA done locally in headless Chromium (see Validation).
+Not yet checked on a published GHL page.
 
 ```
 ghl/pages/financial-engine/
-├── financial-engine.ghl.html          ← production block (hosted image URL)       ~135 KB
-├── financial-engine.inline.ghl.html   ← self-contained block (image embedded)     ~480 KB
-├── assets/financial-engine-hero.webp  ← local copy of the hero image (upload this to GHL)
+├── financial-engine.ghl.html          ← production block (hosted images)        ~160 KB
+├── financial-engine.inline.ghl.html   ← self-contained block (images embedded)  ~560 KB
+├── assets/financial-engine-hero.webp  ← hero globe (upload this to GHL)
 ├── _build/                            ← dev tooling only, never loaded at runtime
 └── README.md
 ```
@@ -17,25 +21,41 @@ ghl/pages/financial-engine/
 
 | Source file | What was taken from it |
 |---|---|
-| `FinancialEngine.dc.html` | All markup, CSS and the `DCLogic` component (state, wheel/keyboard lock, stage wheel, chapters, capabilities) |
-| `SiteHeader.dc.html` (`<dc-import name="SiteHeader" current="engine">`) | Sticky header, "How It Works" dropdown, mobile drawer and accordions |
-| `support.js` (Claude Design runtime) | Template engine only. Behaviour that mattered: every `{{value}}` is rendered inside `<span class="sc-interp">`, which the page's mobile CSS resizes (reproduced as `.fe-i`) |
-| `vendor/react.js`, `vendor/react-dom.js` | Only used by the runtime to render the template — **not needed**; the port is vanilla JS |
-| `assets/2b37055061899aec512b2c880a24ac91.webp` | Hero globe (1100×766, RGBA with transparency, `object-fit:contain`; `cover` + 32 % opacity behind the copy on phones) |
+| `design/FinancialEngine.dc.html` | All markup, CSS and the `text/x-dc` component: operating-principle chapters, the six-step Financial Engine loop (`STEPS`, `opsStage`, `lpdReveal`), capabilities, structure, CTA |
+| `design/SiteHeader.dc.html` (`current="engine"`), `design/Breadcrumb.dc.html` (`current="engine"`), `design/SiteFooter.dc.html` | Header, drawer, breadcrumb and footer via the shared site chrome (see below) |
+| `design/bwci-system.css`, `design/bwci-motion.js` | Tokens, type scale, buttons and font floors the page uses (scoped, pruned); the section fade-up on scroll |
+| `design/support.js` | Template runtime only. Every `{{value}}` is rendered inside `<span class="sc-interp">`, which the page's mobile CSS resizes (reproduced as `.fe-i`). React (`vendor/`) is **not needed** |
+| `design/assets/2b37055061899aec512b2c880a24ac91.webp` | Hero globe (1100×766, transparent, `object-fit:contain`; `cover` + 32 % opacity behind the copy on phones) |
+| `design/assets/bwci-logo.png` | Logo, from `ghl/shared/site-chrome/assets/bwci-logo.png` |
+
+No React, `support.js`, `/vendor/`, unpkg or `./assets/` path is used by the delivered block.
+
+## What changed in the October 2026 export
+
+- The seven-stage orbit and its wheel/keyboard scroll capture are gone from the design. They are replaced
+  by **the Financial Engine loop**: six steps on a ring with a progress arc (`--p`), a detail card with
+  previous / next buttons that wrap round (06 → 01, 01 → 06), and an accordion on tablets and phones.
+  On desktop (≥ 1024 px) picking a step scrolls the detail card fully into view (source `lpdReveal`: 16 px
+  gap below, never above 80 px from the top).
+- Hero buttons are now "See how it works ↓" and "Discuss your need →".
+- CSS regenerated from the export (mobile type floors and other tweaks) with the same transform as the newer
+  ports, and the build moved to their pipeline (scoping, pruning, `VIEW` markup, link checks).
+- Header, breadcrumb and footer come from the shared site chrome; the config gains `logoImage` and `footer`,
+  and the old footer keys (`about`, `whatsDifferent`, `capabilities`, `corporate`, `legal`, `regulatory`,
+  `insights`) are gone with the old footer.
 
 ## Installation in GoHighLevel
 
-1. Upload `assets/financial-engine-hero.webp` to **Media Storage** and copy its URL.
-2. Open `financial-engine.ghl.html`. The **first block** is the configuration (same pattern as the
-   Main page's `bwci-main-config`). Paste the image URL into `"financialEngineImage"` and set the
-   `"links"` to your GHL page paths.
-3. In the GHL page, add a section → set it to **full width**, remove its padding/margins, add one
-   row/column with no padding, and drop a **Custom Code** element in it.
-4. Paste the **entire** file (config block, `<style>`, `<div id="bwci-financial-engine">`, `<script>`).
-5. Save and preview the **published** page (GHL does not run custom-code scripts in the editor canvas).
+1. Upload `assets/financial-engine-hero.webp` and `ghl/shared/site-chrome/assets/bwci-logo.png` to
+   **Media Storage** and copy their URLs.
+2. Open `financial-engine.ghl.html`. The **first block** is the configuration: paste the URLs into
+   `"financialEngineImage"` and `"logoImage"`, and set the `"links"` (and `"footer"` wording if needed).
+3. In the GHL page, add a **full-width** section with no padding/margins, one row/column with no padding,
+   and a **Custom Code** element in it.
+4. Paste the **entire** file (config block, font links, `<style>`, markup, `<script>`).
+5. Check the **published** page (GHL does not run custom-code scripts in the editor canvas).
 
-`financial-engine.inline.ghl.html` works the same way without step 1 (the image is embedded as a
-data URI in the config), but it is ~480 KB; use it for testing or as a fallback.
+`financial-engine.inline.ghl.html` works without step 1 (images embedded as data URIs) but is ~560 KB.
 
 ## Configuration — the JSON block at the top of the paste
 
@@ -43,124 +63,150 @@ data URI in the config), but it is ~480 KB; use it for testing or as a fallback.
 <script type="application/json" id="bwci-financial-engine-config">
 {
   "financialEngineImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/financial-engine-hero.webp",
+  "logoImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/bwci-logo.png",
   "showHeader": true,
   "showFooter": true,
+  "footer": { "regulatoryLine": "", "registeredJurisdiction": "", "companyNumber": "", "registeredOffice": "" },
   "links": { "home": "/", "ecosystem": "/ecosystem", … }
 }
 </script>
 ```
 
-It is plain JSON: keep the double quotes, and no comma after the last entry. If it is ever
-malformed, the page still works with the default links written in the markup.
+Plain JSON: double quotes, no trailing comma. If it is malformed the page still runs with the default
+links in the markup (the images then stay empty).
 
 | Key | Default | Used by |
 |---|---|---|
 | `financialEngineImage` | placeholder (no request is made until replaced) | Hero globe |
-| `showHeader` / `showFooter` | `true` | `false` removes the built-in header / footer (e.g. when GHL global sections are used) |
-| `links.home` | `/` | Header + drawer logo |
-| `links.ecosystem` | `/ecosystem` | "Ecosystem Topology" (dropdown, drawer) |
-| `links.platforms` | `/platforms` | "Platforms & Institutions" (header, drawer) |
-| `links.smes` | `/smes-projects` | "SMEs & Projects" (header, drawer, footer) |
-| `links.investors` | `/investors-partners` | "Investors & Partners" (header, drawer, footer) |
-| `links.about` | `/#bwci-what` | Footer "About" |
-| `links.whatsDifferent` | `/#bwci-different` | Footer "What's Different" |
-| `links.capabilities` | `/#bwci-platforms` | Footer "Capabilities" |
-| `links.explorePlatforms` | `/#bwci-platforms` | Capabilities section "Explore Platforms" |
-| `links.governance` | `/#bwci-trust` | "Governance" (top bar, drawer, footer) |
-| `links.corporate` | `/#bwci-trust` | "Corporate/IR" (top bar, drawer) |
-| `links.legal` | `/#bwci-trust` | Footer "Legal & Documents" |
-| `links.regulatory` | `/#bwci-trust` | Footer "Regulatory Boundaries" |
-| `links.insights` | `#` | Footer "Insights" (the Main page has no Insights section yet) |
-| `links.contact` | `/#bwci-cta` | "Contact" (top bar, drawer) |
-| `links.startConversation` | `/#bwci-cta` | "Start a Conversation" (drawer button, final CTA, footer) |
-| `links.verify` | `/#bwci-cta` | Footer "Verify a Communication" |
+| `logoImage` | placeholder | Header, drawer and footer logo |
+| `showHeader` / `showFooter` | `true` | `false` removes the built-in header / footer (the breadcrumb is part of the page and stays) |
+| `footer.regulatoryLine` | `""` | Optional regulatory sentence above the footer legal line |
+| `footer.registeredJurisdiction`, `footer.companyNumber`, `footer.registeredOffice` | `""` | Optional parts of the footer legal line (left out while empty, as in the source) |
+| `links.home` | `/` | Logos, breadcrumb "Home" |
+| `links.financialEngine`, `ecosystem`, `platforms`, `smes`, `investors` | `/financial-engine`, `/ecosystem`, `/platforms`, `/smes-projects`, `/investors-partners` | Nav, dropdowns, drawer, footer |
+| `links.impact`, `links.today` | `/#bwci-impact`, `/#bwci-today` | "Better World & Impact", "The Platform Today" (sections of the Main port) |
+| `links.explorePlatforms` | `/#bwci-platforms` | Capabilities "Explore Platforms" (source `Main.dc.html#platforms`) |
+| `links.startConversation` | `/#bwci-cta` | Closing section button (source `Main.dc.html#cta`) |
+| `links.whoWeAre`, `whoPurpose`, `whoRole`, `whoPrinciples`, `whoStory`, `leadership`, `privateInvestors`, `governance`, `corporateIR`, `contact`, `verify`, `legalPrivacy`, `legalTerms`, `legalCookies`, `legalDisclosures`, `legalAccessibility`, `legalSitemap` | `#` | Who We Are menu, Leadership, Private Investors, Governance, Corporate/IR, Contact, Verify, legal links — **unresolved** (see below) |
 
-The `/#bwci-…` defaults point at the section ids of the Main page GHL port. Links to places on this
-page (`#fe-hero`, `#fe-ops-model`, `#fe-cta`) are not configurable because they never change.
-The build fails if a `data-fe-link` key in the markup is missing from the config (or vice versa).
+**Unresolved routes.** The design links the keys marked unresolved to pages that have no GHL port yet
+(Governance, Governance Board, Governance Leadership, the profile pages) or that are not in the export at all
+(Who We Are, Private Investors, Corporate IR, Contact, Verify a Communication, Legal). They default to `#`;
+set them here once the live GHL URLs exist. No URL was invented for them.
 
-Behaviour tuning (developers only) stays in the `OPTIONS` object inside the `<script>`:
-`opsLockOffset` 64, `opsDesktopMin` 1024, `headerDesktopMin` 1200, `opsWheelThreshold` 80,
-`opsTransitionMs` 550, `opsReleaseNudge` 140, `opsRearmMs` 450 (all source values).
+Links to places on this page are fixed: the hero's "See how it works ↓" goes to `#fe-ops-model` and
+"Discuss your need →" to `#fe-cta`. In-page ids carry an `fe-` prefix: `#fe-hero`, `#fe-principle`,
+`#fe-ops-model`, `#fe-capabilities`, `#fe-structure`, `#fe-cta`. Header, drawer and footer items for this
+page use `links.financialEngine` and are marked `aria-current="page"`, as in the source.
 
-In-page anchor ids are prefixed to avoid collisions with GHL element ids:
-`#fe-hero`, `#fe-principle`, `#fe-ops-model`, `#fe-capabilities`, `#fe-structure`, `#fe-cta`.
+Behaviour tuning (developers only) stays in the `OPTIONS` object inside the `<script>`: `engRevealMin` 1024,
+`engRevealGap` 16, `engRevealTop` 80 (source values).
 
-## How the port maps the source
+## Sections and interactions reproduced
 
-- **React/DCLogic → vanilla JS.** All content is static HTML (crawlable, no layout shift); the script
-  only toggles classes/attributes/text, exactly like the source's re-renders did.
-- **Styles** are the source CSS in source order (many mobile rules depend on order + `!important`),
-  with every selector prefixed by `#bwci-financial-engine` (done by `_build/build.js`, which fails
-  the build on any unscoped selector). Generic class names were prefixed (`container`→`fe-container`,
-  `section`, `btn`, `h1`, `h-display`, `body-lg`, `body-sm`, `text-link`, `icon`, `footer`, `hdr*`,
-  `hero-btn`, `hero-actions`) and element resets neutralise host typography/normalize/Bootstrap rules.
-  `:root` tokens live on the widget root; `html`/`body` are never styled.
-- **Operating Model lock** (desktop ≥1024 px): same state machine as the source — passive scroll
-  watcher detects the section crossing the 64 px line, a non-passive `wheel` listener (and
-  Arrow/Page/Space keys) then advances stages 01→07 with an 80 px delta threshold and 550 ms cooldown,
-  and releases with a 140 px smooth nudge past either end, re-arming after 450 ms.
-- **Stage wheel geometry** is pure CSS from one coordinate system (`--orbit-size`,
-  `--orbit-radius`, `--stage-total-angle`): markers, labels, rings and the focal ring cannot drift
-  apart at any width. Stage rotation animates along the arc (`transform .6s`).
-- **Mobile/tablet (<1024 px)**: orbit replaced by the source's stepper rail (prev/next, 7 dots,
-  done/active states, scroll-into-view on change).
-- `html{scroll-behavior:smooth}` is reproduced per-link (in-page anchors) and per-`scrollBy` call.
-- **Fonts**: Plus Jakarta Sans + JetBrains Mono, loaded with the same three `<link>` tags as the Main page GHL block (placed right after the config block). A CSS `@import` inside the `<style>` did not load in GoHighLevel, and the build now rejects `@import`. The font families are used only inside the widget.
+| Section | Behaviour |
+|---|---|
+| Site header, breadcrumb | Shared site chrome — see below |
+| Hero | Globe artwork, two anchor buttons (smooth scroll, instant with reduced motion) |
+| Operating principle | Five chapters; hover, focus or click selects one: `data-active`, the reading number, label, title, body and proof change |
+| The Financial Engine loop | Six nodes, progress arc, detail card with wrapping previous / next; elements update in place (as React did), so the CSS transitions run as in the source. Desktop: the detail reveal scroll. Below 1024 px: an accordion of the same steps |
+| Capabilities | Hover, focus or click makes one item active |
+| Structure, closing CTA, footer | Static content with the source hover states |
+| Section fade-up | `bwci-motion.js` port, scoped to the widget root |
 
-### Intentional differences (robustness fixes, no visual change)
+## Header, breadcrumb and footer (shared site chrome)
 
-1. The lock also releases if the page is moved by something other than the wheel (scrollbar drag,
-   touch, anchor jump, find-in-page). In the source the lock could stay armed off-screen and then
-   swallow wheel/arrow keys elsewhere on the page.
-2. Clicking an orbit stage while the section is still approaching no longer gets reset to stage 01
-   by the lock engaging mid-scroll.
-3. Wheel deltas in line/page mode (some Firefox/Windows mice) are normalised to pixels.
-4. Debug `console.log` calls from the source were removed.
-5. The header's "stuck" state is measured relative to the widget (not `window.scrollY`), so it stays
-   correct when GHL content sits above the widget.
-6. `prefers-reduced-motion`: all transitions/animations become instant and scrolling is not
-   smoothed; every state remains visible and interactive.
-7. Dead code from the export was dropped: CSS for sections the source does not render (Problem,
-   Illustrative Example, Status, Governance, old nav) and their IntersectionObservers (their target
-   elements do not exist in the source, so they never ran).
+The header, mobile drawer, breadcrumb and footer are generated by `ghl/shared/site-chrome/` (see its README)
+from `design/SiteHeader.dc.html` (`current="engine"`), `design/Breadcrumb.dc.html` (`current="engine"`) and
+`design/SiteFooter.dc.html`, together with the parts of `design/bwci-system.css` the page uses and a
+root-scoped port of `design/bwci-motion.js`. The same generated chrome is in every page port.
 
-### Faithfully reproduced source quirks
+- Utility bar, logo and five nav groups (Who We Are, How It Works, Platforms & Institutions, SMEs & Projects,
+  Investors & Partners). Dropdowns open on hover for fine pointers (closing 160 ms after the pointer leaves),
+  on click, or from the keyboard (ArrowDown/Up/Home/End; Escape closes and returns focus); an outside click
+  or focus leaving closes them.
+- The bar sticks once the utility strip has scrolled away; this is measured relative to the widget, so GHL
+  content above it does not break the sticky state.
+- Below 1280 px a burger opens the drawer: accordions (the current section starts open), focus moves to
+  the close button and Tab stays inside, Escape and links close it, and the body scroll is locked and then
+  restored to the host's own value. It closes itself when the viewport grows to 1280 px or more.
+- Breadcrumb "Home › The Financial Engine" with the source's inline styles and hover/focus colours.
+- Footer link columns, logo, legal line and bottom links; the regulatory sentence and legal-line parts come
+  from the `footer` config.
 
-- On phones (≤767 px) every data-driven string renders at **14 px** (e.g. the Operating Model panel
-  title and the principle reading title), because the source's "readability floor" CSS targets the
-  runtime's `.sc-interp` span. This is exactly what the Claude Design page shows. To use the
-  intended heading sizes instead, delete `.fe-i` from the two mobile `font-size` rules in
-  `_build/src/financial-engine.css` and rebuild.
-- Source copy is unchanged, including "Design the Stru**t**ure" (stage 02) and "he structure is
-  designed…" (principle 02).
+## How it is built
 
-## Validation (see `_build/`)
+`_build/src/` holds the editable source (`financial-engine.css`, `financial-engine.html`,
+`financial-engine.js`, `financial-engine.config.json`). `node ghl/pages/financial-engine/_build/build.js`
+generates both blocks:
+
+- fills the `<!--view:…-->` markers with the loop's default state, rendered by the `VIEW` part of
+  `financial-engine.js`, so the static markup and the script agree;
+- inlines the shared site chrome (markup, CSS, runtime);
+- scopes every selector under `#bwci-financial-engine` and fails on any unscoped rule or `@import`;
+- drops selectors naming classes/ids the page can never render and unused keyframes;
+- checks that every `data-fe-link` key exists in the config (and the reverse), that in-page anchors exist,
+  and that no Claude Design, unpkg, vendor or local asset path remains.
+
+The CSS keeps the source rule order (mobile overrides depend on it). Generic class names carry an `fe-`
+prefix, `:root` tokens live on the widget root and `html`/`body` are never styled. Fonts: the same three
+Google Fonts `<link>` tags as the other GHL blocks (an `@import` inside `<style>` did not load in GHL).
+
+## Validation (local, headless Chromium)
 
 | Check | Result |
 |---|---|
-| Full-page pixel diff vs the Claude Design page at 320, 360, 375, 390, 430, 768, 1024, 1280, 1366, 1440, 1600, 1920, 2560 px | identical page heights; ≤0.004 % differing pixels (anti-aliasing on a decorative circle) |
-| Same diff inside a hostile host page (Bootstrap/normalize-like global CSS, `html{font-size:10px}`, content above/below the widget, script executed twice) | identical render, no horizontal overflow |
-| Horizontal overflow | none at any tested width, without touching `body` |
-| Wheel lock sequence, keyboard capture, node click, chapter hover, capability hover, mobile rail | same trace as the source (see `_build/behaviour.js`) |
-| Duplicate execution / re-render | single instance; stale instances are destroyed and re-attached |
-| JS errors | none |
+| Full-page pixel diff vs the source at 320, 360, 375, 390, 430, 768, 1024, 1280, 1366, 1440, 1600, 1920 and 2560 px (reduced motion, shared scroll motion settled) | Identical page heights; 0 % differing pixels at every width (at 1024 px the port equals one of two source runs, which differ from each other) |
+| Element-by-element box and computed-style comparison at 320, 375, 390, 768, 1024, 1280, 1440, 1920 and 2560 px (`_build/domdiff.js`) | 0 differences up to 1280 px. At 1440 px and wider one reported value differs: the hero's inner box reads its resolved `margin: 0 auto` as `0px 80px` in the source and `0px` in the port, with an identical box — how Chrome reports a resolved `auto` margin, not a layout difference |
+| Interaction trace, source vs port (`_build/behaviour.js`): chapters hover/focus, loop nodes by click and keyboard, the desktop reveal scroll, previous / next wrap-round, Enter/Space, Shift+Tab, node hover, capabilities, tablet/phone accordion at 1023/768/390/320 px, reduced motion | Identical |
+| Shared chrome trace (`ghl/shared/site-chrome/qa/chrome-behaviour.js`): dropdowns, keyboard, drawer, focus trap, sticky, footer, motion | Identical to the source |
+| Lifecycle (`chrome-lifecycle.js`, `_build/header-and-lifecycle.js`): config keys, header/footer off, footer wording, link overrides, broken JSON, placeholders never requested, hostile host (aggressive global CSS, content above/below, script run twice → one instance), GHL re-render, hero anchor, reduced motion | All pass; no JavaScript errors |
+| Horizontal overflow | None at any width |
 
-Rebuild after editing `_build/src/*`:
+Web fonts could not be downloaded in the test browser, so the comparisons used fallback fonts on both
+sides; the typeface itself must be checked on the published page.
 
-```sh
-node ghl/pages/financial-engine/_build/build.js          # writes both .ghl.html files
-node ghl/pages/financial-engine/_build/make-previews.js  # writes _build/preview/{plain,hostile}.html (git-ignored)
-```
+## Intentional differences
+
+1. The header's sticky state is measured relative to the widget (not `window.scrollY`), so it stays correct
+   when GHL content sits above the widget.
+2. `prefers-reduced-motion`: transitions and animations become instant and scrolling is not smoothed; every
+   state stays visible and interactive.
+3. The source sets `html{scroll-behavior:smooth}` for the whole page. The port does not style the host page;
+   it smooth-scrolls its own anchors and the reveal scroll instead.
+4. Debug `console.log` calls and CSS for sections the source no longer renders were removed. The source
+   still computes the old seven-stage orbit state (`OPS_STAGES`, including the "Design the Struture" typo),
+   but its template no longer renders it, so it was not ported.
+
+### Faithfully reproduced source quirks
+
+- On phones (≤ 767 px) every data-driven string renders at **14 px** (e.g. the principle reading title),
+  because the source's "readability floor" CSS targets the runtime's `.sc-interp` span. To use the intended
+  heading sizes instead, delete `.fe-i` from the mobile `font-size` rules in `_build/src/financial-engine.css`
+  and rebuild.
+- Source copy is unchanged, including "he structure is designed…" (principle 02).
 
 ## GoHighLevel notes
 
-- The header is `position:sticky`; it stays pinned only if no GHL wrapper around the Custom Code
-  element uses `overflow:hidden/auto` or `transform`. Full-width sections without effects are fine.
-- Opening the mobile menu sets `document.body.style.overflow = 'hidden'` (source behaviour) and
-  restores the previous value on close — the only write outside the widget.
-- The Operating Model registers a non-passive `wheel` listener on `window` (required for the
-  scroll capture); it returns immediately unless the section is locked.
-- `SiteHeader` and the footer are shared by every Claude Design page. They are included here so the
-  page is complete; when more pages are ported, consider moving them to a shared GHL global section
-  and setting `"showHeader": false` / `"showFooter": false`.
+- The header is `position:sticky`; it pins only if no GHL wrapper around the element uses
+  `overflow:hidden/auto` or `transform`.
+- Opening the mobile menu sets `document.body.style.overflow = 'hidden'` and restores the previous value on
+  close or teardown — the only write outside the widget. The old non-passive `wheel` listener is gone with
+  the orbit; all window/document listeners are passive scroll/resize plus the menus' mousedown/keydown.
+- Everything is removed on teardown or GHL re-render.
+
+## Rebuild and test
+
+```sh
+node ghl/pages/financial-engine/_build/build.js            # writes both .ghl.html files
+node ghl/pages/financial-engine/_build/make-previews.js    # _build/preview/{plain,hostile}.html (git-ignored)
+# with a local server at the repo root (e.g. npx http-server -p 8123) and NODE_PATH=$(npm root -g):
+node ghl/pages/financial-engine/_build/shoot.js <url> <outDir>          # screenshots, reduced motion by default
+python3 ghl/pages/financial-engine/_build/diff.py <refDir> <testDir>    # pixel diff
+node ghl/pages/financial-engine/_build/behaviour.js <url>               # interaction trace
+node ghl/pages/financial-engine/_build/domdiff.js <sourceUrl> <portUrl> [width]
+node ghl/pages/financial-engine/_build/header-and-lifecycle.js <portUrl>
+```
+
+The source page loads React from unpkg.com; `_build/qa-routes.js` serves the identical local copies from
+`design/vendor/` so the source can be rendered offline. Only the QA scripts use it.

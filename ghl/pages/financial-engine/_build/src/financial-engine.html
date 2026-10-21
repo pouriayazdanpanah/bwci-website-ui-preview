@@ -1,83 +1,11 @@
 <div id="bwci-financial-engine">
 
   <!-- ============================================================
-       SITE HEADER  (source: SiteHeader.dc.html, current="engine")
+       SITE HEADER  (source: design/SiteHeader.dc.html, current="engine"; shared site chrome)
        Hide it with "showHeader": false in the config block when a
        GoHighLevel global header is used instead.
        ============================================================ -->
-  <div class="fe-hdr-host" data-fe-hdr-host>
-    <header class="fe-hdr" data-fe-hdr>
-      <div class="fe-hdr__util" data-fe-hdr-util>
-        <div class="fe-hdr__in">
-          <a href="/#bwci-trust" data-fe-link="governance">Governance</a>
-          <a href="/#bwci-trust" data-fe-link="corporate">Corporate/IR</a>
-          <a href="/#bwci-cta" data-fe-link="contact">Contact</a>
-        </div>
-      </div>
-      <div class="fe-hdr__bar">
-        <div class="fe-hdr__in">
-          <a class="fe-hdr__logo" href="/" data-fe-link="home" aria-label="BWCI PLC home">
-            <span class="fe-hdr__mark">BW</span>
-            <span class="fe-hdr__name"><span class="fe-hdr__word">BWCI PLC</span><span class="fe-hdr__tag">Better World Capital Investment</span></span>
-          </a>
-          <nav class="fe-hdr__nav" aria-label="Primary">
-            <div class="fe-hdr__dd" data-fe-dd>
-              <button class="fe-hdr__link fe-hdr__trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-current="page" data-fe-dd-toggle>How It Works<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-              <div class="fe-hdr__panel" role="menu" data-fe-dd-panel hidden>
-                <a class="fe-hdr__item" role="menuitem" href="#fe-hero" aria-current="page" data-fe-dd-close>
-                  <span><span class="fe-hdr__item-t">The Financial Engine</span><span class="fe-hdr__item-d">The 7-stage operational method</span></span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
-                </a>
-                <a class="fe-hdr__item" role="menuitem" href="/ecosystem" data-fe-link="ecosystem" data-fe-dd-close>
-                  <span><span class="fe-hdr__item-t">Ecosystem Topology</span><span class="fe-hdr__item-d">The 6-layer relational network</span></span>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
-                </a>
-              </div>
-            </div>
-            <a class="fe-hdr__link" href="/platforms" data-fe-link="platforms">Platforms &amp; Institutions</a>
-            <a class="fe-hdr__link" href="/smes-projects" data-fe-link="smes">SMEs &amp; Projects</a>
-            <a class="fe-hdr__link" href="/investors-partners" data-fe-link="investors">Investors &amp; Partners</a>
-          </nav>
-          <button class="fe-hdr__burger" type="button" aria-label="Open menu" aria-expanded="false" data-fe-menu-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
-        </div>
-      </div>
-      <div class="fe-hdr__scrim" data-fe-menu-close data-fe-menu-part hidden></div>
-      <aside class="fe-hdr__drawer" role="dialog" aria-modal="true" aria-label="Site menu" data-fe-menu-part hidden>
-        <div class="fe-hdr__dhead">
-          <a class="fe-hdr__logo" href="/" data-fe-link="home" aria-label="BWCI PLC home" data-fe-menu-close>
-            <span class="fe-hdr__mark">BW</span>
-            <span class="fe-hdr__name"><span class="fe-hdr__word">BWCI PLC</span><span class="fe-hdr__tag">Financial Holding</span></span>
-          </a>
-          <button class="fe-hdr__x" type="button" aria-label="Close menu" data-fe-menu-close><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg></button>
-        </div>
-        <div class="fe-hdr__dbody">
-          <div>
-            <button class="fe-hdr__drow" type="button" aria-expanded="true" data-fe-acc="hiw">How It Works<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><line class="fe-hdr__v" x1="12" y1="5" x2="12" y2="19"></line></svg></button>
-            <div class="fe-hdr__sub-wrap" data-fe-acc-panel="hiw">
-              <div class="fe-hdr__sub">
-                <a href="#fe-hero" aria-current="page" data-fe-menu-close><span class="fe-hdr__sub-t">The Financial Engine</span><span class="fe-hdr__sub-d">The 7-stage operational method</span></a>
-                <a href="/ecosystem" data-fe-link="ecosystem" data-fe-menu-close><span class="fe-hdr__sub-t">Ecosystem Topology</span><span class="fe-hdr__sub-d">The 6-layer relational network</span></a>
-              </div>
-            </div>
-          </div>
-          <a class="fe-hdr__drow" href="/platforms" data-fe-link="platforms" data-fe-menu-close>Platforms &amp; Institutions<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
-          <a class="fe-hdr__drow" href="/smes-projects" data-fe-link="smes" data-fe-menu-close>SMEs &amp; Projects<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
-          <a class="fe-hdr__drow" href="/investors-partners" data-fe-link="investors" data-fe-menu-close>Investors &amp; Partners<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></a>
-          <div>
-            <button class="fe-hdr__drow" type="button" aria-expanded="false" data-fe-acc="gov">Governance &amp; Purpose<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><line class="fe-hdr__v" x1="12" y1="5" x2="12" y2="19"></line></svg></button>
-            <div class="fe-hdr__sub-wrap" data-fe-acc-panel="gov" hidden>
-              <div class="fe-hdr__sub">
-                <a href="/#bwci-trust" data-fe-link="governance" data-fe-menu-close><span class="fe-hdr__sub-t">Governance</span></a>
-                <a href="/#bwci-trust" data-fe-link="corporate" data-fe-menu-close><span class="fe-hdr__sub-t">Corporate/IR</span></a>
-                <a href="/#bwci-cta" data-fe-link="contact" data-fe-menu-close><span class="fe-hdr__sub-t">Contact</span></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="fe-hdr__dfoot"><a class="fe-hdr__cta" href="/#bwci-cta" data-fe-link="startConversation" data-fe-menu-close>Start a Conversation</a></div>
-      </aside>
-    </header>
-  </div>
+<!--chrome:header-->
 
   <!-- ============================================================
        HERO — THE FINANCIAL ENGINE
@@ -88,22 +16,23 @@
 
     <div class="hero-fe-inner">
       <div class="hero-fe-copy" style="max-width:800px">
+<!--chrome:breadcrumb-->
         <h1 class="fe-h-display" style="color:var(--text-inverse)">Financial structures built around business and project needs.</h1>
         <p class="fe-body-lg" style="max-width:700px">Start with what your business or project needs. BWCI’s Financial Engine is being developed to connect that need with a suitable financial structure, capital sources and delivery partners.</p>
 
         <div class="fe-hero-actions">
-          <a class="fe-hero-btn fe-hero-btn--solid" href="#fe-ops-model">SEE HOW IT WORKS<span aria-hidden="true">↓</span></a>
-          <a class="fe-hero-btn fe-hero-btn--ghost" href="#fe-cta">DISCUSS YOUR NEED<span aria-hidden="true">→</span></a>
+          <a class="fe-hero-btn fe-hero-btn--solid" href="#fe-ops-model">See how it works <span aria-hidden="true">↓</span></a>
+          <a class="fe-hero-btn fe-hero-btn--ghost" href="#fe-cta">Discuss your need <span aria-hidden="true">→</span></a>
         </div>
       </div>
 
       <div class="hero-fe-visual" aria-hidden="true">
         <!-- Image URL comes from "financialEngineImage" in the config block at the top (single replacement point). -->
         <img data-fe-asset="financialEngineImage" alt="" width="1100" height="766" decoding="async" fetchpriority="high">
-        <div class="fe-node" style="left:40.0%; top:1.0%"><span class="fe-node__tick"></span><span class="fe-node__dot"></span></div>
-        <div class="fe-node" style="left:66.0%; top:14.5%"><span class="fe-node__tick"></span><span class="fe-node__dot"></span></div>
-        <div class="fe-node" style="left:80.0%; top:59.0%"><span class="fe-node__tick"></span><span class="fe-node__dot"></span></div>
-        <div class="fe-node" style="left:55.0%; top:95.8%"><span class="fe-node__tick"></span><span class="fe-node__dot"></span></div>
+        <div class="fe-node" style="left:40.0%; top:1.0%" aria-hidden="true"><span class="fe-node__tick"></span><span class="fe-node__dot"></span></div>
+        <div class="fe-node" style="left:66.0%; top:14.5%" aria-hidden="true"><span class="fe-node__tick"></span><span class="fe-node__dot"></span></div>
+        <div class="fe-node" style="left:80.0%; top:59.0%" aria-hidden="true"><span class="fe-node__tick"></span><span class="fe-node__dot"></span></div>
+        <div class="fe-node" style="left:55.0%; top:95.8%" aria-hidden="true"><span class="fe-node__tick"></span><span class="fe-node__dot"></span></div>
       </div>
     </div>
   </section>
@@ -146,221 +75,35 @@
   </section>
 
   <!-- ============================================================
-       02 — THE OPERATING MODEL  (scroll-capture Financial Engine sequence)
+       02 — THE FINANCIAL ENGINE  (six-step loop: nodes + detail panel; phone/tablet: accordion)
        ============================================================ -->
-  <section class="ops-model" id="fe-ops-model" data-fe-ops>
-    <div class="ops-viewport" id="fe-ops-viewport" data-fe-ops-viewport>
-
-      <div class="ops-head">
-        <h2 class="fe-h1" style="text-align:left">How the model works</h2>
-        <p class="fe-body-lg" style="max-width:653px">Seven stages connect the initial need with delivery, monitoring and potential expansion.</p>
+  <section class="ops-model fe-sec" id="fe-ops-model" data-fe-eng>
+    <div class="fe-wrap">
+      <div class="fe-sec-head">
+        <h2 class="fe-h1">The Financial Engine</h2>
+        <p class="fe-lead">Six steps, one loop: from economic need to productive activity, and back into reinvestment.</p>
       </div>
-
-      <ul class="ops-sr-only">
-        <li>Stage <span class="fe-i">01</span>: <span class="fe-i">Identify Need</span></li>
-        <li>Stage <span class="fe-i">02</span>: <span class="fe-i">Design the Struture</span></li>
-        <li>Stage <span class="fe-i">03</span>: <span class="fe-i">Connect Capability</span></li>
-        <li>Stage <span class="fe-i">04</span>: <span class="fe-i">Mobilise Capital</span></li>
-        <li>Stage <span class="fe-i">05</span>: <span class="fe-i">Deploy capital</span></li>
-        <li>Stage <span class="fe-i">06</span>: <span class="fe-i">Learn</span></li>
-        <li>Stage <span class="fe-i">07</span>: <span class="fe-i">Scale</span></li>
-      </ul>
-
-      <div class="ops-body">
-        <div class="ops-orbit-col">
-
-          <!-- One shared circular coordinate system: rings, focal ring and every
-               stage node are positioned from the same --orbit-size/--orbit-radius. -->
-          <div class="ops-orbit-wheel" aria-hidden="true">
-            <span class="ops-orbit-ring ops-orbit-ring--outer"></span>
-            <span class="ops-orbit-ring ops-orbit-ring--inner"></span>
-            <span class="ops-focal-line"></span>
-
-            <div class="ops-stage-node ops-stage-node--active" data-fe-ops-node="0" style="--stage-total-angle:0.00deg; opacity:1; pointer-events:auto"><span class="ops-stage-marker"><span class="fe-i">01</span></span><span class="ops-stage-label"><span class="fe-i">Identify Need</span></span></div>
-            <div class="ops-stage-node" data-fe-ops-node="1" style="--stage-total-angle:51.43deg; opacity:0.7; pointer-events:auto"><span class="ops-stage-marker"><span class="fe-i">02</span></span><span class="ops-stage-label"><span class="fe-i">Design the Struture</span></span></div>
-            <div class="ops-stage-node" data-fe-ops-node="2" style="--stage-total-angle:102.86deg; opacity:0; pointer-events:none"><span class="ops-stage-marker"><span class="fe-i">03</span></span><span class="ops-stage-label"><span class="fe-i">Connect Capability</span></span></div>
-            <div class="ops-stage-node" data-fe-ops-node="3" style="--stage-total-angle:154.29deg; opacity:0; pointer-events:none"><span class="ops-stage-marker"><span class="fe-i">04</span></span><span class="ops-stage-label"><span class="fe-i">Mobilise Capital</span></span></div>
-            <div class="ops-stage-node" data-fe-ops-node="4" style="--stage-total-angle:205.71deg; opacity:0; pointer-events:none"><span class="ops-stage-marker"><span class="fe-i">05</span></span><span class="ops-stage-label"><span class="fe-i">Deploy capital</span></span></div>
-            <div class="ops-stage-node" data-fe-ops-node="5" style="--stage-total-angle:257.14deg; opacity:0; pointer-events:none"><span class="ops-stage-marker"><span class="fe-i">06</span></span><span class="ops-stage-label"><span class="fe-i">Learn</span></span></div>
-            <div class="ops-stage-node" data-fe-ops-node="6" style="--stage-total-angle:308.57deg; opacity:0; pointer-events:none"><span class="ops-stage-marker"><span class="fe-i">07</span></span><span class="ops-stage-label"><span class="fe-i">Scale</span></span></div>
-          </div>
-
-          <div class="ops-rail-mobile">
-            <button type="button" class="ops-rail-arrow ops-rail-arrow--prev" aria-label="Previous stage" data-fe-ops-prev disabled><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"></path></svg></button>
-            <div class="ops-rail-head" aria-live="polite">
-              <span class="ops-rail-count">Stage <b><span class="fe-i" data-fe-ops-num>01</span></b> / 07</span>
-              <span class="ops-rail-title"><span class="fe-i" data-fe-ops-title>Identify Need</span></span>
-            </div>
-            <button type="button" class="ops-rail-arrow ops-rail-arrow--next" aria-label="Next stage" data-fe-ops-next><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"></path></svg></button>
-            <div class="ops-rail-bar" role="tablist" aria-label="Operating model stages">
-              <button type="button" role="tab" class="ops-rail-dot ops-rail-dot--active" aria-selected="true" aria-label="Stage 01: Identify Need" data-fe-ops-dot="0"><span class="fe-i">01</span></button>
-              <button type="button" role="tab" class="ops-rail-dot" aria-selected="false" aria-label="Stage 02: Design the Struture" data-fe-ops-dot="1"><span class="fe-i">02</span></button>
-              <button type="button" role="tab" class="ops-rail-dot" aria-selected="false" aria-label="Stage 03: Connect Capability" data-fe-ops-dot="2"><span class="fe-i">03</span></button>
-              <button type="button" role="tab" class="ops-rail-dot" aria-selected="false" aria-label="Stage 04: Mobilise Capital" data-fe-ops-dot="3"><span class="fe-i">04</span></button>
-              <button type="button" role="tab" class="ops-rail-dot" aria-selected="false" aria-label="Stage 05: Deploy capital" data-fe-ops-dot="4"><span class="fe-i">05</span></button>
-              <button type="button" role="tab" class="ops-rail-dot" aria-selected="false" aria-label="Stage 06: Learn" data-fe-ops-dot="5"><span class="fe-i">06</span></button>
-              <button type="button" role="tab" class="ops-rail-dot" aria-selected="false" aria-label="Stage 07: Scale" data-fe-ops-dot="6"><span class="fe-i">07</span></button>
+      <div>
+        <div class="lp" style="--p:<!--view:engProgress-->" data-fe-eng-lp>
+          <div class="lp-ring" aria-hidden="true"></div>
+          <div class="lp-prog" aria-hidden="true"></div>
+          <span class="lp-chev lp-chev--in" aria-hidden="true"></span><span class="lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.1)"></span><span class="lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.3)"></span><span class="lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.5)"></span><span class="lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.7)"></span><span class="lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.9)"></span>
+          <span class="lp-chev lp-chev--ret" aria-hidden="true"></span>
+          <span class="lp-ret" aria-hidden="true">Reinvestment returns to need</span>
+          <div class="lp-nodes" role="tablist" aria-label="Financial Engine steps"><!--view:engNodes--></div>
+        </div>
+        <div class="lp-loopnote" style="display:none; margin-top:8px; align-items:center; gap:8px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-gold-dark)">↑ Reinvestment returns to Need</div>
+        <div class="lpd">
+          <div class="lpd-stack"><!--view:engPanes--></div>
+          <div class="lpd-side">
+            <div class="lpd-ctrl">
+              <button type="button" aria-label="Previous step" data-fe-eng-prev><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="11 6 5 12 11 18"></polyline></svg></button>
+              <button type="button" aria-label="Next step" data-fe-eng-next><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></button>
             </div>
           </div>
         </div>
-
-        <div class="ops-panels">
-          <div class="ops-panel ops-panel--active" data-fe-ops-panel="0">
-            <span class="ops-panel__code"><span class="fe-i">STAGE 01 · DIAGNOSTIC</span></span>
-            <h3 class="ops-panel__title"><span class="fe-i">Identify Need</span></h3>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">What Happens</span>
-              <p class="ops-panel__text"><span class="fe-i">We assess what the business or project needs: its commercial reality, trade cycle, asset life and working-capital pattern, and why standard bank finance has not filled the gap.</span></p>
-            </div>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">WHO</span>
-              <p class="ops-panel__text"><span class="fe-i">Our financial engineering and structuring team, supported by market and industry insight.</span></p>
-            </div>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">Where Execution Occurs</span>
-              <p class="ops-panel__text"><span class="fe-i">Assessment and feasibility work happen at holding-company level. Regulated client onboarding and statutory checks are conducted through authorized operating entities.</span></p>
-            </div>
-          </div>
-
-          <div class="ops-panel" data-fe-ops-panel="1">
-            <span class="ops-panel__code"><span class="fe-i">STAGE 02 · STRUCTURING</span></span>
-            <h3 class="ops-panel__title"><span class="fe-i">Design the Struture</span></h3>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">What Happens</span>
-              <p class="ops-panel__text"><span class="fe-i">We design the financial structure: debt or equity, tenor, risk layers (senior, mezzanine, junior), collateral and covenants, the cash-flow waterfall, and how assets are ring-fenced to protect investors.</span></p>
-            </div>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">WHO</span>
-              <p class="ops-panel__text"><span class="fe-i">Capital architecture and governance specialists, supported by legal and regulatory advisors. </span></p>
-            </div>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">Where Execution Occurs</span>
-              <p class="ops-panel__text"><span class="fe-i">Designed at holding-company level with input from institutional risk committees. Legal ring-fencing is put in place before the structure is assigned to a vehicle.</span></p>
-            </div>
-          </div>
-
-          <div class="ops-panel" data-fe-ops-panel="2">
-            <span class="ops-panel__code"><span class="fe-i">STAGE 03 · ROUTING</span></span>
-            <h3 class="ops-panel__title"><span class="fe-i">Connect Capability</span></h3>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">What Happens</span>
-              <p class="ops-panel__text"><span class="fe-i">We route the structure to the best-placed delivery vehicle, based on asset class, regulation, and jurisdiction:</span></p>
-              <div class="ops-routing">
-                <div class="ops-routing__row">
-                  <div class="ops-routing__row-text">
-                    <span class="ops-routing__label-mono"><span class="fe-i">Group Company</span></span>
-                    <span class="ops-routing__label"><span class="fe-i">Providence Asset Management Ltd— fund management and private credit </span></span>
-                  </div>
-                  <span class="ops-status-tag ops-status-tag--op"><span class="fe-i">OPERATING</span></span>
-                </div>
-                <div class="ops-routing__row">
-                  <div class="ops-routing__row-text">
-                    <span class="ops-routing__label-mono"><span class="fe-i">Group Build</span></span>
-                    <span class="ops-routing__label"><span class="fe-i">Capital Platform / Trade Finance Platform </span></span>
-                  </div>
-                  <span class="ops-status-tag ops-status-tag--dev"><span class="fe-i">IN DEV</span></span>
-                </div>
-                <div class="ops-routing__row">
-                  <div class="ops-routing__row-text">
-                    <span class="ops-routing__label-mono"><span class="fe-i">Partner Capability</span></span>
-                    <span class="ops-routing__label"><span class="fe-i">Regulated commercial partner banks </span></span>
-                  </div>
-                  <span class="ops-status-tag ops-status-tag--connected"><span class="fe-i">CONNECTED</span></span>
-                </div>
-                <div class="ops-routing__row">
-                  <div class="ops-routing__row-text">
-                    <span class="ops-routing__label-mono"><span class="fe-i">Enabling Layer</span></span>
-                    <span class="ops-routing__label"><span class="fe-i">Financial infrastructure and technology </span></span>
-                  </div>
-                  <span class="ops-status-tag ops-status-tag--enabling"><span class="fe-i">ENABLING</span></span>
-                </div>
-              </div>
-            </div>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">WHO</span>
-              <p class="ops-panel__text"><span class="fe-i">Our strategic partnerships team, supported by our technology and infrastructure capability</span></p>
-            </div>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">Where Execution Occurs</span>
-              <p class="ops-panel__text"><span class="fe-i">A contractual handover to the relevant group platform or independent partner.</span></p>
-            </div>
-          </div>
-
-          <div class="ops-panel" data-fe-ops-panel="3">
-            <span class="ops-panel__code"><span class="fe-i">STAGE 04 · MOBILISATION</span></span>
-            <h3 class="ops-panel__title"><span class="fe-i">Mobilise Capital</span></h3>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">What Happens</span>
-              <p class="ops-panel__text"><span class="fe-i">We bring in money from institutions like pension funds, sovereign wealth funds, private debt funds, family offices, and development finance institutions (DFIs). Each institution has its own risk and return requirements.</span></p>
-            </div>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">WHO</span>
-              <p class="ops-panel__text"><span class="fe-i">Our capital architecture team, supported by institutional investor networks and Providence Asset Management Ltd</span></p>
-            </div>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">Where Execution Occurs</span>
-              <p class="ops-panel__text"><span class="fe-i">Through institutional syndication and regulated fund vehicles, with capital ring-fenced for each facility</span></p>
-            </div>
-          </div>
-
-          <div class="ops-panel" data-fe-ops-panel="4">
-            <span class="ops-panel__code"><span class="fe-i">STAGE 05 · EXECUTION</span></span>
-            <h3 class="ops-panel__title"><span class="fe-i">Deploy capital</span></h3>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">What Happens</span>
-              <p class="ops-panel__text"><span class="fe-i">Capital goes to work: funding trade invoices, financing equipment, or paying for construction milestones. Money is released as agreed. Operational milestones are verified.</span></p>
-            </div>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">WHO</span>
-              <p class="ops-panel__text"><span class="fe-i">Authorized operating subsidiaries and regulated partner banks, using controlled disbursement systems.</span></p>
-            </div>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">Where Execution Occurs</span>
-              <p class="ops-panel__text"><span class="fe-i">Disbursements flow only through authorized entities, licensed partners, or special-purpose vehicles (SPVs), into the operating accounts of real businesses. </span></p>
-            </div>
-          </div>
-
-          <div class="ops-panel" data-fe-ops-panel="5">
-            <span class="ops-panel__code"><span class="fe-i">STAGE 06 · Monitoring</span></span>
-            <h3 class="ops-panel__title"><span class="fe-i">Learn</span></h3>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">What Happens</span>
-              <p class="ops-panel__text"><span class="fe-i">We track how each structure performs: cash flows, how quickly invoices are paid, collateral values, and debt service cover. This data tests whether the original assumptions were right.</span></p>
-            </div>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">WHO</span>
-              <p class="ops-panel__text"><span class="fe-i">Our technology and infrastructure capability, supported by performance reporting, collateral management agents (CMAs) and independent audit.</span></p>
-            </div>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">Where Execution Occurs</span>
-              <p class="ops-panel__text"><span class="fe-i">Platform data feeds back into holding-level governance, risk management, and lending criteria.</span></p>
-            </div>
-          </div>
-
-          <div class="ops-panel" data-fe-ops-panel="6">
-            <span class="ops-panel__code"><span class="fe-i">STAGE 07 · EXPANSION</span></span>
-            <h3 class="ops-panel__title"><span class="fe-i">Scale</span></h3>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">What Happens</span>
-              <p class="ops-panel__text"><span class="fe-i">Structures that work are standardized and rolled out to similar sectors, supply chains, and regions, becoming repeatable programs.</span></p>
-            </div>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">WHO</span>
-              <p class="ops-panel__text"><span class="fe-i">Every team across the Financial Engine, working together.</span></p>
-            </div>
-            <div class="ops-panel__field">
-              <span class="ops-panel__label">Where Execution Occurs</span>
-              <p class="ops-panel__text"><span class="fe-i">Through platform growth, and, where needed, licenses in new jurisdictions.</span></p>
-            </div>
-          </div>
-
-          <div class="ops-loop-note" aria-hidden="true" data-fe-ops-loop>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 11A8 8 0 1 0 18.3 15.3"></path><path d="M20 5v6h-6"></path></svg>
-            <span>Learn → Optimise → Repeat</span>
-          </div>
-        </div>
+        <p class="eng-note">Illustrative example only. It does not describe a specific transaction or offer.</p>
       </div>
-
     </div>
   </section>
 
@@ -525,7 +268,7 @@
   <!-- ============================================================
        FINAL CTA
        ============================================================ -->
-  <section class="fe-section fe-section--dark fe-cta" id="fe-cta">
+  <section class="fe-section fe-section--dark" id="fe-cta">
     <div class="fe-cta-pattern" aria-hidden="true"></div>
     <div class="fe-container fe-cta-inner">
       <h2 class="fe-h1" style="color:#fff; margin-bottom:14px">Have a requirement to explore?</h2>
@@ -535,59 +278,9 @@
   </section>
 
   <!-- ============================================================
-       FOOTER  (hide with "showFooter": false in the config block)
+       FOOTER  (source: design/SiteFooter.dc.html; shared site chrome)
+       Hide it with "showFooter": false when a GoHighLevel global footer is used.
        ============================================================ -->
-  <footer class="fe-footer" data-fe-footer>
-    <div class="fe-container">
-      <div class="fe-footer__grid">
-        <div class="fe-footer__col">
-          <div class="fe-logo" style="margin-bottom:14px">
-            <span class="fe-logo__mark">BW</span>
-            <span class="fe-logo__word">BWCI</span>
-          </div>
-          <p class="fe-body-sm" style="max-width:280px">
-            Better World Capital Investments — being developed as the Financial Engine
-            of the Better World ecosystem.
-          </p>
-        </div>
-
-        <div class="fe-footer__col">
-          <h5>Ecosystem</h5>
-          <ul>
-            <li><a href="/#bwci-what" data-fe-link="about">About</a></li>
-            <li><a href="/#bwci-different" data-fe-link="whatsDifferent">What's Different</a></li>
-            <li><a href="#fe-hero" aria-current="page">Financial Engine</a></li>
-            <li><a href="/#bwci-platforms" data-fe-link="capabilities">Capabilities</a></li>
-          </ul>
-        </div>
-
-        <div class="fe-footer__col">
-          <h5>Engage</h5>
-          <ul>
-            <li><a href="/smes-projects" data-fe-link="smes">SMEs &amp; Projects</a></li>
-            <li><a href="/investors-partners" data-fe-link="investors">Investors &amp; Partners</a></li>
-            <li><a href="/#bwci-cta" data-fe-link="startConversation">Start a Conversation</a></li>
-            <li><a href="/#bwci-cta" data-fe-link="verify">Verify a Communication</a></li>
-          </ul>
-        </div>
-
-        <div class="fe-footer__col">
-          <h5>Corporate</h5>
-          <ul>
-            <li><a href="/#bwci-trust" data-fe-link="governance">Governance</a></li>
-            <li><a href="/#bwci-trust" data-fe-link="legal">Legal &amp; Documents</a></li>
-            <li><a href="/#bwci-trust" data-fe-link="regulatory">Regulatory Boundaries</a></li>
-            <li><a href="#" data-fe-link="insights">Insights</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="fe-footer__bar">
-        <span>© [ Year ] BWCI. All rights reserved.</span>
-        <span>Status: In Development · Subject to confirmation</span>
-        <span>Privacy · Terms · Disclaimers</span>
-      </div>
-    </div>
-  </footer>
+<!--chrome:footer-->
 
 </div>

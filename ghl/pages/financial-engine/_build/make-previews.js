@@ -11,7 +11,7 @@ const OUT = path.join(__dirname, 'preview');
 fs.mkdirSync(OUT, { recursive: true });
 const block = fs.readFileSync(path.join(PAGE_DIR, 'financial-engine.inline.ghl.html'), 'utf8');
 
-const head = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>FE preview</title>';
+const head = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Financial Engine preview</title>';
 
 fs.writeFileSync(path.join(OUT, 'plain.html'),
   head + '<style>body{margin:0}</style></head><body>\n' + block + '\n</body></html>\n');
@@ -38,8 +38,8 @@ const hostileCss = `
   .ghl-above{height:300px;background:#223;color:#fff;display:flex;align-items:center;justify-content:center}
 `;
 fs.writeFileSync(path.join(OUT, 'hostile.html'),
-  head + '<style>' + hostileCss + '</style></head><body>\n<div class="ghl-above">GHL content above widget</div>\n<div class="ghl-wrap"><div class="c-custom-code">\n' + block +
-  '\n</div></div>\n<div class="ghl-above">GHL content below widget</div>\n' +
+  head + '<style>' + hostileCss + '</style></head><body>\n<div class="ghl-above">GHL content above widget</div>\n<section class="ghl-wrap"><div class="c-custom-code">\n' + block +
+  '\n</div></section>\n<div class="ghl-above">GHL content below widget</div>\n' +
   // simulate GHL executing the custom-code script a second time
   '<script>' + block.slice(block.lastIndexOf('<script>') + 8, block.lastIndexOf('</script>')) + '</script>\n</body></html>\n');
 console.log('previews written to', OUT);
