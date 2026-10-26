@@ -1,0 +1,1050 @@
+{
+  "date": "2026-10-26T12:51:54.803Z",
+  "sourceCommit": "65a5a4481b4649c22d05462d7f4338822e1f508f",
+  "source": "design/Corporate IR.dc.html#shareholders",
+  "scope": "Independent Shareholders only",
+  "browser": "Chromium 154.0.8037.57",
+  "fonts": "NOT VERIFIED: remote font requests deliberately blocked; both references use identical fallback fonts",
+  "matrix": [
+    {
+      "width": 320,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 3735,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 3735,
+          "documentWidth": 320,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 3735,
+          "documentWidth": 320,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 3570,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 3570,
+          "documentWidth": 360,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 3570,
+          "documentWidth": 360,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 3570,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 3570,
+          "documentWidth": 375,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 3570,
+          "documentWidth": 375,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 3544,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 3544,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 3544,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 3482,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 3482,
+          "documentWidth": 430,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 3482,
+          "documentWidth": 430,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 2612,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 2612,
+          "documentWidth": 768,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 2612,
+          "documentWidth": 768,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 2446,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 2446,
+          "documentWidth": 1024,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 2446,
+          "documentWidth": 1024,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1099,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 2518,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 2518,
+          "documentWidth": 1099,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 2518,
+          "documentWidth": 1099,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1100,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 2519,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 2519,
+          "documentWidth": 1100,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 2519,
+          "documentWidth": 1100,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1101,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 2503,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 2503,
+          "documentWidth": 1101,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 2503,
+          "documentWidth": 1101,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 2752,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 2752,
+          "documentWidth": 1280,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 2752,
+          "documentWidth": 1280,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 2805,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 2805,
+          "documentWidth": 1366,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 2805,
+          "documentWidth": 1366,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 2827,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 2827,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 2827,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 2827,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 2827,
+          "documentWidth": 1600,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 2827,
+          "documentWidth": 1600,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 2827,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 2827,
+          "documentWidth": 1920,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 2827,
+          "documentWidth": 1920,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 2560,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 2827,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 2827,
+          "documentWidth": 2560,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 2827,
+          "documentWidth": 2560,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 600,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 3544,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 3544,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 3544,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "height": 1200,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 2446,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 2446,
+          "documentWidth": 1024,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 2446,
+          "documentWidth": 1024,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 600,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 2827,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 2827,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 2827,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 900,
+      "motion": "normal",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 3544,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 3544,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 3544,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "motion": "normal",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 2827,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 2827,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 2827,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "flags-off",
+      "status": "PASS",
+      "referenceHeight": 3520,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 3520,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 3520,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "flags-off",
+      "status": "PASS",
+      "referenceHeight": 2778,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 2778,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 2778,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    }
+  ],
+  "pixelComparisons": [
+    {
+      "capture": "plain-1024-1200.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1024-1200.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1024-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1024-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1099-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1099-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1100-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1100-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1101-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1101-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1280-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1280-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1366-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1366-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1440-600.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1440-600.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1440-900-flags-off.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1440-900-flags-off.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1440-900-motion.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1440-900-motion.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1440-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1440-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1600-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1600-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1920-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1920-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-2560-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-2560-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-320-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-320-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-360-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-360-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-375-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-375-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-390-600.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-390-600.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-390-900-flags-off.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-390-900-flags-off.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-390-900-motion.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-390-900-motion.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-390-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-390-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-430-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-430-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-768-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-768-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    }
+  ],
+  "functionalChecks": [
+    {
+      "name": "Shareholders-only content, original facts/meetings/contact and unavailable destinations",
+      "status": "PASS"
+    },
+    {
+      "name": "Flags off preserves all placeholders; malformed JSON is safe",
+      "status": "PASS"
+    },
+    {
+      "name": "Distinct configured meeting URLs, approved email and copied-root route updates",
+      "status": "PASS"
+    },
+    {
+      "name": "Unavailable links, keyboard focus, hover and mobile touch",
+      "status": "PASS"
+    },
+    {
+      "name": "Configured independent navigation, selector, breadcrumb and Impact destination",
+      "status": "PASS"
+    },
+    {
+      "name": "Sticky nav, live breakpoint resize and header/footer toggles",
+      "status": "PASS"
+    },
+    {
+      "name": "Long content and scoped same-page anchors",
+      "status": "PASS"
+    },
+    {
+      "name": "Hostile host, duplicate script, root replacement and complete teardown",
+      "status": "PASS"
+    },
+    {
+      "name": "No JavaScript/console errors or unexpected network failures",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "unexpectedNetwork": [],
+  "sharedRegression": {
+    "baseline": "65a5a44",
+    "contexts": 19,
+    "status": "PASS",
+    "scope": "Existing generator markup/CSS/runtime/config/trails byte-identical; unknown-link guard rejects its fixture"
+  },
+  "existingPageSmoke": [
+    {
+      "slug": "corporate-ir",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "corporate-ir",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "corporate-ir-company-information",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "corporate-ir-company-information",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "corporate-ir-reports-documents",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "corporate-ir-reports-documents",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "ecosystem",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "ecosystem",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "financial-engine",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "financial-engine",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "governance",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "governance",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "governance-board",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "governance-board",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "governance-leadership",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "governance-leadership",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "investors-partners",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "investors-partners",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "main",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "main",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "platforms",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "platforms",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-agnes-gradzewicz",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-agnes-gradzewicz",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-alexander-alegria-saif",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-alexander-alegria-saif",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-christie-osarenren",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-christie-osarenren",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-ewa-dudek",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-ewa-dudek",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-farhad-reyazat",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-farhad-reyazat",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-gabriella-karlova",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-gabriella-karlova",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-richard-werner",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-richard-werner",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "smes-projects",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "smes-projects",
+      "width": 1440,
+      "status": "PASS"
+    }
+  ],
+  "outputs": {
+    "corporate-ir-shareholders.ghl.html": {
+      "bytes": 80348,
+      "sha256": "31eb9c853e29407ff325c4fe95469a08f806d049b3e0984ea27aeb3d5259af55"
+    },
+    "corporate-ir-shareholders.inline.ghl.html": {
+      "bytes": 127762,
+      "sha256": "ec2097b08d47fe6c2dedabbcb3770142b91e84ab79fafc48b404052466d3d16c"
+    }
+  },
+  "notVerified": [
+    "Published GHL installation and ancestor sticky constraints",
+    "External Google fonts and real-font rendering",
+    "Real Notice/Results files, email delivery, published URLs and SEO",
+    "Approval of share facts, statement, meeting dates/year, contacts and footer wording",
+    "Remaining Regulatory/Legal/Impact and broad Main/shared synchronization, including old copied-root normalization"
+  ]
+}
