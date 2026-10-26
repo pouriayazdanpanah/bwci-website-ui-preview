@@ -14,7 +14,8 @@ ghl/shared/site-chrome/
 ├── assets/bwci-logo.png     ← logo (640×153) — upload once to GHL Media Storage, set logoImage in each page
 └── qa/
     ├── chrome-behaviour.js  ← same header/drawer/sticky/footer/motion script on a source page and a port
-    └── chrome-lifecycle.js  ← config keys, assets, hostile host, duplicate script, re-render, reduced motion
+    ├── chrome-lifecycle.js  ← historical page lifecycle harness
+    └── sync/               ← current all-23-page synchronization checks and verification report
 ```
 
 ## What it reads from design/ (at build time)
@@ -41,28 +42,32 @@ Main's same-page override retains its original meaning. Do not repurpose an exis
 The unknown-link guard remains enabled (`corporate-ir/_build/static-checks.js` exercises it with
 an in-memory unknown destination).
 
-The Corporate / IR Overview is the first consumer of the updated header/footer. Its six section
-destinations are independent page URLs in its own config. Overview uses Breadcrumb `ir` (Home →
-Corporate/IR). Company Information uses `breadcrumb: 'ir', label: 'Company information'` to reproduce
-the source's labelled subpage trail (Home → Corporate/IR → label), with Corporate/IR linked through
-`links.corporateIR`. `label` only affects a nonempty IR breadcrumb; other consumers, including Overview
-and the profile trails, remain byte-identical to merged main `1e34f27` (see the Company's
-`_build/shared-regression.js`). The remaining subpage consumers and broad migration of the existing 16
-page configs and outputs remain separately tracked in `docs/implementation/README.md`. Existing pasted blocks are
-unchanged by editing this development generator. Before rebuilding an older page with the new design,
-migrate its config to the new `betterWorldImpact` key and validate that page; a blind rebuild will
-correctly fail the page's missing/unused-key checks. Do not drop those checks to regenerate outputs.
+All **23** page consumers now include the independent Impact header/drawer/footer link: 22 build-based
+ports were regenerated, and Main's two direct-edit blocks were synchronized manually. All 16 original
+configs add `betterWorldImpact: "#"` while preserving their exact old `impact` values. The generator
+exports `legacyLinkKeys: ['impact']` so the 15 older builds retain that one inactive compatibility
+setting. Missing keys and every other unused key still fail; unknown design hrefs still fail. The seven
+newer page configs do not acquire an unnecessary legacy key. Existing installed GHL blocks require
+repasting; editing this generator does not update them.
+
+Corporate / IR's six views have independent configurable page URLs. Overview uses Breadcrumb `ir`
+(Home → Corporate/IR); each subpage uses `breadcrumb: 'ir', label: <source label>` for the three-item
+trail, with the middle link configured through `links.corporateIR`. Impact uses Breadcrumb `impact`.
+Profile/other trails keep their existing markup. Current evidence is in
+[`qa/sync/verification.md`](qa/sync/verification.md); page-local assertions against earlier shared
+revisions remain historical checks, not current synchronization evidence.
 
 ## Link defaults and unresolved routes
 
 Ported pages use their GHL paths: `home` `/`, `financialEngine` `/financial-engine`, `ecosystem`
 `/ecosystem`, `platforms` `/platforms`, `smes` `/smes-projects`, `investors` `/investors-partners`,
-`impact` `/#bwci-impact`, `today` `/#bwci-today` (Main overrides the last two with same-page anchors).
+`today` `/#bwci-today` (Main overrides it with a same-page anchor). The retained legacy `impact`
+setting is `/#bwci-impact` (`#bwci-impact` on Main), currently unused by the header/footer.
 
 Everything else defaults to `#` and is listed as **unresolved** in each page README until a live GHL
 URL exists: `whoWeAre`, `whoPurpose`, `whoRole`, `whoPrinciples`, `whoStory`, `leadership`,
 `privateInvestors`, `governance`, `governanceBoard`, `governanceFramework`, the `profile…` keys, `corporateIR`, `contact`, `verify`, `legalPrivacy`, `legalTerms`,
-`legalCookies`, `legalDisclosures`, `legalAccessibility`, `legalSitemap`. Set them in each page's
+`legalCookies`, `legalDisclosures`, `legalAccessibility`, `legalSitemap`, `betterWorldImpact`. Set them in each page's
 config `links` once the pages exist (no URL is invented here).
 
 ## Runtime behaviour (matches SiteHeader / SiteFooter)
@@ -77,19 +82,29 @@ config `links` once the pages exist (no URL is invented here).
   break it; `--util-h` / `--nav-h` are set on the root.
 - Config: `logoImage`, `showHeader`, `showFooter`, `footer.{regulatoryLine, registeredJurisdiction,
   companyNumber, registeredOffice}`, `links.*`. Placeholder URLs are never requested.
-- Re-initialisation resets state, so a GHL re-render (root replaced by a copy) works.
+- Unavailable routes (`#`, placeholders, unsupported schemes) normalize to `#`, gain disabled state,
+  and announce an accessible status without jumping. Valid configured routes clear copied disabled
+  attributes. Delegated checks preserve the actual href of later-rendered profile cards, including
+  query/hash and `?from=` context. A page-owned status is reused; otherwise chrome owns one.
+- Copied regulatory footer lines are removed before rendering the configured line once. GovNav's
+  unavailable options are disabled, and a newly configured option loses its stale unavailable label.
+- Each page owns one child-list observer for root/ancestor removal and delayed insertion, with one
+  scheduled boot frame and no polling. Repeated execution reuses that owner. Replacement tears down
+  feature/shared handlers before mounting the new root, even without scroll/resize. Explicit destroy
+  disconnects the owner and restores body overflow; non-persisted `pagehide` also destroys it.
 
 ## Changing the header or footer
 
 1. Update the design (`design/SiteHeader.dc.html`, `SiteFooter.dc.html`, `Breadcrumb.dc.html`).
 2. Migrate affected link config keys, then rebuild every page: `node ghl/pages/<slug>/_build/build.js`
-   for build-based pages (15 before Corporate / IR Overview). Main has
+   for all 22 build-based pages. Main has
    no build folder: generate its parts with `require('./ghl/shared/site-chrome/site-chrome')({ prefix: 'bw',
    current: 'home', breadcrumb: null, system: false, links: { impact: '#bwci-impact', today: '#bwci-today' } })`
    and replace the header, footer, chrome CSS and `SHARED SITE CHROME` script section in both
    `main*.ghl.html` files by hand, keeping them identical.
-3. Re-run `qa/chrome-behaviour.js` (source vs port) and `qa/chrome-lifecycle.js <slug> <prefix> <base>
-   [rootId] [configId]` for each page.
+3. Follow `qa/sync/verification.md` for current preservation, route/lifecycle, hosted-image and Main
+   CTA checks. Run source/port behavior and the full responsive/page-specific regression appropriate
+   to the next change. The synchronization report is not the final website regression stage.
 
 ## Profile ports (development only)
 
@@ -101,8 +116,8 @@ const profile = require('../../../shared/site-chrome/site-chrome.profile')({
 });
 ```
 
-The existing chrome generator accepts opt-in `breadcrumb: 'gov-profile', profile: {name, via}` to produce the source's four-item profile trail. Existing breadcrumb options and all nine previous page outputs are unchanged; the profile's `_build/shared-regression.js` compares generated markup, CSS, runtime, routes and cards against base `05e32a1`. `loadPeople()` is exported only for development generators.
+The existing chrome generator accepts opt-in `breadcrumb: 'gov-profile', profile: {name, via}` to produce the source's four-item profile trail. Existing breadcrumb options are preserved; the profile's historical `_build/shared-regression.js` compares generated markup, CSS, runtime, routes and cards against base `05e32a1`. The current all-page synchronization intentionally updates embedded shared runtime. `loadPeople()` is exported only for development generators.
 
 `site-chrome.profile.runtime.js` is inlined by the page build. It selects Board/Leadership breadcrumb and GovNav from `?from=`, using Board membership for the default, before applying route config and binding GovNav. It implements the source's 6px mouse-drag threshold, pointer capture, click suppression and cleanup. Native touch scrolling/snap remains in the source system CSS. Each person keeps a separate page folder, editable `_build/src/` files, prefix/root/config and hosted/inline outputs; neither shared profile file is fetched in GHL.
 
-First consumer: `ghl/pages/profile-farhad-reyazat/README.md`, including current local browser evidence, actual route/image configuration and publication limits. These additions do not require rebuilding unrelated completed ports.
+First consumer: `ghl/pages/profile-farhad-reyazat/README.md`, including current local browser evidence, actual route/image configuration and publication limits. Shared synchronization evidence for all seven profiles is now in `qa/sync/verification.md`.

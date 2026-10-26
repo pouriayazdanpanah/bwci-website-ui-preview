@@ -1,8 +1,33 @@
 # Better World & Impact — GoHighLevel port
 
 Source: `design/Better World Impact.dc.html`, inspected on merged main `b439054` after Legal Notices
-PR #33. This is the twenty-third independent GHL page. Main/shared synchronization and final affected
-page regression are still separate later stages; this PR does not complete or publish the website.
+PR #33. This twenty-third independent GHL page was merged in PR #34 (`5b7fdfe`). The Main/shared
+synchronization above updates its embedded shared code. A required engine-interaction correction
+and final affected-page regression remain; this does not complete or publish the website.
+
+## October 26, 2026 Main/shared synchronization
+
+Current shared-synchronization evidence: [verification report](../../shared/site-chrome/qa/sync/verification.md) and
+[aggregate results](../../shared/site-chrome/qa/sync/results.json). This update starts from merged
+Impact PR #34 (`5b7fdfe`). Earlier QA sections below describe their original page revisions; they are
+historical evidence, not a new full-page regression pass for these outputs.
+
+- Header, drawer and footer now use independent `links.betterWorldImpact` (default `#`). Set the
+  verified published Impact URL in this page's top JSON at installation. Unavailable links give
+  accessible feedback without jumping to the top; configured links clear copied disabled state.
+- Shared lifecycle handles root **or ancestor** replacement, delayed insertion and repeated script
+  execution without requiring scroll/resize. Teardown restores the host's exact body overflow.
+  Copied optional footer lines and native-option labels are normalized before reuse.
+- Both variants passed current shared behavior at 390/1440px in a hostile host, including mocked
+  HTTP image delivery for the hosted block. First execution before markup and explicit destroy/reboot
+  also passed. Fonts used matching fallbacks; live GHL and actual web-font delivery remain **NOT VERIFIED**.
+- All page content, assets and pre-existing config values are preserved. Final full-page responsive,
+  source/port and interaction regression remains a separate stage after the Impact interaction fix.
+
+Both outputs were regenerated with this page's existing `_build/build.js`; its content CSS is
+byte-identical to merged main `5b7fdfe`. Edit `_build/src/`, then rebuild as before. Older page-local
+`shared-regression.js` assertions intentionally target historical shared code; use the current central
+report for this synchronization rather than relabeling those historical checks as current.
 
 ## Files, build and installation
 
@@ -23,7 +48,8 @@ one document.
 Root/config IDs: `bwci-better-world-impact` and `bwci-better-world-impact-config`; class/data/animation
 prefix `bwi-`; owner `__bwciBetterWorldImpact`. Existing shared chrome is assembled at build time
 with `current="impact"`, `breadcrumb="impact"` and content styles. Design files, shared generators
-and all 22 earlier blocks are preserved. GitHub Pages continues to publish only the design preview.
+and assets are preserved. All 23 blocks receive the shared synchronization described above.
+GitHub Pages continues to publish only the design preview.
 
 ## Source inventory and behavior
 
@@ -42,8 +68,10 @@ the rendered view. Plus Jakarta Sans and JetBrains Mono remain the source fonts 
 The rendered engine is **static**, as in the inspected markup: one accessible `figure role="img"`,
 six list items, and fixed Impact considered markers at Architecture, Institution and Reinvestment.
 It has no buttons, detail panels, accordion or scroll capture. The export retains unused interactive
-step/previous/next definitions and retired CSS; those do not drive this view. The earlier inventory's
-"interaction" wording is corrected. No control is invented from unused definitions.
+step/previous/next definitions and retired CSS; those do not drive this view. However, the original user request explicitly requires stage selection, previous/next controls,
+progress state and responsive interaction. The static port is therefore a **known unmet requirement**.
+Implement the pending [interaction correction](../../../docs/implementation/pages/better-world-impact-interaction.md)
+in a separate page-specific PR before final regression; source inspection does not override that request.
 
 The desktop loop derives its nodes/arrows from the source `--R`/`--y` geometry. It becomes a vertical
 list at <=1023px, preserving the mobile return note. Short desktop heights (<=860px) use the source's
@@ -79,7 +107,7 @@ The hero approach link targets `#bwi-approach`. Contact uses the existing unreso
 (`"#"`). `links.financialEngineHero` defaults to `/financial-engine#fe-hero`, matching the existing
 Financial Engine output's verified local anchor. Its deployed URL is not established by this port.
 The independent `betterWorldImpact` route remains configurable; older Main `impact` anchor semantics
-are preserved. No broad route/output migration occurs here.
+are preserved. Current broad output synchronization is recorded above.
 
 ## Motion, lifecycle and intentional differences
 
@@ -124,5 +152,5 @@ cannot spawn Git, export the `b439054` shared generator baseline to a temporary 
 to `shared-regression.js`. `CHROMIUM_PATH` can override `/usr/bin/chromium`.
 
 Published GHL, actual web-font delivery/layout, hosted URLs/SEO, approved evidence/case content and real
-Contact/methodology/case destinations remain **NOT VERIFIED**. Stop at this PR. Main/shared
-synchronization begins only after confirmed Impact merge and refreshed main; final regression follows.
+Contact/methodology/case destinations remain **NOT VERIFIED**. After the Main/shared PR is reviewed
+and merged, complete the required Impact interaction correction, then the final regression stage.

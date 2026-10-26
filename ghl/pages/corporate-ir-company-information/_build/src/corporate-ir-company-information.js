@@ -66,6 +66,7 @@
         if (option.value === 'corporateIRCompanyInformation') return;
         option.disabled = !available(links[option.value]);
         if (option.disabled) option.label = option.textContent + ' — not yet available';
+        else option.removeAttribute('label');
       });
       select.value = 'corporateIRCompanyInformation';
       on(select, 'change', function () {

@@ -38,6 +38,7 @@
     "smesSituation": "/smes-projects#sme-situation",
     "platformsDirectory": "/platforms#plt-directory",
     "ecosystemBlueprint": "/ecosystem#eco-blueprint",
-    "startConversation": "/#bwci-cta"
+    "startConversation": "/#bwci-cta",
+    "betterWorldImpact": "#"
   }
 }

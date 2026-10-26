@@ -20,6 +20,36 @@ footer markup/CSS/JS in both files came from the shared generator in `ghl/shared
 (see that folder), so a header/footer change in design/ should be made there first and then copied
 into these files.
 
+## October 26, 2026 Main/shared synchronization
+
+Current shared-synchronization evidence: [verification report](../../shared/site-chrome/qa/sync/verification.md) and
+[aggregate results](../../shared/site-chrome/qa/sync/results.json). This update starts from merged
+Impact PR #34 (`5b7fdfe`). Earlier QA sections below describe their original page revisions; they are
+historical evidence, not a new full-page regression pass for these outputs.
+
+- Header, drawer and footer now use independent `links.betterWorldImpact` (default `#`). Set the
+  verified published Impact URL in this page's top JSON at installation. Unavailable links give
+  accessible feedback without jumping to the top; configured links clear copied disabled state.
+- Shared lifecycle handles root **or ancestor** replacement, delayed insertion and repeated script
+  execution without requiring scroll/resize. Teardown restores the host's exact body overflow.
+  Copied optional footer lines and native-option labels are normalized before reuse.
+- Both variants passed current shared behavior at 390/1440px in a hostile host, including mocked
+  HTTP image delivery for the hosted block. First execution before markup and explicit destroy/reboot
+  also passed. Fonts used matching fallbacks; live GHL and actual web-font delivery remain **NOT VERIFIED**.
+- All page content, assets and pre-existing config values are preserved. Final full-page responsive,
+  source/port and interaction regression remains a separate stage after the Impact interaction fix.
+
+`links.impact` retains its existing homepage anchor `#bwci-impact` as a legacy config
+setting. It is not consumed by the current header/footer, and is never reassigned to the independent
+Impact page. `links.today` keeps its prior meaning. Build guards allow only this named legacy unused
+key; missing, unknown and other unused keys still fail.
+
+Main remains a direct-edit exception: both output files were updated together, with no `_build/`
+folder. Besides the shared code/navigation update, only `.bw-cta` and `.bw-cta::before` changed to the
+latest source gradients, 24px dot field and elliptical mask. All section markup/IDs and original
+config/image strings are preserved. The CTA passed source geometry/style/text comparison at all
+13 required widths and three extra height cases; all 32 source/variant image pairs were pixel-exact.
+
 ## Source coverage
 
 The page was re-ported in full from the current export (the previous port matched an older design
@@ -104,7 +134,8 @@ image simply stays empty until a real URL is set.
 | `links.platformsRegisters` | `/platforms#plt-registers` | Registers link |
 | `links.smes`, `links.smesProcess`, `links.smesEngage` | `/smes-projects`, `…#sme-process`, `…#sme-engage` | SME nav and audience links |
 | `links.investors`, `links.investorsRoute`, `links.investorsEngage` | `/investors-partners`, `…#inv-route`, `…#inv-engage` | Investor nav and audience links |
-| `links.impact`, `links.today` | `#bwci-impact`, `#bwci-today` | Nav "Impact" / "Today" (same-page anchors here) |
+| `links.betterWorldImpact` | `#` | Independent Impact page in header/drawer/footer; set its verified URL |
+| `links.impact`, `links.today` | `#bwci-impact`, `#bwci-today` | Preserved legacy Impact setting (unused by current chrome); Today same-page link |
 | `links.whoWeAre`, `whoPurpose`, `whoRole`, `whoPrinciples`, `whoStory` | `#` | "Who we are" menu — **unresolved** |
 | `links.leadership` | `#` | Nav, leadership cards and link — **unresolved** |
 | `links.governance`, `governanceBoard`, `governanceCommittees`, `governanceCapital`, `governanceRisk`, `governancePerimeter` | `#` | Governance menu and "today" links — **unresolved** |

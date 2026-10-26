@@ -4,6 +4,30 @@ The empty-hash Overview in `design/Corporate IR.dc.html`, ported from main `812f
 Only Overview content is included. The other five Corporate / IR views are independent pending pages,
 tracked individually in `docs/implementation/README.md`. This branch does not complete the family.
 
+## October 26, 2026 Main/shared synchronization
+
+Current shared-synchronization evidence: [verification report](../../shared/site-chrome/qa/sync/verification.md) and
+[aggregate results](../../shared/site-chrome/qa/sync/results.json). This update starts from merged
+Impact PR #34 (`5b7fdfe`). Earlier QA sections below describe their original page revisions; they are
+historical evidence, not a new full-page regression pass for these outputs.
+
+- Header, drawer and footer now use independent `links.betterWorldImpact` (default `#`). Set the
+  verified published Impact URL in this page's top JSON at installation. Unavailable links give
+  accessible feedback without jumping to the top; configured links clear copied disabled state.
+- Shared lifecycle handles root **or ancestor** replacement, delayed insertion and repeated script
+  execution without requiring scroll/resize. Teardown restores the host's exact body overflow.
+  Copied optional footer lines and native-option labels are normalized before reuse.
+- Both variants passed current shared behavior at 390/1440px in a hostile host, including mocked
+  HTTP image delivery for the hosted block. First execution before markup and explicit destroy/reboot
+  also passed. Fonts used matching fallbacks; live GHL and actual web-font delivery remain **NOT VERIFIED**.
+- All page content, assets and pre-existing config values are preserved. Final full-page responsive,
+  source/port and interaction regression remains a separate stage after the Impact interaction fix.
+
+Both outputs were regenerated with this page's existing `_build/build.js`; its content CSS is
+byte-identical to merged main `5b7fdfe`. Edit `_build/src/`, then rebuild as before. Older page-local
+`shared-regression.js` assertions intentionally target historical shared code; use the current central
+report for this synchronization rather than relabeling those historical checks as current.
+
 ## Delivered files and installation
 
 ```

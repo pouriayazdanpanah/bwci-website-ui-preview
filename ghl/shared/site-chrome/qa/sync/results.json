@@ -1,0 +1,2092 @@
+{
+  "date": "2026-10-26T17:52:38.817Z",
+  "baseline": "5b7fdfe9e3108d1ea989836d6c53e8f01ab56a51",
+  "scope": "Stage 8 Main/shared synchronization; local Chromium, fallback fonts; not the final full-page regression",
+  "status": "PASS",
+  "static": {
+    "status": "PASS",
+    "outputs": 46,
+    "guards": "22 missing-key and unused-key fixtures plus unknown design href guard PASS",
+    "pages": [
+      {
+        "slug": "better-world-impact",
+        "root": "bwci-better-world-impact",
+        "config": "bwci-better-world-impact-config",
+        "owner": "__bwciBetterWorldImpact",
+        "prefix": "bwi"
+      },
+      {
+        "slug": "corporate-ir",
+        "root": "bwci-corporate-ir",
+        "config": "bwci-corporate-ir-config",
+        "owner": "__bwciCorporateIR",
+        "prefix": "cir"
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "root": "bwci-corporate-ir-company-information",
+        "config": "bwci-corporate-ir-company-information-config",
+        "owner": "__bwciCorporateIRCompanyInformation",
+        "prefix": "cic"
+      },
+      {
+        "slug": "corporate-ir-legal-notices",
+        "root": "bwci-corporate-ir-legal-notices",
+        "config": "bwci-corporate-ir-legal-notices-config",
+        "owner": "__bwciCorporateIRLegalNotices",
+        "prefix": "cil"
+      },
+      {
+        "slug": "corporate-ir-regulatory",
+        "root": "bwci-corporate-ir-regulatory",
+        "config": "bwci-corporate-ir-regulatory-config",
+        "owner": "__bwciCorporateIRRegulatory",
+        "prefix": "cirg"
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "root": "bwci-corporate-ir-reports-documents",
+        "config": "bwci-corporate-ir-reports-documents-config",
+        "owner": "__bwciCorporateIRReportsDocuments",
+        "prefix": "cid"
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "root": "bwci-corporate-ir-shareholders",
+        "config": "bwci-corporate-ir-shareholders-config",
+        "owner": "__bwciCorporateIRShareholders",
+        "prefix": "cis"
+      },
+      {
+        "slug": "ecosystem",
+        "root": "bwci-ecosystem",
+        "config": "bwci-ecosystem-config",
+        "owner": "__bwciEcosystem",
+        "prefix": "eco"
+      },
+      {
+        "slug": "financial-engine",
+        "root": "bwci-financial-engine",
+        "config": "bwci-financial-engine-config",
+        "owner": "__bwciFinancialEngine",
+        "prefix": "fe"
+      },
+      {
+        "slug": "governance",
+        "root": "bwci-governance",
+        "config": "bwci-governance-config",
+        "owner": "__bwciGovernance",
+        "prefix": "gov"
+      },
+      {
+        "slug": "governance-board",
+        "root": "bwci-governance-board",
+        "config": "bwci-governance-board-config",
+        "owner": "__bwciGovernanceBoard",
+        "prefix": "gvb"
+      },
+      {
+        "slug": "governance-leadership",
+        "root": "bwci-governance-leadership",
+        "config": "bwci-governance-leadership-config",
+        "owner": "__bwciGovernanceLeadership",
+        "prefix": "gvl"
+      },
+      {
+        "slug": "investors-partners",
+        "root": "bwci-investors-partners",
+        "config": "bwci-investors-partners-config",
+        "owner": "__bwciInvestorsPartners",
+        "prefix": "inv"
+      },
+      {
+        "slug": "main",
+        "root": "bwci-main-page",
+        "config": "bwci-main-config",
+        "owner": "__bwciMain",
+        "prefix": "bw"
+      },
+      {
+        "slug": "platforms",
+        "root": "bwci-platforms",
+        "config": "bwci-platforms-config",
+        "owner": "__bwciPlatforms",
+        "prefix": "plt"
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "root": "bwci-profile-agnes-gradzewicz",
+        "config": "bwci-profile-agnes-gradzewicz-config",
+        "owner": "__bwciProfileAgnesGradzewicz",
+        "prefix": "pag"
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "root": "bwci-profile-alexander-alegria-saif",
+        "config": "bwci-profile-alexander-alegria-saif-config",
+        "owner": "__bwciProfileAlexanderAlegriaSaif",
+        "prefix": "pas"
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "root": "bwci-profile-christie-osarenren",
+        "config": "bwci-profile-christie-osarenren-config",
+        "owner": "__bwciProfileChristieOsarenren",
+        "prefix": "pco"
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "root": "bwci-profile-ewa-dudek",
+        "config": "bwci-profile-ewa-dudek-config",
+        "owner": "__bwciProfileEwaDudek",
+        "prefix": "ped"
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "root": "bwci-profile-farhad-reyazat",
+        "config": "bwci-profile-farhad-reyazat-config",
+        "owner": "__bwciProfileFarhadReyazat",
+        "prefix": "pfr"
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "root": "bwci-profile-gabriella-karlova",
+        "config": "bwci-profile-gabriella-karlova-config",
+        "owner": "__bwciProfileGabriellaKarlova",
+        "prefix": "pgk"
+      },
+      {
+        "slug": "profile-richard-werner",
+        "root": "bwci-profile-richard-werner",
+        "config": "bwci-profile-richard-werner-config",
+        "owner": "__bwciProfileRichardWerner",
+        "prefix": "prw"
+      },
+      {
+        "slug": "smes-projects",
+        "root": "bwci-smes-projects",
+        "config": "bwci-smes-projects-config",
+        "owner": "__bwciSmesProjects",
+        "prefix": "sme"
+      }
+    ]
+  },
+  "browser": {
+    "status": "PASS",
+    "cases": [
+      {
+        "slug": "better-world-impact",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "better-world-impact",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "better-world-impact",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "better-world-impact",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-legal-notices",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-legal-notices",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-legal-notices",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-legal-notices",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-regulatory",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-regulatory",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-regulatory",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-regulatory",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "ecosystem",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "ecosystem",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "ecosystem",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "ecosystem",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "financial-engine",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "financial-engine",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "financial-engine",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "financial-engine",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "governance",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "governance",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "governance",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "governance",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "governance-board",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "governance-board",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "governance-board",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "governance-board",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "governance-leadership",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "governance-leadership",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "governance-leadership",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "governance-leadership",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "investors-partners",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "investors-partners",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "investors-partners",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "investors-partners",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "main",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "main",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "main",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "main",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "platforms",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "platforms",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "platforms",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "platforms",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-richard-werner",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-richard-werner",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-richard-werner",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "profile-richard-werner",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "smes-projects",
+        "width": 390,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "smes-projects",
+        "width": 390,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "smes-projects",
+        "width": 1440,
+        "variant": "inline",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      },
+      {
+        "slug": "smes-projects",
+        "width": 1440,
+        "variant": "hosted",
+        "status": "PASS",
+        "checks": [
+          "unavailable/approved independent Impact",
+          "copied footer/link/option state",
+          "ancestor replacement and delayed reinsertion without events",
+          "duplicate owner and cleanup",
+          "profile context preserved",
+          "existing controls smoke",
+          "configured navigation"
+        ]
+      }
+    ],
+    "errors": [],
+    "consoleErrors": [],
+    "network": [],
+    "recovery": {
+      "initialPass": 88,
+      "initialHarnessFailures": [
+        {
+          "case": "financial-engine/1440/inline",
+          "reason": "locator.click: Timeout 30000ms exceeded."
+        },
+        {
+          "case": "financial-engine/1440/hosted",
+          "reason": "locator.click: Timeout 30000ms exceeded."
+        },
+        {
+          "case": "main/1440/inline",
+          "reason": "locator.click: Timeout 30000ms exceeded."
+        },
+        {
+          "case": "main/1440/hosted",
+          "reason": "locator.click: Timeout 30000ms exceeded."
+        }
+      ],
+      "correction": "Click the visible .lp-dot child of the source zero-size desktop step button. Production code unchanged; these four complete cases passed focused reruns.",
+      "rerunPass": 4
+    }
+  },
+  "deferred": {
+    "status": "PASS",
+    "cases": [
+      {
+        "slug": "better-world-impact",
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir",
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-legal-notices",
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-regulatory",
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "status": "PASS"
+      },
+      {
+        "slug": "ecosystem",
+        "status": "PASS"
+      },
+      {
+        "slug": "financial-engine",
+        "status": "PASS"
+      },
+      {
+        "slug": "governance",
+        "status": "PASS"
+      },
+      {
+        "slug": "governance-board",
+        "status": "PASS"
+      },
+      {
+        "slug": "governance-leadership",
+        "status": "PASS"
+      },
+      {
+        "slug": "investors-partners",
+        "status": "PASS"
+      },
+      {
+        "slug": "main",
+        "status": "PASS"
+      },
+      {
+        "slug": "platforms",
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-richard-werner",
+        "status": "PASS"
+      },
+      {
+        "slug": "smes-projects",
+        "status": "PASS"
+      }
+    ],
+    "errors": []
+  },
+  "mainCTA": {
+    "status": "PASS",
+    "viewportCases": 16,
+    "captures": 48,
+    "pixelPairs": 32,
+    "pixelExact": 32,
+    "comparisons": [
+      {
+        "source": "main-cta-source-1024-900.png",
+        "port": "main-cta-inline-1024-900.png",
+        "size": [
+          1024,
+          444
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 454656,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-1024-900.png",
+        "port": "main-cta-hosted-1024-900.png",
+        "size": [
+          1024,
+          444
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 454656,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-1280-900.png",
+        "port": "main-cta-inline-1280-900.png",
+        "size": [
+          1280,
+          501
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 641280,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-1280-900.png",
+        "port": "main-cta-hosted-1280-900.png",
+        "size": [
+          1280,
+          501
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 641280,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-1366-900.png",
+        "port": "main-cta-inline-1366-900.png",
+        "size": [
+          1366,
+          511
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 698026,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-1366-900.png",
+        "port": "main-cta-hosted-1366-900.png",
+        "size": [
+          1366,
+          511
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 698026,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-1440-1200.png",
+        "port": "main-cta-inline-1440-1200.png",
+        "size": [
+          1440,
+          512
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 737280,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-1440-1200.png",
+        "port": "main-cta-hosted-1440-1200.png",
+        "size": [
+          1440,
+          512
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 737280,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-1440-600.png",
+        "port": "main-cta-inline-1440-600.png",
+        "size": [
+          1440,
+          512
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 737280,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-1440-600.png",
+        "port": "main-cta-hosted-1440-600.png",
+        "size": [
+          1440,
+          512
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 737280,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-1440-900.png",
+        "port": "main-cta-inline-1440-900.png",
+        "size": [
+          1440,
+          512
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 737280,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-1440-900.png",
+        "port": "main-cta-hosted-1440-900.png",
+        "size": [
+          1440,
+          512
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 737280,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-1600-900.png",
+        "port": "main-cta-inline-1600-900.png",
+        "size": [
+          1600,
+          512
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 819200,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-1600-900.png",
+        "port": "main-cta-hosted-1600-900.png",
+        "size": [
+          1600,
+          512
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 819200,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-1920-900.png",
+        "port": "main-cta-inline-1920-900.png",
+        "size": [
+          1920,
+          512
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 983040,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-1920-900.png",
+        "port": "main-cta-hosted-1920-900.png",
+        "size": [
+          1920,
+          512
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 983040,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-2560-900.png",
+        "port": "main-cta-inline-2560-900.png",
+        "size": [
+          2560,
+          512
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 1310720,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-2560-900.png",
+        "port": "main-cta-hosted-2560-900.png",
+        "size": [
+          2560,
+          512
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 1310720,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-320-900.png",
+        "port": "main-cta-inline-320-900.png",
+        "size": [
+          320,
+          785
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 251200,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-320-900.png",
+        "port": "main-cta-hosted-320-900.png",
+        "size": [
+          320,
+          785
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 251200,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-360-900.png",
+        "port": "main-cta-inline-360-900.png",
+        "size": [
+          360,
+          749
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 269640,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-360-900.png",
+        "port": "main-cta-hosted-360-900.png",
+        "size": [
+          360,
+          749
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 269640,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-375-900.png",
+        "port": "main-cta-inline-375-900.png",
+        "size": [
+          375,
+          751
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 281625,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-375-900.png",
+        "port": "main-cta-hosted-375-900.png",
+        "size": [
+          375,
+          751
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 281625,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-390-600.png",
+        "port": "main-cta-inline-390-600.png",
+        "size": [
+          390,
+          731
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 285090,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-390-600.png",
+        "port": "main-cta-hosted-390-600.png",
+        "size": [
+          390,
+          731
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 285090,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-390-900.png",
+        "port": "main-cta-inline-390-900.png",
+        "size": [
+          390,
+          731
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 285090,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-390-900.png",
+        "port": "main-cta-hosted-390-900.png",
+        "size": [
+          390,
+          731
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 285090,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-430-900.png",
+        "port": "main-cta-inline-430-900.png",
+        "size": [
+          430,
+          701
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 301430,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-430-900.png",
+        "port": "main-cta-hosted-430-900.png",
+        "size": [
+          430,
+          701
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 301430,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-768-900.png",
+        "port": "main-cta-inline-768-900.png",
+        "size": [
+          768,
+          474
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 364032,
+        "maxChannel": 0
+      },
+      {
+        "source": "main-cta-source-768-900.png",
+        "port": "main-cta-hosted-768-900.png",
+        "size": [
+          768,
+          474
+        ],
+        "changedOver24": 0,
+        "changedAny": 0,
+        "pixels": 364032,
+        "maxChannel": 0
+      }
+    ],
+    "errors": [],
+    "consoleErrors": [],
+    "network": []
+  },
+  "reproducibility": {
+    "status": "PASS",
+    "builds": 22,
+    "outputs": 46,
+    "changed": []
+  },
+  "remaining": {
+    "impactInteraction": "FAIL — explicit selection/previous/next/progress/responsive requirement not implemented by static PR #34; corrective page PR before final regression",
+    "finalFullPageRegression": "NOT VERIFIED — stage 9 pending after the corrective Impact PR",
+    "liveGHL": "NOT VERIFIED",
+    "actualWebFonts": "NOT VERIFIED",
+    "publishedRoutesAndApprovedContent": "NOT VERIFIED"
+  }
+}

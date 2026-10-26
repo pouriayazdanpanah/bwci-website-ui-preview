@@ -457,6 +457,8 @@ module.exports = function siteChrome(opts) {
     header: swap(header), breadcrumb: swap(breadcrumb), govnav, footer: swap(footer), css, runtime,
     links,                                  // chrome link keys used by this page, with default routes
     unresolved: Object.keys(links).filter((k) => links[k] === '#'),
+    // Retain the old homepage-anchor setting without making it the independent Impact destination.
+    legacyLinkKeys: ['impact'],
     dynamicClasses: [H + '--stuck', P + '-motion', F + '__reg'],
     logoPath: LOGO,
     // person cards: markup function, and per person the profile link key and the portrait file (for the page config)

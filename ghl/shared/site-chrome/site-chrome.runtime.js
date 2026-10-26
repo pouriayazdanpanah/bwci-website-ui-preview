@@ -10,9 +10,52 @@
     focusable: 'a[href], button:not([disabled])'
   };
 
+  function siteLinkAvailable(url) {
+    return typeof url === 'string' && url.trim() && url !== '#' && url.indexOf('REPLACE-WITH') < 0 &&
+      /^(?:https?:\/\/|mailto:|tel:|\/(?!\/)|#(?!$))/.test(url);
+  }
+  function siteLink(a, url) {
+    var enabled = siteLinkAvailable(url);
+    a.setAttribute('href', enabled ? url : '#');
+    if (enabled) { a.removeAttribute('aria-disabled'); a.removeAttribute('title'); }
+    else { a.setAttribute('aria-disabled', 'true'); a.setAttribute('title', 'Not yet available'); }
+    return enabled;
+  }
+
   function siteChrome(root, cfg, on, timers) {
     function cq(sel) { return root.querySelector(sel); }
     function cqa(sel) { return Array.prototype.slice.call(root.querySelectorAll(sel)); }
+
+    // A cloned live block must use the new settings, including formerly unavailable destinations.
+    var links = cfg.links || {};
+    cqa('a[data-__P__-link]').forEach(function (a) {
+      var key = a.getAttribute('data-__P__-link');
+      siteLink(a, Object.prototype.hasOwnProperty.call(links, key) ? links[key] : a.getAttribute('href'));
+    });
+    cqa('.__P__-link-status').forEach(function (el) { el.remove(); });
+    var status = cq('.__P__-status');
+    var ownsStatus = !status;
+    if (!status) {
+      status = document.createElement('p');
+      status.className = '__P__-link-status';
+      status.setAttribute('role', 'status');
+      status.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;margin:0;padding:0;border:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap';
+      root.appendChild(status);
+    }
+    function removeStatus() { if (ownsStatus) status.remove(); }
+    function linkFromEvent(e) {
+      var a = e.target.closest && e.target.closest('a[data-__P__-link]');
+      return a && root.contains(a) ? a : null;
+    }
+    // Rendered card links can appear after init. Inspect their actual href, preserving ?from context.
+    on(root, 'focusin', function (e) { var a = linkFromEvent(e); if (a) siteLink(a, a.getAttribute('href')); });
+    on(root, 'click', function (e) {
+      var a = linkFromEvent(e);
+      if (a && !siteLink(a, a.getAttribute('href'))) {
+        e.preventDefault();
+        status.textContent = 'This destination is not yet available.';
+      }
+    }, { capture: true });
 
     /* ---------- logo image, header/footer toggles, footer legal wording ---------- */
     var logoUrl = cfg.logoImage;
@@ -35,6 +78,7 @@
       line.textContent = parts.join(' · ');
     }
     var legal = cq('[data-__P__-legal]');
+    cqa('.__P__-sft__reg').forEach(function (el) { el.remove(); });
     if (legal && typeof ft.regulatoryLine === 'string' && ft.regulatoryLine) {
       // source: REGULATORY_LINE, rendered above the legal bar only when it is filled in
       var reg = document.createElement('p');
@@ -48,7 +92,7 @@
 
     /* ---------- header ---------- */
     var hdr = cq('[data-__P__-hdr]');
-    if (!hdr) { root.style.setProperty('--util-h', '0px'); root.style.setProperty('--nav-h', '0px'); return null; }
+    if (!hdr) { root.style.setProperty('--util-h', '0px'); root.style.setProperty('--nav-h', '0px'); return { destroy: removeStatus }; }
     function hq(sel) { return hdr.querySelector(sel); }
     function hqa(sel) { return Array.prototype.slice.call(hdr.querySelectorAll(sel)); }
     var util = hq('[data-__P__-hdr-util]');
@@ -177,6 +221,7 @@
 
     return {
       destroy: function () {
+        removeStatus();
         clearTimeout(timers.chromeDd);
         cancelAnimationFrame(timers.chromeRaf);
         if (menuOpen) { lockScroll(false); menuOpen = false; }

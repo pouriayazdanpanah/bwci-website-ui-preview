@@ -221,7 +221,7 @@
     var links = cfg.links || {};
     qa('[data-plt-link]').forEach(function (a) {
       var v = links[a.getAttribute('data-plt-link')];
-      if (typeof v === 'string' && v) a.setAttribute('href', v);
+      siteLink(a, typeof v === 'string' && v ? v : a.getAttribute('href'));
     });
     var heroImg = q('[data-plt-asset="platformsHeroImage"]');
     var heroUrl = cfg.platformsHeroImage;
@@ -423,17 +423,7 @@
 
     /* ================= shared scroll / resize ================= */
     var instance;
-    function guardConnected() {
-      if (root.isConnected) return true;
-      // GoHighLevel re-rendered the widget: tear down and attach to the new root.
-      instance.destroy();
-      requestAnimationFrame(boot);
-      return false;
-    }
-    // the header keeps its own scroll/resize listeners (shared site chrome); these only detect a re-render
-    on(window, 'scroll', guardConnected, { passive: true });
-    on(window, 'resize', guardConnected, { passive: true });
-    on(window, 'orientationchange', guardConnected, { passive: true });
+    function guardConnected() { return root.isConnected; }
 
     instance = {
       root: root,
@@ -452,35 +442,45 @@
     return instance;
   }
 
-  /* ---------------- boot + duplicate-initialisation guard ---------------- */
+  // One owner per block: repeated execution reuses it; replacements tear down immediately, including
+  // when GHL removes an ancestor without a scroll/resize event. No polling or continuous frames.
+  var previous = window[INSTANCE_KEY];
+  if (previous && !previous.destroyed && typeof previous.boot === 'function') { previous.boot(); return; }
+  if (previous && typeof previous.destroy === 'function') previous.destroy();
+  var pending = window[INSTANCE_KEY + 'Pending'];
+  if (pending && typeof pending.destroy === 'function') pending.destroy();
+  var app = { root: null, instance: null, observer: null, frame: null, destroyed: false };
   function boot() {
+    if (app.destroyed) return;
     var root = document.getElementById(ROOT_ID);
-    if (!root) return false;
-    var prev = window[INSTANCE_KEY];
-    if (prev && !prev.destroyed) {
-      if (prev.root === root && root.dataset.pltInit === 'true') return true;   // already running
-      prev.destroy();                                                           // stale (re-rendered) instance
-    }
-    root.dataset.pltInit = 'true';
-    window[INSTANCE_KEY] = init(root);
-    return true;
+    if (root === app.root && app.instance) return;
+    if (app.instance) app.instance.destroy();
+    app.root = root;
+    if (root) root.dataset.pltInit = 'true';
+    app.instance = root ? init(root) : null;
   }
-
-  if (!boot()) {
-    var observer = null;
-    var stopTimer = null;
-    var tryBoot = function () {
-      if (boot()) {
-        if (observer) observer.disconnect();
-        clearTimeout(stopTimer);
-        document.removeEventListener('DOMContentLoaded', tryBoot);
-      }
-    };
-    document.addEventListener('DOMContentLoaded', tryBoot);
-    if (typeof MutationObserver === 'function') {
-      observer = new MutationObserver(tryBoot);
-      observer.observe(document.documentElement, { childList: true, subtree: true });
-      stopTimer = setTimeout(function () { observer.disconnect(); }, 20000);
-    }
-  }
+  app.boot = boot;
+  app.destroy = function () {
+    if (app.destroyed) return;
+    app.destroyed = true;
+    if (app.observer) app.observer.disconnect();
+    cancelAnimationFrame(app.frame);
+    if (app.instance) app.instance.destroy();
+    window.removeEventListener('pagehide', pagehide);
+    document.removeEventListener('DOMContentLoaded', boot);
+    app.root = null;
+    app.instance = null;
+    if (window[INSTANCE_KEY] === app) delete window[INSTANCE_KEY];
+  };
+  function pagehide(e) { if (!e.persisted) app.destroy(); }
+  window[INSTANCE_KEY] = app;
+  boot();
+  app.observer = new MutationObserver(function () {
+    if (app.root && app.root.isConnected) return;
+    if (app.frame !== null) return;
+    app.frame = requestAnimationFrame(function () { app.frame = null; boot(); });
+  });
+  app.observer.observe(document.documentElement, { childList: true, subtree: true });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  window.addEventListener('pagehide', pagehide);
 })();
