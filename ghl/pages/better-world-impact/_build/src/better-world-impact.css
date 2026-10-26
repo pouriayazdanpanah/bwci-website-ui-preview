@@ -108,7 +108,7 @@ a:focus-visible, button:focus-visible{ outline:2px solid var(--accent-emerald); 
 
 button{ font-family:inherit; cursor:pointer; background:none; border:none; padding:0; color:inherit; text-align:inherit; }
 #bwi-engine .bwi-sec-head{ max-width:860px; }
-@media (max-width:1023px){ .bwi-bw #bwi-engine .bwi-lpd-side .bwi-link, .bwi-bw #bwi-engine .bwi-lpd-side .bwi-link:hover{ color:#fff; } }
+@media (max-width:1023px){ :scope #bwi-engine .bwi-lpd-side .bwi-link, :scope #bwi-engine .bwi-lpd-side .bwi-link:hover{ color:#fff; } }
 
 /* hero (Platforms) */
 /* HERO */
@@ -152,19 +152,6 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
   .bwi-hero-img{ position:absolute !important; inset:0 !important; width:auto !important; transform:none !important; z-index:0 !important; opacity:1 !important; -webkit-mask-image:none !important; mask-image:none !important; }
   .bwi-hero-img img{ position:absolute; bottom:0; width:220% !important; left:-65% !important; height:auto !important; opacity:.85; animation:none !important; }
   .bwi-hero-img::after{ content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg, rgba(8,14,16,.94) 0%, rgba(8,14,16,.78) 34%, rgba(8,14,16,.35) 64%, rgba(8,14,16,.1) 100%); }
-}
-/* engine diagram (static, Main style) */
-.bwi-lp--static{ margin:clamp(24px,3vw,40px) 0 0; }
-.bwi-lp--static .bwi-lp-n{ cursor:default; }
-.bwi-lp--static .bwi-lp-tag{ margin-top:10px; font-family:var(--font-mono); font-size:max(10.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-emerald-dark); background:#fff; border:1px solid var(--accent-emerald-dark); border-radius:9999px; padding:2px 9px; white-space:nowrap; }
-.bwi-lp--static .bwi-lp-n.bwi-is-on .bwi-lp-dot{ transform:none; }
-.bwi-lp--static .bwi-lp-n.bwi-is-on .bwi-lp-dot::after{ background:#fff; }
-@media (max-width:1023px){
-  .bwi-lp--static .bwi-lp-n{ width:100%; }
-  .bwi-lp--static .bwi-lp-in{ grid-template-columns:22px minmax(0,1fr); padding:14px 0; }
-  .bwi-lp--static .bwi-lp-dot{ align-self:start; margin-top:1px; }
-  .bwi-lp--static .bwi-lp-tag{ grid-column:2; justify-self:start; margin-top:8px; }
-  .bwi-lp--static + .bwi-lp-loopnote{ padding-left:40px; }
 }
 
 .bwi-fx{ --R:72px; --y:44px; position:relative; margin:clamp(8px,1.5vw,16px) 0 0; height:calc(var(--y) + var(--R) * 2 + 48px); }
@@ -316,3 +303,23 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
 
 @media(prefers-reduced-motion:reduce){.bwi-hero-img img{animation:none}}
 .bwi-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* Interactive engine: source loop/detail styles, with independent persistent Impact markers. */
+.bwi-lp-tag{ margin-top:10px; font-family:var(--font-mono); font-size:max(10.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-emerald-dark); background:#fff; border:1px solid var(--accent-emerald-dark); border-radius:9999px; padding:2px 9px; white-space:nowrap; }
+.bwi-eng-progress{ margin:0; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); color:var(--text-muted); }
+/* Keep real button hit boxes while retaining the source node-centre geometry. */
+@media (min-width:1024px){
+  .bwi-lp-item{ display:block; position:relative; width:0; height:0; }
+  .bwi-lp-n{ width:150px; height:auto; transform:translateX(-50%); cursor:pointer; }
+  .bwi-lp-in{ position:relative; transform:none; }
+}
+@media (max-width:1023px){
+  .bwi-lp-tag{ grid-column:2; justify-self:start; margin-top:8px; }
+  .bwi-lpd-side{ flex-direction:row; align-items:center; justify-content:space-between; }
+  .bwi-lpd-ctrl{ display:flex; }
+  .bwi-eng-progress{ flex:1; }
+  .bwi-lpd-side .bwi-link{ flex-basis:100%; }
+}
+@media (prefers-reduced-motion:reduce){
+  .bwi-lp-prog, .bwi-lp-dot, .bwi-lp-dot::after, .bwi-lp-num, .bwi-lp-t, .bwi-lp-pm::before, .bwi-lp-pm::after, .bwi-lpd-pane, .bwi-lpd-ctrl button{ transition:none; }
+}

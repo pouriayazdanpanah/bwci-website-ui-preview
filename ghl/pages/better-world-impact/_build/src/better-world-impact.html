@@ -40,22 +40,125 @@
           <h2 class="bwi-h1">How this connects to the Financial Engine</h2>
           <p class="bwi-lead">The Financial Engine outlines how BWCI responds to an economic need in six steps, from Need to Reinvestment. The approach above runs through it: capital is structured at Architecture, owned through Institution, and deployed through Capital and Activity. At Reinvestment, what we learn informs the next need.</p>
         </div>
-        <figure class="bwi-lp bwi-lp--static" role="img" aria-label="The six steps of the Financial Engine: Need, Architecture, Institution, Capital, Activity and Reinvestment, with reinvestment returning to need. Architecture, Institution and Reinvestment are marked Impact considered.">
+        <div class="bwi-lp" data-bwi-engine-loop style="--p:0">
           <div class="bwi-lp-ring" aria-hidden="true"></div>
-          <span class="bwi-lp-chev bwi-lp-chev--in" aria-hidden="true"></span><span class="bwi-lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.1)"></span><span class="bwi-lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.3)"></span><span class="bwi-lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.5)"></span><span class="bwi-lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.7)"></span><span class="bwi-lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.9)"></span>
+          <div class="bwi-lp-prog" role="progressbar" aria-label="Financial Engine progress" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1" aria-valuetext="Step 1 of 6: Need" data-bwi-engine-progress></div>
+          <span class="bwi-lp-chev bwi-lp-chev--in" aria-hidden="true"></span>
+          <span class="bwi-lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.1)"></span>
+          <span class="bwi-lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.3)"></span>
+          <span class="bwi-lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.5)"></span>
+          <span class="bwi-lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.7)"></span>
+          <span class="bwi-lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.9)"></span>
           <span class="bwi-lp-chev bwi-lp-chev--ret" aria-hidden="true"></span>
           <span class="bwi-lp-ret" aria-hidden="true">Reinvestment returns to need</span>
-          <ol class="bwi-lp-nodes" aria-hidden="true" style="margin:0; padding:0; list-style:none">
-            <li class="bwi-lp-n"><span class="bwi-lp-in"><span class="bwi-lp-num">01</span><span class="bwi-lp-dot"></span><span class="bwi-lp-t">Need</span><span class="bwi-lp-s">Economic Need</span></span></li>
-            <li class="bwi-lp-n bwi-is-on"><span class="bwi-lp-in"><span class="bwi-lp-num">02</span><span class="bwi-lp-dot"></span><span class="bwi-lp-t">Architecture</span><span class="bwi-lp-s">Financial Architecture</span><span class="bwi-lp-tag">Impact considered</span></span></li>
-            <li class="bwi-lp-n bwi-is-on"><span class="bwi-lp-in"><span class="bwi-lp-num">03</span><span class="bwi-lp-dot"></span><span class="bwi-lp-t">Institution</span><span class="bwi-lp-s">Appropriate Institution / Delivery Capability</span><span class="bwi-lp-tag">Impact considered</span></span></li>
-            <li class="bwi-lp-n"><span class="bwi-lp-in"><span class="bwi-lp-num">04</span><span class="bwi-lp-dot"></span><span class="bwi-lp-t">Capital</span></span></li>
-            <li class="bwi-lp-n"><span class="bwi-lp-in"><span class="bwi-lp-num">05</span><span class="bwi-lp-dot"></span><span class="bwi-lp-t">Activity</span><span class="bwi-lp-s">Productive Economic Activity</span></span></li>
-            <li class="bwi-lp-n bwi-is-on"><span class="bwi-lp-in"><span class="bwi-lp-num">06</span><span class="bwi-lp-dot"></span><span class="bwi-lp-t">Reinvestment</span><span class="bwi-lp-s">Performance / Learning / Reinvestment</span><span class="bwi-lp-tag">Impact considered</span></span></li>
+          <ol class="bwi-lp-nodes" aria-label="Financial Engine stages" style="margin:0; padding:0; list-style:none">
+            <li class="bwi-lp-item bwi-is-on">
+              <button class="bwi-lp-n bwi-is-on" id="bwi-engine-step-1" type="button" data-bwi-engine-step="0" aria-expanded="true" aria-controls="bwi-engine-panel-1">
+                <span class="bwi-lp-in"><span class="bwi-lp-num" aria-hidden="true">01</span><span class="bwi-lp-dot" aria-hidden="true"></span><span class="bwi-lp-t"><span class="bwi-lp-tn" aria-hidden="true">01</span>Need</span>
+                  <span class="bwi-lp-s">Economic Need</span>
+                <span class="bwi-lp-pm" aria-hidden="true"></span></span>
+              </button>
+              <div class="bwi-lp-acc" id="bwi-engine-mobile-1" role="region" aria-labelledby="bwi-engine-step-1" aria-hidden="true" inert><div>
+                <p class="bwi-lpd-d">A real business or project need is identified and understood: its cash flows, contracts and constraints.</p>
+                <p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>A regional food manufacturer wins a large export order. It needs working capital to buy inputs now, but the buyer pays in 120 days.</span></p>
+              </div></div>
+            </li>
+            <li class="bwi-lp-item">
+              <button class="bwi-lp-n" id="bwi-engine-step-2" type="button" data-bwi-engine-step="1" aria-expanded="false" aria-controls="bwi-engine-panel-2">
+                <span class="bwi-lp-in"><span class="bwi-lp-num" aria-hidden="true">02</span><span class="bwi-lp-dot" aria-hidden="true"></span><span class="bwi-lp-t"><span class="bwi-lp-tn" aria-hidden="true">02</span>Architecture</span>
+                  <span class="bwi-lp-s">Financial Architecture</span>
+                  <span class="bwi-lp-tag">Impact considered</span>
+                <span class="bwi-lp-pm" aria-hidden="true"></span></span>
+              </button>
+              <div class="bwi-lp-acc" id="bwi-engine-mobile-2" role="region" aria-labelledby="bwi-engine-step-2" aria-hidden="true" inert><div>
+                <p class="bwi-lpd-d">A structure is designed around the need, with terms, timing and repayment matched to how the activity earns.</p>
+                <p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>The facility is sized to the order and repaid from the buyer’s payment, rather than through a standard term loan.</span></p>
+              </div></div>
+            </li>
+            <li class="bwi-lp-item">
+              <button class="bwi-lp-n" id="bwi-engine-step-3" type="button" data-bwi-engine-step="2" aria-expanded="false" aria-controls="bwi-engine-panel-3">
+                <span class="bwi-lp-in"><span class="bwi-lp-num" aria-hidden="true">03</span><span class="bwi-lp-dot" aria-hidden="true"></span><span class="bwi-lp-t"><span class="bwi-lp-tn" aria-hidden="true">03</span>Institution</span>
+                  <span class="bwi-lp-s">Appropriate Institution / Delivery Capability</span>
+                  <span class="bwi-lp-tag">Impact considered</span>
+                <span class="bwi-lp-pm" aria-hidden="true"></span></span>
+              </button>
+              <div class="bwi-lp-acc" id="bwi-engine-mobile-3" role="region" aria-labelledby="bwi-engine-step-3" aria-hidden="true" inert><div>
+                <p class="bwi-lpd-d">The structure is matched to the platform, group company or authorised partner able to deliver it.</p>
+                <p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>Delivery sits with the entity that holds the relevant capability and, where needed, the regulatory permission.</span></p>
+              </div></div>
+            </li>
+            <li class="bwi-lp-item">
+              <button class="bwi-lp-n" id="bwi-engine-step-4" type="button" data-bwi-engine-step="3" aria-expanded="false" aria-controls="bwi-engine-panel-4">
+                <span class="bwi-lp-in"><span class="bwi-lp-num" aria-hidden="true">04</span><span class="bwi-lp-dot" aria-hidden="true"></span><span class="bwi-lp-t"><span class="bwi-lp-tn" aria-hidden="true">04</span>Capital</span>
+                <span class="bwi-lp-pm" aria-hidden="true"></span></span>
+              </button>
+              <div class="bwi-lp-acc" id="bwi-engine-mobile-4" role="region" aria-labelledby="bwi-engine-step-4" aria-hidden="true" inert><div>
+                <p class="bwi-lpd-d">Capital whose mandate fits the structure, risk and tenor is connected through the appropriate authorised vehicle.</p>
+                <p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>Capital providers looking for short-tenor, trade-linked exposure are matched to the facility.</span></p>
+              </div></div>
+            </li>
+            <li class="bwi-lp-item">
+              <button class="bwi-lp-n" id="bwi-engine-step-5" type="button" data-bwi-engine-step="4" aria-expanded="false" aria-controls="bwi-engine-panel-5">
+                <span class="bwi-lp-in"><span class="bwi-lp-num" aria-hidden="true">05</span><span class="bwi-lp-dot" aria-hidden="true"></span><span class="bwi-lp-t"><span class="bwi-lp-tn" aria-hidden="true">05</span>Activity</span>
+                  <span class="bwi-lp-s">Productive Economic Activity</span>
+                <span class="bwi-lp-pm" aria-hidden="true"></span></span>
+              </button>
+              <div class="bwi-lp-acc" id="bwi-engine-mobile-5" role="region" aria-labelledby="bwi-engine-step-5" aria-hidden="true" inert><div>
+                <p class="bwi-lpd-d">Capital reaches the underlying activity and is put to productive use.</p>
+                <p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>The manufacturer buys its inputs, fulfils the order and keeps its workforce and suppliers busy.</span></p>
+              </div></div>
+            </li>
+            <li class="bwi-lp-item">
+              <button class="bwi-lp-n" id="bwi-engine-step-6" type="button" data-bwi-engine-step="5" aria-expanded="false" aria-controls="bwi-engine-panel-6">
+                <span class="bwi-lp-in"><span class="bwi-lp-num" aria-hidden="true">06</span><span class="bwi-lp-dot" aria-hidden="true"></span><span class="bwi-lp-t"><span class="bwi-lp-tn" aria-hidden="true">06</span>Reinvestment</span>
+                  <span class="bwi-lp-s">Performance / Learning / Reinvestment</span>
+                  <span class="bwi-lp-tag">Impact considered</span>
+                <span class="bwi-lp-pm" aria-hidden="true"></span></span>
+              </button>
+              <div class="bwi-lp-acc" id="bwi-engine-mobile-6" role="region" aria-labelledby="bwi-engine-step-6" aria-hidden="true" inert><div>
+                <p class="bwi-lpd-d">Performance is tracked, returns flow back, and what was learned informs the next structure.</p>
+                <p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>The buyer pays, the facility is repaid, and the engagement informs how the next order is structured.</span></p>
+              </div></div>
+            </li>
           </ol>
-        </figure>
+        </div>
         <div class="bwi-lp-loopnote" aria-hidden="true" style="display:none; margin-top:8px; align-items:center; gap:8px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-gold-dark)">↑ Reinvestment returns to Need</div>
-        <a class="bwi-link" href="/financial-engine#fe-hero" data-bwi-link="financialEngineHero" style="margin-top:clamp(24px,3vw,40px)">How the Financial Engine works <span class="bwi-ar" aria-hidden="true">→</span></a>
+        <div class="bwi-lpd" data-bwi-engine-details>
+          <div class="bwi-lpd-stack">
+            <div class="bwi-lpd-pane bwi-is-on" id="bwi-engine-panel-1" role="region" aria-labelledby="bwi-engine-step-1" aria-hidden="false">
+              <div><span class="bwi-lpd-k">Step 01</span><h3 class="bwi-lpd-h">Need</h3></div>
+              <div><p class="bwi-lpd-full">Economic Need</p><p class="bwi-lpd-d">A real business or project need is identified and understood: its cash flows, contracts and constraints.</p><p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>A regional food manufacturer wins a large export order. It needs working capital to buy inputs now, but the buyer pays in 120 days.</span></p></div>
+            </div>
+            <div class="bwi-lpd-pane" id="bwi-engine-panel-2" role="region" aria-labelledby="bwi-engine-step-2" aria-hidden="true" inert>
+              <div><span class="bwi-lpd-k">Step 02</span><h3 class="bwi-lpd-h">Architecture</h3></div>
+              <div><p class="bwi-lpd-full">Financial Architecture</p><p class="bwi-lpd-d">A structure is designed around the need, with terms, timing and repayment matched to how the activity earns.</p><p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>The facility is sized to the order and repaid from the buyer’s payment, rather than through a standard term loan.</span></p></div>
+            </div>
+            <div class="bwi-lpd-pane" id="bwi-engine-panel-3" role="region" aria-labelledby="bwi-engine-step-3" aria-hidden="true" inert>
+              <div><span class="bwi-lpd-k">Step 03</span><h3 class="bwi-lpd-h">Institution</h3></div>
+              <div><p class="bwi-lpd-full">Appropriate Institution / Delivery Capability</p><p class="bwi-lpd-d">The structure is matched to the platform, group company or authorised partner able to deliver it.</p><p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>Delivery sits with the entity that holds the relevant capability and, where needed, the regulatory permission.</span></p></div>
+            </div>
+            <div class="bwi-lpd-pane" id="bwi-engine-panel-4" role="region" aria-labelledby="bwi-engine-step-4" aria-hidden="true" inert>
+              <div><span class="bwi-lpd-k">Step 04</span><h3 class="bwi-lpd-h">Capital</h3></div>
+              <div><p class="bwi-lpd-full">Capital</p><p class="bwi-lpd-d">Capital whose mandate fits the structure, risk and tenor is connected through the appropriate authorised vehicle.</p><p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>Capital providers looking for short-tenor, trade-linked exposure are matched to the facility.</span></p></div>
+            </div>
+            <div class="bwi-lpd-pane" id="bwi-engine-panel-5" role="region" aria-labelledby="bwi-engine-step-5" aria-hidden="true" inert>
+              <div><span class="bwi-lpd-k">Step 05</span><h3 class="bwi-lpd-h">Activity</h3></div>
+              <div><p class="bwi-lpd-full">Productive Economic Activity</p><p class="bwi-lpd-d">Capital reaches the underlying activity and is put to productive use.</p><p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>The manufacturer buys its inputs, fulfils the order and keeps its workforce and suppliers busy.</span></p></div>
+            </div>
+            <div class="bwi-lpd-pane" id="bwi-engine-panel-6" role="region" aria-labelledby="bwi-engine-step-6" aria-hidden="true" inert>
+              <div><span class="bwi-lpd-k">Step 06</span><h3 class="bwi-lpd-h">Reinvestment</h3></div>
+              <div><p class="bwi-lpd-full">Performance / Learning / Reinvestment</p><p class="bwi-lpd-d">Performance is tracked, returns flow back, and what was learned informs the next structure.</p><p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>The buyer pays, the facility is repaid, and the engagement informs how the next order is structured.</span></p></div>
+            </div>
+          </div>
+          <div class="bwi-lpd-side">
+            <a class="bwi-link" href="/financial-engine#fe-hero" data-bwi-link="financialEngineHero">How the Financial Engine works <span class="bwi-ar" aria-hidden="true">→</span></a>
+            <p class="bwi-eng-progress" role="status" aria-live="polite" aria-atomic="true" data-bwi-engine-count>Step 1 of 6: Need</p>
+            <div class="bwi-lpd-ctrl" role="group" aria-label="Financial Engine controls">
+              <button type="button" aria-label="Previous stage" data-bwi-engine-prev><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
+              <button type="button" aria-label="Next stage" data-bwi-engine-next><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 

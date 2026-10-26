@@ -52,8 +52,15 @@ Stage 8 refreshed the confirmed merged main from a clean tree and created
 CTA background/dot update. All 23 pages receive current shared navigation/runtime: 22 builds regenerated
 and Main updated directly. The original 16 configs add independent `betterWorldImpact` while retaining
 their exact legacy `impact` values. All other original config values, images and page content remain
-unchanged. Current local evidence: `ghl/shared/site-chrome/qa/sync/verification.md`. This stage is pending
-its own PR review and does not replace the final full-page regression stage.
+unchanged. Evidence: `ghl/shared/site-chrome/qa/sync/verification.md`. Stage 8 merged in PR #35
+(`3d93dcf`); it does not replace the final full-page regression stage.
+
+The corrective Impact interaction stage refreshed confirmed merged main from a clean tree and created
+`feat/ghl-better-world-impact-interaction` directly from `3d93dcf`. The six-stage selection, previous/next,
+progress and responsive details are implemented and locally checked in both variants. Current evidence:
+`ghl/pages/better-world-impact/qa/verification.md` (56 interaction scenarios, eight page/config checks,
+15 source-comparison widths). This page-specific correction is pending its own PR review. All design
+files, assets, shared production code and the other 22 page outputs are preserved.
 
 | Design source / change | GHL destination / status | Next review stage |
 |---|---|---|
@@ -63,12 +70,12 @@ its own PR review and does not replace the final full-page regression stage.
 | Same source, `#shareholders` | `corporate-ir-shareholders` — merged in PR #31; current QA in its README; live GHL NOT VERIFIED | 4 merged |
 | Same source, `#regulatory` | `corporate-ir-regulatory` — merged in PR #32; current QA in its README; live GHL NOT VERIFIED | 5 merged |
 | Same source, `#legal-notices` | `corporate-ir-legal-notices` — merged in PR #33; current QA in its README; live GHL NOT VERIFIED | 6 merged |
-| `Better World Impact.dc.html` + supplied `assets/impact-hero-ribbons.png` | `better-world-impact` — static port merged in PR #34; hero, approach, methodology, evidence/cases and CTA delivered; required six-stage interaction remains a known gap | 7 merged; corrective PR required before 9 |
-| `Main.dc.html` CTA background/dot-field changes | Both direct-edit Main variants synchronized; no build folder added; 16 local source/port viewport cases and 32 pixel-exact image pairs | 8, PR review pending |
-| Header/Footer new independent Impact link | All 23 blocks now consume `betterWorldImpact` (`#` pending verified URL); all original `impact` values preserved as inactive compatibility settings | 8, PR review pending |
+| `Better World Impact.dc.html` + supplied `assets/impact-hero-ribbons.png` | `better-world-impact` — static port merged in PR #34; hero, approach, methodology, evidence/cases and CTA delivered; required six-stage interaction now implemented and checked in a separate corrective change | 7 merged; corrective PR review pending before 9 |
+| `Main.dc.html` CTA background/dot-field changes | Both direct-edit Main variants synchronized; no build folder added; 16 local source/port viewport cases and 32 pixel-exact image pairs | 8 merged, PR #35 |
+| Header/Footer new independent Impact link | All 23 blocks now consume `betterWorldImpact` (`#` pending verified URL); all original `impact` values preserved as inactive compatibility settings | 8 merged, PR #35 |
 | Breadcrumb new Impact trail and labelled Corporate / IR subpage trail | All seven new consumers preserve their correct trails; older/profile trails unchanged by synchronization | Per-page work merged; 8 verification recorded |
-| Shared config/output migration | All 23 blocks synchronized; 16 older configs migrated without retargeting legacy anchors; 22 builds reproducible. Shared link/option/footer state and root/ancestor lifecycle checks pass | 8, separately scoped PR review pending |
-| Required Impact interaction | Stage selection, previous/next, progress and responsive behavior explicitly required in the original request; static source markup does not remove this requirement. See `pages/better-world-impact-interaction.md` | Corrective page PR after 8 merges, before 9 |
+| Shared config/output migration | All 23 blocks synchronized; 16 older configs migrated without retargeting legacy anchors; 22 builds reproducible. Shared link/option/footer state and root/ancestor lifecycle checks pass | 8 merged, PR #35 |
+| Required Impact interaction | Six source stages, details, illustrative examples, wrap controls, progress, keyboard/touch/focus and responsive panels implemented. Persistent Impact markers and empty evidence/cases preserved. Current QA in page README | Corrective page PR review pending; 9 follows its merge |
 | Affected existing-page regression | Full source/port, responsive and page-interaction regression across all 23 updated pages remains pending; current shared smoke/CTA evidence is recorded separately | 9, after the Impact interaction correction |
 
 Confirmed additional destination gap: the new Corporate / IR source links announcements to
@@ -79,23 +86,25 @@ an announcements page or silently send it to a different section. Other linked-b
 dependencies, not newly invented page implementations.
 
 The Shareholders copied link/footer state and Regulatory copied native-option labels are now handled
-in shared runtime and older consumers as appropriate. Current checks cover all 23 pages in both
+in shared runtime and older consumers as appropriate. Stage 8 checks cover all 23 pages in both
 variants at 390/1440px inside a hostile host, late markup, explicit destroy/reboot, root/ancestor
 replacement, config changes, body-overflow restoration and current Main CTA styling. They do **not**
 establish a complete responsive or page-specific regression pass for the changed website.
 
 All six Corporate / IR views and the initial Impact port are merged. All 23 target pages have separate
-implementations. This does **not** complete the website work. After the Main/shared synchronization
-PR is merged, implement the required Impact interaction in its own fresh-main branch/PR, then run the
-final affected-page regression. No automatic merges.
+implementations. This does **not** complete the website work. Main/shared PR #35 is merged; the
+Impact interaction correction is pending review. After its confirmed merge, run final affected-page
+regression from fresh main. No automatic merges.
 
 Impact's actual rendered source engine is a static `figure` with six list items and three fixed
 Impact considered markers; its interactive definitions/styles are unused. The original user request
 nevertheless explicitly says: "Preserve the six-stage interaction, stage selection, previous/next
 controls, progress state, and responsive behavior." The static-only port in PR #34 missed this
-requirement. It is a confirmed implementation gap, not an optional enhancement. The pending corrective
-brief retains this requirement, source step data and the established Main/Financial Engine interaction
-references. Keep evidence/cases empty by default and preserve the supplied artwork/source facts.
+requirement. The corrective page change now connects source step data and the retained detail styles
+using the established Main/Financial Engine pattern. This intentional difference from static source is
+documented and tested; the completed brief is retired into the page README. Evidence/cases remain
+empty by default and the supplied artwork/source facts are preserved. The correction still needs PR
+review/merge before the final regression stage.
 
 Implementation, merge and publication are separate states. A generated block or merged PR does not establish a live GHL URL. Unconfirmed governance/profile routes stay configurable and default to "#" until the published destinations are verified. `design/Main v1 (archive).dc.html` is an archive, `Before After.dc.html` is a QA canvas, and the shared component files are not additional production pages.
 
@@ -133,7 +142,7 @@ Implementation, merge and publication are separate states. A generated block or 
 
 - Corporate / IR Legal Notices: ghl/pages/corporate-ir-legal-notices/README.md. Only `#legal-notices` content; hosted/inline blocks, labelled breadcrumb, seven notice rows, source summaries/date placeholders and two owner-review notes. Each policy has a separate configurable URL, default `#`; policy content is not invented. Reuses copied link/footer/option normalization. Merged through PR #33; published GHL NOT VERIFIED.
 
-- Better World & Impact: ghl/pages/better-world-impact/README.md. Supplied PNG hero, three approach columns, static accessible six-stage diagram, methodology notice, empty-by-default approved evidence/case templates and responsive final CTA. Hosted and embedded images are generated from `_build/src/`; reduced motion stops decorative artwork drift. Initial static port merged in PR #34. All outputs now receive shared synchronization; required engine interaction correction remains pending before final regression. Published GHL NOT VERIFIED.
+- Better World & Impact: ghl/pages/better-world-impact/README.md. Supplied PNG hero, three approach columns, static accessible six-stage diagram, methodology notice, empty-by-default approved evidence/case templates and responsive final CTA. Hosted and embedded images are generated from `_build/src/`; reduced motion stops decorative artwork drift. Initial static port merged in PR #34. All outputs now receive shared synchronization; required engine interaction correction is implemented and checked, pending its own PR review before final regression. Published GHL NOT VERIFIED.
 
 The completed-page README is the source of maintenance instructions; no duplicate brief is kept under docs/implementation/pages/. design/SiteHeader.dc.html, design/SiteFooter.dc.html, design/Breadcrumb.dc.html, design/GovNav.dc.html, design/GovProfile.dc.html and design/PersonCard.dc.html are shared source components. design/Before After.dc.html is a visual comparison/QA canvas, not a production website page.
 

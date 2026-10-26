@@ -1,1460 +1,250 @@
 {
-  "generatedAt": "2026-10-26T16:40:16.157069+00:00",
-  "result": "PASS",
-  "source": {
-    "file": "design/Better World Impact.dc.html",
-    "baseCommit": "b439054",
-    "previousMerge": "PR #33 Legal Notices",
-    "renderedEngine": "Static accessible figure, six list items, three fixed markers, no buttons or interactive detail views"
-  },
-  "environment": {
-    "browser": "Chromium 154.0.8037.57",
-    "runner": "Playwright on Linux",
-    "scope": "Local loopback and hostile GHL-like host; not published GHL",
-    "fonts": "NOT VERIFIED: remote font requests deliberately blocked; both references use identical fallback fonts"
-  },
-  "visual": {
-    "cases": 24,
-    "comparisons": 48,
-    "pixelIdentical": 48,
-    "frames": "Infinite decorative artwork drift captured at t=0 via screenshot animations:disabled; real motion checked separately",
-    "sourceChanges": "Only matching showMethodology prop and empty/local-QA evidence/case arrays are injected. No source layout/content CSS normalization.",
-    "matrix": [
+  "date": "2026-10-26T18:37:53.653Z",
+  "baseline": "3d93dcf17f1d14c8325b679b6f6573ba1153d6ae",
+  "status": "PASS",
+  "scope": "Impact interaction correction only; unchanged source sections measured separately; local fallback fonts",
+  "behavior": {
+    "cases": [
       {
-        "width": 320,
-        "height": 900,
-        "motion": false,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 5091,
-        "inlineHeight": 5091,
-        "hostedHeight": 5091,
-        "documentWidths": {
-          "source": 320,
-          "plain": 320,
-          "hosted": 320
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 69,
-            "height": 656
-          },
-          {
-            "label": "02 Our approach",
-            "y": 725,
-            "height": 1335
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 2060,
-            "height": 1190
-          },
-          {
-            "label": "04 Methodology",
-            "y": 3250,
-            "height": 322
-          },
-          {
-            "label": "07 Next step",
-            "y": 3572,
-            "height": 282
-          }
-        ],
-        "captures": {
-          "source": "source-320-900.png",
-          "plain": "plain-320-900.png",
-          "hosted": "hosted-320-900.png"
-        }
+        "name": "stages/controls/keyboard 320x900 inline",
+        "status": "PASS"
       },
       {
-        "width": 360,
-        "height": 900,
-        "motion": false,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 4847,
-        "inlineHeight": 4847,
-        "hostedHeight": 4847,
-        "documentWidths": {
-          "source": 360,
-          "plain": 360,
-          "hosted": 360
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 69,
-            "height": 632
-          },
-          {
-            "label": "02 Our approach",
-            "y": 701,
-            "height": 1231
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1932,
-            "height": 1101
-          },
-          {
-            "label": "04 Methodology",
-            "y": 3033,
-            "height": 296
-          },
-          {
-            "label": "07 Next step",
-            "y": 3329,
-            "height": 282
-          }
-        ],
-        "captures": {
-          "source": "source-360-900.png",
-          "plain": "plain-360-900.png",
-          "hosted": "hosted-360-900.png"
-        }
+        "name": "stages/controls/keyboard 320x900 hosted",
+        "status": "PASS"
       },
       {
-        "width": 375,
-        "height": 900,
-        "motion": false,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 4830,
-        "inlineHeight": 4830,
-        "hostedHeight": 4830,
-        "documentWidths": {
-          "source": 375,
-          "plain": 375,
-          "hosted": 375
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 69,
-            "height": 639
-          },
-          {
-            "label": "02 Our approach",
-            "y": 708,
-            "height": 1231
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1938,
-            "height": 1077
-          },
-          {
-            "label": "04 Methodology",
-            "y": 3016,
-            "height": 296
-          },
-          {
-            "label": "07 Next step",
-            "y": 3312,
-            "height": 282
-          }
-        ],
-        "captures": {
-          "source": "source-375-900.png",
-          "plain": "plain-375-900.png",
-          "hosted": "hosted-375-900.png"
-        }
+        "name": "stages/controls/keyboard 360x900 inline",
+        "status": "PASS"
       },
       {
-        "width": 390,
-        "height": 900,
-        "motion": false,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 4789,
-        "inlineHeight": 4789,
-        "hostedHeight": 4789,
-        "documentWidths": {
-          "source": 390,
-          "plain": 390,
-          "hosted": 390
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 69,
-            "height": 649
-          },
-          {
-            "label": "02 Our approach",
-            "y": 718,
-            "height": 1204
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1923,
-            "height": 1052
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2974,
-            "height": 296
-          },
-          {
-            "label": "07 Next step",
-            "y": 3270,
-            "height": 282
-          }
-        ],
-        "captures": {
-          "source": "source-390-900.png",
-          "plain": "plain-390-900.png",
-          "hosted": "hosted-390-900.png"
-        }
+        "name": "stages/controls/keyboard 360x900 hosted",
+        "status": "PASS"
       },
       {
-        "width": 430,
-        "height": 900,
-        "motion": false,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 4680,
-        "inlineHeight": 4680,
-        "hostedHeight": 4680,
-        "documentWidths": {
-          "source": 430,
-          "plain": 430,
-          "hosted": 430
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 69,
-            "height": 679
-          },
-          {
-            "label": "02 Our approach",
-            "y": 748,
-            "height": 1120
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1868,
-            "height": 1026
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2894,
-            "height": 267
-          },
-          {
-            "label": "07 Next step",
-            "y": 3161,
-            "height": 282
-          }
-        ],
-        "captures": {
-          "source": "source-430-900.png",
-          "plain": "plain-430-900.png",
-          "hosted": "hosted-430-900.png"
-        }
+        "name": "stages/controls/keyboard 375x900 inline",
+        "status": "PASS"
       },
       {
-        "width": 767,
-        "height": 900,
-        "motion": false,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 3740,
-        "inlineHeight": 3740,
-        "hostedHeight": 3740,
-        "documentWidths": {
-          "source": 767,
-          "plain": 767,
-          "hosted": 767
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 69,
-            "height": 496
-          },
-          {
-            "label": "02 Our approach",
-            "y": 565,
-            "height": 936
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1501,
-            "height": 943
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2444,
-            "height": 241
-          },
-          {
-            "label": "07 Next step",
-            "y": 2685,
-            "height": 282
-          }
-        ],
-        "captures": {
-          "source": "source-767-900.png",
-          "plain": "plain-767-900.png",
-          "hosted": "hosted-767-900.png"
-        }
+        "name": "stages/controls/keyboard 375x900 hosted",
+        "status": "PASS"
       },
       {
-        "width": 768,
-        "height": 900,
-        "motion": false,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 3839,
-        "inlineHeight": 3839,
-        "hostedHeight": 3839,
-        "documentWidths": {
-          "source": 768,
-          "plain": 768,
-          "hosted": 768
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 77,
-            "height": 639
-          },
-          {
-            "label": "02 Our approach",
-            "y": 716,
-            "height": 910
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1626,
-            "height": 916
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2542,
-            "height": 247
-          },
-          {
-            "label": "07 Next step",
-            "y": 2789,
-            "height": 307
-          }
-        ],
-        "captures": {
-          "source": "source-768-900.png",
-          "plain": "plain-768-900.png",
-          "hosted": "hosted-768-900.png"
-        }
+        "name": "stages/controls/keyboard 390x900 inline",
+        "status": "PASS"
       },
       {
-        "width": 1023,
-        "height": 900,
-        "motion": false,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 4000,
-        "inlineHeight": 4000,
-        "hostedHeight": 4000,
-        "documentWidths": {
-          "source": 1023,
-          "plain": 1023,
-          "hosted": 1023
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 77,
-            "height": 675
-          },
-          {
-            "label": "02 Our approach",
-            "y": 752,
-            "height": 922
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1673,
-            "height": 950
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2623,
-            "height": 283
-          },
-          {
-            "label": "07 Next step",
-            "y": 2906,
-            "height": 351
-          }
-        ],
-        "captures": {
-          "source": "source-1023-900.png",
-          "plain": "plain-1023-900.png",
-          "hosted": "hosted-1023-900.png"
-        }
+        "name": "stages/controls/keyboard 390x900 hosted",
+        "status": "PASS"
       },
       {
-        "width": 1024,
-        "height": 900,
-        "motion": false,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 3043,
-        "inlineHeight": 3043,
-        "hostedHeight": 3043,
-        "documentWidths": {
-          "source": 1024,
-          "plain": 1024,
-          "hosted": 1024
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 77,
-            "height": 500
-          },
-          {
-            "label": "02 Our approach",
-            "y": 577,
-            "height": 681
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1258,
-            "height": 762
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2020,
-            "height": 283
-          },
-          {
-            "label": "07 Next step",
-            "y": 2303,
-            "height": 351
-          }
-        ],
-        "captures": {
-          "source": "source-1024-900.png",
-          "plain": "plain-1024-900.png",
-          "hosted": "hosted-1024-900.png"
-        }
+        "name": "stages/controls/keyboard 430x900 inline",
+        "status": "PASS"
       },
       {
-        "width": 1280,
-        "height": 900,
-        "motion": false,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 3285,
-        "inlineHeight": 3285,
-        "hostedHeight": 3285,
-        "documentWidths": {
-          "source": 1280,
-          "plain": 1280,
-          "hosted": 1280
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 117,
-            "height": 513
-          },
-          {
-            "label": "02 Our approach",
-            "y": 630,
-            "height": 703
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1333,
-            "height": 835
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2168,
-            "height": 324
-          },
-          {
-            "label": "07 Next step",
-            "y": 2492,
-            "height": 404
-          }
-        ],
-        "captures": {
-          "source": "source-1280-900.png",
-          "plain": "plain-1280-900.png",
-          "hosted": "hosted-1280-900.png"
-        }
+        "name": "stages/controls/keyboard 430x900 hosted",
+        "status": "PASS"
       },
       {
-        "width": 1366,
-        "height": 900,
-        "motion": false,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 3421,
-        "inlineHeight": 3421,
-        "hostedHeight": 3421,
-        "documentWidths": {
-          "source": 1366,
-          "plain": 1366,
-          "hosted": 1366
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 117,
-            "height": 556
-          },
-          {
-            "label": "02 Our approach",
-            "y": 673,
-            "height": 719
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1392,
-            "height": 883
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2274,
-            "height": 338
-          },
-          {
-            "label": "07 Next step",
-            "y": 2612,
-            "height": 420
-          }
-        ],
-        "captures": {
-          "source": "source-1366-900.png",
-          "plain": "plain-1366-900.png",
-          "hosted": "hosted-1366-900.png"
-        }
+        "name": "stages/controls/keyboard 767x900 inline",
+        "status": "PASS"
       },
       {
-        "width": 1440,
-        "height": 900,
-        "motion": false,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 3444,
-        "inlineHeight": 3444,
-        "hostedHeight": 3444,
-        "documentWidths": {
-          "source": 1440,
-          "plain": 1440,
-          "hosted": 1440
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 117,
-            "height": 556
-          },
-          {
-            "label": "02 Our approach",
-            "y": 673,
-            "height": 725
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1398,
-            "height": 888
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2286,
-            "height": 343
-          },
-          {
-            "label": "07 Next step",
-            "y": 2629,
-            "height": 426
-          }
-        ],
-        "captures": {
-          "source": "source-1440-900.png",
-          "plain": "plain-1440-900.png",
-          "hosted": "hosted-1440-900.png"
-        }
+        "name": "stages/controls/keyboard 767x900 hosted",
+        "status": "PASS"
       },
       {
-        "width": 1600,
-        "height": 900,
-        "motion": false,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 3444,
-        "inlineHeight": 3444,
-        "hostedHeight": 3444,
-        "documentWidths": {
-          "source": 1600,
-          "plain": 1600,
-          "hosted": 1600
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 117,
-            "height": 556
-          },
-          {
-            "label": "02 Our approach",
-            "y": 673,
-            "height": 725
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1398,
-            "height": 888
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2286,
-            "height": 343
-          },
-          {
-            "label": "07 Next step",
-            "y": 2629,
-            "height": 426
-          }
-        ],
-        "captures": {
-          "source": "source-1600-900.png",
-          "plain": "plain-1600-900.png",
-          "hosted": "hosted-1600-900.png"
-        }
+        "name": "stages/controls/keyboard 768x900 inline",
+        "status": "PASS"
       },
       {
-        "width": 1920,
-        "height": 900,
-        "motion": false,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 3444,
-        "inlineHeight": 3444,
-        "hostedHeight": 3444,
-        "documentWidths": {
-          "source": 1920,
-          "plain": 1920,
-          "hosted": 1920
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 117,
-            "height": 556
-          },
-          {
-            "label": "02 Our approach",
-            "y": 673,
-            "height": 725
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1398,
-            "height": 888
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2286,
-            "height": 343
-          },
-          {
-            "label": "07 Next step",
-            "y": 2629,
-            "height": 426
-          }
-        ],
-        "captures": {
-          "source": "source-1920-900.png",
-          "plain": "plain-1920-900.png",
-          "hosted": "hosted-1920-900.png"
-        }
+        "name": "stages/controls/keyboard 768x900 hosted",
+        "status": "PASS"
       },
       {
-        "width": 2560,
-        "height": 900,
-        "motion": false,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 3444,
-        "inlineHeight": 3444,
-        "hostedHeight": 3444,
-        "documentWidths": {
-          "source": 2560,
-          "plain": 2560,
-          "hosted": 2560
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 117,
-            "height": 556
-          },
-          {
-            "label": "02 Our approach",
-            "y": 673,
-            "height": 725
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1398,
-            "height": 888
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2286,
-            "height": 343
-          },
-          {
-            "label": "07 Next step",
-            "y": 2629,
-            "height": 426
-          }
-        ],
-        "captures": {
-          "source": "source-2560-900.png",
-          "plain": "plain-2560-900.png",
-          "hosted": "hosted-2560-900.png"
-        }
+        "name": "stages/controls/keyboard 1023x900 inline",
+        "status": "PASS"
       },
       {
-        "width": 390,
-        "height": 600,
-        "motion": false,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 4789,
-        "inlineHeight": 4789,
-        "hostedHeight": 4789,
-        "documentWidths": {
-          "source": 390,
-          "plain": 390,
-          "hosted": 390
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 69,
-            "height": 649
-          },
-          {
-            "label": "02 Our approach",
-            "y": 718,
-            "height": 1204
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1923,
-            "height": 1052
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2974,
-            "height": 296
-          },
-          {
-            "label": "07 Next step",
-            "y": 3270,
-            "height": 282
-          }
-        ],
-        "captures": {
-          "source": "source-390-600.png",
-          "plain": "plain-390-600.png",
-          "hosted": "hosted-390-600.png"
-        }
+        "name": "stages/controls/keyboard 1023x900 hosted",
+        "status": "PASS"
       },
       {
-        "width": 1024,
-        "height": 1200,
-        "motion": false,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 3043,
-        "inlineHeight": 3043,
-        "hostedHeight": 3043,
-        "documentWidths": {
-          "source": 1024,
-          "plain": 1024,
-          "hosted": 1024
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 77,
-            "height": 500
-          },
-          {
-            "label": "02 Our approach",
-            "y": 577,
-            "height": 681
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1258,
-            "height": 762
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2020,
-            "height": 283
-          },
-          {
-            "label": "07 Next step",
-            "y": 2303,
-            "height": 351
-          }
-        ],
-        "captures": {
-          "source": "source-1024-1200.png",
-          "plain": "plain-1024-1200.png",
-          "hosted": "hosted-1024-1200.png"
-        }
+        "name": "stages/controls/keyboard 1024x900 inline",
+        "status": "PASS"
       },
       {
-        "width": 1440,
-        "height": 600,
-        "motion": false,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 3376,
-        "inlineHeight": 3376,
-        "hostedHeight": 3376,
-        "documentWidths": {
-          "source": 1440,
-          "plain": 1440,
-          "hosted": 1440
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 117,
-            "height": 556
-          },
-          {
-            "label": "02 Our approach",
-            "y": 673,
-            "height": 725
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1398,
-            "height": 820
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2218,
-            "height": 343
-          },
-          {
-            "label": "07 Next step",
-            "y": 2561,
-            "height": 426
-          }
-        ],
-        "captures": {
-          "source": "source-1440-600.png",
-          "plain": "plain-1440-600.png",
-          "hosted": "hosted-1440-600.png"
-        }
+        "name": "stages/controls/keyboard 1024x900 hosted",
+        "status": "PASS"
       },
       {
-        "width": 390,
-        "height": 900,
-        "motion": true,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 4789,
-        "inlineHeight": 4789,
-        "hostedHeight": 4789,
-        "documentWidths": {
-          "source": 390,
-          "plain": 390,
-          "hosted": 390
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 69,
-            "height": 649
-          },
-          {
-            "label": "02 Our approach",
-            "y": 718,
-            "height": 1204
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1923,
-            "height": 1052
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2974,
-            "height": 296
-          },
-          {
-            "label": "07 Next step",
-            "y": 3270,
-            "height": 282
-          }
-        ],
-        "captures": {
-          "source": "source-390-900-motion.png",
-          "plain": "plain-390-900-motion.png",
-          "hosted": "hosted-390-900-motion.png"
-        }
+        "name": "stages/controls/keyboard 1280x900 inline",
+        "status": "PASS"
       },
       {
-        "width": 1440,
-        "height": 900,
-        "motion": true,
-        "scenario": "default",
-        "status": "PASS",
-        "sourceHeight": 3444,
-        "inlineHeight": 3444,
-        "hostedHeight": 3444,
-        "documentWidths": {
-          "source": 1440,
-          "plain": 1440,
-          "hosted": 1440
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 117,
-            "height": 556
-          },
-          {
-            "label": "02 Our approach",
-            "y": 673,
-            "height": 725
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1398,
-            "height": 888
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2286,
-            "height": 343
-          },
-          {
-            "label": "07 Next step",
-            "y": 2629,
-            "height": 426
-          }
-        ],
-        "captures": {
-          "source": "source-1440-900-motion.png",
-          "plain": "plain-1440-900-motion.png",
-          "hosted": "hosted-1440-900-motion.png"
-        }
+        "name": "stages/controls/keyboard 1280x900 hosted",
+        "status": "PASS"
       },
       {
-        "width": 390,
-        "height": 900,
-        "motion": false,
-        "scenario": "method-off",
-        "status": "PASS",
-        "sourceHeight": 4493,
-        "inlineHeight": 4493,
-        "hostedHeight": 4493,
-        "documentWidths": {
-          "source": 390,
-          "plain": 390,
-          "hosted": 390
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 69,
-            "height": 649
-          },
-          {
-            "label": "02 Our approach",
-            "y": 718,
-            "height": 1204
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1923,
-            "height": 1052
-          },
-          {
-            "label": "07 Next step",
-            "y": 2974,
-            "height": 282
-          }
-        ],
-        "captures": {
-          "source": "source-390-900-method-off.png",
-          "plain": "plain-390-900-method-off.png",
-          "hosted": "hosted-390-900-method-off.png"
-        }
+        "name": "stages/controls/keyboard 1366x900 inline",
+        "status": "PASS"
       },
       {
-        "width": 1440,
-        "height": 900,
-        "motion": false,
-        "scenario": "method-off",
-        "status": "PASS",
-        "sourceHeight": 3101,
-        "inlineHeight": 3101,
-        "hostedHeight": 3101,
-        "documentWidths": {
-          "source": 1440,
-          "plain": 1440,
-          "hosted": 1440
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 117,
-            "height": 556
-          },
-          {
-            "label": "02 Our approach",
-            "y": 673,
-            "height": 725
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1398,
-            "height": 888
-          },
-          {
-            "label": "07 Next step",
-            "y": 2286,
-            "height": 426
-          }
-        ],
-        "captures": {
-          "source": "source-1440-900-method-off.png",
-          "plain": "plain-1440-900-method-off.png",
-          "hosted": "hosted-1440-900-method-off.png"
-        }
+        "name": "stages/controls/keyboard 1366x900 hosted",
+        "status": "PASS"
       },
       {
-        "width": 390,
-        "height": 900,
-        "motion": false,
-        "scenario": "approved-data",
-        "status": "PASS",
-        "sourceHeight": 5710,
-        "inlineHeight": 5710,
-        "hostedHeight": 5710,
-        "documentWidths": {
-          "source": 390,
-          "plain": 390,
-          "hosted": 390
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 69,
-            "height": 649
-          },
-          {
-            "label": "02 Our approach",
-            "y": 718,
-            "height": 1204
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1923,
-            "height": 1052
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2974,
-            "height": 296
-          },
-          {
-            "label": "05 Evidence",
-            "y": 3270,
-            "height": 350
-          },
-          {
-            "label": "06 Case studies",
-            "y": 3620,
-            "height": 571
-          },
-          {
-            "label": "07 Next step",
-            "y": 4191,
-            "height": 282
-          }
-        ],
-        "captures": {
-          "source": "source-390-900-approved-data.png",
-          "plain": "plain-390-900-approved-data.png",
-          "hosted": "hosted-390-900-approved-data.png"
-        }
+        "name": "stages/controls/keyboard 1440x900 inline",
+        "status": "PASS"
       },
       {
-        "width": 1440,
-        "height": 900,
-        "motion": false,
-        "scenario": "approved-data",
-        "status": "PASS",
-        "sourceHeight": 5153,
-        "inlineHeight": 5153,
-        "hostedHeight": 5153,
-        "documentWidths": {
-          "source": 1440,
-          "plain": 1440,
-          "hosted": 1440
-        },
-        "sectionGeometry": [
-          {
-            "label": "01 Hero",
-            "y": 117,
-            "height": 556
-          },
-          {
-            "label": "02 Our approach",
-            "y": 673,
-            "height": 725
-          },
-          {
-            "label": "03 Financial Engine",
-            "y": 1398,
-            "height": 888
-          },
-          {
-            "label": "04 Methodology",
-            "y": 2286,
-            "height": 343
-          },
-          {
-            "label": "05 Evidence",
-            "y": 2629,
-            "height": 480
-          },
-          {
-            "label": "06 Case studies",
-            "y": 3110,
-            "height": 1229
-          },
-          {
-            "label": "07 Next step",
-            "y": 4339,
-            "height": 426
-          }
-        ],
-        "captures": {
-          "source": "source-1440-900-approved-data.png",
-          "plain": "plain-1440-900-approved-data.png",
-          "hosted": "hosted-1440-900-approved-data.png"
-        }
+        "name": "stages/controls/keyboard 1440x900 hosted",
+        "status": "PASS"
+      },
+      {
+        "name": "stages/controls/keyboard 1600x900 inline",
+        "status": "PASS"
+      },
+      {
+        "name": "stages/controls/keyboard 1600x900 hosted",
+        "status": "PASS"
+      },
+      {
+        "name": "stages/controls/keyboard 1920x900 inline",
+        "status": "PASS"
+      },
+      {
+        "name": "stages/controls/keyboard 1920x900 hosted",
+        "status": "PASS"
+      },
+      {
+        "name": "stages/controls/keyboard 2560x900 inline",
+        "status": "PASS"
+      },
+      {
+        "name": "stages/controls/keyboard 2560x900 hosted",
+        "status": "PASS"
+      },
+      {
+        "name": "varied height 390x600 inline",
+        "status": "PASS"
+      },
+      {
+        "name": "varied height 390x600 hosted",
+        "status": "PASS"
+      },
+      {
+        "name": "varied height 1024x600 inline",
+        "status": "PASS"
+      },
+      {
+        "name": "varied height 1024x600 hosted",
+        "status": "PASS"
+      },
+      {
+        "name": "varied height 1440x600 inline",
+        "status": "PASS"
+      },
+      {
+        "name": "varied height 1440x600 hosted",
+        "status": "PASS"
+      },
+      {
+        "name": "varied height 1440x1200 inline",
+        "status": "PASS"
+      },
+      {
+        "name": "varied height 1440x1200 hosted",
+        "status": "PASS"
+      },
+      {
+        "name": "hostile host 320 inline",
+        "status": "PASS"
+      },
+      {
+        "name": "hostile host 320 hosted",
+        "status": "PASS"
+      },
+      {
+        "name": "hostile host 390 inline",
+        "status": "PASS"
+      },
+      {
+        "name": "hostile host 390 hosted",
+        "status": "PASS"
+      },
+      {
+        "name": "hostile host 1024 inline",
+        "status": "PASS"
+      },
+      {
+        "name": "hostile host 1024 hosted",
+        "status": "PASS"
+      },
+      {
+        "name": "hostile host 1440 inline",
+        "status": "PASS"
+      },
+      {
+        "name": "hostile host 1440 hosted",
+        "status": "PASS"
+      },
+      {
+        "name": "normal motion/touch 390 inline",
+        "status": "PASS"
+      },
+      {
+        "name": "normal motion/touch 390 hosted",
+        "status": "PASS"
+      },
+      {
+        "name": "normal motion/touch 1024 inline",
+        "status": "PASS"
+      },
+      {
+        "name": "normal motion/touch 1024 hosted",
+        "status": "PASS"
+      },
+      {
+        "name": "lifecycle/resize 390 inline",
+        "status": "PASS"
+      },
+      {
+        "name": "lifecycle/resize 390 hosted",
+        "status": "PASS"
+      },
+      {
+        "name": "lifecycle/resize 1440 inline",
+        "status": "PASS"
+      },
+      {
+        "name": "lifecycle/resize 1440 hosted",
+        "status": "PASS"
+      },
+      {
+        "name": "delayed bootstrap / hover / reveal",
+        "status": "PASS"
+      },
+      {
+        "name": "mobile link contrast across eight widths and both variants",
+        "status": "PASS"
       }
     ],
-    "pixels": [
+    "status": "PASS",
+    "recovery": [
       {
-        "capture": "plain-1023-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-1023-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-1024-1200.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-1024-1200.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-1024-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-1024-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-1280-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-1280-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-1366-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-1366-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-1440-600.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-1440-600.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-1440-900-approved-data.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-1440-900-approved-data.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-1440-900-method-off.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-1440-900-method-off.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-1440-900-motion.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-1440-900-motion.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-1440-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-1440-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-1600-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-1600-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-1920-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-1920-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-2560-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-2560-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-320-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-320-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-360-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-360-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-375-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-375-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-390-600.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-390-600.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-390-900-approved-data.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-390-900-approved-data.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-390-900-method-off.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-390-900-method-off.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-390-900-motion.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-390-900-motion.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-390-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-390-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-430-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-430-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-767-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-767-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "plain-768-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
-      },
-      {
-        "capture": "hosted-768-900.png",
-        "changed_pixels": 0,
-        "percent": 0.0,
-        "bbox": null
+        "name": "stages/controls/keyboard 1023x900 inline",
+        "initial": "page.goto: Timeout 30000ms exceeded.",
+        "resolution": "Wait for DOMContentLoaded and actual owner mount instead of the whole load event; complete targeted case PASS. No runtime change."
       }
-    ]
+    ],
+    "contrast": "Manual screenshot inspection caught dark text on the new dark mobile link. Corrected root scoping, then tested white label/arrow over dark background plus next-stage interaction at eight narrow widths in both variants (16 subcases)."
   },
-  "functional": {
-    "date": "2026-10-26T16:35:36.414Z",
+  "pageChecks": {
+    "status": "PASS",
     "checks": [
       {
-        "name": "Source content, static six-stage diagram and empty launch data",
+        "name": "Source content, required six-stage controls and empty launch data",
         "status": "PASS"
       },
       {
@@ -1485,301 +275,1182 @@
         "name": "No JS/console errors or unexpected network failures",
         "status": "PASS"
       }
+    ]
+  },
+  "visual": {
+    "status": "PASS",
+    "cases": [
+      {
+        "name": "unchanged source sections 320",
+        "status": "PASS"
+      },
+      {
+        "name": "unchanged source sections 360",
+        "status": "PASS"
+      },
+      {
+        "name": "unchanged source sections 375",
+        "status": "PASS"
+      },
+      {
+        "name": "unchanged source sections 390",
+        "status": "PASS"
+      },
+      {
+        "name": "unchanged source sections 430",
+        "status": "PASS"
+      },
+      {
+        "name": "unchanged source sections 767",
+        "status": "PASS"
+      },
+      {
+        "name": "unchanged source sections 768",
+        "status": "PASS"
+      },
+      {
+        "name": "unchanged source sections 1023",
+        "status": "PASS"
+      },
+      {
+        "name": "unchanged source sections 1024",
+        "status": "PASS"
+      },
+      {
+        "name": "unchanged source sections 1280",
+        "status": "PASS"
+      },
+      {
+        "name": "unchanged source sections 1366",
+        "status": "PASS"
+      },
+      {
+        "name": "unchanged source sections 1440",
+        "status": "PASS"
+      },
+      {
+        "name": "unchanged source sections 1600",
+        "status": "PASS"
+      },
+      {
+        "name": "unchanged source sections 1920",
+        "status": "PASS"
+      },
+      {
+        "name": "unchanged source sections 2560",
+        "status": "PASS"
+      }
     ],
-    "errors": [],
-    "consoleErrors": [],
-    "unexpectedNetwork": []
-  },
-  "matrixRuntime": {
-    "date": "2026-10-26T16:22:55.754Z",
-    "checksPassed": 25,
-    "errors": [],
-    "consoleErrors": [],
-    "unexpectedNetwork": []
-  },
-  "priorOutputSmoke": {
-    "date": "2026-10-26T16:25:05.577Z",
-    "scope": "Smoke only: unchanged prior outputs, fallback fonts, not a broad synchronization or full interaction/visual regression",
-    "rows": [
+    "captures": 45,
+    "sourceCases": 15,
+    "sectionPairs": 120,
+    "pixelExact": 60,
+    "maxChangedOver24Percent": 2.2672672672672673,
+    "interpretation": "All four unchanged sections match source text and dimensions. Hero/approach pairs are exact. Added engine details change the fractional document Y position of later sections; raw methodology/CTA crops include vertical raster differences, reported without normalizing source CSS or pixels.",
+    "pixels": [
       {
-        "slug": "corporate-ir",
+        "width": 320,
+        "height": 900,
+        "variant": "inline",
+        "section": "hero",
+        "pixels": 209920,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 320,
+        "height": 900,
+        "variant": "inline",
+        "section": "approach",
+        "pixels": 427200,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 320,
+        "height": 900,
+        "variant": "inline",
+        "section": "methodology",
+        "pixels": 103040,
+        "changedAny": 2,
+        "changedOver24": 0
+      },
+      {
+        "width": 320,
+        "height": 900,
+        "variant": "inline",
+        "section": "cta",
+        "pixels": 90240,
+        "changedAny": 6981,
+        "changedOver24": 0
+      },
+      {
+        "width": 320,
+        "height": 900,
+        "variant": "hosted",
+        "section": "hero",
+        "pixels": 209920,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 320,
+        "height": 900,
+        "variant": "hosted",
+        "section": "approach",
+        "pixels": 427200,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 320,
+        "height": 900,
+        "variant": "hosted",
+        "section": "methodology",
+        "pixels": 103040,
+        "changedAny": 2,
+        "changedOver24": 0
+      },
+      {
+        "width": 320,
+        "height": 900,
+        "variant": "hosted",
+        "section": "cta",
+        "pixels": 90240,
+        "changedAny": 6981,
+        "changedOver24": 0
+      },
+      {
+        "width": 360,
+        "height": 900,
+        "variant": "inline",
+        "section": "hero",
+        "pixels": 227520,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 360,
+        "height": 900,
+        "variant": "inline",
+        "section": "approach",
+        "pixels": 443160,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 360,
+        "height": 900,
+        "variant": "inline",
+        "section": "methodology",
+        "pixels": 106560,
+        "changedAny": 3230,
+        "changedOver24": 2416
+      },
+      {
+        "width": 360,
+        "height": 900,
+        "variant": "inline",
+        "section": "cta",
+        "pixels": 101520,
+        "changedAny": 88914,
+        "changedOver24": 1614
+      },
+      {
+        "width": 360,
+        "height": 900,
+        "variant": "hosted",
+        "section": "hero",
+        "pixels": 227520,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 360,
+        "height": 900,
+        "variant": "hosted",
+        "section": "approach",
+        "pixels": 443160,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 360,
+        "height": 900,
+        "variant": "hosted",
+        "section": "methodology",
+        "pixels": 106560,
+        "changedAny": 3230,
+        "changedOver24": 2416
+      },
+      {
+        "width": 360,
+        "height": 900,
+        "variant": "hosted",
+        "section": "cta",
+        "pixels": 101520,
+        "changedAny": 88914,
+        "changedOver24": 1614
+      },
+      {
+        "width": 375,
+        "height": 900,
+        "variant": "inline",
+        "section": "hero",
+        "pixels": 239625,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 375,
+        "height": 900,
+        "variant": "inline",
+        "section": "approach",
+        "pixels": 461625,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 375,
+        "height": 900,
+        "variant": "inline",
+        "section": "methodology",
+        "pixels": 111000,
+        "changedAny": 1700,
+        "changedOver24": 1300
+      },
+      {
+        "width": 375,
+        "height": 900,
+        "variant": "inline",
+        "section": "cta",
+        "pixels": 105750,
+        "changedAny": 84114,
+        "changedOver24": 851
+      },
+      {
+        "width": 375,
+        "height": 900,
+        "variant": "hosted",
+        "section": "hero",
+        "pixels": 239625,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 375,
+        "height": 900,
+        "variant": "hosted",
+        "section": "approach",
+        "pixels": 461625,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 375,
+        "height": 900,
+        "variant": "hosted",
+        "section": "methodology",
+        "pixels": 111000,
+        "changedAny": 1700,
+        "changedOver24": 1300
+      },
+      {
+        "width": 375,
+        "height": 900,
+        "variant": "hosted",
+        "section": "cta",
+        "pixels": 105750,
+        "changedAny": 84114,
+        "changedOver24": 851
+      },
+      {
         "width": 390,
-        "status": "PASS"
+        "height": 900,
+        "variant": "inline",
+        "section": "hero",
+        "pixels": 253110,
+        "changedAny": 0,
+        "changedOver24": 0
       },
       {
-        "slug": "corporate-ir",
-        "width": 1440,
-        "status": "PASS"
-      },
-      {
-        "slug": "corporate-ir-company-information",
         "width": 390,
-        "status": "PASS"
+        "height": 900,
+        "variant": "inline",
+        "section": "approach",
+        "pixels": 469560,
+        "changedAny": 0,
+        "changedOver24": 0
       },
       {
-        "slug": "corporate-ir-company-information",
-        "width": 1440,
-        "status": "PASS"
-      },
-      {
-        "slug": "corporate-ir-legal-notices",
         "width": 390,
-        "status": "PASS"
+        "height": 900,
+        "variant": "inline",
+        "section": "methodology",
+        "pixels": 115440,
+        "changedAny": 3273,
+        "changedOver24": 2407
       },
       {
-        "slug": "corporate-ir-legal-notices",
-        "width": 1440,
-        "status": "PASS"
-      },
-      {
-        "slug": "corporate-ir-regulatory",
         "width": 390,
-        "status": "PASS"
+        "height": 900,
+        "variant": "inline",
+        "section": "cta",
+        "pixels": 109980,
+        "changedAny": 97563,
+        "changedOver24": 781
       },
       {
-        "slug": "corporate-ir-regulatory",
-        "width": 1440,
-        "status": "PASS"
-      },
-      {
-        "slug": "corporate-ir-reports-documents",
         "width": 390,
-        "status": "PASS"
+        "height": 900,
+        "variant": "hosted",
+        "section": "hero",
+        "pixels": 253110,
+        "changedAny": 0,
+        "changedOver24": 0
       },
       {
-        "slug": "corporate-ir-reports-documents",
-        "width": 1440,
-        "status": "PASS"
-      },
-      {
-        "slug": "corporate-ir-shareholders",
         "width": 390,
-        "status": "PASS"
+        "height": 900,
+        "variant": "hosted",
+        "section": "approach",
+        "pixels": 469560,
+        "changedAny": 0,
+        "changedOver24": 0
       },
       {
-        "slug": "corporate-ir-shareholders",
-        "width": 1440,
-        "status": "PASS"
-      },
-      {
-        "slug": "ecosystem",
         "width": 390,
-        "status": "PASS"
+        "height": 900,
+        "variant": "hosted",
+        "section": "methodology",
+        "pixels": 115440,
+        "changedAny": 3273,
+        "changedOver24": 2407
       },
       {
-        "slug": "ecosystem",
-        "width": 1440,
-        "status": "PASS"
-      },
-      {
-        "slug": "financial-engine",
         "width": 390,
-        "status": "PASS"
+        "height": 900,
+        "variant": "hosted",
+        "section": "cta",
+        "pixels": 109980,
+        "changedAny": 97563,
+        "changedOver24": 781
       },
       {
-        "slug": "financial-engine",
+        "width": 430,
+        "height": 900,
+        "variant": "inline",
+        "section": "hero",
+        "pixels": 291970,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 430,
+        "height": 900,
+        "variant": "inline",
+        "section": "approach",
+        "pixels": 481600,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 430,
+        "height": 900,
+        "variant": "inline",
+        "section": "methodology",
+        "pixels": 114810,
+        "changedAny": 2879,
+        "changedOver24": 2155
+      },
+      {
+        "width": 430,
+        "height": 900,
+        "variant": "inline",
+        "section": "cta",
+        "pixels": 121260,
+        "changedAny": 108748,
+        "changedOver24": 907
+      },
+      {
+        "width": 430,
+        "height": 900,
+        "variant": "hosted",
+        "section": "hero",
+        "pixels": 291970,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 430,
+        "height": 900,
+        "variant": "hosted",
+        "section": "approach",
+        "pixels": 481600,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 430,
+        "height": 900,
+        "variant": "hosted",
+        "section": "methodology",
+        "pixels": 114810,
+        "changedAny": 2879,
+        "changedOver24": 2155
+      },
+      {
+        "width": 430,
+        "height": 900,
+        "variant": "hosted",
+        "section": "cta",
+        "pixels": 121260,
+        "changedAny": 108748,
+        "changedOver24": 907
+      },
+      {
+        "width": 767,
+        "height": 900,
+        "variant": "inline",
+        "section": "hero",
+        "pixels": 380432,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 767,
+        "height": 900,
+        "variant": "inline",
+        "section": "approach",
+        "pixels": 717912,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 767,
+        "height": 900,
+        "variant": "inline",
+        "section": "methodology",
+        "pixels": 184847,
+        "changedAny": 2346,
+        "changedOver24": 1748
+      },
+      {
+        "width": 767,
+        "height": 900,
+        "variant": "inline",
+        "section": "cta",
+        "pixels": 216294,
+        "changedAny": 201257,
+        "changedOver24": 1242
+      },
+      {
+        "width": 767,
+        "height": 900,
+        "variant": "hosted",
+        "section": "hero",
+        "pixels": 380432,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 767,
+        "height": 900,
+        "variant": "hosted",
+        "section": "approach",
+        "pixels": 717912,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 767,
+        "height": 900,
+        "variant": "hosted",
+        "section": "methodology",
+        "pixels": 184847,
+        "changedAny": 2346,
+        "changedOver24": 1748
+      },
+      {
+        "width": 767,
+        "height": 900,
+        "variant": "hosted",
+        "section": "cta",
+        "pixels": 216294,
+        "changedAny": 201257,
+        "changedOver24": 1242
+      },
+      {
+        "width": 768,
+        "height": 900,
+        "variant": "inline",
+        "section": "hero",
+        "pixels": 490752,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 768,
+        "height": 900,
+        "variant": "inline",
+        "section": "approach",
+        "pixels": 698880,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 768,
+        "height": 900,
+        "variant": "inline",
+        "section": "methodology",
+        "pixels": 189696,
+        "changedAny": 3924,
+        "changedOver24": 3034
+      },
+      {
+        "width": 768,
+        "height": 900,
+        "variant": "inline",
+        "section": "cta",
+        "pixels": 235776,
+        "changedAny": 142115,
+        "changedOver24": 2339
+      },
+      {
+        "width": 768,
+        "height": 900,
+        "variant": "hosted",
+        "section": "hero",
+        "pixels": 490752,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 768,
+        "height": 900,
+        "variant": "hosted",
+        "section": "approach",
+        "pixels": 698880,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 768,
+        "height": 900,
+        "variant": "hosted",
+        "section": "methodology",
+        "pixels": 189696,
+        "changedAny": 3924,
+        "changedOver24": 3034
+      },
+      {
+        "width": 768,
+        "height": 900,
+        "variant": "hosted",
+        "section": "cta",
+        "pixels": 235776,
+        "changedAny": 142115,
+        "changedOver24": 2339
+      },
+      {
+        "width": 1023,
+        "height": 900,
+        "variant": "inline",
+        "section": "hero",
+        "pixels": 690525,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 1023,
+        "height": 900,
+        "variant": "inline",
+        "section": "approach",
+        "pixels": 943206,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 1023,
+        "height": 900,
+        "variant": "inline",
+        "section": "methodology",
+        "pixels": 289509,
+        "changedAny": 7,
+        "changedOver24": 0
+      },
+      {
+        "width": 1023,
+        "height": 900,
+        "variant": "inline",
+        "section": "cta",
+        "pixels": 359073,
+        "changedAny": 194711,
+        "changedOver24": 721
+      },
+      {
+        "width": 1023,
+        "height": 900,
+        "variant": "hosted",
+        "section": "hero",
+        "pixels": 690525,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 1023,
+        "height": 900,
+        "variant": "hosted",
+        "section": "approach",
+        "pixels": 943206,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 1023,
+        "height": 900,
+        "variant": "hosted",
+        "section": "methodology",
+        "pixels": 289509,
+        "changedAny": 7,
+        "changedOver24": 0
+      },
+      {
+        "width": 1023,
+        "height": 900,
+        "variant": "hosted",
+        "section": "cta",
+        "pixels": 359073,
+        "changedAny": 194711,
+        "changedOver24": 721
+      },
+      {
+        "width": 1024,
+        "height": 900,
+        "variant": "inline",
+        "section": "hero",
+        "pixels": 512000,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 1024,
+        "height": 900,
+        "variant": "inline",
+        "section": "approach",
+        "pixels": 697344,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 1024,
+        "height": 900,
+        "variant": "inline",
+        "section": "methodology",
+        "pixels": 289792,
+        "changedAny": 6880,
+        "changedOver24": 5506
+      },
+      {
+        "width": 1024,
+        "height": 900,
+        "variant": "inline",
+        "section": "cta",
+        "pixels": 359424,
+        "changedAny": 28220,
+        "changedOver24": 2346
+      },
+      {
+        "width": 1024,
+        "height": 900,
+        "variant": "hosted",
+        "section": "hero",
+        "pixels": 512000,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 1024,
+        "height": 900,
+        "variant": "hosted",
+        "section": "approach",
+        "pixels": 697344,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 1024,
+        "height": 900,
+        "variant": "hosted",
+        "section": "methodology",
+        "pixels": 289792,
+        "changedAny": 6880,
+        "changedOver24": 5506
+      },
+      {
+        "width": 1024,
+        "height": 900,
+        "variant": "hosted",
+        "section": "cta",
+        "pixels": 359424,
+        "changedAny": 28220,
+        "changedOver24": 2346
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "variant": "inline",
+        "section": "hero",
+        "pixels": 656640,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "variant": "inline",
+        "section": "approach",
+        "pixels": 899840,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "variant": "inline",
+        "section": "methodology",
+        "pixels": 414720,
+        "changedAny": 6186,
+        "changedOver24": 5295
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "variant": "inline",
+        "section": "cta",
+        "pixels": 517120,
+        "changedAny": 494319,
+        "changedOver24": 6565
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "variant": "hosted",
+        "section": "hero",
+        "pixels": 656640,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "variant": "hosted",
+        "section": "approach",
+        "pixels": 899840,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "variant": "hosted",
+        "section": "methodology",
+        "pixels": 414720,
+        "changedAny": 6186,
+        "changedOver24": 5295
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "variant": "hosted",
+        "section": "cta",
+        "pixels": 517120,
+        "changedAny": 494319,
+        "changedOver24": 6565
+      },
+      {
+        "width": 1366,
+        "height": 900,
+        "variant": "inline",
+        "section": "hero",
+        "pixels": 759496,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 1366,
+        "height": 900,
+        "variant": "inline",
+        "section": "approach",
+        "pixels": 982154,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 1366,
+        "height": 900,
+        "variant": "inline",
+        "section": "methodology",
+        "pixels": 461708,
+        "changedAny": 6184,
+        "changedOver24": 5296
+      },
+      {
+        "width": 1366,
+        "height": 900,
+        "variant": "inline",
+        "section": "cta",
+        "pixels": 573720,
+        "changedAny": 409758,
+        "changedOver24": 6862
+      },
+      {
+        "width": 1366,
+        "height": 900,
+        "variant": "hosted",
+        "section": "hero",
+        "pixels": 759496,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 1366,
+        "height": 900,
+        "variant": "hosted",
+        "section": "approach",
+        "pixels": 982154,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 1366,
+        "height": 900,
+        "variant": "hosted",
+        "section": "methodology",
+        "pixels": 461708,
+        "changedAny": 6184,
+        "changedOver24": 5296
+      },
+      {
+        "width": 1366,
+        "height": 900,
+        "variant": "hosted",
+        "section": "cta",
+        "pixels": 573720,
+        "changedAny": 409758,
+        "changedOver24": 6862
+      },
+      {
         "width": 1440,
-        "status": "PASS"
+        "height": 900,
+        "variant": "inline",
+        "section": "hero",
+        "pixels": 800640,
+        "changedAny": 0,
+        "changedOver24": 0
       },
       {
-        "slug": "governance",
-        "width": 390,
-        "status": "PASS"
-      },
-      {
-        "slug": "governance",
         "width": 1440,
-        "status": "PASS"
+        "height": 900,
+        "variant": "inline",
+        "section": "approach",
+        "pixels": 1044000,
+        "changedAny": 0,
+        "changedOver24": 0
       },
       {
-        "slug": "governance-board",
-        "width": 390,
-        "status": "PASS"
-      },
-      {
-        "slug": "governance-board",
         "width": 1440,
-        "status": "PASS"
+        "height": 900,
+        "variant": "inline",
+        "section": "methodology",
+        "pixels": 493920,
+        "changedAny": 2956,
+        "changedOver24": 2337
       },
       {
-        "slug": "governance-leadership",
-        "width": 390,
-        "status": "PASS"
-      },
-      {
-        "slug": "governance-leadership",
         "width": 1440,
-        "status": "PASS"
+        "height": 900,
+        "variant": "inline",
+        "section": "cta",
+        "pixels": 613440,
+        "changedAny": 272248,
+        "changedOver24": 5082
       },
       {
-        "slug": "investors-partners",
-        "width": 390,
-        "status": "PASS"
-      },
-      {
-        "slug": "investors-partners",
         "width": 1440,
-        "status": "PASS"
+        "height": 900,
+        "variant": "hosted",
+        "section": "hero",
+        "pixels": 800640,
+        "changedAny": 0,
+        "changedOver24": 0
       },
       {
-        "slug": "main",
-        "width": 390,
-        "status": "PASS"
-      },
-      {
-        "slug": "main",
         "width": 1440,
-        "status": "PASS"
+        "height": 900,
+        "variant": "hosted",
+        "section": "approach",
+        "pixels": 1044000,
+        "changedAny": 0,
+        "changedOver24": 0
       },
       {
-        "slug": "platforms",
-        "width": 390,
-        "status": "PASS"
-      },
-      {
-        "slug": "platforms",
         "width": 1440,
-        "status": "PASS"
+        "height": 900,
+        "variant": "hosted",
+        "section": "methodology",
+        "pixels": 493920,
+        "changedAny": 2956,
+        "changedOver24": 2337
       },
       {
-        "slug": "profile-agnes-gradzewicz",
-        "width": 390,
-        "status": "PASS"
-      },
-      {
-        "slug": "profile-agnes-gradzewicz",
         "width": 1440,
-        "status": "PASS"
+        "height": 900,
+        "variant": "hosted",
+        "section": "cta",
+        "pixels": 613440,
+        "changedAny": 272248,
+        "changedOver24": 5082
       },
       {
-        "slug": "profile-alexander-alegria-saif",
-        "width": 390,
-        "status": "PASS"
+        "width": 1600,
+        "height": 900,
+        "variant": "inline",
+        "section": "hero",
+        "pixels": 889600,
+        "changedAny": 0,
+        "changedOver24": 0
       },
       {
-        "slug": "profile-alexander-alegria-saif",
-        "width": 1440,
-        "status": "PASS"
+        "width": 1600,
+        "height": 900,
+        "variant": "inline",
+        "section": "approach",
+        "pixels": 1160000,
+        "changedAny": 0,
+        "changedOver24": 0
       },
       {
-        "slug": "profile-christie-osarenren",
-        "width": 390,
-        "status": "PASS"
+        "width": 1600,
+        "height": 900,
+        "variant": "inline",
+        "section": "methodology",
+        "pixels": 548800,
+        "changedAny": 2989,
+        "changedOver24": 2337
       },
       {
-        "slug": "profile-christie-osarenren",
-        "width": 1440,
-        "status": "PASS"
+        "width": 1600,
+        "height": 900,
+        "variant": "inline",
+        "section": "cta",
+        "pixels": 681600,
+        "changedAny": 287098,
+        "changedOver24": 5080
       },
       {
-        "slug": "profile-ewa-dudek",
-        "width": 390,
-        "status": "PASS"
+        "width": 1600,
+        "height": 900,
+        "variant": "hosted",
+        "section": "hero",
+        "pixels": 889600,
+        "changedAny": 0,
+        "changedOver24": 0
       },
       {
-        "slug": "profile-ewa-dudek",
-        "width": 1440,
-        "status": "PASS"
+        "width": 1600,
+        "height": 900,
+        "variant": "hosted",
+        "section": "approach",
+        "pixels": 1160000,
+        "changedAny": 0,
+        "changedOver24": 0
       },
       {
-        "slug": "profile-farhad-reyazat",
-        "width": 390,
-        "status": "PASS"
+        "width": 1600,
+        "height": 900,
+        "variant": "hosted",
+        "section": "methodology",
+        "pixels": 548800,
+        "changedAny": 2989,
+        "changedOver24": 2337
       },
       {
-        "slug": "profile-farhad-reyazat",
-        "width": 1440,
-        "status": "PASS"
+        "width": 1600,
+        "height": 900,
+        "variant": "hosted",
+        "section": "cta",
+        "pixels": 681600,
+        "changedAny": 287098,
+        "changedOver24": 5080
       },
       {
-        "slug": "profile-gabriella-karlova",
-        "width": 390,
-        "status": "PASS"
+        "width": 1920,
+        "height": 900,
+        "variant": "inline",
+        "section": "hero",
+        "pixels": 1067520,
+        "changedAny": 0,
+        "changedOver24": 0
       },
       {
-        "slug": "profile-gabriella-karlova",
-        "width": 1440,
-        "status": "PASS"
+        "width": 1920,
+        "height": 900,
+        "variant": "inline",
+        "section": "approach",
+        "pixels": 1392000,
+        "changedAny": 0,
+        "changedOver24": 0
       },
       {
-        "slug": "profile-richard-werner",
-        "width": 390,
-        "status": "PASS"
+        "width": 1920,
+        "height": 900,
+        "variant": "inline",
+        "section": "methodology",
+        "pixels": 658560,
+        "changedAny": 2956,
+        "changedOver24": 2337
       },
       {
-        "slug": "profile-richard-werner",
-        "width": 1440,
-        "status": "PASS"
+        "width": 1920,
+        "height": 900,
+        "variant": "inline",
+        "section": "cta",
+        "pixels": 817920,
+        "changedAny": 310640,
+        "changedOver24": 5076
       },
       {
-        "slug": "smes-projects",
-        "width": 390,
-        "status": "PASS"
+        "width": 1920,
+        "height": 900,
+        "variant": "hosted",
+        "section": "hero",
+        "pixels": 1067520,
+        "changedAny": 0,
+        "changedOver24": 0
       },
       {
-        "slug": "smes-projects",
-        "width": 1440,
-        "status": "PASS"
+        "width": 1920,
+        "height": 900,
+        "variant": "hosted",
+        "section": "approach",
+        "pixels": 1392000,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 1920,
+        "height": 900,
+        "variant": "hosted",
+        "section": "methodology",
+        "pixels": 658560,
+        "changedAny": 2956,
+        "changedOver24": 2337
+      },
+      {
+        "width": 1920,
+        "height": 900,
+        "variant": "hosted",
+        "section": "cta",
+        "pixels": 817920,
+        "changedAny": 310640,
+        "changedOver24": 5076
+      },
+      {
+        "width": 2560,
+        "height": 900,
+        "variant": "inline",
+        "section": "hero",
+        "pixels": 1423360,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 2560,
+        "height": 900,
+        "variant": "inline",
+        "section": "approach",
+        "pixels": 1856000,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 2560,
+        "height": 900,
+        "variant": "inline",
+        "section": "methodology",
+        "pixels": 878080,
+        "changedAny": 2968,
+        "changedOver24": 2337
+      },
+      {
+        "width": 2560,
+        "height": 900,
+        "variant": "inline",
+        "section": "cta",
+        "pixels": 1090560,
+        "changedAny": 357673,
+        "changedOver24": 5078
+      },
+      {
+        "width": 2560,
+        "height": 900,
+        "variant": "hosted",
+        "section": "hero",
+        "pixels": 1423360,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 2560,
+        "height": 900,
+        "variant": "hosted",
+        "section": "approach",
+        "pixels": 1856000,
+        "changedAny": 0,
+        "changedOver24": 0
+      },
+      {
+        "width": 2560,
+        "height": 900,
+        "variant": "hosted",
+        "section": "methodology",
+        "pixels": 878080,
+        "changedAny": 2968,
+        "changedOver24": 2337
+      },
+      {
+        "width": 2560,
+        "height": 900,
+        "variant": "hosted",
+        "section": "cta",
+        "pixels": 1090560,
+        "changedAny": 357673,
+        "changedOver24": 5078
       }
     ]
   },
-  "sharedRegression": {
-    "result": "PASS",
-    "baseline": "b439054",
-    "contexts": 22,
-    "checks": [
-      "Byte-identical markup/CSS/runtime/routes/dynamic classes",
-      "Label escaping/empty-label fallback",
-      "Unknown design href guard"
-    ],
-    "method": "Exported baseline via git show and passed file to shared-regression.js"
-  },
   "static": {
-    "result": "PASS",
-    "checks": [
-      "Standalone scoped native output/JS syntax",
-      "Empty launch evidence/cases and correct route keys",
-      "Original image equality and Impact breadcrumb",
-      "In-memory closing-script JSON escaping fixture",
-      "Reproducible outputs and Git whitespace"
-    ]
+    "status": "PASS",
+    "description": "Both native blocks; six controls, two sets of accessible panels, source titles/descriptions/examples, empty evidence/cases, unchanged config/images and outside-engine markup"
   },
-  "images": {
-    "hero": {
-      "path": "assets/impact-hero-ribbons.png",
-      "width": 2022,
-      "height": 778,
-      "mode": "RGBA",
-      "bytes": 2665353,
-      "sha256": "d86831f4d7d2a12df0d81645cb8cf04581d90998f2c22e3e08ff1fa2be729ae0",
-      "sourceByteIdentical": true
-    },
-    "logo": "Supplied original 640x153 PNG, equality checked"
+  "shared": {
+    "status": "PASS",
+    "contexts": 22,
+    "description": "Current shared generator contexts against merged main 3d93dcf; shared/design/assets/other22outputs unchanged"
   },
-  "outputs": {
-    "better-world-impact.ghl.html": {
-      "bytes": 93667,
-      "sha256": "959c7ab8f866e78b057c97827b16595fb667e285808d3ce7b0fe2fcaf4d09c1c"
-    },
-    "better-world-impact.inline.ghl.html": {
-      "bytes": 3694847,
-      "sha256": "534df38537c405785d1439a7713c0486fbfde2833bb0c39e2c48ece33f54b11e"
-    }
+  "reproducibility": {
+    "status": "PASS",
+    "outputs": 2
   },
-  "manualInspection": [
-    "390px phone layout and vertical diagram",
-    "1440px source and port desktop",
-    "390px hostile host"
-  ],
-  "intentionalDifferences": [
-    "Reduced motion stops decorative source image drift; normal 14s drift retained",
-    "Native inert templates/hidden containers support approved JSON records; defaults match empty source arrays",
-    "Scoped IDs/configured routes, inline paint and merged owner cleanup replace the export runtime"
-  ],
+  "errors": [],
+  "console": [],
+  "network": [],
   "notVerified": [
-    "Published GHL and sticky ancestor conditions",
-    "Actual Google Fonts/hosted asset/page/Contact/case URLs/SEO",
-    "Real approved evidence/case/source/date/image/alt claims, methodology publication and footer legal wording",
-    "Main/shared synchronization and final full affected-page regression"
+    "Live GHL installation",
+    "Actual Google Fonts delivery/layout",
+    "Published routes/approved evidence and cases",
+    "Physical devices",
+    "Stage 9 final website-wide regression"
   ]
 }

@@ -21,6 +21,15 @@ for(const variant of ['better-world-impact.ghl.html','better-world-impact.inline
   assert.equal((markup.match(/<main\b/g)||[]).length,1);assert.equal((markup.match(/<h1\b/g)||[]).length,1);
   for(const m of markup.matchAll(/class="([^"]*)"/g))assert(m[1].split(/\s+/).every(c=>c.startsWith('bwi-')),m[1]);
   for(const m of markup.matchAll(/data-bwi-link="([^"]+)"/g))assert(Object.hasOwn(cfg.links,m[1]),m[1]);
+  assert.equal((markup.match(/data-bwi-engine-step=/g)||[]).length,6);
+  assert.equal((markup.match(/class="bwi-lp-tag"/g)||[]).length,3);
+  assert(!markup.includes('bwi-lp--static'));
+  for(let i=1;i<=6;i++)for(const kind of ['step','panel','mobile'])assert(markup.includes('id="bwi-engine-'+kind+'-'+i+'"'));
+  assert.equal((markup.match(/data-bwi-engine-prev/g)||[]).length,1);assert.equal((markup.match(/data-bwi-engine-next/g)||[]).length,1);
+  const source=fs.readFileSync(path.resolve(__dirname,'../../../../design/Better World Impact.dc.html'),'utf8');
+  const steps=vm.runInNewContext(source.match(/const STEPS = (\[[\s\S]*?\n    \]);/)[1]);
+  const escape=v=>v.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#x27;');
+  for(const step of steps)for(const value of step)assert(markup.includes(escape(value)),'Original step content preserved: '+value);
   assert.equal(cfg.links.contact,'#');assert.equal(cfg.links.betterWorldImpact,'#');assert.equal(cfg.links.financialEngineHero,'/financial-engine#fe-hero');
 
 }
@@ -37,4 +46,4 @@ for(const block of written.values()){
   const json=block.match(/<script type="application\/json"[^>]*>([\s\S]*?)<\/script>/)[1];
   assert(!json.includes('</script>'));assert(json.includes('\\u003c/script>'));assert.equal(JSON.parse(json).footer.registeredOffice,payload);
 }
-console.log('PASS Impact-only blocks, empty launch data/static diagram, independent routes, unique prefixes, JS syntax, logo/breadcrumb and escaped JSON');
+console.log('PASS Impact-only blocks, empty launch data, six-stage controls/source step content, independent routes, unique prefixes, JS syntax, logo/breadcrumb and escaped JSON');
