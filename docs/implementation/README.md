@@ -40,8 +40,12 @@ directly from `53f0457`. Regulatory is the twenty-first implementation, merged i
 All 20 earlier delivered blocks and shared generators were preserved.
 
 Stage 6 refreshed that merged main from a clean tree and created `feat/ghl-corporate-ir-legal-notices`
-directly from `f1324c6`. Legal Notices is the twenty-second implementation, pending its own PR review.
-All 21 earlier delivered blocks, design files and shared generators remain unchanged.
+directly from `f1324c6`. Legal Notices is the twenty-second implementation, merged in PR #33 (`b439054`).
+All 21 earlier delivered blocks, design files and shared generators were preserved.
+
+Stage 7 refreshed that merged main from a clean tree and created `feat/ghl-better-world-impact`
+directly from `b439054`. Better World & Impact is the twenty-third implementation, pending its own
+PR review. All 22 earlier delivered blocks, design files and shared generators remain unchanged.
 
 | Design source / change | GHL destination / status | Next review stage |
 |---|---|---|
@@ -50,11 +54,11 @@ All 21 earlier delivered blocks, design files and shared generators remain uncha
 | Same source, `#reports-documents` | `corporate-ir-reports-documents` — merged in PR #30; local QA in its README; live GHL NOT VERIFIED | 3 merged |
 | Same source, `#shareholders` | `corporate-ir-shareholders` — merged in PR #31; current QA in its README; live GHL NOT VERIFIED | 4 merged |
 | Same source, `#regulatory` | `corporate-ir-regulatory` — merged in PR #32; current QA in its README; live GHL NOT VERIFIED | 5 merged |
-| Same source, `#legal-notices` | `corporate-ir-legal-notices` — implemented; seven source notice rows, original summaries/dates, two owner-review notes and independent unavailable policy URLs; current QA in its README; PR review pending, live GHL NOT VERIFIED | 6 (this change only) |
-| `Better World Impact.dc.html` + supplied `assets/impact-hero-ribbons.png` | Better World & Impact — pending; hero, approach, six-stage financial-engine interaction, methodology, conditional evidence/cases, final CTA | 7 |
+| Same source, `#legal-notices` | `corporate-ir-legal-notices` — merged in PR #33; current QA in its README; live GHL NOT VERIFIED | 6 merged |
+| `Better World Impact.dc.html` + supplied `assets/impact-hero-ribbons.png` | `better-world-impact` — implemented; supplied hero artwork, approach, static six-stage diagram, methodology toggle, empty/approved evidence/cases and final CTA; current QA in its README; PR review pending, live GHL NOT VERIFIED | 7 (this change only) |
 | `Main.dc.html` CTA background/dot-field changes | Both direct-edit Main variants — pending; preserve their workflow | 8 |
-| Header/Footer new independent Impact link | Minimal generator mapping added for Overview (`betterWorldImpact`); old homepage `impact` semantics preserved; new Corporate / IR blocks consume it | Preliminary dependency completed; broad synchronization still pending |
-| Breadcrumb new Impact trail and labelled Corporate / IR subpage trail | Overview `ir` consumed; Company Information added opt-in `label`; Reports, Shareholders, Regulatory and Legal Notices reuse it without another shared-generator change. Impact consumer/QA pending | Per-page stage; remaining sync in 8 |
+| Header/Footer new independent Impact link | Minimal generator mapping added for Overview (`betterWorldImpact`); old homepage `impact` semantics preserved; new Corporate / IR and Impact blocks consume it | Preliminary dependency completed; broad synchronization still pending |
+| Breadcrumb new Impact trail and labelled Corporate / IR subpage trail | Overview `ir` consumed; Company Information added opt-in `label`; Reports, Shareholders, Regulatory and Legal Notices reuse it without another shared-generator change. Impact consumes its own trail without a generator change | Per-page consumers completed; broad sync remains in 8 |
 | Shared config/output migration | Existing **16** pages still carry their prior header/footer. Update each config, regenerate the 15 build-based ports and synchronize Main manually, preserving existing configured homepage anchors | 8, separately scoped synchronization |
 | Affected existing-page regression | Full shared navigation/lifecycle/visual regression after output synchronization — pending; Overview's shared changes do not rewrite existing blocks | 9 |
 
@@ -73,10 +77,15 @@ broad shared/older-page synchronization; previous delivered blocks are deliberat
 Regulatory also clears a copied unavailable native-option label when its configured destination becomes
 available. Include this option normalization in the later shared/older-page synchronization.
 
-All six Corporate / IR views now have separate implementations; Legal Notices is pending PR review.
-This does **not** complete the 23-page website work: Better World & Impact, Main/shared synchronization
-and final affected-page regression remain. Resume Better World & Impact only after Legal Notices'
+All six Corporate / IR views are merged. All 23 target pages now have separate implementations, with
+Impact pending PR review. This does **not** complete the website work: Main/shared synchronization
+and final affected-page regression remain. Resume Main/shared synchronization only after Impact's
 merge is confirmed, from a fresh latest-main branch. No automatic merges.
+
+Impact source inspection corrects the earlier inventory: its rendered engine is a static `figure`
+with six list items and three fixed Impact considered markers. Unused interactive steps/prev/next
+logic and CSS in the export are not wired to its markup. The port preserves the actual static view;
+no accordion, carousel or scroll-capture interaction is invented.
 
 Implementation, merge and publication are separate states. A generated block or merged PR does not establish a live GHL URL. Unconfirmed governance/profile routes stay configurable and default to "#" until the published destinations are verified. `design/Main v1 (archive).dc.html` is an archive, `Before After.dc.html` is a QA canvas, and the shared component files are not additional production pages.
 
@@ -112,7 +121,9 @@ Implementation, merge and publication are separate states. A generated block or 
 
 - Corporate / IR Regulatory: ghl/pages/corporate-ir-regulatory/README.md. Only `#regulatory` content; hosted/inline blocks, labelled breadcrumb, regulatory-perimeter notice, authorised-entity/proposed-institution tables and review flags. Source FRN/permission/relationship placeholders remain unconfirmed; exact register-entry URL defaults to `#`. Long approval badges wrap within narrow containers, and copied native-option labels normalize. Merged through PR #32; published GHL NOT VERIFIED.
 
-- Corporate / IR Legal Notices: ghl/pages/corporate-ir-legal-notices/README.md. Only `#legal-notices` content; hosted/inline blocks, labelled breadcrumb, seven notice rows, source summaries/date placeholders and two owner-review notes. Each policy has a separate configurable URL, default `#`; policy content is not invented. Reuses copied link/footer/option normalization. PR review pending; published GHL NOT VERIFIED.
+- Corporate / IR Legal Notices: ghl/pages/corporate-ir-legal-notices/README.md. Only `#legal-notices` content; hosted/inline blocks, labelled breadcrumb, seven notice rows, source summaries/date placeholders and two owner-review notes. Each policy has a separate configurable URL, default `#`; policy content is not invented. Reuses copied link/footer/option normalization. Merged through PR #33; published GHL NOT VERIFIED.
+
+- Better World & Impact: ghl/pages/better-world-impact/README.md. Supplied PNG hero, three approach columns, static accessible six-stage diagram, methodology notice, empty-by-default approved evidence/case templates and responsive final CTA. Hosted and embedded images are generated from `_build/src/`; reduced motion stops decorative artwork drift. Shared generator/older outputs are unchanged. PR review pending; published GHL NOT VERIFIED.
 
 The completed-page README is the source of maintenance instructions; no duplicate brief is kept under docs/implementation/pages/. design/SiteHeader.dc.html, design/SiteFooter.dc.html, design/Breadcrumb.dc.html, design/GovNav.dc.html, design/GovProfile.dc.html and design/PersonCard.dc.html are shared source components. design/Before After.dc.html is a visual comparison/QA canvas, not a production website page.
 
