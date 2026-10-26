@@ -65,6 +65,7 @@
         if (option.value === 'corporateIRShareholders') return;
         option.disabled = !available(links[option.value]);
         if (option.disabled) option.label = option.textContent + ' — not yet available';
+        else option.removeAttribute('label');
       });
       select.value = 'corporateIRShareholders';
       on(select, 'change', function () {

@@ -191,7 +191,7 @@ const FONT_LINKS = [
 const usedKeys = new Set([...htmlCode.matchAll(/data-eco-link="([^"]+)"/g)].map((m) => m[1]));
 const cfgKeys = new Set(Object.keys(config.links));
 usedKeys.forEach((k) => { if (!cfgKeys.has(k)) throw new Error('Link key missing from config: ' + k); });
-cfgKeys.forEach((k) => { if (!usedKeys.has(k)) throw new Error('Unused link key in config: ' + k); });
+cfgKeys.forEach((k) => { /* Only known legacy keys retain their original configuration semantics. */ if (!usedKeys.has(k) && !chrome.legacyLinkKeys.includes(k)) throw new Error('Unused link key in config: ' + k); });
 // in-page anchors must point at ids that exist
 for (const m of htmlCode.matchAll(/href="#([^"]+)"/g)) if (!usedIds.has(m[1])) throw new Error('In-page link to missing id: #' + m[1]);
 const jsCode = js.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
