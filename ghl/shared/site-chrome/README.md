@@ -7,7 +7,7 @@ root and class prefix. A pasted page never loads a file from this folder.
 
 ```
 ghl/shared/site-chrome/
-├── site-chrome.js           ← generator: require(...)({ prefix, current, breadcrumb, govnav, content, people, rename, system, links })
+├── site-chrome.js           ← generator: require(...)({ prefix, current, breadcrumb, label, govnav, content, people, rename, system, links })
 ├── site-chrome.runtime.js   ← vanilla runtime template (__P__ = page prefix), inlined into each page script
 ├── site-chrome.govnav.js    ← GovNav runtime part, appended only for pages with a govnav option
 ├── site-chrome.people.js    ← person-card runtime part (portraits, profile links), appended only with people:true
@@ -43,8 +43,12 @@ an in-memory unknown destination).
 
 The Corporate / IR Overview is the first consumer of the updated header/footer. Its six section
 destinations are independent page URLs in its own config. Overview uses Breadcrumb `ir` (Home →
-Corporate/IR); the five independent subpage trails and broad migration of the existing 16 page configs
-and outputs remain separately tracked in `docs/implementation/README.md`. Existing pasted blocks are
+Corporate/IR). Company Information uses `breadcrumb: 'ir', label: 'Company information'` to reproduce
+the source's labelled subpage trail (Home → Corporate/IR → label), with Corporate/IR linked through
+`links.corporateIR`. `label` only affects a nonempty IR breadcrumb; other consumers, including Overview
+and the profile trails, remain byte-identical to merged main `1e34f27` (see the Company's
+`_build/shared-regression.js`). The remaining subpage consumers and broad migration of the existing 16
+page configs and outputs remain separately tracked in `docs/implementation/README.md`. Existing pasted blocks are
 unchanged by editing this development generator. Before rebuilding an older page with the new design,
 migrate its config to the new `betterWorldImpact` key and validate that page; a blind rebuild will
 correctly fail the page's missing/unused-key checks. Do not drop those checks to regenerate outputs.

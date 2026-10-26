@@ -22,10 +22,15 @@ directly on that refreshed main. The new export adds two source pages; it does n
 **16 existing ports**, including all seven individual profiles. Corporate / IR's six views require
 six independent production blocks, so the verified target inventory is **23 GHL pages**.
 
+Stage 2 resumes after Overview PR #28 was confirmed merged (`1e34f27`). A clean working tree was
+refreshed with `git pull --ff-only origin main`, then branched as
+`feat/ghl-corporate-ir-company-information` directly from that main. The 16 original ports and merged
+Overview are preserved. Company Information is the eighteenth implementation, pending its own PR review.
+
 | Design source / change | GHL destination / status | Next review stage |
 |---|---|---|
-| `Corporate IR.dc.html`, empty hash | `corporate-ir` — implemented; current local QA in its README; PR review pending, live GHL NOT VERIFIED | 1 (this change only) |
-| Same source, `#company-information` | `corporate-ir-company-information` — pending; statutory facts, name history, `showGroup` approved/empty modes | 2, after stage 1 merges |
+| `Corporate IR.dc.html`, empty hash | `corporate-ir` — merged in PR #28; local QA in its README; live GHL NOT VERIFIED | 1 merged |
+| Same source, `#company-information` | `corporate-ir-company-information` — implemented; nine statutory facts, name history, `showGroup` tree/approved-later modes and independent routes; current QA in its README; PR review pending, live GHL NOT VERIFIED | 2 (this change only) |
 | Same source, `#reports-documents` | `corporate-ir-reports-documents` — pending; listing, filters, search, reset, count, sorting and empty/launch states | 3 |
 | Same source, `#shareholders` | `corporate-ir-shareholders` — pending; share facts, meetings/results and enquiries | 4 |
 | Same source, `#regulatory` | `corporate-ir-regulatory` — pending; perimeter, regulated entities, proposed institutions | 5 |
@@ -33,7 +38,7 @@ six independent production blocks, so the verified target inventory is **23 GHL 
 | `Better World Impact.dc.html` + supplied `assets/impact-hero-ribbons.png` | Better World & Impact — pending; hero, approach, six-stage financial-engine interaction, methodology, conditional evidence/cases, final CTA | 7 |
 | `Main.dc.html` CTA background/dot-field changes | Both direct-edit Main variants — pending; preserve their workflow | 8 |
 | Header/Footer new independent Impact link | Minimal generator mapping added in this stage (`betterWorldImpact`); old homepage `impact` semantics preserved; current Overview consumes it | Preliminary dependency completed; broad synchronization still pending |
-| Breadcrumb new Impact trail and labelled Corporate / IR subpage trail | Overview `ir` consumed; Impact and independent subpage consumers/QA pending | Per-page stage; remaining sync in 8 |
+| Breadcrumb new Impact trail and labelled Corporate / IR subpage trail | Overview `ir` consumed; Company Information adds opt-in `label` for Home → Corporate/IR → Company information; existing generator consumers unchanged. Remaining subpages and Impact consumer/QA pending | Per-page stage; remaining sync in 8 |
 | Shared config/output migration | Existing **16** pages still carry their prior header/footer. Update each config, regenerate the 15 build-based ports and synchronize Main manually, preserving existing configured homepage anchors | 8, separately scoped synchronization |
 | Affected existing-page regression | Full shared navigation/lifecycle/visual regression after output synchronization — pending; Overview's shared changes do not rewrite existing blocks | 9 |
 
@@ -44,8 +49,9 @@ an announcements page or silently send it to a different section. Other linked-b
 (Who We Are, Private Investors, Contact, Verify, Legal policies) remain configurable deployment/content
 dependencies, not newly invented page implementations.
 
-Completing Overview does **not** complete the Corporate / IR family. Resume Company Information only
-after Overview's merge is confirmed, from a fresh latest-main branch. No automatic merges.
+Completing Overview and Company Information does **not** complete the Corporate / IR family. Resume
+Reports & Documents only after Company Information's merge is confirmed, from a fresh latest-main
+branch. No automatic merges.
 
 Implementation, merge and publication are separate states. A generated block or merged PR does not establish a live GHL URL. Unconfirmed governance/profile routes stay configurable and default to "#" until the published destinations are verified. `design/Main v1 (archive).dc.html` is an archive, `Before After.dc.html` is a QA canvas, and the shared component files are not additional production pages.
 
@@ -71,7 +77,9 @@ Implementation, merge and publication are separate states. A generated block or 
 - Agnes Gradzewicz: ghl/pages/profile-agnes-gradzewicz/README.md. Hosted/inline profile outputs; Chief Marketing Officer role, no biography, default Leadership. Merged through PR #26.
 - Christie Osarenren: ghl/pages/profile-christie-osarenren/README.md. Hosted/inline outputs generated from _build/src/; Senior Market Strategy & Research Analyst role, no biography, default Leadership. Merged through PR #27; published GHL NOT VERIFIED.
 
-- Corporate / IR Overview: ghl/pages/corporate-ir/README.md. Only the empty-hash overview from `design/Corporate IR.dc.html`; independent page URLs for the five pending subpages. Hosted/inline outputs generated from `_build/src/`; source placeholders and document modes preserved. PR review pending; published GHL NOT VERIFIED.
+- Corporate / IR Overview: ghl/pages/corporate-ir/README.md. Only the empty-hash overview from `design/Corporate IR.dc.html`; independent page URLs for the subpages. Hosted/inline outputs generated from `_build/src/`; source placeholders and document modes preserved. Merged through PR #28; published GHL NOT VERIFIED.
+
+- Corporate / IR Company Information: ghl/pages/corporate-ir-company-information/README.md. Only `#company-information` content from the shared design source. Hosted/inline blocks, labelled breadcrumb, statutory facts/name history, review flags and group tree/empty modes. The long approval notice wraps on narrow phones instead of being clipped as in the source. PR review pending; published GHL NOT VERIFIED.
 
 The completed-page README is the source of maintenance instructions; no duplicate brief is kept under docs/implementation/pages/. design/SiteHeader.dc.html, design/SiteFooter.dc.html, design/Breadcrumb.dc.html, design/GovNav.dc.html, design/GovProfile.dc.html and design/PersonCard.dc.html are shared source components. design/Before After.dc.html is a visual comparison/QA canvas, not a production website page.
 

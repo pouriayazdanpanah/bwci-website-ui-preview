@@ -230,6 +230,8 @@ module.exports = function siteChrome(opts) {
       ? [C.HOME, C.GOV, opts.profile.via === 'board'
         ? ['Board of Directors', 'Governance%20Board.dc.html']
         : ['Leadership', 'Governance%20Leadership.dc.html'], [opts.profile.name || '']]
+      : crumb === 'ir' && opts.label
+        ? [C.HOME, ['Corporate/IR', 'Corporate%20IR.dc.html'], [opts.label]]
       : C.TRAILS[crumb];
     if (!t) throw new Error('No breadcrumb trail for ' + crumb);
     const style = (re) => { const m = re.exec(bcSrc); if (!m) throw new Error('Breadcrumb style not found: ' + re); return m[1]; };
