@@ -1,0 +1,1245 @@
+{
+  "date": "2026-10-26T12:27:14.009Z",
+  "sourceCommit": "224a81edea2e4f627ae265344887896cbd41b404",
+  "source": "design/Corporate IR.dc.html#reports-documents",
+  "scope": "Independent Reports & Documents only",
+  "browser": "Chromium 154.0.8037.57",
+  "fonts": "NOT VERIFIED: remote font requests deliberately blocked; both references use identical fallback fonts",
+  "matrix": [
+    {
+      "width": 320,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 3365,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 3365,
+          "documentWidth": 320,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 3365,
+          "documentWidth": 320,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 3270,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 3270,
+          "documentWidth": 360,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 3270,
+          "documentWidth": 360,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 3197,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 3197,
+          "documentWidth": 375,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 3197,
+          "documentWidth": 375,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 3197,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 3197,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 3197,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 3159,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 3159,
+          "documentWidth": 430,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 3159,
+          "documentWidth": 430,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 2041,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 2041,
+          "documentWidth": 768,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 2041,
+          "documentWidth": 768,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 1619,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 1619,
+          "documentWidth": 1024,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 1619,
+          "documentWidth": 1024,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1099,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 1603,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 1603,
+          "documentWidth": 1099,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 1603,
+          "documentWidth": 1099,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1100,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 1604,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 1604,
+          "documentWidth": 1100,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 1604,
+          "documentWidth": 1100,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1101,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 1587,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 1587,
+          "documentWidth": 1101,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 1587,
+          "documentWidth": 1101,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 1691,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 1691,
+          "documentWidth": 1280,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 1691,
+          "documentWidth": 1280,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 1714,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 1714,
+          "documentWidth": 1366,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 1714,
+          "documentWidth": 1366,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 1725,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 1725,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 1725,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 1725,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 1725,
+          "documentWidth": 1600,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 1725,
+          "documentWidth": 1600,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 1725,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 1725,
+          "documentWidth": 1920,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 1725,
+          "documentWidth": 1920,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 2560,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 1725,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 1725,
+          "documentWidth": 2560,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 1725,
+          "documentWidth": 2560,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 600,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 3197,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 3197,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 3197,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "height": 1200,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 1619,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 1619,
+          "documentWidth": 1024,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 1619,
+          "documentWidth": 1024,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 600,
+      "motion": "reduced",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 1725,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 1725,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 1725,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 900,
+      "motion": "normal",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 3197,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 3197,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 3197,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "motion": "normal",
+      "scenario": "default",
+      "status": "PASS",
+      "referenceHeight": 1725,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 1725,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 1725,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "annual",
+      "status": "PASS",
+      "referenceHeight": 1545,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 1545,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 1545,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "no-results",
+      "status": "PASS",
+      "referenceHeight": 2299,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 2299,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 2299,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "launch",
+      "status": "PASS",
+      "referenceHeight": 2346,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 2346,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 2346,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "launch",
+      "status": "PASS",
+      "referenceHeight": 1429,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 1429,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 1429,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "flags-off",
+      "status": "PASS",
+      "referenceHeight": 3197,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 3197,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 3197,
+          "documentWidth": 390,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "ascending",
+      "status": "PASS",
+      "referenceHeight": 1725,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 1725,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 1725,
+          "documentWidth": 1440,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "motion": "reduced",
+      "scenario": "year-search",
+      "status": "PASS",
+      "referenceHeight": 1816,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 1816,
+          "documentWidth": 768,
+          "geometry": "PASS against unchanged source layout"
+        },
+        {
+          "kind": "hosted",
+          "height": 1816,
+          "documentWidth": 768,
+          "geometry": "PASS against unchanged source layout"
+        }
+      ]
+    }
+  ],
+  "pixelComparisons": [
+    {
+      "capture": "plain-1024-1200.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1024-1200.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1024-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1024-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1099-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1099-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1100-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1100-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1101-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1101-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1280-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1280-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1366-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1366-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1440-600.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1440-600.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1440-900-annual.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1440-900-annual.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1440-900-ascending.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1440-900-ascending.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1440-900-launch.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1440-900-launch.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1440-900-motion.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1440-900-motion.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1440-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1440-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1600-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1600-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1920-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1920-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-2560-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-2560-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-320-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-320-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-360-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-360-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-375-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-375-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-390-600.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-390-600.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-390-900-flags-off.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-390-900-flags-off.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-390-900-launch.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-390-900-launch.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-390-900-motion.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-390-900-motion.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-390-900-no-results.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-390-900-no-results.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-390-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-390-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-430-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-430-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-768-900-year-search.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-768-900-year-search.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-768-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-768-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    }
+  ],
+  "functionalChecks": [
+    {
+      "name": "Reports-only content, source metadata, active state and unavailable downloads",
+      "status": "PASS"
+    },
+    {
+      "name": "Filters/search/sort/reset match source in desktop, tablet, phone, hosted and hostile modes",
+      "status": "PASS"
+    },
+    {
+      "name": "Launch mode, flags off, empty records and malformed JSON fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "Configured records, derived years/types, safe text and verified-link navigation",
+      "status": "PASS"
+    },
+    {
+      "name": "Filter listeners survive replacement and do not multiply on repeated execution",
+      "status": "PASS"
+    },
+    {
+      "name": "Unavailable links, keyboard focus, hover and mobile touch",
+      "status": "PASS"
+    },
+    {
+      "name": "Configured independent navigation, selector, breadcrumb and Impact destination",
+      "status": "PASS"
+    },
+    {
+      "name": "Sticky nav, live breakpoint resize and header/footer toggles",
+      "status": "PASS"
+    },
+    {
+      "name": "Long content and scoped same-page anchors",
+      "status": "PASS"
+    },
+    {
+      "name": "Hostile host, duplicate script, root replacement and complete teardown",
+      "status": "PASS"
+    },
+    {
+      "name": "No JavaScript/console errors or unexpected network failures",
+      "status": "PASS"
+    }
+  ],
+  "selectedMetadataSafetyCheck": [
+    {
+      "name": "Configured records, derived years/types, safe text and verified-link navigation",
+      "status": "PASS"
+    },
+    {
+      "name": "No JavaScript/console errors or unexpected network failures",
+      "status": "PASS"
+    }
+  ],
+  "interactionComparison": {
+    "widths": [
+      390,
+      768,
+      1440
+    ],
+    "kinds": [
+      "source",
+      "plain",
+      "hosted",
+      "hostile"
+    ],
+    "statesPerTrace": 10,
+    "stateSnapshots": 120,
+    "matchedSourceOutputTransitions": 90,
+    "status": "PASS"
+  },
+  "errors": [],
+  "consoleErrors": [],
+  "unexpectedNetwork": [],
+  "sharedRegression": {
+    "baseline": "224a81e",
+    "contexts": 18,
+    "status": "PASS",
+    "scope": "Existing generator markup/CSS/runtime/config/trails byte-identical; unknown-link guard still rejects unknown design destinations"
+  },
+  "existingPageSmoke": [
+    {
+      "slug": "corporate-ir",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "corporate-ir",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "corporate-ir-company-information",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "corporate-ir-company-information",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "ecosystem",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "ecosystem",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "financial-engine",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "financial-engine",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "governance",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "governance",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "governance-board",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "governance-board",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "governance-leadership",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "governance-leadership",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "investors-partners",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "investors-partners",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "main",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "main",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "platforms",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "platforms",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-agnes-gradzewicz",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-agnes-gradzewicz",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-alexander-alegria-saif",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-alexander-alegria-saif",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-christie-osarenren",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-christie-osarenren",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-ewa-dudek",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-ewa-dudek",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-farhad-reyazat",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-farhad-reyazat",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-gabriella-karlova",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-gabriella-karlova",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-richard-werner",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-richard-werner",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "smes-projects",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "smes-projects",
+      "width": 1440,
+      "status": "PASS"
+    }
+  ],
+  "outputs": {
+    "corporate-ir-reports-documents.ghl.html": {
+      "bytes": 93809,
+      "sha256": "03c5b505080d8f2d836ab17a56e802e3da24fc5569997d49d9c45802863a99e0"
+    },
+    "corporate-ir-reports-documents.inline.ghl.html": {
+      "bytes": 141223,
+      "sha256": "6c367c6637735ffe84ea12466103d1909e6af56f3bf060de70f3c9835dfa648d"
+    }
+  },
+  "notVerified": [
+    "Published GHL installation and ancestor layout constraints",
+    "External Google fonts and real-font rendering",
+    "Real file availability, contents and approved metadata",
+    "Actual asset/page URLs, GHL SEO and footer approval",
+    "Remaining Corporate IR pages, Impact and broad Main/shared synchronization"
+  ]
+}
