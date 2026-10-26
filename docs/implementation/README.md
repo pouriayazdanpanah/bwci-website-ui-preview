@@ -12,9 +12,40 @@ This guide turns a finished Claude Design page in design/ into one pasteable GoH
 6. Validate 320, 360, 375, 390, 430, 768, 1024, 1280, 1366, 1440, 1600, 1920, and 2560 px; vary height/orientation where relevant. Check document scrollWidth versus clientWidth, console/network errors, and a host page with global element/Bootstrap-like rules and surrounding content. A local browser check is not a published GHL check.
 7. Document differences and limits in the page README; after confirming the brief's requirements are covered, remove the pending brief. Commit page-scoped changes, push, open a PR to main, and stop for manual review/merge.
 
-## Pages awaiting a GHL port
+## Verified design-to-implementation inventory (October 26, 2026)
 
-The current October 2026 export has **16 production pages**, all with a GHL implementation, including the Christie profile delivered in this PR. No production page in this export remains awaiting a port. A new page added by a future design import needs a fresh brief and its own branch as described above.
+Inspected a clean working tree, all page directories and both output variants, `CLAUDE.md`, this guide,
+the page template, shared chrome and the Governance, Board and Leadership implementations. No repository
+or nested `AGENTS.md` exists. Refreshed `main` with `git pull --ff-only origin main`: `daa5e0d` →
+`812f136` ("Import Claude Design site export"). Implementation branch: `feat/ghl-corporate-ir`, based
+directly on that refreshed main. The new export adds two source pages; it does not invalidate the
+**16 existing ports**, including all seven individual profiles. Corporate / IR's six views require
+six independent production blocks, so the verified target inventory is **23 GHL pages**.
+
+| Design source / change | GHL destination / status | Next review stage |
+|---|---|---|
+| `Corporate IR.dc.html`, empty hash | `corporate-ir` — implemented; current local QA in its README; PR review pending, live GHL NOT VERIFIED | 1 (this change only) |
+| Same source, `#company-information` | `corporate-ir-company-information` — pending; statutory facts, name history, `showGroup` approved/empty modes | 2, after stage 1 merges |
+| Same source, `#reports-documents` | `corporate-ir-reports-documents` — pending; listing, filters, search, reset, count, sorting and empty/launch states | 3 |
+| Same source, `#shareholders` | `corporate-ir-shareholders` — pending; share facts, meetings/results and enquiries | 4 |
+| Same source, `#regulatory` | `corporate-ir-regulatory` — pending; perimeter, regulated entities, proposed institutions | 5 |
+| Same source, `#legal-notices` | `corporate-ir-legal-notices` — pending; source policy list and unavailable destinations | 6 |
+| `Better World Impact.dc.html` + supplied `assets/impact-hero-ribbons.png` | Better World & Impact — pending; hero, approach, six-stage financial-engine interaction, methodology, conditional evidence/cases, final CTA | 7 |
+| `Main.dc.html` CTA background/dot-field changes | Both direct-edit Main variants — pending; preserve their workflow | 8 |
+| Header/Footer new independent Impact link | Minimal generator mapping added in this stage (`betterWorldImpact`); old homepage `impact` semantics preserved; current Overview consumes it | Preliminary dependency completed; broad synchronization still pending |
+| Breadcrumb new Impact trail and labelled Corporate / IR subpage trail | Overview `ir` consumed; Impact and independent subpage consumers/QA pending | Per-page stage; remaining sync in 8 |
+| Shared config/output migration | Existing **16** pages still carry their prior header/footer. Update each config, regenerate the 15 build-based ports and synchronize Main manually, preserving existing configured homepage anchors | 8, separately scoped synchronization |
+| Affected existing-page regression | Full shared navigation/lifecycle/visual regression after output synchronization — pending; Overview's shared changes do not rewrite existing blocks | 9 |
+
+Confirmed additional destination gap: the new Corporate / IR source links announcements to
+`Main.dc.html#insights`, but neither current Main source markup nor either Main output contains an
+Insights section. Overview's `links.announcements` remains explicitly unresolved (`#`). Do not invent
+an announcements page or silently send it to a different section. Other linked-but-absent destinations
+(Who We Are, Private Investors, Contact, Verify, Legal policies) remain configurable deployment/content
+dependencies, not newly invented page implementations.
+
+Completing Overview does **not** complete the Corporate / IR family. Resume Company Information only
+after Overview's merge is confirmed, from a fresh latest-main branch. No automatic merges.
 
 Implementation, merge and publication are separate states. A generated block or merged PR does not establish a live GHL URL. Unconfirmed governance/profile routes stay configurable and default to "#" until the published destinations are verified. `design/Main v1 (archive).dc.html` is an archive, `Before After.dc.html` is a QA canvas, and the shared component files are not additional production pages.
 
@@ -38,7 +69,9 @@ Implementation, merge and publication are separate states. A generated block or 
 
 - Ewa Dudek: ghl/pages/profile-ewa-dudek/README.md. Hosted/inline profile outputs; Operational Manager role, no biography, default Leadership. Merged through PR #25.
 - Agnes Gradzewicz: ghl/pages/profile-agnes-gradzewicz/README.md. Hosted/inline profile outputs; Chief Marketing Officer role, no biography, default Leadership. Merged through PR #26.
-- Christie Osarenren: ghl/pages/profile-christie-osarenren/README.md. Hosted/inline outputs generated from _build/src/; Senior Market Strategy & Research Analyst role, no biography, default Leadership. Delivered in this PR from main `b954288`; published GHL NOT VERIFIED.
+- Christie Osarenren: ghl/pages/profile-christie-osarenren/README.md. Hosted/inline outputs generated from _build/src/; Senior Market Strategy & Research Analyst role, no biography, default Leadership. Merged through PR #27; published GHL NOT VERIFIED.
+
+- Corporate / IR Overview: ghl/pages/corporate-ir/README.md. Only the empty-hash overview from `design/Corporate IR.dc.html`; independent page URLs for the five pending subpages. Hosted/inline outputs generated from `_build/src/`; source placeholders and document modes preserved. PR review pending; published GHL NOT VERIFIED.
 
 The completed-page README is the source of maintenance instructions; no duplicate brief is kept under docs/implementation/pages/. design/SiteHeader.dc.html, design/SiteFooter.dc.html, design/Breadcrumb.dc.html, design/GovNav.dc.html, design/GovProfile.dc.html and design/PersonCard.dc.html are shared source components. design/Before After.dc.html is a visual comparison/QA canvas, not a production website page.
 

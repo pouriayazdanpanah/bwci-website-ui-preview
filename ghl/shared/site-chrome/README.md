@@ -33,6 +33,22 @@ ghl/shared/site-chrome/
 Every design `href` maps to a config link key (`HREF_KEYS`). An unknown href fails the build, so a
 new destination in the design cannot ship without a config key.
 
+### October 26, 2026 export compatibility
+
+`Better%20World%20Impact.dc.html` maps to **`betterWorldImpact`**, default `#` until its published
+destination is verified. The old **`impact`** key still maps `Main.dc.html#impact` to `/#bwci-impact`;
+Main's same-page override retains its original meaning. Do not repurpose an existing `impact` value.
+The unknown-link guard remains enabled (`corporate-ir/_build/static-checks.js` exercises it with
+an in-memory unknown destination).
+
+The Corporate / IR Overview is the first consumer of the updated header/footer. Its six section
+destinations are independent page URLs in its own config. Overview uses Breadcrumb `ir` (Home →
+Corporate/IR); the five independent subpage trails and broad migration of the existing 16 page configs
+and outputs remain separately tracked in `docs/implementation/README.md`. Existing pasted blocks are
+unchanged by editing this development generator. Before rebuilding an older page with the new design,
+migrate its config to the new `betterWorldImpact` key and validate that page; a blind rebuild will
+correctly fail the page's missing/unused-key checks. Do not drop those checks to regenerate outputs.
+
 ## Link defaults and unresolved routes
 
 Ported pages use their GHL paths: `home` `/`, `financialEngine` `/financial-engine`, `ecosystem`
@@ -62,7 +78,8 @@ config `links` once the pages exist (no URL is invented here).
 ## Changing the header or footer
 
 1. Update the design (`design/SiteHeader.dc.html`, `SiteFooter.dc.html`, `Breadcrumb.dc.html`).
-2. Rebuild every page: `node ghl/pages/<slug>/_build/build.js` for the five build-based pages. Main has
+2. Migrate affected link config keys, then rebuild every page: `node ghl/pages/<slug>/_build/build.js`
+   for build-based pages (15 before Corporate / IR Overview). Main has
    no build folder: generate its parts with `require('./ghl/shared/site-chrome/site-chrome')({ prefix: 'bw',
    current: 'home', breadcrumb: null, system: false, links: { impact: '#bwci-impact', today: '#bwci-today' } })`
    and replace the header, footer, chrome CSS and `SHARED SITE CHROME` script section in both
