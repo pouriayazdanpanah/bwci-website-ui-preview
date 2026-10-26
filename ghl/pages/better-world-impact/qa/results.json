@@ -1,0 +1,1785 @@
+{
+  "generatedAt": "2026-10-26T16:40:16.157069+00:00",
+  "result": "PASS",
+  "source": {
+    "file": "design/Better World Impact.dc.html",
+    "baseCommit": "b439054",
+    "previousMerge": "PR #33 Legal Notices",
+    "renderedEngine": "Static accessible figure, six list items, three fixed markers, no buttons or interactive detail views"
+  },
+  "environment": {
+    "browser": "Chromium 154.0.8037.57",
+    "runner": "Playwright on Linux",
+    "scope": "Local loopback and hostile GHL-like host; not published GHL",
+    "fonts": "NOT VERIFIED: remote font requests deliberately blocked; both references use identical fallback fonts"
+  },
+  "visual": {
+    "cases": 24,
+    "comparisons": 48,
+    "pixelIdentical": 48,
+    "frames": "Infinite decorative artwork drift captured at t=0 via screenshot animations:disabled; real motion checked separately",
+    "sourceChanges": "Only matching showMethodology prop and empty/local-QA evidence/case arrays are injected. No source layout/content CSS normalization.",
+    "matrix": [
+      {
+        "width": 320,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 5091,
+        "inlineHeight": 5091,
+        "hostedHeight": 5091,
+        "documentWidths": {
+          "source": 320,
+          "plain": 320,
+          "hosted": 320
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 69,
+            "height": 656
+          },
+          {
+            "label": "02 Our approach",
+            "y": 725,
+            "height": 1335
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 2060,
+            "height": 1190
+          },
+          {
+            "label": "04 Methodology",
+            "y": 3250,
+            "height": 322
+          },
+          {
+            "label": "07 Next step",
+            "y": 3572,
+            "height": 282
+          }
+        ],
+        "captures": {
+          "source": "source-320-900.png",
+          "plain": "plain-320-900.png",
+          "hosted": "hosted-320-900.png"
+        }
+      },
+      {
+        "width": 360,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 4847,
+        "inlineHeight": 4847,
+        "hostedHeight": 4847,
+        "documentWidths": {
+          "source": 360,
+          "plain": 360,
+          "hosted": 360
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 69,
+            "height": 632
+          },
+          {
+            "label": "02 Our approach",
+            "y": 701,
+            "height": 1231
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1932,
+            "height": 1101
+          },
+          {
+            "label": "04 Methodology",
+            "y": 3033,
+            "height": 296
+          },
+          {
+            "label": "07 Next step",
+            "y": 3329,
+            "height": 282
+          }
+        ],
+        "captures": {
+          "source": "source-360-900.png",
+          "plain": "plain-360-900.png",
+          "hosted": "hosted-360-900.png"
+        }
+      },
+      {
+        "width": 375,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 4830,
+        "inlineHeight": 4830,
+        "hostedHeight": 4830,
+        "documentWidths": {
+          "source": 375,
+          "plain": 375,
+          "hosted": 375
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 69,
+            "height": 639
+          },
+          {
+            "label": "02 Our approach",
+            "y": 708,
+            "height": 1231
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1938,
+            "height": 1077
+          },
+          {
+            "label": "04 Methodology",
+            "y": 3016,
+            "height": 296
+          },
+          {
+            "label": "07 Next step",
+            "y": 3312,
+            "height": 282
+          }
+        ],
+        "captures": {
+          "source": "source-375-900.png",
+          "plain": "plain-375-900.png",
+          "hosted": "hosted-375-900.png"
+        }
+      },
+      {
+        "width": 390,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 4789,
+        "inlineHeight": 4789,
+        "hostedHeight": 4789,
+        "documentWidths": {
+          "source": 390,
+          "plain": 390,
+          "hosted": 390
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 69,
+            "height": 649
+          },
+          {
+            "label": "02 Our approach",
+            "y": 718,
+            "height": 1204
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1923,
+            "height": 1052
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2974,
+            "height": 296
+          },
+          {
+            "label": "07 Next step",
+            "y": 3270,
+            "height": 282
+          }
+        ],
+        "captures": {
+          "source": "source-390-900.png",
+          "plain": "plain-390-900.png",
+          "hosted": "hosted-390-900.png"
+        }
+      },
+      {
+        "width": 430,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 4680,
+        "inlineHeight": 4680,
+        "hostedHeight": 4680,
+        "documentWidths": {
+          "source": 430,
+          "plain": 430,
+          "hosted": 430
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 69,
+            "height": 679
+          },
+          {
+            "label": "02 Our approach",
+            "y": 748,
+            "height": 1120
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1868,
+            "height": 1026
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2894,
+            "height": 267
+          },
+          {
+            "label": "07 Next step",
+            "y": 3161,
+            "height": 282
+          }
+        ],
+        "captures": {
+          "source": "source-430-900.png",
+          "plain": "plain-430-900.png",
+          "hosted": "hosted-430-900.png"
+        }
+      },
+      {
+        "width": 767,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 3740,
+        "inlineHeight": 3740,
+        "hostedHeight": 3740,
+        "documentWidths": {
+          "source": 767,
+          "plain": 767,
+          "hosted": 767
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 69,
+            "height": 496
+          },
+          {
+            "label": "02 Our approach",
+            "y": 565,
+            "height": 936
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1501,
+            "height": 943
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2444,
+            "height": 241
+          },
+          {
+            "label": "07 Next step",
+            "y": 2685,
+            "height": 282
+          }
+        ],
+        "captures": {
+          "source": "source-767-900.png",
+          "plain": "plain-767-900.png",
+          "hosted": "hosted-767-900.png"
+        }
+      },
+      {
+        "width": 768,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 3839,
+        "inlineHeight": 3839,
+        "hostedHeight": 3839,
+        "documentWidths": {
+          "source": 768,
+          "plain": 768,
+          "hosted": 768
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 77,
+            "height": 639
+          },
+          {
+            "label": "02 Our approach",
+            "y": 716,
+            "height": 910
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1626,
+            "height": 916
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2542,
+            "height": 247
+          },
+          {
+            "label": "07 Next step",
+            "y": 2789,
+            "height": 307
+          }
+        ],
+        "captures": {
+          "source": "source-768-900.png",
+          "plain": "plain-768-900.png",
+          "hosted": "hosted-768-900.png"
+        }
+      },
+      {
+        "width": 1023,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 4000,
+        "inlineHeight": 4000,
+        "hostedHeight": 4000,
+        "documentWidths": {
+          "source": 1023,
+          "plain": 1023,
+          "hosted": 1023
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 77,
+            "height": 675
+          },
+          {
+            "label": "02 Our approach",
+            "y": 752,
+            "height": 922
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1673,
+            "height": 950
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2623,
+            "height": 283
+          },
+          {
+            "label": "07 Next step",
+            "y": 2906,
+            "height": 351
+          }
+        ],
+        "captures": {
+          "source": "source-1023-900.png",
+          "plain": "plain-1023-900.png",
+          "hosted": "hosted-1023-900.png"
+        }
+      },
+      {
+        "width": 1024,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 3043,
+        "inlineHeight": 3043,
+        "hostedHeight": 3043,
+        "documentWidths": {
+          "source": 1024,
+          "plain": 1024,
+          "hosted": 1024
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 77,
+            "height": 500
+          },
+          {
+            "label": "02 Our approach",
+            "y": 577,
+            "height": 681
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1258,
+            "height": 762
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2020,
+            "height": 283
+          },
+          {
+            "label": "07 Next step",
+            "y": 2303,
+            "height": 351
+          }
+        ],
+        "captures": {
+          "source": "source-1024-900.png",
+          "plain": "plain-1024-900.png",
+          "hosted": "hosted-1024-900.png"
+        }
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 3285,
+        "inlineHeight": 3285,
+        "hostedHeight": 3285,
+        "documentWidths": {
+          "source": 1280,
+          "plain": 1280,
+          "hosted": 1280
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 117,
+            "height": 513
+          },
+          {
+            "label": "02 Our approach",
+            "y": 630,
+            "height": 703
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1333,
+            "height": 835
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2168,
+            "height": 324
+          },
+          {
+            "label": "07 Next step",
+            "y": 2492,
+            "height": 404
+          }
+        ],
+        "captures": {
+          "source": "source-1280-900.png",
+          "plain": "plain-1280-900.png",
+          "hosted": "hosted-1280-900.png"
+        }
+      },
+      {
+        "width": 1366,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 3421,
+        "inlineHeight": 3421,
+        "hostedHeight": 3421,
+        "documentWidths": {
+          "source": 1366,
+          "plain": 1366,
+          "hosted": 1366
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 117,
+            "height": 556
+          },
+          {
+            "label": "02 Our approach",
+            "y": 673,
+            "height": 719
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1392,
+            "height": 883
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2274,
+            "height": 338
+          },
+          {
+            "label": "07 Next step",
+            "y": 2612,
+            "height": 420
+          }
+        ],
+        "captures": {
+          "source": "source-1366-900.png",
+          "plain": "plain-1366-900.png",
+          "hosted": "hosted-1366-900.png"
+        }
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 3444,
+        "inlineHeight": 3444,
+        "hostedHeight": 3444,
+        "documentWidths": {
+          "source": 1440,
+          "plain": 1440,
+          "hosted": 1440
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 117,
+            "height": 556
+          },
+          {
+            "label": "02 Our approach",
+            "y": 673,
+            "height": 725
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1398,
+            "height": 888
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2286,
+            "height": 343
+          },
+          {
+            "label": "07 Next step",
+            "y": 2629,
+            "height": 426
+          }
+        ],
+        "captures": {
+          "source": "source-1440-900.png",
+          "plain": "plain-1440-900.png",
+          "hosted": "hosted-1440-900.png"
+        }
+      },
+      {
+        "width": 1600,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 3444,
+        "inlineHeight": 3444,
+        "hostedHeight": 3444,
+        "documentWidths": {
+          "source": 1600,
+          "plain": 1600,
+          "hosted": 1600
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 117,
+            "height": 556
+          },
+          {
+            "label": "02 Our approach",
+            "y": 673,
+            "height": 725
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1398,
+            "height": 888
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2286,
+            "height": 343
+          },
+          {
+            "label": "07 Next step",
+            "y": 2629,
+            "height": 426
+          }
+        ],
+        "captures": {
+          "source": "source-1600-900.png",
+          "plain": "plain-1600-900.png",
+          "hosted": "hosted-1600-900.png"
+        }
+      },
+      {
+        "width": 1920,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 3444,
+        "inlineHeight": 3444,
+        "hostedHeight": 3444,
+        "documentWidths": {
+          "source": 1920,
+          "plain": 1920,
+          "hosted": 1920
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 117,
+            "height": 556
+          },
+          {
+            "label": "02 Our approach",
+            "y": 673,
+            "height": 725
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1398,
+            "height": 888
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2286,
+            "height": 343
+          },
+          {
+            "label": "07 Next step",
+            "y": 2629,
+            "height": 426
+          }
+        ],
+        "captures": {
+          "source": "source-1920-900.png",
+          "plain": "plain-1920-900.png",
+          "hosted": "hosted-1920-900.png"
+        }
+      },
+      {
+        "width": 2560,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 3444,
+        "inlineHeight": 3444,
+        "hostedHeight": 3444,
+        "documentWidths": {
+          "source": 2560,
+          "plain": 2560,
+          "hosted": 2560
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 117,
+            "height": 556
+          },
+          {
+            "label": "02 Our approach",
+            "y": 673,
+            "height": 725
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1398,
+            "height": 888
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2286,
+            "height": 343
+          },
+          {
+            "label": "07 Next step",
+            "y": 2629,
+            "height": 426
+          }
+        ],
+        "captures": {
+          "source": "source-2560-900.png",
+          "plain": "plain-2560-900.png",
+          "hosted": "hosted-2560-900.png"
+        }
+      },
+      {
+        "width": 390,
+        "height": 600,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 4789,
+        "inlineHeight": 4789,
+        "hostedHeight": 4789,
+        "documentWidths": {
+          "source": 390,
+          "plain": 390,
+          "hosted": 390
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 69,
+            "height": 649
+          },
+          {
+            "label": "02 Our approach",
+            "y": 718,
+            "height": 1204
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1923,
+            "height": 1052
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2974,
+            "height": 296
+          },
+          {
+            "label": "07 Next step",
+            "y": 3270,
+            "height": 282
+          }
+        ],
+        "captures": {
+          "source": "source-390-600.png",
+          "plain": "plain-390-600.png",
+          "hosted": "hosted-390-600.png"
+        }
+      },
+      {
+        "width": 1024,
+        "height": 1200,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 3043,
+        "inlineHeight": 3043,
+        "hostedHeight": 3043,
+        "documentWidths": {
+          "source": 1024,
+          "plain": 1024,
+          "hosted": 1024
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 77,
+            "height": 500
+          },
+          {
+            "label": "02 Our approach",
+            "y": 577,
+            "height": 681
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1258,
+            "height": 762
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2020,
+            "height": 283
+          },
+          {
+            "label": "07 Next step",
+            "y": 2303,
+            "height": 351
+          }
+        ],
+        "captures": {
+          "source": "source-1024-1200.png",
+          "plain": "plain-1024-1200.png",
+          "hosted": "hosted-1024-1200.png"
+        }
+      },
+      {
+        "width": 1440,
+        "height": 600,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 3376,
+        "inlineHeight": 3376,
+        "hostedHeight": 3376,
+        "documentWidths": {
+          "source": 1440,
+          "plain": 1440,
+          "hosted": 1440
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 117,
+            "height": 556
+          },
+          {
+            "label": "02 Our approach",
+            "y": 673,
+            "height": 725
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1398,
+            "height": 820
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2218,
+            "height": 343
+          },
+          {
+            "label": "07 Next step",
+            "y": 2561,
+            "height": 426
+          }
+        ],
+        "captures": {
+          "source": "source-1440-600.png",
+          "plain": "plain-1440-600.png",
+          "hosted": "hosted-1440-600.png"
+        }
+      },
+      {
+        "width": 390,
+        "height": 900,
+        "motion": true,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 4789,
+        "inlineHeight": 4789,
+        "hostedHeight": 4789,
+        "documentWidths": {
+          "source": 390,
+          "plain": 390,
+          "hosted": 390
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 69,
+            "height": 649
+          },
+          {
+            "label": "02 Our approach",
+            "y": 718,
+            "height": 1204
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1923,
+            "height": 1052
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2974,
+            "height": 296
+          },
+          {
+            "label": "07 Next step",
+            "y": 3270,
+            "height": 282
+          }
+        ],
+        "captures": {
+          "source": "source-390-900-motion.png",
+          "plain": "plain-390-900-motion.png",
+          "hosted": "hosted-390-900-motion.png"
+        }
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "motion": true,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 3444,
+        "inlineHeight": 3444,
+        "hostedHeight": 3444,
+        "documentWidths": {
+          "source": 1440,
+          "plain": 1440,
+          "hosted": 1440
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 117,
+            "height": 556
+          },
+          {
+            "label": "02 Our approach",
+            "y": 673,
+            "height": 725
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1398,
+            "height": 888
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2286,
+            "height": 343
+          },
+          {
+            "label": "07 Next step",
+            "y": 2629,
+            "height": 426
+          }
+        ],
+        "captures": {
+          "source": "source-1440-900-motion.png",
+          "plain": "plain-1440-900-motion.png",
+          "hosted": "hosted-1440-900-motion.png"
+        }
+      },
+      {
+        "width": 390,
+        "height": 900,
+        "motion": false,
+        "scenario": "method-off",
+        "status": "PASS",
+        "sourceHeight": 4493,
+        "inlineHeight": 4493,
+        "hostedHeight": 4493,
+        "documentWidths": {
+          "source": 390,
+          "plain": 390,
+          "hosted": 390
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 69,
+            "height": 649
+          },
+          {
+            "label": "02 Our approach",
+            "y": 718,
+            "height": 1204
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1923,
+            "height": 1052
+          },
+          {
+            "label": "07 Next step",
+            "y": 2974,
+            "height": 282
+          }
+        ],
+        "captures": {
+          "source": "source-390-900-method-off.png",
+          "plain": "plain-390-900-method-off.png",
+          "hosted": "hosted-390-900-method-off.png"
+        }
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "motion": false,
+        "scenario": "method-off",
+        "status": "PASS",
+        "sourceHeight": 3101,
+        "inlineHeight": 3101,
+        "hostedHeight": 3101,
+        "documentWidths": {
+          "source": 1440,
+          "plain": 1440,
+          "hosted": 1440
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 117,
+            "height": 556
+          },
+          {
+            "label": "02 Our approach",
+            "y": 673,
+            "height": 725
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1398,
+            "height": 888
+          },
+          {
+            "label": "07 Next step",
+            "y": 2286,
+            "height": 426
+          }
+        ],
+        "captures": {
+          "source": "source-1440-900-method-off.png",
+          "plain": "plain-1440-900-method-off.png",
+          "hosted": "hosted-1440-900-method-off.png"
+        }
+      },
+      {
+        "width": 390,
+        "height": 900,
+        "motion": false,
+        "scenario": "approved-data",
+        "status": "PASS",
+        "sourceHeight": 5710,
+        "inlineHeight": 5710,
+        "hostedHeight": 5710,
+        "documentWidths": {
+          "source": 390,
+          "plain": 390,
+          "hosted": 390
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 69,
+            "height": 649
+          },
+          {
+            "label": "02 Our approach",
+            "y": 718,
+            "height": 1204
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1923,
+            "height": 1052
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2974,
+            "height": 296
+          },
+          {
+            "label": "05 Evidence",
+            "y": 3270,
+            "height": 350
+          },
+          {
+            "label": "06 Case studies",
+            "y": 3620,
+            "height": 571
+          },
+          {
+            "label": "07 Next step",
+            "y": 4191,
+            "height": 282
+          }
+        ],
+        "captures": {
+          "source": "source-390-900-approved-data.png",
+          "plain": "plain-390-900-approved-data.png",
+          "hosted": "hosted-390-900-approved-data.png"
+        }
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "motion": false,
+        "scenario": "approved-data",
+        "status": "PASS",
+        "sourceHeight": 5153,
+        "inlineHeight": 5153,
+        "hostedHeight": 5153,
+        "documentWidths": {
+          "source": 1440,
+          "plain": 1440,
+          "hosted": 1440
+        },
+        "sectionGeometry": [
+          {
+            "label": "01 Hero",
+            "y": 117,
+            "height": 556
+          },
+          {
+            "label": "02 Our approach",
+            "y": 673,
+            "height": 725
+          },
+          {
+            "label": "03 Financial Engine",
+            "y": 1398,
+            "height": 888
+          },
+          {
+            "label": "04 Methodology",
+            "y": 2286,
+            "height": 343
+          },
+          {
+            "label": "05 Evidence",
+            "y": 2629,
+            "height": 480
+          },
+          {
+            "label": "06 Case studies",
+            "y": 3110,
+            "height": 1229
+          },
+          {
+            "label": "07 Next step",
+            "y": 4339,
+            "height": 426
+          }
+        ],
+        "captures": {
+          "source": "source-1440-900-approved-data.png",
+          "plain": "plain-1440-900-approved-data.png",
+          "hosted": "hosted-1440-900-approved-data.png"
+        }
+      }
+    ],
+    "pixels": [
+      {
+        "capture": "plain-1023-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1023-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1024-1200.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1024-1200.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1024-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1024-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1280-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1280-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1366-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1366-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1440-600.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1440-600.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1440-900-approved-data.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1440-900-approved-data.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1440-900-method-off.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1440-900-method-off.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1440-900-motion.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1440-900-motion.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1440-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1440-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1600-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1600-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1920-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1920-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-2560-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-2560-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-320-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-320-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-360-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-360-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-375-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-375-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-390-600.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-390-600.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-390-900-approved-data.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-390-900-approved-data.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-390-900-method-off.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-390-900-method-off.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-390-900-motion.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-390-900-motion.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-390-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-390-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-430-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-430-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-767-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-767-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-768-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-768-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      }
+    ]
+  },
+  "functional": {
+    "date": "2026-10-26T16:35:36.414Z",
+    "checks": [
+      {
+        "name": "Source content, static six-stage diagram and empty launch data",
+        "status": "PASS"
+      },
+      {
+        "name": "Methodology switch, malformed JSON and invalid image/data defaults",
+        "status": "PASS"
+      },
+      {
+        "name": "Approved data templates, text safety, case route and cloned-root clearing",
+        "status": "PASS"
+      },
+      {
+        "name": "Configured Contact/Financial Engine links, unavailable feedback and copied footer/route",
+        "status": "PASS"
+      },
+      {
+        "name": "Scoped anchor, native scroll/wheel, live diagram breakpoint and header switches",
+        "status": "PASS"
+      },
+      {
+        "name": "Artwork bytes/composition, normal drift and reduced-motion stop",
+        "status": "PASS"
+      },
+      {
+        "name": "Hostile host, touch/menu, duplicate script, root replacement and teardown",
+        "status": "PASS"
+      },
+      {
+        "name": "No JS/console errors or unexpected network failures",
+        "status": "PASS"
+      }
+    ],
+    "errors": [],
+    "consoleErrors": [],
+    "unexpectedNetwork": []
+  },
+  "matrixRuntime": {
+    "date": "2026-10-26T16:22:55.754Z",
+    "checksPassed": 25,
+    "errors": [],
+    "consoleErrors": [],
+    "unexpectedNetwork": []
+  },
+  "priorOutputSmoke": {
+    "date": "2026-10-26T16:25:05.577Z",
+    "scope": "Smoke only: unchanged prior outputs, fallback fonts, not a broad synchronization or full interaction/visual regression",
+    "rows": [
+      {
+        "slug": "corporate-ir",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-legal-notices",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-legal-notices",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-regulatory",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-regulatory",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "ecosystem",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "ecosystem",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "financial-engine",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "financial-engine",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "governance",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "governance",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "governance-board",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "governance-board",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "governance-leadership",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "governance-leadership",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "investors-partners",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "investors-partners",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "main",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "main",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "platforms",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "platforms",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-richard-werner",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-richard-werner",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "smes-projects",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "smes-projects",
+        "width": 1440,
+        "status": "PASS"
+      }
+    ]
+  },
+  "sharedRegression": {
+    "result": "PASS",
+    "baseline": "b439054",
+    "contexts": 22,
+    "checks": [
+      "Byte-identical markup/CSS/runtime/routes/dynamic classes",
+      "Label escaping/empty-label fallback",
+      "Unknown design href guard"
+    ],
+    "method": "Exported baseline via git show and passed file to shared-regression.js"
+  },
+  "static": {
+    "result": "PASS",
+    "checks": [
+      "Standalone scoped native output/JS syntax",
+      "Empty launch evidence/cases and correct route keys",
+      "Original image equality and Impact breadcrumb",
+      "In-memory closing-script JSON escaping fixture",
+      "Reproducible outputs and Git whitespace"
+    ]
+  },
+  "images": {
+    "hero": {
+      "path": "assets/impact-hero-ribbons.png",
+      "width": 2022,
+      "height": 778,
+      "mode": "RGBA",
+      "bytes": 2665353,
+      "sha256": "d86831f4d7d2a12df0d81645cb8cf04581d90998f2c22e3e08ff1fa2be729ae0",
+      "sourceByteIdentical": true
+    },
+    "logo": "Supplied original 640x153 PNG, equality checked"
+  },
+  "outputs": {
+    "better-world-impact.ghl.html": {
+      "bytes": 93667,
+      "sha256": "959c7ab8f866e78b057c97827b16595fb667e285808d3ce7b0fe2fcaf4d09c1c"
+    },
+    "better-world-impact.inline.ghl.html": {
+      "bytes": 3694847,
+      "sha256": "534df38537c405785d1439a7713c0486fbfde2833bb0c39e2c48ece33f54b11e"
+    }
+  },
+  "manualInspection": [
+    "390px phone layout and vertical diagram",
+    "1440px source and port desktop",
+    "390px hostile host"
+  ],
+  "intentionalDifferences": [
+    "Reduced motion stops decorative source image drift; normal 14s drift retained",
+    "Native inert templates/hidden containers support approved JSON records; defaults match empty source arrays",
+    "Scoped IDs/configured routes, inline paint and merged owner cleanup replace the export runtime"
+  ],
+  "notVerified": [
+    "Published GHL and sticky ancestor conditions",
+    "Actual Google Fonts/hosted asset/page/Contact/case URLs/SEO",
+    "Real approved evidence/case/source/date/image/alt claims, methodology publication and footer legal wording",
+    "Main/shared synchronization and final full affected-page regression"
+  ]
+}

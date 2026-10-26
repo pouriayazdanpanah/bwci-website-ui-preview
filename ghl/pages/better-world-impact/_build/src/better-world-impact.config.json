@@ -1,0 +1,43 @@
+{
+  "impactHeroImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/impact-hero-ribbons.png",
+  "logoImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/bwci-logo.png",
+  "showHeader": true,
+  "showFooter": true,
+  "showMethodology": true,
+  "evidence": [],
+  "cases": [],
+  "footer": {
+    "regulatoryLine": "",
+    "registeredJurisdiction": "",
+    "companyNumber": "",
+    "registeredOffice": ""
+  },
+  "links": {
+    "governance": "#",
+    "corporateIR": "#",
+    "contact": "#",
+    "verify": "#",
+    "home": "/",
+    "whoWeAre": "#",
+    "leadership": "#",
+    "financialEngine": "/financial-engine",
+    "betterWorldImpact": "#",
+    "today": "/#bwci-today",
+    "ecosystem": "/ecosystem",
+    "platforms": "/platforms",
+    "smes": "/smes-projects",
+    "investors": "/investors-partners",
+    "privateInvestors": "#",
+    "whoPurpose": "#",
+    "whoRole": "#",
+    "whoPrinciples": "#",
+    "whoStory": "#",
+    "legalPrivacy": "#",
+    "legalTerms": "#",
+    "legalCookies": "#",
+    "legalDisclosures": "#",
+    "legalAccessibility": "#",
+    "legalSitemap": "#",
+    "financialEngineHero": "/financial-engine#fe-hero"
+  }
+}
