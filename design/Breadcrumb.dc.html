@@ -38,6 +38,7 @@ const TRAILS = {
   engine: [HOME, HIW, ['The Financial Engine']],
   ecosystem: [HOME, HIW, ['Ecosystem']],
   platforms: [HOME, ['Platforms & Institutions']],
+  impact: [HOME, ['Better World & Impact']],
   smes: [HOME, ['SMEs & Projects']],
   investors: [HOME, ['Investors & Partners']],
   private: [HOME, INV, ['Private Investors & Family Offices']],
@@ -52,7 +53,9 @@ const TRAILS = {
 class Component extends DCLogic {
   renderVals() {
     const via = this.props.via === 'board' ? ['Board of Directors', 'Governance%20Board.dc.html'] : ['Leadership', 'Governance%20Leadership.dc.html'];
-    const t = this.props.current === 'gov-profile' ? [HOME, GOV, via, [this.props.label || '']] : (TRAILS[this.props.current] || [HOME]);
+    const t = this.props.current === 'gov-profile' ? [HOME, GOV, via, [this.props.label || '']]
+      : (this.props.current === 'ir' && this.props.label) ? [HOME, ['Corporate/IR', 'Corporate%20IR.dc.html'], [this.props.label]]
+      : (TRAILS[this.props.current] || [HOME]);
     return {
       crumbs: t.map(([label, href], i) => {
         const last = i === t.length - 1;
