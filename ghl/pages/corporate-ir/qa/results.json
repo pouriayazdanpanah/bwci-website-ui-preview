@@ -1,0 +1,929 @@
+{
+  "date": "2026-10-26T10:40:16.172Z",
+  "sourceCommit": "812f136",
+  "source": "design/Corporate IR.dc.html, Overview (empty hash)",
+  "scope": "One independent GHL page: Corporate / IR Overview",
+  "matrix": [
+    {
+      "width": 320,
+      "height": 900,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 7609,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 7609,
+          "docWidth": 320,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 7609,
+          "docWidth": 320,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 360,
+      "height": 900,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 7315,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 7315,
+          "docWidth": 360,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 7315,
+          "docWidth": 360,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "height": 900,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 7192,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 7192,
+          "docWidth": 375,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 7192,
+          "docWidth": 375,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 900,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 7134,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 7134,
+          "docWidth": 390,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 7134,
+          "docWidth": 390,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 430,
+      "height": 900,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 7010,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 7010,
+          "docWidth": 430,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 7010,
+          "docWidth": 430,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 5261,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 5261,
+          "docWidth": 768,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 5261,
+          "docWidth": 768,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 5077,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 5077,
+          "docWidth": 1024,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 5077,
+          "docWidth": 1024,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 1099,
+      "height": 900,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 5164,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 5164,
+          "docWidth": 1099,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 5164,
+          "docWidth": 1099,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 1100,
+      "height": 900,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 5166,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 5166,
+          "docWidth": 1100,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 5166,
+          "docWidth": 1100,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 1101,
+      "height": 900,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 5151,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 5151,
+          "docWidth": 1101,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 5151,
+          "docWidth": 1101,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 5384,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 5384,
+          "docWidth": 1280,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 5384,
+          "docWidth": 1280,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 1366,
+      "height": 900,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 5471,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 5471,
+          "docWidth": 1366,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 5471,
+          "docWidth": 1366,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 5506,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 5506,
+          "docWidth": 1440,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 5506,
+          "docWidth": 1440,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 1600,
+      "height": 900,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 5506,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 5506,
+          "docWidth": 1600,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 5506,
+          "docWidth": 1600,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 1920,
+      "height": 900,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 5506,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 5506,
+          "docWidth": 1920,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 5506,
+          "docWidth": 1920,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 2560,
+      "height": 900,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 5506,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 5506,
+          "docWidth": 2560,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 5506,
+          "docWidth": 2560,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 600,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 7134,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 7134,
+          "docWidth": 390,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 7134,
+          "docWidth": 390,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "height": 1200,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 5077,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 5077,
+          "docWidth": 1024,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 5077,
+          "docWidth": 1024,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 600,
+      "motion": "reduced",
+      "status": "PASS",
+      "sourceHeight": 5506,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 5506,
+          "docWidth": 1440,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 5506,
+          "docWidth": 1440,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 900,
+      "motion": "normal",
+      "status": "PASS",
+      "sourceHeight": 7134,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 7134,
+          "docWidth": 390,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 7134,
+          "docWidth": 390,
+          "geometry": "PASS"
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "motion": "normal",
+      "status": "PASS",
+      "sourceHeight": 5506,
+      "variants": [
+        {
+          "kind": "plain",
+          "height": 5506,
+          "docWidth": 1440,
+          "geometry": "PASS"
+        },
+        {
+          "kind": "hosted",
+          "height": 5506,
+          "docWidth": 1440,
+          "geometry": "PASS"
+        }
+      ]
+    }
+  ],
+  "functionalChecks": [
+    {
+      "name": "Source copy and standalone overview contract",
+      "status": "PASS"
+    },
+    {
+      "name": "Launch mode, showFlags false and malformed JSON fallback",
+      "status": "PASS"
+    },
+    {
+      "name": "Unavailable links, keyboard focus, hover and mobile touch",
+      "status": "PASS"
+    },
+    {
+      "name": "Configured independent page navigation, selector, breadcrumbs and contacts",
+      "status": "PASS"
+    },
+    {
+      "name": "Sticky nav, live breakpoint resize and header/footer toggles",
+      "status": "PASS"
+    },
+    {
+      "name": "Long content and scoped same-page anchors",
+      "status": "PASS"
+    },
+    {
+      "name": "Hostile host, duplicate script, root replacement and complete teardown",
+      "status": "PASS"
+    },
+    {
+      "name": "No JavaScript/console errors or unexpected network failures",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "unexpectedNetwork": [],
+  "regression": [
+    {
+      "slug": "ecosystem",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "ecosystem",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "financial-engine",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "financial-engine",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "governance",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "governance",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "governance-board",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "governance-board",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "governance-leadership",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "governance-leadership",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "investors-partners",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "investors-partners",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "main",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "main",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "platforms",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "platforms",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-agnes-gradzewicz",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-agnes-gradzewicz",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-alexander-alegria-saif",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-alexander-alegria-saif",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-christie-osarenren",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-christie-osarenren",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-ewa-dudek",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-ewa-dudek",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-farhad-reyazat",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-farhad-reyazat",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-gabriella-karlova",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-gabriella-karlova",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-richard-werner",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "profile-richard-werner",
+      "width": 1440,
+      "status": "PASS"
+    },
+    {
+      "slug": "smes-projects",
+      "width": 390,
+      "status": "PASS"
+    },
+    {
+      "slug": "smes-projects",
+      "width": 1440,
+      "status": "PASS"
+    }
+  ],
+  "notVerified": [
+    "Published GHL installation and URLs",
+    "External font delivery/real-font rendering",
+    "Approved corporate/legal/regulatory/security content and contacts",
+    "Real downloadable documents and publication metadata",
+    "External FCA page availability"
+  ],
+  "outputs": {
+    "corporate-ir.ghl.html": {
+      "bytes": 92056,
+      "sha256": "f6e56db31b1c35fe525f9ad4cdb5656681864ffa5975de5815439fc9b2b070a2"
+    },
+    "corporate-ir.inline.ghl.html": {
+      "bytes": 139470,
+      "sha256": "53d4ef22fc08c04dad0b2569031f6935657500a50041c7c7e478c58526d8e6db"
+    }
+  },
+  "pixelComparisons": [
+    {
+      "capture": "plain-1024-1200.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1024-1200.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1024-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1024-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1099-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1099-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1100-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1100-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1101-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1101-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1280-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1280-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1366-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1366-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1440-600.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1440-600.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1440-900-motion.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1440-900-motion.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1440-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1440-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1600-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1600-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-1920-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-1920-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-2560-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-2560-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-320-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-320-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-360-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-360-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-375-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-375-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-390-600.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-390-600.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-390-900-motion.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-390-900-motion.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-390-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-390-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-430-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "hosted-430-900.png",
+      "changed_pixels": 0,
+      "percent": 0,
+      "bbox": null
+    },
+    {
+      "capture": "plain-768-900.png",
+      "changed_pixels": 341,
+      "percent": 0.00844,
+      "bbox": [
+        31,
+        451,
+        81,
+        463
+      ]
+    },
+    {
+      "capture": "hosted-768-900.png",
+      "changed_pixels": 341,
+      "percent": 0.00844,
+      "bbox": [
+        31,
+        451,
+        81,
+        463
+      ]
+    }
+  ]
+}

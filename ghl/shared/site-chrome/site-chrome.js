@@ -36,6 +36,7 @@ const HREF_KEYS = {
   'Governance.dc.html#framework': 'governanceFramework',
   'FinancialEngine.dc.html': 'financialEngine',
   'Main.dc.html#impact': 'impact',
+  'Better%20World%20Impact.dc.html': 'betterWorldImpact',
   'Main.dc.html#today': 'today',
   'Ecosystem.dc.html': 'ecosystem',
   'Platforms.dc.html': 'platforms',
@@ -61,6 +62,7 @@ const LINK_DEFAULTS = {
   smes: '/smes-projects', investors: '/investors-partners', impact: '/#bwci-impact', today: '/#bwci-today',
   whoWeAre: '#', whoPurpose: '#', whoRole: '#', whoPrinciples: '#', whoStory: '#', leadership: '#',
   privateInvestors: '#', governance: '#', corporateIR: '#', contact: '#', verify: '#',
+  betterWorldImpact: '#',
   governanceBoard: '#', governanceFramework: '#',
   legalPrivacy: '#', legalTerms: '#', legalCookies: '#', legalDisclosures: '#', legalAccessibility: '#', legalSitemap: '#',
 };
