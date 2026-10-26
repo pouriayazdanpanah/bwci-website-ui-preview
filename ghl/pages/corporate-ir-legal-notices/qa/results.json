@@ -1,0 +1,1367 @@
+{
+  "generatedAt": "2026-10-26T15:02:38.711695+00:00",
+  "result": "PASS",
+  "source": {
+    "file": "design/Corporate IR.dc.html",
+    "hash": "#legal-notices",
+    "baseCommit": "f1324c6",
+    "previousMerge": "PR #32 Regulatory"
+  },
+  "environment": {
+    "browser": "Chromium 154.0.8037.57",
+    "runner": "Playwright on Linux",
+    "scope": "Local loopback and hostile GHL-like host, not published GHL",
+    "fonts": "NOT VERIFIED: remote font requests deliberately blocked; both references use identical fallback fonts"
+  },
+  "visual": {
+    "cases": 23,
+    "comparisons": 46,
+    "pixelIdenticalToUnmodifiedSource": 46,
+    "normalization": "None; flags-off references set only the matching source review prop",
+    "matrix": [
+      {
+        "width": 320,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 3025,
+        "inlineHeight": 3025,
+        "hostedHeight": 3025,
+        "documentWidths": {
+          "source": 320,
+          "plain": 320,
+          "hosted": 320
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 318
+          },
+          {
+            "label": "Legal notices",
+            "y": 460,
+            "height": 1328
+          }
+        ],
+        "captures": {
+          "source": "source-320-900.png",
+          "plain": "plain-320-900.png",
+          "hosted": "hosted-320-900.png"
+        }
+      },
+      {
+        "width": 360,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 2954,
+        "inlineHeight": 2954,
+        "hostedHeight": 2954,
+        "documentWidths": {
+          "source": 360,
+          "plain": 360,
+          "hosted": 360
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 295
+          },
+          {
+            "label": "Legal notices",
+            "y": 437,
+            "height": 1280
+          }
+        ],
+        "captures": {
+          "source": "source-360-900.png",
+          "plain": "plain-360-900.png",
+          "hosted": "hosted-360-900.png"
+        }
+      },
+      {
+        "width": 375,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 2930,
+        "inlineHeight": 2930,
+        "hostedHeight": 2930,
+        "documentWidths": {
+          "source": 375,
+          "plain": 375,
+          "hosted": 375
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 295
+          },
+          {
+            "label": "Legal notices",
+            "y": 437,
+            "height": 1256
+          }
+        ],
+        "captures": {
+          "source": "source-375-900.png",
+          "plain": "plain-375-900.png",
+          "hosted": "hosted-375-900.png"
+        }
+      },
+      {
+        "width": 390,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 2906,
+        "inlineHeight": 2906,
+        "hostedHeight": 2906,
+        "documentWidths": {
+          "source": 390,
+          "plain": 390,
+          "hosted": 390
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 295
+          },
+          {
+            "label": "Legal notices",
+            "y": 437,
+            "height": 1232
+          }
+        ],
+        "captures": {
+          "source": "source-390-900.png",
+          "plain": "plain-390-900.png",
+          "hosted": "hosted-390-900.png"
+        }
+      },
+      {
+        "width": 430,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 2882,
+        "inlineHeight": 2882,
+        "hostedHeight": 2882,
+        "documentWidths": {
+          "source": 430,
+          "plain": 430,
+          "hosted": 430
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 295
+          },
+          {
+            "label": "Legal notices",
+            "y": 437,
+            "height": 1208
+          }
+        ],
+        "captures": {
+          "source": "source-430-900.png",
+          "plain": "plain-430-900.png",
+          "hosted": "hosted-430-900.png"
+        }
+      },
+      {
+        "width": 768,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 2071,
+        "inlineHeight": 2071,
+        "hostedHeight": 2071,
+        "documentWidths": {
+          "source": 768,
+          "plain": 768,
+          "hosted": 768
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 77,
+            "height": 294
+          },
+          {
+            "label": "Legal notices",
+            "y": 444,
+            "height": 884
+          }
+        ],
+        "captures": {
+          "source": "source-768-900.png",
+          "plain": "plain-768-900.png",
+          "hosted": "hosted-768-900.png"
+        }
+      },
+      {
+        "width": 1024,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 1608,
+        "inlineHeight": 1608,
+        "hostedHeight": 1608,
+        "documentWidths": {
+          "source": 1024,
+          "plain": 1024,
+          "hosted": 1024
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 77,
+            "height": 346
+          },
+          {
+            "label": "Legal notices",
+            "y": 496,
+            "height": 724
+          }
+        ],
+        "captures": {
+          "source": "source-1024-900.png",
+          "plain": "plain-1024-900.png",
+          "hosted": "hosted-1024-900.png"
+        }
+      },
+      {
+        "width": 1099,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 1598,
+        "inlineHeight": 1598,
+        "hostedHeight": 1598,
+        "documentWidths": {
+          "source": 1099,
+          "plain": 1099,
+          "hosted": 1099
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 77,
+            "height": 363
+          },
+          {
+            "label": "Legal notices",
+            "y": 513,
+            "height": 696
+          }
+        ],
+        "captures": {
+          "source": "source-1099-900.png",
+          "plain": "plain-1099-900.png",
+          "hosted": "hosted-1099-900.png"
+        }
+      },
+      {
+        "width": 1100,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 1598,
+        "inlineHeight": 1598,
+        "hostedHeight": 1598,
+        "documentWidths": {
+          "source": 1100,
+          "plain": 1100,
+          "hosted": 1100
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 77,
+            "height": 363
+          },
+          {
+            "label": "Legal notices",
+            "y": 513,
+            "height": 697
+          }
+        ],
+        "captures": {
+          "source": "source-1100-900.png",
+          "plain": "plain-1100-900.png",
+          "hosted": "hosted-1100-900.png"
+        }
+      },
+      {
+        "width": 1101,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 1581,
+        "inlineHeight": 1581,
+        "hostedHeight": 1581,
+        "documentWidths": {
+          "source": 1101,
+          "plain": 1101,
+          "hosted": 1101
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 77,
+            "height": 363
+          },
+          {
+            "label": "Legal notices",
+            "y": 496,
+            "height": 697
+          }
+        ],
+        "captures": {
+          "source": "source-1101-900.png",
+          "plain": "plain-1101-900.png",
+          "hosted": "hosted-1101-900.png"
+        }
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 1686,
+        "inlineHeight": 1686,
+        "hostedHeight": 1686,
+        "documentWidths": {
+          "source": 1280,
+          "plain": 1280,
+          "hosted": 1280
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 399
+          },
+          {
+            "label": "Legal notices",
+            "y": 572,
+            "height": 725
+          }
+        ],
+        "captures": {
+          "source": "source-1280-900.png",
+          "plain": "plain-1280-900.png",
+          "hosted": "hosted-1280-900.png"
+        }
+      },
+      {
+        "width": 1366,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 1709,
+        "inlineHeight": 1709,
+        "hostedHeight": 1709,
+        "documentWidths": {
+          "source": 1366,
+          "plain": 1366,
+          "hosted": 1366
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 408
+          },
+          {
+            "label": "Legal notices",
+            "y": 581,
+            "height": 739
+          }
+        ],
+        "captures": {
+          "source": "source-1366-900.png",
+          "plain": "plain-1366-900.png",
+          "hosted": "hosted-1366-900.png"
+        }
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 1719,
+        "inlineHeight": 1719,
+        "hostedHeight": 1719,
+        "documentWidths": {
+          "source": 1440,
+          "plain": 1440,
+          "hosted": 1440
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Legal notices",
+            "y": 586,
+            "height": 745
+          }
+        ],
+        "captures": {
+          "source": "source-1440-900.png",
+          "plain": "plain-1440-900.png",
+          "hosted": "hosted-1440-900.png"
+        }
+      },
+      {
+        "width": 1600,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 1719,
+        "inlineHeight": 1719,
+        "hostedHeight": 1719,
+        "documentWidths": {
+          "source": 1600,
+          "plain": 1600,
+          "hosted": 1600
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Legal notices",
+            "y": 586,
+            "height": 745
+          }
+        ],
+        "captures": {
+          "source": "source-1600-900.png",
+          "plain": "plain-1600-900.png",
+          "hosted": "hosted-1600-900.png"
+        }
+      },
+      {
+        "width": 1920,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 1719,
+        "inlineHeight": 1719,
+        "hostedHeight": 1719,
+        "documentWidths": {
+          "source": 1920,
+          "plain": 1920,
+          "hosted": 1920
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Legal notices",
+            "y": 586,
+            "height": 745
+          }
+        ],
+        "captures": {
+          "source": "source-1920-900.png",
+          "plain": "plain-1920-900.png",
+          "hosted": "hosted-1920-900.png"
+        }
+      },
+      {
+        "width": 2560,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 1719,
+        "inlineHeight": 1719,
+        "hostedHeight": 1719,
+        "documentWidths": {
+          "source": 2560,
+          "plain": 2560,
+          "hosted": 2560
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Legal notices",
+            "y": 586,
+            "height": 745
+          }
+        ],
+        "captures": {
+          "source": "source-2560-900.png",
+          "plain": "plain-2560-900.png",
+          "hosted": "hosted-2560-900.png"
+        }
+      },
+      {
+        "width": 390,
+        "height": 600,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 2906,
+        "inlineHeight": 2906,
+        "hostedHeight": 2906,
+        "documentWidths": {
+          "source": 390,
+          "plain": 390,
+          "hosted": 390
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 295
+          },
+          {
+            "label": "Legal notices",
+            "y": 437,
+            "height": 1232
+          }
+        ],
+        "captures": {
+          "source": "source-390-600.png",
+          "plain": "plain-390-600.png",
+          "hosted": "hosted-390-600.png"
+        }
+      },
+      {
+        "width": 1024,
+        "height": 1200,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 1608,
+        "inlineHeight": 1608,
+        "hostedHeight": 1608,
+        "documentWidths": {
+          "source": 1024,
+          "plain": 1024,
+          "hosted": 1024
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 77,
+            "height": 346
+          },
+          {
+            "label": "Legal notices",
+            "y": 496,
+            "height": 724
+          }
+        ],
+        "captures": {
+          "source": "source-1024-1200.png",
+          "plain": "plain-1024-1200.png",
+          "hosted": "hosted-1024-1200.png"
+        }
+      },
+      {
+        "width": 1440,
+        "height": 600,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 1719,
+        "inlineHeight": 1719,
+        "hostedHeight": 1719,
+        "documentWidths": {
+          "source": 1440,
+          "plain": 1440,
+          "hosted": 1440
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Legal notices",
+            "y": 586,
+            "height": 745
+          }
+        ],
+        "captures": {
+          "source": "source-1440-600.png",
+          "plain": "plain-1440-600.png",
+          "hosted": "hosted-1440-600.png"
+        }
+      },
+      {
+        "width": 390,
+        "height": 900,
+        "motion": true,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 2906,
+        "inlineHeight": 2906,
+        "hostedHeight": 2906,
+        "documentWidths": {
+          "source": 390,
+          "plain": 390,
+          "hosted": 390
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 295
+          },
+          {
+            "label": "Legal notices",
+            "y": 437,
+            "height": 1232
+          }
+        ],
+        "captures": {
+          "source": "source-390-900-motion.png",
+          "plain": "plain-390-900-motion.png",
+          "hosted": "hosted-390-900-motion.png"
+        }
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "motion": true,
+        "scenario": "default",
+        "status": "PASS",
+        "sourceHeight": 1719,
+        "inlineHeight": 1719,
+        "hostedHeight": 1719,
+        "documentWidths": {
+          "source": 1440,
+          "plain": 1440,
+          "hosted": 1440
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Legal notices",
+            "y": 586,
+            "height": 745
+          }
+        ],
+        "captures": {
+          "source": "source-1440-900-motion.png",
+          "plain": "plain-1440-900-motion.png",
+          "hosted": "hosted-1440-900-motion.png"
+        }
+      },
+      {
+        "width": 390,
+        "height": 900,
+        "motion": false,
+        "scenario": "flags-off",
+        "status": "PASS",
+        "sourceHeight": 2809,
+        "inlineHeight": 2809,
+        "hostedHeight": 2809,
+        "documentWidths": {
+          "source": 390,
+          "plain": 390,
+          "hosted": 390
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 295
+          },
+          {
+            "label": "Legal notices",
+            "y": 437,
+            "height": 1135
+          }
+        ],
+        "captures": {
+          "source": "source-390-900-flags-off.png",
+          "plain": "plain-390-900-flags-off.png",
+          "hosted": "hosted-390-900-flags-off.png"
+        }
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "motion": false,
+        "scenario": "flags-off",
+        "status": "PASS",
+        "sourceHeight": 1664,
+        "inlineHeight": 1664,
+        "hostedHeight": 1664,
+        "documentWidths": {
+          "source": 1440,
+          "plain": 1440,
+          "hosted": 1440
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Legal notices",
+            "y": 586,
+            "height": 689
+          }
+        ],
+        "captures": {
+          "source": "source-1440-900-flags-off.png",
+          "plain": "plain-1440-900-flags-off.png",
+          "hosted": "hosted-1440-900-flags-off.png"
+        }
+      }
+    ],
+    "pixels": [
+      {
+        "capture": "plain-1024-1200.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1024-1200.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1024-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1024-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1099-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1099-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1100-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1100-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1101-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1101-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1280-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1280-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1366-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1366-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1440-600.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1440-600.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1440-900-flags-off.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1440-900-flags-off.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1440-900-motion.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1440-900-motion.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1440-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1440-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1600-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1600-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-1920-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-1920-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-2560-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-2560-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-320-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-320-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-360-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-360-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-375-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-375-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-390-600.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-390-600.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-390-900-flags-off.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-390-900-flags-off.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-390-900-motion.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-390-900-motion.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-390-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-390-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-430-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-430-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "plain-768-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      },
+      {
+        "capture": "hosted-768-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null
+      }
+    ]
+  },
+  "captureRecovery": {
+    "initialRun": "2026-10-26T14:45:31.640Z",
+    "initialFailure": {
+      "case": "430x900 reduced motion",
+      "reason": "Local preview/plain.html navigation exceeded the 30-second load timeout"
+    },
+    "targetedRetryRun": "2026-10-26T14:57:15.493Z",
+    "retryChecks": [
+      {
+        "name": "capture 430x900xfalse",
+        "status": "PASS"
+      },
+      {
+        "name": "No JavaScript/console errors or unexpected network failures",
+        "status": "PASS"
+      }
+    ],
+    "result": "PASS without production changes"
+  },
+  "functional": {
+    "date": "2026-10-26T14:48:59.466Z",
+    "checks": [
+      {
+        "name": "Legal Notices only: seven exact source rows, placeholders and unavailable policy links",
+        "status": "PASS"
+      },
+      {
+        "name": "Flags off preserves all seven rows/dates; malformed JSON keeps safe defaults",
+        "status": "PASS"
+      },
+      {
+        "name": "Seven distinct configured policy destinations and copied-root link/option/footer normalization",
+        "status": "PASS"
+      },
+      {
+        "name": "Unavailable links, keyboard focus, hover and mobile touch",
+        "status": "PASS"
+      },
+      {
+        "name": "Configured independent navigation, selector, breadcrumb and Impact destination",
+        "status": "PASS"
+      },
+      {
+        "name": "Sticky nav, live breakpoint resize and header/footer toggles",
+        "status": "PASS"
+      },
+      {
+        "name": "Long content and scoped same-page anchors",
+        "status": "PASS"
+      },
+      {
+        "name": "Hostile host, duplicate script, root replacement and complete teardown",
+        "status": "PASS"
+      },
+      {
+        "name": "No JavaScript/console errors or unexpected network failures",
+        "status": "PASS"
+      }
+    ],
+    "errors": [],
+    "consoleErrors": [],
+    "unexpectedNetwork": []
+  },
+  "matrixRuntime": {
+    "initialRun": "2026-10-26T14:45:31.640Z",
+    "retryRun": "2026-10-26T14:57:15.493Z",
+    "errors": [],
+    "consoleErrors": [],
+    "unexpectedNetwork": []
+  },
+  "priorOutputSmoke": {
+    "date": "2026-10-26T14:49:50.146Z",
+    "scope": "Smoke only: unchanged prior outputs, fallback fonts, not a broad synchronization or full interaction/visual regression",
+    "rows": [
+      {
+        "slug": "corporate-ir",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-regulatory",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-regulatory",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "ecosystem",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "ecosystem",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "financial-engine",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "financial-engine",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "governance",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "governance",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "governance-board",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "governance-board",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "governance-leadership",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "governance-leadership",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "investors-partners",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "investors-partners",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "main",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "main",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "platforms",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "platforms",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-richard-werner",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-richard-werner",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "smes-projects",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "smes-projects",
+        "width": 1440,
+        "status": "PASS"
+      }
+    ]
+  },
+  "sharedRegression": {
+    "result": "PASS",
+    "baseline": "f1324c6",
+    "contexts": 21,
+    "checks": [
+      "Byte-identical markup/CSS/runtime/routes/dynamic classes",
+      "Label escaping/empty-label fallback",
+      "Unknown design href guard"
+    ],
+    "method": "Exported baseline via git show and passed file to shared-regression.js"
+  },
+  "static": {
+    "result": "PASS",
+    "checks": [
+      "Standalone scoped native output/JS syntax",
+      "Separate unavailable policy destinations",
+      "Supplied logo equality and labelled breadcrumb",
+      "In-memory closing-script JSON escaping fixture",
+      "Reproducible outputs and Git whitespace"
+    ]
+  },
+  "outputs": {
+    "corporate-ir-legal-notices.ghl.html": {
+      "bytes": 78145,
+      "sha256": "728d7ab94fe1c1dfa08bdc3c1131d6131da8c3933e5f146f2f0272e546a97c5c"
+    },
+    "corporate-ir-legal-notices.inline.ghl.html": {
+      "bytes": 125559,
+      "sha256": "af58937a244a6bf08d845d70eccc34f23e724ef5aa6548a5a2df787daff8c10d"
+    }
+  },
+  "manualInspection": [
+    "320px all seven stacked rows",
+    "768px tablet table",
+    "1440px desktop table",
+    "390px hostile host"
+  ],
+  "notVerified": [
+    "Published GHL runtime and ancestor sticky conditions",
+    "Actual Google Fonts/hosted asset/page/policy URLs/SEO",
+    "Underlying policy content, ownership, applicability, dates and footer legal approval",
+    "Impact, Main/shared synchronization and final full affected-page regression"
+  ]
+}
