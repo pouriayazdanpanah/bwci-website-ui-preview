@@ -1,78 +1,78 @@
-# Better World & Impact — current local verification
+# Better World & Impact interaction correction — current verification
 
-**Final result: PASS.**
+**PASS for the corrective page scope.** Baseline: merged Main/shared PR #35, main `3d93dcf17f1d14c8325b679b6f6573ba1153d6ae`.
+Run date: October 26, 2026; local Linux Chromium 154.0.8037.57 / Playwright, Python/Pillow. Branch:
+`feat/ghl-better-world-impact-interaction`. Machine-readable current evidence: [`results.json`](results.json).
+Raw screenshots/logs and QA fixtures are ignored under `_build/qa-output/interaction/`.
 
-Run date: October 26, 2026. Reference: `design/Better World Impact.dc.html` at merged main `b439054`
-after Legal Notices PR #33. Chromium 154.0.8037.57 via Playwright on Linux. Source React is routed
-from existing local vendor files only for QA; remote Google Fonts are blocked on both sides for
-matching fallback-font comparisons. No historical result passes this page. Design, shared generator
-and all 22 earlier output blocks remain unchanged.
+## Requirement and intentional source difference
 
-## Responsive and image evidence
+The actual source figure is static. The original request explicitly requires six-stage selection,
+previous/next, progress and responsive interaction. PR #34 missed that requirement. This correction
+uses the source's retained `STEPS` text, selection/wrap/progress logic and loop/detail/accordion CSS,
+with the established Main/Financial Engine pattern. The source files are unchanged. Interactive
+engine pixel identity with the static source is neither expected nor claimed.
 
-The matrix covers **24 cases**: default reduced-motion widths 320,360,375,390,430,767,768,1023,
-1024,1280,1366,1440,1600,1920,2560 at 900px height; 390×600, 1024×1200, 1440×600; normal motion
-at 390/1440×900; methodology off at 390/1440×900; approved-data fixtures at 390/1440×900.
+Six native stage buttons have real hit boxes, keyboard/focus behavior, one active stage, accessible
+controlled detail regions and progress. Previous/next wrap and remain available on phones. At 1024px
+the UI switches from mobile accordion details to the desktop card without losing selection. Source
+Impact considered markers remain on Architecture, Institution and Reinvestment. Examples are labelled
+illustrative source examples; evidence/cases remain empty by default. No new claims or destinations.
 
-Every case compares source, inline and hosted output. Hosted tests override the image URLs with
-the identical local supplied hero/logo. Approved-data fixtures explicitly say QA only and use a
-local logo image and destination; no fixture enters production defaults. The source reference sets
-the matching methodology prop/empty-or-fixture arrays only. No source content or layout CSS is rewritten.
+## Actual checks
 
-Screenshots canonicalize infinite decorative artwork drift at t=0 with Playwright
-`animations:'disabled'`. Actual animation settings/movement are tested separately: source leaves
-drift on under reduced motion, while the port deliberately stops it. The helper scrolls through all
-content and checks opacity through ancestors without forcing visibility. No source paint or reveal
-state is fabricated for comparison.
+| Check | Status | Coverage |
+|---|---|---|
+| Static/native output | PASS | Both variants compile as native JS; all six source titles/descriptions/examples present; six buttons and both panel sets; three persistent Impact markers; independent routes, prefix, empty data, original hero/logo bytes, escaped config JSON |
+| Stage/controls/keyboard | PASS | 30 cases: inline + mocked-HTTP hosted at 320,360,375,390,430,767,768,1023,1024,1280,1366,1440,1600,1920,2560px; all six selections, next/previous wrapping, progress and accessible region state, Arrow/Home/End/Enter/Space, focus outline, real hit boxes, reduced motion and ordinary wheel scrolling |
+| Varied heights | PASS | Eight cases: both variants at 390×600, 1024×600, 1440×600 and 1440×1200 |
+| Hostile host | PASS | Eight cases: both variants at 320,390,1024,1440px, generic global CSS and surrounding content |
+| Normal motion / touch | PASS | Four cases: both variants at 390/1024px with touch emulation and normal motion; controls and keyboard continue working |
+| Duplicate / ancestor / resize / destroy | PASS | Four cases: both variants at 390/1440px; duplicate owner identity, detached handlers inert, ancestor replacement/removal/reinsertion without events, default-state reset, exact host overflow restore, one footer line, resize across the breakpoint preserving selection, explicit teardown/reboot |
+| Delayed bootstrap / hover / desktop reveal | PASS | One scenario: script twice before markup, one pending owner; inert markup mounts correctly; hover scales inactive dot without selecting; desktop detail revealed within source limits; cleanup restores host overflow |
+| Mobile link readability | PASS | One scenario with 16 subcases: eight narrow widths × both variants, including hostile 390px; white text/arrow over dark background and working next-stage control |
+| Page/config/motion | PASS | Eight checks: current content/breadcrumb, methodology switch, malformed/invalid config, approved-data templates/text safety/removal, configured/unavailable routes and footer, native anchors/scroll/breakpoints/header toggles, artwork dimensions/drift/reduced stop, hostile menu/touch/lifecycle and no JS/console/network errors |
+| Unchanged source sections | PASS with measured raster differences | 15 source widths × source/inline/hosted = 45 captures; 120 section comparisons. Hero, Approach, Methodology and final CTA have identical text and dimensions. Hero/Approach: 60/60 pixel-exact pairs. Later-section crops show subpixel vertical raster differences, described below |
+| Preservation and scope | PASS | Both output configs/image values and all markup outside the engine equal `3d93dcf`; design/assets/shared code/other 22 output pairs untouched. Shared generator matches the merged-main baseline in all 22 other page contexts; unknown-link guard retained |
+| Rebuild | PASS | Rebuilding the page leaves both output hashes unchanged |
+| Live GHL, real fonts/routes/content, physical devices, final whole-site regression | NOT VERIFIED | Separate installation/content dependencies and stage 9 |
 
-All **24 cases PASS**, with matching source/output section geometry/page heights and no horizontal
-document overflow. **All 48 deterministic source/inline/hosted image comparisons are pixel-identical**
-with matching fallback fonts and the documented animation-frame setup. Functional and matrix runs
-contain zero JS/console errors or unexpected failed network requests. Current measurements are in
-`results.json`.
-Bulk captures/logs and plain/hostile wrappers are ignored under `_build/`.
+There are **56 interaction scenarios** above plus **eight page checks**. The first behavior run passed
+53/54 cases; one inline 1023px case hit a whole-page `load` event timeout under concurrent browser
+work. The harness now waits for `DOMContentLoaded` and the actual mounted owner. That complete case
+passed its focused rerun. No production change was needed for that timeout; aggregate evidence retains
+the recovery record. Focused recovery must be dated after the main run.
 
-## Functional, lifecycle and compatibility evidence
+Manual image inspection caught dark text on the newly used dark mobile Financial Engine link. The
+old root selector was scoped as a descendant and did not apply. Corrected it to `:scope #bwi-engine …`
+and verified current text/arrow colors plus navigation controls at all eight narrow widths in both
+variants. This final CSS-only fix is confined to the engine; the prior unchanged-section captures
+remain applicable. Inspected settled phone/desktop engine captures and Methodology comparison crops.
 
-| Check | Current result / scope |
-|---|---|
-| Exact hero/approach/engine/methodology/final CTA source content and breadcrumb | PASS; default visible sections = five |
-| Static accessible six-stage diagram | PASS; one figure role=img, six items, three fixed markers, zero engine/main buttons; clicking does not change stages |
-| Methodology off, malformed JSON, incomplete evidence/cases and invalid image URL | PASS; safe launch defaults/no fabricated records or requests |
-| Complete evidence/case templates and local case destination | PASS; shown only with explicit QA data; source/output visual fixture comparison is in the matrix |
-| Text-safe approved data | PASS; HTML-looking label remains text, no injected image/script execution |
-| Copied root after clearing data | PASS; old cards removed and empty sections hidden |
-| Contact/Financial Engine destinations, unavailable keyboard feedback, focus and independent Impact current link | PASS; actual local fixture navigation; deployed URLs NOT VERIFIED |
-| Scoped approach anchor, wheel/native scrolling, 767/768/1023/1024 live resize | PASS; no scroll capture or overflow |
-| Supplied artwork/native size and motion | PASS; 2022×778 original image, normal 14s drift moves, reduced-motion drift stops |
-| Header/footer off, sticky shared header/current How It Works context | PASS within local preview; published ancestor conditions NOT VERIFIED |
-| Copied configured route and optional footer regulatory line | PASS; stale disabled state cleared; exactly one footer line |
-| Hostile global CSS, surrounding content, touch/Escape/Tab menu behavior | PASS; scoped appearance and surrounding host unaffected |
-| Duplicate script, replacement with drawer open, exact prior body-overflow restoration and teardown | PASS; one owner/status, working replacement menu and cleanup |
-| Functional JS/console errors or unexpected failed requests | PASS; zero; deliberate font aborts disclosed/excluded |
-| Standalone scoped/prefixed output, native JS syntax, config keys, labelled breadcrumb | PASS |
-| Image identity and escaped JSON | PASS; supplied PNG byte-equal; in-memory closing-script fixture round-trips as text |
-| Shared generator vs main `b439054`, 22 earlier contexts | PASS; markup/CSS/runtime/routes/dynamic classes byte-identical; unknown-link guard and labelled trail checks retained |
-| Existing 22 delivered blocks at 390/1440px | PASS; 44 current smoke cases for visible h1, document overflow and JS errors |
-| Reproducible hosted/inline outputs and whitespace | PASS; output rebuild identical, Git whitespace clean |
+## Source comparison details and limits
 
-This earlier-page smoke does not replace the later full shared-output synchronization regression.
-The shared baseline was exported through Git and supplied to the comparison runner. Current aggregate
-evidence is in `results.json`; reproduction commands are in the page README.
+Source React uses existing local vendor bytes only in QA. Google Fonts are deliberately blocked on
+both sides; actual font delivery/layout is **NOT VERIFIED**. Hosted tests use local HTTP fixtures
+serving the original embedded image bytes, not production asset URLs. Screenshots use reduced motion
+and `animations:'disabled'` to canonicalize decorative hero drift; source CSS/layout is not rewritten.
 
-## NOT VERIFIED / differences
+Adding engine details changes subsequent sections' document Y positions, including their fractional
+pixel positions. Methodology/CTA text, dimensions, markup and styles are preserved, but raw full-page
+crops retain that vertical raster phase. Of 120 unchanged-section pairs, 60 are pixel-exact. Raw
+RGB-channel>24 differences peak at **2.2673%** of a Methodology crop and **1.5898%** of a CTA crop.
+For example, at 360px Methodology begins at source Y=3032.54688 and port Y=3365.4375; rounding raw
+capture origins produces a subpixel shift. Those differences are recorded, not normalized away or
+claimed as pixel-exact. The engine's added content intentionally increases overall page height.
 
-- Published GHL, ancestor conditions for sticky behavior, actual fonts/hosted assets/page URLs and SEO.
-- Approved real evidence, case-study content/images/alt text, source/date claims and linked destinations.
-  Source arrays and production defaults are empty; no impact metrics or cases are inferred.
-- Real Contact or methodology publication/destination and legal/footer content approval.
-- Main/shared synchronization and final full affected-page regression, including older copied-root
-  link/footer/option normalization and preserving the old Main Impact anchor.
+Historical initial static-port QA is retained at `history/static-port/`. It is not evidence for this
+interaction correction. Shared PR #35 results remain its own historical synchronization evidence.
 
-The source engine is static despite unused interactive script/CSS definitions. Preserving that actual
-view is a corrected inventory finding. Other architecture changes: scoped IDs/configured routes,
-native hidden containers/inert templates for approved conditional data, no export paint hold, and
-merged root-owner cleanup. Reduced motion additionally stops the source's decorative artwork drift.
+## Reproduce and review boundary
 
-Stop at this PR. Main/shared synchronization starts after confirmed Impact merge and refreshed main;
-final affected-output regression follows.
+Use the build and split behavior/visual/page-check commands in the page README, then run
+`interaction-diff.py`, `shared-regression.js` against `3d93dcf`, and `interaction-results.js`. Raw
+fixtures never enter production settings. `CHROMIUM_PATH` overrides the local Chromium binary.
+
+Stop at this corrective PR for manual review/merge. After confirmation, perform stage 9 current
+source/port/responsive/interaction regression across all 23 pages. Neither merge nor local browser QA
+establishes installation, publication, real asset/font delivery or approved business content in GHL.

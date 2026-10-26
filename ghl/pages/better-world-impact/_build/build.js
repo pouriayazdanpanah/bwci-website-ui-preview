@@ -26,10 +26,10 @@ const PAGE_DIR = path.resolve(__dirname, '..');
 const SRC = path.join(__dirname, 'src');
 const REPORT = process.argv.includes('--report');
 // classes the runtime adds outside the static markup (keep in sync with the shared site chrome)
-const DYNAMIC_CLASSES = [];
+const DYNAMIC_CLASSES = ['bwi-is-past'];
 // the page's generic source class names carry the bwi- prefix; bwci-system.css is renamed to match
 const pageCss = fs.readFileSync(path.join(__dirname, 'src', 'better-world-impact.css'), 'utf8');
-// Shared site chrome: SiteHeader current="ir", Breadcrumb current="ir".
+// Shared site chrome: SiteHeader current="impact", Breadcrumb current="impact".
 // content:true adds bwci-system.css parts C and E, which style this page's hero and cards
 const chrome = require('../../../shared/site-chrome/site-chrome')({
   prefix: 'bwi', current: 'impact', breadcrumb: 'impact', content: true,

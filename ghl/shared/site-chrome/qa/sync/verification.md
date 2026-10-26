@@ -83,7 +83,7 @@ full run should pass all 92 cases directly with the corrected visible targets.
 ## Review boundary and remaining work
 
 Open the Main/shared synchronization PR and stop for manual review/merge. After confirmed merge,
-start the [Impact interaction correction](../../../../../docs/implementation/pages/better-world-impact-interaction.md)
+start the [Impact interaction correction](../../../../pages/better-world-impact/README.md)
 from fresh main in its own page-specific PR. After that correction merges, perform stage 9 current
 full-page regression across all 23 updated pages, all specified widths/IR boundaries/heights and
 relevant interactions. A merge is not a GHL installation or publication.

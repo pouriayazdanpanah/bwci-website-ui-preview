@@ -10,8 +10,8 @@ const file=path.resolve(__dirname,'../../../shared/site-chrome/site-chrome.js');
 let baseline;
 if(process.argv[2])baseline=fs.readFileSync(process.argv[2],'utf8');
 else {
-  try {baseline=execFileSync('git',['show','b439054:ghl/shared/site-chrome/site-chrome.js'],{encoding:'utf8'});}
-  catch {throw new Error('Cannot spawn git here. Export the baseline with git show b439054:ghl/shared/site-chrome/site-chrome.js and pass that file path.');}
+  try {baseline=execFileSync('git',['show','3d93dcf:ghl/shared/site-chrome/site-chrome.js'],{encoding:'utf8'});}
+  catch {throw new Error('Cannot spawn git here. Export the baseline with git show 3d93dcf:ghl/shared/site-chrome/site-chrome.js and pass that file path.');}
 }
 function load(source,customFS=fs){
   const mod={exports:{}};

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// Page configuration/motion QA (--checks-only). Static full-page captures are historical; use
+// interaction-qa.js for current interactive acceptance and unchanged-section comparisons.
 // Local browser QA. Requires Playwright and Chromium; no QA dependency is shipped in the GHL blocks.
 // First run build.js and make-previews.js, then serve the repo on loopback:
 // python3 -m http.server 8123 --bind 127.0.0.1
@@ -135,15 +137,12 @@ async function capture(width,height=900,motion=false,scenario='default') {
  const recapture=process.argv.find(a=>a.startsWith('--recapture='));if(recapture)jobs=jobs.filter(j=>j.join('x')===recapture.slice('--recapture='.length));
  if(!process.argv.includes('--checks-only'))for(const job of jobs)await check('capture '+job.join('x'),()=>capture(...job));
  if(!process.argv.includes('--matrix-only')){
- await check('Source content, static six-stage diagram and empty launch data',async()=>{
+ await check('Source content, required six-stage controls and empty launch data',async()=>{
   const p=await pageFor();await p.goto(preview+'plain.html');assert.equal(await p.locator('h1').innerText(),'Impact should influence the architecture of capital itself.');
   assert.equal(await p.locator('main section:visible').count(),5);assert.equal(await p.locator('#bwi-evidence').isVisible(),false);assert.equal(await p.locator('#bwi-cases').isVisible(),false);
-  assert.equal(await p.locator('#bwi-engine figure').getAttribute('role'),'img');assert.equal(await p.locator('#bwi-engine button').count(),0);
-  assert.equal(await p.locator('.bwi-lp-n').count(),6);assert.equal(await p.locator('.bwi-lp-n.bwi-is-on').count(),3);
-  assert.deepEqual(await p.locator('.bwi-lp-n.bwi-is-on .bwi-lp-t').allTextContents(),['Architecture','Institution','Reinvestment']);
-  const labels=await p.locator('.bwi-lp-t').allTextContents();assert.deepEqual(labels,['Need','Architecture','Institution','Capital','Activity','Reinvestment']);
-  assert.equal(await p.locator('.bwi-lp-tag').count(),3);await p.locator('.bwi-lp-t').first().click();assert.deepEqual(await p.locator('.bwi-lp-t').allTextContents(),labels);
-  assert.equal(await p.locator('main button').count(),0);assert.equal(await p.locator('a[data-bwi-link="betterWorldImpact"][aria-current="page"]').count(),2);assert.equal(await p.locator('x-dc,sc-if,sc-for,dc-import').count(),0);
+  assert.equal(await p.locator('[data-bwi-engine-step]').count(),6);assert.equal(await p.locator('[data-bwi-engine-step].bwi-is-on').count(),1);
+  assert.equal(await p.locator('.bwi-lp-tag').count(),3);assert.equal(await p.locator('[data-bwi-engine-count]').textContent(),'Step 1 of 6: Need');
+  assert.equal(await p.locator('a[data-bwi-link="betterWorldImpact"][aria-current="page"]').count(),2);assert.equal(await p.locator('x-dc,sc-if,sc-for,dc-import').count(),0);
   assert.equal(await p.locator('[aria-label="Breadcrumb"] [aria-current="page"]').innerText(),'Better World & Impact');await p.close();
  });
  await check('Methodology switch, malformed JSON and invalid image/data defaults',async()=>{

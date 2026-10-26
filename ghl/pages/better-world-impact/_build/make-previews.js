@@ -11,7 +11,7 @@ const OUT = path.join(__dirname, 'preview');
 fs.mkdirSync(OUT, { recursive: true });
 const block = fs.readFileSync(path.join(PAGE_DIR, 'better-world-impact.inline.ghl.html'), 'utf8');
 
-const head = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Corporate / IR preview</title>';
+const head = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Better World &amp; Impact preview</title>';
 
 fs.writeFileSync(path.join(OUT, 'plain.html'),
   head + '<style>body{margin:0}</style></head><body>\n' + block + '\n</body></html>\n');

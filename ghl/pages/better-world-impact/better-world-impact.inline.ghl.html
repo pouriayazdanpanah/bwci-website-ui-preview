@@ -110,6 +110,9 @@
 }
 #bwci-better-world-impact button{ font-family:inherit; cursor:pointer; background:none; border:none; padding:0; color:inherit; text-align:inherit; }
 #bwci-better-world-impact #bwi-engine .bwi-sec-head{ max-width:860px; }
+@media (max-width:1023px){
+  #bwci-better-world-impact #bwi-engine .bwi-lpd-side .bwi-link, #bwci-better-world-impact #bwi-engine .bwi-lpd-side .bwi-link:hover{ color:#fff; }
+}
 #bwci-better-world-impact .bwi-hero{ position:relative; overflow:hidden; color:#fff; min-height:560px; display:flex; align-items:center; background:radial-gradient(ellipse 720px 620px at 88% 44%, rgba(18,131,107,.20), transparent 60%), radial-gradient(ellipse 560px 460px at -4% 82%, rgba(29,74,84,.30), transparent 60%), linear-gradient(180deg,#05090B 0%,#090F11 55%,#0B1416 100%); }
 #bwci-better-world-impact .bwi-hero::before{ content:''; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:26px 26px; -webkit-mask-image:linear-gradient(90deg,black,transparent 60%); mask-image:linear-gradient(90deg,black,transparent 60%); }
 #bwci-better-world-impact .bwi-hero::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:90px; z-index:1; pointer-events:none; background:linear-gradient(180deg, transparent, rgba(11,20,22,.9)); }
@@ -149,22 +152,13 @@
   #bwci-better-world-impact .bwi-hero-img img{ position:absolute; bottom:0; width:220% !important; left:-65% !important; height:auto !important; opacity:.85; animation:none !important; }
   #bwci-better-world-impact .bwi-hero-img::after{ content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg, rgba(8,14,16,.94) 0%, rgba(8,14,16,.78) 34%, rgba(8,14,16,.35) 64%, rgba(8,14,16,.1) 100%); }
 }
-#bwci-better-world-impact .bwi-lp--static{ margin:clamp(24px,3vw,40px) 0 0; }
-#bwci-better-world-impact .bwi-lp--static .bwi-lp-n{ cursor:default; }
-#bwci-better-world-impact .bwi-lp--static .bwi-lp-tag{ margin-top:10px; font-family:var(--font-mono); font-size:max(10.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-emerald-dark); background:#fff; border:1px solid var(--accent-emerald-dark); border-radius:9999px; padding:2px 9px; white-space:nowrap; }
-#bwci-better-world-impact .bwi-lp--static .bwi-lp-n.bwi-is-on .bwi-lp-dot{ transform:none; }
-#bwci-better-world-impact .bwi-lp--static .bwi-lp-n.bwi-is-on .bwi-lp-dot::after{ background:#fff; }
-@media (max-width:1023px){
-  #bwci-better-world-impact .bwi-lp--static .bwi-lp-n{ width:100%; }
-  #bwci-better-world-impact .bwi-lp--static .bwi-lp-in{ grid-template-columns:22px minmax(0,1fr); padding:14px 0; }
-  #bwci-better-world-impact .bwi-lp--static .bwi-lp-dot{ align-self:start; margin-top:1px; }
-  #bwci-better-world-impact .bwi-lp--static .bwi-lp-tag{ grid-column:2; justify-self:start; margin-top:8px; }
-  #bwci-better-world-impact .bwi-lp--static + .bwi-lp-loopnote{ padding-left:40px; }
-}
+#bwci-better-world-impact .bwi-badge{ display:inline-flex; align-items:center; gap:7px; padding:4px 11px 4px 9px; border-radius:999px; border:1px solid; font-family:var(--font-mono); font-size:max(11px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.05em; text-transform:uppercase; line-height:1.4; white-space:nowrap; }
+#bwci-better-world-impact .bwi-badge i{ width:7px; height:7px; border-radius:50%; flex:none; }
 #bwci-better-world-impact .bwi-pat-dots{ position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(18,48,57,.13) 1px, transparent 1.6px); background-size:22px 22px; -webkit-mask-image:radial-gradient(ellipse 70% 60% at 85% 20%, #000 10%, transparent 70%); mask-image:radial-gradient(ellipse 70% 60% at 85% 20%, #000 10%, transparent 70%); }
 #bwci-better-world-impact .bwi-lp{ --R:118px; --y:44px; position:relative; height:calc(var(--y) + var(--R) * 2 + 48px); margin-top:clamp(24px,3vw,40px); }
 #bwci-better-world-impact .bwi-lp-ring{ position:absolute; left:0; right:0; top:var(--y); height:calc(var(--R) * 2); border:1.5px solid var(--accent-gold-dark); border-top-color:var(--brand-ink); border-radius:var(--R); opacity:.9; }
 #bwci-better-world-impact .bwi-lp-ring::before{ content:''; position:absolute; left:calc(var(--R) - 1.5px); right:calc(var(--R) - 1.5px); top:-1.5px; height:1.5px; background:var(--brand-ink); }
+#bwci-better-world-impact .bwi-lp-prog{ position:absolute; left:var(--R); top:calc(var(--y) - .5px); height:3px; width:calc((100% - var(--R) * 2) * var(--p)); background:var(--accent-emerald); border-radius:2px; transition:width .5s var(--ease-out); }
 #bwci-better-world-impact .bwi-lp-chev{ position:absolute; top:calc(var(--y) - 4px); width:9px; height:9px; border-top:1.5px solid var(--brand-ink); border-right:1.5px solid var(--brand-ink); transform:translateX(-50%) rotate(45deg); }
 #bwci-better-world-impact .bwi-lp-chev--ret{ top:calc(var(--y) + var(--R) * 2 - 4.5px); left:50%; border-color:var(--accent-gold-dark); transform:translateX(-50%) rotate(-135deg); }
 #bwci-better-world-impact .bwi-lp-chev--in{ left:calc(var(--R) - 16px); border-color:var(--accent-gold-dark); }
@@ -177,6 +171,8 @@
 #bwci-better-world-impact .bwi-lp-dot::after{ content:''; width:8px; height:8px; border-radius:50%; background:transparent; transition:background-color .25s ease; }
 #bwci-better-world-impact .bwi-lp-t{ margin-top:16px; font-size:18px; font-weight:700; letter-spacing:-.015em; line-height:1.25; transition:color .25s ease; }
 #bwci-better-world-impact .bwi-lp-s{ margin-top:4px; font-size:14px; line-height:1.45; color:var(--text-muted); text-wrap:balance; }
+#bwci-better-world-impact .bwi-lp-n.bwi-is-past .bwi-lp-dot{ border-color:var(--accent-emerald); }
+#bwci-better-world-impact .bwi-lp-n.bwi-is-past .bwi-lp-dot::after{ background:var(--accent-emerald); }
 #bwci-better-world-impact .bwi-lp-n.bwi-is-on .bwi-lp-dot{ background:var(--accent-emerald); border-color:var(--accent-emerald); transform:scale(1.25); box-shadow:0 0 0 6px rgba(18,131,107,.14); }
 #bwci-better-world-impact .bwi-lp-n.bwi-is-on .bwi-lp-dot::after{ background:#fff; }
 #bwci-better-world-impact .bwi-lp-n.bwi-is-on .bwi-lp-num, #bwci-better-world-impact .bwi-lp-n.bwi-is-on .bwi-lp-t{ color:var(--accent-emerald-dark); }
@@ -186,9 +182,26 @@
 }
 #bwci-better-world-impact .bwi-lp-n:focus-visible{ outline:none; }
 #bwci-better-world-impact .bwi-lp-n:focus-visible .bwi-lp-dot{ outline:2px solid var(--accent-emerald); outline-offset:4px; }
+#bwci-better-world-impact .bwi-lpd{ margin-top:clamp(32px,4vw,48px); padding-top:28px; border-top:1px solid var(--border-default); display:grid; grid-template-columns:minmax(0,1fr) auto; gap:24px 40px; align-items:end; }
+#bwci-better-world-impact .bwi-lpd-stack{ display:grid; }
+#bwci-better-world-impact .bwi-lpd-pane{ grid-area:1/1; display:grid; grid-template-columns:minmax(200px,.8fr) minmax(0,2fr); gap:16px 40px; opacity:0; visibility:hidden; transform:translateY(6px); transition:opacity .28s ease, transform .4s var(--ease-out), visibility 0s linear .28s; }
+#bwci-better-world-impact .bwi-lpd-pane.bwi-is-on{ opacity:1; visibility:visible; transform:none; transition:opacity .28s ease, transform .4s var(--ease-out), visibility 0s; }
+#bwci-better-world-impact .bwi-lpd-k{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
+#bwci-better-world-impact .bwi-lpd-h{ margin-top:6px; font-size:clamp(28px,3vw,38px); font-weight:700; letter-spacing:-.03em; line-height:1.1; color:var(--brand-ink); }
+#bwci-better-world-impact .bwi-lpd-full{ font-size:14px; font-weight:600; color:var(--accent-emerald-dark); }
+#bwci-better-world-impact .bwi-lpd-d{ margin-top:6px; font-size:clamp(16px,1.4vw,18px); line-height:1.55; color:var(--text-primary); text-wrap:pretty; }
+#bwci-better-world-impact .bwi-lpd-ex{ margin-top:14px; display:grid; grid-template-columns:auto minmax(0,1fr); gap:12px; align-items:start; font-size:15px; color:var(--text-secondary); text-wrap:pretty; }
+#bwci-better-world-impact .bwi-lpd-side{ display:flex; flex-direction:column; align-items:flex-end; gap:18px; }
+#bwci-better-world-impact .bwi-lpd-ctrl{ display:flex; gap:8px; }
+#bwci-better-world-impact .bwi-lpd-ctrl button{ width:44px; height:44px; border-radius:50%; border:1px solid var(--border-default); background:#fff; color:var(--brand-ink); display:flex; align-items:center; justify-content:center; transition:border-color .2s ease, transform .16s var(--ease-out); }
+#bwci-better-world-impact .bwi-lpd-ctrl button:active{ transform:scale(.94); }
+@media (hover:hover) and (pointer:fine){
+  #bwci-better-world-impact .bwi-lpd-ctrl button:hover{ border-color:var(--brand-ink); }
+}
+#bwci-better-world-impact .bwi-lpd-ctrl svg{ width:18px; height:18px; }
 @media (max-width:1023px){
   #bwci-better-world-impact .bwi-lp{ height:auto; margin-top:8px; }
-  #bwci-better-world-impact .bwi-lp-ring, #bwci-better-world-impact .bwi-lp-chev, #bwci-better-world-impact .bwi-lp-ret{ display:none; }
+  #bwci-better-world-impact .bwi-lp-ring, #bwci-better-world-impact .bwi-lp-prog, #bwci-better-world-impact .bwi-lp-chev, #bwci-better-world-impact .bwi-lp-ret{ display:none; }
   #bwci-better-world-impact .bwi-lp-nodes{ position:relative; left:auto; right:auto; flex-direction:column; gap:0; padding-left:0; }
   #bwci-better-world-impact .bwi-lp-nodes::before{ content:''; position:absolute; left:10px; top:20px; bottom:20px; width:1.5px; background:var(--border-default); }
   #bwci-better-world-impact .bwi-lp-n{ width:auto; height:auto; text-align:left; }
@@ -198,24 +211,86 @@
   #bwci-better-world-impact .bwi-lp-t{ margin:0; font-size:17px; }
   #bwci-better-world-impact .bwi-lp-s{ margin:0; grid-column:2; }
   #bwci-better-world-impact .bwi-lp-loopnote{ display:flex !important; }
+  #bwci-better-world-impact .bwi-lpd{ grid-template-columns:minmax(0,1fr); }
+  #bwci-better-world-impact .bwi-lpd-pane{ grid-template-columns:minmax(0,1fr); }
+  #bwci-better-world-impact .bwi-lpd-side{ flex-direction:row; align-items:center; justify-content:space-between; flex-wrap:wrap; }
 }
+#bwci-better-world-impact .bwi-lp-item{ display:contents; }
+#bwci-better-world-impact .bwi-lp-acc, #bwci-better-world-impact .bwi-lp-tn, #bwci-better-world-impact .bwi-lp-pm{ display:none; }
 @media (max-width:1023px){
+  #bwci-better-world-impact .bwi-lp-item{ display:block; position:relative; }
   #bwci-better-world-impact .bwi-lp-nodes::before{ left:10px; top:24px; bottom:24px; }
   #bwci-better-world-impact .bwi-lp-n{ display:block; width:100%; cursor:pointer; }
   #bwci-better-world-impact .bwi-lp-in{ grid-template-columns:22px minmax(0,1fr) 20px; padding:14px 0; }
   #bwci-better-world-impact .bwi-lp-dot{ align-self:start; margin-top:1px; }
   #bwci-better-world-impact .bwi-lp-t{ display:flex; align-items:baseline; gap:10px; }
+  #bwci-better-world-impact .bwi-lp-tn{ display:inline; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; color:var(--text-muted); }
+  #bwci-better-world-impact .bwi-lp-n.bwi-is-on .bwi-lp-tn{ color:var(--accent-emerald-dark); }
   #bwci-better-world-impact .bwi-lp-s{ grid-column:2; }
+  #bwci-better-world-impact .bwi-lp-pm{ display:block; grid-column:3; grid-row:1; position:relative; width:14px; height:14px; justify-self:end; }
+  #bwci-better-world-impact .bwi-lp-pm::before, #bwci-better-world-impact .bwi-lp-pm::after{ content:''; position:absolute; left:0; right:0; top:50%; height:1.5px; margin-top:-.75px; background:var(--brand-ink); transition:transform .3s var(--ease-out); }
+  #bwci-better-world-impact .bwi-lp-pm::after{ transform:rotate(90deg); }
+  #bwci-better-world-impact .bwi-lp-n.bwi-is-on .bwi-lp-pm::after{ transform:rotate(0); }
+  #bwci-better-world-impact .bwi-lp-acc{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .35s var(--ease-out); padding-left:40px; }
+  #bwci-better-world-impact .bwi-lp-acc > div{ overflow:hidden; min-height:0; }
+  #bwci-better-world-impact .bwi-lp-item.bwi-is-on .bwi-lp-acc{ grid-template-rows:1fr; }
+  #bwci-better-world-impact .bwi-lp-acc .bwi-lpd-d{ margin:0; padding-bottom:6px; font-size:max(15.5px,var(--fs-floor-body,0px)); }
+  #bwci-better-world-impact .bwi-lp-acc .bwi-lpd-ex{ margin:0 0 14px; grid-template-columns:minmax(0,1fr); gap:8px; font-size:14.5px; }
+  #bwci-better-world-impact .bwi-lp-acc .bwi-lpd-ex .bwi-badge{ justify-self:start; }
   #bwci-better-world-impact .bwi-lp-loopnote{ margin-top:4px !important; padding-left:40px; }
+  #bwci-better-world-impact .bwi-lpd{ margin-top:24px; padding-top:0; border-top:0; }
+  #bwci-better-world-impact .bwi-lpd-stack, #bwci-better-world-impact .bwi-lpd-ctrl{ display:none; }
+  #bwci-better-world-impact .bwi-lpd-side{ align-items:stretch; }
+  #bwci-better-world-impact .bwi-lpd-side .bwi-link{ width:100%; box-sizing:border-box; }
+  #bwci-better-world-impact .bwi-lpd-side .bwi-link{ display:flex; justify-content:center; min-height:52px; padding:0 20px; border:0; border-radius:var(--radius-md); background:var(--brand-ink); color:#fff; font-weight:600; align-items:center; }
+  #bwci-better-world-impact .bwi-lpd-side .bwi-link:hover{ color:#fff; background:var(--brand-teal); }
 }
 @media (min-width:768px) and (max-width:1023px){
   #bwci-better-world-impact .bwi-lp-nodes, #bwci-better-world-impact .bwi-lp-loopnote{ max-width:640px; }
+  #bwci-better-world-impact .bwi-lpd-side .bwi-link{ align-self:flex-start; }
+}
+@media (prefers-reduced-motion:reduce){
+  #bwci-better-world-impact .bwi-lp-acc{ transition:none; }
+}
+@media (min-width:1024px){
+  #bwci-better-world-impact .bwi-lpd{ padding:0; border:1px solid var(--border-subtle); border-radius:16px; background:#fff; box-shadow:var(--shadow-elevated); grid-template-columns:minmax(0,1fr); gap:0; align-items:stretch; overflow:hidden; }
+  #bwci-better-world-impact .bwi-lpd-stack{ padding:clamp(28px,3vw,40px); }
+  #bwci-better-world-impact .bwi-lpd-pane{ grid-template-columns:minmax(180px,.62fr) minmax(0,2fr); gap:0; align-items:stretch; }
+  #bwci-better-world-impact .bwi-lpd-pane > div:first-child{ padding-right:clamp(24px,3vw,40px); border-right:1px solid var(--border-subtle); display:flex; flex-direction:column; }
+  #bwci-better-world-impact .bwi-lpd-k{ color:var(--accent-emerald-dark); }
+  #bwci-better-world-impact .bwi-lpd-h{ margin-top:10px; font-size:clamp(32px,3.2vw,44px); }
+  #bwci-better-world-impact .bwi-lpd-pane > div:nth-child(2){ padding-left:clamp(24px,3vw,40px); display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); grid-template-rows:auto 1fr; gap:10px clamp(24px,3vw,40px); align-content:start; }
+  #bwci-better-world-impact .bwi-lpd-full{ grid-column:1; grid-row:1; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
+  #bwci-better-world-impact .bwi-lpd-d{ grid-column:1; grid-row:2; margin:0; font-size:clamp(17px,1.5vw,20px); line-height:1.5; }
+  #bwci-better-world-impact .bwi-lpd-ex{ grid-column:2; grid-row:1 / span 2; margin:0; display:flex; flex-direction:column; align-items:flex-start; gap:12px; padding:20px 22px; border-radius:12px; background:var(--surface-subtle); border:1px solid var(--border-subtle); font-size:15px; line-height:1.55; }
+  #bwci-better-world-impact .bwi-lpd-side{ flex-direction:row; align-items:center; justify-content:space-between; gap:16px; padding:14px clamp(28px,3vw,40px); border-top:1px solid var(--border-subtle); background:var(--surface-subtle); }
+  #bwci-better-world-impact .bwi-lpd-ctrl{ order:2; margin-left:auto; }
+  #bwci-better-world-impact .bwi-lpd-ctrl button{ width:40px; height:40px; }
 }
 @media (min-width:1024px) and (max-height:860px){
   #bwci-better-world-impact .bwi-lp{ --R:84px; }
+  #bwci-better-world-impact .bwi-lpd-stack{ padding:24px 32px; }
+  #bwci-better-world-impact .bwi-lpd-h{ font-size:clamp(28px,2.8vw,36px); }
 }
 @media(prefers-reduced-motion:reduce){
   #bwci-better-world-impact .bwi-hero-img img{ animation:none }
+}
+#bwci-better-world-impact .bwi-lp-tag{ margin-top:10px; font-family:var(--font-mono); font-size:max(10.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-emerald-dark); background:#fff; border:1px solid var(--accent-emerald-dark); border-radius:9999px; padding:2px 9px; white-space:nowrap; }
+#bwci-better-world-impact .bwi-eng-progress{ margin:0; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); color:var(--text-muted); }
+@media (min-width:1024px){
+  #bwci-better-world-impact .bwi-lp-item{ display:block; position:relative; width:0; height:0; }
+  #bwci-better-world-impact .bwi-lp-n{ width:150px; height:auto; transform:translateX(-50%); cursor:pointer; }
+  #bwci-better-world-impact .bwi-lp-in{ position:relative; transform:none; }
+}
+@media (max-width:1023px){
+  #bwci-better-world-impact .bwi-lp-tag{ grid-column:2; justify-self:start; margin-top:8px; }
+  #bwci-better-world-impact .bwi-lpd-side{ flex-direction:row; align-items:center; justify-content:space-between; }
+  #bwci-better-world-impact .bwi-lpd-ctrl{ display:flex; }
+  #bwci-better-world-impact .bwi-eng-progress{ flex:1; }
+  #bwci-better-world-impact .bwi-lpd-side .bwi-link{ flex-basis:100%; }
+}
+@media (prefers-reduced-motion:reduce){
+  #bwci-better-world-impact .bwi-lp-prog, #bwci-better-world-impact .bwi-lp-dot, #bwci-better-world-impact .bwi-lp-dot::after, #bwci-better-world-impact .bwi-lp-num, #bwci-better-world-impact .bwi-lp-t, #bwci-better-world-impact .bwi-lp-pm::before, #bwci-better-world-impact .bwi-lp-pm::after, #bwci-better-world-impact .bwi-lpd-pane, #bwci-better-world-impact .bwi-lpd-ctrl button{ transition:none; }
 }
 #bwci-better-world-impact{ --radius-sm:6px; --radius-md:12px; --radius-lg:16px; --radius-xl:20px; --shadow-elevated:0 12px 32px rgba(18,48,57,.08), 0 2px 6px rgba(18,48,57,.04); --ease-out:cubic-bezier(0.23,1,0.32,1); --e:cubic-bezier(0.23,1,0.32,1); --t-sys:700ms; --pad-sec:clamp(64px,8vw,112px); --pad-x:clamp(20px,4vw,40px); }
 #bwci-better-world-impact{ --fs-floor-sm:0px; --fs-floor-body:0px; }
@@ -539,22 +614,125 @@
           <h2 class="bwi-h1">How this connects to the Financial Engine</h2>
           <p class="bwi-lead">The Financial Engine outlines how BWCI responds to an economic need in six steps, from Need to Reinvestment. The approach above runs through it: capital is structured at Architecture, owned through Institution, and deployed through Capital and Activity. At Reinvestment, what we learn informs the next need.</p>
         </div>
-        <figure class="bwi-lp bwi-lp--static" role="img" aria-label="The six steps of the Financial Engine: Need, Architecture, Institution, Capital, Activity and Reinvestment, with reinvestment returning to need. Architecture, Institution and Reinvestment are marked Impact considered.">
+        <div class="bwi-lp" data-bwi-engine-loop style="--p:0">
           <div class="bwi-lp-ring" aria-hidden="true"></div>
-          <span class="bwi-lp-chev bwi-lp-chev--in" aria-hidden="true"></span><span class="bwi-lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.1)"></span><span class="bwi-lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.3)"></span><span class="bwi-lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.5)"></span><span class="bwi-lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.7)"></span><span class="bwi-lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.9)"></span>
+          <div class="bwi-lp-prog" role="progressbar" aria-label="Financial Engine progress" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1" aria-valuetext="Step 1 of 6: Need" data-bwi-engine-progress></div>
+          <span class="bwi-lp-chev bwi-lp-chev--in" aria-hidden="true"></span>
+          <span class="bwi-lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.1)"></span>
+          <span class="bwi-lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.3)"></span>
+          <span class="bwi-lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.5)"></span>
+          <span class="bwi-lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.7)"></span>
+          <span class="bwi-lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.9)"></span>
           <span class="bwi-lp-chev bwi-lp-chev--ret" aria-hidden="true"></span>
           <span class="bwi-lp-ret" aria-hidden="true">Reinvestment returns to need</span>
-          <ol class="bwi-lp-nodes" aria-hidden="true" style="margin:0; padding:0; list-style:none">
-            <li class="bwi-lp-n"><span class="bwi-lp-in"><span class="bwi-lp-num">01</span><span class="bwi-lp-dot"></span><span class="bwi-lp-t">Need</span><span class="bwi-lp-s">Economic Need</span></span></li>
-            <li class="bwi-lp-n bwi-is-on"><span class="bwi-lp-in"><span class="bwi-lp-num">02</span><span class="bwi-lp-dot"></span><span class="bwi-lp-t">Architecture</span><span class="bwi-lp-s">Financial Architecture</span><span class="bwi-lp-tag">Impact considered</span></span></li>
-            <li class="bwi-lp-n bwi-is-on"><span class="bwi-lp-in"><span class="bwi-lp-num">03</span><span class="bwi-lp-dot"></span><span class="bwi-lp-t">Institution</span><span class="bwi-lp-s">Appropriate Institution / Delivery Capability</span><span class="bwi-lp-tag">Impact considered</span></span></li>
-            <li class="bwi-lp-n"><span class="bwi-lp-in"><span class="bwi-lp-num">04</span><span class="bwi-lp-dot"></span><span class="bwi-lp-t">Capital</span></span></li>
-            <li class="bwi-lp-n"><span class="bwi-lp-in"><span class="bwi-lp-num">05</span><span class="bwi-lp-dot"></span><span class="bwi-lp-t">Activity</span><span class="bwi-lp-s">Productive Economic Activity</span></span></li>
-            <li class="bwi-lp-n bwi-is-on"><span class="bwi-lp-in"><span class="bwi-lp-num">06</span><span class="bwi-lp-dot"></span><span class="bwi-lp-t">Reinvestment</span><span class="bwi-lp-s">Performance / Learning / Reinvestment</span><span class="bwi-lp-tag">Impact considered</span></span></li>
+          <ol class="bwi-lp-nodes" aria-label="Financial Engine stages" style="margin:0; padding:0; list-style:none">
+            <li class="bwi-lp-item bwi-is-on">
+              <button class="bwi-lp-n bwi-is-on" id="bwi-engine-step-1" type="button" data-bwi-engine-step="0" aria-expanded="true" aria-controls="bwi-engine-panel-1">
+                <span class="bwi-lp-in"><span class="bwi-lp-num" aria-hidden="true">01</span><span class="bwi-lp-dot" aria-hidden="true"></span><span class="bwi-lp-t"><span class="bwi-lp-tn" aria-hidden="true">01</span>Need</span>
+                  <span class="bwi-lp-s">Economic Need</span>
+                <span class="bwi-lp-pm" aria-hidden="true"></span></span>
+              </button>
+              <div class="bwi-lp-acc" id="bwi-engine-mobile-1" role="region" aria-labelledby="bwi-engine-step-1" aria-hidden="true" inert><div>
+                <p class="bwi-lpd-d">A real business or project need is identified and understood: its cash flows, contracts and constraints.</p>
+                <p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>A regional food manufacturer wins a large export order. It needs working capital to buy inputs now, but the buyer pays in 120 days.</span></p>
+              </div></div>
+            </li>
+            <li class="bwi-lp-item">
+              <button class="bwi-lp-n" id="bwi-engine-step-2" type="button" data-bwi-engine-step="1" aria-expanded="false" aria-controls="bwi-engine-panel-2">
+                <span class="bwi-lp-in"><span class="bwi-lp-num" aria-hidden="true">02</span><span class="bwi-lp-dot" aria-hidden="true"></span><span class="bwi-lp-t"><span class="bwi-lp-tn" aria-hidden="true">02</span>Architecture</span>
+                  <span class="bwi-lp-s">Financial Architecture</span>
+                  <span class="bwi-lp-tag">Impact considered</span>
+                <span class="bwi-lp-pm" aria-hidden="true"></span></span>
+              </button>
+              <div class="bwi-lp-acc" id="bwi-engine-mobile-2" role="region" aria-labelledby="bwi-engine-step-2" aria-hidden="true" inert><div>
+                <p class="bwi-lpd-d">A structure is designed around the need, with terms, timing and repayment matched to how the activity earns.</p>
+                <p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>The facility is sized to the order and repaid from the buyer’s payment, rather than through a standard term loan.</span></p>
+              </div></div>
+            </li>
+            <li class="bwi-lp-item">
+              <button class="bwi-lp-n" id="bwi-engine-step-3" type="button" data-bwi-engine-step="2" aria-expanded="false" aria-controls="bwi-engine-panel-3">
+                <span class="bwi-lp-in"><span class="bwi-lp-num" aria-hidden="true">03</span><span class="bwi-lp-dot" aria-hidden="true"></span><span class="bwi-lp-t"><span class="bwi-lp-tn" aria-hidden="true">03</span>Institution</span>
+                  <span class="bwi-lp-s">Appropriate Institution / Delivery Capability</span>
+                  <span class="bwi-lp-tag">Impact considered</span>
+                <span class="bwi-lp-pm" aria-hidden="true"></span></span>
+              </button>
+              <div class="bwi-lp-acc" id="bwi-engine-mobile-3" role="region" aria-labelledby="bwi-engine-step-3" aria-hidden="true" inert><div>
+                <p class="bwi-lpd-d">The structure is matched to the platform, group company or authorised partner able to deliver it.</p>
+                <p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>Delivery sits with the entity that holds the relevant capability and, where needed, the regulatory permission.</span></p>
+              </div></div>
+            </li>
+            <li class="bwi-lp-item">
+              <button class="bwi-lp-n" id="bwi-engine-step-4" type="button" data-bwi-engine-step="3" aria-expanded="false" aria-controls="bwi-engine-panel-4">
+                <span class="bwi-lp-in"><span class="bwi-lp-num" aria-hidden="true">04</span><span class="bwi-lp-dot" aria-hidden="true"></span><span class="bwi-lp-t"><span class="bwi-lp-tn" aria-hidden="true">04</span>Capital</span>
+                <span class="bwi-lp-pm" aria-hidden="true"></span></span>
+              </button>
+              <div class="bwi-lp-acc" id="bwi-engine-mobile-4" role="region" aria-labelledby="bwi-engine-step-4" aria-hidden="true" inert><div>
+                <p class="bwi-lpd-d">Capital whose mandate fits the structure, risk and tenor is connected through the appropriate authorised vehicle.</p>
+                <p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>Capital providers looking for short-tenor, trade-linked exposure are matched to the facility.</span></p>
+              </div></div>
+            </li>
+            <li class="bwi-lp-item">
+              <button class="bwi-lp-n" id="bwi-engine-step-5" type="button" data-bwi-engine-step="4" aria-expanded="false" aria-controls="bwi-engine-panel-5">
+                <span class="bwi-lp-in"><span class="bwi-lp-num" aria-hidden="true">05</span><span class="bwi-lp-dot" aria-hidden="true"></span><span class="bwi-lp-t"><span class="bwi-lp-tn" aria-hidden="true">05</span>Activity</span>
+                  <span class="bwi-lp-s">Productive Economic Activity</span>
+                <span class="bwi-lp-pm" aria-hidden="true"></span></span>
+              </button>
+              <div class="bwi-lp-acc" id="bwi-engine-mobile-5" role="region" aria-labelledby="bwi-engine-step-5" aria-hidden="true" inert><div>
+                <p class="bwi-lpd-d">Capital reaches the underlying activity and is put to productive use.</p>
+                <p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>The manufacturer buys its inputs, fulfils the order and keeps its workforce and suppliers busy.</span></p>
+              </div></div>
+            </li>
+            <li class="bwi-lp-item">
+              <button class="bwi-lp-n" id="bwi-engine-step-6" type="button" data-bwi-engine-step="5" aria-expanded="false" aria-controls="bwi-engine-panel-6">
+                <span class="bwi-lp-in"><span class="bwi-lp-num" aria-hidden="true">06</span><span class="bwi-lp-dot" aria-hidden="true"></span><span class="bwi-lp-t"><span class="bwi-lp-tn" aria-hidden="true">06</span>Reinvestment</span>
+                  <span class="bwi-lp-s">Performance / Learning / Reinvestment</span>
+                  <span class="bwi-lp-tag">Impact considered</span>
+                <span class="bwi-lp-pm" aria-hidden="true"></span></span>
+              </button>
+              <div class="bwi-lp-acc" id="bwi-engine-mobile-6" role="region" aria-labelledby="bwi-engine-step-6" aria-hidden="true" inert><div>
+                <p class="bwi-lpd-d">Performance is tracked, returns flow back, and what was learned informs the next structure.</p>
+                <p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>The buyer pays, the facility is repaid, and the engagement informs how the next order is structured.</span></p>
+              </div></div>
+            </li>
           </ol>
-        </figure>
+        </div>
         <div class="bwi-lp-loopnote" aria-hidden="true" style="display:none; margin-top:8px; align-items:center; gap:8px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-gold-dark)">↑ Reinvestment returns to Need</div>
-        <a class="bwi-link" href="/financial-engine#fe-hero" data-bwi-link="financialEngineHero" style="margin-top:clamp(24px,3vw,40px)">How the Financial Engine works <span class="bwi-ar" aria-hidden="true">→</span></a>
+        <div class="bwi-lpd" data-bwi-engine-details>
+          <div class="bwi-lpd-stack">
+            <div class="bwi-lpd-pane bwi-is-on" id="bwi-engine-panel-1" role="region" aria-labelledby="bwi-engine-step-1" aria-hidden="false">
+              <div><span class="bwi-lpd-k">Step 01</span><h3 class="bwi-lpd-h">Need</h3></div>
+              <div><p class="bwi-lpd-full">Economic Need</p><p class="bwi-lpd-d">A real business or project need is identified and understood: its cash flows, contracts and constraints.</p><p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>A regional food manufacturer wins a large export order. It needs working capital to buy inputs now, but the buyer pays in 120 days.</span></p></div>
+            </div>
+            <div class="bwi-lpd-pane" id="bwi-engine-panel-2" role="region" aria-labelledby="bwi-engine-step-2" aria-hidden="true" inert>
+              <div><span class="bwi-lpd-k">Step 02</span><h3 class="bwi-lpd-h">Architecture</h3></div>
+              <div><p class="bwi-lpd-full">Financial Architecture</p><p class="bwi-lpd-d">A structure is designed around the need, with terms, timing and repayment matched to how the activity earns.</p><p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>The facility is sized to the order and repaid from the buyer’s payment, rather than through a standard term loan.</span></p></div>
+            </div>
+            <div class="bwi-lpd-pane" id="bwi-engine-panel-3" role="region" aria-labelledby="bwi-engine-step-3" aria-hidden="true" inert>
+              <div><span class="bwi-lpd-k">Step 03</span><h3 class="bwi-lpd-h">Institution</h3></div>
+              <div><p class="bwi-lpd-full">Appropriate Institution / Delivery Capability</p><p class="bwi-lpd-d">The structure is matched to the platform, group company or authorised partner able to deliver it.</p><p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>Delivery sits with the entity that holds the relevant capability and, where needed, the regulatory permission.</span></p></div>
+            </div>
+            <div class="bwi-lpd-pane" id="bwi-engine-panel-4" role="region" aria-labelledby="bwi-engine-step-4" aria-hidden="true" inert>
+              <div><span class="bwi-lpd-k">Step 04</span><h3 class="bwi-lpd-h">Capital</h3></div>
+              <div><p class="bwi-lpd-full">Capital</p><p class="bwi-lpd-d">Capital whose mandate fits the structure, risk and tenor is connected through the appropriate authorised vehicle.</p><p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>Capital providers looking for short-tenor, trade-linked exposure are matched to the facility.</span></p></div>
+            </div>
+            <div class="bwi-lpd-pane" id="bwi-engine-panel-5" role="region" aria-labelledby="bwi-engine-step-5" aria-hidden="true" inert>
+              <div><span class="bwi-lpd-k">Step 05</span><h3 class="bwi-lpd-h">Activity</h3></div>
+              <div><p class="bwi-lpd-full">Productive Economic Activity</p><p class="bwi-lpd-d">Capital reaches the underlying activity and is put to productive use.</p><p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>The manufacturer buys its inputs, fulfils the order and keeps its workforce and suppliers busy.</span></p></div>
+            </div>
+            <div class="bwi-lpd-pane" id="bwi-engine-panel-6" role="region" aria-labelledby="bwi-engine-step-6" aria-hidden="true" inert>
+              <div><span class="bwi-lpd-k">Step 06</span><h3 class="bwi-lpd-h">Reinvestment</h3></div>
+              <div><p class="bwi-lpd-full">Performance / Learning / Reinvestment</p><p class="bwi-lpd-d">Performance is tracked, returns flow back, and what was learned informs the next structure.</p><p class="bwi-lpd-ex"><span class="bwi-badge">Example</span><span>The buyer pays, the facility is repaid, and the engagement informs how the next order is structured.</span></p></div>
+            </div>
+          </div>
+          <div class="bwi-lpd-side">
+            <a class="bwi-link" href="/financial-engine#fe-hero" data-bwi-link="financialEngineHero">How the Financial Engine works <span class="bwi-ar" aria-hidden="true">→</span></a>
+            <p class="bwi-eng-progress" role="status" aria-live="polite" aria-atomic="true" data-bwi-engine-count>Step 1 of 6: Need</p>
+            <div class="bwi-lpd-ctrl" role="group" aria-label="Financial Engine controls">
+              <button type="button" aria-label="Previous stage" data-bwi-engine-prev><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
+              <button type="button" aria-label="Next stage" data-bwi-engine-next><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1048,6 +1226,68 @@
     }
     populate('evidence',['value','label','date','source'],'evidence');
     populate('cases',['label','title','summary','href','img','alt'],'case');
+    /* Six-stage interaction required by the original brief. Content/styles come from the source's
+       retained STEPS/detail definitions; its static figure is intentionally replaced. */
+    var engine = root.querySelector('[data-bwi-engine-loop]');
+    var nodes = qa('[data-bwi-engine-step]');
+    var engineMedia = window.matchMedia('(max-width:1023px)');
+    var currentStep = 0;
+    function renderEngine() {
+      var narrow = engineMedia.matches;
+      engine.style.setProperty('--p', currentStep / (nodes.length - 1));
+      var name = nodes[currentStep].querySelector('.bwi-lp-t').lastChild.textContent;
+      var description = 'Step '+(currentStep+1)+' of '+nodes.length+': '+name;
+      var progress = root.querySelector('[data-bwi-engine-progress]');
+      progress.setAttribute('aria-valuenow', String(currentStep+1));
+      progress.setAttribute('aria-valuetext', description);
+      root.querySelector('[data-bwi-engine-count]').textContent = description;
+      nodes.forEach(function (button, i) {
+        var active = i === currentStep;
+        button.classList.toggle('bwi-is-on', active);
+        button.classList.toggle('bwi-is-past', i < currentStep);
+        button.parentElement.classList.toggle('bwi-is-on', active);
+        button.setAttribute('aria-expanded', String(active));
+        button.setAttribute('aria-controls', 'bwi-engine-'+(narrow ? 'mobile-' : 'panel-')+(i+1));
+        ['panel','mobile'].forEach(function (kind) {
+          var panel = root.querySelector('#bwi-engine-'+kind+'-'+(i+1));
+          var exposed = active && (kind === 'mobile' ? narrow : !narrow);
+          panel.classList.toggle('bwi-is-on', active);
+          panel.setAttribute('aria-hidden', String(!exposed));
+          panel.inert = !exposed;
+        });
+      });
+    }
+    function pickStep(index, reveal) {
+      currentStep = (index + nodes.length) % nodes.length;
+      renderEngine();
+      if (!reveal || engineMedia.matches) return;
+      // Source lpdReveal: selecting a desktop node brings the detail card into view if needed.
+      cancelAnimationFrame(timers.engineRaf);
+      timers.engineRaf = requestAnimationFrame(function () {
+        if (!root.isConnected) return;
+        var rect = root.querySelector('[data-bwi-engine-details]').getBoundingClientRect();
+        var over = rect.bottom - (window.innerHeight - 16);
+        if (over > 0) window.scrollBy({top:Math.min(over,rect.top-80),behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+      });
+    }
+    nodes.forEach(function (button, i) {
+      on(button,'click',function () { pickStep(i,true); });
+      on(button,'keydown',function (event) {
+        var next;
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = i+1;
+        else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = i-1;
+        else if (event.key === 'Home') next = 0;
+        else if (event.key === 'End') next = nodes.length-1;
+        else return;
+        event.preventDefault();pickStep(next,true);nodes[currentStep].focus({preventScroll:true});
+      });
+    });
+    on(root.querySelector('[data-bwi-engine-prev]'),'click',function () { pickStep(currentStep-1,false); });
+    on(root.querySelector('[data-bwi-engine-next]'),'click',function () { pickStep(currentStep+1,false); });
+    if (engineMedia.addEventListener) on(engineMedia,'change',renderEngine);
+    else { engineMedia.addListener(renderEngine);cleanups.push(function () { engineMedia.removeListener(renderEngine); }); }
+    renderEngine(); // Normalize a cloned live root back to the source's initial step.
+
     var links = cfg.links || {};
     qa('a[data-bwi-link]').forEach(function (a) {
       var key = a.getAttribute('data-bwi-link');
@@ -1071,6 +1311,7 @@
     var destroyed = false;
     return { destroy:function () {
       if (destroyed) return;destroyed=true;
+      cancelAnimationFrame(timers.engineRaf);
       if (motion) motion.destroy();if (chrome) chrome.destroy();
       cleanups.forEach(function (fn) { fn(); });status.remove();
     }};
