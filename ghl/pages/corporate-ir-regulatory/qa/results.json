@@ -1,0 +1,2583 @@
+{
+  "generatedAt": "2026-10-26T14:29:53.831383+00:00",
+  "result": "PASS",
+  "source": {
+    "file": "design/Corporate IR.dc.html",
+    "hash": "#regulatory",
+    "baseCommit": "53f0457",
+    "previousMerge": "PR #31 Shareholders"
+  },
+  "environment": {
+    "browser": "Chromium 154.0.8037.57",
+    "runner": "Playwright on Linux",
+    "scope": "Local loopback preview and hostile GHL-like host; not published GHL",
+    "fonts": "NOT VERIFIED: remote font requests deliberately blocked; both references use identical fallback fonts"
+  },
+  "visual": {
+    "cases": 23,
+    "comparisons": 46,
+    "documentedCorrectionReferencePixelIdentical": 46,
+    "unmodifiedSourcePixelIdentical": 34,
+    "unmodifiedSourceIntentionalDifferences": 12,
+    "comparisonNote": "Raw source retained. The additional reference applies only max-width:100%, white-space:normal and a nonshrinking marker on block approval badges; no source copy or other styles change. Twelve raw comparisons differ because narrow approval badges now wrap within their containers.",
+    "matrix": [
+      {
+        "width": 320,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 3534,
+        "referenceHeight": 3565,
+        "inlineHeight": 3565,
+        "hostedHeight": 3565,
+        "documentWidths": {
+          "source": 320,
+          "plain": 320,
+          "hosted": 320
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 382
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 524,
+            "height": 535
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1058,
+            "height": 730
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1789,
+            "height": 539
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 382
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 524,
+            "height": 519
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1043,
+            "height": 715
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1758,
+            "height": 539
+          }
+        ],
+        "captures": {
+          "rawSource": "source-320-900.png",
+          "source": "reference-320-900.png",
+          "plain": "plain-320-900.png",
+          "hosted": "hosted-320-900.png"
+        }
+      },
+      {
+        "width": 360,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 3412,
+        "referenceHeight": 3443,
+        "inlineHeight": 3443,
+        "hostedHeight": 3443,
+        "documentWidths": {
+          "source": 360,
+          "plain": 360,
+          "hosted": 360
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 359
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 501,
+            "height": 480
+          },
+          {
+            "label": "Regulated entities",
+            "y": 981,
+            "height": 706
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1687,
+            "height": 519
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 359
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 501,
+            "height": 465
+          },
+          {
+            "label": "Regulated entities",
+            "y": 965,
+            "height": 691
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1657,
+            "height": 519
+          }
+        ],
+        "captures": {
+          "rawSource": "source-360-900.png",
+          "source": "reference-360-900.png",
+          "plain": "plain-360-900.png",
+          "hosted": "hosted-360-900.png"
+        }
+      },
+      {
+        "width": 375,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 3412,
+        "referenceHeight": 3443,
+        "inlineHeight": 3443,
+        "hostedHeight": 3443,
+        "documentWidths": {
+          "source": 375,
+          "plain": 375,
+          "hosted": 375
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 359
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 501,
+            "height": 480
+          },
+          {
+            "label": "Regulated entities",
+            "y": 981,
+            "height": 706
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1687,
+            "height": 519
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 359
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 501,
+            "height": 465
+          },
+          {
+            "label": "Regulated entities",
+            "y": 965,
+            "height": 691
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1657,
+            "height": 519
+          }
+        ],
+        "captures": {
+          "rawSource": "source-375-900.png",
+          "source": "reference-375-900.png",
+          "plain": "plain-375-900.png",
+          "hosted": "hosted-375-900.png"
+        }
+      },
+      {
+        "width": 390,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 3334,
+        "referenceHeight": 3349,
+        "inlineHeight": 3349,
+        "hostedHeight": 3349,
+        "documentWidths": {
+          "source": 390,
+          "plain": 390,
+          "hosted": 390
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 333
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 475,
+            "height": 453
+          },
+          {
+            "label": "Regulated entities",
+            "y": 928,
+            "height": 691
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1619,
+            "height": 493
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 333
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 475,
+            "height": 438
+          },
+          {
+            "label": "Regulated entities",
+            "y": 913,
+            "height": 691
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1604,
+            "height": 493
+          }
+        ],
+        "captures": {
+          "rawSource": "source-390-900.png",
+          "source": "reference-390-900.png",
+          "plain": "plain-390-900.png",
+          "hosted": "hosted-390-900.png"
+        }
+      },
+      {
+        "width": 430,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 3296,
+        "referenceHeight": 3296,
+        "inlineHeight": 3296,
+        "hostedHeight": 3296,
+        "documentWidths": {
+          "source": 430,
+          "plain": 430,
+          "hosted": 430
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 295
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 437,
+            "height": 438
+          },
+          {
+            "label": "Regulated entities",
+            "y": 875,
+            "height": 691
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1566,
+            "height": 493
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 295
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 437,
+            "height": 438
+          },
+          {
+            "label": "Regulated entities",
+            "y": 875,
+            "height": 691
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1566,
+            "height": 493
+          }
+        ],
+        "captures": {
+          "rawSource": "source-430-900.png",
+          "source": "reference-430-900.png",
+          "plain": "plain-430-900.png",
+          "hosted": "hosted-430-900.png"
+        }
+      },
+      {
+        "width": 768,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 2395,
+        "referenceHeight": 2395,
+        "inlineHeight": 2395,
+        "hostedHeight": 2395,
+        "documentWidths": {
+          "source": 768,
+          "plain": 768,
+          "hosted": 768
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 77,
+            "height": 294
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 444,
+            "height": 352
+          },
+          {
+            "label": "Regulated entities",
+            "y": 796,
+            "height": 466
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1262,
+            "height": 391
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 77,
+            "height": 294
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 444,
+            "height": 352
+          },
+          {
+            "label": "Regulated entities",
+            "y": 796,
+            "height": 466
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1262,
+            "height": 391
+          }
+        ],
+        "captures": {
+          "rawSource": "source-768-900.png",
+          "source": "reference-768-900.png",
+          "plain": "plain-768-900.png",
+          "hosted": "hosted-768-900.png"
+        }
+      },
+      {
+        "width": 1024,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 2180,
+        "referenceHeight": 2180,
+        "inlineHeight": 2180,
+        "hostedHeight": 2180,
+        "documentWidths": {
+          "source": 1024,
+          "plain": 1024,
+          "hosted": 1024
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 77,
+            "height": 346
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 496,
+            "height": 376
+          },
+          {
+            "label": "Regulated entities",
+            "y": 872,
+            "height": 474
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1347,
+            "height": 445
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 77,
+            "height": 346
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 496,
+            "height": 376
+          },
+          {
+            "label": "Regulated entities",
+            "y": 872,
+            "height": 474
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1347,
+            "height": 445
+          }
+        ],
+        "captures": {
+          "rawSource": "source-1024-900.png",
+          "source": "reference-1024-900.png",
+          "plain": "plain-1024-900.png",
+          "hosted": "hosted-1024-900.png"
+        }
+      },
+      {
+        "width": 1099,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 2250,
+        "referenceHeight": 2250,
+        "inlineHeight": 2250,
+        "hostedHeight": 2250,
+        "documentWidths": {
+          "source": 1099,
+          "plain": 1099,
+          "hosted": 1099
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 77,
+            "height": 363
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 513,
+            "height": 394
+          },
+          {
+            "label": "Regulated entities",
+            "y": 906,
+            "height": 493
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1399,
+            "height": 463
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 77,
+            "height": 363
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 513,
+            "height": 394
+          },
+          {
+            "label": "Regulated entities",
+            "y": 906,
+            "height": 493
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1399,
+            "height": 463
+          }
+        ],
+        "captures": {
+          "rawSource": "source-1099-900.png",
+          "source": "reference-1099-900.png",
+          "plain": "plain-1099-900.png",
+          "hosted": "hosted-1099-900.png"
+        }
+      },
+      {
+        "width": 1100,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 2251,
+        "referenceHeight": 2251,
+        "inlineHeight": 2251,
+        "hostedHeight": 2251,
+        "documentWidths": {
+          "source": 1100,
+          "plain": 1100,
+          "hosted": 1100
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 77,
+            "height": 363
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 513,
+            "height": 394
+          },
+          {
+            "label": "Regulated entities",
+            "y": 907,
+            "height": 493
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1400,
+            "height": 463
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 77,
+            "height": 363
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 513,
+            "height": 394
+          },
+          {
+            "label": "Regulated entities",
+            "y": 907,
+            "height": 493
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1400,
+            "height": 463
+          }
+        ],
+        "captures": {
+          "rawSource": "source-1100-900.png",
+          "source": "reference-1100-900.png",
+          "plain": "plain-1100-900.png",
+          "hosted": "hosted-1100-900.png"
+        }
+      },
+      {
+        "width": 1101,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 2235,
+        "referenceHeight": 2235,
+        "inlineHeight": 2235,
+        "hostedHeight": 2235,
+        "documentWidths": {
+          "source": 1101,
+          "plain": 1101,
+          "hosted": 1101
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 77,
+            "height": 363
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 496,
+            "height": 394
+          },
+          {
+            "label": "Regulated entities",
+            "y": 890,
+            "height": 493
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1383,
+            "height": 463
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 77,
+            "height": 363
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 496,
+            "height": 394
+          },
+          {
+            "label": "Regulated entities",
+            "y": 890,
+            "height": 493
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1383,
+            "height": 463
+          }
+        ],
+        "captures": {
+          "rawSource": "source-1101-900.png",
+          "source": "reference-1101-900.png",
+          "plain": "plain-1101-900.png",
+          "hosted": "hosted-1101-900.png"
+        }
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 2394,
+        "referenceHeight": 2394,
+        "inlineHeight": 2394,
+        "hostedHeight": 2394,
+        "documentWidths": {
+          "source": 1280,
+          "plain": 1280,
+          "hosted": 1280
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 399
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 572,
+            "height": 436
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1008,
+            "height": 492
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1500,
+            "height": 506
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 399
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 572,
+            "height": 436
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1008,
+            "height": 492
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1500,
+            "height": 506
+          }
+        ],
+        "captures": {
+          "rawSource": "source-1280-900.png",
+          "source": "reference-1280-900.png",
+          "plain": "plain-1280-900.png",
+          "hosted": "hosted-1280-900.png"
+        }
+      },
+      {
+        "width": 1366,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 2450,
+        "referenceHeight": 2450,
+        "inlineHeight": 2450,
+        "hostedHeight": 2450,
+        "documentWidths": {
+          "source": 1366,
+          "plain": 1366,
+          "hosted": 1366
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 408
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 581,
+            "height": 454
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1035,
+            "height": 506
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1541,
+            "height": 521
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 408
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 581,
+            "height": 454
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1035,
+            "height": 506
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1541,
+            "height": 521
+          }
+        ],
+        "captures": {
+          "rawSource": "source-1366-900.png",
+          "source": "reference-1366-900.png",
+          "plain": "plain-1366-900.png",
+          "hosted": "hosted-1366-900.png"
+        }
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 2472,
+        "referenceHeight": 2472,
+        "inlineHeight": 2472,
+        "hostedHeight": 2472,
+        "documentWidths": {
+          "source": 1440,
+          "plain": 1440,
+          "hosted": 1440
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 586,
+            "height": 459
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1046,
+            "height": 511
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1557,
+            "height": 526
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 586,
+            "height": 459
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1046,
+            "height": 511
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1557,
+            "height": 526
+          }
+        ],
+        "captures": {
+          "rawSource": "source-1440-900.png",
+          "source": "reference-1440-900.png",
+          "plain": "plain-1440-900.png",
+          "hosted": "hosted-1440-900.png"
+        }
+      },
+      {
+        "width": 1600,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 2472,
+        "referenceHeight": 2472,
+        "inlineHeight": 2472,
+        "hostedHeight": 2472,
+        "documentWidths": {
+          "source": 1600,
+          "plain": 1600,
+          "hosted": 1600
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 586,
+            "height": 459
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1046,
+            "height": 511
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1557,
+            "height": 526
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 586,
+            "height": 459
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1046,
+            "height": 511
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1557,
+            "height": 526
+          }
+        ],
+        "captures": {
+          "rawSource": "source-1600-900.png",
+          "source": "reference-1600-900.png",
+          "plain": "plain-1600-900.png",
+          "hosted": "hosted-1600-900.png"
+        }
+      },
+      {
+        "width": 1920,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 2472,
+        "referenceHeight": 2472,
+        "inlineHeight": 2472,
+        "hostedHeight": 2472,
+        "documentWidths": {
+          "source": 1920,
+          "plain": 1920,
+          "hosted": 1920
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 586,
+            "height": 459
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1046,
+            "height": 511
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1557,
+            "height": 526
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 586,
+            "height": 459
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1046,
+            "height": 511
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1557,
+            "height": 526
+          }
+        ],
+        "captures": {
+          "rawSource": "source-1920-900.png",
+          "source": "reference-1920-900.png",
+          "plain": "plain-1920-900.png",
+          "hosted": "hosted-1920-900.png"
+        }
+      },
+      {
+        "width": 2560,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 2472,
+        "referenceHeight": 2472,
+        "inlineHeight": 2472,
+        "hostedHeight": 2472,
+        "documentWidths": {
+          "source": 2560,
+          "plain": 2560,
+          "hosted": 2560
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 586,
+            "height": 459
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1046,
+            "height": 511
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1557,
+            "height": 526
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 586,
+            "height": 459
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1046,
+            "height": 511
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1557,
+            "height": 526
+          }
+        ],
+        "captures": {
+          "rawSource": "source-2560-900.png",
+          "source": "reference-2560-900.png",
+          "plain": "plain-2560-900.png",
+          "hosted": "hosted-2560-900.png"
+        }
+      },
+      {
+        "width": 390,
+        "height": 600,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 3334,
+        "referenceHeight": 3349,
+        "inlineHeight": 3349,
+        "hostedHeight": 3349,
+        "documentWidths": {
+          "source": 390,
+          "plain": 390,
+          "hosted": 390
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 333
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 475,
+            "height": 453
+          },
+          {
+            "label": "Regulated entities",
+            "y": 928,
+            "height": 691
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1619,
+            "height": 493
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 333
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 475,
+            "height": 438
+          },
+          {
+            "label": "Regulated entities",
+            "y": 913,
+            "height": 691
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1604,
+            "height": 493
+          }
+        ],
+        "captures": {
+          "rawSource": "source-390-600.png",
+          "source": "reference-390-600.png",
+          "plain": "plain-390-600.png",
+          "hosted": "hosted-390-600.png"
+        }
+      },
+      {
+        "width": 1024,
+        "height": 1200,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 2180,
+        "referenceHeight": 2180,
+        "inlineHeight": 2180,
+        "hostedHeight": 2180,
+        "documentWidths": {
+          "source": 1024,
+          "plain": 1024,
+          "hosted": 1024
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 77,
+            "height": 346
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 496,
+            "height": 376
+          },
+          {
+            "label": "Regulated entities",
+            "y": 872,
+            "height": 474
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1347,
+            "height": 445
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 77,
+            "height": 346
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 496,
+            "height": 376
+          },
+          {
+            "label": "Regulated entities",
+            "y": 872,
+            "height": 474
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1347,
+            "height": 445
+          }
+        ],
+        "captures": {
+          "rawSource": "source-1024-1200.png",
+          "source": "reference-1024-1200.png",
+          "plain": "plain-1024-1200.png",
+          "hosted": "hosted-1024-1200.png"
+        }
+      },
+      {
+        "width": 1440,
+        "height": 600,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 2472,
+        "referenceHeight": 2472,
+        "inlineHeight": 2472,
+        "hostedHeight": 2472,
+        "documentWidths": {
+          "source": 1440,
+          "plain": 1440,
+          "hosted": 1440
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 586,
+            "height": 459
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1046,
+            "height": 511
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1557,
+            "height": 526
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 586,
+            "height": 459
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1046,
+            "height": 511
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1557,
+            "height": 526
+          }
+        ],
+        "captures": {
+          "rawSource": "source-1440-600.png",
+          "source": "reference-1440-600.png",
+          "plain": "plain-1440-600.png",
+          "hosted": "hosted-1440-600.png"
+        }
+      },
+      {
+        "width": 390,
+        "height": 900,
+        "motion": true,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 3334,
+        "referenceHeight": 3349,
+        "inlineHeight": 3349,
+        "hostedHeight": 3349,
+        "documentWidths": {
+          "source": 390,
+          "plain": 390,
+          "hosted": 390
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 333
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 475,
+            "height": 453
+          },
+          {
+            "label": "Regulated entities",
+            "y": 928,
+            "height": 691
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1619,
+            "height": 493
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 333
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 475,
+            "height": 438
+          },
+          {
+            "label": "Regulated entities",
+            "y": 913,
+            "height": 691
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1604,
+            "height": 493
+          }
+        ],
+        "captures": {
+          "rawSource": "source-390-900-motion.png",
+          "source": "reference-390-900-motion.png",
+          "plain": "plain-390-900-motion.png",
+          "hosted": "hosted-390-900-motion.png"
+        }
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "motion": true,
+        "scenario": "default",
+        "status": "PASS",
+        "rawSourceHeight": 2472,
+        "referenceHeight": 2472,
+        "inlineHeight": 2472,
+        "hostedHeight": 2472,
+        "documentWidths": {
+          "source": 1440,
+          "plain": 1440,
+          "hosted": 1440
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 586,
+            "height": 459
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1046,
+            "height": 511
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1557,
+            "height": 526
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 586,
+            "height": 459
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1046,
+            "height": 511
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1557,
+            "height": 526
+          }
+        ],
+        "captures": {
+          "rawSource": "source-1440-900-motion.png",
+          "source": "reference-1440-900-motion.png",
+          "plain": "plain-1440-900-motion.png",
+          "hosted": "hosted-1440-900-motion.png"
+        }
+      },
+      {
+        "width": 390,
+        "height": 900,
+        "motion": false,
+        "scenario": "flags-off",
+        "status": "PASS",
+        "rawSourceHeight": 3263,
+        "referenceHeight": 3263,
+        "inlineHeight": 3263,
+        "hostedHeight": 3263,
+        "documentWidths": {
+          "source": 390,
+          "plain": 390,
+          "hosted": 390
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 333
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 475,
+            "height": 405
+          },
+          {
+            "label": "Regulated entities",
+            "y": 880,
+            "height": 653
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1533,
+            "height": 493
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 69,
+            "height": 333
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 475,
+            "height": 405
+          },
+          {
+            "label": "Regulated entities",
+            "y": 880,
+            "height": 653
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1533,
+            "height": 493
+          }
+        ],
+        "captures": {
+          "rawSource": "source-390-900-flags-off.png",
+          "source": "reference-390-900-flags-off.png",
+          "plain": "plain-390-900-flags-off.png",
+          "hosted": "hosted-390-900-flags-off.png"
+        }
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "motion": false,
+        "scenario": "flags-off",
+        "status": "PASS",
+        "rawSourceHeight": 2402,
+        "referenceHeight": 2402,
+        "inlineHeight": 2402,
+        "hostedHeight": 2402,
+        "documentWidths": {
+          "source": 1440,
+          "plain": 1440,
+          "hosted": 1440
+        },
+        "sectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 586,
+            "height": 428
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1014,
+            "height": 474
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1487,
+            "height": 526
+          }
+        ],
+        "rawSourceSectionGeometry": [
+          {
+            "label": "Hero",
+            "y": 117,
+            "height": 413
+          },
+          {
+            "label": "Regulatory perimeter",
+            "y": 586,
+            "height": 428
+          },
+          {
+            "label": "Regulated entities",
+            "y": 1014,
+            "height": 474
+          },
+          {
+            "label": "Proposed institutions",
+            "y": 1487,
+            "height": 526
+          }
+        ],
+        "captures": {
+          "rawSource": "source-1440-900-flags-off.png",
+          "source": "reference-1440-900-flags-off.png",
+          "plain": "plain-1440-900-flags-off.png",
+          "hosted": "hosted-1440-900-flags-off.png"
+        }
+      }
+    ],
+    "pixels": [
+      {
+        "capture": "plain-1024-1200.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1024,
+          2180
+        ],
+        "output_size": [
+          1024,
+          2180
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "hosted-1024-1200.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1024,
+          2180
+        ],
+        "output_size": [
+          1024,
+          2180
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "plain-1024-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1024,
+          2180
+        ],
+        "output_size": [
+          1024,
+          2180
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "hosted-1024-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1024,
+          2180
+        ],
+        "output_size": [
+          1024,
+          2180
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "plain-1099-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1099,
+          2250
+        ],
+        "output_size": [
+          1099,
+          2250
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "hosted-1099-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1099,
+          2250
+        ],
+        "output_size": [
+          1099,
+          2250
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "plain-1100-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1100,
+          2251
+        ],
+        "output_size": [
+          1100,
+          2251
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "hosted-1100-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1100,
+          2251
+        ],
+        "output_size": [
+          1100,
+          2251
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "plain-1101-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1101,
+          2235
+        ],
+        "output_size": [
+          1101,
+          2235
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "hosted-1101-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1101,
+          2235
+        ],
+        "output_size": [
+          1101,
+          2235
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "plain-1280-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1280,
+          2394
+        ],
+        "output_size": [
+          1280,
+          2394
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "hosted-1280-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1280,
+          2394
+        ],
+        "output_size": [
+          1280,
+          2394
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "plain-1366-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1366,
+          2450
+        ],
+        "output_size": [
+          1366,
+          2450
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "hosted-1366-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1366,
+          2450
+        ],
+        "output_size": [
+          1366,
+          2450
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "plain-1440-600.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1440,
+          2472
+        ],
+        "output_size": [
+          1440,
+          2472
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "hosted-1440-600.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1440,
+          2472
+        ],
+        "output_size": [
+          1440,
+          2472
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "plain-1440-900-flags-off.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1440,
+          2402
+        ],
+        "output_size": [
+          1440,
+          2402
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "hosted-1440-900-flags-off.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1440,
+          2402
+        ],
+        "output_size": [
+          1440,
+          2402
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "plain-1440-900-motion.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1440,
+          2472
+        ],
+        "output_size": [
+          1440,
+          2472
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "hosted-1440-900-motion.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1440,
+          2472
+        ],
+        "output_size": [
+          1440,
+          2472
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "plain-1440-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1440,
+          2472
+        ],
+        "output_size": [
+          1440,
+          2472
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "hosted-1440-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1440,
+          2472
+        ],
+        "output_size": [
+          1440,
+          2472
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "plain-1600-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1600,
+          2472
+        ],
+        "output_size": [
+          1600,
+          2472
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "hosted-1600-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1600,
+          2472
+        ],
+        "output_size": [
+          1600,
+          2472
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "plain-1920-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1920,
+          2472
+        ],
+        "output_size": [
+          1920,
+          2472
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "hosted-1920-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          1920,
+          2472
+        ],
+        "output_size": [
+          1920,
+          2472
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "plain-2560-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          2560,
+          2472
+        ],
+        "output_size": [
+          2560,
+          2472
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "hosted-2560-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          2560,
+          2472
+        ],
+        "output_size": [
+          2560,
+          2472
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "plain-320-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          320,
+          3534
+        ],
+        "output_size": [
+          320,
+          3565
+        ],
+        "raw_changed_pixels": null,
+        "raw_note": "Original comparison differs where approval-badge wrapping changes content height"
+      },
+      {
+        "capture": "hosted-320-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          320,
+          3534
+        ],
+        "output_size": [
+          320,
+          3565
+        ],
+        "raw_changed_pixels": null,
+        "raw_note": "Original comparison differs where approval-badge wrapping changes content height"
+      },
+      {
+        "capture": "plain-360-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          360,
+          3412
+        ],
+        "output_size": [
+          360,
+          3443
+        ],
+        "raw_changed_pixels": null,
+        "raw_note": "Original comparison differs where approval-badge wrapping changes content height"
+      },
+      {
+        "capture": "hosted-360-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          360,
+          3412
+        ],
+        "output_size": [
+          360,
+          3443
+        ],
+        "raw_changed_pixels": null,
+        "raw_note": "Original comparison differs where approval-badge wrapping changes content height"
+      },
+      {
+        "capture": "plain-375-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          375,
+          3412
+        ],
+        "output_size": [
+          375,
+          3443
+        ],
+        "raw_changed_pixels": null,
+        "raw_note": "Original comparison differs where approval-badge wrapping changes content height"
+      },
+      {
+        "capture": "hosted-375-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          375,
+          3412
+        ],
+        "output_size": [
+          375,
+          3443
+        ],
+        "raw_changed_pixels": null,
+        "raw_note": "Original comparison differs where approval-badge wrapping changes content height"
+      },
+      {
+        "capture": "plain-390-600.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          390,
+          3334
+        ],
+        "output_size": [
+          390,
+          3349
+        ],
+        "raw_changed_pixels": null,
+        "raw_note": "Original comparison differs where approval-badge wrapping changes content height"
+      },
+      {
+        "capture": "hosted-390-600.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          390,
+          3334
+        ],
+        "output_size": [
+          390,
+          3349
+        ],
+        "raw_changed_pixels": null,
+        "raw_note": "Original comparison differs where approval-badge wrapping changes content height"
+      },
+      {
+        "capture": "plain-390-900-flags-off.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          390,
+          3263
+        ],
+        "output_size": [
+          390,
+          3263
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "hosted-390-900-flags-off.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          390,
+          3263
+        ],
+        "output_size": [
+          390,
+          3263
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "plain-390-900-motion.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          390,
+          3334
+        ],
+        "output_size": [
+          390,
+          3349
+        ],
+        "raw_changed_pixels": null,
+        "raw_note": "Original comparison differs where approval-badge wrapping changes content height"
+      },
+      {
+        "capture": "hosted-390-900-motion.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          390,
+          3334
+        ],
+        "output_size": [
+          390,
+          3349
+        ],
+        "raw_changed_pixels": null,
+        "raw_note": "Original comparison differs where approval-badge wrapping changes content height"
+      },
+      {
+        "capture": "plain-390-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          390,
+          3334
+        ],
+        "output_size": [
+          390,
+          3349
+        ],
+        "raw_changed_pixels": null,
+        "raw_note": "Original comparison differs where approval-badge wrapping changes content height"
+      },
+      {
+        "capture": "hosted-390-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          390,
+          3334
+        ],
+        "output_size": [
+          390,
+          3349
+        ],
+        "raw_changed_pixels": null,
+        "raw_note": "Original comparison differs where approval-badge wrapping changes content height"
+      },
+      {
+        "capture": "plain-430-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          430,
+          3296
+        ],
+        "output_size": [
+          430,
+          3296
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "hosted-430-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          430,
+          3296
+        ],
+        "output_size": [
+          430,
+          3296
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "plain-768-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          768,
+          2395
+        ],
+        "output_size": [
+          768,
+          2395
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      },
+      {
+        "capture": "hosted-768-900.png",
+        "changed_pixels": 0,
+        "percent": 0.0,
+        "bbox": null,
+        "raw_source_size": [
+          768,
+          2395
+        ],
+        "output_size": [
+          768,
+          2395
+        ],
+        "raw_changed_pixels": 0,
+        "raw_note": "Pixel-identical to unmodified source"
+      }
+    ]
+  },
+  "functional": {
+    "date": "2026-10-26T14:14:52.351Z",
+    "checks": [
+      {
+        "name": "Regulatory-only content, source perimeter/entities and unavailable register entry",
+        "status": "PASS"
+      },
+      {
+        "name": "Flags off preserves placeholders and proposed status; malformed JSON is safe",
+        "status": "PASS"
+      },
+      {
+        "name": "Configured register entry opens a protected tab; copied-root URLs and footer normalize",
+        "status": "PASS"
+      },
+      {
+        "name": "Unavailable links, keyboard focus, hover and mobile touch",
+        "status": "PASS"
+      },
+      {
+        "name": "Configured independent navigation, selector, breadcrumb and Impact destination",
+        "status": "PASS"
+      },
+      {
+        "name": "Sticky nav, live breakpoint resize and header/footer toggles",
+        "status": "PASS"
+      },
+      {
+        "name": "Long content and scoped same-page anchors",
+        "status": "PASS"
+      },
+      {
+        "name": "Hostile host, duplicate script, root replacement and complete teardown",
+        "status": "PASS"
+      },
+      {
+        "name": "No JavaScript/console errors or unexpected network failures",
+        "status": "PASS"
+      }
+    ],
+    "errors": [],
+    "consoleErrors": [],
+    "unexpectedNetwork": []
+  },
+  "matrixRuntime": {
+    "date": "2026-10-26T14:14:17.949Z",
+    "checksPassed": 24,
+    "errors": [],
+    "consoleErrors": [],
+    "unexpectedNetwork": []
+  },
+  "priorOutputSmoke": {
+    "date": "2026-10-26T14:17:25.870Z",
+    "scope": "Smoke only: unchanged prior outputs, fallback fonts, not a broad synchronization or full interaction/visual regression",
+    "rows": [
+      {
+        "slug": "corporate-ir",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "ecosystem",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "ecosystem",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "financial-engine",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "financial-engine",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "governance",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "governance",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "governance-board",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "governance-board",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "governance-leadership",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "governance-leadership",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "investors-partners",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "investors-partners",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "main",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "main",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "platforms",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "platforms",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-richard-werner",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "profile-richard-werner",
+        "width": 1440,
+        "status": "PASS"
+      },
+      {
+        "slug": "smes-projects",
+        "width": 390,
+        "status": "PASS"
+      },
+      {
+        "slug": "smes-projects",
+        "width": 1440,
+        "status": "PASS"
+      }
+    ]
+  },
+  "sharedRegression": {
+    "result": "PASS",
+    "baseline": "53f0457",
+    "contexts": 20,
+    "checks": [
+      "Byte-identical markup/CSS/runtime/routes/dynamic classes",
+      "Label escaping/empty-label fallback",
+      "Unknown design href guard"
+    ],
+    "method": "Exported baseline via git show and passed the file to shared-regression.js"
+  },
+  "static": {
+    "result": "PASS",
+    "checks": [
+      "Standalone scoped native outputs and JS syntax",
+      "Independent config keys; unavailable exact FCA entry",
+      "Supplied logo equality and labelled breadcrumb",
+      "In-memory closing-script JSON escaping fixture",
+      "Reproducible outputs and Git whitespace"
+    ]
+  },
+  "outputs": {
+    "corporate-ir-regulatory.ghl.html": {
+      "bytes": 80222,
+      "sha256": "1aa875cbbcb2f958fdfd11775e49ab25cfa8fc0de030d857441443b4b1c09648"
+    },
+    "corporate-ir-regulatory.inline.ghl.html": {
+      "bytes": 127636,
+      "sha256": "978830a73737ca3088eb8ac2b8dd9e9bc289fdf5700b395bfaff270f8292dbb4"
+    }
+  },
+  "manualInspection": [
+    "320px corrected flags",
+    "768px tablet tables",
+    "1440px desktop",
+    "390px hostile host"
+  ],
+  "notVerified": [
+    "Published GHL runtime/ancestor sticky constraints",
+    "Actual Google Fonts, hosted asset/page URLs and SEO",
+    "Legal approval/accuracy of all source regulatory statements, entity/relationship/FRN/permissions/proposed status/update/footer wording",
+    "Real FCA entity entry and its contents",
+    "Legal Notices, Impact, Main/shared synchronization and final full affected-page regression"
+  ]
+}
