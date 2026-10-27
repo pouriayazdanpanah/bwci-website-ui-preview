@@ -19,8 +19,17 @@ GHL Custom Value keys supplied by the owner. All 43 supplied values are `#`; no 
 invented or account setting changed. Page-section links reuse base values and preserve safe local
 anchors and profile query context. CSS, content, media and unrelated settings are unchanged.
 Evidence and all page/property mappings: [centralized links](../../ghl/shared/site-links/README.md).
-This follow-up is subject to its own PR review/manual merge. Actual GHL substitution inside JSON
-and cache propagation remain **NOT VERIFIED** until checked on an installed page.
+This follow-up merged in PR #38 (`52b3cc5`). Actual GHL substitution inside JSON and cache propagation
+remain **NOT VERIFIED** until checked on an installed page.
+
+The image Custom Values follow-up starts from that merged main on `feat/ghl-image-custom-values`.
+It connects 73 image settings across all 23 pages / 46 outputs to 20 shared image references. The
+owner's 13 supplied keys and the existing Main `hero_image` are reused; six additional hero key names
+and API request bodies are provided for owner creation. Both variants honor resolved image URLs;
+inline outputs retain exact original bytes under optional `imageFallbacks`. Frames/crops, CSS, HTML,
+navigation and source artwork remain unchanged. See [image keys and installation](../../ghl/shared/site-images/README.md)
+and [current verification](../../ghl/shared/site-images/qa/verification.md). This image follow-up is
+subject to manual PR review/merge; no GHL values are created and no pages are published.
 
 Implementation and local regression are complete; **live GHL installation/publication is NOT
 VERIFIED**. The next separate stage is configuring confirmed URLs/hosted assets/approved content,

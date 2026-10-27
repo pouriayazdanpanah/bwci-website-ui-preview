@@ -1,6 +1,6 @@
 {
-  "platformsHeroImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/plat-hero-rails.png",
-  "logoImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/bwci-logo.png",
+  "platformsHeroImage": "{{ custom_values.bwci_img_platforms_hero }}",
+  "logoImage": "{{ custom_values.bwci_img_logo }}",
   "showHeader": true,
   "showFooter": true,
   "footer": {

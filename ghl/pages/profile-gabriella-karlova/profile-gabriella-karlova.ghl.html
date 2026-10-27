@@ -10,11 +10,11 @@
 -->
 <script type="application/json" id="bwci-profile-gabriella-karlova-config">
 {
-  "logoImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/bwci-logo.png",
+  "logoImage": "{{ custom_values.bwci_img_logo }}",
   "peopleImages": {
-    "gabriella-karlova": "https://REPLACE-WITH-YOUR-HOSTED-URL/gabriella-karlova.webp",
-    "alexander-alegria-saif": "https://REPLACE-WITH-YOUR-HOSTED-URL/alexander-alegria-saif.jpg",
-    "farhad-reyazat": "https://REPLACE-WITH-YOUR-HOSTED-URL/farhad-reyazat.jpg"
+    "gabriella-karlova": "{{ custom_values.bwci_img_profile_gabriella_karlova }}",
+    "alexander-alegria-saif": "{{ custom_values.bwci_img_profile_alexander_alegria_saif }}",
+    "farhad-reyazat": "{{ custom_values.bwci_img_profile_farhad_reyazat }}"
   },
   "showHeader": true,
   "showFooter": true,
@@ -599,6 +599,38 @@
     });
   }
 
+  /* Image Custom Values take priority. Inline blocks retain the original bytes as optional fallbacks. */
+  function siteImageAvailable(value) {
+    return typeof value === 'string' && value.trim() !== '' && value.trim() !== '#' &&
+      !/\{\{|\}\}|REPLACE-WITH/.test(value) &&
+      /^(?:https?:\/\/|\/(?!\/)|data:image\/(?:png|jpeg|jpg|webp|gif|avif|svg\+xml);base64,)/i.test(value.trim());
+  }
+  function siteResolveImages(root, cfg) {
+    var paths = [["logoImage"],["heroImage"],["financialEngineImage"],["ecosystemHeroImage"],["platformsHeroImage"],["smesHeroImage"],["investorsHeroImage"],["impactHeroImage"],["images","whoPhoto"],["images","impact1"],["images","impact2"],["images","impact3"],["images","impact4"],["images","leaderAlexander"],["images","leaderFarhad"],["images","leaderGabriela"],["peopleImages","alexander-alegria-saif"],["peopleImages","farhad-reyazat"],["peopleImages","gabriella-karlova"],["peopleImages","richard-werner"],["peopleImages","ewa-dudek"],["peopleImages","agnes-gradzewicz"],["peopleImages","christie-osarenren"]];
+    function read(object, parts) {
+      for (var i = 0; i < parts.length; i++) {
+        if (!object || typeof object !== 'object') return undefined;
+        object = object[parts[i]];
+      }
+      return object;
+    }
+    paths.forEach(function (parts) {
+      var value = read(cfg,parts);
+      if (value === undefined) return;
+      var fallback = read(cfg.imageFallbacks,parts);
+      var resolved = siteImageAvailable(value) ? value.trim() : siteImageAvailable(fallback) ? fallback.trim() : '';
+      var target = parts.length === 1 ? cfg : cfg[parts[0]];
+      target[parts[parts.length-1]] = resolved;
+    });
+    // Clear copied live URLs when the replacement hosted config has no usable image value.
+    // Existing page loaders still assign valid URLs and perform their original crop/load handling.
+    Array.prototype.forEach.call(root.querySelectorAll('img[data-pgk-asset],img[data-pgk-person]'),function (img) {
+      var person = img.getAttribute('data-pgk-person'), key = img.getAttribute('data-pgk-asset');
+      var value = person ? (cfg.peopleImages || {})[person] : Object.prototype.hasOwnProperty.call(cfg,key) ? cfg[key] : (cfg.images || {})[key];
+      if (!siteImageAvailable(value)) img.removeAttribute('src');
+    });
+  }
+
   /* ======================= SHARED SITE CHROME =======================
      Generated from ghl/shared/site-chrome/site-chrome.runtime.js. It is the vanilla replacement for the
      React logic of design/SiteHeader.dc.html and design/SiteFooter.dc.html, plus a root-scoped port of
@@ -1080,6 +1112,7 @@
       if (cfgEl) cfg = JSON.parse(cfgEl.textContent || '{}') || {};
     } catch (err) { cfg = {}; }
     var profile = siteProfile(root, on);
+    siteResolveImages(root,cfg);
     siteResolveLinks(cfg);
     var links = cfg.links || {};
     qa('a[data-pgk-link]').forEach(function (a) {

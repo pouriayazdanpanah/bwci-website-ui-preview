@@ -17,6 +17,7 @@
     var cfg = {};
     try { cfg = JSON.parse((document.getElementById(CONFIG_ID) || {}).textContent || '{}') || {}; }
     catch (err) { /* Fresh markup retains the safe launch defaults. */ }
+    siteResolveImages(root,cfg);
     function available(url) {
       return typeof url === 'string' && url.trim() && url !== '#' && url.indexOf('REPLACE-WITH') < 0 &&
         /^(?:https?:\/\/|mailto:|tel:|\/(?!\/)|#(?!$))/.test(url);

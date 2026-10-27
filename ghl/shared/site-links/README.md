@@ -4,6 +4,10 @@ The 23 page ports / 46 pasteable outputs now use the **43 existing Custom Values
 user's GHL export. Names and `fieldKey` spelling are reused exactly; none are created, renamed or
 updated in GHL. This is a navigation-only migration from merged PR #37 (`a41c1ae`).
 
+This navigation work merged in PR #38 (`52b3cc5`). Its image-preservation statements describe that
+revision. The later [image Custom Values follow-up](../site-images/README.md) now centralizes image
+settings separately, while retaining the navigation keys and behavior recorded here.
+
 ## Configuration and installation
 
 - Configure destination URLs centrally in the same GHL sub-account. All 43 used values in the

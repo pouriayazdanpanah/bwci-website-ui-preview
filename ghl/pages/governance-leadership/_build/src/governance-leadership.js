@@ -44,6 +44,7 @@
       var cfgEl = document.getElementById(CONFIG_ID);
       if (cfgEl) cfg = JSON.parse(cfgEl.textContent || '{}') || {};
     } catch (err) { cfg = {}; }
+    siteResolveImages(root,cfg);
     siteResolveLinks(cfg);
     var links = cfg.links || {};
     qa('a[data-gvl-link]').forEach(function (a) {

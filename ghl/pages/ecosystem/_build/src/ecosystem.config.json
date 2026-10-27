@@ -1,6 +1,6 @@
 {
-  "ecosystemHeroImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/ecosystem-hero-waves.webp",
-  "logoImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/bwci-logo.png",
+  "ecosystemHeroImage": "{{ custom_values.bwci_img_ecosystem_hero }}",
+  "logoImage": "{{ custom_values.bwci_img_logo }}",
   "showHeader": true,
   "showFooter": true,
   "footer": {

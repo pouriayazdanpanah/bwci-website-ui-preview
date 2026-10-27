@@ -211,7 +211,7 @@ function banner(variant) {
 }
 function assemble(imageValue, logoValue, variant) {
   const cfg = Object.assign({}, config, { impactHeroImage: imageValue, logoImage: logoValue });
-  const cfgBlock = '<script type="application/json" id="bwci-better-world-impact-config">\n' + JSON.stringify(cfg, null, 2).replace(/</g, '\\u003c') + '\n</script>';
+  const cfgBlock = '<script type="application/json" id="bwci-better-world-impact-config">\n' + JSON.stringify(chrome.imageConfig(cfg), null, 2).replace(/</g, '\\u003c') + '\n</script>';
   return banner(variant) + '\n' + cfgBlock + '\n' + FONT_LINKS + '\n<style>\n' + css + '</style>\n\n' + html + '\n\n<script>\n' + js + '\n</script>\n';
 }
 const ghl = assemble(config.impactHeroImage, config.logoImage, 'production — hosted images');

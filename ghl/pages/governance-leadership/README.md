@@ -1,5 +1,17 @@
 # Governance · Leadership — GoHighLevel port
 
+## Centralized images — October 27, 2026
+
+Both outputs now use GHL image Custom Values for this page's 8 image settings.
+Valid resolved URLs take priority in both variants. The inline block retains the exact original
+artwork under `imageFallbacks` for empty, `#` or unresolved values; the hosted block skips unavailable
+images without requesting merge tokens. Existing image fields, crops, CSS, content and links remain.
+
+[Image keys, six values to create and installation](../../shared/site-images/README.md) and
+[current verification](../../shared/site-images/qa/verification.md) supersede the older image/default
+instructions below. The supplied existing keys are reused; no GHL values or pages were modified.
+Actual GHL substitution and live media delivery remain **NOT VERIFIED**.
+
 ## Centralized links — October 27, 2026
 
 Navigation now uses the exact existing GHL Custom Value keys from the supplied export. Both output
