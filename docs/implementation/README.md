@@ -11,7 +11,16 @@ regression: 458 source/inline/hosted viewport cases, all 458 native variant pair
 page interactions and shared/lifecycle checks passing. A confirmed Main saved-image fit correction
 is included in both direct-edit outputs; all other production outputs, design files, assets and
 shared production code are preserved. Evidence: [final report](../../ghl/qa/final/verification.md)
-and [results](../../ghl/qa/final/results.json). This stage is ready for PR review and manual merge.
+and [results](../../ghl/qa/final/results.json). This stage merged in PR #37 (`a41c1ae`).
+
+The follow-up centralized-navigation migration starts directly from that fresh merged main on
+`feat/ghl-centralized-custom-values`. Both variants of every page now use the exact 43 existing
+GHL Custom Value keys supplied by the owner. All 43 supplied values are `#`; no destination is
+invented or account setting changed. Page-section links reuse base values and preserve safe local
+anchors and profile query context. CSS, content, media and unrelated settings are unchanged.
+Evidence and all page/property mappings: [centralized links](../../ghl/shared/site-links/README.md).
+This follow-up is subject to its own PR review/manual merge. Actual GHL substitution inside JSON
+and cache propagation remain **NOT VERIFIED** until checked on an installed page.
 
 Implementation and local regression are complete; **live GHL installation/publication is NOT
 VERIFIED**. The next separate stage is configuring confirmed URLs/hosted assets/approved content,
@@ -80,7 +89,7 @@ files, assets, shared production code and the other 22 page outputs were preserv
 Stage 9 refreshed that confirmed merged main from a clean tree, then created
 `test/ghl-final-regression` directly from `7ddc04f`. Current all-page evidence is recorded in
 `ghl/qa/final/verification.md` and each page README. The final local regression is complete, including
-the Main fit correction; its PR remains subject to manual review/merge. No GHL publication is implied.
+the Main fit correction; it merged in PR #37 (`a41c1ae`). No GHL publication is implied.
 
 | Design source / change | GHL destination / status | Next review stage |
 |---|---|---|
@@ -96,7 +105,8 @@ the Main fit correction; its PR remains subject to manual review/merge. No GHL p
 | Breadcrumb new Impact trail and labelled Corporate / IR subpage trail | All seven new consumers preserve their correct trails; older/profile trails unchanged by synchronization | Per-page work merged; 8 verification recorded |
 | Shared config/output migration | All 23 blocks synchronized; 16 older configs migrated without retargeting legacy anchors; 22 builds reproducible. Shared link/option/footer state and root/ancestor lifecycle checks pass | 8 merged, PR #35 |
 | Required Impact interaction | Six source stages, details, illustrative examples, wrap controls, progress, keyboard/touch/focus and responsive panels implemented. Persistent Impact markers and empty evidence/cases preserved; 56 current interaction scenarios pass | Corrective PR #36 merged; 9 local PASS |
-| Affected existing-page regression | Current full source/port, responsive and page-interaction regression completed for all 23 pages; 458 viewport cases and current shared/lifecycle suites. Small Main photo-fit correction included | 9 local PASS; manual PR review pending |
+| Affected existing-page regression | Full source/port, responsive and page-interaction regression completed for all 23 pages; 458 viewport cases and shared/lifecycle suites. Small Main photo-fit correction included | 9 merged, PR #37 |
+| Centralized GHL navigation | All 23 pages / 46 outputs use 43 exact existing Custom Values; shared menu, footer, CTA, profile and section links mapped; supplied destination values remain `#` | Follow-up PR review; actual GHL integration NOT VERIFIED |
 
 Confirmed additional destination gap: the new Corporate / IR source links announcements to
 `Main.dc.html#insights`, but neither current Main source markup nor either Main output contains an

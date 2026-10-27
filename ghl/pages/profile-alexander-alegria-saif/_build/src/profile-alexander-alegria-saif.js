@@ -47,6 +47,7 @@
       if (cfgEl) cfg = JSON.parse(cfgEl.textContent || '{}') || {};
     } catch (err) { cfg = {}; }
     var profile = siteProfile(root, on);
+    siteResolveLinks(cfg);
     var links = cfg.links || {};
     qa('a[data-pas-link]').forEach(function (a) {
       var v = links[a.getAttribute('data-pas-link')];

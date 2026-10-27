@@ -12,6 +12,7 @@
 
   function siteLinkAvailable(url) {
     return typeof url === 'string' && url.trim() && url !== '#' && url.indexOf('REPLACE-WITH') < 0 &&
+      !/\{\{|\}\}/.test(url) &&
       /^(?:https?:\/\/|mailto:|tel:|\/(?!\/)|#(?!$))/.test(url);
   }
   function siteLink(a, url) {

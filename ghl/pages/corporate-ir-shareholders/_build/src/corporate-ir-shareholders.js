@@ -17,6 +17,7 @@
     var cfg = {};
     try { cfg = JSON.parse((document.getElementById(CONFIG_ID) || {}).textContent || '{}') || {}; }
     catch (err) { /* Malformed settings retain the safe defaults in the markup. */ }
+    siteResolveLinks(cfg);
     var links = cfg.links || {};
     function available(url) {
       return typeof url === 'string' && url.trim() && url !== '#' && url.indexOf('REPLACE-WITH') < 0 &&

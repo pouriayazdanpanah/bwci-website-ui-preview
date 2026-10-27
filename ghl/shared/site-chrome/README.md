@@ -5,6 +5,18 @@ plus the shared design-system CSS and scroll motion. **Nothing here runs in GoHi
 build inlines the generated markup, CSS and JS into its own pasteable block, scoped to that page's
 root and class prefix. A pasted page never loads a file from this folder.
 
+## Current centralized navigation — October 27, 2026
+
+All 23 consumers now reference the exact **43 existing GHL Custom Values** in their top JSON;
+see [mapping, supplied-value findings and installation](../site-links/README.md) and
+[current verification](../site-links/qa/verification.md). The shared generator inlines a small
+post-substitution link normalizer from `site-links/`; no additional file is fetched at runtime.
+Page-section destinations reuse page-base values, retaining their fragments/query and safe pending
+state. Unresolved merge fields never become active hrefs. Static cross-page fallbacks are `#`.
+Main's local Impact/Today anchors, all images/settings and the unknown-design-link guard are retained.
+All 43 used values in the supplied export are currently `#`; actual GHL JSON replacement, published
+destinations and cache propagation remain **NOT VERIFIED**. No account values were changed.
+
 ## Final local regression — October 27, 2026
 
 After merged synchronization PR #35 (`3d93dcf`) and Impact interaction PR #36 (`7ddc04f`), the
@@ -70,16 +82,12 @@ revisions remain historical checks, not current synchronization evidence.
 
 ## Link defaults and unresolved routes
 
-Ported pages use their GHL paths: `home` `/`, `financialEngine` `/financial-engine`, `ecosystem`
-`/ecosystem`, `platforms` `/platforms`, `smes` `/smes-projects`, `investors` `/investors-partners`,
-`today` `/#bwci-today` (Main overrides it with a same-page anchor). The retained legacy `impact`
-setting is `/#bwci-impact` (`#bwci-impact` on Main), currently unused by the header/footer.
-
-Everything else defaults to `#` and is listed as **unresolved** in each page README until a live GHL
-URL exists: `whoWeAre`, `whoPurpose`, `whoRole`, `whoPrinciples`, `whoStory`, `leadership`,
-`privateInvestors`, `governance`, `governanceBoard`, `governanceFramework`, the `profile…` keys, `corporateIR`, `contact`, `verify`, `legalPrivacy`, `legalTerms`,
-`legalCookies`, `legalDisclosures`, `legalAccessibility`, `legalSitemap`, `betterWorldImpact`. Set them in each page's
-config `links` once the pages exist (no URL is invented here).
+Cross-page static defaults are `#`; current JSON link strings reference GHL's existing Custom Values.
+Older page-local route tables describe the pre-centralization defaults, not verified published URLs.
+Main retains local `#bwci-today` / `#bwci-impact`; other pages use the shared Home value plus their
+section fragment. The old inactive `impact` key is still allowed for compatibility and remains
+distinct from the independent `betterWorldImpact` destination. Configure confirmed URLs centrally in
+GHL; the complete mapping and pending/missing destinations are in `../site-links/`.
 
 ## Runtime behaviour (matches SiteHeader / SiteFooter)
 
