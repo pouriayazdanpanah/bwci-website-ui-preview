@@ -1,10 +1,26 @@
 # Better World & Impact — GoHighLevel port
 
+## Final local regression — October 27, 2026
+
+Current evidence: [verification report](../../qa/final/verification.md) and
+[machine-readable results](../../qa/final/results.json), from merged PR #36 (`7ddc04f`).
+
+- Both outputs passed 19 viewport cases (57 source/inline/hosted captures), with loaded assets and no
+  horizontal document overflow; 19/19 hosted/inline pairs are pixel-exact.
+- Source comparison covers matching sections outside the deliberately interactive engine.
+- All 56 engine interaction scenarios and eight page/config checks passed. The required interactive
+  engine intentionally differs from the static exported figure.
+- Six shared-menu/config cases, four hostile-host lifecycle cases and deferred-markup/destroy/reboot
+  checks passed for this page.
+
+Matching fallback fonts were used. Live GHL, actual web-font delivery, physical devices, published
+URLs and approved business content remain **NOT VERIFIED**. Earlier QA sections below are historical.
+
 Source: `design/Better World Impact.dc.html`, SiteHeader, Breadcrumb, SiteFooter, `bwci-system.css`,
 `bwci-motion.js` and supplied `assets/impact-hero-ribbons.png`. Initial static port merged in PR #34;
-Main/shared synchronization merged in PR #35 (`3d93dcf`). The interaction correction starts from that
-clean merged main on `feat/ghl-better-world-impact-interaction` and is pending its own PR review.
-Final website-wide regression and live GHL installation remain separate stages.
+Main/shared synchronization merged in PR #35 (`3d93dcf`), followed by the required engine interaction
+correction in PR #36 (`7ddc04f`). The final local website-wide regression is recorded above;
+live GHL installation remains a separate stage.
 
 ## Files, build and installation
 

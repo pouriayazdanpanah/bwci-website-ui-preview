@@ -1,5 +1,25 @@
 # Ecosystem — GoHighLevel port
 
+## Final local regression — October 27, 2026
+
+Current evidence: [verification report](../../qa/final/verification.md) and
+[machine-readable results](../../qa/final/results.json), from merged PR #36 (`7ddc04f`).
+
+- Both outputs passed 22 viewport cases (66 source/inline/hosted captures), with loaded assets and no
+  horizontal document overflow; 22/22 hosted/inline pairs are pixel-exact.
+- 20/44 equal-size source/native full-page pairs are pixel-exact. Remaining raster differences are
+  quantified in the central report.
+- Current source/inline feature traces: 26 paired states; reviewed trace exceptions are in the central
+  report.
+- Six shared-menu/config cases, four hostile-host lifecycle cases and deferred-markup/destroy/reboot
+  checks passed for this page.
+
+The central report records four source-only SVG template parser diagnostics during hydration;
+neither native variant emits them.
+
+Matching fallback fonts were used. Live GHL, actual web-font delivery, physical devices, published
+URLs and approved business content remain **NOT VERIFIED**. Earlier QA sections below are historical.
+
 GoHighLevel (GHL) **Website Builder → Custom Code** version of `design/Ecosystem.dc.html`
 ("The Better World Ecosystem"). The design export is the unchanged reference; everything GHL-specific
 for this page lives in this folder.
@@ -18,7 +38,7 @@ ghl/pages/ecosystem/
 
 ## October 26, 2026 Main/shared synchronization
 
-Current shared-synchronization evidence: [verification report](../../shared/site-chrome/qa/sync/verification.md) and
+Historical stage 8 shared-synchronization evidence: [verification report](../../shared/site-chrome/qa/sync/verification.md) and
 [aggregate results](../../shared/site-chrome/qa/sync/results.json). This update starts from merged
 Impact PR #34 (`5b7fdfe`). Earlier QA sections below describe their original page revisions; they are
 historical evidence, not a new full-page regression pass for these outputs.
@@ -32,8 +52,8 @@ historical evidence, not a new full-page regression pass for these outputs.
 - Both variants passed current shared behavior at 390/1440px in a hostile host, including mocked
   HTTP image delivery for the hosted block. First execution before markup and explicit destroy/reboot
   also passed. Fonts used matching fallbacks; live GHL and actual web-font delivery remain **NOT VERIFIED**.
-- All page content, assets and pre-existing config values are preserved. Final full-page responsive,
-  source/port and interaction regression remains a separate stage after the Impact interaction fix.
+- That synchronization preserved page content, assets and pre-existing config values. The later
+  final full-page responsive/source/interaction regression is recorded at the top of this README.
 
 `links.impact` retains its existing homepage anchor `/#bwci-impact` as a legacy config
 setting. It is not consumed by the current header/footer, and is never reassigned to the independent

@@ -2064,7 +2064,8 @@
       var base = Math.max(fw / iw, fh / ih);
       img.style.width = (iw * base / fw * 100) + '%';
       img.style.height = (ih * base / fh * 100) + '%';
-      img.style.objectFit = '';
+      // The source clears its temporary fit mode after sizing; override this block's CSS fallback too.
+      img.style.objectFit = 'fill';
     }
     slotImgs.forEach(function (img) {
       on(img, 'load', function () { fitSlot(img); });

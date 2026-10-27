@@ -1,5 +1,10 @@
 # Main/shared synchronization verification — October 26, 2026
 
+Historical stage 8 report. The Impact interaction correction subsequently merged in PR #36
+(`7ddc04f`), and [stage 9 final local regression](../../../../qa/final/verification.md) now records
+the current full-page results. The pending/failing follow-up statuses below describe stage 8's
+boundary; they are superseded by that later report, not relabelled as original passes.
+
 Stage 8 starts from confirmed merged Impact PR #34, main `5b7fdfe9e3108d1ea989836d6c53e8f01ab56a51`,
 on `feat/ghl-main-shared-sync`. This report covers this revision's shared synchronization and Main CTA
 update. Earlier page-local QA remains historical. This is **not** the final full-page regression.
