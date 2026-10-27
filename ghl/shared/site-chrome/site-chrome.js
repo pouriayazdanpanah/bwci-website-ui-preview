@@ -16,6 +16,7 @@
 'use strict';
 const fs = require('fs');
 const path = require('path');
+const siteLinks = require('../site-links');
 
 const DESIGN = path.resolve(__dirname, '../../../design');
 const RUNTIME = path.join(__dirname, 'site-chrome.runtime.js');
@@ -54,12 +55,11 @@ const HREF_KEYS = {
   'Legal.dc.html#accessibility': 'legalAccessibility',
   'Legal.dc.html#sitemap': 'legalSitemap',
 };
-// Default routes. Pages that already have a GHL port point at their live path. "#" marks a destination
-// that is designed (or only linked) but has no GHL page yet; the page READMEs list these as unresolved.
-// impact/today are sections of the updated Main port (ids bwci-impact / bwci-today).
+// Runtime configuration supplies GHL Custom Values. Static cross-page fallbacks remain unavailable;
+// page-local overrides, including Main's own section anchors, keep their existing semantics.
 const LINK_DEFAULTS = {
-  home: '/', financialEngine: '/financial-engine', ecosystem: '/ecosystem', platforms: '/platforms',
-  smes: '/smes-projects', investors: '/investors-partners', impact: '/#bwci-impact', today: '/#bwci-today',
+  home: '#', financialEngine: '#', ecosystem: '#', platforms: '#',
+  smes: '#', investors: '#', impact: '#', today: '#',
   whoWeAre: '#', whoPurpose: '#', whoRole: '#', whoPrinciples: '#', whoStory: '#', leadership: '#',
   privateInvestors: '#', governance: '#', corporateIR: '#', contact: '#', verify: '#',
   betterWorldImpact: '#',
@@ -445,7 +445,7 @@ module.exports = function siteChrome(opts) {
   }
 
   /* ---------------- runtime (inlined into the page script) ---------------- */
-  const runtime = (fs.readFileSync(RUNTIME, 'utf8') + (govCur ? '\n' + fs.readFileSync(GOVNAV_RUNTIME, 'utf8') : '') +
+  const runtime = (siteLinks.runtime + '\n' + fs.readFileSync(RUNTIME, 'utf8') + (govCur ? '\n' + fs.readFileSync(GOVNAV_RUNTIME, 'utf8') : '') +
     (withPeople ? '\n' + fs.readFileSync(PEOPLE_RUNTIME, 'utf8') : '')).replace(/__P__/g, P).trim();
 
   const links = {};

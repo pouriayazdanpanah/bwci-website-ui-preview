@@ -76,6 +76,7 @@
       var cfgEl = document.getElementById(CONFIG_ID);
       if (cfgEl) cfg = JSON.parse(cfgEl.textContent || '{}') || {};
     } catch (err) { cfg = {}; }
+    siteResolveLinks(cfg);
     var links = cfg.links || {};
     qa('[data-eco-link]').forEach(function (a) {
       var v = links[a.getAttribute('data-eco-link')];

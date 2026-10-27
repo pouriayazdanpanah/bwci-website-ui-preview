@@ -1,5 +1,20 @@
 # Main (Homepage) — GoHighLevel port
 
+## Centralized links — October 27, 2026
+
+Navigation now uses the exact existing GHL Custom Value keys from the supplied export. Both output
+variants preserve the config ID, property names and all non-link settings/images. Configure URLs in
+GHL, then paste the updated block. Every used Custom Value currently contains `#`; cross-page links
+remain unavailable until their confirmed URLs are set. Local anchors and profile entry context remain.
+
+Current [mapping, validation and integration limits](../../shared/site-links/README.md) supersede the
+older route/default tables below. The [local verification report](../../shared/site-links/qa/verification.md)
+records this migration's checks; older QA remains historical. Actual GHL substitution inside JSON and
+published navigation are **NOT VERIFIED**; no page was published or account setting changed.
+
+Main remains direct-edit: both outputs are updated together, with no `_build/` folder. Its local
+`#bwci-impact` and `#bwci-today` values are preserved.
+
 ## Final local regression — October 27, 2026
 
 Current evidence: [verification report](../../qa/final/verification.md) and

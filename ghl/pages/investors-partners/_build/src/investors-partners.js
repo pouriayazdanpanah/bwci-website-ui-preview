@@ -27,8 +27,8 @@
   // [title, text, call to action, href, config link key (cross-page links only)]
   var PA = [
     ['Through delivery platforms', 'Alongside the financial and operating platforms in the ecosystem, as they become operational.', 'Explore platform pathways', '#inv-perimeters', null],
-    ['Established businesses', 'Alongside established, productive businesses, where an appropriate structure and authorised vehicle exist.', 'Explore business pathways', '/smes-projects#sme-situation', 'smesSituation'],
-    ['Infrastructure & transition projects', 'In long-term infrastructure and energy transition projects, through appropriately structured and authorised vehicles.', 'Explore project pathways', '/smes-projects#sme-situation', 'smesSituation'],
+    ['Established businesses', 'Alongside established, productive businesses, where an appropriate structure and authorised vehicle exist.', 'Explore business pathways', '#', 'smesSituation'],
+    ['Infrastructure & transition projects', 'In long-term infrastructure and energy transition projects, through appropriately structured and authorised vehicles.', 'Explore project pathways', '#', 'smesSituation'],
     ['Strategic capabilities', 'By contributing specialist capital, technology, infrastructure, or distribution that strengthens the network.', 'Explore strategic partnerships', '#inv-route', null]
   ];
   var ST = [
@@ -191,6 +191,7 @@
       var cfgEl = document.getElementById(CONFIG_ID);
       if (cfgEl) cfg = JSON.parse(cfgEl.textContent || '{}') || {};
     } catch (err) { cfg = {}; }
+    siteResolveLinks(cfg);
     var links = cfg.links || {};
     qa('[data-inv-link]').forEach(function (a) {
       var v = links[a.getAttribute('data-inv-link')];

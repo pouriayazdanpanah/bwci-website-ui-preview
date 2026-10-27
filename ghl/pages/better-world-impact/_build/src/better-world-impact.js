@@ -131,6 +131,7 @@
     else { engineMedia.addListener(renderEngine);cleanups.push(function () { engineMedia.removeListener(renderEngine); }); }
     renderEngine(); // Normalize a cloned live root back to the source's initial step.
 
+    siteResolveLinks(cfg);
     var links = cfg.links || {};
     qa('a[data-bwi-link]').forEach(function (a) {
       var key = a.getAttribute('data-bwi-link');

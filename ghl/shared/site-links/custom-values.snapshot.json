@@ -1,0 +1,235 @@
+{
+  "source": "User-provided GHL export, October 27, 2026; only name, fieldKey and value retained. No account changes or live API verification.",
+  "customValues": [
+    {
+      "name": "bwci_url_home",
+      "fieldKey": "{{ custom_values.bwci_url_home }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_who_we_are",
+      "fieldKey": "{{ custom_values.bwci_url_who_we_are }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_financial_engine",
+      "fieldKey": "{{ custom_values.bwci_url_financial_engine }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_ecosystem",
+      "fieldKey": "{{ custom_values.bwci_url_ecosystem }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_platforms",
+      "fieldKey": "{{ custom_values.bwci_url_platforms }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_smes_projects",
+      "fieldKey": "{{ custom_values.bwci_url_smes_projects }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_investors_partners",
+      "fieldKey": "{{ custom_values.bwci_url_investors_partners }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_private_investors",
+      "fieldKey": "{{ custom_values.bwci_url_private_investors }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_governance",
+      "fieldKey": "{{ custom_values.bwci_url_governance }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_governance_board",
+      "fieldKey": "{{ custom_values.bwci_url_governance_board }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_governance_leadership",
+      "fieldKey": "{{ custom_values.bwci_url_governance_leadership }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_profile_alexander_alegria_saif",
+      "fieldKey": "{{ custom_values.bwci_url_profile_alexander_alegria_saif }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_profile_farhad_reyazat",
+      "fieldKey": "{{ custom_values.bwci_url_profile_farhad_reyazat }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_profile_gabriella_karlova",
+      "fieldKey": "{{ custom_values.bwci_url_profile_gabriella_karlova }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_profile_richard_werner",
+      "fieldKey": "{{ custom_values.bwci_url_profile_richard_werner }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_profile_ewa_dudek",
+      "fieldKey": "{{ custom_values.bwci_url_profile_ewa_dudek }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_profile_agnes_gradzewicz",
+      "fieldKey": "{{ custom_values.bwci_url_profile_agnes_gradzewicz }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_profile_christie_osarenren",
+      "fieldKey": "{{ custom_values.bwci_url_profile_christie_osarenren }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_corporate_ir",
+      "fieldKey": "{{ custom_values.bwci_url_corporate_ir }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_corporate_ir_company_information",
+      "fieldKey": "{{ custom_values.bwci_url_corporate_ir_company_information }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_corporate_ir_reports_documents",
+      "fieldKey": "{{ custom_values.bwci_url_corporate_ir_reports_documents }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_corporate_ir_shareholders",
+      "fieldKey": "{{ custom_values.bwci_url_corporate_ir_shareholders }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_corporate_ir_regulatory",
+      "fieldKey": "{{ custom_values.bwci_url_corporate_ir_regulatory }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_corporate_ir_legal_notices",
+      "fieldKey": "{{ custom_values.bwci_url_corporate_ir_legal_notices }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_better_world_impact",
+      "fieldKey": "{{ custom_values.bwci_url_better_world_impact }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_contact",
+      "fieldKey": "{{ custom_values.bwci_url_contact }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_verify",
+      "fieldKey": "{{ custom_values.bwci_url_verify }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_announcements",
+      "fieldKey": "{{ custom_values.bwci_url_announcements }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_privacy_policy",
+      "fieldKey": "{{ custom_values.bwci_url_privacy_policy }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_terms",
+      "fieldKey": "{{ custom_values.bwci_url_terms }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_cookies_policy",
+      "fieldKey": "{{ custom_values.bwci_url_cookies_policy }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_disclosures",
+      "fieldKey": "{{ custom_values.bwci_url_disclosures }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_accessibility",
+      "fieldKey": "{{ custom_values.bwci_url_accessibility }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_sitemap",
+      "fieldKey": "{{ custom_values.bwci_url_sitemap }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_complaints_policy",
+      "fieldKey": "{{ custom_values.bwci_url_complaints_policy }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_modern_slavery",
+      "fieldKey": "{{ custom_values.bwci_url_modern_slavery }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_fca_register_entry",
+      "fieldKey": "{{ custom_values.bwci_url_fca_register_entry }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_verify_email",
+      "fieldKey": "{{ custom_values.bwci_url_verify_email }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_verify_phone",
+      "fieldKey": "{{ custom_values.bwci_url_verify_phone }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_ir_email",
+      "fieldKey": "{{ custom_values.bwci_url_ir_email }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_secretary_email",
+      "fieldKey": "{{ custom_values.bwci_url_secretary_email }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_shareholder_meeting_notice",
+      "fieldKey": "{{ custom_values.bwci_url_shareholder_meeting_notice }}",
+      "value": "#"
+    },
+    {
+      "name": "bwci_url_shareholder_meeting_results",
+      "fieldKey": "{{ custom_values.bwci_url_shareholder_meeting_results }}",
+      "value": "#"
+    },
+    {
+      "name": "Custom Field Name",
+      "fieldKey": "{{ custom_values.custom_field_name }}",
+      "value": "Value"
+    },
+    {
+      "name": "contact",
+      "fieldKey": "{{ custom_values.contact }}",
+      "value": "https://api.smartysoftware.co.uk/widget/survey/ixBriHum6UNTO2i5Wjrn"
+    },
+    {
+      "name": "Home  Hero Image",
+      "fieldKey": "{{ custom_values.hero_image }}",
+      "value": "https://assets.cdn.filesafe.space/VJfUJbm01Udrn4vlmDQk/media/6ad91b8989ad2537e4a4e724.webp"
+    }
+  ]
+}
