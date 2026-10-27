@@ -5,6 +5,17 @@ plus the shared design-system CSS and scroll motion. **Nothing here runs in GoHi
 build inlines the generated markup, CSS and JS into its own pasteable block, scoped to that page's
 root and class prefix. A pasted page never loads a file from this folder.
 
+## Final local regression — October 27, 2026
+
+After merged synchronization PR #35 (`3d93dcf`) and Impact interaction PR #36 (`7ddc04f`), the
+[final all-page report](../../qa/final/verification.md) and [results](../../qa/final/results.json)
+record current checks for all 23 pages / 46 outputs: 458 responsive cases, 138 shared-menu/config
+cases, 92 hostile-host lifecycle cases and 23 deferred-markup/destroy/reboot cases. Hosted/inline
+pixels match in all 458 cases; all 22 builders reproduce the current outputs. Main's only follow-up
+production correction avoids fitting saved photos twice; shared production code is unchanged.
+The older `qa/sync/` report remains stage 8 history. Matching fallback fonts were used; actual fonts,
+live GHL, published destinations and approved content remain **NOT VERIFIED**.
+
 ```
 ghl/shared/site-chrome/
 ├── site-chrome.js           ← generator: require(...)({ prefix, current, breadcrumb, label, govnav, content, people, rename, system, links })

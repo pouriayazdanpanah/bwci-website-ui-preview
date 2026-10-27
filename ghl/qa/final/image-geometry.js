@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+// Inspect the source shadow-image frame and the native replacement at fractional responsive sizes.
+'use strict';
+const assert=require('node:assert/strict'),{chromium}=require('playwright'),{fs,path,out,manifest,prepare,port,ready,reveal}=require('./common');
+const base=(process.argv[2]||'http://127.0.0.1:8125').replace(/\/$/,''),row=manifest().find(r=>r.slug==='main'),result={date:new Date().toISOString(),cases:[],errors:[],console:[],network:[]};
+(async()=>{const b=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});try{for(const [width,height]of[[375,900],[844,390]]){let reference;for(const kind of ['source','inline','hosted']){
+ const p=await b.newPage({viewport:{width,height},reducedMotion:'reduce'});await prepare(p,result);try{const url=kind==='source'?base+'/design/'+encodeURIComponent(row.source):await port(p,row,kind,base);await ready(p,url,row);await reveal(p,true);
+ const images=await p.evaluate(()=>[...document.querySelectorAll('.ix-media image-slot,.ix-media .bw-slot')].map(e=>{const frame=e.shadowRoot?e.shadowRoot.querySelector('.frame'):e.querySelector('.bw-slot__frame'),img=e.shadowRoot?e.shadowRoot.querySelector('img'):e.querySelector('img'),a=frame.getBoundingClientRect(),r=img.getBoundingClientRect();return {frame:[a.width,a.height],client:[e.clientWidth,e.clientHeight],image:[r.x-a.x,r.y-a.y,r.width,r.height],natural:[img.naturalWidth,img.naturalHeight],view:e._view||null};}));
+ assert.equal(images.length,4);if(kind==='source')reference=images;else for(let i=0;i<4;i++){assert.deepEqual(images[i].frame,reference[i].frame);assert.deepEqual(images[i].natural,reference[i].natural);for(let j=0;j<4;j++)assert(Math.abs(images[i].image[j]-reference[i].image[j])<=1,'image crop differs by more than one CSS pixel');}
+ result.cases.push({width,height,kind,status:'PASS',images});console.log('PASS image geometry '+kind+' '+width+'x'+height);
+ }finally{await p.close();}}}}finally{await b.close();}assert.deepEqual(result.errors,[]);assert.deepEqual(result.console,[]);assert.deepEqual(result.network,[]);fs.writeFileSync(path.join(out,'image-geometry.json'),JSON.stringify(result,null,2)+'\n');})().catch(e=>{console.error(e);process.exitCode=1;});
