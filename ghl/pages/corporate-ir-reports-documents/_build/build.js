@@ -212,7 +212,7 @@ function banner(variant) {
 function assemble(logoValue, variant) {
   const cfg = Object.assign({}, config, { logoImage: logoValue });
   // A document title must remain JSON text even when it contains a closing-script sequence.
-  const cfgBlock = '<script type="application/json" id="bwci-corporate-ir-reports-documents-config">\n' + JSON.stringify(cfg, null, 2).replace(/</g, '\\u003c') + '\n</script>';
+  const cfgBlock = '<script type="application/json" id="bwci-corporate-ir-reports-documents-config">\n' + JSON.stringify(chrome.imageConfig(cfg), null, 2).replace(/</g, '\\u003c') + '\n</script>';
   return banner(variant) + '\n' + cfgBlock + '\n' + FONT_LINKS + '\n<style>\n' + css + '</style>\n\n' + html + '\n\n<script>\n' + js + '\n</script>\n';
 }
 const ghl = assemble(config.logoImage, 'production — hosted logo');

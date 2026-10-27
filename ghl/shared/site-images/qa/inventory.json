@@ -1,0 +1,275 @@
+[
+  {
+    "name": "bwci_img_logo",
+    "existing": true,
+    "asset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+    "fieldKey": "{{ custom_values.bwci_img_logo }}",
+    "id": "logo",
+    "usedBy": [
+      "better-world-impact",
+      "corporate-ir",
+      "corporate-ir-company-information",
+      "corporate-ir-legal-notices",
+      "corporate-ir-regulatory",
+      "corporate-ir-reports-documents",
+      "corporate-ir-shareholders",
+      "ecosystem",
+      "financial-engine",
+      "governance",
+      "governance-board",
+      "governance-leadership",
+      "investors-partners",
+      "main",
+      "platforms",
+      "profile-agnes-gradzewicz",
+      "profile-alexander-alegria-saif",
+      "profile-christie-osarenren",
+      "profile-ewa-dudek",
+      "profile-farhad-reyazat",
+      "profile-gabriella-karlova",
+      "profile-richard-werner",
+      "smes-projects"
+    ],
+    "references": 23
+  },
+  {
+    "name": "hero_image",
+    "existing": true,
+    "asset": "ghl/pages/main/assets/home-hero-port.png",
+    "fieldKey": "{{ custom_values.hero_image }}",
+    "id": "mainHero",
+    "usedBy": [
+      "main"
+    ],
+    "references": 1
+  },
+  {
+    "name": "bwci_img_who_photo",
+    "existing": true,
+    "asset": "ghl/pages/main/assets/home-who-photo.webp",
+    "fieldKey": "{{ custom_values.bwci_img_who_photo }}",
+    "id": "whoPhoto",
+    "usedBy": [
+      "main"
+    ],
+    "references": 1
+  },
+  {
+    "name": "bwci_img_impact_1",
+    "existing": true,
+    "asset": "ghl/pages/main/assets/home-impact-1.webp",
+    "fieldKey": "{{ custom_values.bwci_img_impact_1 }}",
+    "id": "impact1",
+    "usedBy": [
+      "main"
+    ],
+    "references": 1
+  },
+  {
+    "name": "bwci_img_impact_2",
+    "existing": true,
+    "asset": "ghl/pages/main/assets/home-impact-2.webp",
+    "fieldKey": "{{ custom_values.bwci_img_impact_2 }}",
+    "id": "impact2",
+    "usedBy": [
+      "main"
+    ],
+    "references": 1
+  },
+  {
+    "name": "bwci_img_impact_3",
+    "existing": true,
+    "asset": "ghl/pages/main/assets/home-impact-3.webp",
+    "fieldKey": "{{ custom_values.bwci_img_impact_3 }}",
+    "id": "impact3",
+    "usedBy": [
+      "main"
+    ],
+    "references": 1
+  },
+  {
+    "name": "bwci_img_impact_4",
+    "existing": true,
+    "asset": "ghl/pages/main/assets/home-impact-4.webp",
+    "fieldKey": "{{ custom_values.bwci_img_impact_4 }}",
+    "id": "impact4",
+    "usedBy": [
+      "main"
+    ],
+    "references": 1
+  },
+  {
+    "name": "bwci_img_financial_engine_hero",
+    "existing": false,
+    "asset": "ghl/pages/financial-engine/assets/financial-engine-hero.webp",
+    "fieldKey": "{{ custom_values.bwci_img_financial_engine_hero }}",
+    "id": "financialEngineHero",
+    "usedBy": [
+      "financial-engine"
+    ],
+    "references": 1
+  },
+  {
+    "name": "bwci_img_ecosystem_hero",
+    "existing": false,
+    "asset": "ghl/pages/ecosystem/assets/ecosystem-hero-waves.webp",
+    "fieldKey": "{{ custom_values.bwci_img_ecosystem_hero }}",
+    "id": "ecosystemHero",
+    "usedBy": [
+      "ecosystem"
+    ],
+    "references": 1
+  },
+  {
+    "name": "bwci_img_platforms_hero",
+    "existing": false,
+    "asset": "ghl/pages/platforms/assets/plat-hero-rails.png",
+    "fieldKey": "{{ custom_values.bwci_img_platforms_hero }}",
+    "id": "platformsHero",
+    "usedBy": [
+      "platforms"
+    ],
+    "references": 1
+  },
+  {
+    "name": "bwci_img_smes_projects_hero",
+    "existing": false,
+    "asset": "ghl/pages/smes-projects/assets/sme-hero-flow.webp",
+    "fieldKey": "{{ custom_values.bwci_img_smes_projects_hero }}",
+    "id": "smesHero",
+    "usedBy": [
+      "smes-projects"
+    ],
+    "references": 1
+  },
+  {
+    "name": "bwci_img_investors_partners_hero",
+    "existing": false,
+    "asset": "ghl/pages/investors-partners/assets/inv-hero-flow.png",
+    "fieldKey": "{{ custom_values.bwci_img_investors_partners_hero }}",
+    "id": "investorsHero",
+    "usedBy": [
+      "investors-partners"
+    ],
+    "references": 1
+  },
+  {
+    "name": "bwci_img_better_world_impact_hero",
+    "existing": false,
+    "asset": "ghl/pages/better-world-impact/assets/impact-hero-ribbons.png",
+    "fieldKey": "{{ custom_values.bwci_img_better_world_impact_hero }}",
+    "id": "impactHero",
+    "usedBy": [
+      "better-world-impact"
+    ],
+    "references": 1
+  },
+  {
+    "name": "bwci_img_profile_alexander_alegria_saif",
+    "existing": true,
+    "asset": "ghl/pages/governance-leadership/assets/alexander-alegria-saif.jpg",
+    "fieldKey": "{{ custom_values.bwci_img_profile_alexander_alegria_saif }}",
+    "id": "alexander-alegria-saif",
+    "usedBy": [
+      "governance-board",
+      "governance-leadership",
+      "main",
+      "profile-agnes-gradzewicz",
+      "profile-alexander-alegria-saif",
+      "profile-christie-osarenren",
+      "profile-ewa-dudek",
+      "profile-farhad-reyazat",
+      "profile-gabriella-karlova",
+      "profile-richard-werner"
+    ],
+    "references": 10
+  },
+  {
+    "name": "bwci_img_profile_farhad_reyazat",
+    "existing": true,
+    "asset": "ghl/pages/governance-leadership/assets/farhad-reyazat.jpg",
+    "fieldKey": "{{ custom_values.bwci_img_profile_farhad_reyazat }}",
+    "id": "farhad-reyazat",
+    "usedBy": [
+      "governance-board",
+      "governance-leadership",
+      "main",
+      "profile-agnes-gradzewicz",
+      "profile-alexander-alegria-saif",
+      "profile-christie-osarenren",
+      "profile-ewa-dudek",
+      "profile-farhad-reyazat",
+      "profile-gabriella-karlova",
+      "profile-richard-werner"
+    ],
+    "references": 10
+  },
+  {
+    "name": "bwci_img_profile_gabriella_karlova",
+    "existing": true,
+    "asset": "ghl/pages/governance-leadership/assets/gabriella-karlova.webp",
+    "fieldKey": "{{ custom_values.bwci_img_profile_gabriella_karlova }}",
+    "id": "gabriella-karlova",
+    "usedBy": [
+      "governance-board",
+      "governance-leadership",
+      "main",
+      "profile-agnes-gradzewicz",
+      "profile-alexander-alegria-saif",
+      "profile-christie-osarenren",
+      "profile-ewa-dudek",
+      "profile-farhad-reyazat",
+      "profile-gabriella-karlova",
+      "profile-richard-werner"
+    ],
+    "references": 10
+  },
+  {
+    "name": "bwci_img_profile_richard_werner",
+    "existing": true,
+    "asset": "ghl/pages/governance-leadership/assets/richard-werner.webp",
+    "fieldKey": "{{ custom_values.bwci_img_profile_richard_werner }}",
+    "id": "richard-werner",
+    "usedBy": [
+      "governance-leadership",
+      "profile-richard-werner"
+    ],
+    "references": 2
+  },
+  {
+    "name": "bwci_img_profile_ewa_dudek",
+    "existing": true,
+    "asset": "ghl/pages/governance-leadership/assets/ewa-dudek.webp",
+    "fieldKey": "{{ custom_values.bwci_img_profile_ewa_dudek }}",
+    "id": "ewa-dudek",
+    "usedBy": [
+      "governance-leadership",
+      "profile-ewa-dudek"
+    ],
+    "references": 2
+  },
+  {
+    "name": "bwci_img_profile_agnes_gradzewicz",
+    "existing": true,
+    "asset": "ghl/pages/governance-leadership/assets/agnes-gradzewicz.webp",
+    "fieldKey": "{{ custom_values.bwci_img_profile_agnes_gradzewicz }}",
+    "id": "agnes-gradzewicz",
+    "usedBy": [
+      "governance-leadership",
+      "profile-agnes-gradzewicz"
+    ],
+    "references": 2
+  },
+  {
+    "name": "bwci_img_profile_christie_osarenren",
+    "existing": true,
+    "asset": "ghl/pages/governance-leadership/assets/christie-osarenren.webp",
+    "fieldKey": "{{ custom_values.bwci_img_profile_christie_osarenren }}",
+    "id": "christie-osarenren",
+    "usedBy": [
+      "governance-leadership",
+      "profile-christie-osarenren"
+    ],
+    "references": 2
+  }
+]

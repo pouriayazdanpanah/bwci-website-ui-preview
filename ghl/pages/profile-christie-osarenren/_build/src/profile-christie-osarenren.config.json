@@ -1,10 +1,10 @@
 {
-  "logoImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/bwci-logo.png",
+  "logoImage": "{{ custom_values.bwci_img_logo }}",
   "peopleImages": {
-    "christie-osarenren": "https://REPLACE-WITH-YOUR-HOSTED-URL/christie-osarenren.webp",
-    "alexander-alegria-saif": "https://REPLACE-WITH-YOUR-HOSTED-URL/alexander-alegria-saif.jpg",
-    "farhad-reyazat": "https://REPLACE-WITH-YOUR-HOSTED-URL/farhad-reyazat.jpg",
-    "gabriella-karlova": "https://REPLACE-WITH-YOUR-HOSTED-URL/gabriella-karlova.webp"
+    "christie-osarenren": "{{ custom_values.bwci_img_profile_christie_osarenren }}",
+    "alexander-alegria-saif": "{{ custom_values.bwci_img_profile_alexander_alegria_saif }}",
+    "farhad-reyazat": "{{ custom_values.bwci_img_profile_farhad_reyazat }}",
+    "gabriella-karlova": "{{ custom_values.bwci_img_profile_gabriella_karlova }}"
   },
   "showHeader": true,
   "showFooter": true,

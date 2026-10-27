@@ -5,6 +5,17 @@ plus the shared design-system CSS and scroll motion. **Nothing here runs in GoHi
 build inlines the generated markup, CSS and JS into its own pasteable block, scoped to that page's
 root and class prefix. A pasted page never loads a file from this folder.
 
+## Current image Custom Values — October 27, 2026
+
+The generator now inlines the [image resolver](../site-images/README.md) and exposes a development-only
+`imageConfig(cfg)` serializer used by the 22 builders. All 23 hosted/inline blocks honor central
+image URLs; inline blocks additionally retain the original bytes in `imageFallbacks`. The supplied
+13 keys and existing Main `hero_image` are reused, with six proposed hero keys listed for creation.
+The same logo key drives header, drawer and footer; shared portraits use the same key in every
+consumer. Unresolved/empty image settings do not request template strings, and cloned stale sources
+are cleared. Image fit/load code, CSS, content and navigation are preserved. Actual GHL replacement
+and media delivery remain **NOT VERIFIED**; no account changes or publication occur.
+
 ## Current centralized navigation — October 27, 2026
 
 All 23 consumers now reference the exact **43 existing GHL Custom Values** in their top JSON;

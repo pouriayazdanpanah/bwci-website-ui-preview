@@ -240,7 +240,7 @@ function banner(variant) {
 }
 function assemble(imageValue, logoValue, variant) {
   const cfg = Object.assign({}, config, { platformsHeroImage: imageValue, logoImage: logoValue });
-  const cfgBlock = '<script type="application/json" id="bwci-platforms-config">\n' + JSON.stringify(cfg, null, 2) + '\n</script>';
+  const cfgBlock = '<script type="application/json" id="bwci-platforms-config">\n' + JSON.stringify(chrome.imageConfig(cfg), null, 2) + '\n</script>';
   return banner(variant) + '\n' + cfgBlock + '\n' + FONT_LINKS + '\n<style>\n' + css + '</style>\n\n' + html + '\n\n<script>\n' + js + '\n</script>\n';
 }
 const ghl = assemble(config.platformsHeroImage, config.logoImage, 'production — hosted images');

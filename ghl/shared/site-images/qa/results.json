@@ -1,0 +1,3602 @@
+{
+  "date": "2026-10-27T14:49:19.343Z",
+  "baseline": "52b3cc50906b7e2619273e76d24f99c4e90e7b17",
+  "status": "PASS_LOCAL",
+  "coverage": {
+    "pages": 23,
+    "outputs": 46,
+    "imageSettings": 73,
+    "uniqueImages": 20,
+    "existingKeys": 14,
+    "proposedKeys": 6,
+    "unitChecks": 317,
+    "browserCases": 184,
+    "imageGeometryPairs": 476,
+    "maxGeometryDelta": 0,
+    "reproducibleBuilders": 22
+  },
+  "static": {
+    "date": "2026-10-27T14:33:47.471Z",
+    "status": "PASS",
+    "pages": [
+      {
+        "page": "better-world-impact",
+        "status": "PASS",
+        "imageSettings": 2,
+        "variants": 2
+      },
+      {
+        "page": "corporate-ir",
+        "status": "PASS",
+        "imageSettings": 1,
+        "variants": 2
+      },
+      {
+        "page": "corporate-ir-company-information",
+        "status": "PASS",
+        "imageSettings": 1,
+        "variants": 2
+      },
+      {
+        "page": "corporate-ir-legal-notices",
+        "status": "PASS",
+        "imageSettings": 1,
+        "variants": 2
+      },
+      {
+        "page": "corporate-ir-regulatory",
+        "status": "PASS",
+        "imageSettings": 1,
+        "variants": 2
+      },
+      {
+        "page": "corporate-ir-reports-documents",
+        "status": "PASS",
+        "imageSettings": 1,
+        "variants": 2
+      },
+      {
+        "page": "corporate-ir-shareholders",
+        "status": "PASS",
+        "imageSettings": 1,
+        "variants": 2
+      },
+      {
+        "page": "ecosystem",
+        "status": "PASS",
+        "imageSettings": 2,
+        "variants": 2
+      },
+      {
+        "page": "financial-engine",
+        "status": "PASS",
+        "imageSettings": 2,
+        "variants": 2
+      },
+      {
+        "page": "governance",
+        "status": "PASS",
+        "imageSettings": 1,
+        "variants": 2
+      },
+      {
+        "page": "governance-board",
+        "status": "PASS",
+        "imageSettings": 4,
+        "variants": 2
+      },
+      {
+        "page": "governance-leadership",
+        "status": "PASS",
+        "imageSettings": 8,
+        "variants": 2
+      },
+      {
+        "page": "investors-partners",
+        "status": "PASS",
+        "imageSettings": 2,
+        "variants": 2
+      },
+      {
+        "page": "main",
+        "status": "PASS",
+        "imageSettings": 10,
+        "variants": 2
+      },
+      {
+        "page": "platforms",
+        "status": "PASS",
+        "imageSettings": 2,
+        "variants": 2
+      },
+      {
+        "page": "profile-agnes-gradzewicz",
+        "status": "PASS",
+        "imageSettings": 5,
+        "variants": 2
+      },
+      {
+        "page": "profile-alexander-alegria-saif",
+        "status": "PASS",
+        "imageSettings": 4,
+        "variants": 2
+      },
+      {
+        "page": "profile-christie-osarenren",
+        "status": "PASS",
+        "imageSettings": 5,
+        "variants": 2
+      },
+      {
+        "page": "profile-ewa-dudek",
+        "status": "PASS",
+        "imageSettings": 5,
+        "variants": 2
+      },
+      {
+        "page": "profile-farhad-reyazat",
+        "status": "PASS",
+        "imageSettings": 4,
+        "variants": 2
+      },
+      {
+        "page": "profile-gabriella-karlova",
+        "status": "PASS",
+        "imageSettings": 4,
+        "variants": 2
+      },
+      {
+        "page": "profile-richard-werner",
+        "status": "PASS",
+        "imageSettings": 5,
+        "variants": 2
+      },
+      {
+        "page": "smes-projects",
+        "status": "PASS",
+        "imageSettings": 2,
+        "variants": 2
+      }
+    ],
+    "settings": 73,
+    "images": 20,
+    "existingKeys": 14,
+    "newKeys": 6,
+    "rows": [
+      {
+        "page": "better-world-impact",
+        "configId": "bwci-better-world-impact-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "better-world-impact",
+        "configId": "bwci-better-world-impact-config",
+        "property": "impactHeroImage",
+        "image": "impactHero",
+        "customValue": "bwci_img_better_world_impact_hero",
+        "fieldKey": "{{ custom_values.bwci_img_better_world_impact_hero }}",
+        "status": "CREATE_IN_GHL",
+        "referenceAsset": "ghl/pages/better-world-impact/assets/impact-hero-ribbons.png",
+        "sourceSHA256": "d86831f4d7d2a12df0d81645cb8cf04581d90998f2c22e3e08ff1fa2be729ae0"
+      },
+      {
+        "page": "corporate-ir",
+        "configId": "bwci-corporate-ir-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "corporate-ir-company-information",
+        "configId": "bwci-corporate-ir-company-information-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "corporate-ir-legal-notices",
+        "configId": "bwci-corporate-ir-legal-notices-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "corporate-ir-regulatory",
+        "configId": "bwci-corporate-ir-regulatory-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "corporate-ir-reports-documents",
+        "configId": "bwci-corporate-ir-reports-documents-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "corporate-ir-shareholders",
+        "configId": "bwci-corporate-ir-shareholders-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "ecosystem",
+        "configId": "bwci-ecosystem-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "ecosystem",
+        "configId": "bwci-ecosystem-config",
+        "property": "ecosystemHeroImage",
+        "image": "ecosystemHero",
+        "customValue": "bwci_img_ecosystem_hero",
+        "fieldKey": "{{ custom_values.bwci_img_ecosystem_hero }}",
+        "status": "CREATE_IN_GHL",
+        "referenceAsset": "ghl/pages/ecosystem/assets/ecosystem-hero-waves.webp",
+        "sourceSHA256": "2243238ccef964ae3f1903860b7fe8ad1bbbb309d4cdacbfd2e3f6f3f5ec4a32"
+      },
+      {
+        "page": "financial-engine",
+        "configId": "bwci-financial-engine-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "financial-engine",
+        "configId": "bwci-financial-engine-config",
+        "property": "financialEngineImage",
+        "image": "financialEngineHero",
+        "customValue": "bwci_img_financial_engine_hero",
+        "fieldKey": "{{ custom_values.bwci_img_financial_engine_hero }}",
+        "status": "CREATE_IN_GHL",
+        "referenceAsset": "ghl/pages/financial-engine/assets/financial-engine-hero.webp",
+        "sourceSHA256": "642d0a4081f052b4d2210286fe19a7869cc545c0b15da25e3ebcaf3d5e74d4e5"
+      },
+      {
+        "page": "governance",
+        "configId": "bwci-governance-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "governance-board",
+        "configId": "bwci-governance-board-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "governance-board",
+        "configId": "bwci-governance-board-config",
+        "property": "peopleImages.alexander-alegria-saif",
+        "image": "alexander-alegria-saif",
+        "customValue": "bwci_img_profile_alexander_alegria_saif",
+        "fieldKey": "{{ custom_values.bwci_img_profile_alexander_alegria_saif }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/alexander-alegria-saif.jpg",
+        "sourceSHA256": "1767d08a7697584a50c561f42bdf3638bfff0fca6318d216fb0a35417bfa1164"
+      },
+      {
+        "page": "governance-board",
+        "configId": "bwci-governance-board-config",
+        "property": "peopleImages.farhad-reyazat",
+        "image": "farhad-reyazat",
+        "customValue": "bwci_img_profile_farhad_reyazat",
+        "fieldKey": "{{ custom_values.bwci_img_profile_farhad_reyazat }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/farhad-reyazat.jpg",
+        "sourceSHA256": "9959d134f78961b0a7af7fbcf7a8f95c8bc916a46f11705c372381397d7288c9"
+      },
+      {
+        "page": "governance-board",
+        "configId": "bwci-governance-board-config",
+        "property": "peopleImages.gabriella-karlova",
+        "image": "gabriella-karlova",
+        "customValue": "bwci_img_profile_gabriella_karlova",
+        "fieldKey": "{{ custom_values.bwci_img_profile_gabriella_karlova }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/gabriella-karlova.webp",
+        "sourceSHA256": "8ad63f7217ddd64d9e8c7009dedbba468de130d6d06e868ee74d770b0d106c07"
+      },
+      {
+        "page": "governance-leadership",
+        "configId": "bwci-governance-leadership-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "governance-leadership",
+        "configId": "bwci-governance-leadership-config",
+        "property": "peopleImages.alexander-alegria-saif",
+        "image": "alexander-alegria-saif",
+        "customValue": "bwci_img_profile_alexander_alegria_saif",
+        "fieldKey": "{{ custom_values.bwci_img_profile_alexander_alegria_saif }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/alexander-alegria-saif.jpg",
+        "sourceSHA256": "1767d08a7697584a50c561f42bdf3638bfff0fca6318d216fb0a35417bfa1164"
+      },
+      {
+        "page": "governance-leadership",
+        "configId": "bwci-governance-leadership-config",
+        "property": "peopleImages.farhad-reyazat",
+        "image": "farhad-reyazat",
+        "customValue": "bwci_img_profile_farhad_reyazat",
+        "fieldKey": "{{ custom_values.bwci_img_profile_farhad_reyazat }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/farhad-reyazat.jpg",
+        "sourceSHA256": "9959d134f78961b0a7af7fbcf7a8f95c8bc916a46f11705c372381397d7288c9"
+      },
+      {
+        "page": "governance-leadership",
+        "configId": "bwci-governance-leadership-config",
+        "property": "peopleImages.gabriella-karlova",
+        "image": "gabriella-karlova",
+        "customValue": "bwci_img_profile_gabriella_karlova",
+        "fieldKey": "{{ custom_values.bwci_img_profile_gabriella_karlova }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/gabriella-karlova.webp",
+        "sourceSHA256": "8ad63f7217ddd64d9e8c7009dedbba468de130d6d06e868ee74d770b0d106c07"
+      },
+      {
+        "page": "governance-leadership",
+        "configId": "bwci-governance-leadership-config",
+        "property": "peopleImages.richard-werner",
+        "image": "richard-werner",
+        "customValue": "bwci_img_profile_richard_werner",
+        "fieldKey": "{{ custom_values.bwci_img_profile_richard_werner }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/richard-werner.webp",
+        "sourceSHA256": "3f8dba3a74db0a1f5ebedd6d03dd2425b4c8bc557f066b7126798730161cc3c2"
+      },
+      {
+        "page": "governance-leadership",
+        "configId": "bwci-governance-leadership-config",
+        "property": "peopleImages.ewa-dudek",
+        "image": "ewa-dudek",
+        "customValue": "bwci_img_profile_ewa_dudek",
+        "fieldKey": "{{ custom_values.bwci_img_profile_ewa_dudek }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/ewa-dudek.webp",
+        "sourceSHA256": "d1c3d6c19c4a773c01aa433f5aef1f0f417bcea41a1dc3406207052e91f947d4"
+      },
+      {
+        "page": "governance-leadership",
+        "configId": "bwci-governance-leadership-config",
+        "property": "peopleImages.agnes-gradzewicz",
+        "image": "agnes-gradzewicz",
+        "customValue": "bwci_img_profile_agnes_gradzewicz",
+        "fieldKey": "{{ custom_values.bwci_img_profile_agnes_gradzewicz }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/agnes-gradzewicz.webp",
+        "sourceSHA256": "ff811b4dd29e18afa2a619208083632c6249cf2ccbbfe1429b4e341866df5494"
+      },
+      {
+        "page": "governance-leadership",
+        "configId": "bwci-governance-leadership-config",
+        "property": "peopleImages.christie-osarenren",
+        "image": "christie-osarenren",
+        "customValue": "bwci_img_profile_christie_osarenren",
+        "fieldKey": "{{ custom_values.bwci_img_profile_christie_osarenren }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/christie-osarenren.webp",
+        "sourceSHA256": "7daff70b408d63dec56599820b4a9602a9a44a595943f4bfa19bb0d12421151c"
+      },
+      {
+        "page": "investors-partners",
+        "configId": "bwci-investors-partners-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "investors-partners",
+        "configId": "bwci-investors-partners-config",
+        "property": "investorsHeroImage",
+        "image": "investorsHero",
+        "customValue": "bwci_img_investors_partners_hero",
+        "fieldKey": "{{ custom_values.bwci_img_investors_partners_hero }}",
+        "status": "CREATE_IN_GHL",
+        "referenceAsset": "ghl/pages/investors-partners/assets/inv-hero-flow.png",
+        "sourceSHA256": "8183a607171bd30a661c45ff0f0cc35bd6b5766be71e639882977f936e63f03c"
+      },
+      {
+        "page": "main",
+        "configId": "bwci-main-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "main",
+        "configId": "bwci-main-config",
+        "property": "heroImage",
+        "image": "mainHero",
+        "customValue": "hero_image",
+        "fieldKey": "{{ custom_values.hero_image }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/main/assets/home-hero-port.png",
+        "sourceSHA256": "cac61f4fa63ac98c3148ddf051b558c4b85f8a673945f10a339e41594e2faa68"
+      },
+      {
+        "page": "main",
+        "configId": "bwci-main-config",
+        "property": "images.whoPhoto",
+        "image": "whoPhoto",
+        "customValue": "bwci_img_who_photo",
+        "fieldKey": "{{ custom_values.bwci_img_who_photo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/main/assets/home-who-photo.webp",
+        "sourceSHA256": "c24cc9fc6aedf87a98b66bde0be4723563e46f2f74068722f07fb2612917770d"
+      },
+      {
+        "page": "main",
+        "configId": "bwci-main-config",
+        "property": "images.impact1",
+        "image": "impact1",
+        "customValue": "bwci_img_impact_1",
+        "fieldKey": "{{ custom_values.bwci_img_impact_1 }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/main/assets/home-impact-1.webp",
+        "sourceSHA256": "1bb41143b9f9b7c5612048b4a27c9cff2065c4151e722cfa8272aa009c72085a"
+      },
+      {
+        "page": "main",
+        "configId": "bwci-main-config",
+        "property": "images.impact2",
+        "image": "impact2",
+        "customValue": "bwci_img_impact_2",
+        "fieldKey": "{{ custom_values.bwci_img_impact_2 }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/main/assets/home-impact-2.webp",
+        "sourceSHA256": "ffc03464ddfbaf1af3b397fb328052ceee82509fed1c599911699a519bd96930"
+      },
+      {
+        "page": "main",
+        "configId": "bwci-main-config",
+        "property": "images.impact3",
+        "image": "impact3",
+        "customValue": "bwci_img_impact_3",
+        "fieldKey": "{{ custom_values.bwci_img_impact_3 }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/main/assets/home-impact-3.webp",
+        "sourceSHA256": "2bf95c4d58357e75efcd5a60d616d438dad4192b048f32cce62a7a5eafe88573"
+      },
+      {
+        "page": "main",
+        "configId": "bwci-main-config",
+        "property": "images.impact4",
+        "image": "impact4",
+        "customValue": "bwci_img_impact_4",
+        "fieldKey": "{{ custom_values.bwci_img_impact_4 }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/main/assets/home-impact-4.webp",
+        "sourceSHA256": "d4a6605e9e34cfe4fc8ecc4b8b9b0cf0007ea562fe50b0814d4c6081fd7f210b"
+      },
+      {
+        "page": "main",
+        "configId": "bwci-main-config",
+        "property": "images.leaderAlexander",
+        "image": "alexander-alegria-saif",
+        "customValue": "bwci_img_profile_alexander_alegria_saif",
+        "fieldKey": "{{ custom_values.bwci_img_profile_alexander_alegria_saif }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/alexander-alegria-saif.jpg",
+        "sourceSHA256": "1767d08a7697584a50c561f42bdf3638bfff0fca6318d216fb0a35417bfa1164"
+      },
+      {
+        "page": "main",
+        "configId": "bwci-main-config",
+        "property": "images.leaderFarhad",
+        "image": "farhad-reyazat",
+        "customValue": "bwci_img_profile_farhad_reyazat",
+        "fieldKey": "{{ custom_values.bwci_img_profile_farhad_reyazat }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/farhad-reyazat.jpg",
+        "sourceSHA256": "9959d134f78961b0a7af7fbcf7a8f95c8bc916a46f11705c372381397d7288c9"
+      },
+      {
+        "page": "main",
+        "configId": "bwci-main-config",
+        "property": "images.leaderGabriela",
+        "image": "gabriella-karlova",
+        "customValue": "bwci_img_profile_gabriella_karlova",
+        "fieldKey": "{{ custom_values.bwci_img_profile_gabriella_karlova }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/gabriella-karlova.webp",
+        "sourceSHA256": "8ad63f7217ddd64d9e8c7009dedbba468de130d6d06e868ee74d770b0d106c07"
+      },
+      {
+        "page": "platforms",
+        "configId": "bwci-platforms-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "platforms",
+        "configId": "bwci-platforms-config",
+        "property": "platformsHeroImage",
+        "image": "platformsHero",
+        "customValue": "bwci_img_platforms_hero",
+        "fieldKey": "{{ custom_values.bwci_img_platforms_hero }}",
+        "status": "CREATE_IN_GHL",
+        "referenceAsset": "ghl/pages/platforms/assets/plat-hero-rails.png",
+        "sourceSHA256": "ba8fe4b45f12344b0048d79c78d8f1a52bc40da20bb5069a63e7964a0c39a12d"
+      },
+      {
+        "page": "profile-agnes-gradzewicz",
+        "configId": "bwci-profile-agnes-gradzewicz-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "profile-agnes-gradzewicz",
+        "configId": "bwci-profile-agnes-gradzewicz-config",
+        "property": "peopleImages.alexander-alegria-saif",
+        "image": "alexander-alegria-saif",
+        "customValue": "bwci_img_profile_alexander_alegria_saif",
+        "fieldKey": "{{ custom_values.bwci_img_profile_alexander_alegria_saif }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/alexander-alegria-saif.jpg",
+        "sourceSHA256": "1767d08a7697584a50c561f42bdf3638bfff0fca6318d216fb0a35417bfa1164"
+      },
+      {
+        "page": "profile-agnes-gradzewicz",
+        "configId": "bwci-profile-agnes-gradzewicz-config",
+        "property": "peopleImages.farhad-reyazat",
+        "image": "farhad-reyazat",
+        "customValue": "bwci_img_profile_farhad_reyazat",
+        "fieldKey": "{{ custom_values.bwci_img_profile_farhad_reyazat }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/farhad-reyazat.jpg",
+        "sourceSHA256": "9959d134f78961b0a7af7fbcf7a8f95c8bc916a46f11705c372381397d7288c9"
+      },
+      {
+        "page": "profile-agnes-gradzewicz",
+        "configId": "bwci-profile-agnes-gradzewicz-config",
+        "property": "peopleImages.gabriella-karlova",
+        "image": "gabriella-karlova",
+        "customValue": "bwci_img_profile_gabriella_karlova",
+        "fieldKey": "{{ custom_values.bwci_img_profile_gabriella_karlova }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/gabriella-karlova.webp",
+        "sourceSHA256": "8ad63f7217ddd64d9e8c7009dedbba468de130d6d06e868ee74d770b0d106c07"
+      },
+      {
+        "page": "profile-agnes-gradzewicz",
+        "configId": "bwci-profile-agnes-gradzewicz-config",
+        "property": "peopleImages.agnes-gradzewicz",
+        "image": "agnes-gradzewicz",
+        "customValue": "bwci_img_profile_agnes_gradzewicz",
+        "fieldKey": "{{ custom_values.bwci_img_profile_agnes_gradzewicz }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/agnes-gradzewicz.webp",
+        "sourceSHA256": "ff811b4dd29e18afa2a619208083632c6249cf2ccbbfe1429b4e341866df5494"
+      },
+      {
+        "page": "profile-alexander-alegria-saif",
+        "configId": "bwci-profile-alexander-alegria-saif-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "profile-alexander-alegria-saif",
+        "configId": "bwci-profile-alexander-alegria-saif-config",
+        "property": "peopleImages.alexander-alegria-saif",
+        "image": "alexander-alegria-saif",
+        "customValue": "bwci_img_profile_alexander_alegria_saif",
+        "fieldKey": "{{ custom_values.bwci_img_profile_alexander_alegria_saif }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/alexander-alegria-saif.jpg",
+        "sourceSHA256": "1767d08a7697584a50c561f42bdf3638bfff0fca6318d216fb0a35417bfa1164"
+      },
+      {
+        "page": "profile-alexander-alegria-saif",
+        "configId": "bwci-profile-alexander-alegria-saif-config",
+        "property": "peopleImages.farhad-reyazat",
+        "image": "farhad-reyazat",
+        "customValue": "bwci_img_profile_farhad_reyazat",
+        "fieldKey": "{{ custom_values.bwci_img_profile_farhad_reyazat }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/farhad-reyazat.jpg",
+        "sourceSHA256": "9959d134f78961b0a7af7fbcf7a8f95c8bc916a46f11705c372381397d7288c9"
+      },
+      {
+        "page": "profile-alexander-alegria-saif",
+        "configId": "bwci-profile-alexander-alegria-saif-config",
+        "property": "peopleImages.gabriella-karlova",
+        "image": "gabriella-karlova",
+        "customValue": "bwci_img_profile_gabriella_karlova",
+        "fieldKey": "{{ custom_values.bwci_img_profile_gabriella_karlova }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/gabriella-karlova.webp",
+        "sourceSHA256": "8ad63f7217ddd64d9e8c7009dedbba468de130d6d06e868ee74d770b0d106c07"
+      },
+      {
+        "page": "profile-christie-osarenren",
+        "configId": "bwci-profile-christie-osarenren-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "profile-christie-osarenren",
+        "configId": "bwci-profile-christie-osarenren-config",
+        "property": "peopleImages.alexander-alegria-saif",
+        "image": "alexander-alegria-saif",
+        "customValue": "bwci_img_profile_alexander_alegria_saif",
+        "fieldKey": "{{ custom_values.bwci_img_profile_alexander_alegria_saif }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/alexander-alegria-saif.jpg",
+        "sourceSHA256": "1767d08a7697584a50c561f42bdf3638bfff0fca6318d216fb0a35417bfa1164"
+      },
+      {
+        "page": "profile-christie-osarenren",
+        "configId": "bwci-profile-christie-osarenren-config",
+        "property": "peopleImages.farhad-reyazat",
+        "image": "farhad-reyazat",
+        "customValue": "bwci_img_profile_farhad_reyazat",
+        "fieldKey": "{{ custom_values.bwci_img_profile_farhad_reyazat }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/farhad-reyazat.jpg",
+        "sourceSHA256": "9959d134f78961b0a7af7fbcf7a8f95c8bc916a46f11705c372381397d7288c9"
+      },
+      {
+        "page": "profile-christie-osarenren",
+        "configId": "bwci-profile-christie-osarenren-config",
+        "property": "peopleImages.gabriella-karlova",
+        "image": "gabriella-karlova",
+        "customValue": "bwci_img_profile_gabriella_karlova",
+        "fieldKey": "{{ custom_values.bwci_img_profile_gabriella_karlova }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/gabriella-karlova.webp",
+        "sourceSHA256": "8ad63f7217ddd64d9e8c7009dedbba468de130d6d06e868ee74d770b0d106c07"
+      },
+      {
+        "page": "profile-christie-osarenren",
+        "configId": "bwci-profile-christie-osarenren-config",
+        "property": "peopleImages.christie-osarenren",
+        "image": "christie-osarenren",
+        "customValue": "bwci_img_profile_christie_osarenren",
+        "fieldKey": "{{ custom_values.bwci_img_profile_christie_osarenren }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/christie-osarenren.webp",
+        "sourceSHA256": "7daff70b408d63dec56599820b4a9602a9a44a595943f4bfa19bb0d12421151c"
+      },
+      {
+        "page": "profile-ewa-dudek",
+        "configId": "bwci-profile-ewa-dudek-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "profile-ewa-dudek",
+        "configId": "bwci-profile-ewa-dudek-config",
+        "property": "peopleImages.alexander-alegria-saif",
+        "image": "alexander-alegria-saif",
+        "customValue": "bwci_img_profile_alexander_alegria_saif",
+        "fieldKey": "{{ custom_values.bwci_img_profile_alexander_alegria_saif }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/alexander-alegria-saif.jpg",
+        "sourceSHA256": "1767d08a7697584a50c561f42bdf3638bfff0fca6318d216fb0a35417bfa1164"
+      },
+      {
+        "page": "profile-ewa-dudek",
+        "configId": "bwci-profile-ewa-dudek-config",
+        "property": "peopleImages.farhad-reyazat",
+        "image": "farhad-reyazat",
+        "customValue": "bwci_img_profile_farhad_reyazat",
+        "fieldKey": "{{ custom_values.bwci_img_profile_farhad_reyazat }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/farhad-reyazat.jpg",
+        "sourceSHA256": "9959d134f78961b0a7af7fbcf7a8f95c8bc916a46f11705c372381397d7288c9"
+      },
+      {
+        "page": "profile-ewa-dudek",
+        "configId": "bwci-profile-ewa-dudek-config",
+        "property": "peopleImages.gabriella-karlova",
+        "image": "gabriella-karlova",
+        "customValue": "bwci_img_profile_gabriella_karlova",
+        "fieldKey": "{{ custom_values.bwci_img_profile_gabriella_karlova }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/gabriella-karlova.webp",
+        "sourceSHA256": "8ad63f7217ddd64d9e8c7009dedbba468de130d6d06e868ee74d770b0d106c07"
+      },
+      {
+        "page": "profile-ewa-dudek",
+        "configId": "bwci-profile-ewa-dudek-config",
+        "property": "peopleImages.ewa-dudek",
+        "image": "ewa-dudek",
+        "customValue": "bwci_img_profile_ewa_dudek",
+        "fieldKey": "{{ custom_values.bwci_img_profile_ewa_dudek }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/ewa-dudek.webp",
+        "sourceSHA256": "d1c3d6c19c4a773c01aa433f5aef1f0f417bcea41a1dc3406207052e91f947d4"
+      },
+      {
+        "page": "profile-farhad-reyazat",
+        "configId": "bwci-profile-farhad-reyazat-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "profile-farhad-reyazat",
+        "configId": "bwci-profile-farhad-reyazat-config",
+        "property": "peopleImages.alexander-alegria-saif",
+        "image": "alexander-alegria-saif",
+        "customValue": "bwci_img_profile_alexander_alegria_saif",
+        "fieldKey": "{{ custom_values.bwci_img_profile_alexander_alegria_saif }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/alexander-alegria-saif.jpg",
+        "sourceSHA256": "1767d08a7697584a50c561f42bdf3638bfff0fca6318d216fb0a35417bfa1164"
+      },
+      {
+        "page": "profile-farhad-reyazat",
+        "configId": "bwci-profile-farhad-reyazat-config",
+        "property": "peopleImages.farhad-reyazat",
+        "image": "farhad-reyazat",
+        "customValue": "bwci_img_profile_farhad_reyazat",
+        "fieldKey": "{{ custom_values.bwci_img_profile_farhad_reyazat }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/farhad-reyazat.jpg",
+        "sourceSHA256": "9959d134f78961b0a7af7fbcf7a8f95c8bc916a46f11705c372381397d7288c9"
+      },
+      {
+        "page": "profile-farhad-reyazat",
+        "configId": "bwci-profile-farhad-reyazat-config",
+        "property": "peopleImages.gabriella-karlova",
+        "image": "gabriella-karlova",
+        "customValue": "bwci_img_profile_gabriella_karlova",
+        "fieldKey": "{{ custom_values.bwci_img_profile_gabriella_karlova }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/gabriella-karlova.webp",
+        "sourceSHA256": "8ad63f7217ddd64d9e8c7009dedbba468de130d6d06e868ee74d770b0d106c07"
+      },
+      {
+        "page": "profile-gabriella-karlova",
+        "configId": "bwci-profile-gabriella-karlova-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "profile-gabriella-karlova",
+        "configId": "bwci-profile-gabriella-karlova-config",
+        "property": "peopleImages.alexander-alegria-saif",
+        "image": "alexander-alegria-saif",
+        "customValue": "bwci_img_profile_alexander_alegria_saif",
+        "fieldKey": "{{ custom_values.bwci_img_profile_alexander_alegria_saif }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/alexander-alegria-saif.jpg",
+        "sourceSHA256": "1767d08a7697584a50c561f42bdf3638bfff0fca6318d216fb0a35417bfa1164"
+      },
+      {
+        "page": "profile-gabriella-karlova",
+        "configId": "bwci-profile-gabriella-karlova-config",
+        "property": "peopleImages.farhad-reyazat",
+        "image": "farhad-reyazat",
+        "customValue": "bwci_img_profile_farhad_reyazat",
+        "fieldKey": "{{ custom_values.bwci_img_profile_farhad_reyazat }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/farhad-reyazat.jpg",
+        "sourceSHA256": "9959d134f78961b0a7af7fbcf7a8f95c8bc916a46f11705c372381397d7288c9"
+      },
+      {
+        "page": "profile-gabriella-karlova",
+        "configId": "bwci-profile-gabriella-karlova-config",
+        "property": "peopleImages.gabriella-karlova",
+        "image": "gabriella-karlova",
+        "customValue": "bwci_img_profile_gabriella_karlova",
+        "fieldKey": "{{ custom_values.bwci_img_profile_gabriella_karlova }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/gabriella-karlova.webp",
+        "sourceSHA256": "8ad63f7217ddd64d9e8c7009dedbba468de130d6d06e868ee74d770b0d106c07"
+      },
+      {
+        "page": "profile-richard-werner",
+        "configId": "bwci-profile-richard-werner-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "profile-richard-werner",
+        "configId": "bwci-profile-richard-werner-config",
+        "property": "peopleImages.alexander-alegria-saif",
+        "image": "alexander-alegria-saif",
+        "customValue": "bwci_img_profile_alexander_alegria_saif",
+        "fieldKey": "{{ custom_values.bwci_img_profile_alexander_alegria_saif }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/alexander-alegria-saif.jpg",
+        "sourceSHA256": "1767d08a7697584a50c561f42bdf3638bfff0fca6318d216fb0a35417bfa1164"
+      },
+      {
+        "page": "profile-richard-werner",
+        "configId": "bwci-profile-richard-werner-config",
+        "property": "peopleImages.farhad-reyazat",
+        "image": "farhad-reyazat",
+        "customValue": "bwci_img_profile_farhad_reyazat",
+        "fieldKey": "{{ custom_values.bwci_img_profile_farhad_reyazat }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/farhad-reyazat.jpg",
+        "sourceSHA256": "9959d134f78961b0a7af7fbcf7a8f95c8bc916a46f11705c372381397d7288c9"
+      },
+      {
+        "page": "profile-richard-werner",
+        "configId": "bwci-profile-richard-werner-config",
+        "property": "peopleImages.gabriella-karlova",
+        "image": "gabriella-karlova",
+        "customValue": "bwci_img_profile_gabriella_karlova",
+        "fieldKey": "{{ custom_values.bwci_img_profile_gabriella_karlova }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/gabriella-karlova.webp",
+        "sourceSHA256": "8ad63f7217ddd64d9e8c7009dedbba468de130d6d06e868ee74d770b0d106c07"
+      },
+      {
+        "page": "profile-richard-werner",
+        "configId": "bwci-profile-richard-werner-config",
+        "property": "peopleImages.richard-werner",
+        "image": "richard-werner",
+        "customValue": "bwci_img_profile_richard_werner",
+        "fieldKey": "{{ custom_values.bwci_img_profile_richard_werner }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/pages/governance-leadership/assets/richard-werner.webp",
+        "sourceSHA256": "3f8dba3a74db0a1f5ebedd6d03dd2425b4c8bc557f066b7126798730161cc3c2"
+      },
+      {
+        "page": "smes-projects",
+        "configId": "bwci-smes-projects-config",
+        "property": "logoImage",
+        "image": "logo",
+        "customValue": "bwci_img_logo",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "status": "EXISTING_REUSED",
+        "referenceAsset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "sourceSHA256": "7d5df9128e77c237768f13ac5fb4f03493552a186b11d9a704336cf5b4b8a6c4"
+      },
+      {
+        "page": "smes-projects",
+        "configId": "bwci-smes-projects-config",
+        "property": "smesHeroImage",
+        "image": "smesHero",
+        "customValue": "bwci_img_smes_projects_hero",
+        "fieldKey": "{{ custom_values.bwci_img_smes_projects_hero }}",
+        "status": "CREATE_IN_GHL",
+        "referenceAsset": "ghl/pages/smes-projects/assets/sme-hero-flow.webp",
+        "sourceSHA256": "b51e597f96a865caa312352263cfe6e9ae08219b3034e502b4c303ebef4100ae"
+      }
+    ],
+    "inventory": [
+      {
+        "name": "bwci_img_logo",
+        "existing": true,
+        "asset": "ghl/shared/site-chrome/assets/bwci-logo.png",
+        "fieldKey": "{{ custom_values.bwci_img_logo }}",
+        "id": "logo",
+        "usedBy": [
+          "better-world-impact",
+          "corporate-ir",
+          "corporate-ir-company-information",
+          "corporate-ir-legal-notices",
+          "corporate-ir-regulatory",
+          "corporate-ir-reports-documents",
+          "corporate-ir-shareholders",
+          "ecosystem",
+          "financial-engine",
+          "governance",
+          "governance-board",
+          "governance-leadership",
+          "investors-partners",
+          "main",
+          "platforms",
+          "profile-agnes-gradzewicz",
+          "profile-alexander-alegria-saif",
+          "profile-christie-osarenren",
+          "profile-ewa-dudek",
+          "profile-farhad-reyazat",
+          "profile-gabriella-karlova",
+          "profile-richard-werner",
+          "smes-projects"
+        ],
+        "references": 23
+      },
+      {
+        "name": "hero_image",
+        "existing": true,
+        "asset": "ghl/pages/main/assets/home-hero-port.png",
+        "fieldKey": "{{ custom_values.hero_image }}",
+        "id": "mainHero",
+        "usedBy": [
+          "main"
+        ],
+        "references": 1
+      },
+      {
+        "name": "bwci_img_who_photo",
+        "existing": true,
+        "asset": "ghl/pages/main/assets/home-who-photo.webp",
+        "fieldKey": "{{ custom_values.bwci_img_who_photo }}",
+        "id": "whoPhoto",
+        "usedBy": [
+          "main"
+        ],
+        "references": 1
+      },
+      {
+        "name": "bwci_img_impact_1",
+        "existing": true,
+        "asset": "ghl/pages/main/assets/home-impact-1.webp",
+        "fieldKey": "{{ custom_values.bwci_img_impact_1 }}",
+        "id": "impact1",
+        "usedBy": [
+          "main"
+        ],
+        "references": 1
+      },
+      {
+        "name": "bwci_img_impact_2",
+        "existing": true,
+        "asset": "ghl/pages/main/assets/home-impact-2.webp",
+        "fieldKey": "{{ custom_values.bwci_img_impact_2 }}",
+        "id": "impact2",
+        "usedBy": [
+          "main"
+        ],
+        "references": 1
+      },
+      {
+        "name": "bwci_img_impact_3",
+        "existing": true,
+        "asset": "ghl/pages/main/assets/home-impact-3.webp",
+        "fieldKey": "{{ custom_values.bwci_img_impact_3 }}",
+        "id": "impact3",
+        "usedBy": [
+          "main"
+        ],
+        "references": 1
+      },
+      {
+        "name": "bwci_img_impact_4",
+        "existing": true,
+        "asset": "ghl/pages/main/assets/home-impact-4.webp",
+        "fieldKey": "{{ custom_values.bwci_img_impact_4 }}",
+        "id": "impact4",
+        "usedBy": [
+          "main"
+        ],
+        "references": 1
+      },
+      {
+        "name": "bwci_img_financial_engine_hero",
+        "existing": false,
+        "asset": "ghl/pages/financial-engine/assets/financial-engine-hero.webp",
+        "fieldKey": "{{ custom_values.bwci_img_financial_engine_hero }}",
+        "id": "financialEngineHero",
+        "usedBy": [
+          "financial-engine"
+        ],
+        "references": 1
+      },
+      {
+        "name": "bwci_img_ecosystem_hero",
+        "existing": false,
+        "asset": "ghl/pages/ecosystem/assets/ecosystem-hero-waves.webp",
+        "fieldKey": "{{ custom_values.bwci_img_ecosystem_hero }}",
+        "id": "ecosystemHero",
+        "usedBy": [
+          "ecosystem"
+        ],
+        "references": 1
+      },
+      {
+        "name": "bwci_img_platforms_hero",
+        "existing": false,
+        "asset": "ghl/pages/platforms/assets/plat-hero-rails.png",
+        "fieldKey": "{{ custom_values.bwci_img_platforms_hero }}",
+        "id": "platformsHero",
+        "usedBy": [
+          "platforms"
+        ],
+        "references": 1
+      },
+      {
+        "name": "bwci_img_smes_projects_hero",
+        "existing": false,
+        "asset": "ghl/pages/smes-projects/assets/sme-hero-flow.webp",
+        "fieldKey": "{{ custom_values.bwci_img_smes_projects_hero }}",
+        "id": "smesHero",
+        "usedBy": [
+          "smes-projects"
+        ],
+        "references": 1
+      },
+      {
+        "name": "bwci_img_investors_partners_hero",
+        "existing": false,
+        "asset": "ghl/pages/investors-partners/assets/inv-hero-flow.png",
+        "fieldKey": "{{ custom_values.bwci_img_investors_partners_hero }}",
+        "id": "investorsHero",
+        "usedBy": [
+          "investors-partners"
+        ],
+        "references": 1
+      },
+      {
+        "name": "bwci_img_better_world_impact_hero",
+        "existing": false,
+        "asset": "ghl/pages/better-world-impact/assets/impact-hero-ribbons.png",
+        "fieldKey": "{{ custom_values.bwci_img_better_world_impact_hero }}",
+        "id": "impactHero",
+        "usedBy": [
+          "better-world-impact"
+        ],
+        "references": 1
+      },
+      {
+        "name": "bwci_img_profile_alexander_alegria_saif",
+        "existing": true,
+        "asset": "ghl/pages/governance-leadership/assets/alexander-alegria-saif.jpg",
+        "fieldKey": "{{ custom_values.bwci_img_profile_alexander_alegria_saif }}",
+        "id": "alexander-alegria-saif",
+        "usedBy": [
+          "governance-board",
+          "governance-leadership",
+          "main",
+          "profile-agnes-gradzewicz",
+          "profile-alexander-alegria-saif",
+          "profile-christie-osarenren",
+          "profile-ewa-dudek",
+          "profile-farhad-reyazat",
+          "profile-gabriella-karlova",
+          "profile-richard-werner"
+        ],
+        "references": 10
+      },
+      {
+        "name": "bwci_img_profile_farhad_reyazat",
+        "existing": true,
+        "asset": "ghl/pages/governance-leadership/assets/farhad-reyazat.jpg",
+        "fieldKey": "{{ custom_values.bwci_img_profile_farhad_reyazat }}",
+        "id": "farhad-reyazat",
+        "usedBy": [
+          "governance-board",
+          "governance-leadership",
+          "main",
+          "profile-agnes-gradzewicz",
+          "profile-alexander-alegria-saif",
+          "profile-christie-osarenren",
+          "profile-ewa-dudek",
+          "profile-farhad-reyazat",
+          "profile-gabriella-karlova",
+          "profile-richard-werner"
+        ],
+        "references": 10
+      },
+      {
+        "name": "bwci_img_profile_gabriella_karlova",
+        "existing": true,
+        "asset": "ghl/pages/governance-leadership/assets/gabriella-karlova.webp",
+        "fieldKey": "{{ custom_values.bwci_img_profile_gabriella_karlova }}",
+        "id": "gabriella-karlova",
+        "usedBy": [
+          "governance-board",
+          "governance-leadership",
+          "main",
+          "profile-agnes-gradzewicz",
+          "profile-alexander-alegria-saif",
+          "profile-christie-osarenren",
+          "profile-ewa-dudek",
+          "profile-farhad-reyazat",
+          "profile-gabriella-karlova",
+          "profile-richard-werner"
+        ],
+        "references": 10
+      },
+      {
+        "name": "bwci_img_profile_richard_werner",
+        "existing": true,
+        "asset": "ghl/pages/governance-leadership/assets/richard-werner.webp",
+        "fieldKey": "{{ custom_values.bwci_img_profile_richard_werner }}",
+        "id": "richard-werner",
+        "usedBy": [
+          "governance-leadership",
+          "profile-richard-werner"
+        ],
+        "references": 2
+      },
+      {
+        "name": "bwci_img_profile_ewa_dudek",
+        "existing": true,
+        "asset": "ghl/pages/governance-leadership/assets/ewa-dudek.webp",
+        "fieldKey": "{{ custom_values.bwci_img_profile_ewa_dudek }}",
+        "id": "ewa-dudek",
+        "usedBy": [
+          "governance-leadership",
+          "profile-ewa-dudek"
+        ],
+        "references": 2
+      },
+      {
+        "name": "bwci_img_profile_agnes_gradzewicz",
+        "existing": true,
+        "asset": "ghl/pages/governance-leadership/assets/agnes-gradzewicz.webp",
+        "fieldKey": "{{ custom_values.bwci_img_profile_agnes_gradzewicz }}",
+        "id": "agnes-gradzewicz",
+        "usedBy": [
+          "governance-leadership",
+          "profile-agnes-gradzewicz"
+        ],
+        "references": 2
+      },
+      {
+        "name": "bwci_img_profile_christie_osarenren",
+        "existing": true,
+        "asset": "ghl/pages/governance-leadership/assets/christie-osarenren.webp",
+        "fieldKey": "{{ custom_values.bwci_img_profile_christie_osarenren }}",
+        "id": "christie-osarenren",
+        "usedBy": [
+          "governance-leadership",
+          "profile-christie-osarenren"
+        ],
+        "references": 2
+      }
+    ]
+  },
+  "unit": {
+    "status": "PASS",
+    "checks": 317
+  },
+  "browser": {
+    "date": "2026-10-27T14:42:39.227Z",
+    "cases": [
+      {
+        "slug": "better-world-impact",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "impactHero"
+        ],
+        "images": 4,
+        "geometryChecks": 8,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "better-world-impact",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "impactHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "better-world-impact",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "impactHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "better-world-impact",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "impactHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "better-world-impact",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "impactHero"
+        ],
+        "images": 4,
+        "geometryChecks": 8,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "better-world-impact",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "impactHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "better-world-impact",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "impactHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "better-world-impact",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "impactHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "corporate-ir",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3,
+        "geometryChecks": 6,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "corporate-ir",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3,
+        "geometryChecks": 6,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "corporate-ir",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3,
+        "geometryChecks": 6,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3,
+        "geometryChecks": 6,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-company-information",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-legal-notices",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3,
+        "geometryChecks": 6,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "corporate-ir-legal-notices",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-legal-notices",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-legal-notices",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-legal-notices",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3,
+        "geometryChecks": 6,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "corporate-ir-legal-notices",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-legal-notices",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-legal-notices",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-regulatory",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3,
+        "geometryChecks": 6,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "corporate-ir-regulatory",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-regulatory",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-regulatory",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-regulatory",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3,
+        "geometryChecks": 6,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "corporate-ir-regulatory",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-regulatory",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-regulatory",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3,
+        "geometryChecks": 6,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3,
+        "geometryChecks": 6,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-reports-documents",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3,
+        "geometryChecks": 6,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3,
+        "geometryChecks": 6,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "corporate-ir-shareholders",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "ecosystem",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "ecosystemHero"
+        ],
+        "images": 4,
+        "geometryChecks": 8,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "ecosystem",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "ecosystemHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "ecosystem",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "ecosystemHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "ecosystem",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "ecosystemHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "ecosystem",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "ecosystemHero"
+        ],
+        "images": 4,
+        "geometryChecks": 8,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "ecosystem",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "ecosystemHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "ecosystem",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "ecosystemHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "ecosystem",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "ecosystemHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "financial-engine",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "financialEngineHero"
+        ],
+        "images": 4,
+        "geometryChecks": 8,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "financial-engine",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "financialEngineHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "financial-engine",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "financialEngineHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "financial-engine",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "financialEngineHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "financial-engine",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "financialEngineHero"
+        ],
+        "images": 4,
+        "geometryChecks": 8,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "financial-engine",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "financialEngineHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "financial-engine",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "financialEngineHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "financial-engine",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "financialEngineHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "governance",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3,
+        "geometryChecks": 6,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "governance",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "governance",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "governance",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "governance",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3,
+        "geometryChecks": 6,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "governance",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "governance",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "governance",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo"
+        ],
+        "images": 3
+      },
+      {
+        "slug": "governance-board",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 6,
+        "geometryChecks": 12,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "governance-board",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "governance-board",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "governance-board",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "governance-board",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 6,
+        "geometryChecks": 12,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "governance-board",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "governance-board",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "governance-board",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "governance-leadership",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova",
+          "richard-werner",
+          "ewa-dudek",
+          "agnes-gradzewicz",
+          "christie-osarenren"
+        ],
+        "images": 10,
+        "geometryChecks": 20,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "governance-leadership",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova",
+          "richard-werner",
+          "ewa-dudek",
+          "agnes-gradzewicz",
+          "christie-osarenren"
+        ],
+        "images": 10
+      },
+      {
+        "slug": "governance-leadership",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova",
+          "richard-werner",
+          "ewa-dudek",
+          "agnes-gradzewicz",
+          "christie-osarenren"
+        ],
+        "images": 10
+      },
+      {
+        "slug": "governance-leadership",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova",
+          "richard-werner",
+          "ewa-dudek",
+          "agnes-gradzewicz",
+          "christie-osarenren"
+        ],
+        "images": 10
+      },
+      {
+        "slug": "governance-leadership",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova",
+          "richard-werner",
+          "ewa-dudek",
+          "agnes-gradzewicz",
+          "christie-osarenren"
+        ],
+        "images": 10,
+        "geometryChecks": 20,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "governance-leadership",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova",
+          "richard-werner",
+          "ewa-dudek",
+          "agnes-gradzewicz",
+          "christie-osarenren"
+        ],
+        "images": 10
+      },
+      {
+        "slug": "governance-leadership",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova",
+          "richard-werner",
+          "ewa-dudek",
+          "agnes-gradzewicz",
+          "christie-osarenren"
+        ],
+        "images": 10
+      },
+      {
+        "slug": "governance-leadership",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova",
+          "richard-werner",
+          "ewa-dudek",
+          "agnes-gradzewicz",
+          "christie-osarenren"
+        ],
+        "images": 10
+      },
+      {
+        "slug": "investors-partners",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "investorsHero"
+        ],
+        "images": 4,
+        "geometryChecks": 8,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "investors-partners",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "investorsHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "investors-partners",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "investorsHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "investors-partners",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "investorsHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "investors-partners",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "investorsHero"
+        ],
+        "images": 4,
+        "geometryChecks": 8,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "investors-partners",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "investorsHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "investors-partners",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "investorsHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "investors-partners",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "investorsHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "main",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "mainHero",
+          "impact1",
+          "impact2",
+          "impact3",
+          "impact4",
+          "whoPhoto",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 12,
+        "geometryChecks": 24,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "main",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "mainHero",
+          "impact1",
+          "impact2",
+          "impact3",
+          "impact4",
+          "whoPhoto",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 12
+      },
+      {
+        "slug": "main",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "mainHero",
+          "impact1",
+          "impact2",
+          "impact3",
+          "impact4",
+          "whoPhoto",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 12
+      },
+      {
+        "slug": "main",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "mainHero",
+          "impact1",
+          "impact2",
+          "impact3",
+          "impact4",
+          "whoPhoto",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 12
+      },
+      {
+        "slug": "main",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "mainHero",
+          "impact1",
+          "impact2",
+          "impact3",
+          "impact4",
+          "whoPhoto",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 12,
+        "geometryChecks": 24,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "main",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "mainHero",
+          "impact1",
+          "impact2",
+          "impact3",
+          "impact4",
+          "whoPhoto",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 12
+      },
+      {
+        "slug": "main",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "mainHero",
+          "impact1",
+          "impact2",
+          "impact3",
+          "impact4",
+          "whoPhoto",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 12
+      },
+      {
+        "slug": "main",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "mainHero",
+          "impact1",
+          "impact2",
+          "impact3",
+          "impact4",
+          "whoPhoto",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 12
+      },
+      {
+        "slug": "platforms",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "platformsHero"
+        ],
+        "images": 4,
+        "geometryChecks": 8,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "platforms",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "platformsHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "platforms",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "platformsHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "platforms",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "platformsHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "platforms",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "platformsHero"
+        ],
+        "images": 4,
+        "geometryChecks": 8,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "platforms",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "platformsHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "platforms",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "platformsHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "platforms",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "platformsHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "agnes-gradzewicz",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7,
+        "geometryChecks": 14,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "agnes-gradzewicz",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "agnes-gradzewicz",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "agnes-gradzewicz",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "agnes-gradzewicz",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7,
+        "geometryChecks": 14,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "agnes-gradzewicz",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "agnes-gradzewicz",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-agnes-gradzewicz",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "agnes-gradzewicz",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 6,
+        "geometryChecks": 12,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 6,
+        "geometryChecks": 12,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "profile-alexander-alegria-saif",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "christie-osarenren",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7,
+        "geometryChecks": 14,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "christie-osarenren",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "christie-osarenren",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "christie-osarenren",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "christie-osarenren",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7,
+        "geometryChecks": 14,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "christie-osarenren",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "christie-osarenren",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-christie-osarenren",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "christie-osarenren",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "ewa-dudek",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7,
+        "geometryChecks": 14,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "ewa-dudek",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "ewa-dudek",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "ewa-dudek",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "ewa-dudek",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7,
+        "geometryChecks": 14,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "ewa-dudek",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "ewa-dudek",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-ewa-dudek",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "ewa-dudek",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "farhad-reyazat",
+          "alexander-alegria-saif",
+          "gabriella-karlova"
+        ],
+        "images": 6,
+        "geometryChecks": 12,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "farhad-reyazat",
+          "alexander-alegria-saif",
+          "gabriella-karlova"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "farhad-reyazat",
+          "alexander-alegria-saif",
+          "gabriella-karlova"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "farhad-reyazat",
+          "alexander-alegria-saif",
+          "gabriella-karlova"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "farhad-reyazat",
+          "alexander-alegria-saif",
+          "gabriella-karlova"
+        ],
+        "images": 6,
+        "geometryChecks": 12,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "farhad-reyazat",
+          "alexander-alegria-saif",
+          "gabriella-karlova"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "farhad-reyazat",
+          "alexander-alegria-saif",
+          "gabriella-karlova"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "profile-farhad-reyazat",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "farhad-reyazat",
+          "alexander-alegria-saif",
+          "gabriella-karlova"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "gabriella-karlova",
+          "alexander-alegria-saif",
+          "farhad-reyazat"
+        ],
+        "images": 6,
+        "geometryChecks": 12,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "gabriella-karlova",
+          "alexander-alegria-saif",
+          "farhad-reyazat"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "gabriella-karlova",
+          "alexander-alegria-saif",
+          "farhad-reyazat"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "gabriella-karlova",
+          "alexander-alegria-saif",
+          "farhad-reyazat"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "gabriella-karlova",
+          "alexander-alegria-saif",
+          "farhad-reyazat"
+        ],
+        "images": 6,
+        "geometryChecks": 12,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "gabriella-karlova",
+          "alexander-alegria-saif",
+          "farhad-reyazat"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "gabriella-karlova",
+          "alexander-alegria-saif",
+          "farhad-reyazat"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "profile-gabriella-karlova",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "gabriella-karlova",
+          "alexander-alegria-saif",
+          "farhad-reyazat"
+        ],
+        "images": 6
+      },
+      {
+        "slug": "profile-richard-werner",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "richard-werner",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7,
+        "geometryChecks": 14,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "profile-richard-werner",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "richard-werner",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-richard-werner",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "richard-werner",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-richard-werner",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "richard-werner",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-richard-werner",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "richard-werner",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7,
+        "geometryChecks": 14,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "profile-richard-werner",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "richard-werner",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-richard-werner",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "richard-werner",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "profile-richard-werner",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "richard-werner",
+          "alexander-alegria-saif",
+          "farhad-reyazat",
+          "gabriella-karlova"
+        ],
+        "images": 7
+      },
+      {
+        "slug": "smes-projects",
+        "kind": "hosted",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "smesHero"
+        ],
+        "images": 4,
+        "geometryChecks": 8,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "smes-projects",
+        "kind": "hosted",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "smesHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "smes-projects",
+        "kind": "hosted",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "smesHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "smes-projects",
+        "kind": "hosted",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "smesHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "smes-projects",
+        "kind": "inline",
+        "mode": "resolved",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "smesHero"
+        ],
+        "images": 4,
+        "geometryChecks": 8,
+        "maxGeometryDelta": 0
+      },
+      {
+        "slug": "smes-projects",
+        "kind": "inline",
+        "mode": "raw",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "smesHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "smes-projects",
+        "kind": "inline",
+        "mode": "empty",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "smesHero"
+        ],
+        "images": 4
+      },
+      {
+        "slug": "smes-projects",
+        "kind": "inline",
+        "mode": "pending",
+        "status": "PASS",
+        "imageIDs": [
+          "logo",
+          "smesHero"
+        ],
+        "images": 4
+      }
+    ],
+    "errors": [],
+    "console": [],
+    "network": [],
+    "liveGHL": "NOT VERIFIED"
+  },
+  "reproducibility": {
+    "status": "PASS",
+    "builds": 22,
+    "outputs": 46
+  },
+  "limits": [
+    "Six proposed keys must be created by the owner in GHL",
+    "URLs/values for the 13 newly supplied image keys were not provided and were not verified",
+    "Actual GHL substitution inside JSON, cache propagation and published image delivery NOT VERIFIED",
+    "No live GHL API calls, account changes or publication performed"
+  ]
+}

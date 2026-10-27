@@ -9,8 +9,8 @@
 -->
 <script type="application/json" id="bwci-smes-projects-config">
 {
-  "smesHeroImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/sme-hero-flow.webp",
-  "logoImage": "https://REPLACE-WITH-YOUR-HOSTED-URL/bwci-logo.png",
+  "smesHeroImage": "{{ custom_values.bwci_img_smes_projects_hero }}",
+  "logoImage": "{{ custom_values.bwci_img_logo }}",
   "showHeader": true,
   "showFooter": true,
   "footer": {
@@ -1006,6 +1006,38 @@
     });
   }
 
+  /* Image Custom Values take priority. Inline blocks retain the original bytes as optional fallbacks. */
+  function siteImageAvailable(value) {
+    return typeof value === 'string' && value.trim() !== '' && value.trim() !== '#' &&
+      !/\{\{|\}\}|REPLACE-WITH/.test(value) &&
+      /^(?:https?:\/\/|\/(?!\/)|data:image\/(?:png|jpeg|jpg|webp|gif|avif|svg\+xml);base64,)/i.test(value.trim());
+  }
+  function siteResolveImages(root, cfg) {
+    var paths = [["logoImage"],["heroImage"],["financialEngineImage"],["ecosystemHeroImage"],["platformsHeroImage"],["smesHeroImage"],["investorsHeroImage"],["impactHeroImage"],["images","whoPhoto"],["images","impact1"],["images","impact2"],["images","impact3"],["images","impact4"],["images","leaderAlexander"],["images","leaderFarhad"],["images","leaderGabriela"],["peopleImages","alexander-alegria-saif"],["peopleImages","farhad-reyazat"],["peopleImages","gabriella-karlova"],["peopleImages","richard-werner"],["peopleImages","ewa-dudek"],["peopleImages","agnes-gradzewicz"],["peopleImages","christie-osarenren"]];
+    function read(object, parts) {
+      for (var i = 0; i < parts.length; i++) {
+        if (!object || typeof object !== 'object') return undefined;
+        object = object[parts[i]];
+      }
+      return object;
+    }
+    paths.forEach(function (parts) {
+      var value = read(cfg,parts);
+      if (value === undefined) return;
+      var fallback = read(cfg.imageFallbacks,parts);
+      var resolved = siteImageAvailable(value) ? value.trim() : siteImageAvailable(fallback) ? fallback.trim() : '';
+      var target = parts.length === 1 ? cfg : cfg[parts[0]];
+      target[parts[parts.length-1]] = resolved;
+    });
+    // Clear copied live URLs when the replacement hosted config has no usable image value.
+    // Existing page loaders still assign valid URLs and perform their original crop/load handling.
+    Array.prototype.forEach.call(root.querySelectorAll('img[data-sme-asset],img[data-sme-person]'),function (img) {
+      var person = img.getAttribute('data-sme-person'), key = img.getAttribute('data-sme-asset');
+      var value = person ? (cfg.peopleImages || {})[person] : Object.prototype.hasOwnProperty.call(cfg,key) ? cfg[key] : (cfg.images || {})[key];
+      if (!siteImageAvailable(value)) img.removeAttribute('src');
+    });
+  }
+
   /* ======================= SHARED SITE CHROME =======================
      Generated from ghl/shared/site-chrome/site-chrome.runtime.js. It is the vanilla replacement for the
      React logic of design/SiteHeader.dc.html and design/SiteFooter.dc.html, plus a root-scoped port of
@@ -1358,6 +1390,7 @@
       var cfgEl = document.getElementById(CONFIG_ID);
       if (cfgEl) cfg = JSON.parse(cfgEl.textContent || '{}') || {};
     } catch (err) { cfg = {}; }
+    siteResolveImages(root,cfg);
     siteResolveLinks(cfg);
     var links = cfg.links || {};
     qa('[data-sme-link]').forEach(function (a) {

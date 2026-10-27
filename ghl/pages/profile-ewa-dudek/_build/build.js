@@ -229,7 +229,7 @@ function banner(variant) {
 }
 function assemble(logoValue, peopleValues, variant) {
   const cfg = Object.assign({}, config, { logoImage: logoValue, peopleImages: peopleValues });
-  const cfgBlock = '<script type="application/json" id="bwci-profile-ewa-dudek-config">\n' + JSON.stringify(cfg, null, 2).replace(/</g, '\\u003c') + '\n</script>';
+  const cfgBlock = '<script type="application/json" id="bwci-profile-ewa-dudek-config">\n' + JSON.stringify(chrome.imageConfig(cfg), null, 2).replace(/</g, '\\u003c') + '\n</script>';
   return banner(variant) + '\n' + cfgBlock + '\n' + FONT_LINKS + '\n<style>\n' + css + '</style>\n\n' + html + '\n\n<script>\n' + js + '\n</script>\n';
 }
 const ghl = assemble(config.logoImage, config.peopleImages, 'production — hosted images');

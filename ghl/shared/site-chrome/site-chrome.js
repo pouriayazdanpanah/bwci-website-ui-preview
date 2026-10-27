@@ -17,6 +17,7 @@
 const fs = require('fs');
 const path = require('path');
 const siteLinks = require('../site-links');
+const siteImages = require('../site-images');
 
 const DESIGN = path.resolve(__dirname, '../../../design');
 const RUNTIME = path.join(__dirname, 'site-chrome.runtime.js');
@@ -445,7 +446,7 @@ module.exports = function siteChrome(opts) {
   }
 
   /* ---------------- runtime (inlined into the page script) ---------------- */
-  const runtime = (siteLinks.runtime + '\n' + fs.readFileSync(RUNTIME, 'utf8') + (govCur ? '\n' + fs.readFileSync(GOVNAV_RUNTIME, 'utf8') : '') +
+  const runtime = (siteLinks.runtime + '\n' + siteImages.runtime + '\n' + fs.readFileSync(RUNTIME, 'utf8') + (govCur ? '\n' + fs.readFileSync(GOVNAV_RUNTIME, 'utf8') : '') +
     (withPeople ? '\n' + fs.readFileSync(PEOPLE_RUNTIME, 'utf8') : '')).replace(/__P__/g, P).trim();
 
   const links = {};
@@ -454,6 +455,7 @@ module.exports = function siteChrome(opts) {
   const swap = (h) => h.replace(new RegExp('href="([^"]+)" data-' + P + '-link="([^"]+)"', 'g'), (_, href, k) => 'href="' + esc(defaults[k]) + '" data-' + P + '-link="' + k + '"');
 
   return {
+    imageConfig: siteImages.forOutput,
     header: swap(header), breadcrumb: swap(breadcrumb), govnav, footer: swap(footer), css, runtime,
     links,                                  // chrome link keys used by this page, with default routes
     unresolved: Object.keys(links).filter((k) => links[k] === '#'),
