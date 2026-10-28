@@ -47,3 +47,5 @@ From current main, pull with --ff-only and create feat/ghl-<slug> (or document a
 Update the workflow inventory, page README and affected shared records with the final change, proposed
 keys, actual checks and remaining work. Track implemented, PR-open, confirmed-merged and live-GHL-verified
 states separately. Do not treat supplied snapshots or old test reports as current account verification.
+Follow the workflow's shared Claude/Codex handoff checklist: record branch/commit, PR URL/state,
+completed files, evidence/revision, pending inputs and the next step so either tool can resume.

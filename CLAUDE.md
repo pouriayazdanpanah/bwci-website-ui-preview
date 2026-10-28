@@ -2,6 +2,16 @@
 
 Read this file and [the implementation workflow](docs/implementation/README.md) before writing code. For a page without a GHL port, read its brief in docs/implementation/pages/; if missing, inspect the source and create one from [the page template](docs/implementation/page-template.md). For a completed port, read its ghl/pages/<slug>/README.md. Also read the shared [site chrome](ghl/shared/site-chrome/README.md), [link values](ghl/shared/site-links/README.md), and [image values](ghl/shared/site-images/README.md); their current contracts supersede historical route/image defaults in older page records.
 
+## Shared Claude and Codex memory
+
+This file is Claude's entry point and the common project rulebook. Codex enters through
+[AGENTS.md](AGENTS.md), which directs it to these same rules and records. Both tools must use the
+workflow's [resume and handoff checklist](docs/implementation/README.md#claude-and-codex-resume-and-handoff).
+The workflow's current status, page READMEs and shared contracts are the durable state; neither tool's
+private memory or chat history is required. Keep mutable status in those common records instead of
+creating separate Claude/Codex copies. Before continuing, verify the checkout and PR state against
+the recorded handoff; after work, leave enough repository evidence for the other tool to resume.
+
 ## Purpose and boundaries
 
 - design/ contains the Claude Design export and GitHub Pages preview. Use it as the visual and behavioral source. Do not edit it during a GHL port unless the user asks for a design change.

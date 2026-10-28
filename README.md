@@ -15,9 +15,10 @@ the same: `design/index.html` is published at the site root.
 
 ## Continue GHL work
 
-Start with [AGENTS.md](AGENTS.md), [project rules](CLAUDE.md), and the
-[implementation workflow and current status](docs/implementation/README.md). These are the versioned
-project memory for subsequent sessions. The workflow links to each page's maintenance record and
+Claude starts with [CLAUDE.md](CLAUDE.md); Codex starts with [AGENTS.md](AGENTS.md), which points to
+the same project rules. Both then read the [implementation workflow and current status](docs/implementation/README.md)
+and its [resume/handoff checklist](docs/implementation/README.md#claude-and-codex-resume-and-handoff).
+These are the shared, versioned project memory for both tools. The workflow links to each page's maintenance record and
 the shared header/footer, link Custom Values and image Custom Values. Use the
 [page template](docs/implementation/page-template.md) for new ports and keep those records current.
 

@@ -10,6 +10,11 @@ Before implementing or changing a GHL page, read these repository records in ord
    [link Custom Values](ghl/shared/site-links/README.md), and
    [image Custom Values](ghl/shared/site-images/README.md).
 
+Claude and Codex use the same versioned project memory: Claude starts at `CLAUDE.md`; Codex starts
+here and reads the same rules. Both must follow the workflow's
+[resume and handoff checklist](docs/implementation/README.md#claude-and-codex-resume-and-handoff).
+Do not maintain a separate Codex-only status or rely on either tool's private memory.
+
 These versioned files are the durable project memory for future sessions. Follow the shared
 configuration, build, lifecycle and QA contract; do not rely on chat history or copy an older page's
 historical defaults. Keep current status and page/shared records updated when the work changes.

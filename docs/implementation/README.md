@@ -77,8 +77,8 @@ pasting the blocks into GHL and checking actual font delivery, wrappers and publ
 
 ## Maintaining project memory
 
-[AGENTS.md](../../AGENTS.md) is the Codex entry point and [CLAUDE.md](../../CLAUDE.md) holds project
-rules. This guide holds current status and the page inventory; page READMEs hold page-specific build,
+[CLAUDE.md](../../CLAUDE.md) is Claude's entry point and the common rulebook; [AGENTS.md](../../AGENTS.md)
+is Codex's entry point and directs it to the same records. This guide holds current status and the page inventory; page READMEs hold page-specific build,
 installation and QA facts. The shared READMEs/mappings hold reusable contracts and key inventories.
 Keep these records in the repository so future sessions do not depend on chat history.
 
@@ -87,6 +87,32 @@ validation evidence and remaining work. Record an open PR separately from a conf
 record live GHL verification only with an actual installed-page URL and observed results. Supplied
 Custom Value snapshots and older QA reports are historical evidence; do not label them current account
 state or newly executed tests. After a merge is confirmed, reflect it in the next relevant status update.
+
+## Claude and Codex resume and handoff
+
+Both tools follow this sequence, including when taking over work from the other tool:
+
+1. Read the common rules, this guide's current status, the relevant page README or brief, and all
+   three shared contracts listed in the reading order. The latest status/contract sections supersede
+   older defaults and historical reports; inspect actual source/config before editing.
+2. Inspect `git status`, the current branch/commit and any recorded PR. Refresh remote refs and verify
+   PR state before assuming a change is merged. Preserve uncommitted or concurrent work; do not reset,
+   overwrite or start a duplicate implementation. Resume an existing open PR on its branch; start
+   distinct work from refreshed `main` as described in the Git workflow.
+3. Match the recorded checks to the revision they cover, identify pending owner inputs and continue
+   the authorized next step. A new session or different tool does not require redoing completed QA
+   unless changed code or unresolved evidence warrants it. Missing GHL URLs/keys remain explicit.
+4. Before handing over, update this guide for project-wide changes and the affected page/shared
+   records for implementation details. Keep one current record per fact, with links to supporting
+   evidence. Leave a final summary pointing to those records and the PR.
+
+Each handoff must identify the branch and last relevant commit, PR URL and observed state, completed
+changes/files, actual checks with evidence/revision and limits, any proposed Custom Value keys or
+other pending owner input, and the next concrete step. If work is incomplete, record remaining tasks
+and uncommitted files before switching tools. Do not store tokens or other credentials in these records.
+The receiving tool verifies the checkout/PR state rather than treating the handoff as live remote state.
+Private Claude auto-memory, Codex memory and chat summaries may be supplementary; repository records
+must be sufficient for either tool to continue on their own.
 
 ## Verified design-to-implementation inventory (October 26, 2026)
 
