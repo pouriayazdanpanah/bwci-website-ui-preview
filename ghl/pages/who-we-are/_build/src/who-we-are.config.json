@@ -1,0 +1,52 @@
+{
+  "logoImage": "{{ custom_values.bwci_img_logo }}",
+  "whoWeAreHeroImage": "{{ custom_values.bwci_img_who_we_are_hero }}",
+  "peopleImages": {
+    "alexander-alegria-saif": "{{ custom_values.bwci_img_profile_alexander_alegria_saif }}",
+    "farhad-reyazat": "{{ custom_values.bwci_img_profile_farhad_reyazat }}",
+    "gabriella-karlova": "{{ custom_values.bwci_img_profile_gabriella_karlova }}",
+    "richard-werner": "{{ custom_values.bwci_img_profile_richard_werner }}"
+  },
+  "showHeader": true,
+  "showFooter": true,
+  "footer": {
+    "regulatoryLine": "",
+    "registeredJurisdiction": "",
+    "companyNumber": "",
+    "registeredOffice": ""
+  },
+  "links": {
+    "governance": "{{ custom_values.bwci_url_governance }}",
+    "corporateIR": "{{ custom_values.bwci_url_corporate_ir }}",
+    "contact": "{{ custom_values.bwci_url_contact }}",
+    "verify": "{{ custom_values.bwci_url_verify }}",
+    "home": "{{ custom_values.bwci_url_home }}",
+    "whoWeAre": "{{ custom_values.bwci_url_who_we_are }}",
+    "leadership": "{{ custom_values.bwci_url_governance_leadership }}",
+    "financialEngine": "{{ custom_values.bwci_url_financial_engine }}",
+    "betterWorldImpact": "{{ custom_values.bwci_url_better_world_impact }}",
+    "today": "{{ custom_values.bwci_url_home }}#bwci-today",
+    "ecosystem": "{{ custom_values.bwci_url_ecosystem }}",
+    "platforms": "{{ custom_values.bwci_url_platforms }}",
+    "smes": "{{ custom_values.bwci_url_smes_projects }}",
+    "investors": "{{ custom_values.bwci_url_investors_partners }}",
+    "privateInvestors": "{{ custom_values.bwci_url_private_investors }}",
+    "whoPurpose": "{{ custom_values.bwci_url_who_we_are }}#purpose",
+    "whoRole": "{{ custom_values.bwci_url_who_we_are }}#role",
+    "whoPrinciples": "{{ custom_values.bwci_url_who_we_are }}#principles",
+    "whoStory": "{{ custom_values.bwci_url_who_we_are }}#story",
+    "legalPrivacy": "{{ custom_values.bwci_url_privacy_policy }}",
+    "legalTerms": "{{ custom_values.bwci_url_terms }}",
+    "legalCookies": "{{ custom_values.bwci_url_cookies_policy }}",
+    "legalDisclosures": "{{ custom_values.bwci_url_disclosures }}",
+    "legalAccessibility": "{{ custom_values.bwci_url_accessibility }}",
+    "legalSitemap": "{{ custom_values.bwci_url_sitemap }}",
+    "corporateIRRegulatory": "{{ custom_values.bwci_url_corporate_ir_regulatory }}",
+    "ourRole": "{{ custom_values.bwci_url_our_role }}",
+    "financialEngineHero": "{{ custom_values.bwci_url_financial_engine }}#fe-hero",
+    "profileAlexanderAlegriaSaif": "{{ custom_values.bwci_url_profile_alexander_alegria_saif }}",
+    "profileFarhadReyazat": "{{ custom_values.bwci_url_profile_farhad_reyazat }}",
+    "profileGabriellaKarlova": "{{ custom_values.bwci_url_profile_gabriella_karlova }}",
+    "profileRichardWerner": "{{ custom_values.bwci_url_profile_richard_werner }}"
+  }
+}
