@@ -13,6 +13,15 @@ implementation files separate:
 The repository location of the design files changes, but public page URLs stay
 the same: `design/index.html` is published at the site root.
 
+## Continue GHL work
+
+Claude starts with [CLAUDE.md](CLAUDE.md); Codex starts with [AGENTS.md](AGENTS.md), which points to
+the same project rules. Both then read the [implementation workflow and current status](docs/implementation/README.md)
+and its [resume/handoff checklist](docs/implementation/README.md#claude-and-codex-resume-and-handoff).
+These are the shared, versioned project memory for both tools. The workflow links to each page's maintenance record and
+the shared header/footer, link Custom Values and image Custom Values. Use the
+[page template](docs/implementation/page-template.md) for new ports and keep those records current.
+
 ## View the design locally
 
 From the repository root, run:

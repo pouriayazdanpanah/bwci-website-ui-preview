@@ -6,6 +6,9 @@ existing `{{ custom_values.hero_image }}` from the earlier GHL export; no duplic
 created. The other **six hero keys are proposed for the owner to create**. No GHL API calls, account
 edits or publication are performed.
 
+This integration merged in PR #39 (`967b053`). Merge confirms the repository change; account creation
+of the six proposed keys, their actual URLs and installed-page behavior remain unverified.
+
 ## How the outputs work
 
 - Existing image properties (`logoImage`, each page's hero property, Main `images`, and `peopleImages`)
