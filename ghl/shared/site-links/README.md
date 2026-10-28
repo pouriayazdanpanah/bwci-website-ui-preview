@@ -8,6 +8,14 @@ This navigation work merged in PR #38 (`52b3cc5`). Its image-preservation statem
 revision. The later [image Custom Values follow-up](../site-images/README.md) now centralizes image
 settings separately, while retaining the navigation keys and behavior recorded here.
 
+## Proposed values — October 28, 2026
+
+`index.js` now has a separate `proposed` list for destinations a page links to that have no Custom Value in the
+supplied export. Its first entry comes from the Who We Are port: `ourRole` → `{{ custom_values.bwci_url_our_role }}`
+(the source links to `Our%20Role.dc.html`; the export has no such page). The owner creates the value; until it holds
+a URL the field stays literal, and both links are unavailable like any other unset destination. The 43-value
+inventory below is unchanged, and this list is resolved at build time only, so no other output changes.
+
 ## Configuration and installation
 
 - Configure destination URLs centrally in the same GHL sub-account. All 43 used values in the

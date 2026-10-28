@@ -15,12 +15,13 @@ const definitions={
  platformsHero:{name:'bwci_img_platforms_hero',existing:false,asset:'ghl/pages/platforms/assets/plat-hero-rails.png'},
  smesHero:{name:'bwci_img_smes_projects_hero',existing:false,asset:'ghl/pages/smes-projects/assets/sme-hero-flow.webp'},
  investorsHero:{name:'bwci_img_investors_partners_hero',existing:false,asset:'ghl/pages/investors-partners/assets/inv-hero-flow.png'},
- impactHero:{name:'bwci_img_better_world_impact_hero',existing:false,asset:'ghl/pages/better-world-impact/assets/impact-hero-ribbons.png'}
+ impactHero:{name:'bwci_img_better_world_impact_hero',existing:false,asset:'ghl/pages/better-world-impact/assets/impact-hero-ribbons.png'},
+ whoWeAreHero:{name:'bwci_img_who_we_are_hero',existing:false,asset:'ghl/pages/who-we-are/assets/hero-globe.png'}
 };
 const portraitFiles={'alexander-alegria-saif':'jpg','farhad-reyazat':'jpg','gabriella-karlova':'webp','richard-werner':'webp','ewa-dudek':'webp','agnes-gradzewicz':'webp','christie-osarenren':'webp'};
 for(const [slug,ext]of Object.entries(portraitFiles))definitions[slug]={name:'bwci_img_profile_'+slug.replace(/-/g,'_'),existing:true,asset:'ghl/pages/governance-leadership/assets/'+slug+'.'+ext};
 for(const d of Object.values(definitions))d.fieldKey=ref(d.name);
-const roots={logoImage:'logo',heroImage:'mainHero',financialEngineImage:'financialEngineHero',ecosystemHeroImage:'ecosystemHero',platformsHeroImage:'platformsHero',smesHeroImage:'smesHero',investorsHeroImage:'investorsHero',impactHeroImage:'impactHero'};
+const roots={logoImage:'logo',heroImage:'mainHero',financialEngineImage:'financialEngineHero',ecosystemHeroImage:'ecosystemHero',platformsHeroImage:'platformsHero',smesHeroImage:'smesHero',investorsHeroImage:'investorsHero',impactHeroImage:'impactHero',whoWeAreHeroImage:'whoWeAreHero'};
 const main={whoPhoto:'whoPhoto',impact1:'impact1',impact2:'impact2',impact3:'impact3',impact4:'impact4',leaderAlexander:'alexander-alegria-saif',leaderFarhad:'farhad-reyazat',leaderGabriela:'gabriella-karlova'};
 const paths=[...Object.keys(roots).map(k=>[k]),...Object.keys(main).map(k=>['images',k]),...Object.keys(portraitFiles).map(k=>['peopleImages',k])];
 const get=(obj,parts)=>parts.reduce((o,k)=>o&&Object.hasOwn(o,k)?o[k]:undefined,obj);

@@ -38,6 +38,25 @@ Implementation and local regression are complete; **live GHL installation/public
 VERIFIED**. The next separate stage is configuring confirmed URLs/hosted assets/approved content,
 pasting the blocks into GHL and checking actual font delivery, wrappers and published pages.
 
+### October 28, 2026 design export (`37102cf`) and Who We Are
+
+The design import `37102cf` adds three production pages and three design-review documents. Every existing port is
+unaffected: the export changes no source they use except a new `pam` Breadcrumb trail, and all 22 builders still
+reproduce their committed outputs.
+
+| Design source | Kind | GHL status |
+|---|---|---|
+| `Who We Are.dc.html` | Production page | `who-we-are` implemented on `feat/ghl-who-we-are` (PR to main open; not merged). Local QA PASS: [verification](../../ghl/pages/who-we-are/qa/verification.md). Live GHL NOT VERIFIED |
+| `Verify a Communication.dc.html` | Production page | Awaiting a port (no brief yet) |
+| `Providence Asset Management.dc.html` | Production page (with `pam-worldmap.js`, `assets/pam-hero.png`) | Awaiting a port (no brief yet). No current page links to it; it needs a destination value |
+| `UI Design Report.dc.html`, `UI Report - Corporate IR.dc.html`, `UI Report - Who We Are.dc.html` (+ `doc-page.js`) | Design-review documents | Not production pages; out of scope by owner decision (28 October 2026) |
+
+Who We Are adds two **proposed** Custom Values for the owner to create: `bwci_img_who_we_are_hero` (hero image; the
+shared image list gained `whoWeAreHeroImage`, so all 46 existing outputs were regenerated or synchronized, with that
+one line as their only change) and `bwci_url_our_role` (the source links to a missing `Our Role` page; the links stay
+unavailable until the value holds a URL). See the [page README](../../ghl/pages/who-we-are/README.md) and the
+shared [image](../../ghl/shared/site-images/README.md) and [link](../../ghl/shared/site-links/README.md) records.
+
 ## Reading and execution order
 
 1. Read [CLAUDE.md](../../CLAUDE.md), this guide and the shared [chrome](../../ghl/shared/site-chrome/README.md), [link](../../ghl/shared/site-links/README.md) and [image](../../ghl/shared/site-images/README.md) contracts. For a new page, read its pending brief; if absent, inspect the source and create one using [page-template.md](page-template.md). For a completed port, read its GHL README.
@@ -253,6 +272,8 @@ Implementation, merge and publication are separate states. A generated block or 
 - Corporate / IR Legal Notices: ghl/pages/corporate-ir-legal-notices/README.md. Only `#legal-notices` content; hosted/inline blocks, labelled breadcrumb, seven notice rows, source summaries/date placeholders and two owner-review notes. Each policy has a separate configurable URL, default `#`; policy content is not invented. Reuses copied link/footer/option normalization. Merged through PR #33; published GHL NOT VERIFIED.
 
 - Better World & Impact: ghl/pages/better-world-impact/README.md. Supplied PNG hero, three approach columns, accessible interactive six-stage engine, methodology notice, empty-by-default approved evidence/case templates and responsive final CTA. Hosted and embedded images are generated from `_build/src/`; reduced motion stops decorative artwork drift. Initial port merged in PR #34; required engine interaction merged in PR #36. Current local regression passed. Published GHL NOT VERIFIED.
+
+- Who We Are: ghl/pages/who-we-are/README.md. Hosted/inline outputs generated from _build/src/; nine source sections, sticky role aside, lit Financial Engine strip, explore rows and the four-card leadership carousel with mouse drag and snap. `#purpose`/`#role`/`#principles` keep their source ids for the shared footer links. Proposed values `bwci_img_who_we_are_hero` and `bwci_url_our_role`. On `feat/ghl-who-we-are`, PR open (not merged); published GHL NOT VERIFIED.
 
 The completed-page README is the source of maintenance instructions; no duplicate brief is kept under docs/implementation/pages/. design/SiteHeader.dc.html, design/SiteFooter.dc.html, design/Breadcrumb.dc.html, design/GovNav.dc.html, design/GovProfile.dc.html and design/PersonCard.dc.html are shared source components. design/Before After.dc.html is a visual comparison/QA canvas, not a production website page.
 
