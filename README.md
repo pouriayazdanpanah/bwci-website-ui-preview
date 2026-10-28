@@ -13,6 +13,14 @@ implementation files separate:
 The repository location of the design files changes, but public page URLs stay
 the same: `design/index.html` is published at the site root.
 
+## Continue GHL work
+
+Start with [AGENTS.md](AGENTS.md), [project rules](CLAUDE.md), and the
+[implementation workflow and current status](docs/implementation/README.md). These are the versioned
+project memory for subsequent sessions. The workflow links to each page's maintenance record and
+the shared header/footer, link Custom Values and image Custom Values. Use the
+[page template](docs/implementation/page-template.md) for new ports and keep those records current.
+
 ## View the design locally
 
 From the repository root, run:

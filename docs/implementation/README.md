@@ -2,7 +2,7 @@
 
 This guide turns a finished Claude Design page in design/ into one pasteable GoHighLevel Website Builder Custom Code block. CLAUDE.md holds project-wide rules. pages/<slug>.md is a brief for a page not yet ported; ghl/pages/<slug>/README.md is the durable record for a completed port.
 
-## Current status — October 27, 2026
+## Current status — October 28, 2026
 
 All **23 target pages** have merged implementations. Main/shared synchronization merged in PR #35
 (`3d93dcf`); the required Impact interaction correction merged in PR #36 (`7ddc04f`). Stage 9 started
@@ -15,7 +15,7 @@ and [results](../../ghl/qa/final/results.json). This stage merged in PR #37 (`a4
 
 The follow-up centralized-navigation migration starts directly from that fresh merged main on
 `feat/ghl-centralized-custom-values`. Both variants of every page now use the exact 43 existing
-GHL Custom Value keys supplied by the owner. All 43 supplied values are `#`; no destination is
+GHL Custom Value keys supplied by the owner. All 43 values in that supplied export were `#`; no destination is
 invented or account setting changed. Page-section links reuse base values and preserve safe local
 anchors and profile query context. CSS, content, media and unrelated settings are unchanged.
 Evidence and all page/property mappings: [centralized links](../../ghl/shared/site-links/README.md).
@@ -28,8 +28,11 @@ owner's 13 supplied keys and the existing Main `hero_image` are reused; six addi
 and API request bodies are provided for owner creation. Both variants honor resolved image URLs;
 inline outputs retain exact original bytes under optional `imageFallbacks`. Frames/crops, CSS, HTML,
 navigation and source artwork remain unchanged. See [image keys and installation](../../ghl/shared/site-images/README.md)
-and [current verification](../../ghl/shared/site-images/qa/verification.md). This image follow-up is
-subject to manual PR review/merge; no GHL values are created and no pages are published.
+and [current verification](../../ghl/shared/site-images/qa/verification.md). This image follow-up merged
+in PR #39 (`967b053`); its local evidence records 184 browser scenarios, 317 unit checks, unchanged
+image geometry and 22 reproducible builders. No GHL values were created and no pages were published.
+The six proposed keys remain unconfirmed in the account until the owner supplies creation evidence;
+the merge does not confirm their existence or actual image URLs.
 
 Implementation and local regression are complete; **live GHL installation/publication is NOT
 VERIFIED**. The next separate stage is configuring confirmed URLs/hosted assets/approved content,
@@ -37,19 +40,60 @@ pasting the blocks into GHL and checking actual font delivery, wrappers and publ
 
 ## Reading and execution order
 
-1. Read CLAUDE.md and this guide. For a new page, read its pending brief; if absent, inspect the source and create one using page-template.md. For a completed port, read its GHL README.
+1. Read [CLAUDE.md](../../CLAUDE.md), this guide and the shared [chrome](../../ghl/shared/site-chrome/README.md), [link](../../ghl/shared/site-links/README.md) and [image](../../ghl/shared/site-images/README.md) contracts. For a new page, read its pending brief; if absent, inspect the source and create one using [page-template.md](page-template.md). For a completed port, read its GHL README.
 2. Inspect the source page, imported components such as design/SiteHeader.dc.html, design/support.js and vendor files only to understand export behavior, and all referenced assets/fonts/helpers. Inventory sections, state, animations, events, routes, breakpoints, sticky/scroll logic, and source quirks. Capture source render and behavior where possible.
 3. Preserve unrelated files. Branch from current main. Create ghl/pages/<slug>/ and keep the design export intact. Port to browser-ready HTML, root-scoped CSS, and isolated native JavaScript. Preserve difficult interactions.
-4. Resolve hosted assets and cross-page routes in a top config. Deliver one complete Custom Code block; optional development tools under _build/ must not run in GHL.
+4. Bind images and cross-page destinations to the shared Custom Value mappings in the top JSON config, following the contract below. Deliver complete hosted/inline blocks with isolated runtime; development tools under _build/ must not run in GHL.
 5. Compare the port with the source: section order, content, fonts, spacing, imagery, geometry, menus, controls, hover/focus, animations, scroll capture/release, anchors, and mobile behavior. Check reduced motion and repeat execution.
 6. Validate 320, 360, 375, 390, 430, 768, 1024, 1280, 1366, 1440, 1600, 1920, and 2560 px; vary height/orientation where relevant. Check document scrollWidth versus clientWidth, console/network errors, and a host page with global element/Bootstrap-like rules and surrounding content. A local browser check is not a published GHL check.
 7. Document differences and limits in the page README; after confirming the brief's requirements are covered, remove the pending brief. Commit page-scoped changes, push, open a PR to main, and stop for manual review/merge.
 
+## Shared contract for new and maintained pages
+
+- Reuse the existing shared chrome generator and applicable GovNav, PersonCard and profile support.
+  Do not fork header, drawer or footer behavior per page. Keep unknown destination/config guards.
+  Build-based pages use `_build/src/` and their page builder; Main remains direct-edit in both variants.
+- Use exact existing `fieldKey` strings from the [link inventory](../../ghl/shared/site-links/README.md)
+  and [image inventory](../../ghl/shared/site-images/README.md). Add missing link/image mappings before
+  using new properties. Proposed names follow `bwci_url_<destination>` and `bwci_img_<page>_<role>`;
+  portraits reuse `bwci_img_profile_<person>`. Reuse `bwci_img_logo` everywhere and the legacy
+  `hero_image` for Main. Do not create duplicate values or infer a different existing field key.
+  List new names, intended assets/destinations and API bodies for the owner; creation and publication
+  are separate from repository work. GHL accepts one create object per POST.
+- Builders use `chrome.imageConfig(cfg)` to serialize central image references and preserve original
+  inline bytes under matching `imageFallbacks` paths. Call `siteResolveImages(root,cfg)` and
+  `siteResolveLinks(cfg)` before image/link consumers. A usable resolved image URL wins in both
+  variants; unavailable configuration uses inline fallback bytes or no hosted source. A valid URL
+  returning an HTTP error does not trigger that fallback. Preserve frames, crops and the saved-photo
+  fit correction; retain Main's local anchors and profile query context.
+- Verify resolved, literal-unresolved, empty and `#` values in both outputs, query/fragment handling,
+  repeat execution and copied-root configuration changes, alongside source fidelity and responsive
+  checks. Extend affected mapping/QA coverage for new properties or pages; existing inventory counts
+  are the current baseline, not a limit. Rebuild and check every affected shared consumer, including
+  manual Main synchronization when affected. Pasted outputs require no shared file fetch or build.
+- A new destination is not automatically a new page: inspect the actual source and approved scope.
+  Missing legal/contact/announcement destinations and empty document/evidence lists stay pending
+  until confirmed content or URLs are supplied. Do not invent content or substitute another route.
+
+## Maintaining project memory
+
+[AGENTS.md](../../AGENTS.md) is the Codex entry point and [CLAUDE.md](../../CLAUDE.md) holds project
+rules. This guide holds current status and the page inventory; page READMEs hold page-specific build,
+installation and QA facts. The shared READMEs/mappings hold reusable contracts and key inventories.
+Keep these records in the repository so future sessions do not depend on chat history.
+
+At each implementation handoff, update affected records with the final change, proposed values,
+validation evidence and remaining work. Record an open PR separately from a confirmed merge, and
+record live GHL verification only with an actual installed-page URL and observed results. Supplied
+Custom Value snapshots and older QA reports are historical evidence; do not label them current account
+state or newly executed tests. After a merge is confirmed, reflect it in the next relevant status update.
+
 ## Verified design-to-implementation inventory (October 26, 2026)
 
 Inspected a clean working tree, all page directories and both output variants, `CLAUDE.md`, this guide,
-the page template, shared chrome and the Governance, Board and Leadership implementations. No repository
-or nested `AGENTS.md` exists. Refreshed `main` with `git pull --ff-only origin main`: `daa5e0d` →
+the page template, shared chrome and the Governance, Board and Leadership implementations. At that
+inspection no repository or nested `AGENTS.md` existed; a root entry point was added on October 28.
+Refreshed `main` with `git pull --ff-only origin main`: `daa5e0d` →
 `812f136` ("Import Claude Design site export"). Implementation branch: `feat/ghl-corporate-ir`, based
 directly on that refreshed main. The new export adds two source pages; it does not invalidate the
 **16 existing ports**, including all seven individual profiles. Corporate / IR's six views require
@@ -115,7 +159,8 @@ the Main fit correction; it merged in PR #37 (`a41c1ae`). No GHL publication is 
 | Shared config/output migration | All 23 blocks synchronized; 16 older configs migrated without retargeting legacy anchors; 22 builds reproducible. Shared link/option/footer state and root/ancestor lifecycle checks pass | 8 merged, PR #35 |
 | Required Impact interaction | Six source stages, details, illustrative examples, wrap controls, progress, keyboard/touch/focus and responsive panels implemented. Persistent Impact markers and empty evidence/cases preserved; 56 current interaction scenarios pass | Corrective PR #36 merged; 9 local PASS |
 | Affected existing-page regression | Full source/port, responsive and page-interaction regression completed for all 23 pages; 458 viewport cases and shared/lifecycle suites. Small Main photo-fit correction included | 9 merged, PR #37 |
-| Centralized GHL navigation | All 23 pages / 46 outputs use 43 exact existing Custom Values; shared menu, footer, CTA, profile and section links mapped; supplied destination values remain `#` | Follow-up PR review; actual GHL integration NOT VERIFIED |
+| Centralized GHL navigation | All 23 pages / 46 outputs use 43 exact existing Custom Values; shared menu, footer, CTA, profile and section links mapped; supplied export values were `#` | PR #38 merged (`52b3cc5`); actual GHL integration NOT VERIFIED |
+| Centralized GHL images | 73 image settings / 20 shared references across all 23 pages / 46 outputs; 14 existing keys reused, six proposed hero keys; original inline fallback bytes preserved | PR #39 merged (`967b053`); actual GHL substitution/media delivery NOT VERIFIED |
 
 Confirmed additional destination gap: the new Corporate / IR source links announcements to
 `Main.dc.html#insights`, but neither current Main source markup nor either Main output contains an
@@ -132,8 +177,8 @@ was limited to synchronization; stage 9 now records the broader current regressi
 
 All six Corporate / IR views, Impact and its required interaction correction are merged. All 23
 target pages have separate implementations. Main/shared PR #35 is merged, and the final local
-regression has completed from fresh main after PR #36. Its review/merge and actual GHL publication
-remain separate steps. No automatic merges.
+regression completed from fresh main after PR #36 and merged in PR #37. Navigation PR #38 and image
+PR #39 also merged. Actual GHL installation/publication remains unverified. No automatic merges.
 
 Impact's actual rendered source engine is a static `figure` with six list items and three fixed
 Impact considered markers; its interactive definitions/styles are unused. The original user request
