@@ -36,8 +36,13 @@ const sections={
  investorsEngage:['investors','#inv-engage'],investorsParticipation:['investors','#inv-participation'],investorsRoute:['investors','#inv-route'],
  smesEngage:['smes','#sme-engage'],smesProcess:['smes','#sme-process'],smesSituation:['smes','#sme-situation']
 };
+// Destinations a page links to that have no Custom Value in the supplied export yet. Their names follow
+// bwci_url_<destination>; the owner creates them (the merge field stays literal, so the link stays
+// unavailable, until then). Listed separately so the export-backed inventory above is unchanged.
+const proposed={ourRole:'our_role'};
 function fieldFor(key){
  const base=sections[key]?sections[key][0]:key;
+ if(Object.hasOwn(proposed,base)){const name='bwci_url_'+proposed[base];assert(!fields.has(name),'Proposed value already exists: '+name);return {name,fieldKey:'{{ custom_values.'+name+' }}',value:'#',proposed:true};}
  assert(Object.hasOwn(destinations,base),'Unmapped link property: '+key);
  const field=fields.get('bwci_url_'+destinations[base]);assert(field,'Missing existing Custom Value for '+key);return field;
 }
@@ -45,4 +50,4 @@ function local(key,slug){return slug==='main'&&(key==='impact'||key==='today');}
 function reference(key,slug){return local(key,slug)?sections[key][1]:fieldFor(key).fieldKey+(sections[key]?sections[key][1]:'');}
 Object.keys(destinations).forEach(fieldFor);
 const runtime=fs.readFileSync(path.join(__dirname,'links.runtime.js'),'utf8').replace('__SITE_LINK_SECTIONS__',JSON.stringify(sections));
-module.exports={snapshot,fields,destinations,sections,fieldFor,local,reference,runtime};
+module.exports={snapshot,fields,destinations,proposed,sections,fieldFor,local,reference,runtime};
