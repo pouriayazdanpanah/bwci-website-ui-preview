@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Verify a communication — Better World Capital Investments PLC</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap">
+<style>
+:root{
+  --brand-ink:#123039; --brand-slate:#16323B; --brand-teal:#1D4A54;
+  --accent-emerald:#12836B; --accent-emerald-dark:#0D6E59; --accent-gold:#B98F2D; --accent-gold-dark:#9E7720;
+  --surface-canvas:#FFFFFF; --surface-subtle:#F7F9F8; --surface-cloud:#EFF3F1;
+  --text-primary:#123039; --text-secondary:#42585E; --text-muted:#5C7075; --text-inverse:#FFFFFF; --text-inverse-muted:#A8C2C8;
+  --border-subtle:#E2E9E6; --border-default:#D5E0DC; --border-strong:#8A9E99;
+  --status-op-mark:#12836B; --status-op-text:#0D6E59; --status-op-border:#A3D9C9; --status-op-bg:#E8F5F1;
+  --status-dev-mark:#B98F2D; --status-dev-text:#7D5B0F; --status-dev-border:#E8C46B; --status-dev-bg:#FDF8EB;
+  --font-sans:'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  --container:1280px; --container-wide:1440px;
+}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body{ margin:0; background:var(--surface-canvas); color:var(--text-primary); font-family:var(--font-sans); font-size:max(15px,var(--fs-floor-body,0px)); line-height:1.65; -webkit-font-smoothing:antialiased; }
+h1,h2,h3,h4,h5{ margin:0; color:var(--text-primary); } p{ margin:0; } ul,ol{ margin:0; padding:0; list-style:none; } dl,dd,figure{ margin:0; }
+a{ color:var(--accent-emerald-dark); text-decoration:none; } a:hover{ color:var(--brand-ink); }
+a:focus-visible, button:focus-visible{ outline:2px solid var(--accent-emerald); outline-offset:2px; }
+[id]{ scroll-margin-top:calc(var(--nav-h, 116px) - var(--util-h, 40px) + 16px); }
+@keyframes bwShow{ to{ visibility:visible; } }
+.bw{ visibility:hidden; animation:bwShow 0s 2.5s forwards; }
+.vh{ position:absolute !important; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.tc{ display:inline-flex; align-items:center; gap:6px; margin-left:10px; padding:2px 9px; border-radius:999px; vertical-align:middle; background:var(--status-dev-bg); border:1px solid var(--status-dev-border); color:var(--status-dev-text); font-family:var(--font-mono); font-size:max(10.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; line-height:1.6; }
+.tc::before{ content:''; width:5px; height:5px; border-radius:50%; background:var(--status-dev-mark); }
+.tc--inv{ background:rgba(185,143,45,.14); border-color:rgba(232,196,107,.45); color:#E8C46B; }
+.tc--0{ margin-left:0; }
+.ph{ color:var(--text-muted); }
+
+/* 01 HERO */
+.vf-hero{ padding-bottom:calc(clamp(64px,8vw,104px) + 72px) !important; }
+.vf-hero .wrap{ display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:48px; }
+.vf-hero .wrap > *{ grid-column:1; }
+.vf-hero h1{ margin:0 0 14px !important; }
+.vf-sub{ font-size:clamp(18px,1.7vw,22px); font-weight:600; line-height:1.4; letter-spacing:-.015em; color:#fff; text-wrap:balance; }
+.vf-hero .lead{ margin-top:18px; max-width:620px; }
+.vf-shield{ grid-column:2 !important; grid-row:1 / span 5; align-self:center; display:flex; align-items:center; justify-content:center; width:clamp(120px,13vw,168px); aspect-ratio:1; border-radius:28px; border:1px solid rgba(168,194,200,.22); background:linear-gradient(160deg, rgba(18,131,107,.16), rgba(18,131,107,.02)); color:#A3D9C9; }
+.vf-shield svg{ width:46%; height:46%; }
+@media (max-width:767px){
+  .vf-hero{ padding-bottom:96px !important; }
+  .vf-hero .wrap{ grid-template-columns:minmax(0,1fr); }
+  .vf-shield{ grid-column:1 !important; grid-row:auto; order:-1; justify-self:start; width:64px; border-radius:16px; margin:0 0 20px; }
+  .vf-hero h1{ font-size:clamp(34px,9.6vw,44px) !important; }
+}
+
+/* 02 QUICK CHECK — raised stepper card overlapping the hero */
+.qc{ position:relative; z-index:3; }
+.qc-card{ margin-top:-88px; border-radius:20px; background:#fff; border:1px solid var(--border-subtle); box-shadow:0 24px 48px -20px rgba(18,48,57,.18), 0 2px 6px rgba(18,48,57,.04); overflow:hidden; }
+.qc-head{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 14px; padding:26px clamp(20px,2.6vw,36px) 0; }
+.qc-head h2{ font-size:clamp(20px,1.9vw,24px); font-weight:700; letter-spacing:-.02em; line-height:1.3; color:var(--brand-ink); }
+.qc-list{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); padding:8px clamp(8px,1.2vw,16px) 16px; }
+.qc-s{ position:relative; display:grid; grid-template-rows:auto auto 1fr; align-content:start; gap:14px; padding:22px clamp(12px,1.4vw,20px) 20px; border-radius:14px; transition:background-color .25s ease; }
+.qc-mark{ position:relative; display:flex; align-items:center; gap:12px; height:28px; }
+.qc-mark::after{ content:''; flex:1; height:1px; background:var(--border-default); margin-right:calc(clamp(12px,1.4vw,20px) * -2); }
+.qc-s:last-child .qc-mark::after{ display:none; }
+.qc-num{ display:inline-flex; align-items:center; justify-content:center; min-width:44px; height:28px; padding:0 10px; border-radius:999px; background:var(--status-op-bg); border:1px solid var(--status-op-border); font-family:var(--font-mono); font-size:max(13px,var(--fs-floor-sm,0px)); font-weight:700; letter-spacing:.06em; color:var(--accent-emerald-dark); transition:background-color .25s ease, color .25s ease, border-color .25s ease; }
+.qc-t{ font-size:clamp(16.5px,1.35vw,18px); font-weight:600; line-height:1.45; letter-spacing:-.01em; color:var(--brand-ink); text-wrap:pretty; }
+.qc-go{ align-self:end; justify-self:start; display:inline-flex; align-items:center; gap:8px; min-height:44px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-emerald-dark); }
+.qc-go span:first-child{ border-bottom:1px solid currentColor; padding-bottom:2px; }
+.qc-go .ar{ transition:transform .2s var(--ease-out); }
+@media (hover:hover) and (pointer:fine){
+  .qc-s:hover{ background:var(--surface-subtle); }
+  .qc-s:hover .qc-num{ background:var(--accent-emerald); border-color:var(--accent-emerald); color:#fff; }
+  .qc-go:hover{ color:var(--brand-ink); } .qc-go:hover .ar{ transform:translateY(2px); }
+}
+@media (max-width:1023px){
+  .qc-list{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .qc-s:nth-child(2) .qc-mark::after{ display:none; }
+}
+@media (max-width:640px){
+  .qc-card{ margin-top:-56px; }
+  .qc-head{ padding:22px 20px 4px; }
+  .qc-list{ grid-template-columns:minmax(0,1fr); padding:4px 0 8px; }
+  .qc-s{ grid-template-columns:44px minmax(0,1fr); grid-template-rows:auto; column-gap:16px; row-gap:4px; padding:16px 20px; border-radius:0; }
+  .qc-s + .qc-s{ border-top:1px solid var(--border-subtle); }
+  .qc-mark{ grid-row:1 / span 2; height:auto; align-self:start; }
+  .qc-mark::after{ display:none; }
+  .qc-go{ grid-column:2; min-height:44px; }
+}
+
+/* 03 + 04 — reference checklists */
+.ck{ display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); gap:24px clamp(28px,5vw,80px); align-items:start; }
+.ck-h{ display:grid; gap:14px; align-content:start; }
+.ck-h i{ display:block; width:40px; height:2px; background:var(--accent-gold); }
+@media (min-width:1024px){ .ck-h{ position:sticky; top:132px; } }
+@media (max-width:899px){ .ck{ grid-template-columns:minmax(0,1fr); } }
+.ch{ border-radius:16px; background:#fff; border:1px solid var(--border-subtle); overflow:hidden; }
+.ch > div{ display:grid; grid-template-columns:minmax(160px,2fr) minmax(0,3fr); gap:8px 24px; padding:22px 26px; border-top:1px solid var(--border-subtle); transition:background-color .2s ease; }
+.ch > div:first-child{ border-top:0; }
+.ch dt{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; line-height:1.5; color:var(--text-muted); padding-top:3px; }
+.ch dd{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 10px; min-width:0; font-size:max(16px,var(--fs-floor-body,0px)); font-weight:600; line-height:1.5; color:var(--brand-ink); overflow-wrap:anywhere; }
+.ch dd .mono{ font-family:var(--font-mono); font-weight:500; letter-spacing:.01em; }
+.ch dd .ph{ font-weight:500; }
+.ch .tc{ margin-left:0; }
+.ch-opt{ background:var(--surface-subtle); }
+.ch-opt dt span{ display:block; margin-top:4px; letter-spacing:.06em; color:var(--status-dev-text); }
+@media (hover:hover) and (pointer:fine){ .ch > div:hover{ background:var(--surface-subtle); } }
+@media (max-width:560px){ .ch > div{ grid-template-columns:minmax(0,1fr); gap:6px; padding:18px 20px; } }
+
+.nv{ display:grid; gap:10px; }
+.nv li{ display:grid; grid-template-columns:36px minmax(0,1fr); gap:16px; align-items:start; padding:20px 24px; border-radius:14px; background:#fff; border:1px solid var(--border-subtle); transition:border-color .2s ease, transform .3s var(--ease-out), box-shadow .3s var(--ease-out); }
+.nv-x{ display:flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; border:1.5px solid var(--brand-ink); color:var(--brand-ink); }
+.nv-x svg{ width:14px; height:14px; }
+.nv-t{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 12px; padding-top:5px; font-size:clamp(16.5px,1.35vw,18px); font-weight:600; line-height:1.45; letter-spacing:-.01em; color:var(--brand-ink); text-wrap:pretty; }
+.nv-t .tc{ margin-left:0; }
+@media (hover:hover) and (pointer:fine){ .nv li:hover{ border-color:var(--border-strong); transform:translateX(3px); } }
+@media (max-width:560px){ .nv li{ padding:16px 18px; gap:14px; } }
+
+/* 05 REGULATED — dark panel (PAM regulatory pattern) */
+.rg-p{ position:relative; overflow:hidden; display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(24px,5vw,72px); padding:clamp(28px,4vw,52px); border-radius:20px; color:#fff; background:radial-gradient(ellipse 520px 380px at 100% 0%, rgba(18,131,107,.28), transparent 65%), linear-gradient(180deg,#0B1416 0%,var(--brand-ink) 100%); }
+.rg-p::before{ content:''; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:22px 22px; -webkit-mask-image:radial-gradient(ellipse 60% 90% at 100% 0%, #000, transparent 70%); mask-image:radial-gradient(ellipse 60% 90% at 100% 0%, #000, transparent 70%); }
+.rg-p > *{ position:relative; }
+.rg-l{ display:grid; gap:18px; align-content:start; }
+.rg-l .h1{ color:#fff; }
+.rg-l i{ display:block; width:40px; height:2px; background:var(--accent-gold); }
+.rg-r{ display:grid; gap:28px; align-content:start; }
+.rg-r p{ font-size:clamp(16px,1.35vw,18px); line-height:1.65; color:var(--text-inverse-muted); text-wrap:pretty; }
+.rg-links{ display:flex; flex-wrap:wrap; gap:16px 32px; }
+.rg-links .hlink{ min-height:44px; align-items:center; padding-bottom:0; }
+@media (max-width:899px){ .rg-p{ grid-template-columns:minmax(0,1fr); } .rg-links{ flex-direction:column; gap:8px; } }
+
+/* 06 REPORT */
+.rp-g{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.rp-c{ display:flex; flex-direction:column; gap:22px; padding:clamp(24px,2.6vw,36px); border-radius:20px; background:#fff; border:1px solid var(--border-subtle); box-shadow:var(--shadow-elevated); }
+.rp-ch{ display:flex; align-items:center; gap:16px; }
+.ic{ display:flex; align-items:center; justify-content:center; flex:none; width:46px; height:46px; border-radius:12px; background:var(--status-op-bg); color:var(--accent-emerald-dark); }
+.ic svg{ width:22px; height:22px; }
+.rp-c h3{ font-size:clamp(20px,1.9vw,24px); font-weight:700; letter-spacing:-.02em; line-height:1.25; color:var(--brand-ink); }
+.rp-lbl{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text-muted); }
+.rp-mail{ display:grid; gap:8px; padding:18px 20px; border-radius:12px; background:var(--surface-subtle); border:1px solid var(--border-subtle); }
+.rp-mail p{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 10px; font-family:var(--font-mono); font-size:max(15px,var(--fs-floor-body,0px)); font-weight:500; line-height:1.5; overflow-wrap:anywhere; }
+.rp-mail .tc{ margin-left:0; }
+.rp-inc{ display:grid; gap:10px; }
+.rp-inc ul{ display:grid; gap:8px; }
+.rp-inc li{ display:grid; grid-template-columns:20px minmax(0,1fr); gap:10px; font-size:max(16px,var(--fs-floor-body,0px)); line-height:1.5; color:var(--text-secondary); }
+.rp-inc li svg{ width:18px; height:18px; margin-top:3px; color:var(--accent-emerald); }
+.rp-warn{ display:grid; grid-template-columns:20px minmax(0,1fr); gap:10px; margin-top:auto; padding-top:18px; border-top:1px solid var(--border-subtle); font-size:max(15px,var(--fs-floor-body,0px)); font-weight:600; line-height:1.5; color:var(--brand-ink); }
+.rp-warn svg{ width:18px; height:18px; margin-top:2px; color:var(--brand-ink); }
+.au{ display:flex; flex-direction:column; border-top:1px solid var(--border-subtle); }
+.au li{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:4px 16px; align-items:center; padding:16px 0; border-bottom:1px solid var(--border-subtle); }
+.au a{ display:inline-flex; align-items:center; gap:8px; min-height:32px; font-size:max(17px,var(--fs-floor-body,0px)); font-weight:700; letter-spacing:-.01em; color:var(--brand-ink); overflow-wrap:anywhere; }
+.au a.mono{ font-family:var(--font-mono); font-weight:600; font-size:max(15.5px,var(--fs-floor-body,0px)); letter-spacing:0; }
+.au a .ar{ color:var(--text-muted); transition:transform .2s var(--ease-out), color .2s ease; }
+.au span.d{ grid-column:1; font-size:max(15px,var(--fs-floor-body,0px)); color:var(--text-secondary); }
+@media (hover:hover) and (pointer:fine){ .au a:hover{ color:var(--accent-emerald-dark); } .au a:hover .ar{ transform:translate(2px,-2px); color:var(--accent-emerald-dark); } }
+.cp{ grid-column:2; grid-row:1 / span 2; display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:44px; min-width:88px; padding:0 14px; border-radius:6px; border:1px solid var(--border-default); background:#fff; cursor:pointer; font-family:var(--font-mono); font-size:max(11.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--brand-ink); transition:border-color .2s ease, background-color .2s ease, color .2s ease, transform .16s var(--ease-out); }
+.cp svg{ width:15px; height:15px; }
+.cp:active{ transform:scale(.97); }
+.cp[data-done="true"]{ border-color:var(--status-op-border); background:var(--status-op-bg); color:var(--accent-emerald-dark); }
+@media (hover:hover) and (pointer:fine){ .cp:hover{ border-color:var(--brand-ink); } }
+.bank{ display:grid; grid-template-columns:auto minmax(0,1fr); gap:18px; align-items:center; margin-top:16px; padding:22px clamp(20px,2.6vw,32px); border-radius:16px; background:#fff; border:2px solid var(--brand-ink); }
+.bank-i{ display:flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:50%; background:var(--brand-ink); color:#fff; font-size:20px; font-weight:800; line-height:1; }
+.bank p{ font-size:clamp(17px,1.5vw,20px); line-height:1.45; letter-spacing:-.01em; color:var(--brand-ink); text-wrap:pretty; }
+.bank b{ font-weight:800; }
+@media (max-width:899px){ .rp-g{ grid-template-columns:minmax(0,1fr); } }
+@media (max-width:560px){ .bank{ grid-template-columns:minmax(0,1fr); gap:12px; } }
+
+/* 07 ALERTS (phase 2, hidden by default) */
+.al{ width:100%; border-collapse:separate; border-spacing:0; border:1px solid var(--border-subtle); border-radius:16px; overflow:hidden; background:#fff; }
+.al th{ text-align:left; padding:14px 22px; background:var(--surface-subtle); border-bottom:1px solid var(--border-subtle); font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text-muted); }
+.al td{ padding:18px 22px; border-top:1px solid var(--border-subtle); font-size:max(15.5px,var(--fs-floor-body,0px)); color:var(--text-muted); vertical-align:top; }
+.al tbody tr:first-child td{ border-top:0; }
+.al td:first-child{ font-family:var(--font-mono); white-space:nowrap; }
+@media (max-width:640px){
+  .al, .al tbody, .al tr, .al td{ display:block; }
+  .al thead{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+  .al tr{ padding:16px 20px; border-top:1px solid var(--border-subtle); }
+  .al tbody tr:first-child{ border-top:0; }
+  .al td{ padding:2px 0; border:0; }
+}
+
+/* 08 NEXT — site closing band (PAM pattern), secondary button only */
+#next{ position:relative; overflow:hidden; text-align:center;
+  background:radial-gradient(ellipse 640px 560px at -6% 30%, rgba(29,74,84,.34), transparent 58%), radial-gradient(ellipse 640px 560px at 106% 30%, rgba(18,131,107,.28), transparent 58%), radial-gradient(ellipse 900px 420px at 50% 88%, rgba(18,131,107,.16), transparent 68%), linear-gradient(180deg, #05090B 0%, #090F11 50%, #0B1416 100%); }
+.cta-pattern{ position:absolute; inset:0; pointer-events:none; z-index:0; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:24px 24px; -webkit-mask-image:radial-gradient(ellipse 720px 320px at 50% 40%, black 0%, black 35%, transparent 80%); mask-image:radial-gradient(ellipse 720px 320px at 50% 40%, black 0%, black 35%, transparent 80%); }
+#next .container{ position:relative; z-index:1; margin:0 auto; }
+.nx-links{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px 32px; margin-top:28px; }
+@media (max-width:767px){ .nx-links{ flex-direction:column; align-items:center; gap:16px; } #next .btn{ width:100%; } }
+
+@media (prefers-reduced-motion:reduce){ .nv li, .nv li:hover, .cp:active{ transform:none; } }
+</style>
+<link rel="stylesheet" href="./bwci-system.css">
+<script src="./bwci-motion.js"></script>
+</helmet>
+<div class="bw" style="width:100%; min-height:100vh; background:var(--surface-canvas); overflow-x:clip">
+  <dc-import name="SiteHeader" current="verify" style="position:sticky; top:calc(var(--util-h, 0px) * -1); z-index:60; display:block; width:100%" hint-size="100%,116px"></dc-import>
+  <main id="main">
+
+    <section class="pg-hero pg-hero--in vf-hero" id="top" data-screen-label="01 Hero">
+      <div class="wrap">
+        <dc-import name="Breadcrumb" current="verify" style="display:block" hint-size="100%,47px"></dc-import>
+        <h1>Verify a communication</h1>
+        <p class="vf-sub">[Check that a communication really comes from us]<sc-if value="{{ flags }}" hint-placeholder-val="{{ true }}"><span class="tc tc--inv">Heading to approve</span></sc-if></p>
+        <p class="lead">[Fraudsters may pretend to be Better World Capital Investments PLC or its people. Use this page to check before you reply, click, share information or send money.]<sc-if value="{{ flags }}" hint-placeholder-val="{{ true }}"><span class="tc tc--inv">Copy to approve</span></sc-if></p>
+      </div>
+    </section>
+
+    <section class="qc" id="check" data-screen-label="02 Quick check">
+      <div class="wrap">
+        <div class="qc-card">
+          <div class="qc-head">
+            <h2>Before you respond, check:</h2>
+            <sc-if value="{{ flags }}" hint-placeholder-val="{{ true }}"><span class="tc tc--0">Steps to approve</span></sc-if>
+          </div>
+          <ol class="qc-list">
+            <li class="qc-s"><span class="qc-mark"><span class="qc-num">01</span></span><p class="qc-t">Is it from one of our official domains or channels?</p><a class="qc-go" href="#channels"><span>See our channels</span><span class="ar" aria-hidden="true">↓</span></a></li>
+            <li class="qc-s"><span class="qc-mark"><span class="qc-num">02</span></span><p class="qc-t">Does it ask for something we would never ask for?</p><a class="qc-go" href="#never"><span>See what we never do</span><span class="ar" aria-hidden="true">↓</span></a></li>
+            <li class="qc-s"><span class="qc-mark"><span class="qc-num">03</span></span><p class="qc-t">Were you contacted unexpectedly with an investment offer?</p></li>
+            <li class="qc-s"><span class="qc-mark"><span class="qc-num">04</span></span><p class="qc-t">If in doubt, contact us using the details on this page, not the details in the message.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="channels" data-screen-label="03 Official channels">
+      <div class="wrap">
+        <div class="ck">
+          <div class="ck-h">
+            <h2 class="h1">Our official channels</h2>
+            <i aria-hidden="true"></i>
+          </div>
+          <dl class="ch">
+            <div><dt>Website domain(s)</dt><dd><span class="mono ph">[e.g. betterworldplc.com]</span><sc-if value="{{ flags }}" hint-placeholder-val="{{ true }}"><span class="tc">To confirm</span></sc-if></dd></div>
+            <div><dt>Email domain(s)</dt><dd><span class="mono ph">[e.g. @betterworldplc.com]</span><sc-if value="{{ flags }}" hint-placeholder-val="{{ true }}"><span class="tc">To confirm</span></sc-if></dd></div>
+            <div><dt>Phone number(s)</dt><dd><span class="mono ph">[Phone number]</span><sc-if value="{{ flags }}" hint-placeholder-val="{{ true }}"><span class="tc">To confirm</span></sc-if></dd></div>
+            <div><dt>Registered office</dt><dd><span class="ph">[Registered office address]</span><sc-if value="{{ flags }}" hint-placeholder-val="{{ true }}"><span class="tc">To confirm</span></sc-if></dd></div>
+            <div><dt>Official social media accounts</dt><dd><span class="ph">[List, or “We do not use social media for investment communications”]</span><sc-if value="{{ flags }}" hint-placeholder-val="{{ true }}"><span class="tc">To confirm</span></sc-if></dd></div>
+            <div><dt>Messaging apps (WhatsApp etc.)</dt><dd><span class="ph">[Management to state whether staff ever contact people this way]</span><sc-if value="{{ flags }}" hint-placeholder-val="{{ true }}"><span class="tc">To confirm</span></sc-if></dd></div>
+            <sc-if value="{{ showFormer }}" hint-placeholder-val="{{ true }}">
+              <div class="ch-opt"><dt>Former name<sc-if value="{{ flags }}" hint-placeholder-val="{{ true }}"><span>Optional · Management to decide</span></sc-if></dt><dd><span class="ph">[We used to be called Blue Chip Capital Investments PLC; anything using that name today is not from us.]</span></dd></div>
+            </sc-if>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec--subtle" id="never" data-screen-label="04 What we will never do">
+      <div class="wrap">
+        <div class="ck">
+          <div class="ck-h">
+            <h2 class="h1">What we will never do</h2>
+            <i aria-hidden="true"></i>
+          </div>
+          <ul class="nv">
+            <sc-for list="{{ nevers }}" as="n" hint-placeholder-count="5">
+              <li><span class="nv-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg></span><p class="nv-t"><span>{{ n }}</span><sc-if value="{{ flags }}" hint-placeholder-val="{{ true }}"><span class="tc">Publish only if confirmed</span></sc-if></p></li>
+            </sc-for>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="regulated" data-screen-label="05 Group entities and regulated activity">
+      <div class="wrap">
+        <div class="rg-p">
+          <div class="rg-l">
+            <h2 class="h1">Group entities and regulated activity</h2>
+            <i aria-hidden="true"></i>
+          </div>
+          <div class="rg-r">
+            <p>[Approved wording: Better World Capital Investments PLC is not itself authorised by the FCA; regulated activities are carried out by Providence Asset Management (FRN 476091) within its permissions.]<sc-if value="{{ flags }}" hint-placeholder-val="{{ true }}"><span class="tc tc--inv">Wording + FRN to verify</span></sc-if></p>
+            <div class="rg-links">
+              <a class="hlink" href="https://register.fca.org.uk/" target="_blank" rel="noopener">Check a firm on the FCA Register <span class="ar" aria-hidden="true">↗</span><span class="vh">(opens in a new tab)</span></a>
+              <a class="hlink" href="Corporate%20IR.dc.html">Regulatory information <span class="ar" aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec--subtle" id="report" data-screen-label="06 Report a suspicious communication">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 class="h1">Report a suspicious communication</h2>
+        </div>
+        <div class="rp-g">
+          <div class="rp-c">
+            <div class="rp-ch"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3.5 6.5 8.5 6 8.5-6"></path></svg></span><h3>Tell us</h3></div>
+            <div class="rp-mail">
+              <span class="rp-lbl">Email</span>
+              <p><span class="ph">[Dedicated address, e.g. verify@… or compliance@…, supplied by Management]</span><sc-if value="{{ flags }}" hint-placeholder-val="{{ true }}"><span class="tc">To confirm</span></sc-if></p>
+            </div>
+            <div class="rp-inc">
+              <span class="rp-lbl">Include</span>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"></path></svg>who sent it</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"></path></svg>the date you received it</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"></path></svg>a screenshot</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"></path></svg>any links or payment details it contains</li>
+              </ul>
+            </div>
+            <p class="rp-warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v4.5M12 16h.01"></path></svg><span>Do not forward attachments you haven’t opened; describe them instead.</span></p>
+          </div>
+          <div class="rp-c">
+            <div class="rp-ch"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V10"></path><path d="M19 21V10"></path><path d="M9 21v-7"></path><path d="M15 21v-7"></path><path d="M12 3 3 8h18z"></path></svg></span><h3>Tell the authorities (UK)</h3><sc-if value="{{ flags }}" hint-placeholder-val="{{ true }}"><span class="tc" style="margin-left:auto">Confirm with compliance</span></sc-if></div>
+            <ul class="au">
+              <li><a href="https://www.actionfraud.police.uk/" target="_blank" rel="noopener">Action Fraud <span class="ar" aria-hidden="true">↗</span><span class="vh">(opens in a new tab)</span></a><span class="d">Report fraud and cybercrime</span></li>
+              <li><a class="mono" href="mailto:report@phishing.gov.uk">report@phishing.gov.uk</a><span class="d">Forward suspicious emails</span><button class="cp" type="button" data-done="{{ copied }}" onClick="{{ copyPhish }}" aria-label="{{ copyAria }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h8"></path></svg><span aria-live="polite">{{ copyLabel }}</span></button></li>
+              <li><a href="https://www.fca.org.uk/contact" target="_blank" rel="noopener">FCA Consumer Helpline <span class="ar" aria-hidden="true">↗</span><span class="vh">(opens in a new tab)</span></a><span class="d">Check whether a firm is authorised</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="bank" role="note" aria-label="If you have already paid">
+          <span class="bank-i" aria-hidden="true">!</span>
+          <p><b>If you’ve already paid or shared bank details:</b> contact your bank immediately.</p>
+        </div>
+      </div>
+    </section>
+
+    <sc-if value="{{ showAlerts }}" hint-placeholder-val="{{ false }}">
+      <section class="sec" id="alerts" data-screen-label="07 Known impersonation alerts">
+        <div class="wrap">
+          <div class="sec-head">
+            <h2 class="h1">[Known impersonation alerts]<sc-if value="{{ flags }}" hint-placeholder-val="{{ true }}"><span class="tc">Phase 2 · hidden until used</span></sc-if></h2>
+          </div>
+          <table class="al">
+            <thead><tr><th scope="col">Date</th><th scope="col">What was reported</th><th scope="col">Status</th></tr></thead>
+            <tbody>
+              <tr><td>[Date]</td><td>[What was reported]</td><td>[Status]</td></tr>
+              <tr><td>[Date]</td><td>[What was reported]</td><td>[Status]</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </sc-if>
+
+    <section class="section" id="next" data-screen-label="08 Next step">
+      <div class="cta-pattern" aria-hidden="true"></div>
+      <div class="container">
+        <h2 class="h1" style="color:#fff; margin-bottom:32px">Next step</h2>
+        <a class="btn btn--inverse" href="Contact.dc.html">Start a Conversation <span aria-hidden="true">→</span></a>
+        <div class="nx-links">
+          <a class="hlink" href="Contact.dc.html">Contact us <span class="ar" aria-hidden="true">→</span></a>
+          <a class="hlink" href="Corporate%20IR.dc.html">Company information <span class="ar" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <dc-import name="SiteFooter" style="display:block; width:100%" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showFlags&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Review&quot;},&quot;showFormerName&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Review&quot;},&quot;showAlerts&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Phase 2&quot;}}">
+const NEVERS = [
+  'We will never ask you to pay money into a personal bank account.',
+  'We will never ask for passwords, PINs or one-time codes.',
+  'We will never ask for payment by gift cards or cryptocurrency.',
+  'We will never pressure you to invest or decide immediately.',
+  'We will never offer guaranteed returns.',
+];
+class Component extends DCLogic {
+  state = { copied: false };
+  componentWillUnmount() { clearTimeout(this.t); }
+  copyPhish = () => {
+    const done = () => { this.setState({ copied: true }); clearTimeout(this.t); this.t = setTimeout(() => this.setState({ copied: false }), 1800); };
+    if (navigator.clipboard) navigator.clipboard.writeText('report@phishing.gov.uk').then(done, done); else done();
+  };
+  renderVals() {
+    const c = this.state.copied;
+    return {
+      flags: this.props.showFlags ?? false,
+      showAlerts: this.props.showAlerts ?? false,
+      showFormer: this.props.showFormerName ?? true,
+      nevers: NEVERS,
+      copied: c ? 'true' : 'false',
+      copyLabel: c ? 'Copied' : 'Copy',
+      copyAria: c ? 'Copied report@phishing.gov.uk' : 'Copy report@phishing.gov.uk',
+      copyPhish: this.copyPhish,
+    };
+  }
+}
+</script>
+</body>
+</html>

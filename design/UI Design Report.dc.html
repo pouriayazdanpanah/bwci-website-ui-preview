@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>UI Design Report — Corporate & IR and Who We Are</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap">
+<style>
+body{ margin:0; font-family:'Plus Jakarta Sans',sans-serif; color:#123039; -webkit-font-smoothing:antialiased; }
+a{ color:#0D6E59; } a:hover{ color:#123039; }
+doc-page:not(:defined){ visibility:hidden; }
+</style>
+<script src="./doc-page.js"></script>
+</helmet>
+<doc-page margin="0.75in">
+  <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:14.5px; line-height:1.65; color:#42585E">
+
+    <div style="display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:#9E7720">BWCI Website UI · Design report · 28 October 2026</div>
+    <h1 style="margin:14px 0 12px; font-size:34px; line-height:1.12; letter-spacing:-.03em; font-weight:800; color:#123039">UI design work: Corporate &amp; Investor Relations and Who We Are</h1>
+    <p style="margin:0 0 28px; font-size:16px; color:#42585E; max-width:600px">A record of the interface design completed on the two page families, the shared system they sit on, and the items still open.</p>
+    <div style="height:3px; width:56px; background:#B98F2D; margin-bottom:32px"></div>
+
+    <h2 style="margin:0 0 12px; font-size:21px; letter-spacing:-.02em; color:#123039">1. Summary</h2>
+    <ul style="margin:0 0 28px; padding-left:18px; display:grid; gap:6px">
+      <li><b style="color:#123039">Corporate &amp; IR</b> was built as one design component covering six sub-pages (Hub, Company, Reports, Share, Regulatory, Legal) with a sticky section nav, responsive data tables, document filters, and a "To confirm" flag system for unapproved content.</li>
+      <li><b style="color:#123039">Who We Are</b> was built from the wireframe as a nine-section page and then modernised section by section to match the home page and the rest of the site.</li>
+      <li>Both pages use the shared header, breadcrumb, footer and <span style="font-family:'JetBrains Mono',monospace; font-size:13px">bwci-system.css</span>, so type scale, spacing, buttons and motion match across the site.</li>
+    </ul>
+
+    <h2 style="margin:0 0 12px; font-size:21px; letter-spacing:-.02em; color:#123039">2. Shared foundation</h2>
+    <table style="width:100%; border-collapse:collapse; margin-bottom:28px; font-size:13.5px">
+      <thead><tr style="text-align:left; background:#F7F9F8">
+        <th style="padding:9px 12px; border-bottom:1px solid #D5E0DC; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:#5C7075; width:28%">Area</th>
+        <th style="padding:9px 12px; border-bottom:1px solid #D5E0DC; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:#5C7075">What was set</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">Colour</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Brand ink #123039, teal #1D4A54, emerald #12836B, gold #B98F2D; status colours for Operational (green), In development (gold) and Proposed (grey).</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">Typography</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Plus Jakarta Sans for text, JetBrains Mono for labels, dates and table headers. Display 36–60px, section H1 28–42px, body-lg 16–18px. Mobile floors: labels ≥14px, body ≥16px.</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">Spacing</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Section padding 64–112px, side padding 20–40px, 1280px container, ~42px between section heading and content.</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">Buttons and links</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">48px min height, 6px radius, arrow nudges 3px on hover, 0.97 press scale. Text links use an underline that grows from left on hover.</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">Motion</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Staggered hero entrance, scroll reveal on sections, all reduced to simple fades under prefers-reduced-motion.</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">Shared parts</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">SiteHeader (sticky), Breadcrumb, SiteFooter, PersonCard.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin:0 0 12px; font-size:21px; letter-spacing:-.02em; color:#123039">3. Corporate &amp; Investor Relations</h2>
+    <p style="margin:0 0 14px">One page with six routes. The hero (breadcrumb, title, lead, "Last updated" stamp) stays fixed while the content below switches, with a short fade-and-rise transition between routes.</p>
+
+    <h3 style="margin:18px 0 8px; font-size:16px; color:#123039">3.1 Sub-pages and sections</h3>
+    <table style="width:100%; border-collapse:collapse; margin-bottom:20px; font-size:13.5px">
+      <thead><tr style="text-align:left; background:#F7F9F8">
+        <th style="padding:9px 12px; border-bottom:1px solid #D5E0DC; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:#5C7075; width:22%">Sub-page</th>
+        <th style="padding:9px 12px; border-bottom:1px solid #D5E0DC; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:#5C7075">Sections</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">Hub</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Key company facts, section index, Recently published documents, Corporate announcements, Verify a communication, Named contacts</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">Company</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Registered company details, Name history table, Group companies tree</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">Reports</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Document library with type, year and search filters, sortable date column, result count and pagination</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">Share</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">How shares are held, General meetings table, Shareholder enquiries</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">Regulatory</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Regulatory perimeter statement, Authorised entity table, Proposed institutions (not yet authorised)</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">Legal</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Legal notices table</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin:18px 0 8px; font-size:16px; color:#123039">3.2 Components designed</h3>
+    <ul style="margin:0 0 20px; padding-left:18px; display:grid; gap:6px">
+      <li><b style="color:#123039">Section nav.</b> White bar that sticks under the site header. Desktop: centred tabs, 56px tall, 3px ink underline on the current tab. Narrow screens: a labelled "Section" dropdown.</li>
+      <li><b style="color:#123039">Data tables.</b> 14px-radius bordered tables with mono uppercase headers, row hover tint, and per-table column grids. On tablet, low-priority columns are hidden; on mobile, rows stack into cards with inline mono labels.</li>
+      <li><b style="color:#123039">Filters.</b> 48px rounded selects and search field, emerald focus ring, "Clear" text button. Four columns on desktop, two on tablet, one on mobile.</li>
+      <li><b style="color:#123039">Announcements list.</b> Date / title / arrow rows; the arrow slides 4px and turns emerald on hover. Date moves above the title on mobile.</li>
+      <li><b style="color:#123039">Verify a communication.</b> Cloud-tinted panel, intro on the left and a numbered rule list (gold mono numerals) on the right. Stacks below 900px.</li>
+      <li><b style="color:#123039">Regulatory perimeter.</b> Dark ink panel with a faint dot pattern fading from the top-right corner, gold label and large statement text.</li>
+      <li><b style="color:#123039">Status badges.</b> Pill badges for Operational and Proposed entities, plus inline gold flag notes.</li>
+      <li><b style="color:#123039">Group tree.</b> Parent card with child entities connected by hairline branches.</li>
+      <li><b style="color:#123039">"To confirm" flags.</b> Gold pills beside any heading whose content awaits approval, switchable on and off. Group structure stays hidden until approved.</li>
+    </ul>
+
+    <h2 style="margin:28px 0 12px; font-size:21px; letter-spacing:-.02em; color:#123039; break-before:page">4. Who We Are</h2>
+    <p style="margin:0 0 14px">Built from the wireframe, then updated section by section. Eyebrow labels and approval badges were removed across the page so headings lead directly.</p>
+    <table style="width:100%; border-collapse:collapse; margin-bottom:20px; font-size:13.5px">
+      <thead><tr style="text-align:left; background:#F7F9F8">
+        <th style="padding:9px 12px; border-bottom:1px solid #D5E0DC; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:#5C7075; width:24%">Section</th>
+        <th style="padding:9px 12px; border-bottom:1px solid #D5E0DC; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:#5C7075">Design work</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">01 Hero</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Display heading, intro, two actions over a globe image. A dark fade was added on tablet so text stays readable over the image.</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">02 At a glance</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Numbers replaced with icon tiles (building, flag, document, map pin). Grey statement box removed; a gold bar now sits beside the statement heading.</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">03 Our purpose</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Two-column layout with dot and ring background pattern and a quote card. Card link underline fixed to span only the link text.</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">04 What we do</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">"BWCI's role" heading with lead describing the holding company and financial architecture layer.</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">05 Our principles</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Dark numbered list replaced with frosted-glass cards: gold icon, faint number, hover lift and lit top edge. Background runs deep green at the top, fading to near-black behind the cards.</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">06 How we work</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Heading and lead introducing the Financial Engine, with dot pattern background.</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">07 Explore Who We Are</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Rebuilt as full-width rows: green number, title, description and arrow button. Dot and ring pattern added to the open space.</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">08 Leadership</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">PersonCard grid; draggable and swipeable on mobile. "Meet our leadership" and "How we're governed" links moved below the cards to match the home page.</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">09 Next step</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Dark CTA band with pattern, centred heading, one line of copy and an inverse "Start a Conversation" button.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin:28px 0 12px; font-size:21px; letter-spacing:-.02em; color:#123039">5. Consistency and QA</h2>
+    <ul style="margin:0 0 28px; padding-left:18px; display:grid; gap:6px">
+      <li>Section heading sizes on Who We Are matched to the other pages.</li>
+      <li>Heading-to-content gaps normalised to roughly 42px.</li>
+      <li>Responsive checks at desktop, tablet and mobile, including overflow checks at 320, 360, 375, 390 and 430px widths.</li>
+      <li>Type audit at 390px before and after the mobile type floors were applied.</li>
+      <li>Keyboard focus rings (2px emerald) on links, buttons and form fields; reduced-motion fallbacks on all animation.</li>
+      <li>Automated review run twice on Who We Are; the final fix was the quote card link width.</li>
+    </ul>
+
+    <h2 style="margin:0 0 12px; font-size:21px; letter-spacing:-.02em; color:#123039">6. Open items</h2>
+    <table style="width:100%; border-collapse:collapse; font-size:13.5px">
+      <thead><tr style="text-align:left; background:#F7F9F8">
+        <th style="padding:9px 12px; border-bottom:1px solid #D5E0DC; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:#5C7075; width:24%">Page</th>
+        <th style="padding:9px 12px; border-bottom:1px solid #D5E0DC; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:#5C7075">Item</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">Who We Are</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Confirm the Our principles gradient visually.</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">Who We Are</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Replace the dotted globe hero with a real-economy photograph.</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">Who We Are</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Test leadership drag and swipe on real devices.</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">Who We Are</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Final copy for bracketed headings: Principles, How we work, Leadership &amp; governance, Next step.</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">Corporate &amp; IR</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Remove section eyebrows to match Who We Are (still present on every section).</td></tr>
+        <tr><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6; font-weight:600; color:#123039; vertical-align:top">Corporate &amp; IR</td><td style="padding:10px 12px; border-bottom:1px solid #E2E9E6">Approve flagged content (name history, group structure, share status, verify rules) and set the "Last updated" date.</td></tr>
+      </tbody>
+    </table>
+
+  </div>
+</doc-page>
+</x-dc>
+</body>
+</html>

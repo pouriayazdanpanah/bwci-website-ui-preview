@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Who We Are — Better World Capital Investments PLC</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap">
+<style>
+:root{
+  --brand-ink:#123039; --brand-slate:#16323B; --brand-teal:#1D4A54;
+  --accent-emerald:#12836B; --accent-emerald-dark:#0D6E59; --accent-gold:#B98F2D; --accent-gold-dark:#9E7720; --accent-blue:#3D5A80;
+  --surface-canvas:#FFFFFF; --surface-subtle:#F7F9F8; --surface-cloud:#EFF3F1;
+  --text-primary:#123039; --text-secondary:#42585E; --text-muted:#5C7075; --text-inverse:#FFFFFF; --text-inverse-muted:#A8C2C8;
+  --border-subtle:#E2E9E6; --border-default:#D5E0DC; --border-strong:#8A9E99;
+  --status-op-mark:#12836B; --status-op-text:#0D6E59; --status-op-border:#A3D9C9; --status-op-bg:#E8F5F1;
+  --status-dev-mark:#B98F2D; --status-dev-text:#7D5B0F; --status-dev-border:#E8C46B; --status-dev-bg:#FDF8EB;
+  --font-sans:'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  --container:1280px; --container-wide:1440px;
+}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body{ margin:0; background:var(--surface-canvas); color:var(--text-primary); font-family:var(--font-sans); font-size:max(15px,var(--fs-floor-body,0px)); line-height:1.65; -webkit-font-smoothing:antialiased; }
+h1,h2,h3,h4,h5{ margin:0; color:var(--text-primary); } p{ margin:0; } ul,ol{ margin:0; padding:0; list-style:none; } blockquote,figure{ margin:0; }
+a{ color:var(--accent-emerald-dark); text-decoration:none; } a:hover{ color:var(--brand-ink); }
+a:focus-visible, button:focus-visible{ outline:2px solid var(--accent-emerald); outline-offset:2px; }
+[id]{ scroll-margin-top:calc(var(--nav-h, 116px) - var(--util-h, 40px) + 16px); }
+:root{ --fs-floor-sm:0px; --fs-floor-body:0px; }
+@media (max-width:767px){ :root{ --fs-floor-sm:14px; --fs-floor-body:16px; } }
+@keyframes bwShow{ to{ visibility:visible; } }
+.bw{ visibility:hidden; animation:bwShow 0s 2.5s forwards; }
+.vh{ position:absolute !important; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+
+.tc{ display:inline-flex; align-items:center; gap:6px; margin-left:10px; padding:2px 9px; border-radius:999px; vertical-align:middle; background:var(--status-dev-bg); border:1px solid var(--status-dev-border); color:var(--status-dev-text); font-family:var(--font-mono); font-size:max(10.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; line-height:1.6; }
+.tc::before{ content:''; width:5px; height:5px; border-radius:50%; background:var(--status-dev-mark); }
+.tc--blk{ display:flex; width:max-content; margin:12px 0 0; }
+.tc--inv{ background:rgba(185,143,45,.14); border-color:rgba(232,196,107,.45); color:#E8C46B; }
+
+/* HERO (Platforms / Impact pattern) */
+.hero{ position:relative; overflow:hidden; color:#fff; min-height:560px; display:flex; align-items:center;
+  background:radial-gradient(ellipse 720px 620px at 88% 44%, rgba(18,131,107,.20), transparent 60%), radial-gradient(ellipse 560px 460px at -4% 82%, rgba(29,74,84,.30), transparent 60%), linear-gradient(180deg,#05090B 0%,#090F11 55%,#0B1416 100%); }
+.hero::before{ content:''; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:26px 26px; -webkit-mask-image:linear-gradient(90deg,black,transparent 60%); mask-image:linear-gradient(90deg,black,transparent 60%); }
+.hero::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:90px; z-index:1; pointer-events:none; background:linear-gradient(180deg, transparent, rgba(11,20,22,.9)); }
+.hero-inner{ position:relative; z-index:2; width:100%; max-width:var(--container-wide); margin:0 auto; padding:clamp(64px,7vw,96px) 50px; }
+.hero-copy{ max-width:700px; }
+.hero-copy .eyebrow{ margin-bottom:22px; color:var(--accent-gold); }
+.hero-copy .eyebrow::before{ width:8px; height:8px; background:none; border:1.5px solid currentColor; transform:rotate(45deg); }
+.hero-copy .h-display{ color:var(--text-inverse); margin:0 0 22px; }
+.hero-copy .body-lg{ color:var(--text-inverse-muted); max-width:600px; }
+.hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
+.hero-btn{ display:inline-flex; align-items:center; gap:12px; min-height:44px; padding:0 22px; border-radius:2px; font-family:var(--font-mono); font-size:max(11.5px,var(--fs-floor-sm,0px)); font-weight:500; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; border:1px solid transparent; transition:background-color .18s, border-color .18s, color .18s, transform .16s var(--ease-out); }
+.hero-btn--solid{ background:#F1EEE6; color:var(--brand-ink); border-color:#F1EEE6; }
+.hero-btn--solid:hover{ background:#fff; color:var(--brand-ink); }
+.hero-btn--ghost{ background:transparent; color:#fff; border-color:rgba(255,255,255,.55); }
+.hero-btn--ghost:hover{ border-color:#fff; background:rgba(255,255,255,.06); color:#fff; }
+.hero-img{ position:absolute; z-index:1; top:48%; right:-5%; width:min(68vw,1120px); transform:translateY(-50%); pointer-events:none; -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 36%, #000 100%); mask-image:linear-gradient(90deg, transparent 0%, #000 36%, #000 100%); opacity:.9; }
+.hero-img img{ display:block; width:100%; height:auto; -webkit-user-select:none; user-select:none; animation:ivDrift 14s ease-in-out infinite alternate; }
+@keyframes ivDrift{ from{ transform:translateX(0); } to{ transform:translateX(-14px); } }
+@media (min-width:1024px){
+  .hero > .hero-img{ top:72px; bottom:-40px; left:36%; right:0; width:auto; height:auto; transform:none; display:flex; align-items:center; -webkit-mask-image:linear-gradient(90deg, transparent 0%, rgba(0,0,0,.35) 18%, #000 42%, #000 100%); mask-image:linear-gradient(90deg, transparent 0%, rgba(0,0,0,.35) 18%, #000 42%, #000 100%); }
+  .hero > .hero-img img{ width:100%; height:100%; object-fit:contain; object-position:right center; }
+}
+@media (max-width:1023px){
+  .hero{ min-height:0; align-items:flex-start; }
+  .hero-inner{ padding:64px 32px 0; }
+  .hero-copy{ padding-bottom:clamp(200px,38vw,300px); }
+  .hero-img{ top:auto; bottom:24px; right:-12%; width:min(130vw,820px); transform:none; -webkit-mask-image:linear-gradient(180deg, transparent, #000 30%); mask-image:linear-gradient(180deg, transparent, #000 30%); opacity:.8; }
+  .hero::after{ top:0; height:auto; background:linear-gradient(180deg, rgba(8,14,16,.92) 0%, rgba(8,14,16,.72) 40%, rgba(8,14,16,.2) 72%, rgba(11,20,22,.6) 100%); }
+}
+@media (max-width:767px){
+  .hero{ min-height:0 !important; display:block !important; }
+  .hero-inner{ padding:56px 20px clamp(120px,32vw,150px) !important; }
+  .hero-copy{ max-width:none !important; padding-bottom:0; }
+  .hero-copy .h-display{ font-size:clamp(34px,9.6vw,44px) !important; line-height:1.06 !important; margin:0 0 16px !important; }
+  .hero-copy .body-lg{ font-size:16px !important; line-height:1.6 !important; }
+  .hero-inner{ padding:56px 20px 64px !important; }
+  .hero-copy{ position:relative; z-index:2; }
+  .hero::after{ display:none; }
+  .hero-img{ position:absolute !important; inset:0 !important; width:auto !important; height:auto !important; transform:none !important; z-index:0 !important; opacity:1 !important; -webkit-mask-image:none !important; mask-image:none !important; }
+  .hero-img img{ position:absolute; inset:0; width:100% !important; height:100% !important; object-fit:cover; object-position:65% 55%; opacity:.32; animation:none !important; }
+  .hero-img::after{ content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg, rgba(8,14,16,.55) 0%, rgba(8,14,16,.35) 45%, rgba(8,14,16,.5) 100%); }
+}
+
+/* 02 AT A GLANCE */
+.gl{ position:relative; z-index:3; padding:0 0 clamp(48px,6vw,80px); }
+.gl-facts{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:-64px; border-radius:20px; background:#fff; border:1px solid var(--border-subtle); box-shadow:0 24px 48px -20px rgba(18,48,57,.18), 0 2px 6px rgba(18,48,57,.04); overflow:hidden; }
+.gl-f{ position:relative; display:grid; align-content:start; gap:18px; padding:28px clamp(20px,2.2vw,30px) 30px; transition:background-color .25s ease; }
+.gl-f + .gl-f{ border-left:1px solid var(--border-subtle); }
+.gl-ic{ width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center; background:var(--status-op-bg); color:var(--accent-emerald-dark); transition:background-color .25s ease, color .25s ease, transform .35s var(--ease-out); }
+.gl-ic svg{ width:22px; height:22px; }
+.gl-t{ font-size:clamp(16.5px,1.35vw,18px); font-weight:600; line-height:1.4; letter-spacing:-.01em; color:var(--brand-ink); text-wrap:pretty; }
+.gl-t--ph{ color:var(--text-muted); font-weight:500; }
+@media (hover:hover) and (pointer:fine){ .gl-f:hover{ background:var(--surface-subtle); } .gl-f:hover .gl-ic{ background:var(--accent-emerald); color:#fff; transform:translateY(-2px); } }
+.gl-st{ display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); gap:16px clamp(28px,5vw,72px); margin-top:clamp(40px,5vw,64px); }
+.gl-st h3{ display:flex; align-items:flex-start; gap:12px; font-size:clamp(19px,1.7vw,22px); font-weight:700; line-height:1.3; letter-spacing:-.015em; color:var(--brand-ink); }
+.gl-st h3::before{ content:''; flex:none; width:3px; align-self:stretch; border-radius:2px; background:var(--accent-gold); }
+.gl-st p{ font-size:max(16px,var(--fs-floor-body,0px)); line-height:1.7; color:var(--text-secondary); text-wrap:pretty; max-width:720px; }
+.gl-links{ display:flex; flex-wrap:wrap; gap:14px 32px; margin-top:20px; }
+@media (min-width:1024px){ .hero-inner{ padding-bottom:calc(clamp(64px,7vw,96px) + 48px); } }
+@media (max-width:1023px){
+  .gl{ padding-top:0; }
+  .gl-facts{ grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:-40px; }
+  .gl-f:nth-child(3){ border-left:0; }
+  .gl-f:nth-child(n+3){ border-top:1px solid var(--border-subtle); }
+  .gl-st{ grid-template-columns:minmax(0,1fr); }
+}
+@media (max-width:560px){
+  .gl-facts{ grid-template-columns:minmax(0,1fr); margin-top:-32px; }
+  .gl-f, .gl-f + .gl-f{ grid-template-columns:46px minmax(0,1fr); align-items:center; gap:16px; padding:18px 20px; border-left:0; }
+  .gl-f + .gl-f{ border-top:1px solid var(--border-subtle); }
+}
+
+/* 03 PURPOSE */
+.pu{ overflow:hidden; background:var(--surface-subtle); }
+.pu-rings{ position:absolute; top:-240px; right:-220px; width:min(46vw,620px); aspect-ratio:1; border-radius:50%; border:1px solid rgba(18,48,57,.10); box-shadow:0 0 0 64px rgba(18,48,57,.025), 0 0 0 128px rgba(18,48,57,.018), 0 0 0 192px rgba(18,48,57,.012); pointer-events:none; }
+.pat-dots{ position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(18,48,57,.13) 1px, transparent 1.6px); background-size:22px 22px; -webkit-mask-image:radial-gradient(ellipse 60% 60% at 90% 10%, #000 10%, transparent 70%); mask-image:radial-gradient(ellipse 60% 60% at 90% 10%, #000 10%, transparent 70%); }
+.pu-h{ margin-top:0; max-width:780px; color:var(--brand-ink); }
+.pu-g{ display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:clamp(32px,5vw,80px); align-items:start; margin-top:clamp(40px,5vw,72px); padding-top:clamp(28px,3vw,40px); border-top:1px solid var(--border-default); }
+.pu-m{ display:grid; grid-template-columns:120px minmax(0,1fr); gap:12px 32px; }
+.pu-lbl{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-gold-dark); padding-top:5px; }
+.pu-body{ display:grid; gap:18px; }
+.pu-body p{ font-size:clamp(16px,1.35vw,18px); line-height:1.7; color:var(--text-secondary); text-wrap:pretty; }
+.pu-body p:first-child{ color:var(--brand-ink); font-weight:500; }
+.pu-q{ position:relative; overflow:hidden; display:grid; gap:28px; padding:clamp(28px,3.2vw,40px); border-radius:20px; color:#fff; background:radial-gradient(ellipse 420px 320px at 100% 0%, rgba(18,131,107,.26), transparent 65%), linear-gradient(180deg,#0B1416 0%,var(--brand-ink) 100%); }
+.pu-q::before{ content:''; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:22px 22px; -webkit-mask-image:radial-gradient(ellipse 70% 80% at 100% 0%, #000, transparent 70%); mask-image:radial-gradient(ellipse 70% 80% at 100% 0%, #000, transparent 70%); }
+.pu-q > *{ position:relative; }
+.pu-q .hlink{ justify-self:start; }
+.pu-q i{ display:block; width:40px; height:2px; background:var(--accent-gold); }
+.pu-q blockquote{ font-size:clamp(22px,2.2vw,28px); font-weight:600; line-height:1.3; letter-spacing:-.02em; color:#fff; text-wrap:balance; }
+@media (max-width:1023px){ .pu-g{ grid-template-columns:minmax(0,1fr); } }
+@media (max-width:640px){ .pu-m{ grid-template-columns:minmax(0,1fr); } }
+
+/* 04 ROLE */
+.ro-g{ display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:clamp(32px,5vw,80px); align-items:start; }
+.ro-lbl{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; }
+.ro-list{ counter-reset:r; border-top:1px solid var(--brand-ink); }
+.ro-list li{ counter-increment:r; display:grid; grid-template-columns:48px minmax(0,1fr); gap:16px; padding:20px 12px 20px 0; border-bottom:1px solid var(--border-subtle); font-size:clamp(16px,1.3vw,17.5px); line-height:1.55; color:var(--text-secondary); text-wrap:pretty; transition:background-color .2s ease; }
+.ro-list li::before{ content:counter(r, decimal-leading-zero); padding-top:3px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; color:var(--accent-gold-dark); }
+.ro-list b{ font-weight:600; color:var(--brand-ink); }
+.ro-side{ display:grid; gap:20px; }
+@media (min-width:1024px){ .ro-side{ position:sticky; top:calc(var(--nav-h, 116px) - var(--util-h, 40px) + 32px); } }
+.ro-side > p{ font-size:clamp(16px,1.35vw,18px); line-height:1.6; color:var(--brand-ink); font-weight:500; text-wrap:pretty; }
+.ro-stack{ display:grid; }
+.ro-tier{ display:grid; gap:8px; padding:22px 24px; border-radius:14px; }
+.ro-tier b{ font-size:17px; font-weight:700; letter-spacing:-.01em; line-height:1.35; }
+.ro-tier--a{ background:var(--brand-ink); color:#fff; }
+.ro-tier--a b{ color:#fff; }
+.ro-tier--b{ background:#fff; border:1.5px solid var(--accent-emerald-dark); }
+.ro-tier--b b{ color:var(--brand-ink); }
+.ro-tier--b span{ font-size:max(15px,var(--fs-floor-body,0px)); color:var(--text-secondary); }
+.ro-verbs{ display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+.ro-verbs span{ padding:3px 10px; border-radius:999px; border:1px solid rgba(168,194,200,.35); font-family:var(--font-mono); font-size:max(11px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--text-inverse-muted); }
+.ro-join{ display:flex; align-items:center; gap:12px; height:52px; padding-left:28px; font-family:var(--font-mono); font-size:max(11px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text-muted); }
+.ro-join::before{ content:''; width:1.5px; align-self:stretch; background:linear-gradient(180deg,var(--brand-ink),var(--accent-emerald-dark)); }
+@media (max-width:1023px){ .ro-g{ grid-template-columns:minmax(0,1fr); } }
+
+/* 05 PRINCIPLES (dark) */
+.pr{ overflow:hidden; color:#fff; background:radial-gradient(ellipse 1100px 520px at 50% -8%, rgba(18,131,107,.38), transparent 62%), radial-gradient(ellipse 820px 420px at 50% 112%, rgba(29,74,84,.30), transparent 66%), linear-gradient(180deg,#071514 0%,#060D0F 46%,#0A1315 100%); }
+.pr::before{ content:''; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.075) 1px, transparent 1.6px); background-size:24px 24px; -webkit-mask-image:radial-gradient(ellipse 820px 360px at 50% 0%, #000 0%, rgba(0,0,0,.5) 45%, transparent 80%); mask-image:radial-gradient(ellipse 820px 360px at 50% 0%, #000 0%, rgba(0,0,0,.5) 45%, transparent 80%); }
+.pr::after{ content:''; position:absolute; left:0; right:0; top:0; height:1px; pointer-events:none; background:linear-gradient(90deg, transparent, rgba(18,131,107,.55), transparent); }
+.pr .eyebrow{ color:var(--accent-gold); }
+.pr .h1{ color:#fff; }
+.pr-g{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.pr-i{ position:relative; overflow:hidden; display:grid; grid-template-rows:auto auto 1fr; align-content:start; gap:14px; padding:30px 30px 34px; border-radius:20px; background:linear-gradient(180deg, rgba(255,255,255,.055) 0%, rgba(255,255,255,.02) 100%); border:1px solid rgba(168,194,200,.14); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); transition:border-color .3s ease, background-color .3s ease, transform .4s var(--ease-out); }
+.pr-i::before{ content:''; position:absolute; left:0; right:0; top:0; height:1px; background:linear-gradient(90deg, transparent, rgba(232,196,107,.7), transparent); opacity:0; transition:opacity .35s ease; }
+.pr-n{ position:absolute; right:22px; top:16px; font-family:var(--font-mono); font-size:56px; font-weight:600; line-height:1; letter-spacing:-.04em; color:rgba(168,194,200,.07); transition:color .35s ease; }
+.pr-ic{ width:48px; height:48px; margin-bottom:8px; border-radius:14px; display:flex; align-items:center; justify-content:center; color:var(--accent-gold); background:rgba(185,143,45,.10); border:1px solid rgba(232,196,107,.22); transition:background-color .3s ease, color .3s ease, border-color .3s ease; }
+.pr-ic svg{ width:22px; height:22px; }
+.pr-i h3{ font-size:clamp(19px,1.6vw,21px); font-weight:700; line-height:1.3; letter-spacing:-.015em; color:#fff; text-wrap:balance; }
+.pr-i p{ font-size:max(15.5px,var(--fs-floor-body,0px)); line-height:1.65; color:var(--text-inverse-muted); text-wrap:pretty; }
+@media (hover:hover) and (pointer:fine){
+  .pr-i:hover{ transform:translateY(-4px); border-color:rgba(232,196,107,.35); }
+  .pr-i:hover::before{ opacity:1; }
+  .pr-i:hover .pr-n{ color:rgba(232,196,107,.16); }
+  .pr-i:hover .pr-ic{ background:var(--accent-gold); border-color:var(--accent-gold); color:#0B1416; }
+}
+@media (max-width:1023px){ .pr-g{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:640px){ .pr-g{ grid-template-columns:minmax(0,1fr); gap:12px; } .pr-i{ padding:24px 22px 26px; gap:10px; } .pr-n{ font-size:44px; } }
+@media (prefers-reduced-motion:reduce){ .pr-i, .pr-i:hover{ transform:none; } }
+
+/* 06 HOW WE WORK — engine strip (Impact / Main loop) */
+.lp{ --R:72px; --y:44px; position:relative; height:calc(var(--y) + var(--R) * 2 + 48px); margin-top:clamp(16px,2vw,24px); }
+.lp-ring{ position:absolute; left:0; right:0; top:var(--y); height:calc(var(--R) * 2); border:1.5px solid var(--accent-gold-dark); border-top-color:var(--brand-ink); border-radius:var(--R); opacity:.9; }
+.lp-ring::before{ content:''; position:absolute; left:calc(var(--R) - 1.5px); right:calc(var(--R) - 1.5px); top:-1.5px; height:1.5px; background:var(--brand-ink); }
+.lp-chev{ position:absolute; top:calc(var(--y) - 4px); width:9px; height:9px; border-top:1.5px solid var(--brand-ink); border-right:1.5px solid var(--brand-ink); transform:translateX(-50%) rotate(45deg); }
+.lp-chev--ret{ top:calc(var(--y) + var(--R) * 2 - 4.5px); left:50%; border-color:var(--accent-gold-dark); transform:translateX(-50%) rotate(-135deg); }
+.lp-chev--in{ left:calc(var(--R) - 16px); border-color:var(--accent-gold-dark); }
+.lp-ret{ position:absolute; left:50%; top:calc(var(--y) + var(--R) * 2 + 18px); transform:translateX(-50%); white-space:nowrap; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--accent-gold-dark); }
+.lp-nodes{ position:absolute; left:var(--R); right:var(--R); top:0; display:flex; justify-content:space-between; }
+.lp-n{ position:relative; width:0; height:0; }
+.lp-in{ position:absolute; left:0; top:0; transform:translateX(-50%); width:150px; display:flex; flex-direction:column; align-items:center; text-align:center; }
+.lp-num{ height:24px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; color:var(--text-muted); }
+.lp-dot{ position:relative; z-index:1; width:22px; height:22px; margin-top:9px; border-radius:50%; background:#fff; border:1.5px solid var(--brand-ink); display:flex; align-items:center; justify-content:center; transition:border-color .35s ease; transition-delay:calc(var(--i) * 110ms); }
+.lp-dot::after{ content:''; width:8px; height:8px; border-radius:50%; background:transparent; transform:scale(.6); transition:background-color .35s ease, transform .45s var(--ease-out); transition-delay:calc(var(--i) * 110ms); }
+.lp-t{ margin-top:16px; font-size:18px; font-weight:700; letter-spacing:-.015em; line-height:1.25; color:var(--brand-ink); }
+.lp.lit .lp-dot{ border-color:var(--accent-emerald); }
+.lp.lit .lp-dot::after{ background:var(--accent-emerald); transform:none; }
+.lp-loopnote{ display:none; margin-top:4px; padding-left:40px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-gold-dark); }
+@media (max-width:1023px){
+  .lp{ height:auto; margin-top:8px; max-width:520px; }
+  .lp-ring, .lp-chev, .lp-ret{ display:none; }
+  .lp-nodes{ position:relative; left:auto; right:auto; flex-direction:column; }
+  .lp-nodes::before{ content:''; position:absolute; left:10px; top:24px; bottom:24px; width:1.5px; background:var(--border-default); }
+  .lp-n{ width:auto; height:auto; }
+  .lp-in{ position:relative; transform:none; width:auto; display:grid; grid-template-columns:22px 28px minmax(0,1fr); column-gap:14px; align-items:center; text-align:left; padding:12px 0; }
+  .lp-dot{ margin:0; grid-column:1; grid-row:1; }
+  .lp-num{ height:auto; grid-column:2; grid-row:1; }
+  .lp-t{ margin:0; font-size:17px; grid-column:3; grid-row:1; }
+  .lp-loopnote{ display:block; }
+}
+.hw-g{ margin-bottom:clamp(28px,3vw,40px); }
+.bw .hw-g .sec-head{ margin-bottom:0; }
+@media (max-width:899px){ .hw-g{ grid-template-columns:minmax(0,1fr); } }
+
+/* 07 EXPLORE */
+.ex-sec{ overflow:hidden; background:linear-gradient(180deg,#fff 0%,var(--surface-subtle) 100%); }
+.ex-pat{ position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(18,48,57,.14) 1px, transparent 1.6px); background-size:22px 22px; -webkit-mask-image:radial-gradient(ellipse 55% 70% at 100% 20%, #000 10%, transparent 72%); mask-image:radial-gradient(ellipse 55% 70% at 100% 20%, #000 10%, transparent 72%); }
+.ex-rings{ position:absolute; top:-200px; right:-180px; width:min(44vw,600px); aspect-ratio:1; border-radius:50%; border:1px solid rgba(18,48,57,.10); box-shadow:0 0 0 64px rgba(18,48,57,.025), 0 0 0 128px rgba(18,48,57,.018), 0 0 0 192px rgba(18,48,57,.012); pointer-events:none; }
+.ex-sec::after{ content:''; position:absolute; left:-120px; bottom:-160px; width:420px; aspect-ratio:1; border-radius:50%; pointer-events:none; background:radial-gradient(circle, rgba(18,131,107,.09), transparent 65%); }
+.ex-sec .wrap{ z-index:1; }
+.ex-c{ background:transparent; }
+.ex-g{ border-top:1px solid var(--border-default); }
+.ex-c{ position:relative; display:grid; grid-template-columns:clamp(56px,10vw,160px) minmax(0,1fr) auto; gap:20px; align-items:center; padding:clamp(28px,3.2vw,44px) 0; border-bottom:1px solid var(--border-default); color:var(--text-primary); }
+.ex-c::before{ content:''; position:absolute; left:0; right:0; bottom:-1px; height:1px; background:var(--brand-ink); transform:scaleX(0); transform-origin:left; transition:transform .5s var(--ease-out); }
+.ex-k{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; color:var(--accent-emerald-dark); }
+.ex-b{ display:grid; gap:8px; min-width:0; }
+.ex-c h3{ font-size:clamp(28px,3.4vw,42px); font-weight:700; letter-spacing:-.03em; line-height:1.1; color:var(--brand-ink); transition:transform .4s var(--ease-out); }
+.ex-c p{ font-size:max(16px,var(--fs-floor-body,0px)); line-height:1.6; color:var(--text-secondary); text-wrap:pretty; transition:transform .4s var(--ease-out); }
+.bw .ex-go{ flex:none; display:inline-flex; align-items:center; justify-content:center; width:60px; height:60px; border-radius:50%; border:1px solid var(--border-default); background:#fff; font-size:20px; line-height:1; color:var(--brand-ink); transition:background-color .25s ease, border-color .25s ease, color .25s ease, transform .35s var(--ease-out); }
+.ex-go .ar{ transition:transform .3s var(--ease-out); }
+.ex-c:active .ex-go{ transform:scale(.94); }
+@media (hover:hover) and (pointer:fine){
+  .ex-c:hover{ color:var(--text-primary); }
+  .ex-c:hover::before{ transform:scaleX(1); }
+  .ex-c:hover h3, .ex-c:hover p{ transform:translateX(8px); }
+  .bw .ex-c:hover .ex-go{ background:var(--brand-ink); border-color:var(--brand-ink); color:#fff; }
+  .ex-c:hover .ex-go .ar{ transform:translateX(3px); }
+}
+@media (max-width:640px){
+  .ex-c{ grid-template-columns:minmax(0,1fr) auto; gap:10px 16px; padding:26px 0; }
+  .ex-k{ grid-column:1 / -1; }
+  .bw .ex-go{ width:48px; height:48px; font-size:17px; }
+}
+@media (prefers-reduced-motion:reduce){ .ex-c h3, .ex-c p, .ex-c:hover h3, .ex-c:hover p{ transform:none; } }
+
+/* 08 LEADERSHIP */
+.ld-head{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:20px 48px; align-items:end; margin-bottom:clamp(32px,4vw,48px); }
+.ld-head .sec-head{ margin-bottom:0; }
+.ld-links{ display:flex; flex-wrap:wrap; gap:14px 32px; }
+.ld-more{ margin-top:28px; }
+.ld-g{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+.ld-g > li{ display:flex; }
+@media (max-width:1023px){ .ld-head{ grid-template-columns:minmax(0,1fr); } .ld-g{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:767px){
+  .ld-g{ display:flex; gap:14px; margin:0 calc(var(--pad-x) * -1); padding:4px var(--pad-x) 12px; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scroll-padding-inline:var(--pad-x); scrollbar-width:none; }
+  .ld-g::-webkit-scrollbar{ display:none; }
+  .ld-g > li{ flex:0 0 min(74%,280px); scroll-snap-align:start; }
+  .ld-g{ cursor:grab; touch-action:pan-x pan-y; }
+  .ld-g.is-drag{ cursor:grabbing; scroll-snap-type:none; user-select:none; -webkit-user-select:none; }
+  .ld-g.is-drag a{ pointer-events:none; }
+  .ld-g img, .ld-g image-slot{ -webkit-user-drag:none; user-select:none; }
+  .ld-links{ flex-direction:column; align-items:flex-start; gap:16px; }
+}
+
+/* 09 NEXT (Platforms / SMEs CTA) */
+#next{ position:relative; overflow:hidden; text-align:center;
+  background:radial-gradient(ellipse 640px 560px at -6% 30%, rgba(29,74,84,.34), transparent 58%), radial-gradient(ellipse 640px 560px at 106% 30%, rgba(18,131,107,.28), transparent 58%), radial-gradient(ellipse 900px 420px at 50% 88%, rgba(18,131,107,.16), transparent 68%), radial-gradient(ellipse 700px 460px at 50% 18%, rgba(2,5,6,.5), transparent 66%), linear-gradient(180deg, #05090B 0%, #090F11 50%, #0B1416 100%); }
+.cta-pattern{ position:absolute; inset:0; pointer-events:none; z-index:0; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:24px 24px; -webkit-mask-image:radial-gradient(ellipse 720px 320px at 50% 40%, black 0%, black 35%, transparent 80%); mask-image:radial-gradient(ellipse 720px 320px at 50% 40%, black 0%, black 35%, transparent 80%); }
+#next .container{ position:relative; z-index:1; margin:0 auto; }
+.nx-links{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px 32px; margin-top:28px; }
+@media (max-width:767px){ .nx-links{ flex-direction:column; align-items:center; gap:16px; } #next .btn{ width:100%; } }
+
+@media (prefers-reduced-motion:reduce){
+  .hero-img img{ animation:none; }
+  .lp-dot, .lp-dot::after{ transition-delay:0s; }
+  .ex-c, .ex-c:hover, .ex-c::after, .ex-c:hover::after{ transform:none; }
+}
+</style>
+<link rel="stylesheet" href="./bwci-system.css">
+<script src="./image-slot.js"></script>
+<script src="./bwci-people.js"></script>
+<script src="./bwci-motion.js"></script>
+</helmet>
+<div class="bw" ref="{{ rootRef }}" style="width:100%; min-height:100vh; background:var(--surface-canvas); overflow-x:clip">
+  <dc-import name="SiteHeader" current="who" style="position:sticky; top:calc(var(--util-h, 0px) * -1); z-index:60; display:block; width:100%" hint-size="100%,116px"></dc-import>
+  <main id="main">
+
+    <section class="hero" id="top" data-screen-label="01 Hero" style="min-height:500px">
+      <div class="hero-img" aria-hidden="true"><img src="./assets/hero-globe.png" alt="" width="1448" height="1086"></div>
+      <div class="hero-inner" style="align-self:stretch">
+        <div class="hero-copy">
+          <dc-import name="Breadcrumb" current="who" style="display:block" hint-size="100%,47px"></dc-import>
+          <h1 class="h-display">An institution built to reconnect capital with the real economy</h1>
+          <p class="body-lg">Better World Capital Investments PLC is developing an integrated financial platform connecting capital, institutions and financial capability with productive businesses and projects.</p>
+          <div class="hero-actions">
+            <a class="hero-btn hero-btn--solid" href="#role">Our role <span aria-hidden="true">↓</span></a>
+            <a class="hero-btn hero-btn--ghost" href="Contact.dc.html">Start a Conversation <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gl" id="glance" data-screen-label="02 At a glance">
+      <div class="wrap">
+        <h2 class="vh">At a glance</h2>
+        <ul class="gl-facts">
+          <li class="gl-f"><span class="gl-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V10"></path><path d="M19 21V10"></path><path d="M9 21v-7"></path><path d="M15 21v-7"></path><path d="M12 3 3 8h18z"></path></svg></span><span class="gl-t">A UK public limited company building an integrated financial platform.</span></li>
+          <li class="gl-f"><span class="gl-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"></path><path d="M5 4h11l-2 4 2 4H5"></path></svg></span><span class="gl-t">Incorporated in England and Wales</span></li>
+          <li class="gl-f"><span class="gl-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M9 8h6"></path><path d="M9 12h6"></path><path d="M9 16h3"></path></svg></span><span class="gl-t">Company number 09881564</span></li>
+          <li class="gl-f"><span class="gl-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></span><span class="gl-t gl-t--ph">[Registered office]</span></li>
+        </ul>
+        <div class="gl-st">
+          <h3>Corporate &amp; regulatory statement</h3>
+          <div>
+            <p>Better World Capital Investments PLC is a public limited company incorporated in England and Wales under company number 09881564. Where regulated financial services form part of the Better World ecosystem, those activities are carried out by the relevant authorised entity or regulated partner within the scope of its permissions.</p>
+            <div class="gl-links">
+              <a class="link" href="Corporate%20IR.dc.html">Corporate / IR <span class="ar" aria-hidden="true">→</span></a>
+              <a class="link" href="Corporate%20IR.dc.html#regulatory">Regulatory information <span class="ar" aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec pu" id="purpose" data-screen-label="03 Our purpose">
+      <div class="pat-dots" aria-hidden="true"></div>
+      <div class="pu-rings" aria-hidden="true"></div>
+      <div class="wrap">
+        <h2 class="h1 pu-h">Reconnecting capital with the real economy.</h2>
+        <div class="pu-g">
+          <div class="pu-m">
+            <span class="pu-lbl">Mission</span>
+            <div class="pu-body">
+              <p>Better World Capital Investments PLC exists to improve how capital reaches productive economic activity. We develop and coordinate financial architecture that connects the needs of businesses and projects with appropriate capital, institutions, technology and strategic partners.</p>
+              <p>Our objective is to support productive growth, stronger and more resilient businesses, and measurable long-term economic impact by designing financial structures around the underlying economic need rather than starting with a predetermined financial product.</p>
+            </div>
+          </div>
+          <figure class="pu-q">
+            <i aria-hidden="true"></i>
+            <blockquote>Impact should influence the architecture of capital itself.</blockquote>
+            <a class="hlink" href="Better%20World%20Impact.dc.html">Explore Better World &amp; Impact <span class="ar" aria-hidden="true">→</span></a>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="role" data-screen-label="04 What we do">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 class="h1">BWCI’s role</h2>
+          <p class="lead">Better World Capital Investments PLC is the holding company and financial architecture layer of the Better World ecosystem.</p>
+        </div>
+        <div class="ro-g">
+          <div>
+            <p class="ro-lbl">Its role is to:</p>
+            <ol class="ro-list">
+              <li><span><b>identify</b> and understand underlying economic and financing requirements;</span></li>
+              <li><span><b>design</b> appropriate financial architecture around those requirements;</span></li>
+              <li><span><b>connect</b> businesses and projects with relevant sources of capital, institutions and capabilities;</span></li>
+              <li><span><b>coordinate</b> participation between investors, financial institutions, operating entities and strategic partners;</span></li>
+              <li><span><b>develop, own and support</b> financial platforms and investment vehicles within the Better World ecosystem where appropriate;</span></li>
+              <li><span><b>facilitate</b> the integration of capital, financial capability, technology and strategic relationships; and</span></li>
+              <li><span><b>support</b> the development of long-term financial infrastructure serving productive economic activity.</span></li>
+            </ol>
+          </div>
+          <aside class="ro-side" aria-label="Who does what">
+            <p class="ro-lbl" style="margin:0">Who does what</p>
+            <p>BWCI architects, connects, coordinates and develops the financial ecosystem; the appropriate operating or regulated entity delivers the relevant financial activity.</p>
+            <div class="ro-stack">
+              <div class="ro-tier ro-tier--a">
+                <b>Better World Capital Investments PLC</b>
+                <div class="ro-verbs"><span>Architects</span><span>Connects</span><span>Coordinates</span><span>Develops</span></div>
+              </div>
+              <div class="ro-join" aria-hidden="true">Delivered through</div>
+              <div class="ro-tier ro-tier--b">
+                <b>Operating or regulated entity</b>
+                <span>Delivers the relevant financial activity</span>
+              </div>
+            </div>
+            <a class="link" href="Our%20Role.dc.html" style="justify-self:start; margin-top:4px">Read about our role <span class="ar" aria-hidden="true">→</span></a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec pr" id="principles" data-screen-label="05 Our principles">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 class="h1">[Principles heading]</h2>
+        </div>
+        <ol class="pr-g">
+            <li class="pr-i"><span class="pr-n" aria-hidden="true">01</span><span class="pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v3"></path><path d="M12 19v3"></path><path d="M2 12h3"></path><path d="M19 12h3"></path></svg></span><h3>Need before product</h3><p>We begin with the economic requirement, not with a predetermined financial product.</p></li>
+            <li class="pr-i"><span class="pr-n" aria-hidden="true">02</span><span class="pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2.5"></circle><circle cx="19" cy="6" r="2.5"></circle><circle cx="19" cy="18" r="2.5"></circle><path d="M7.3 11 16.7 7"></path><path d="M7.3 13l9.4 4"></path></svg></span><h3>Connected, not consolidated</h3><p>Businesses, institutions and partners can participate in the ecosystem without necessarily giving up their independence or becoming part of a single corporate structure.</p></li>
+            <li class="pr-i"><span class="pr-n" aria-hidden="true">03</span><span class="pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="m9 14 2 2 4-4"></path></svg></span><h3>Evidence before claims</h3><p>We distinguish clearly between what exists today, what is being developed and what is proposed, and we support claims with evidence wherever possible.</p></li>
+            <li class="pr-i"><span class="pr-n" aria-hidden="true">04</span><span class="pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></span><h3>Impact built into the architecture of capital</h3><p>Impact should not be treated only as an assessment after capital is deployed. It should influence how capital is structured, allocated and managed from the outset.</p></li>
+            <li class="pr-i"><span class="pr-n" aria-hidden="true">05</span><span class="pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"></path><path d="m9 12 2 2 4-4"></path></svg></span><h3>Clear governance and accountability</h3><p>Ownership, responsibility, regulatory boundaries and decision-making should be transparent and appropriately governed.</p></li>
+            <li class="pr-i"><span class="pr-n" aria-hidden="true">06</span><span class="pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7v5l3 2"></path></svg></span><h3>Long-term stewardship and disciplined execution</h3><p>We focus on building durable institutions, productive businesses and resilient financial structures rather than pursuing short-term transactions in isolation.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="sec" id="how" data-screen-label="06 How we work">
+      <div class="pat-dots" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="hw-g">
+          <div class="sec-head">
+            <h2 class="h1">[How we work]</h2>
+            <p class="lead">[One sentence introducing the Financial Engine]</p>
+          </div>
+        </div>
+        <figure class="lp" ref="{{ lpRef }}">
+          <figcaption class="vh">The Financial Engine in six steps: Need, Architecture, Institution, Capital, Activity and Reinvestment. Reinvestment returns to Need.</figcaption>
+          <div class="lp-ring" aria-hidden="true"></div>
+          <span class="lp-chev lp-chev--in" aria-hidden="true"></span><span class="lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.1)"></span><span class="lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.3)"></span><span class="lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.5)"></span><span class="lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.7)"></span><span class="lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.9)"></span>
+          <span class="lp-chev lp-chev--ret" aria-hidden="true"></span>
+          <span class="lp-ret" aria-hidden="true">Reinvestment returns to need</span>
+          <ol class="lp-nodes" aria-hidden="true">
+            <sc-for list="{{ steps }}" as="s" hint-placeholder-count="6">
+              <li class="lp-n" style="--i:{{ s.i }}"><span class="lp-in"><span class="lp-num">{{ s.n }}</span><span class="lp-dot"></span><span class="lp-t">{{ s.t }}</span></span></li>
+            </sc-for>
+          </ol>
+        </figure>
+        <p class="lp-loopnote" aria-hidden="true">↺ Reinvestment returns to Need</p>
+        <a class="link" href="FinancialEngine.dc.html#hero" style="margin-top:clamp(24px,3vw,40px)">How the Financial Engine works <span class="ar" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="sec ex-sec" id="explore" data-screen-label="07 Explore Who We Are">
+      <div class="ex-pat" aria-hidden="true"></div>
+      <div class="ex-rings" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="sec-head"><h2 class="h1">Explore Who We Are</h2></div>
+        <div class="ex-g">
+          <sc-for list="{{ explore }}" as="c" hint-placeholder-count="2">
+            <a class="ex-c" href="{{ c.href }}">
+              <span class="ex-k">{{ c.k }}</span>
+              <span class="ex-b"><h3>{{ c.t }}</h3><p>{{ c.d }}</p></span>
+              <span class="ex-go" aria-hidden="true"><span class="ar">→</span></span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="leadership" data-screen-label="08 Leadership">
+      <div class="wrap">
+        <div class="sec-head"><h2 class="h1">[Leadership &amp; governance]</h2></div>
+        <ul class="ld-g" ref="{{ ldRef }}">
+          <li><dc-import name="PersonCard" slug="alexander-alegria-saif" from="leadership" style="display:block; width:100%" hint-size="100%,440px"></dc-import></li>
+          <li><dc-import name="PersonCard" slug="farhad-reyazat" from="leadership" style="display:block; width:100%" hint-size="100%,440px"></dc-import></li>
+          <li><dc-import name="PersonCard" slug="gabriella-karlova" from="leadership" style="display:block; width:100%" hint-size="100%,440px"></dc-import></li>
+          <li><dc-import name="PersonCard" slug="richard-werner" from="leadership" style="display:block; width:100%" hint-size="100%,440px"></dc-import></li>
+        </ul>
+          <div class="ld-links ld-more">
+            <a class="link" href="Governance%20Leadership.dc.html">Meet our leadership <span class="ar" aria-hidden="true">→</span></a>
+            <a class="link" href="Governance.dc.html">How we’re governed <span class="ar" aria-hidden="true">→</span></a>
+          </div>
+      </div>
+    </section>
+
+    <section class="section" id="next" data-screen-label="09 Next step">
+      <div class="cta-pattern" aria-hidden="true"></div>
+      <div class="container">
+        <h2 class="h1" style="color:#fff; margin-bottom:16px">[Next-step heading]</h2>
+        <p class="body-lg" style="color:var(--text-inverse-muted); max-width:560px; margin:0 auto 32px; text-wrap:pretty">[One line inviting the visitor to start a conversation]</p>
+        <a class="btn btn--inverse" href="Contact.dc.html">Start a Conversation <span aria-hidden="true">→</span></a>
+        <div class="nx-links">
+          <a class="hlink" href="Platforms.dc.html">Explore our platforms <span class="ar" aria-hidden="true">→</span></a>
+          <a class="hlink" href="Corporate%20IR.dc.html">Corporate &amp; investor relations <span class="ar" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <dc-import name="SiteFooter" style="display:block; width:100%" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showOurStory&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Launch&quot;}}">
+const PR = [
+  ['Need before product', 'We begin with the economic requirement, not with a predetermined financial product.'],
+  ['Connected, not consolidated', 'Businesses, institutions and partners can participate in the ecosystem without necessarily giving up their independence or becoming part of a single corporate structure.'],
+  ['Evidence before claims', 'We distinguish clearly between what exists today, what is being developed and what is proposed, and we support claims with evidence wherever possible.'],
+  ['Impact built into the architecture of capital', 'Impact should not be treated only as an assessment after capital is deployed. It should influence how capital is structured, allocated and managed from the outset.'],
+  ['Clear governance and accountability', 'Ownership, responsibility, regulatory boundaries and decision-making should be transparent and appropriately governed.'],
+  ['Long-term stewardship and disciplined execution', 'We focus on building durable institutions, productive businesses and resilient financial structures rather than pursuing short-term transactions in isolation.'],
+].map(([t, d], i) => ({ n: String(i + 1).padStart(2, '0'), t, d }));
+const STEPS = ['Need', 'Architecture', 'Institution', 'Capital', 'Activity', 'Reinvestment'].map((t, i) => ({ t, i, n: String(i + 1).padStart(2, '0') }));
+
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  lpRef = React.createRef();
+  ldRef = React.createRef();
+  _drag() {
+    const el = this.ldRef.current; if (!el) return;
+    let down = false, moved = false, x0 = 0, s0 = 0;
+    el.addEventListener('pointerdown', (e) => { if (e.pointerType === 'touch' || el.scrollWidth <= el.clientWidth) return; down = true; moved = false; x0 = e.clientX; s0 = el.scrollLeft; });
+    el.addEventListener('pointermove', (e) => {
+      if (!down) return;
+      const dx = e.clientX - x0;
+      if (!moved && Math.abs(dx) > 6) { moved = true; el.setPointerCapture(e.pointerId); el.classList.add('is-drag'); }
+      if (moved) el.scrollLeft = s0 - dx;
+    });
+    const up = () => {
+      if (!down) return; down = false;
+      el.classList.remove('is-drag');
+      if (moved) { const w = (el.firstElementChild && el.firstElementChild.offsetWidth + 14) || 1; el.scrollTo({ left: Math.round(el.scrollLeft / w) * w, behavior: 'smooth' }); }
+    };
+    el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up);
+    el.addEventListener('click', (e) => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+    el.addEventListener('dragstart', (e) => e.preventDefault());
+  }
+  componentDidMount() {
+    this._drag();
+    if (!window.BWCI_PEOPLE) { this._h = () => this.forceUpdate(); window.addEventListener('bwci-people', this._h); }
+    const el = this.lpRef.current;
+    if (!el || !('IntersectionObserver' in window)) { if (el) el.classList.add('lit'); return; }
+    this.io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('lit'); this.io.disconnect(); } }), { threshold: 0.45 });
+    this.io.observe(el);
+  }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); if (this._h) window.removeEventListener('bwci-people', this._h); }
+  renderVals() {
+    const story = this.props.showOurStory ?? false;
+    const D = window.BWCI_PEOPLE;
+    const faces = D ? ['alexander-alegria-saif', 'farhad-reyazat', 'gabriella-karlova', 'richard-werner'].map((k) => (D.get(k) || {}).photo).filter(Boolean) : [];
+    const ex = [
+      { t: 'Our Role', d: 'How BWCI relates to the institutions it connects', href: 'Our%20Role.dc.html', img: './assets/plat-hero-rails.png' },
+      story && { t: 'Our Story', d: 'How the company and the Financial Engine developed', href: 'Our%20Story.dc.html', img: './assets/inv-hero-flow.png' },
+      { t: 'Leadership', d: 'The people responsible for BWCI', href: 'Governance%20Leadership.dc.html', img: '', faces },
+    ].filter(Boolean).map((c, i) => Object.assign({ k: String(i + 1).padStart(2, '0'), faces: [], hasFaces: false }, c, { hasFaces: !!(c.faces && c.faces.length), imgStyle: c.img ? { backgroundImage: 'url("' + c.img + '")' } : {}, faces: (c.faces || []).map((u) => ({ backgroundImage: 'url("' + u + '")', backgroundColor: '#EFF3F1' })) }));
+    return {
+      rootRef: this.rootRef, lpRef: this.lpRef, ldRef: this.ldRef,
+      principles: PR,
+      steps: STEPS,
+      explore: ex, exN: ex.length,
+    };
+  }
+}
+</script>
+</body>
+</html>

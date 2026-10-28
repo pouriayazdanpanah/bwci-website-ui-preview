@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Providence Asset Management — Better World Capital Investments PLC</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap">
+<style>
+:root{
+  --brand-ink:#123039; --brand-slate:#16323B; --brand-teal:#1D4A54;
+  --accent-emerald:#12836B; --accent-emerald-dark:#0D6E59; --accent-gold:#B98F2D; --accent-gold-dark:#9E7720;
+  --surface-canvas:#FFFFFF; --surface-subtle:#F7F9F8; --surface-cloud:#EFF3F1;
+  --text-primary:#123039; --text-secondary:#42585E; --text-muted:#5C7075; --text-inverse:#FFFFFF; --text-inverse-muted:#A8C2C8;
+  --border-subtle:#E2E9E6; --border-default:#D5E0DC; --border-strong:#8A9E99;
+  --status-op-mark:#12836B; --status-op-text:#0D6E59; --status-op-border:#A3D9C9; --status-op-bg:#E8F5F1;
+  --status-dev-mark:#B98F2D; --status-dev-text:#7D5B0F; --status-dev-border:#E8C46B; --status-dev-bg:#FDF8EB;
+  --font-sans:'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  --container:1280px; --container-wide:1440px;
+}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body{ margin:0; background:var(--surface-canvas); color:var(--text-primary); font-family:var(--font-sans); font-size:max(15px,var(--fs-floor-body,0px)); line-height:1.65; -webkit-font-smoothing:antialiased; }
+h1,h2,h3,h4,h5{ margin:0; color:var(--text-primary); } p{ margin:0; } ul,ol{ margin:0; padding:0; list-style:none; } dl,dd,figure{ margin:0; }
+a{ color:var(--accent-emerald-dark); text-decoration:none; } a:hover{ color:var(--brand-ink); }
+a:focus-visible, button:focus-visible{ outline:2px solid var(--accent-emerald); outline-offset:2px; }
+[id]{ scroll-margin-top:calc(var(--nav-h, 116px) - var(--util-h, 40px) + 16px); }
+:root{ --fs-floor-sm:0px; --fs-floor-body:0px; }
+@media (max-width:767px){ :root{ --fs-floor-sm:14px; --fs-floor-body:16px; } }
+@keyframes bwShow{ to{ visibility:visible; } }
+.bw{ visibility:hidden; animation:bwShow 0s 2.5s forwards; }
+.vh{ position:absolute !important; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.tc{ display:inline-flex; align-items:center; gap:6px; margin-left:10px; padding:2px 9px; border-radius:999px; vertical-align:middle; background:var(--status-dev-bg); border:1px solid var(--status-dev-border); color:var(--status-dev-text); font-family:var(--font-mono); font-size:max(10.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; line-height:1.6; }
+.tc::before{ content:''; width:5px; height:5px; border-radius:50%; background:var(--status-dev-mark); }
+.tc--inv{ background:rgba(185,143,45,.14); border-color:rgba(232,196,107,.45); color:#E8C46B; }
+.ic{ display:flex; align-items:center; justify-content:center; flex:none; width:46px; height:46px; border-radius:12px; background:var(--status-op-bg); color:var(--accent-emerald-dark); transition:background-color .25s ease, color .25s ease, transform .35s var(--ease-out); }
+.ic svg{ width:22px; height:22px; }
+
+/* 01 HERO — site dark hero (Who We Are pattern); line-art inverted to sit on the dark ground */
+.hero{ position:relative; overflow:hidden; color:#fff; min-height:560px; display:flex; align-items:center;
+  background:radial-gradient(ellipse 720px 620px at 88% 44%, rgba(18,131,107,.20), transparent 60%), radial-gradient(ellipse 560px 460px at -4% 82%, rgba(29,74,84,.30), transparent 60%), linear-gradient(180deg,#05090B 0%,#090F11 55%,#0B1416 100%); }
+.hero::before{ content:''; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:26px 26px; -webkit-mask-image:linear-gradient(90deg,black,transparent 60%); mask-image:linear-gradient(90deg,black,transparent 60%); }
+.hero::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:90px; z-index:1; pointer-events:none; background:linear-gradient(180deg, transparent, rgba(11,20,22,.9)); }
+.hero-inner{ position:relative; z-index:2; width:100%; max-width:var(--container-wide); margin:0 auto; padding:clamp(64px,7vw,96px) 50px; }
+.hero-copy{ max-width:640px; }
+.hero-copy .h-display{ color:var(--text-inverse); margin:0 0 22px; }
+.hero-copy .body-lg{ color:var(--text-inverse-muted); max-width:580px; }
+.ph-meta{ display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px; margin:0 0 22px; }
+.ph-st{ display:inline-flex; align-items:center; gap:8px; padding:4px 12px; border-radius:999px; background:rgba(18,131,107,.16); border:1px solid rgba(163,217,201,.35); color:#A3D9C9; font-size:13.5px; font-weight:600; line-height:1.5; }
+.ph-st::before{ content:''; width:6px; height:6px; border-radius:50%; background:#3FBF9B; }
+.ph-kind{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-gold); }
+.ph-rel{ display:flex; flex-wrap:wrap; gap:4px 10px; margin-top:16px; font-size:max(14.5px,var(--fs-floor-sm,0px)); color:var(--text-inverse-muted); }
+.ph-rel b{ font-weight:600; color:#fff; }
+.hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
+.hero-btn{ display:inline-flex; align-items:center; gap:12px; min-height:44px; padding:0 22px; border-radius:2px; font-family:var(--font-mono); font-size:max(11.5px,var(--fs-floor-sm,0px)); font-weight:500; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; border:1px solid transparent; transition:background-color .18s, border-color .18s, color .18s, transform .16s var(--ease-out); }
+.hero-btn--solid{ background:#F1EEE6; color:var(--brand-ink); border-color:#F1EEE6; }
+.hero-btn--solid:hover{ background:#fff; color:var(--brand-ink); }
+.hero-btn--ghost{ background:transparent; color:#fff; border-color:rgba(255,255,255,.55); }
+.hero-btn--ghost:hover{ border-color:#fff; background:rgba(255,255,255,.06); color:#fff; }
+.hero-img{ position:absolute; z-index:1; pointer-events:none; left:34%; right:-4%; bottom:0; -webkit-mask-image:linear-gradient(90deg, transparent 0%, rgba(0,0,0,.4) 16%, #000 40%), linear-gradient(180deg, transparent 0%, #000 22%); -webkit-mask-composite:source-in; mask-image:linear-gradient(90deg, transparent 0%, rgba(0,0,0,.4) 16%, #000 40%), linear-gradient(180deg, transparent 0%, #000 22%); mask-composite:intersect; }
+.hero-img img{ display:block; width:100%; height:auto; -webkit-user-select:none; user-select:none; filter:invert(1) hue-rotate(180deg) saturate(1.15) brightness(.92); mix-blend-mode:screen; opacity:.9; }
+@media (min-width:1024px){ .hero-inner{ padding-bottom:calc(clamp(64px,7vw,96px) + 56px); } .hero-img{ bottom:72px; } }
+@media (max-width:1023px){
+  .hero{ min-height:0; align-items:flex-start; }
+  .hero-inner{ padding:64px 32px 0; }
+  .hero-copy{ padding-bottom:clamp(240px,40vw,380px); }
+  .hero-img{ left:-14%; right:-14%; bottom:48px; }
+  .hero::after{ top:0; height:auto; background:linear-gradient(180deg, rgba(8,14,16,.6) 0%, rgba(8,14,16,0) 45%, rgba(11,20,22,.5) 100%); }
+}
+@media (max-width:767px){
+  .hero{ min-height:0 !important; display:block !important; }
+  .hero-inner{ padding:56px 20px clamp(120px,32vw,150px) !important; }
+  .hero-copy{ max-width:none; padding-bottom:0; }
+  .hero-copy .h-display{ font-size:clamp(34px,9.6vw,44px) !important; line-height:1.06 !important; margin:0 0 16px !important; }
+  .hero-copy .body-lg{ font-size:16px !important; }
+  .hero-actions{ flex-direction:column; align-items:stretch; }
+  .hero-btn{ justify-content:center; }
+  .hero::after{ display:none; }
+  .hero-img{ position:absolute !important; inset:0 !important; z-index:0 !important; -webkit-mask-image:none !important; mask-image:none !important; }
+  .hero-img img{ position:absolute; bottom:0; width:220% !important; left:-60% !important; height:auto !important; opacity:.85; }
+  .hero-img::after{ content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg, rgba(8,14,16,.94) 0%, rgba(8,14,16,.78) 34%, rgba(8,14,16,.35) 64%, rgba(8,14,16,.1) 100%); }
+}
+
+/* 02 REGULATORY — key facts card overlapping the hero, then dark statement panel */
+.rf{ position:relative; z-index:3; }
+.rf-facts{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin-top:-72px; border-radius:20px; background:#fff; border:1px solid var(--border-subtle); box-shadow:0 24px 48px -20px rgba(18,48,57,.18), 0 2px 6px rgba(18,48,57,.04); overflow:hidden; }
+.rf-f{ display:grid; align-content:start; gap:16px; padding:26px clamp(20px,2.2vw,30px) 28px; transition:background-color .25s ease; }
+.rf-f + .rf-f{ border-left:1px solid var(--border-subtle); }
+.rf-f dt{ font-family:var(--font-mono); font-size:max(11.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
+.rf-f dd{ font-size:clamp(17px,1.5vw,20px); font-weight:700; letter-spacing:-.015em; line-height:1.3; color:var(--brand-ink); }
+.rf-f dd.mono{ font-family:var(--font-mono); font-weight:600; letter-spacing:.01em; }
+@media (hover:hover) and (pointer:fine){ .rf-f:hover{ background:var(--surface-subtle); } .rf-f:hover .ic{ background:var(--accent-emerald); color:#fff; transform:translateY(-2px); } }
+.rg-p{ position:relative; overflow:hidden; display:grid; grid-template-columns:minmax(0,6fr) minmax(0,6fr); gap:clamp(28px,5vw,72px); margin-top:clamp(40px,5vw,64px); padding:clamp(28px,4vw,52px); border-radius:20px; color:#fff; background:radial-gradient(ellipse 520px 380px at 100% 0%, rgba(18,131,107,.28), transparent 65%), linear-gradient(180deg,#0B1416 0%,var(--brand-ink) 100%); }
+.rg-p::before{ content:''; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:22px 22px; -webkit-mask-image:radial-gradient(ellipse 60% 90% at 100% 0%, #000, transparent 70%); mask-image:radial-gradient(ellipse 60% 90% at 100% 0%, #000, transparent 70%); }
+.rg-p > *{ position:relative; }
+.rg-l{ display:grid; gap:18px; align-content:start; }
+.rg-l .h1{ color:#fff; }
+.rg-l i{ display:block; width:40px; height:2px; background:var(--accent-gold); }
+.rg-l p{ font-size:clamp(16px,1.35vw,18px); line-height:1.65; color:var(--text-inverse-muted); text-wrap:pretty; }
+.rg-l .btn{ justify-self:start; margin-top:8px; }
+.rg-kv{ align-self:start; border-top:1px solid rgba(168,194,200,.22); }
+.rg-kv > div{ display:grid; gap:8px; padding:22px 0; border-bottom:1px solid rgba(168,194,200,.22); }
+.rg-kv dt{ font-family:var(--font-mono); font-size:max(11.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-gold); }
+.rg-kv dd{ font-size:max(16px,var(--fs-floor-body,0px)); font-weight:500; line-height:1.5; color:#fff; }
+.rg-kv dd.ph-v{ color:var(--text-inverse-muted); }
+@media (max-width:1023px){
+  .rf-facts{ grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:-48px; }
+  .rf-f:nth-child(3){ border-left:0; }
+  .rf-f:nth-child(n+3){ border-top:1px solid var(--border-subtle); }
+  .rg-p{ grid-template-columns:minmax(0,1fr); }
+}
+@media (max-width:560px){
+  .rf-facts{ grid-template-columns:minmax(0,1fr); margin-top:-32px; }
+  .rf-f, .rf-f + .rf-f{ grid-template-columns:46px minmax(0,1fr); grid-template-rows:auto auto; column-gap:16px; row-gap:2px; align-items:center; padding:18px 20px; border-left:0; }
+  .rf-f .ic{ grid-row:1 / span 2; }
+  .rf-f + .rf-f{ border-top:1px solid var(--border-subtle); }
+  .rg-l .btn{ justify-self:stretch; }
+}
+
+/* 03 SERVICES — light cards on dot pattern */
+.sv-sec{ overflow:hidden; }
+.pat-dots{ position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(18,48,57,.13) 1px, transparent 1.6px); background-size:22px 22px; -webkit-mask-image:radial-gradient(ellipse 60% 60% at 90% 10%, #000 10%, transparent 70%); mask-image:radial-gradient(ellipse 60% 60% at 90% 10%, #000 10%, transparent 70%); }
+.sv-g{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.sv-c{ position:relative; overflow:hidden; display:grid; align-content:start; gap:22px; min-height:200px; padding:28px 28px 32px; border-radius:20px; background:#fff; border:1px solid var(--border-subtle); transition:border-color .25s ease, box-shadow .35s var(--ease-out), transform .35s var(--ease-out); }
+.sv-c::before{ content:''; position:absolute; left:0; right:0; top:0; height:2px; background:linear-gradient(90deg, var(--accent-emerald), transparent); transform:scaleX(0); transform-origin:left; transition:transform .45s var(--ease-out); }
+.sv-c h3{ font-size:clamp(17.5px,1.5vw,19.5px); font-weight:700; line-height:1.38; letter-spacing:-.015em; color:var(--brand-ink); text-wrap:pretty; }
+@media (hover:hover) and (pointer:fine){
+  .sv-c:hover{ transform:translateY(-4px); border-color:var(--status-op-border); box-shadow:var(--shadow-elevated); }
+  .sv-c:hover::before{ transform:scaleX(1); }
+  .sv-c:hover .ic{ background:var(--accent-emerald); color:#fff; }
+}
+@media (max-width:1023px){ .sv-g{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:640px){ .sv-g{ grid-template-columns:minmax(0,1fr); gap:12px; } .sv-c{ min-height:0; grid-template-columns:46px minmax(0,1fr); align-items:center; gap:16px; padding:20px; } }
+
+/* 04 CLIENTS — dotted reach map with animated callouts + client type row */
+.cl{ overflow:hidden; background:var(--surface-subtle); }
+.cl-head{ display:grid; gap:14px; max-width:760px; }
+.cl-eb{ display:flex; align-items:center; gap:14px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-gold-dark); }
+.cl-eb i{ width:40px; height:1px; background:var(--accent-gold); }
+.cl-head .h1 em{ font-style:italic; color:var(--accent-emerald); }
+.cl-sub{ font-size:clamp(16px,1.4vw,19px); line-height:1.6; color:var(--text-secondary); }
+.cl-map{ position:relative; max-width:var(--container-wide); margin:clamp(28px,4vw,48px) auto 0; padding:0 clamp(16px,3vw,40px); overflow:hidden; }
+.cl-map-in{ position:relative; aspect-ratio:180 / 71; --px:0; --py:0; }
+.cl-dots, .cl-tips{ position:absolute; inset:0; transition:transform .6s var(--ease-out); }
+.cl-dots{ transform:translate3d(calc(var(--px) * -8px), calc(var(--py) * -6px), 0); }
+.cl-tips{ transform:translate3d(calc(var(--px) * 10px), calc(var(--py) * 8px), 0); pointer-events:none; }
+.cl-dots canvas{ display:block; width:100%; height:100%; }
+.cl-lines{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
+.cl-lines polyline{ fill:none; stroke:var(--accent-gold); stroke-width:1.25; vector-effect:non-scaling-stroke; stroke-dasharray:1; stroke-dashoffset:1; transition:stroke-dashoffset .8s var(--ease-out) var(--d), stroke .3s ease; }
+.cl-map.in .cl-lines polyline{ stroke-dashoffset:0; }
+.cl-lines polyline.on{ stroke:var(--accent-emerald); }
+.cl-tip{ position:absolute; transform:translate(-50%,-50%); pointer-events:auto; }
+.cl-tip b{ display:block; padding:7px 14px; border-radius:6px; background:#fff; border:1px solid var(--border-default); box-shadow:0 10px 24px -12px rgba(18,48,57,.35), 0 1px 2px rgba(18,48,57,.06); font-size:clamp(13px,1.15vw,15.5px); font-weight:600; line-height:1.3; letter-spacing:-.005em; color:var(--brand-ink); white-space:nowrap; opacity:0; transform:translateY(10px) scale(.92); transition:opacity .5s ease calc(var(--d) + .35s), transform .6s var(--ease-spring, cubic-bezier(.34,1.56,.64,1)) calc(var(--d) + .35s), border-color .25s ease, color .25s ease, box-shadow .3s ease; }
+.cl-tip b::before{ content:''; display:inline-block; width:6px; height:6px; margin:0 8px 1px 0; border-radius:1px; background:var(--accent-gold); vertical-align:middle; transition:background-color .25s ease, transform .3s ease; }
+.cl-map.in .cl-tip b{ opacity:1; transform:none; animation:clFloat 5s ease-in-out calc(var(--d) + 1.2s) infinite; }
+.cl-map.in .cl-tip.on b{ border-color:var(--accent-emerald); color:var(--accent-emerald-dark); box-shadow:0 16px 32px -14px rgba(13,110,89,.45), 0 0 0 4px rgba(18,131,107,.10); transform:translateY(-4px) scale(1.06); transition-delay:0s; animation-play-state:paused; }
+.cl-tip.on b::before{ background:var(--accent-emerald); transform:rotate(45deg); }
+@keyframes clFloat{ 0%,100%{ translate:0 0; } 50%{ translate:0 -4px; } }
+.cl-types{ display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); margin-top:clamp(28px,4vw,48px); }
+.cl-types li{ position:relative; display:flex; align-items:center; justify-content:center; min-height:96px; padding:12px 20px; text-align:center; font-size:clamp(18px,1.75vw,24px); font-weight:700; letter-spacing:-.02em; line-height:1.2; color:var(--brand-ink); text-wrap:balance; transition:color .25s ease; }
+.cl-types li + li{ border-left:1px solid var(--border-strong); }
+.cl-types li::after{ content:''; position:absolute; left:50%; bottom:6px; width:28px; height:2px; margin-left:-14px; background:var(--accent-emerald); transform:scaleX(0); transition:transform .35s var(--ease-out); }
+@media (hover:hover) and (pointer:fine){ .cl-types li:hover{ color:var(--accent-emerald-dark); } .cl-types li:hover::after{ transform:scaleX(1); } }
+@media (max-width:767px){
+  .cl-map{ padding:0; }
+  .cl-map-in{ width:210%; margin-left:-78%; }
+  .cl-tip b{ padding:6px 11px; font-size:13px; }
+  .cl-types{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .cl-types li{ min-height:72px; border-top:1px solid var(--border-subtle); }
+  .cl-types li:nth-child(odd){ border-left:0; }
+  .cl-types li:last-child{ grid-column:span 2; }
+}
+@media (prefers-reduced-motion:reduce){ .cl-dots, .cl-tips{ transform:none; transition:none; } .cl-map.in .cl-tip b{ animation:none; } }
+
+/* 05 ENGINE STRIP + PAM placement */
+.lp{ --R:72px; --y:44px; position:relative; height:calc(var(--y) + var(--R) * 2 + 48px); margin-top:clamp(16px,2vw,24px); }
+.lp-ring{ position:absolute; left:0; right:0; top:var(--y); height:calc(var(--R) * 2); border:1.5px solid var(--accent-gold-dark); border-top-color:var(--brand-ink); border-radius:var(--R); opacity:.9; }
+.lp-ring::before{ content:''; position:absolute; left:calc(var(--R) - 1.5px); right:calc(var(--R) - 1.5px); top:-1.5px; height:1.5px; background:var(--brand-ink); }
+.lp-chev{ position:absolute; top:calc(var(--y) - 4px); width:9px; height:9px; border-top:1.5px solid var(--brand-ink); border-right:1.5px solid var(--brand-ink); transform:translateX(-50%) rotate(45deg); }
+.lp-chev--ret{ top:calc(var(--y) + var(--R) * 2 - 4.5px); left:50%; border-color:var(--accent-gold-dark); transform:translateX(-50%) rotate(-135deg); }
+.lp-chev--in{ left:calc(var(--R) - 16px); border-color:var(--accent-gold-dark); }
+.lp-ret{ position:absolute; left:50%; top:calc(var(--y) + var(--R) * 2 + 18px); transform:translateX(-50%); white-space:nowrap; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--accent-gold-dark); }
+.lp-nodes{ position:absolute; left:var(--R); right:var(--R); top:0; display:flex; justify-content:space-between; }
+.lp-n{ position:relative; width:0; height:0; }
+.lp-in{ position:absolute; left:0; top:0; transform:translateX(-50%); width:150px; display:flex; flex-direction:column; align-items:center; text-align:center; }
+.lp-num{ height:24px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; color:var(--text-muted); }
+.lp-dot{ position:relative; z-index:1; width:22px; height:22px; margin-top:9px; border-radius:50%; background:#fff; border:1.5px solid var(--brand-ink); display:flex; align-items:center; justify-content:center; transition:border-color .35s ease, box-shadow .35s ease; transition-delay:calc(var(--i) * 110ms); }
+.lp-dot::after{ content:''; width:8px; height:8px; border-radius:50%; background:transparent; transform:scale(.6); transition:background-color .35s ease, transform .45s var(--ease-out); transition-delay:calc(var(--i) * 110ms); }
+.lp-t{ margin-top:16px; font-size:18px; font-weight:700; letter-spacing:-.015em; line-height:1.25; color:var(--brand-ink); }
+.lp-pam{ display:none; margin-top:10px; padding:3px 10px; border-radius:999px; border:1.5px dashed var(--accent-gold); background:var(--status-dev-bg); font-family:var(--font-mono); font-size:max(11px,var(--fs-floor-sm,0px)); font-weight:700; letter-spacing:.1em; color:var(--status-dev-text); }
+.lp-n--pam .lp-pam{ display:inline-block; }
+.lp-n--pam .lp-num{ color:var(--accent-gold-dark); }
+.lp.lit .lp-dot{ border-color:var(--accent-emerald); }
+.lp.lit .lp-dot::after{ background:var(--accent-emerald); transform:none; }
+.lp.lit .lp-n--pam .lp-dot{ border-color:var(--accent-gold); box-shadow:0 0 0 6px rgba(185,143,45,.16); }
+.lp.lit .lp-n--pam .lp-dot::after{ background:var(--accent-gold); }
+.lp-loopnote{ display:none; margin-top:4px; padding-left:40px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-gold-dark); }
+.en-foot{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px 32px; margin-top:clamp(28px,3.4vw,44px); padding-top:24px; border-top:1px solid var(--border-subtle); }
+.lp-key{ display:flex; align-items:center; gap:14px; font-size:max(15.5px,var(--fs-floor-body,0px)); color:var(--text-secondary); }
+.lp-key i{ flex:none; width:14px; height:14px; border-radius:50%; background:var(--accent-gold); box-shadow:0 0 0 4px rgba(185,143,45,.16); }
+.lp-key b{ color:var(--brand-ink); font-weight:600; }
+@media (max-width:1023px){
+  .lp{ height:auto; margin-top:8px; max-width:520px; }
+  .lp-ring, .lp-chev, .lp-ret{ display:none; }
+  .lp-nodes{ position:relative; left:auto; right:auto; flex-direction:column; }
+  .lp-nodes::before{ content:''; position:absolute; left:10px; top:24px; bottom:24px; width:1.5px; background:var(--border-default); }
+  .lp-n{ width:auto; height:auto; }
+  .lp-in{ position:relative; transform:none; width:auto; display:grid; grid-template-columns:22px 28px auto auto; justify-content:start; column-gap:14px; align-items:center; text-align:left; padding:12px 0; }
+  .lp-dot{ margin:0; grid-column:1; grid-row:1; }
+  .lp-num{ height:auto; grid-column:2; grid-row:1; }
+  .lp-t{ margin:0; font-size:17px; grid-column:3; grid-row:1; }
+  .lp-pam{ margin:0; grid-column:4; grid-row:1; }
+  .lp-loopnote{ display:block; }
+}
+
+/* 06 PEOPLE — Main's leadership card language */
+.pp-g{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.pp-g > li{ display:flex; }
+.pp-ph{ position:absolute; inset:0; background:var(--surface-cloud) center 22%/cover no-repeat; transition:transform .6s var(--ease-out); }
+.pp-org{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:max(11px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-emerald-dark); }
+@media (hover:hover) and (pointer:fine){ .gv-card:hover .pp-ph{ transform:scale(1.04); } }
+@media (max-width:1023px){ .pp-g{ gap:12px; } .pp-g .gv-card-t{ padding:14px 16px 16px; } .pp-g .gv-card-t b{ font-size:16px; } }
+@media (max-width:767px){
+  .pp-g{ display:flex; gap:14px; margin:0 calc(var(--pad-x) * -1); padding:4px var(--pad-x) 12px; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scroll-padding-inline:var(--pad-x); scrollbar-width:none; }
+  .pp-g::-webkit-scrollbar{ display:none; }
+  .pp-g > li{ flex:0 0 min(74%,280px); scroll-snap-align:start; }
+  .pp-g{ cursor:grab; touch-action:pan-x pan-y; -webkit-overflow-scrolling:touch; }
+  .pp-g.is-drag{ cursor:grabbing; scroll-snap-type:none; user-select:none; -webkit-user-select:none; }
+  .pp-g.is-drag a{ pointer-events:none; }
+  .pp-g img, .pp-g .pp-ph{ -webkit-user-drag:none; user-select:none; }
+}
+
+/* 07 HISTORY — editorial split with milestone line */
+.hi{ display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); align-items:stretch; }
+.hi-h{ display:grid; gap:22px; align-content:start; padding-right:clamp(28px,4vw,64px); border-right:1px solid var(--accent-gold); }
+.hi-h i{ display:block; width:56px; height:2px; background:var(--accent-gold); }
+.hi-h h2{ color:var(--brand-ink); }
+.hi-h p{ font-size:clamp(17px,1.5vw,20px); line-height:1.45; color:var(--text-secondary); }
+.hi-b{ display:grid; gap:clamp(40px,5vw,64px); align-content:start; padding-left:clamp(28px,4vw,64px); }
+.hi-txt{ display:grid; gap:22px; max-width:640px; }
+.hi-txt p{ font-size:clamp(17px,1.6vw,21px); line-height:1.6; letter-spacing:-.01em; color:var(--brand-ink); text-wrap:pretty; }
+.hi-tl{ position:relative; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)) auto; align-items:start; gap:0 24px; padding-top:30px; }
+.hi-tl::before{ content:''; position:absolute; left:6px; right:0; top:6px; height:1px; background:var(--accent-gold); opacity:.7; }
+.hi-m{ position:relative; display:grid; gap:6px; }
+.hi-m::before{ content:''; position:absolute; left:0; top:-30px; width:13px; height:13px; border-radius:50%; background:var(--accent-emerald); box-shadow:0 0 0 5px var(--surface-canvas); transition:transform .3s var(--ease-out); }
+.hi-m:nth-child(2)::before{ background:var(--accent-gold); }
+.hi-d{ font-size:clamp(24px,2.4vw,30px); font-weight:600; line-height:1.15; letter-spacing:-.02em; color:var(--brand-ink); }
+.hi-l{ font-family:var(--font-mono); font-size:max(11.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--text-muted); }
+.hi-note{ align-self:start; font-size:max(13.5px,var(--fs-floor-sm,0px)); font-style:italic; color:var(--text-muted); white-space:nowrap; }
+@media (hover:hover) and (pointer:fine){ .hi-m:hover::before{ transform:scale(1.25); } }
+@media (max-width:899px){
+  .hi{ grid-template-columns:minmax(0,1fr); gap:32px; }
+  .hi-h{ padding-right:0; padding-bottom:28px; border-right:0; border-bottom:1px solid var(--accent-gold); }
+  .hi-b{ padding-left:0; }
+}
+@media (max-width:560px){ .hi-tl{ grid-template-columns:repeat(2,minmax(0,1fr)); row-gap:20px; } .hi-note{ grid-column:1 / -1; white-space:normal; } }
+@media (prefers-reduced-motion:reduce){ .hi-m:hover::before{ transform:none; } }
+
+/* 08 NEXT */
+#next{ position:relative; overflow:hidden; text-align:center;
+  background:radial-gradient(ellipse 640px 560px at -6% 30%, rgba(29,74,84,.34), transparent 58%), radial-gradient(ellipse 640px 560px at 106% 30%, rgba(18,131,107,.28), transparent 58%), radial-gradient(ellipse 900px 420px at 50% 88%, rgba(18,131,107,.16), transparent 68%), linear-gradient(180deg, #05090B 0%, #090F11 50%, #0B1416 100%); }
+.cta-pattern{ position:absolute; inset:0; pointer-events:none; z-index:0; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:24px 24px; -webkit-mask-image:radial-gradient(ellipse 720px 320px at 50% 40%, black 0%, black 35%, transparent 80%); mask-image:radial-gradient(ellipse 720px 320px at 50% 40%, black 0%, black 35%, transparent 80%); }
+#next .container{ position:relative; z-index:1; margin:0 auto; }
+.nx-links{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px 32px; margin-top:28px; }
+@media (max-width:767px){ .nx-links{ flex-direction:column; align-items:center; gap:16px; } #next .btn{ width:100%; } }
+
+@media (prefers-reduced-motion:reduce){
+  .lp-dot, .lp-dot::after{ transition-delay:0s; }
+  .sv-c, .sv-c:hover, .gv-card:hover .pp-ph{ transform:none; }
+  .rf-f:hover .ic{ transform:none; }
+}
+</style>
+<script src="./pam-worldmap.js"></script>
+<link rel="stylesheet" href="./bwci-system.css">
+<script src="./bwci-motion.js"></script>
+</helmet>
+<div class="bw" ref="{{ rootRef }}" style="width:100%; min-height:100vh; background:var(--surface-canvas); overflow-x:clip">
+  <dc-import name="SiteHeader" current="platforms" style="position:sticky; top:calc(var(--util-h, 0px) * -1); z-index:60; display:block; width:100%" hint-size="100%,116px"></dc-import>
+  <main id="main">
+
+    <section class="hero" id="top" data-screen-label="01 Hero">
+      <div class="hero-img" aria-hidden="true"><img src="./assets/pam-hero.png" alt="" width="2140" height="735"></div>
+      <div class="hero-inner" style="align-self:stretch">
+        <div class="hero-copy">
+          <dc-import name="Breadcrumb" current="pam" style="display:block" hint-size="100%,47px"></dc-import>
+          
+          <h1 class="h-display">Providence Asset Management<sc-if value="{{ flags }}" hint-placeholder-val="{{ false }}"><span class="tc tc--inv">Relationship to confirm</span></sc-if></h1>
+          <p class="body-lg">A UK-based investment management and regulatory advisory firm, authorised by the Financial Conduct Authority.</p>
+          <p class="ph-rel"><span>Relationship to Better World Capital Investments PLC:</span><b>[Owned / partner]</b></p>
+          <div class="hero-actions">
+            <a class="hero-btn hero-btn--solid" href="#regulatory">Regulatory status <span aria-hidden="true">↓</span></a>
+            <a class="hero-btn hero-btn--ghost" href="https://providenceassetmanagement.co.uk" target="_blank" rel="noopener">Visit PAM website <span aria-hidden="true">↗</span><span class="vh">(opens in a new tab)</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rf" id="regulatory" data-screen-label="02 Regulatory status">
+      <div class="wrap">
+        <dl class="rf-facts">
+          <div class="rf-f"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"></path><path d="m9 12 2 2 4-4"></path></svg></span><div style="display:grid; gap:6px"><dt>Regulator</dt><dd>Financial Conduct Authority (FCA)</dd></div></div>
+          <div class="rf-f"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16"></path><path d="M4 15h16"></path><path d="M10 3 8 21"></path><path d="M16 3l-2 18"></path></svg></span><div style="display:grid; gap:6px"><dt>Firm reference number</dt><dd class="mono">476091</dd></div></div>
+          <div class="rf-f"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"></rect><path d="M3.5 10h17"></path><path d="M8 3v4"></path><path d="M16 3v4"></path></svg></span><div style="display:grid; gap:6px"><dt>Authorised since</dt><dd>9 April 2009</dd></div></div>
+          <div class="rf-f"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V10"></path><path d="M19 21V10"></path><path d="M9 21v-7"></path><path d="M15 21v-7"></path><path d="M12 3 3 8h18z"></path></svg></span><div style="display:grid; gap:6px"><dt>Companies House number</dt><dd class="mono">06357208</dd></div></div>
+        </dl>
+        <div class="rg-p">
+          <div class="rg-l">
+            <h2 class="h1">Regulatory status</h2>
+            <i aria-hidden="true"></i>
+            <p>[Approved wording from Management: Better World Capital Investments PLC is not itself authorised by the FCA. Regulated activities are carried out by Providence Asset Management within its permissions.]</p>
+            <a class="btn btn--inverse" href="https://register.fca.org.uk/s/firm?id=476091" target="_blank" rel="noopener">Check this firm on the FCA Register <span class="ar" aria-hidden="true">↗</span><span class="vh">(opens in a new tab)</span></a>
+          </div>
+          <dl class="rg-kv">
+            <div><dt>Registered legal name</dt><dd class="ph-v">[Exact name from Companies House]</dd></div>
+            <div><dt>Permissions</dt><dd class="ph-v">[Permissions wording from the FCA Register, approved by compliance]</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sv-sec" id="services" data-screen-label="03 What PAM does">
+      <div class="pat-dots" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 class="h1">What Providence Asset Management does<sc-if value="{{ flags }}" hint-placeholder-val="{{ false }}"><span class="tc">Wording to approve</span></sc-if></h2>
+          <p class="lead">[Intro, up to 40 words]</p>
+        </div>
+        <ol class="sv-g">
+          <li class="sv-c"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m7 15 4-4 3 3 5-6"></path></svg></span><h3>Investment and asset management</h3></li>
+          <li class="sv-c"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="M5 7h14"></path><path d="m5 7-3 7a3.5 3.5 0 0 0 6 0z"></path><path d="m19 7-3 7a3.5 3.5 0 0 0 6 0z"></path><path d="M8 21h8"></path></svg></span><h3>Regulatory advisory, including fund structuring and fintech licensing</h3></li>
+          <li class="sv-c"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"></path><path d="M12 8v4"></path><path d="M12 15.5h.01"></path></svg></span><h3>Risk management and systemic risk oversight</h3></li>
+          <li class="sv-c"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></span><h3>Multi-fund platform design</h3></li>
+          <li class="sv-c"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 4V3h6v1"></path><path d="m9 13 2 2 4-4"></path></svg></span><h3>Compliance and investment structuring</h3></li>
+          <li class="sv-c"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a14 14 0 0 1 0 18"></path><path d="M12 3a14 14 0 0 0 0 18"></path></svg></span><h3>Cross-border investment guidance</h3></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="sec cl" id="clients" data-screen-label="04 Who PAM works with">
+      <div class="wrap">
+        <div class="cl-head">
+          <h2 class="h1">Who PAM <em>works with</em></h2>
+          <p class="cl-sub">Across institutions, businesses and independent ventures.</p>
+        </div>
+      </div>
+      <figure class="cl-map" ref="{{ mapRef }}">
+        <figcaption class="vh">Geographic reach: UK, EU, Switzerland and the Middle East</figcaption>
+        <div class="cl-map-in" aria-hidden="true">
+          <div class="cl-dots"><canvas></canvas>
+            <svg class="cl-lines" viewBox="0 0 180 71" preserveAspectRatio="none"><polyline data-i="0" pathLength="1" points="89,15.5 89,9 88,4.5" style="--d:0.00s"></polyline><polyline data-i="1" pathLength="1" points="97,16.5 101.5,9 106,9" style="--d:0.18s"></polyline><polyline data-i="2" pathLength="1" points="94,18.5 97,21 109,21" style="--d:0.36s"></polyline><polyline data-i="3" pathLength="1" points="115,29.5 120,36 132,36" style="--d:0.54s"></polyline></svg>
+          </div>
+          <div class="cl-tips"><span class="cl-tip" data-i="0" style="left:48.89%;top:6.34%;--d:0.00s"><b>UK</b></span><span class="cl-tip" data-i="1" style="left:58.89%;top:12.68%;--d:0.18s"><b>EU</b></span><span class="cl-tip" data-i="2" style="left:60.56%;top:29.58%;--d:0.36s"><b>Switzerland</b></span><span class="cl-tip" data-i="3" style="left:73.33%;top:50.7%;--d:0.54s"><b>Middle East</b></span></div>
+        </div>
+      </figure>
+      <div class="wrap">
+        <ul class="cl-types">
+          <li>Funds</li>
+          <li>Institutional investors</li>
+          <li>Fintechs</li>
+          <li>SMEs</li>
+          <li>Entrepreneurs</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="engine" data-screen-label="05 Role in the Financial Engine">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 class="h1">Role in the Financial Engine<sc-if value="{{ flags }}" hint-placeholder-val="{{ false }}"><span class="tc">Placement to confirm</span></sc-if></h2>
+        </div>
+        <figure class="lp" ref="{{ lpRef }}">
+          <figcaption class="vh">The Financial Engine in six steps: Need, Architecture, Institution, Capital, Activity and Reinvestment. Providence Asset Management sits at Institution and Capital. Reinvestment returns to Need.</figcaption>
+          <div class="lp-ring" aria-hidden="true"></div>
+          <span class="lp-chev lp-chev--in" aria-hidden="true"></span><span class="lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.1)"></span><span class="lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.3)"></span><span class="lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.5)"></span><span class="lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.7)"></span><span class="lp-chev" aria-hidden="true" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.9)"></span>
+          <span class="lp-chev lp-chev--ret" aria-hidden="true"></span>
+          <span class="lp-ret" aria-hidden="true">Reinvestment returns to need</span>
+          <ol class="lp-nodes" aria-hidden="true">
+            <sc-for list="{{ steps }}" as="s" hint-placeholder-count="6">
+              <li class="{{ s.cls }}" style="--i:{{ s.i }}"><span class="lp-in"><span class="lp-num">{{ s.n }}</span><span class="lp-dot"></span><span class="lp-t">{{ s.t }}</span><span class="lp-pam">PAM</span></span></li>
+            </sc-for>
+          </ol>
+        </figure>
+        <p class="lp-loopnote" aria-hidden="true">↺ Reinvestment returns to Need</p>
+        <div class="en-foot">
+          <p class="lp-key"><i aria-hidden="true"></i><span>Providence Asset Management sits at <b>Institution</b> and <b>Capital</b>.</span></p>
+          <a class="link" href="FinancialEngine.dc.html#hero">How the Financial Engine works <span class="ar" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec--subtle" id="people" data-screen-label="06 Key people">
+      <div class="wrap">
+        <div class="sec-head"><h2 class="h1">Key people at PAM</h2></div>
+        <ul class="pp-g" ref="{{ ppRef }}">
+          <sc-for list="{{ people }}" as="p" hint-placeholder-count="3">
+            <li>
+              <a class="gv-card" href="{{ p.href }}" aria-label="{{ p.aria }}">
+                <div class="gv-card-img"><span class="pp-ph" style="{{ p.av }}" aria-hidden="true"></span><div class="gv-card-ov"><span>View BWCI profile <span aria-hidden="true">→</span></span></div></div>
+                <div class="gv-card-t">
+                  <span class="pp-org">Providence Asset Management</span>
+                  <b>{{ p.name }}</b>
+                  <div class="gv-role"><span>{{ p.role }}<sc-if value="{{ flags }}" hint-placeholder-val="{{ false }}"><span class="tc">PAM role to confirm</span></sc-if></span></div>
+                </div>
+              </a>
+            </li>
+          </sc-for>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="history" data-screen-label="07 History">
+      <div class="wrap">
+        <div class="hi">
+          <div class="hi-h">
+            <i aria-hidden="true"></i>
+            <h2 class="h1">Our History</h2>
+            <p>Understanding where we began.</p>
+          </div>
+          <div class="hi-b">
+            <div class="hi-txt">
+              <p>The story of Providence Asset Management begins with its founding and continues through the milestones that shaped its development. A fuller account of our history will be shared here.</p>
+              <p>This section is designed to evolve as further details and context are added.</p>
+            </div>
+            <ol class="hi-tl">
+              <li class="hi-m"><time class="hi-d" datetime="2008">2008</time><span class="hi-l">Founded</span></li>
+              <li class="hi-m"><time class="hi-d" datetime="2009-04-09">2009</time><span class="hi-l">FCA authorisation</span></li>
+              <li class="hi-note">Dates to be confirmed.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="next" data-screen-label="08 Next step">
+      <div class="cta-pattern" aria-hidden="true"></div>
+      <div class="container">
+        <h2 class="h1" style="color:#fff; margin-bottom:32px">[Next-step heading]</h2>
+        <a class="btn btn--inverse" href="Contact.dc.html">Start a Conversation <span aria-hidden="true">→</span></a>
+        <div class="nx-links">
+          <a class="hlink" href="https://providenceassetmanagement.co.uk" target="_blank" rel="noopener">Visit Providence Asset Management <span class="ar" aria-hidden="true">↗</span><span class="vh">(opens in a new tab)</span></a>
+          <a class="hlink" href="Platforms.dc.html">See all platforms &amp; institutions <span class="ar" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <dc-import name="SiteFooter" style="display:block; width:100%" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showFlags&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Review&quot;}}">
+const PAM_STEPS = ['Institution', 'Capital'];
+const STEPS = ['Need', 'Architecture', 'Institution', 'Capital', 'Activity', 'Reinvestment'].map((t, i) => ({ t, i, n: String(i + 1).padStart(2, '0'), cls: PAM_STEPS.includes(t) ? 'lp-n lp-n--pam' : 'lp-n' }));
+const PEOPLE = [
+  { name: 'Prof. Richard Werner', role: 'Director', photo: 'assets/people/richard-werner.webp', href: 'Profile%20Professor%20Richard%20Werner.dc.html' },
+  { name: 'Dr Farhad Reyazat', role: 'Senior Partner', photo: 'assets/people/farhad-reyazat.jpg', href: 'Profile%20Farhad%20Reyazat.dc.html' },
+  { name: 'Gabriella Karlova', role: 'Head of Compliance', photo: 'assets/people/gabriella-karlova.webp', href: 'Profile%20Gabriella%20Karlova.dc.html' },
+].map((p) => Object.assign({}, p, { av: { backgroundImage: 'url("' + p.photo + '")' }, aria: 'View BWCI leadership profile for ' + p.name + ', ' + p.role + ' at Providence Asset Management' }));
+
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  lpRef = React.createRef();
+  mapRef = React.createRef();
+  ppRef = React.createRef();
+  _drag() {
+    const el = this.ppRef.current; if (!el) return;
+    let down = false, moved = false, x0 = 0, s0 = 0;
+    el.addEventListener('pointerdown', (e) => { if (e.pointerType === 'touch' || el.scrollWidth <= el.clientWidth) return; down = true; moved = false; x0 = e.clientX; s0 = el.scrollLeft; });
+    el.addEventListener('pointermove', (e) => {
+      if (!down) return;
+      const dx = e.clientX - x0;
+      if (!moved && Math.abs(dx) > 6) { moved = true; el.setPointerCapture(e.pointerId); el.classList.add('is-drag'); }
+      if (moved) el.scrollLeft = s0 - dx;
+    });
+    const up = () => {
+      if (!down) return; down = false;
+      el.classList.remove('is-drag');
+      if (moved) { const w = (el.firstElementChild && el.firstElementChild.offsetWidth + 14) || 1; el.scrollTo({ left: Math.round(el.scrollLeft / w) * w, behavior: 'smooth' }); }
+    };
+    el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up);
+    el.addEventListener('click', (e) => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; } }, true);
+    el.addEventListener('dragstart', (e) => e.preventDefault());
+  }
+  componentDidMount() {
+    this.initMap();
+    this._drag();
+    const el = this.lpRef.current;
+    if (!el || !('IntersectionObserver' in window)) { if (el) el.classList.add('lit'); return; }
+    this.io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('lit'); this.io.disconnect(); } }), { threshold: 0.45 });
+    this.io.observe(el);
+  }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); if (this.mapStop) this.mapStop(); }
+  initMap() {
+    const fig = this.mapRef.current; if (!fig) return;
+    if (!window.PAM_WORLD) { this.mapT = setTimeout(() => this.initMap(), 120); return; }
+    const W = window.PAM_WORLD, inner = fig.querySelector('.cl-map-in'), cv = fig.querySelector('canvas'), ctx = cv.getContext('2d');
+    const tips = [...fig.querySelectorAll('.cl-tip')], lines = [...fig.querySelectorAll('.cl-lines polyline')];
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const anchors = [[89,15.5],[97,16.5],[94,18.5],[115,29.5]];
+    const zones = [[89,15.5,2.6,0],[99,17.5,6,1],[94,18.5,1.6,2],[113,30,6.5,3]];
+    const pal = ['#12836B','#B98F2D','#7FC8B3'];
+    const dots = [];
+    W.rows.forEach((row, r) => { for (let c = 0; c < W.w; c++) { const nib = parseInt(row[c >> 2], 16); if (!(nib & (8 >> (c & 3)))) continue;
+      let z = -1; for (const q of zones) { if (Math.hypot(c + .5 - q[0], r + .5 - q[1]) < q[2]) { z = q[3]; break; } }
+      const hsh = Math.abs(Math.sin(c * 12.9898 + r * 78.233) * 43758.5453) % 1;
+      dots.push({ x: c + .5, y: r + .5, z, col: z < 0 ? null : (hsh < .2 ? null : pal[hsh < .5 ? 2 : hsh < .8 ? 0 : 1]) }); } });
+    const grid = new Map(); dots.forEach((d) => grid.set((d.y - .5) * W.w + (d.x - .5), d));
+    const zoneDots = [[], [], [], []]; dots.forEach((d) => { if (d.z >= 0) zoneDots[d.z].push(d); });
+    let cell = 1, dpr = 1, cw = 0, chh = 0; const off = document.createElement('canvas'), octx = off.getContext('2d');
+    const paint = (c, list, s, alphaFor, colFor) => { const groups = {}; for (const d of list) { const k = colFor(d) + '|' + alphaFor(d); (groups[k] = groups[k] || []).push(d); }
+      for (const k in groups) { const [col, al] = k.split('|'); c.globalAlpha = +al; c.fillStyle = col; c.beginPath(); for (const d of groups[k]) { const q = d.s || s; c.rect((d.px ?? d.x * cell) - q / 2, (d.py ?? d.y * cell) - q / 2, q, q); } c.fill(); } c.globalAlpha = 1; };
+    const baseCol = (d) => d.col || (d.z >= 0 ? '#A3D9C9' : '#123039'), baseA = (d) => d.col ? .85 : d.z >= 0 ? .5 : .15;
+    const size = () => { const bb = inner.getBoundingClientRect(); dpr = Math.min(2, window.devicePixelRatio || 1); cw = bb.width; chh = bb.height; cv.width = off.width = cw * dpr; cv.height = off.height = chh * dpr; cell = cw / W.w;
+      octx.setTransform(dpr, 0, 0, dpr, 0, 0); octx.clearRect(0, 0, cw, chh); paint(octx, dots, cell * .56, baseA, baseCol); };
+    size();
+    let mx = -999, my = -999, tx = -999, ty = -999, inten = 0, tInten = 0, active = -1, raf = 0, vis = false, t0 = performance.now(), last = 0;
+    const setActive = (i) => { if (i === active) return; active = i; tips.forEach((t, k) => t.classList.toggle('on', k === i)); lines.forEach((l, k) => l.classList.toggle('on', k === i)); };
+    const frame = (now) => {
+      raf = 0;
+      const idle = inten < .01 && tInten === 0;
+      if (idle && now - last < 33) { if (vis && !reduce) raf = requestAnimationFrame(frame); return; }
+      last = now; const tm = (now - t0) / 1000;
+      mx += (tx - mx) * .16; my += (ty - my) * .16; inten += (tInten - inten) * .1; if (tInten === 0 && inten < .01) inten = 0;
+      ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height); ctx.drawImage(off, 0, 0);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const base = cell * .56;
+      if (inten > .01) {
+        const R = Math.max(70, cell * 16), near = [];
+        const c0 = Math.max(0, Math.floor((mx - R) / cell) - 1), c1 = Math.min(W.w - 1, Math.ceil((mx + R) / cell) + 1), r0 = Math.max(0, Math.floor((my - R) / cell) - 1), r1 = Math.min(W.h - 1, Math.ceil((my + R) / cell) + 1);
+        for (let r = r0; r <= r1; r++) for (let c = c0; c <= c1; c++) { const d = grid.get(r * W.w + c); if (!d) continue; const x = d.x * cell, y = d.y * cell, dx = x - mx, dy = y - my, dd = Math.hypot(dx, dy); if (dd >= R + cell) continue;
+          let t = Math.max(0, 1 - dd / R); t = t * t * inten; near.push({ x: d.x, y: d.y, col: d.col, z: d.z, t, px: x + (dd > .1 ? dx / dd * t * cell * .9 : 0), py: y + (dd > .1 ? dy / dd * t * cell * .9 : 0), s: base * (1 + t * .7) }); }
+        ctx.save(); ctx.beginPath(); ctx.arc(mx, my, R + cell * 1.5, 0, Math.PI * 2); ctx.clip(); ctx.clearRect(mx - R - cell * 2, my - R - cell * 2, (R + cell * 2) * 2, (R + cell * 2) * 2); ctx.restore();
+        near.forEach((n) => { n.q = Math.round(n.t * 6) / 6; });
+        paint(ctx, near, base, (n) => n.col ? .85 : (.15 + n.q * .25).toFixed(2), (n) => baseCol(n));
+        paint(ctx, near.filter((n) => !n.col && n.q > 0), base, (n) => Math.min(.85, n.q * 1.2).toFixed(2), () => '#12836B');
+      }
+      if (active >= 0) { const pul = (.75 + .25 * Math.sin(tm * 4)).toFixed(2); paint(ctx, zoneDots[active].filter((d) => d.col), base * 1.15, () => pul, (d) => d.col); }
+      anchors.forEach(([ax, ay], i) => { const px = ax * cell, py = ay * cell, on = i === active;
+        const ph = reduce ? 0 : ((tm * .55 + i * .27) % 1);
+        ctx.globalAlpha = (1 - ph) * (on ? .9 : .55); ctx.strokeStyle = on ? '#12836B' : '#B98F2D'; ctx.lineWidth = 1.2;
+        ctx.beginPath(); ctx.arc(px, py, cell * (.8 + ph * (on ? 4.5 : 3)), 0, Math.PI * 2); ctx.stroke();
+        const s = cell * (on ? 1.05 : .85); ctx.globalAlpha = 1; ctx.fillStyle = on ? '#12836B' : '#B98F2D'; ctx.fillRect(px - s / 2, py - s / 2, s, s); });
+      ctx.globalAlpha = 1;
+      if (vis && !reduce) raf = requestAnimationFrame(frame);
+    };
+    const kick = () => { if (!raf) raf = requestAnimationFrame(frame); };
+    const onMove = (e) => { const b = inner.getBoundingClientRect(); tx = e.clientX - b.left; ty = e.clientY - b.top; if (mx < -900) { mx = tx; my = ty; } tInten = 1;
+      if (!reduce) { inner.style.setProperty('--px', (tx / b.width - .5) * 2); inner.style.setProperty('--py', (ty / b.height - .5) * 2); }
+      let best = -1, bd = Math.max(48, cell * 7); anchors.forEach(([ax, ay], i) => { const d = Math.hypot(ax * cell - tx, ay * cell - ty); if (d < bd) { bd = d; best = i; } });
+      const tipHit = e.target.closest && e.target.closest('.cl-tip'); setActive(tipHit ? +tipHit.dataset.i : best); kick(); };
+    const onLeave = () => { tInten = 0; inner.style.setProperty('--px', 0); inner.style.setProperty('--py', 0); setActive(-1); kick(); };
+    fig.addEventListener('pointermove', onMove); fig.addEventListener('pointerleave', onLeave);
+    const ro = new ResizeObserver(() => { size(); kick(); }); ro.observe(inner);
+    const io = new IntersectionObserver((es) => es.forEach((e) => { vis = e.isIntersecting; if (vis) { fig.classList.add('in'); kick(); } }), { threshold: .25 });
+    io.observe(fig); kick();
+    this.mapStop = () => { cancelAnimationFrame(raf); ro.disconnect(); io.disconnect(); clearTimeout(this.mapT); fig.removeEventListener('pointermove', onMove); fig.removeEventListener('pointerleave', onLeave); };
+  }
+  renderVals() {
+    return {
+      rootRef: this.rootRef, lpRef: this.lpRef, mapRef: this.mapRef, ppRef: this.ppRef,
+      flags: this.props.showFlags ?? false,
+      steps: STEPS, people: PEOPLE,
+    };
+  }
+}
+</script>
+</body>
+</html>
