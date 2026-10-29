@@ -1,0 +1,8 @@
+{
+  "logoImage": "{{ custom_values.bwci_img_logo }}",
+  "notFoundConeImage": "{{ custom_values.bwci_img_page_not_found_cone }}",
+  "links": {
+    "home": "{{ custom_values.bwci_url_home }}",
+    "contact": "{{ custom_values.bwci_url_contact }}"
+  }
+}
