@@ -30,5 +30,9 @@
   {
     "name": "bwci_img_providence_asset_management_hero",
     "value": "#"
+  },
+  {
+    "name": "bwci_img_page_not_found_cone",
+    "value": "#"
   }
 ]

@@ -22,13 +22,16 @@ declare, and `qa/unit.js` fails if the shared list changes.
 |---|---|---|---|
 | `whoWeAreHeroImage` | `{{ custom_values.bwci_img_who_we_are_hero }}` | who-we-are | [hero-globe.png](../../../ghl/pages/who-we-are/assets/hero-globe.png) |
 | `pamHeroImage` | `{{ custom_values.bwci_img_providence_asset_management_hero }}` | providence-asset-management | [pam-hero.png](../../../ghl/pages/providence-asset-management/assets/pam-hero.png) |
+| `notFoundConeImage` | `{{ custom_values.bwci_img_page_not_found_cone }}` | page-not-found | [not-found-cone.png](../../../ghl/pages/page-not-found/assets/not-found-cone.png) |
 
 History: Who We Are (PR #41) first added its hero to the shared list, which changed one line in all 46 existing
 outputs. That change had no effect on them (old and new resolvers gave identical results), but it made every file
 look updated. On `feat/ghl-providence-asset-management` the shared list returned to its PR #39 contents: the 46 older
 outputs are byte-identical again to their files before PR #41, Who We Are is unchanged, and Verify a Communication
 (built under the PR #41 list) changes that one line back. No installed block needs re-pasting because of either
-change. Both proposed keys are in [the to-create file](bwci-image-custom-values-to-create.json) (eight keys in total).
+change. Both proposed keys are in [the to-create file](bwci-image-custom-values-to-create.json). Page not found (404,
+`feat/ghl-page-not-found`) adds `notFoundConeImage` the same way; the 25 other generated pages rebuild byte-identical.
+The file now holds nine keys.
 The inventory tables below describe the 23-page revision of PR #39.
 
 ## How the outputs work
@@ -49,7 +52,7 @@ The inventory tables below describe the 23-page revision of PR #39.
 - `index.js` and the existing builders are development only. The small resolver is inlined into each
   page; pasted blocks load no shared JavaScript, React, source helpers or build tools.
 
-## Keys to create (six from PR #39, one each from Who We Are and Providence Asset Management)
+## Keys to create (six from PR #39, one each from Who We Are, Providence Asset Management and Page not found)
 
 Upload the supplied assets to GHL Media Storage and use the direct image URLs as the values. `#` is
 only a safe initial placeholder; no hosted production URLs are invented here. Do not recreate the
@@ -65,9 +68,10 @@ only a safe initial placeholder; no hosted production URLs are invented here. Do
 | `bwci_img_better_world_impact_hero` | `{{ custom_values.bwci_img_better_world_impact_hero }}` | better-world-impact | [impact-hero-ribbons.png](../../../ghl/pages/better-world-impact/assets/impact-hero-ribbons.png) |
 | `bwci_img_who_we_are_hero` | `{{ custom_values.bwci_img_who_we_are_hero }}` | who-we-are | [hero-globe.png](../../../ghl/pages/who-we-are/assets/hero-globe.png) |
 | `bwci_img_providence_asset_management_hero` | `{{ custom_values.bwci_img_providence_asset_management_hero }}` | providence-asset-management | [pam-hero.png](../../../ghl/pages/providence-asset-management/assets/pam-hero.png) |
+| `bwci_img_page_not_found_cone` | `{{ custom_values.bwci_img_page_not_found_cone }}` | page-not-found | [not-found-cone.png](../../../ghl/pages/page-not-found/assets/not-found-cone.png) |
 
 [API request bodies](bwci-image-custom-values-to-create.json) contain only `name` and `value` for the
-six proposed values. GHL's create endpoint accepts **one object per POST**, not the whole array.
+nine proposed values. GHL's create endpoint accepts **one object per POST**, not the whole array.
 The existing loop script can read this file through `--file`. Check the returned `fieldKey` matches
 the proposed reference after creation. This repository does not create values in the account.
 
