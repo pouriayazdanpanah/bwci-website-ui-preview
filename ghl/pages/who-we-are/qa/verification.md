@@ -74,6 +74,10 @@ same.
 
 ## Shared image entry (`whoWeAreHeroImage`)
 
+Superseded on 29 October 2026: the setting is now page-only (see `ghl/shared/site-images/README.md`), and the other
+pages' outputs are back to their files before PR #41. The record below describes the PR #41 revision.
+
+
 - 22 generated pages rebuilt and both Main files edited: in all 46 outputs the only change is the one-line list of image settings.
 - Old and new resolvers applied to every existing output's config, with values literal, resolved and `#`: 138/138 identical results.
 - `ghl/shared/site-images/qa/unit.js`: PASS (330 checks).

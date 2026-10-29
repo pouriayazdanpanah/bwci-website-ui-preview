@@ -446,7 +446,7 @@ module.exports = function siteChrome(opts) {
   }
 
   /* ---------------- runtime (inlined into the page script) ---------------- */
-  const runtime = (siteLinks.runtime + '\n' + siteImages.runtime + '\n' + fs.readFileSync(RUNTIME, 'utf8') + (govCur ? '\n' + fs.readFileSync(GOVNAV_RUNTIME, 'utf8') : '') +
+  const runtime = (siteLinks.runtimeFor(opts.sections || []) + '\n' + siteImages.runtimeFor(opts.images || []) + '\n' + fs.readFileSync(RUNTIME, 'utf8') + (govCur ? '\n' + fs.readFileSync(GOVNAV_RUNTIME, 'utf8') : '') +
     (withPeople ? '\n' + fs.readFileSync(PEOPLE_RUNTIME, 'utf8') : '')).replace(/__P__/g, P).trim();
 
   const links = {};
@@ -455,7 +455,11 @@ module.exports = function siteChrome(opts) {
   const swap = (h) => h.replace(new RegExp('href="([^"]+)" data-' + P + '-link="([^"]+)"', 'g'), (_, href, k) => 'href="' + esc(defaults[k]) + '" data-' + P + '-link="' + k + '"');
 
   return {
-    imageConfig: siteImages.forOutput,
+    // serializes the image settings; a page-only setting must be declared in `images`, or the resolver would skip it
+    imageConfig: (cfg) => {
+      for (const k of siteImages.pageRoots) if (Object.hasOwn(cfg, k) && !(opts.images || []).includes(k)) throw new Error('Image setting ' + k + ' needs images: [\'' + k + '\'] in the site-chrome options');
+      return siteImages.forOutput(cfg);
+    },
     header: swap(header), breadcrumb: swap(breadcrumb), govnav, footer: swap(footer), css, runtime,
     links,                                  // chrome link keys used by this page, with default routes
     unresolved: Object.keys(links).filter((k) => links[k] === '#'),

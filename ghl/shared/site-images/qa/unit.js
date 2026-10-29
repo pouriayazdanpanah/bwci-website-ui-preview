@@ -1,7 +1,13 @@
 #!/usr/bin/env node
 'use strict';
 const assert=require('node:assert/strict'),vm=require('node:vm'),fs=require('node:fs'),path=require('node:path'),images=require('..');
-const ctx={};vm.createContext(ctx);vm.runInContext(images.runtime.replace(/__P__/g,'test'),ctx);
+// the resolver of a page that declares every page-only setting, so every known setting is exercised below
+const ctx={};vm.createContext(ctx);vm.runInContext(images.runtimeFor(images.pageRoots).replace(/__P__/g,'test'),ctx);
+// adding a page must not change existing blocks: the list every page carries is exactly the frozen shared one
+const shared=JSON.parse(/var paths = (\[.*?\]\]);/.exec(images.runtime)[1]);
+assert.deepEqual(shared.filter((p)=>p.length===1).map((p)=>p[0]),images.sharedRoots,'shared image settings changed');
+assert.deepEqual(images.sharedRoots,['logoImage','heroImage','financialEngineImage','ecosystemHeroImage','platformsHeroImage','smesHeroImage','investorsHeroImage','impactHeroImage'],'the shared image settings are frozen: add a page-only setting instead');
+for(const k of images.pageRoots)assert(!shared.some((p)=>p.length===1&&p[0]===k),'page-only setting in the shared list: '+k);
 const root={querySelectorAll:()=>[]},data='data:image/png;base64,aW1hZ2U=';let count=0;
 function test(label,fn){fn();count++;}
 for(const value of ['', ' ', '#','{{ custom_values.bwci_img_logo }}','https://REPLACE-WITH-YOUR-HOSTED-URL/logo.png','javascript:alert(1)','//unapproved.test/a','data:text/html;base64,abc','/img/{{ unresolved }}'])test('skip '+value,()=>assert.equal(ctx.siteImageAvailable(value),false));

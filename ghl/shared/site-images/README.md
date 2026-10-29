@@ -9,15 +9,27 @@ edits or publication are performed.
 This integration merged in PR #39 (`967b053`). Merge confirms the repository change; account creation
 of the six proposed keys, their actual URLs and installed-page behavior remain unverified.
 
-## Who We Are addition — October 28, 2026
+## Page-only image settings — October 29, 2026
 
-The Who We Are port (`feat/ghl-who-we-are`) adds one image setting, `whoWeAreHeroImage`, mapped to the **proposed**
-`{{ custom_values.bwci_img_who_we_are_hero }}` (asset `ghl/pages/who-we-are/assets/hero-globe.png`). Its body is
-appended to [the to-create file](bwci-image-custom-values-to-create.json): **seven** keys to create in total. The
-list of image settings is inlined into every page, so the 22 generated pages were rebuilt and both Main files were
-edited by hand. In those 46 outputs that list is the only changed line, and the old and new resolvers return
-identical results for every existing config ([evidence](../../pages/who-we-are/qa/verification.md)). The
-inventory tables below describe the 23-page revision of PR #39; Who We Are reuses the logo and four portrait keys.
+**Adding a page never changes another page's pasted block.** Each page's script carries the list of image settings
+its resolver reads. The shared part of that list (`sharedRoots` in `index.js`: logo, Main hero and the six hero
+settings of PR #39, plus Main's `images` and the portraits) is **frozen**. A setting only one page uses is a
+page-only setting (`pageRoots`), which the page's build declares through the site-chrome option `images`; it reaches
+that page's script only. `chrome.imageConfig()` fails a build whose config uses a page-only setting it did not
+declare, and `qa/unit.js` fails if the shared list changes.
+
+| Page-only setting | Proposed value | Page | Asset |
+|---|---|---|---|
+| `whoWeAreHeroImage` | `{{ custom_values.bwci_img_who_we_are_hero }}` | who-we-are | [hero-globe.png](../../../ghl/pages/who-we-are/assets/hero-globe.png) |
+| `pamHeroImage` | `{{ custom_values.bwci_img_providence_asset_management_hero }}` | providence-asset-management | [pam-hero.png](../../../ghl/pages/providence-asset-management/assets/pam-hero.png) |
+
+History: Who We Are (PR #41) first added its hero to the shared list, which changed one line in all 46 existing
+outputs. That change had no effect on them (old and new resolvers gave identical results), but it made every file
+look updated. On `feat/ghl-providence-asset-management` the shared list returned to its PR #39 contents: the 46 older
+outputs are byte-identical again to their files before PR #41, Who We Are is unchanged, and Verify a Communication
+(built under the PR #41 list) changes that one line back. No installed block needs re-pasting because of either
+change. Both proposed keys are in [the to-create file](bwci-image-custom-values-to-create.json) (eight keys in total).
+The inventory tables below describe the 23-page revision of PR #39.
 
 ## How the outputs work
 
@@ -37,7 +49,7 @@ inventory tables below describe the 23-page revision of PR #39; Who We Are reuse
 - `index.js` and the existing builders are development only. The small resolver is inlined into each
   page; pasted blocks load no shared JavaScript, React, source helpers or build tools.
 
-## Keys to create (six from PR #39, one from Who We Are)
+## Keys to create (six from PR #39, one each from Who We Are and Providence Asset Management)
 
 Upload the supplied assets to GHL Media Storage and use the direct image URLs as the values. `#` is
 only a safe initial placeholder; no hosted production URLs are invented here. Do not recreate the
@@ -52,6 +64,7 @@ only a safe initial placeholder; no hosted production URLs are invented here. Do
 | `bwci_img_investors_partners_hero` | `{{ custom_values.bwci_img_investors_partners_hero }}` | investors-partners | [inv-hero-flow.png](../../../ghl/pages/investors-partners/assets/inv-hero-flow.png) |
 | `bwci_img_better_world_impact_hero` | `{{ custom_values.bwci_img_better_world_impact_hero }}` | better-world-impact | [impact-hero-ribbons.png](../../../ghl/pages/better-world-impact/assets/impact-hero-ribbons.png) |
 | `bwci_img_who_we_are_hero` | `{{ custom_values.bwci_img_who_we_are_hero }}` | who-we-are | [hero-globe.png](../../../ghl/pages/who-we-are/assets/hero-globe.png) |
+| `bwci_img_providence_asset_management_hero` | `{{ custom_values.bwci_img_providence_asset_management_hero }}` | providence-asset-management | [pam-hero.png](../../../ghl/pages/providence-asset-management/assets/pam-hero.png) |
 
 [API request bodies](bwci-image-custom-values-to-create.json) contain only `name` and `value` for the
 six proposed values. GHL's create endpoint accepts **one object per POST**, not the whole array.
