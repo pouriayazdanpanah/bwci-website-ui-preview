@@ -621,7 +621,7 @@
       /^(?:https?:\/\/|\/(?!\/)|data:image\/(?:png|jpeg|jpg|webp|gif|avif|svg\+xml);base64,)/i.test(value.trim());
   }
   function siteResolveImages(root, cfg) {
-    var paths = [["logoImage"],["heroImage"],["financialEngineImage"],["ecosystemHeroImage"],["platformsHeroImage"],["smesHeroImage"],["investorsHeroImage"],["impactHeroImage"],["whoWeAreHeroImage"],["images","whoPhoto"],["images","impact1"],["images","impact2"],["images","impact3"],["images","impact4"],["images","leaderAlexander"],["images","leaderFarhad"],["images","leaderGabriela"],["peopleImages","alexander-alegria-saif"],["peopleImages","farhad-reyazat"],["peopleImages","gabriella-karlova"],["peopleImages","richard-werner"],["peopleImages","ewa-dudek"],["peopleImages","agnes-gradzewicz"],["peopleImages","christie-osarenren"]];
+    var paths = [["logoImage"],["heroImage"],["financialEngineImage"],["ecosystemHeroImage"],["platformsHeroImage"],["smesHeroImage"],["investorsHeroImage"],["impactHeroImage"],["whoWeAreHeroImage"],["pamHeroImage"],["images","whoPhoto"],["images","impact1"],["images","impact2"],["images","impact3"],["images","impact4"],["images","leaderAlexander"],["images","leaderFarhad"],["images","leaderGabriela"],["peopleImages","alexander-alegria-saif"],["peopleImages","farhad-reyazat"],["peopleImages","gabriella-karlova"],["peopleImages","richard-werner"],["peopleImages","ewa-dudek"],["peopleImages","agnes-gradzewicz"],["peopleImages","christie-osarenren"]];
     function read(object, parts) {
       for (var i = 0; i < parts.length; i++) {
         if (!object || typeof object !== 'object') return undefined;
