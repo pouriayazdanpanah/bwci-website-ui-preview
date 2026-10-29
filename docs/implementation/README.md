@@ -38,7 +38,7 @@ Implementation and local regression are complete; **live GHL installation/public
 VERIFIED**. The next separate stage is configuring confirmed URLs/hosted assets/approved content,
 pasting the blocks into GHL and checking actual font delivery, wrappers and published pages.
 
-### October 28, 2026 design export (`37102cf`): Who We Are and Verify a Communication
+### October 28, 2026 design export (`37102cf`): Who We Are, Verify a Communication and Providence Asset Management
 
 The design import `37102cf` adds three production pages and three design-review documents. Every existing port is
 unaffected: the export changes no source they use except a new `pam` Breadcrumb trail, and all 22 builders still
@@ -47,8 +47,8 @@ reproduce their committed outputs.
 | Design source | Kind | GHL status |
 |---|---|---|
 | `Who We Are.dc.html` | Production page | `who-we-are` merged in PR #41 (`dd1a06b`). Local QA PASS: [verification](../../ghl/pages/who-we-are/qa/verification.md). Live GHL NOT VERIFIED |
-| `Verify a Communication.dc.html` | Production page | `verify-a-communication` implemented on `feat/ghl-verify-a-communication` from `dd1a06b` (PR to main open; not merged). Local QA PASS with real web fonts: [verification](../../ghl/pages/verify-a-communication/qa/verification.md). No new Custom Values; its existing `bwci_url_verify` is the destination every header/footer already uses. Live GHL NOT VERIFIED |
-| `Providence Asset Management.dc.html` | Production page (with `pam-worldmap.js`, `assets/pam-hero.png`) | Awaiting a port (no brief yet). No current page links to it; it needs a destination value |
+| `Verify a Communication.dc.html` | Production page | `verify-a-communication` merged in PR #42 (`ebc84b6`). Local QA PASS with real web fonts: [verification](../../ghl/pages/verify-a-communication/qa/verification.md). No new Custom Values (destination `bwci_url_verify`). Live GHL NOT VERIFIED |
+| `Providence Asset Management.dc.html` | Production page (with `pam-worldmap.js`, `assets/pam-hero.png`) | `providence-asset-management` implemented on `feat/ghl-providence-asset-management` from `ebc84b6` (PR to main open; not merged). Local QA PASS: [verification](../../ghl/pages/providence-asset-management/qa/verification.md). Proposed image value `bwci_img_providence_asset_management_hero`. No page links to it yet, so it has no link value; propose `bwci_url_providence_asset_management` when one does. Live GHL NOT VERIFIED |
 | `UI Design Report.dc.html`, `UI Report - Corporate IR.dc.html`, `UI Report - Who We Are.dc.html` (+ `doc-page.js`) | Design-review documents | Not production pages; out of scope by owner decision (28 October 2026) |
 
 Who We Are adds two **proposed** Custom Values for the owner to create: `bwci_img_who_we_are_hero` (hero image; the
@@ -275,7 +275,9 @@ Implementation, merge and publication are separate states. A generated block or 
 
 - Who We Are: ghl/pages/who-we-are/README.md. Hosted/inline outputs generated from _build/src/; nine source sections, sticky role aside, lit Financial Engine strip, explore rows and the four-card leadership carousel with mouse drag and snap. `#purpose`/`#role`/`#principles` keep their source ids for the shared footer links. Proposed values `bwci_img_who_we_are_hero` and `bwci_url_our_role`. Merged through PR #41; published GHL NOT VERIFIED.
 
-- Verify a Communication: ghl/pages/verify-a-communication/README.md. Hosted/inline outputs generated from _build/src/; hero with shield, overlapping quick-check card with step anchors, sticky channel heading, never list, regulated panel, report cards with the clipboard Copy button, optional alerts table and CTA. The source props `showFlags`, `showFormerName` and `showAlerts` are config toggles; the external FCA / Action Fraud / phishing links stay the source's public addresses. On `feat/ghl-verify-a-communication`, PR open (not merged); published GHL NOT VERIFIED.
+- Verify a Communication: ghl/pages/verify-a-communication/README.md. Hosted/inline outputs generated from _build/src/; hero with shield, overlapping quick-check card with step anchors, sticky channel heading, never list, regulated panel, report cards with the clipboard Copy button, optional alerts table and CTA. The source props `showFlags`, `showFormerName` and `showAlerts` are config toggles; the external FCA / Action Fraud / phishing links stay the source's public addresses. Merged through PR #42; published GHL NOT VERIFIED.
+
+- Providence Asset Management: ghl/pages/providence-asset-management/README.md. Hosted/inline outputs generated from _build/src/; inverted line-art hero, overlapping regulatory facts and panel, services, the canvas reach map (ported initMap with the inlined pam-worldmap.js bitmap), Financial Engine strip with PAM nodes, people carousel with portrait backgrounds, history and CTA. `showFlags` is a config toggle; badges exist in the DOM only while shown. Proposed value `bwci_img_providence_asset_management_hero`. On `feat/ghl-providence-asset-management`, PR open (not merged); published GHL NOT VERIFIED.
 
 The completed-page README is the source of maintenance instructions; no duplicate brief is kept under docs/implementation/pages/. design/SiteHeader.dc.html, design/SiteFooter.dc.html, design/Breadcrumb.dc.html, design/GovNav.dc.html, design/GovProfile.dc.html and design/PersonCard.dc.html are shared source components. design/Before After.dc.html is a visual comparison/QA canvas, not a production website page.
 

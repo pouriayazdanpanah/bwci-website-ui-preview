@@ -19,6 +19,16 @@ edited by hand. In those 46 outputs that list is the only changed line, and the 
 identical results for every existing config ([evidence](../../pages/who-we-are/qa/verification.md)). The
 inventory tables below describe the 23-page revision of PR #39; Who We Are reuses the logo and four portrait keys.
 
+## Providence Asset Management addition — October 29, 2026
+
+The Providence Asset Management port (`feat/ghl-providence-asset-management`) adds `pamHeroImage`, mapped to the
+**proposed** `{{ custom_values.bwci_img_providence_asset_management_hero }}` (asset
+`ghl/pages/providence-asset-management/assets/pam-hero.png`); its body is appended to the to-create file, which now
+lists **eight** keys. As for Who We Are, every other generated page was rebuilt and both Main files edited: in the 50
+existing outputs the image-settings list is the only changed line, and the old and new resolvers return identical
+results for every existing config ([evidence](../../pages/providence-asset-management/qa/verification.md)). The page
+reuses the logo and three portrait keys (Richard Werner, Farhad Reyazat, Gabriella Karlova).
+
 ## How the outputs work
 
 - Existing image properties (`logoImage`, each page's hero property, Main `images`, and `peopleImages`)
@@ -37,7 +47,7 @@ inventory tables below describe the 23-page revision of PR #39; Who We Are reuse
 - `index.js` and the existing builders are development only. The small resolver is inlined into each
   page; pasted blocks load no shared JavaScript, React, source helpers or build tools.
 
-## Keys to create (six from PR #39, one from Who We Are)
+## Keys to create (six from PR #39, one each from Who We Are and Providence Asset Management)
 
 Upload the supplied assets to GHL Media Storage and use the direct image URLs as the values. `#` is
 only a safe initial placeholder; no hosted production URLs are invented here. Do not recreate the
@@ -52,6 +62,7 @@ only a safe initial placeholder; no hosted production URLs are invented here. Do
 | `bwci_img_investors_partners_hero` | `{{ custom_values.bwci_img_investors_partners_hero }}` | investors-partners | [inv-hero-flow.png](../../../ghl/pages/investors-partners/assets/inv-hero-flow.png) |
 | `bwci_img_better_world_impact_hero` | `{{ custom_values.bwci_img_better_world_impact_hero }}` | better-world-impact | [impact-hero-ribbons.png](../../../ghl/pages/better-world-impact/assets/impact-hero-ribbons.png) |
 | `bwci_img_who_we_are_hero` | `{{ custom_values.bwci_img_who_we_are_hero }}` | who-we-are | [hero-globe.png](../../../ghl/pages/who-we-are/assets/hero-globe.png) |
+| `bwci_img_providence_asset_management_hero` | `{{ custom_values.bwci_img_providence_asset_management_hero }}` | providence-asset-management | [pam-hero.png](../../../ghl/pages/providence-asset-management/assets/pam-hero.png) |
 
 [API request bodies](bwci-image-custom-values-to-create.json) contain only `name` and `value` for the
 six proposed values. GHL's create endpoint accepts **one object per POST**, not the whole array.

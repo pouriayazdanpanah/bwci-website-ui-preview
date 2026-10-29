@@ -34,7 +34,7 @@ the recorded handoff; after work, leave enough repository evidence for the other
 
 ## Existing convention
 
-- There are 24 merged page ports / 48 outputs (Who We Are merged in PR #41), plus Verify a Communication (`ghl/pages/verify-a-communication/`, on `feat/ghl-verify-a-communication`). Main's main.ghl.html and main.inline.ghl.html are edited directly and kept in sync; no Main build folder exists. Its hero property is `heroImage`, using `{{ custom_values.hero_image }}`.
+- There are 25 merged page ports / 50 outputs (Who We Are in PR #41, Verify a Communication in PR #42), plus Providence Asset Management (`ghl/pages/providence-asset-management/`, on `feat/ghl-providence-asset-management`). Main's main.ghl.html and main.inline.ghl.html are edited directly and kept in sync; no Main build folder exists. Its hero property is `heroImage`, using `{{ custom_values.hero_image }}`.
 - The other pages are generated: edit ghl/pages/<slug>/_build/src/, then run node ghl/pages/<slug>/_build/build.js for both variants. Do not edit only the generated HTML. Development modules never run in GHL.
 - Reuse ghl/shared/site-chrome/ for header, drawer, footer, breadcrumbs and applicable governance/profile components. Builders serialize image settings with `chrome.imageConfig(cfg)`; runtimes resolve images and links before consuming them. Main receives the same shared changes manually in both outputs.
 - Extend the shared mappings in ghl/shared/site-links/index.js and ghl/shared/site-images/index.js for new destinations/images. Update the image resolver paths when adding properties, and test new fields rather than bypassing the shared guard. Shared production changes require rebuilding all affected consumers and synchronizing Main when affected.
