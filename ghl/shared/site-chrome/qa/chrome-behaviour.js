@@ -17,7 +17,7 @@ const STATE = () => {
   const vis = (el) => !!(el && el.getClientRects().length && getComputedStyle(el).visibility !== 'hidden');
   // the source runtime's generated style-hover/style-focus classes (scpN) and the port's classes for the same rules
   // (breadcrumb and GovNav links) are left out, so the trace compares elements, not how their hover is wired
-  const norm = (c) => (c || '').split(/\s+/).filter((x) => x && x !== 'sc-interp' && !/^scp[0-9a-z]+$/.test(x)).map((x) => x.replace(/^(plt|sme|inv|eco|fe|gov|gvb|gvl|who|bw|bwci)-/, '')).filter((x) => !/^(bc__a|gn__a|gn__a--off)$/.test(x)).join('.');
+  const norm = (c) => (c || '').split(/\s+/).filter((x) => x && x !== 'sc-interp' && !/^scp[0-9a-z]+$/.test(x)).map((x) => x.replace(/^(plt|sme|inv|eco|fe|gov|gvb|gvl|who|vfc|bw|bwci)-/, '')).filter((x) => !/^(bc__a|gn__a|gn__a--off)$/.test(x)).join('.');
   const t = (el) => (el ? el.textContent.replace(/\s+/g, ' ').trim() : null);
   const q = (s) => document.querySelector(s);
   const qa = (s) => [...document.querySelectorAll(s)];
@@ -136,7 +136,7 @@ const STATE = () => {
   /* ---- shared scroll motion (motion on, then reduced) ---- */
   for (const rm of ['no-preference', 'reduce']) {
     const page = await open({ viewport: { width: 1440, height: 900 }, reducedMotion: rm, motionTest: true });
-    const tags = () => page.evaluate(() => [...document.querySelectorAll('[data-bw-rv]')].map((e) => e.getAttribute('data-bw-rv')[0] + (e.style.getPropertyValue('--bw-d') || '') + ':' + e.tagName + '.' + (e.getAttribute('class') || '').split(' ')[0].replace(/^(plt|sme|inv|eco|fe|gov|gvb|gvl|who|bw|bwci)-/, '')).join(' '));
+    const tags = () => page.evaluate(() => [...document.querySelectorAll('[data-bw-rv]')].map((e) => e.getAttribute('data-bw-rv')[0] + (e.style.getPropertyValue('--bw-d') || '') + ':' + e.tagName + '.' + (e.getAttribute('class') || '').split(' ')[0].replace(/^(plt|sme|inv|eco|fe|gov|gvb|gvl|who|vfc|bw|bwci)-/, '')).join(' '));
     await page.waitForTimeout(2600); log('motion@3.2s ' + rm, await tags());
     log('hero anim ' + rm, await page.evaluate(() => document.getAnimations().map((a) => (a.animationName || '').replace(/^[a-z]+-/, '')).filter((s) => /bw/.test(s)).length));
     log('wait opacity ' + rm, await page.evaluate(() => { const e = document.querySelector('[data-bw-rv="wait"]'); return e ? getComputedStyle(e).opacity + ' ' + getComputedStyle(e).translate : null; }));
