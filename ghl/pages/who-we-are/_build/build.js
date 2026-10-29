@@ -36,6 +36,7 @@ const pageCss = fs.readFileSync(path.join(__dirname, 'src', 'who-we-are.css'), '
 // and E (cards); people:true adds the PersonCard markup and runtime
 const chrome = require('../../../shared/site-chrome/site-chrome')({
   prefix: 'who', current: 'who', breadcrumb: 'who', content: true, people: true, rename,
+  images: ['whoWeAreHeroImage'], // this page's own image setting (ghl/shared/site-images pageRoots)
 });
 const siteLinks = require('../../../shared/site-links');
 const FROM = 'leadership'; // PersonCard from="leadership" (the profile link's ?from=)

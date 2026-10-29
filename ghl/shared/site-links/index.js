@@ -40,14 +40,23 @@ const sections={
 // bwci_url_<destination>; the owner creates them (the merge field stays literal, so the link stays
 // unavailable, until then). Listed separately so the export-backed inventory above is unchanged.
 const proposed={ourRole:'our_role'};
+// Section links only one page uses (see runtimeFor below); none yet.
+const pageSections={};
 function fieldFor(key){
- const base=sections[key]?sections[key][0]:key;
+ const sec=sections[key]||pageSections[key];
+ const base=sec?sec[0]:key;
  if(Object.hasOwn(proposed,base)){const name='bwci_url_'+proposed[base];assert(!fields.has(name),'Proposed value already exists: '+name);return {name,fieldKey:'{{ custom_values.'+name+' }}',value:'#',proposed:true};}
  assert(Object.hasOwn(destinations,base),'Unmapped link property: '+key);
  const field=fields.get('bwci_url_'+destinations[base]);assert(field,'Missing existing Custom Value for '+key);return field;
 }
 function local(key,slug){return slug==='main'&&(key==='impact'||key==='today');}
-function reference(key,slug){return local(key,slug)?sections[key][1]:fieldFor(key).fieldKey+(sections[key]?sections[key][1]:'');}
+function reference(key,slug){const sec=sections[key]||pageSections[key];return local(key,slug)?sections[key][1]:fieldFor(key).fieldKey+(sec?sec[1]:'');}
 Object.keys(destinations).forEach(fieldFor);
-const runtime=fs.readFileSync(path.join(__dirname,'links.runtime.js'),'utf8').replace('__SITE_LINK_SECTIONS__',JSON.stringify(sections));
-module.exports={snapshot,fields,destinations,proposed,sections,fieldFor,local,reference,runtime};
+// The section list is inlined into every page's script, so it is frozen for the same reason as the shared image
+// settings: adding a page must not change existing pasted blocks. A section link only one page uses is declared by
+// that page's build (site-chrome option `sections`, keys of pageSections) and reaches only that page's script.
+for(const [k,v] of Object.entries(pageSections)){assert(!Object.hasOwn(sections,k),'Duplicate section: '+k);assert(Object.hasOwn(destinations,v[0])||Object.hasOwn(proposed,v[0]),'Unmapped section base: '+k);}
+const source=fs.readFileSync(path.join(__dirname,'links.runtime.js'),'utf8');
+const runtimeFor=(extra=[])=>{const list={...sections};for(const k of extra){assert(Object.hasOwn(pageSections,k),'Not a page section: '+k);list[k]=pageSections[k];}return source.replace('__SITE_LINK_SECTIONS__',JSON.stringify(list));};
+const runtime=runtimeFor([]);
+module.exports={snapshot,fields,destinations,proposed,sections,pageSections,fieldFor,local,reference,runtime,runtimeFor};

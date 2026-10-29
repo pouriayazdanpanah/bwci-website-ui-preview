@@ -24,7 +24,19 @@ for(const [slug,ext]of Object.entries(portraitFiles))definitions[slug]={name:'bw
 for(const d of Object.values(definitions))d.fieldKey=ref(d.name);
 const roots={logoImage:'logo',heroImage:'mainHero',financialEngineImage:'financialEngineHero',ecosystemHeroImage:'ecosystemHero',platformsHeroImage:'platformsHero',smesHeroImage:'smesHero',investorsHeroImage:'investorsHero',impactHeroImage:'impactHero',whoWeAreHeroImage:'whoWeAreHero',pamHeroImage:'pamHero'};
 const main={whoPhoto:'whoPhoto',impact1:'impact1',impact2:'impact2',impact3:'impact3',impact4:'impact4',leaderAlexander:'alexander-alegria-saif',leaderFarhad:'farhad-reyazat',leaderGabriela:'gabriella-karlova'};
-const paths=[...Object.keys(roots).map(k=>[k]),...Object.keys(main).map(k=>['images',k]),...Object.keys(portraitFiles).map(k=>['peopleImages',k])];
+// The list of image settings is inlined into every page's script, so the shared part is frozen: adding a page must
+// never change the pasted blocks of existing pages. A setting only one page uses (its hero) is declared by that
+// page's build (site-chrome option `images`) and reaches only that page's script.
+const sharedRoots=['logoImage','heroImage','financialEngineImage','ecosystemHeroImage','platformsHeroImage','smesHeroImage','investorsHeroImage','impactHeroImage'];
+const pageRoots=Object.keys(roots).filter(k=>!sharedRoots.includes(k));
+for(const k of sharedRoots)assert(Object.hasOwn(roots,k),'Unknown shared image setting: '+k);
+const tail=[...Object.keys(main).map(k=>['images',k]),...Object.keys(portraitFiles).map(k=>['peopleImages',k])];
+function pathsFor(extra){
+ for(const k of extra)assert(pageRoots.includes(k),'Not a page image setting: '+k);
+ return [...sharedRoots,...extra].map(k=>[k]).concat(tail);
+}
+// every known setting, for the build-time serialization below
+const paths=pathsFor(pageRoots);
 const get=(obj,parts)=>parts.reduce((o,k)=>o&&Object.hasOwn(o,k)?o[k]:undefined,obj);
 function put(obj,parts,value){let o=obj;for(const k of parts.slice(0,-1))o=o[k]||(o[k]={});o[parts.at(-1)]=value;}
 function entries(cfg){
@@ -44,5 +56,8 @@ function forOutput(cfg){
  if(Object.keys(fallbacks).length)output.imageFallbacks=fallbacks;
  return output;
 }
-const runtime=fs.readFileSync(path.join(__dirname,'images.runtime.js'),'utf8').replace('__SITE_IMAGE_PATHS__',JSON.stringify(paths));
-module.exports={definitions,paths,get,put,entries,forOutput,runtime};
+const source=fs.readFileSync(path.join(__dirname,'images.runtime.js'),'utf8');
+// the resolver for one page: the shared settings plus that page's own (`extra`, from pageRoots)
+const runtimeFor=(extra=[])=>source.replace('__SITE_IMAGE_PATHS__',JSON.stringify(pathsFor(extra)));
+const runtime=runtimeFor([]);
+module.exports={definitions,paths,sharedRoots,pageRoots,pathsFor,get,put,entries,forOutput,runtime,runtimeFor};

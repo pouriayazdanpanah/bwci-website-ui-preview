@@ -39,6 +39,7 @@ const pageCss = fs.readFileSync(path.join(__dirname, 'src', 'providence-asset-ma
 // Providence Asset Management); content:true adds bwci-system.css parts C and E (the gv- card styles)
 const chrome = require('../../../shared/site-chrome/site-chrome')({
   prefix: 'pam', current: 'platforms', breadcrumb: 'pam', content: true, rename,
+  images: ['pamHeroImage'], // this page's own image setting (ghl/shared/site-images pageRoots)
 });
 const siteLinks = require('../../../shared/site-links');
 

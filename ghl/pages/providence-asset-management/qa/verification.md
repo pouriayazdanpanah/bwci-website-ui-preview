@@ -77,9 +77,10 @@ Identical once mid-transition transform values (the callout scale transitions, 0
 
 ## Shared image entry (`pamHeroImage`)
 
-- The other 23 generated pages were rebuilt and both Main files edited. In all 50 existing outputs, the only change is the one-line image-settings list.
-- Old vs new resolver on every existing output's config (values literal, resolved and `#`): 150/150 identical.
-- `ghl/shared/site-images/qa/unit.js`: PASS (343 checks).
+- `pamHeroImage` is page-only: declared by this page's build, so it is in this page's script only.
+- The list every page carries is frozen at its PR #39 contents. The 46 outputs that existed before PR #41 (Main included) are byte-identical to their files at `37102cf`. Who We Are is unchanged from main. Verify a Communication changes one line: its list loses the Who We Are entry it never used.
+- Old vs new resolver on every existing output's config (values literal, resolved and `#`): 156/156 identical.
+- `ghl/shared/site-images/qa/unit.js`: PASS (343 checks), including the new check that the shared list stays frozen.
 - `ghl/shared/site-links/qa/unit.js`: PASS (212 checks).
 
 ## Not verified

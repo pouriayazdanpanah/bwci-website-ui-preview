@@ -77,7 +77,7 @@ Also: the shared scroll motion (bwci-motion), which skips the hero as the source
 - **Build checks:** every link value equals the shared mapping's reference; the hero and portrait copies are byte-identical to `design/`; no Claude Design or local paths appear in the output.
 
 This port adds two shared entries:
-- **`ghl/shared/site-images/index.js`:** `whoWeAreHeroImage` → `bwci_img_who_we_are_hero`. The list of image settings is inlined into every page, so all 22 generated pages were rebuilt and both Main files were edited by hand. That one line is the only change in those 46 outputs, and the old and new resolvers return identical results for every existing config (see the QA record).
+- **`ghl/shared/site-images/index.js`:** `whoWeAreHeroImage` → `bwci_img_who_we_are_hero`, a page-only setting that this page's build declares (`images: ['whoWeAreHeroImage']`), so it is in this page's script only. (In PR #41 it was first added to the list every page carries; that one-line change to the other pages was undone on `feat/ghl-providence-asset-management`. This page's own block is the same under both.)
 - **`ghl/shared/site-links/index.js`:** a `proposed` list holding `ourRole` → `bwci_url_our_role`. It is resolved at build time only, so no other output changes.
 
 ## Validation (local, headless Chromium — not a published GHL page)

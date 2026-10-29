@@ -103,9 +103,8 @@ Also reproduced:
 - **Badges:** they exist in the DOM only while shown, as with the source's `sc-if`. Each badge's classes and text sit in `data-pam-flag` on its parent; a hidden badge left in place would change the role text's `:first-child`/`:last-child` styling.
 - **Build checks:** link values against the shared mapping, and image copies against `design/`.
 
-Shared change: `ghl/shared/site-images/index.js` gains `pamHeroImage` → `bwci_img_providence_asset_management_hero`.
-- The list of image settings is inlined into every page. All 23 other generated pages were rebuilt, and both Main files were edited by hand.
-- In those 50 outputs that line is the only change.
+Shared change: `ghl/shared/site-images/index.js` gains `pamHeroImage` → `bwci_img_providence_asset_management_hero` as a **page-only** setting. This page's build declares it (`images: ['pamHeroImage']`), so it reaches this page's script only.
+- Adding this page changes no other page's pasted block. The same branch also froze the list every page carries back to its PR #39 contents, which undid the one-line change PR #41 had made to the other pages: the 46 older outputs are byte-identical to their files before PR #41, Who We Are is unchanged, and Verify a Communication changes that one line back.
 - The old and new resolvers return identical results for every existing config.
 
 ## Validation (local, headless Chromium with real web fonts — not a published GoHighLevel page)

@@ -79,6 +79,11 @@ shared [image](../../ghl/shared/site-images/README.md) and [link](../../ghl/shar
   `hero_image` for Main. Do not create duplicate values or infer a different existing field key.
   List new names, intended assets/destinations and API bodies for the owner; creation and publication
   are separate from repository work. GHL accepts one create object per POST.
+- Adding a page never changes another page's pasted block. A new page's own image setting goes in site-images
+  `pageRoots` and is declared by its build (`images: [...]`); a page-only section link goes in site-links
+  `pageSections` (`sections: [...]`). The shared lists inlined into every page are frozen (checked by
+  `ghl/shared/site-images/qa/unit.js`); changing them is an all-page change that needs the owner's approval, because
+  every installed block would have to be re-pasted.
 - Builders use `chrome.imageConfig(cfg)` to serialize central image references and preserve original
   inline bytes under matching `imageFallbacks` paths. Call `siteResolveImages(root,cfg)` and
   `siteResolveLinks(cfg)` before image/link consumers. A usable resolved image URL wins in both
