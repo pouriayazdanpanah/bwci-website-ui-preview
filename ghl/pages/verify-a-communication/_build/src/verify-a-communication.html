@@ -1,0 +1,170 @@
+<div id="bwci-verify-a-communication" class="vfc-bw">
+
+  <!-- ============================================================
+       SITE HEADER  (source: design/SiteHeader.dc.html, current="verify"; shared site chrome)
+       Hide it with "showHeader": false in the config block when a GoHighLevel global header is used instead.
+       ============================================================ -->
+<!--chrome:header-->
+
+  <!-- Source: design/Verify a Communication.dc.html. Sections: hero, quick check, official channels, what we will
+       never do, group entities and regulated activity, report a suspicious communication, known impersonation
+       alerts (hidden unless "showAlerts"), next step. Review badges: "showFlags"; former-name row: "showFormerName".
+       Cross-page links: "links" in the config block. The external FCA / Action Fraud / phishing links are fixed
+       public addresses from the source. -->
+  <main id="vfc-main">
+
+    <section class="vfc-pg-hero vfc-pg-hero--in vfc-vf-hero" id="vfc-top" data-screen-label="01 Hero">
+      <div class="vfc-wrap">
+<!--chrome:breadcrumb-->
+        <h1>Verify a communication</h1>
+        <p class="vfc-vf-sub">[Check that a communication really comes from us]<span data-vfc-flag hidden class="vfc-tc vfc-tc--inv">Heading to approve</span></p>
+        <p class="vfc-lead">[Fraudsters may pretend to be Better World Capital Investments PLC or its people. Use this page to check before you reply, click, share information or send money.]<span data-vfc-flag hidden class="vfc-tc vfc-tc--inv">Copy to approve</span></p>
+      </div>
+    </section>
+
+    <section class="vfc-qc" id="vfc-check" data-screen-label="02 Quick check">
+      <div class="vfc-wrap">
+        <div class="vfc-qc-card">
+          <div class="vfc-qc-head">
+            <h2>Before you respond, check:</h2>
+            <span data-vfc-flag hidden class="vfc-tc vfc-tc--0">Steps to approve</span>
+          </div>
+          <ol class="vfc-qc-list">
+            <li class="vfc-qc-s"><span class="vfc-qc-mark"><span class="vfc-qc-num">01</span></span><p class="vfc-qc-t">Is it from one of our official domains or channels?</p><a class="vfc-qc-go" href="#vfc-channels"><span>See our channels</span><span class="vfc-ar" aria-hidden="true">↓</span></a></li>
+            <li class="vfc-qc-s"><span class="vfc-qc-mark"><span class="vfc-qc-num">02</span></span><p class="vfc-qc-t">Does it ask for something we would never ask for?</p><a class="vfc-qc-go" href="#vfc-never"><span>See what we never do</span><span class="vfc-ar" aria-hidden="true">↓</span></a></li>
+            <li class="vfc-qc-s"><span class="vfc-qc-mark"><span class="vfc-qc-num">03</span></span><p class="vfc-qc-t">Were you contacted unexpectedly with an investment offer?</p></li>
+            <li class="vfc-qc-s"><span class="vfc-qc-mark"><span class="vfc-qc-num">04</span></span><p class="vfc-qc-t">If in doubt, contact us using the details on this page, not the details in the message.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="vfc-sec" id="vfc-channels" data-screen-label="03 Official channels">
+      <div class="vfc-wrap">
+        <div class="vfc-ck">
+          <div class="vfc-ck-h">
+            <h2 class="vfc-h1">Our official channels</h2>
+            <i aria-hidden="true"></i>
+          </div>
+          <dl class="vfc-ch">
+            <div><dt>Website domain(s)</dt><dd><span class="vfc-mono vfc-ph">[e.g. betterworldplc.com]</span><span data-vfc-flag hidden class="vfc-tc">To confirm</span></dd></div>
+            <div><dt>Email domain(s)</dt><dd><span class="vfc-mono vfc-ph">[e.g. @betterworldplc.com]</span><span data-vfc-flag hidden class="vfc-tc">To confirm</span></dd></div>
+            <div><dt>Phone number(s)</dt><dd><span class="vfc-mono vfc-ph">[Phone number]</span><span data-vfc-flag hidden class="vfc-tc">To confirm</span></dd></div>
+            <div><dt>Registered office</dt><dd><span class="vfc-ph">[Registered office address]</span><span data-vfc-flag hidden class="vfc-tc">To confirm</span></dd></div>
+            <div><dt>Official social media accounts</dt><dd><span class="vfc-ph">[List, or “We do not use social media for investment communications”]</span><span data-vfc-flag hidden class="vfc-tc">To confirm</span></dd></div>
+            <div><dt>Messaging apps (WhatsApp etc.)</dt><dd><span class="vfc-ph">[Management to state whether staff ever contact people this way]</span><span data-vfc-flag hidden class="vfc-tc">To confirm</span></dd></div>
+            <div class="vfc-ch-opt" data-vfc-former><dt>Former name<span data-vfc-flag hidden>Optional · Management to decide</span></dt><dd><span class="vfc-ph">[We used to be called Blue Chip Capital Investments PLC; anything using that name today is not from us.]</span></dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="vfc-sec vfc-sec--subtle" id="vfc-never" data-screen-label="04 What we will never do">
+      <div class="vfc-wrap">
+        <div class="vfc-ck">
+          <div class="vfc-ck-h">
+            <h2 class="vfc-h1">What we will never do</h2>
+            <i aria-hidden="true"></i>
+          </div>
+          <ul class="vfc-nv">
+            <li><span class="vfc-nv-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg></span><p class="vfc-nv-t"><span><span class="vfc-i">We will never ask you to pay money into a personal bank account.</span></span><span data-vfc-flag hidden class="vfc-tc">Publish only if confirmed</span></p></li>
+            <li><span class="vfc-nv-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg></span><p class="vfc-nv-t"><span><span class="vfc-i">We will never ask for passwords, PINs or one-time codes.</span></span><span data-vfc-flag hidden class="vfc-tc">Publish only if confirmed</span></p></li>
+            <li><span class="vfc-nv-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg></span><p class="vfc-nv-t"><span><span class="vfc-i">We will never ask for payment by gift cards or cryptocurrency.</span></span><span data-vfc-flag hidden class="vfc-tc">Publish only if confirmed</span></p></li>
+            <li><span class="vfc-nv-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg></span><p class="vfc-nv-t"><span><span class="vfc-i">We will never pressure you to invest or decide immediately.</span></span><span data-vfc-flag hidden class="vfc-tc">Publish only if confirmed</span></p></li>
+            <li><span class="vfc-nv-x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg></span><p class="vfc-nv-t"><span><span class="vfc-i">We will never offer guaranteed returns.</span></span><span data-vfc-flag hidden class="vfc-tc">Publish only if confirmed</span></p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="vfc-sec" id="vfc-regulated" data-screen-label="05 Group entities and regulated activity">
+      <div class="vfc-wrap">
+        <div class="vfc-rg-p">
+          <div class="vfc-rg-l">
+            <h2 class="vfc-h1">Group entities and regulated activity</h2>
+            <i aria-hidden="true"></i>
+          </div>
+          <div class="vfc-rg-r">
+            <p>[Approved wording: Better World Capital Investments PLC is not itself authorised by the FCA; regulated activities are carried out by Providence Asset Management (FRN 476091) within its permissions.]<span data-vfc-flag hidden class="vfc-tc vfc-tc--inv">Wording + FRN to verify</span></p>
+            <div class="vfc-rg-links">
+              <a class="vfc-hlink" href="https://register.fca.org.uk/" target="_blank" rel="noopener">Check a firm on the FCA Register <span class="vfc-ar" aria-hidden="true">↗</span><span class="vfc-vh">(opens in a new tab)</span></a>
+              <a class="vfc-hlink" href="#" data-vfc-link="corporateIR">Regulatory information <span class="vfc-ar" aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="vfc-sec vfc-sec--subtle" id="vfc-report" data-screen-label="06 Report a suspicious communication">
+      <div class="vfc-wrap">
+        <div class="vfc-sec-head">
+          <h2 class="vfc-h1">Report a suspicious communication</h2>
+        </div>
+        <div class="vfc-rp-g">
+          <div class="vfc-rp-c">
+            <div class="vfc-rp-ch"><span class="vfc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3.5 6.5 8.5 6 8.5-6"></path></svg></span><h3>Tell us</h3></div>
+            <div class="vfc-rp-mail">
+              <span class="vfc-rp-lbl">Email</span>
+              <p><span class="vfc-ph">[Dedicated address, e.g. verify@… or compliance@…, supplied by Management]</span><span data-vfc-flag hidden class="vfc-tc">To confirm</span></p>
+            </div>
+            <div class="vfc-rp-inc">
+              <span class="vfc-rp-lbl">Include</span>
+              <ul>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"></path></svg>who sent it</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"></path></svg>the date you received it</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"></path></svg>a screenshot</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"></path></svg>any links or payment details it contains</li>
+              </ul>
+            </div>
+            <p class="vfc-rp-warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v4.5M12 16h.01"></path></svg><span>Do not forward attachments you haven’t opened; describe them instead.</span></p>
+          </div>
+          <div class="vfc-rp-c">
+            <div class="vfc-rp-ch"><span class="vfc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V10"></path><path d="M19 21V10"></path><path d="M9 21v-7"></path><path d="M15 21v-7"></path><path d="M12 3 3 8h18z"></path></svg></span><h3>Tell the authorities (UK)</h3><span data-vfc-flag hidden class="vfc-tc" style="margin-left:auto">Confirm with compliance</span></div>
+            <ul class="vfc-au">
+              <li><a href="https://www.actionfraud.police.uk/" target="_blank" rel="noopener">Action Fraud <span class="vfc-ar" aria-hidden="true">↗</span><span class="vfc-vh">(opens in a new tab)</span></a><span class="vfc-d">Report fraud and cybercrime</span></li>
+              <li><a class="vfc-mono" href="mailto:report@phishing.gov.uk">report@phishing.gov.uk</a><span class="vfc-d">Forward suspicious emails</span><button class="vfc-cp" type="button" data-done="false" aria-label="Copy report@phishing.gov.uk" data-vfc-copy><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M5 15V5a2 2 0 0 1 2-2h8"></path></svg><span aria-live="polite" data-vfc-copy-label><span class="vfc-i">Copy</span></span></button></li>
+              <li><a href="https://www.fca.org.uk/contact" target="_blank" rel="noopener">FCA Consumer Helpline <span class="vfc-ar" aria-hidden="true">↗</span><span class="vfc-vh">(opens in a new tab)</span></a><span class="vfc-d">Check whether a firm is authorised</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="vfc-bank" role="note" aria-label="If you have already paid">
+          <span class="vfc-bank-i" aria-hidden="true">!</span>
+          <p><b>If you’ve already paid or shared bank details:</b> contact your bank immediately.</p>
+        </div>
+      </div>
+    </section>
+
+    <section data-vfc-alerts hidden class="vfc-sec" id="vfc-alerts" data-screen-label="07 Known impersonation alerts">
+        <div class="vfc-wrap">
+          <div class="vfc-sec-head">
+            <h2 class="vfc-h1">[Known impersonation alerts]<span data-vfc-flag hidden class="vfc-tc">Phase 2 · hidden until used</span></h2>
+          </div>
+          <table class="vfc-al">
+            <thead><tr><th scope="col">Date</th><th scope="col">What was reported</th><th scope="col">Status</th></tr></thead>
+            <tbody>
+              <tr><td>[Date]</td><td>[What was reported]</td><td>[Status]</td></tr>
+              <tr><td>[Date]</td><td>[What was reported]</td><td>[Status]</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    <section class="vfc-section" id="vfc-next" data-screen-label="08 Next step">
+      <div class="vfc-cta-pattern" aria-hidden="true"></div>
+      <div class="vfc-container">
+        <h2 class="vfc-h1" style="color:#fff; margin-bottom:32px">Next step</h2>
+        <a class="vfc-btn vfc-btn--inverse" href="#" data-vfc-link="contact">Start a Conversation <span aria-hidden="true">→</span></a>
+        <div class="vfc-nx-links">
+          <a class="vfc-hlink" href="#" data-vfc-link="contact">Contact us <span class="vfc-ar" aria-hidden="true">→</span></a>
+          <a class="vfc-hlink" href="#" data-vfc-link="corporateIR">Company information <span class="vfc-ar" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER  (source: design/SiteFooter.dc.html; shared site chrome)
+       ============================================================ -->
+<!--chrome:footer-->
+
+</div>
