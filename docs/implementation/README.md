@@ -64,7 +64,17 @@ is not on the GitHub Pages preview. The port keeps that file unchanged as its so
 
 | Design source | Kind | GHL status |
 |---|---|---|
-| `BWCI_404.html` (standalone) | Production page (404) | `page-not-found` implemented on `feat/ghl-page-not-found` from `dbe6515` (PR to main open; not merged). Source kept at `ghl/pages/page-not-found/_build/source/`. Local QA PASS with real web fonts: [verification](../../ghl/pages/page-not-found/qa/verification.md). Proposed image value `bwci_img_page_not_found_cone`; links reuse `bwci_url_home` and `bwci_url_contact`. No other page's block changes. Live GHL NOT VERIFIED |
+| `BWCI_404.html` (standalone) | Production page (404) | `page-not-found` merged in PR #44 (`683abe7`). Source kept at `ghl/pages/page-not-found/_build/source/`; the design import `aa929dd` later added it as `design/404.dc.html`, identical to the ported source (same markup and styles, byte-identical cone image). Local QA PASS with real web fonts: [verification](../../ghl/pages/page-not-found/qa/verification.md). Proposed image value `bwci_img_page_not_found_cone`; links reuse `bwci_url_home` and `bwci_url_contact`. No other page's block changes. Live GHL NOT VERIFIED |
+
+### November 1, 2026 design export (`aa929dd`): The Platform Today
+
+The import adds `design/Platform Today.dc.html`, `design/404.dc.html` (+ `assets/404-cone.png`) and a `today` Breadcrumb trail.
+All 26 builders still reproduce their committed outputs.
+
+| Design source | Kind | GHL status |
+|---|---|---|
+| `Platform Today.dc.html` | Production page | `platform-today` implemented on `feat/ghl-platform-today` from `aa929dd` (PR to main open; not merged). Local QA PASS with real web fonts: [verification](../../ghl/pages/platform-today/qa/verification.md). Proposed link value `bwci_url_providence_asset_management` (the Providence Asset Management card). Nothing links to the page yet: the design's header and footer "The Platform Today" entries still go to `Main.dc.html#today`; pointing them here is a design change for all pages. Live GHL NOT VERIFIED |
+| `404.dc.html` | Production page (404) | Same as the ported standalone export; see the 404 row above |
 
 ## Reading and execution order
 
@@ -293,7 +303,9 @@ Implementation, merge and publication are separate states. A generated block or 
 
 - Providence Asset Management: ghl/pages/providence-asset-management/README.md. Hosted/inline outputs generated from _build/src/; inverted line-art hero, overlapping regulatory facts and panel, services, the canvas reach map (ported initMap with the inlined pam-worldmap.js bitmap), Financial Engine strip with PAM nodes, people carousel with portrait backgrounds, history and CTA. `showFlags` is a config toggle; badges exist in the DOM only while shown. Proposed value `bwci_img_providence_asset_management_hero`. Merged through PR #43; published GHL NOT VERIFIED.
 
-- Page not found (404): ghl/pages/page-not-found/README.md. Hosted/inline outputs generated from _build/src/ and the owner's standalone export in _build/source/; full-viewport page with the white logo, animated network cone (fade, then float), entrance of the copy, Go home / Contact us. No site header or footer: only the shared link/image resolvers and logo/unavailable-link runtime are used. Install it as the domain's 404 page in GHL. Proposed value `bwci_img_page_not_found_cone`. On `feat/ghl-page-not-found`, PR open (not merged); published GHL NOT VERIFIED.
+- Page not found (404): ghl/pages/page-not-found/README.md. Hosted/inline outputs generated from _build/src/ and the owner's standalone export in _build/source/; full-viewport page with the white logo, animated network cone (fade, then float), entrance of the copy, Go home / Contact us. No site header or footer: only the shared link/image resolvers and logo/unavailable-link runtime are used. Install it as the domain's 404 page in GHL. Proposed value `bwci_img_page_not_found_cone`. Merged through PR #44; published GHL NOT VERIFIED.
+
+- The Platform Today: ghl/pages/platform-today/README.md. Hosted/inline outputs generated from _build/src/; hero with the `today` breadcrumb, three stages (Now / Next / Later) that light up at 15 % visibility, six cards with the paired-card highlight, status note, the fixed "How to read" button and its guide dialog (side panel / bottom sheet, `<html>` scroll lock restored to the host's value). Proposed value `bwci_url_providence_asset_management`. On `feat/ghl-platform-today`, PR open (not merged); published GHL NOT VERIFIED.
 
 The completed-page README is the source of maintenance instructions; no duplicate brief is kept under docs/implementation/pages/. design/SiteHeader.dc.html, design/SiteFooter.dc.html, design/Breadcrumb.dc.html, design/GovNav.dc.html, design/GovProfile.dc.html and design/PersonCard.dc.html are shared source components. design/Before After.dc.html is a visual comparison/QA canvas, not a production website page.
 

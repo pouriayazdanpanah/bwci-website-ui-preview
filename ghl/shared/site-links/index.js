@@ -39,7 +39,7 @@ const sections={
 // Destinations a page links to that have no Custom Value in the supplied export yet. Their names follow
 // bwci_url_<destination>; the owner creates them (the merge field stays literal, so the link stays
 // unavailable, until then). Listed separately so the export-backed inventory above is unchanged.
-const proposed={ourRole:'our_role'};
+const proposed={ourRole:'our_role',providenceAssetManagement:'providence_asset_management'};
 // Section links only one page uses (see runtimeFor below); none yet.
 const pageSections={};
 function fieldFor(key){

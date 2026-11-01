@@ -16,6 +16,12 @@ supplied export. Its first entry comes from the Who We Are port: `ourRole` → `
 a URL the field stays literal, and both links are unavailable like any other unset destination. The 43-value
 inventory below is unchanged, and this list is resolved at build time only, so no other output changes.
 
+The Platform Today port (1 November 2026, `feat/ghl-platform-today`) adds the second entry:
+`providenceAssetManagement` → `{{ custom_values.bwci_url_providence_asset_management }}`. It is the "View" link on
+the Providence Asset Management card (source `Providence%20Asset%20Management.dc.html`). Set it to the URL of the
+installed Providence Asset Management page. Only the Platform Today block uses it; the 26 other generated pages
+rebuild byte-identical.
+
 ## Configuration and installation
 
 - Configure destination URLs centrally in the same GHL sub-account. All 43 used values in the
