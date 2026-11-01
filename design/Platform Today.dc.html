@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>The Platform Today — Better World Capital Investments PLC</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap">
+<style>
+:root{
+  --brand-ink:#123039; --brand-slate:#16323B; --brand-teal:#1D4A54;
+  --accent-emerald:#12836B; --accent-emerald-dark:#0D6E59; --accent-gold:#B98F2D; --accent-gold-dark:#9E7720;
+  --surface-canvas:#FFFFFF; --surface-subtle:#F7F9F8; --surface-cloud:#EFF3F1;
+  --text-primary:#123039; --text-secondary:#42585E; --text-muted:#5C7075; --text-inverse-muted:#A8C2C8;
+  --border-subtle:#E2E9E6; --border-default:#D5E0DC; --border-strong:#8A9E99;
+  --status-op-mark:#12836B; --status-op-text:#0D6E59; --status-op-border:#A3D9C9; --status-op-bg:#E8F5F1;
+  --status-dev-mark:#B98F2D; --status-dev-text:#7D5B0F; --status-dev-border:#E8C46B; --status-dev-bg:#FDF8EB;
+  --status-pro-mark:#6C8085; --status-pro-text:#384C51; --status-pro-border:#BDCCD0; --status-pro-bg:#F0F4F5;
+  --font-sans:'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body{ margin:0; background:var(--surface-canvas); color:var(--text-primary); font-family:var(--font-sans); font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+h1,h2,h3{ margin:0; color:var(--text-primary); } p{ margin:0; } ul{ margin:0; padding:0; list-style:none; }
+a{ color:var(--accent-emerald-dark); text-decoration:none; } a:hover{ color:var(--brand-ink); }
+a:focus-visible, button:focus-visible{ outline:2px solid var(--accent-emerald); outline-offset:2px; }
+[id]{ scroll-margin-top:calc(var(--nav-h, 116px) - var(--util-h, 40px) + 16px); }
+@keyframes bwShow{ to{ visibility:visible; } }
+.bw{ visibility:hidden; animation:bwShow 0s 2.5s forwards; }
+@keyframes ptIn{ from{ opacity:0; translate:0 16px; } }
+@keyframes ptGrow{ from{ transform:scaleX(0); } }
+
+/* Hero */
+.pt-hero .wrap{ display:grid; grid-template-columns:minmax(0,1fr); gap:40px clamp(32px,5vw,80px); align-items:end; }
+.pt-hero .lead{ max-width:600px; }
+.pt-snap{ position:relative; display:grid; gap:20px; padding:clamp(22px,2.4vw,30px); border-radius:18px; background:rgba(255,255,255,.035); border:1px solid rgba(168,194,200,.18); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); animation:ptIn .9s var(--ease-out) .35s backwards; }
+.pt-snap-hd{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; font-family:var(--font-mono); font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--text-inverse-muted); }
+.pt-snap-hd b{ font-size:28px; letter-spacing:-.02em; color:#fff; }
+.pt-bar{ display:flex; gap:4px; height:10px; }
+.pt-bar i{ display:block; height:100%; border-radius:999px; transform-origin:left center; animation:ptGrow 1.1s var(--ease-out) backwards; }
+.pt-bar i:nth-child(1){ background:var(--status-op-mark); animation-delay:.55s; }
+.pt-bar i:nth-child(2){ background:var(--status-dev-mark); animation-delay:.7s; }
+.pt-bar i:nth-child(3){ background:repeating-linear-gradient(135deg, var(--status-dev-mark) 0 3px, rgba(185,143,45,.35) 3px 6px); animation-delay:.85s; }
+.pt-snap ul{ display:grid; border-top:1px solid rgba(168,194,200,.16); }
+.pt-snap li a{ display:grid; grid-template-columns:auto minmax(0,1fr) auto auto; align-items:center; gap:12px; min-height:48px; padding:6px 0; border-bottom:1px solid rgba(168,194,200,.12); color:#fff; font-size:15px; font-weight:600; transition:color .2s ease; }
+.pt-snap li:last-child a{ border-bottom:0; }
+.pt-snap li em{ font-style:normal; font-family:var(--font-mono); font-size:13px; font-weight:700; color:var(--text-inverse-muted); }
+.pt-snap li .ar{ color:var(--text-inverse-muted); }
+.pt-k{ width:10px; height:10px; border-radius:50%; border:1.5px solid; }
+.pt-k--op{ background:var(--status-op-mark); border-color:var(--status-op-mark); box-shadow:0 0 0 3px rgba(18,131,107,.25); }
+.pt-k--pre{ border-color:var(--status-dev-mark); background:radial-gradient(circle,var(--status-dev-mark) 0 2px,transparent 2.5px); }
+.pt-k--dev{ border-color:var(--status-dev-mark); background:linear-gradient(90deg,var(--status-dev-mark) 50%,transparent 50%); }
+@media (hover:hover) and (pointer:fine){ .pt-snap li a:hover{ color:var(--accent-gold); } .pt-snap li a:hover .ar{ transform:translateX(3px); color:var(--accent-gold); } }
+@media (max-width:1023px){ .pt-hero .wrap{ grid-template-columns:minmax(0,1fr); align-items:start; } .pt-snap{ max-width:560px; } }
+
+/* Guide drawer */
+.gd-cta{ display:flex; align-items:center; gap:16px; width:100%; margin-bottom:clamp(28px,3.5vw,44px); padding:14px 18px 14px 14px; border-radius:16px; background:#fff; border:1px solid var(--border-subtle); font:inherit; text-align:left; color:var(--brand-ink); cursor:pointer; transition:border-color .2s ease, box-shadow .3s ease, transform .16s var(--ease-out); }
+.gd-cta:active{ transform:scale(.99); }
+.gd-q{ flex:none; display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--brand-ink); color:#fff; font-family:var(--font-mono); font-size:18px; font-weight:700; }
+.gd-cta b{ display:block; font-size:16px; font-weight:700; letter-spacing:-.01em; line-height:1.35; }
+.gd-cta span.s{ display:block; font-size:14px; color:var(--text-muted); line-height:1.45; }
+.gd-cta .gd-prev{ display:flex; gap:6px; margin-left:auto; }
+.gd-cta .ar{ flex:none; color:var(--text-muted); }
+@media (hover:hover) and (pointer:fine){ .gd-cta:hover{ border-color:var(--border-strong); box-shadow:0 18px 36px -22px rgba(18,48,57,.25); } .gd-cta:hover .ar{ transform:translateX(3px); color:var(--accent-emerald-dark); } }
+@media (max-width:899px){ .gd-cta .gd-prev{ display:none; } .gd-cta .ar{ margin-left:auto; } }
+
+.gd-fab{ position:fixed; z-index:70; right:clamp(16px,3vw,32px); bottom:clamp(16px,3vw,32px); display:inline-flex; align-items:center; gap:10px; min-height:48px; padding:6px 18px 6px 6px; border-radius:999px; border:0; background:var(--brand-ink); color:#fff; font:inherit; font-size:14px; font-weight:600; cursor:pointer; box-shadow:0 14px 34px -12px rgba(18,48,57,.55); opacity:0; translate:0 16px; pointer-events:none; transition:opacity .3s ease, translate .45s var(--ease-out), background-color .2s ease; }
+.gd-fab i{ display:flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.12); font-style:normal; font-family:var(--font-mono); font-weight:700; }
+.gd-fab--on{ opacity:1; translate:0 0; pointer-events:auto; }
+@media (hover:hover) and (pointer:fine){ .gd-fab:hover{ background:var(--brand-teal); } }
+
+.gd{ position:fixed; inset:0; z-index:100; visibility:hidden; transition:visibility 0s .45s; }
+.gd--open{ visibility:visible; transition:none; }
+.gd-bg{ position:absolute; inset:0; background:rgba(8,14,16,.5); -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px); opacity:0; transition:opacity .35s ease; }
+.gd--open .gd-bg{ opacity:1; }
+.gd-panel{ position:absolute; top:12px; right:12px; bottom:12px; width:min(520px,calc(100vw - 24px)); display:flex; flex-direction:column; border-radius:20px; background:#fff; box-shadow:0 30px 80px -20px rgba(8,14,16,.5); overflow:hidden; translate:calc(100% + 24px) 0; transition:translate .45s var(--ease-out); }
+.gd--open .gd-panel{ translate:0 0; }
+.gd-hd{ display:flex; align-items:flex-start; justify-content:space-between; gap:16px; padding:24px 24px 20px 28px; border-bottom:1px solid var(--border-subtle); }
+.gd-hd small{ display:inline-flex; align-items:center; gap:10px; font-family:var(--font-mono); font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--accent-gold-dark); }
+.gd-hd small::before{ content:''; width:16px; height:1.5px; background:currentColor; }
+.gd-hd h2{ margin-top:6px; font-size:24px; font-weight:700; letter-spacing:-.025em; line-height:1.2; }
+.gd-x{ flex:none; display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; border:1px solid var(--border-default); background:#fff; color:var(--brand-ink); cursor:pointer; transition:background-color .2s ease, border-color .2s ease; }
+.gd-x svg{ width:18px; height:18px; }
+@media (hover:hover) and (pointer:fine){ .gd-x:hover{ background:var(--surface-subtle); border-color:var(--border-strong); } }
+.gd-body{ flex:1; overflow-y:auto; overscroll-behavior:contain; padding:24px 28px 32px; display:grid; gap:28px; align-content:start; }
+.gd-body > p{ font-size:15px; line-height:1.6; color:var(--text-secondary); text-wrap:pretty; }
+.gd-ex{ position:relative; padding:28px 22px 22px; border-radius:16px; background:var(--surface-subtle); }
+.gd-ex .pc{ position:relative; }
+.gd-n{ display:inline-flex; align-items:center; justify-content:center; flex:none; width:22px; height:22px; border-radius:50%; background:var(--accent-gold); color:#fff; font-family:var(--font-mono); font-size:11px; font-weight:700; line-height:1; box-shadow:0 0 0 3px #fff; }
+.gd-ex .pc-top > span{ position:relative; }
+.gd-ex .gd-n{ position:absolute; top:-11px; right:-9px; }
+.gd-ex .gd-n--o{ top:-11px; right:auto; left:-11px; }
+.gd-sec{ display:grid; gap:14px; padding-top:24px; border-top:1px solid var(--border-subtle); }
+.gd-sec-hd{ display:flex; align-items:center; gap:12px; }
+.gd-sec-hd b{ font-size:18px; font-weight:700; letter-spacing:-.015em; line-height:1.3; }
+.gd-sec-hd span{ font-size:14px; color:var(--text-muted); }
+.lg-v{ display:flex; flex-wrap:wrap; gap:8px; }
+.lg-v--col{ flex-direction:column; align-items:flex-start; gap:10px; }
+.gd-ft{ padding:16px 28px 20px; border-top:1px solid var(--border-subtle); background:#fff; }
+.gd-ft .btn{ width:100%; background:var(--brand-ink); color:#fff; }
+@media (hover:hover) and (pointer:fine){ .gd-ft .btn:hover{ background:var(--brand-teal); color:#fff; } }
+@media (max-width:640px){
+  .gd-panel{ top:auto; left:0; right:0; bottom:0; width:100%; max-height:88vh; border-radius:20px 20px 0 0; translate:0 100%; }
+  .gd-panel::before{ content:''; position:absolute; top:8px; left:50%; width:40px; height:4px; margin-left:-20px; border-radius:4px; background:var(--border-default); }
+  .gd-hd{ padding:26px 20px 16px; } .gd-body{ padding:20px 20px 28px; } .gd-ft{ padding:14px 20px 20px; }
+}
+.ic{ flex:none; display:flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; background:var(--status-op-bg); color:var(--accent-emerald-dark); }
+.ic svg{ width:21px; height:21px; }
+@media (prefers-reduced-motion:reduce){ .gd-panel, .gd-bg, .gd-fab{ transition:opacity .2s ease; } }
+
+/* Chips */
+.sp{ display:inline-flex; align-items:center; gap:8px; min-height:30px; padding:4px 14px 4px 10px; border-radius:9999px; border:1.5px solid var(--brand-ink); background:#fff; font-size:13px; font-weight:600; color:var(--brand-ink); line-height:1.3; white-space:nowrap; }
+.sp i{ flex:none; width:10px; height:10px; border-radius:50%; border:1.5px solid currentColor; }
+.sp--op{ background:var(--brand-ink); color:#fff; }
+.sp--op i{ background:var(--status-op-mark); border-color:var(--status-op-mark); box-shadow:0 0 0 2px rgba(18,131,107,.25); }
+.sp--pre{ border-color:var(--status-dev-mark); } .sp--pre i{ border-color:var(--status-dev-mark); background:radial-gradient(circle,var(--status-dev-mark) 0 2px,transparent 2.5px); }
+.sp--dev i{ border-color:var(--status-dev-mark); background:linear-gradient(90deg,var(--status-dev-mark) 50%,transparent 50%); }
+.sp--pro{ border-style:dashed; } .sp--pro i{ border-color:var(--status-pro-mark); }
+.sp--tbc{ border-style:dotted; border-color:var(--status-pro-mark); color:var(--status-pro-text); background:var(--status-pro-bg); }
+.sp--tbc svg, .tc--tbc svg, .rl--tbc svg.w{ width:14px; height:14px; flex:none; }
+.tc{ display:inline-flex; align-items:center; gap:8px; min-height:30px; padding:4px 10px; border-radius:6px; border:1px solid var(--brand-ink); background:#fff; font-family:var(--font-mono); font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--brand-ink); line-height:1.3; }
+.tc svg{ width:14px; height:14px; flex:none; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+.tc--tbc{ border-style:dotted; border-color:var(--status-pro-mark); color:var(--status-pro-text); background:var(--status-pro-bg); }
+.rl{ display:inline-flex; align-items:center; gap:12px; min-height:30px; font-size:14px; font-weight:600; color:var(--brand-ink); }
+.rl svg.l{ width:44px; height:6px; flex:none; }
+.rl--tbc{ color:var(--status-pro-text); }
+
+/* Stages */
+.st-rail{ position:relative; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; margin-bottom:24px; }
+.st-rail::before{ content:''; position:absolute; left:20px; right:20px; top:19px; height:2px; background:var(--border-default); }
+.st-rail::after{ content:''; position:absolute; left:20px; right:20px; top:19px; height:2px; background:linear-gradient(90deg, var(--status-op-mark) 0%, var(--status-dev-mark) 55%, rgba(185,143,45,.3) 100%); transform:scaleX(0); transform-origin:left center; transition:transform 1.4s var(--ease-out) .15s; }
+.st-on .st-rail::after{ transform:scaleX(1); }
+.st-node{ position:relative; z-index:1; display:flex; align-items:center; gap:12px; }
+.st-dot{ flex:none; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--surface-subtle); border:2px solid; transform:scale(.6); opacity:0; transition:transform .6s var(--ease-out), opacity .4s ease; }
+.st-on .st-dot{ transform:none; opacity:1; }
+.st-node:nth-child(2) .st-dot{ transition-delay:.45s; } .st-node:nth-child(3) .st-dot{ transition-delay:.9s; }
+.st-dot i{ width:12px; height:12px; border-radius:50%; border:2px solid currentColor; }
+.st-node--op .st-dot{ border-color:var(--status-op-mark); color:var(--status-op-mark); } .st-node--op .st-dot i{ background:currentColor; }
+.st-node--op .st-dot::after{ content:''; position:absolute; inset:-6px; border-radius:50%; border:1px solid var(--status-op-mark); opacity:0; animation:ptPulse 2.6s var(--ease-out) 1.6s infinite; }
+@keyframes ptPulse{ 0%{ opacity:.6; transform:scale(.85); } 100%{ opacity:0; transform:scale(1.35); } }
+.st-node--pre .st-dot{ border-color:var(--status-dev-mark); color:var(--status-dev-mark); } .st-node--pre .st-dot i{ background:radial-gradient(circle,currentColor 0 2px,transparent 2.5px); }
+.st-node--dev .st-dot{ border-color:var(--status-dev-mark); color:var(--status-dev-mark); } .st-node--dev .st-dot i{ background:linear-gradient(90deg,currentColor 50%,transparent 50%); }
+.st-node small{ padding:3px 10px; border-radius:999px; background:var(--surface-subtle); font-family:var(--font-mono); font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); }
+.st-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+.st-c{ display:flex; flex-direction:column; min-width:0; border-radius:18px; background:#fff; border:1px solid var(--border-subtle); overflow:hidden; }
+.st-hd{ display:flex; align-items:flex-end; justify-content:space-between; gap:16px; padding:22px 22px 18px; border-bottom:1px solid var(--border-subtle); }
+.st-hd small{ display:block; font-family:var(--font-mono); font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted); }
+.st-hd h2{ margin-top:4px; font-size:clamp(19px,1.6vw,21px); font-weight:700; letter-spacing:-.02em; line-height:1.25; }
+.st-n{ font-family:var(--font-mono); font-size:clamp(30px,2.8vw,38px); font-weight:700; letter-spacing:-.04em; line-height:1; color:var(--border-default); }
+.st-c--op .st-n{ color:var(--status-op-border); }
+.st-c--pre .st-n, .st-c--dev .st-n{ color:var(--status-dev-border); }
+.st-c--op{ box-shadow:inset 0 3px 0 var(--status-op-mark); }
+.st-c--pre{ box-shadow:inset 0 3px 0 var(--status-dev-mark); }
+.st-c--dev{ box-shadow:inset 0 3px 0 rgba(185,143,45,.45); }
+.st-box{ flex:1; display:flex; flex-direction:column; gap:12px; padding:14px; background:var(--surface-subtle); }
+
+.pc{ display:flex; flex-direction:column; gap:14px; padding:20px; border-radius:14px; background:#fff; border:1.5px dotted var(--status-pro-mark); transition:opacity .3s ease, box-shadow .3s ease, transform .3s var(--ease-out), background-color .3s ease; }
+.pc-top{ display:flex; flex-wrap:wrap; justify-content:flex-start; gap:8px; }
+.pc-tag{ display:inline-flex; align-self:flex-start; align-items:center; gap:8px; font-family:var(--font-mono); font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-gold-dark); }
+.pc-tag::before{ content:''; width:16px; height:1.5px; background:currentColor; }
+.pc h3{ font-size:18px; font-weight:700; letter-spacing:-.015em; line-height:1.3; color:var(--brand-ink); text-wrap:balance; }
+.pc-pair{ display:flex; flex-wrap:wrap; align-items:center; gap:6px 10px; font-size:14px; color:var(--text-secondary); }
+.pc-pair b{ display:inline-flex; align-items:center; gap:6px; padding:3px 9px; border-radius:6px; background:var(--surface-cloud); font-family:var(--font-mono); font-size:12px; letter-spacing:.1em; color:var(--brand-ink); }
+.pc-pair b svg{ width:13px; height:13px; }
+.pc-ft{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 16px; margin-top:auto; padding-top:14px; border-top:1px solid var(--border-subtle); }
+.pc-ft .rl{ font-size:13px; min-height:0; gap:6px; }
+.pc--dim{ opacity:.4; }
+.pc--hl{ background:#FCFEFD; box-shadow:0 0 0 4px rgba(18,131,107,.14), 0 18px 36px -22px rgba(18,48,57,.3); transform:translateY(-2px); }
+@media (hover:hover) and (pointer:fine){ .pc:hover{ box-shadow:0 18px 36px -22px rgba(18,48,57,.3); transform:translateY(-2px); } }
+
+.st-note{ display:flex; align-items:center; gap:14px; margin-top:24px; padding:16px 20px; border-radius:14px; background:#fff; border:1px solid var(--border-subtle); font-size:15px; color:var(--text-secondary); }
+.st-note .ic{ width:36px; height:36px; border-radius:10px; background:var(--status-pro-bg); color:var(--status-pro-mark); }
+.st-note .ic svg{ width:18px; height:18px; }
+
+@media (max-width:1023px){
+  .st-rail{ display:none; }
+  .st-grid{ grid-template-columns:minmax(0,1fr); gap:20px; }
+}
+@media (prefers-reduced-motion:reduce){
+  .st-rail::after, .st-dot{ transition:none; }
+  .st-node--op .st-dot::after{ animation:none; }
+  .pc, .pc--hl, .pc:hover{ transform:none; }
+}
+</style>
+<link rel="stylesheet" href="./bwci-system.css">
+<script src="./bwci-motion.js"></script>
+</helmet>
+<div class="bw" style="width:100%; min-height:100vh; background:var(--surface-canvas); overflow-x:clip">
+  <dc-import name="SiteHeader" current="today" style="position:sticky; top:calc(var(--util-h, 0px) * -1); z-index:60; display:block; width:100%" hint-size="100%,116px"></dc-import>
+  <main id="main">
+
+    <section class="pg-hero pg-hero--in pt-hero" id="top" data-screen-label="01 Hero">
+      <div class="wrap">
+        <div>
+          <dc-import name="Breadcrumb" current="today" style="display:block" hint-size="100%,47px"></dc-import>
+          <h1 style="margin-top:0">The Platform Today</h1>
+          <p class="lead">Where each component of the platform stands today: established and operational, pre-operational, or in development.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="{{ stCls }}" id="stages" data-screen-label="03 Stages" >
+      <div class="wrap" ref="{{ stRef }}">
+        <div class="st-rail" aria-hidden="true">
+          <sc-for list="{{ cols }}" as="c" hint-placeholder-count="3">
+            <div class="{{ c.nodeCls }}"><span class="st-dot"><i></i></span><small>{{ c.when }}</small></div>
+          </sc-for>
+        </div>
+        <div class="st-grid">
+          <sc-for list="{{ cols }}" as="c" hint-placeholder-count="3">
+            <div class="{{ c.cls }}" id="{{ c.id }}">
+              <div class="st-hd"><div><small>{{ c.when }}</small><h2>{{ c.title }}</h2></div><span class="st-n">{{ c.count }}</span></div>
+              <div class="st-box">
+                <sc-for list="{{ c.items }}" as="p" hint-placeholder-count="2">
+                  <article class="{{ p.cls }}" onMouseEnter="{{ p.enter }}" onMouseLeave="{{ leave }}" onFocus="{{ p.enter }}" onBlur="{{ leave }}">
+                    <div class="pc-top"><span class="{{ p.spCls }}"><i></i>{{ p.status }}</span></div>
+                    <sc-if value="{{ p.pillar }}" hint-placeholder-val="{{ false }}"><span class="pc-tag">Overarching pillar · spans all components</span></sc-if>
+                    <h3>{{ p.name }}</h3>
+                    <sc-if value="{{ p.pair }}" hint-placeholder-val="{{ false }}"><p class="pc-pair"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"></path><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></svg>{{ p.pair }}</b><span>Paired with {{ p.partner }}</span></p></sc-if>
+                    <sc-if value="{{ p.href }}" hint-placeholder-val="{{ false }}"><div class="pc-ft"><a class="link" href="{{ p.href }}">View <span class="ar" aria-hidden="true">→</span></a></div></sc-if>
+                  </article>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <p class="st-note"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><line x1="12" y1="11" x2="12" y2="16"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></span>Statuses confirmed by Management. Type and relationship to BWCI are still to be confirmed.</p>
+      </div>
+    </section>
+  </main>
+  <button class="{{ fabCls }}" type="button" aria-haspopup="dialog" aria-label="How to read this page" onClick="{{ openGd }}"><i aria-hidden="true">?</i>How to read</button>
+  <div class="{{ gdCls }}" role="dialog" aria-modal="true" aria-labelledby="gd-t" aria-hidden="{{ gdHidden }}">
+    <div class="gd-bg" onClick="{{ closeGd }}"></div>
+    <div class="gd-panel">
+      <div class="gd-hd">
+        <div><small>Guide</small><h2 id="gd-t">How to read this page</h2></div>
+        <button class="gd-x" type="button" aria-label="Close" ref="{{ xRef }}" onClick="{{ closeGd }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+      </div>
+      <div class="gd-body">
+        <p>Each card shows three separate things: what it is (type, square chip), where it stands (status, rounded pill) and its relationship to BWCI (card outline). Anything marked ⚠ is not yet confirmed.</p>
+        <div class="gd-ex" aria-hidden="true">
+          <div class="pc">
+            <span class="gd-n gd-n--o">3</span>
+            <div class="pc-top"><span class="tc tc--tbc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2 20h20L12 3z"></path><line x1="12" y1="10" x2="12" y2="14"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>Type to confirm<span class="gd-n">1</span></span><span class="sp sp--op"><i></i>Established &amp; Operational<span class="gd-n">2</span></span></div>
+            <h3>Providence Asset Management</h3>
+          </div>
+        </div>
+        <div class="gd-sec">
+          <div class="gd-sec-hd"><span class="gd-n">1</span><b>Type</b><span>What it is</span></div>
+          <div class="lg-v">
+                <span class="tc"><svg viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M5 21V9l7-5 7 5v12"></path><path d="M9 21v-6h6v6"></path></svg>Legal entity</span>
+                <span class="tc"><svg viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 10-5-10-5z"></path><path d="m2 16 10 5 10-5"></path><path d="m2 12 10 5 10-5"></path></svg>Platform</span>
+                <span class="tc"><svg viewBox="0 0 24 24"><path d="M14 7l3-3 3 3-3 3"></path><path d="M17 4v7"></path><path d="M4 20l7-7"></path><circle cx="13" cy="11" r="2"></circle></svg>Capability</span>
+                <span class="tc"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"></ellipse><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"></path><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"></path></svg>Fund / investment vehicle</span>
+                <span class="tc"><svg viewBox="0 0 24 24"><circle cx="8" cy="12" r="5"></circle><circle cx="16" cy="12" r="5"></circle></svg>Partner institution</span>
+                <span class="tc tc--tbc"><svg viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3z"></path><line x1="12" y1="10" x2="12" y2="14"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>Type to confirm</span>
+          </div>
+        </div>
+        <div class="gd-sec">
+          <div class="gd-sec-hd"><span class="gd-n">2</span><b>Status</b><span>Where it stands</span></div>
+          <div class="lg-v">
+                <span class="sp sp--op"><i></i>Established &amp; Operational</span>
+                <span class="sp sp--pre"><i></i>Pre-Operational</span>
+                <span class="sp sp--dev"><i></i>In development</span>
+                <span class="sp sp--pro"><i></i>Proposed</span>
+                <span class="sp sp--pro"><i></i>Proposed · subject to authorisation</span>
+                <span class="sp sp--tbc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"></path><line x1="12" y1="10" x2="12" y2="14"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>Status to confirm</span>
+          </div>
+        </div>
+        <div class="gd-sec">
+          <div class="gd-sec-hd"><span class="gd-n">3</span><b>Relationship</b><span>Card outline and connector line</span></div>
+          <div class="lg-v lg-v--col">
+                <span class="rl"><svg class="l" viewBox="0 0 44 6"><line x1="0" y1="3" x2="44" y2="3" stroke="#123039" stroke-width="1.5"></line></svg>Owned</span>
+                <span class="rl"><svg class="l" viewBox="0 0 44 6"><line x1="0" y1="3" x2="44" y2="3" stroke="#123039" stroke-width="1.5" stroke-dasharray="6 4"></line></svg>Partner</span>
+                <span class="rl"><svg class="l" viewBox="0 0 44 6"><line x1="1" y1="3" x2="44" y2="3" stroke="#123039" stroke-width="1.5" stroke-dasharray="1 4" stroke-linecap="round"></line></svg>Not yet established</span>
+                <span class="rl rl--tbc"><svg class="l" viewBox="0 0 44 6"><line x1="1" y1="3" x2="44" y2="3" stroke="#6C8085" stroke-width="1.5" stroke-dasharray="1 4" stroke-linecap="round"></line></svg><svg class="w" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"></path><line x1="12" y1="10" x2="12" y2="14"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>To confirm</span>
+          </div>
+        </div>
+      </div>
+      <div class="gd-ft"><button class="btn" type="button" onClick="{{ closeGd }}">Got it</button></div>
+    </div>
+  </div>
+  <dc-import name="SiteFooter" style="display:block; width:100%" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  stRef = React.createRef();
+  xRef = React.createRef();
+  state = { lg: false, pair: '', st: false, fab: false };
+  componentDidMount() {
+    const el = this.stRef.current;
+    this.onKey = e => { if (e.key === 'Escape' && this.state.lg) this.close(); };
+    document.addEventListener('keydown', this.onKey);
+    if (!el || !('IntersectionObserver' in window)) { this.setState({ st: true }); return; }
+    this.io = new IntersectionObserver(es => {
+      es.forEach(e => this.setState(s => ({ st: s.st || e.isIntersecting, fab: e.isIntersecting })));
+    }, { threshold: 0.15 });
+    this.io.observe(el);
+  }
+  componentWillUnmount() { this.io && this.io.disconnect(); document.removeEventListener('keydown', this.onKey); document.documentElement.style.overflow = ''; }
+  open = e => { this.ret = e && e.currentTarget; this.setState({ lg: true }); document.documentElement.style.overflow = 'hidden'; setTimeout(() => this.xRef.current && this.xRef.current.focus(), 60); };
+  close = () => { this.setState({ lg: false }); document.documentElement.style.overflow = ''; this.ret && this.ret.focus && this.ret.focus(); };
+  renderVals() {
+    const open = this.state.lg, hp = this.state.pair;
+    const S = { op: ['Established & Operational', 'sp sp--op'], pre: ['Pre-Operational', 'sp sp--pre'], dev: ['In development', 'sp sp--dev'] };
+    const P = [
+      { name: 'Providence Asset Management', s: 'op', href: 'Providence%20Asset%20Management.dc.html' },
+      { name: 'Trade Finance Private Equity', s: 'op', pair: 'PAIR A', partner: 'Trade Finance Institution' },
+      { name: 'Trade Finance Institution', s: 'pre', pair: 'PAIR A', partner: 'Trade Finance Private Equity' },
+      { name: 'Community Bank Private Equity', s: 'pre', pair: 'PAIR B', partner: 'Community Bank' },
+      { name: 'Regenerative Economy Private Equity', s: 'pre', pillar: true },
+      { name: 'Community Bank', s: 'dev', pair: 'PAIR B', partner: 'Community Bank Private Equity' },
+    ];
+    const C = [['op', 'operating', 'Now', 'Established & Operational'], ['pre', 'pre-operational', 'Next', 'Pre-Operational'], ['dev', 'developing', 'Later', 'In development']];
+    const cols = C.map(([k, id, when, title]) => {
+      const items = P.filter(p => p.s === k).map(p => {
+        const pair = p.pair || '';
+        const cls = 'pc' + (hp ? (pair === hp ? ' pc--hl' : ' pc--dim') : '');
+        return { ...p, status: S[k][0], spCls: S[k][1], pair, partner: p.partner || '', pillar: !!p.pillar, href: p.href || '', cls,
+          enter: () => { if (pair && this.state.pair !== pair) this.setState({ pair }); } };
+      });
+      return { id, when, title, n: items.length, cls: 'st-c st-c--' + k, nodeCls: 'st-node st-node--' + k, kCls: 'pt-k pt-k--' + k, items, count: String(items.length).padStart(2, '0') };
+    });
+    return {
+      stRef: this.stRef, cols,
+      total: String(P.length).padStart(2, '0'),
+      stCls: 'sec sec--subtle' + (this.state.st ? ' st-on' : ''),
+      leave: () => { if (this.state.pair) this.setState({ pair: '' }); },
+      xRef: this.xRef, openGd: this.open, closeGd: this.close,
+      gdCls: 'gd' + (open ? ' gd--open' : ''),
+      gdHidden: open ? 'false' : 'true',
+      fabCls: 'gd-fab' + (this.state.fab && !open ? ' gd-fab--on' : ''),
+    };
+  }
+}
+</script>
+</body>
+</html>
