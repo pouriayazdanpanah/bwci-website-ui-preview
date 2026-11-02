@@ -21,12 +21,13 @@ const definitions={
  notFoundCone:{name:'bwci_img_page_not_found_cone',existing:false,asset:'ghl/pages/page-not-found/assets/not-found-cone.png'},
  platformTodayHero:{name:'bwci_img_platform_today_hero',existing:false,asset:'ghl/pages/platform-today/assets/platform-today-hero-arcs.png'},
  privateInvestorsHero:{name:'bwci_img_private_investors_family_offices_hero',existing:false,asset:'ghl/pages/private-investors-family-offices/assets/pf-hero-threads.png'},
- privateInvestorsImpact:{name:'bwci_img_private_investors_family_offices_impact',existing:false,asset:'ghl/pages/private-investors-family-offices/assets/pf-impact-scale.png'}
+ privateInvestorsImpact:{name:'bwci_img_private_investors_family_offices_impact',existing:false,asset:'ghl/pages/private-investors-family-offices/assets/pf-impact-scale.png'},
+ contactHero:{name:'bwci_img_contact_hero',existing:false,asset:'ghl/pages/contact/assets/contact-hero-hands.png'}
 };
 const portraitFiles={'alexander-alegria-saif':'jpg','farhad-reyazat':'jpg','gabriella-karlova':'webp','richard-werner':'webp','ewa-dudek':'webp','agnes-gradzewicz':'webp','christie-osarenren':'webp'};
 for(const [slug,ext]of Object.entries(portraitFiles))definitions[slug]={name:'bwci_img_profile_'+slug.replace(/-/g,'_'),existing:true,asset:'ghl/pages/governance-leadership/assets/'+slug+'.'+ext};
 for(const d of Object.values(definitions))d.fieldKey=ref(d.name);
-const roots={logoImage:'logo',heroImage:'mainHero',financialEngineImage:'financialEngineHero',ecosystemHeroImage:'ecosystemHero',platformsHeroImage:'platformsHero',smesHeroImage:'smesHero',investorsHeroImage:'investorsHero',impactHeroImage:'impactHero',whoWeAreHeroImage:'whoWeAreHero',pamHeroImage:'pamHero',notFoundConeImage:'notFoundCone',platformTodayHeroImage:'platformTodayHero',privateInvestorsHeroImage:'privateInvestorsHero',privateInvestorsImpactImage:'privateInvestorsImpact'};
+const roots={logoImage:'logo',heroImage:'mainHero',financialEngineImage:'financialEngineHero',ecosystemHeroImage:'ecosystemHero',platformsHeroImage:'platformsHero',smesHeroImage:'smesHero',investorsHeroImage:'investorsHero',impactHeroImage:'impactHero',whoWeAreHeroImage:'whoWeAreHero',pamHeroImage:'pamHero',notFoundConeImage:'notFoundCone',platformTodayHeroImage:'platformTodayHero',privateInvestorsHeroImage:'privateInvestorsHero',privateInvestorsImpactImage:'privateInvestorsImpact',contactHeroImage:'contactHero'};
 const main={whoPhoto:'whoPhoto',impact1:'impact1',impact2:'impact2',impact3:'impact3',impact4:'impact4',leaderAlexander:'alexander-alegria-saif',leaderFarhad:'farhad-reyazat',leaderGabriela:'gabriella-karlova'};
 // The list of image settings is inlined into every page's script, so the shared part is frozen: adding a page must
 // never change the pasted blocks of existing pages. A setting only one page uses (its hero) is declared by that
