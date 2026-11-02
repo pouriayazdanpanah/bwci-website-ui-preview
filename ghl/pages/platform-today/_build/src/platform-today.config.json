@@ -1,5 +1,6 @@
 {
   "logoImage": "{{ custom_values.bwci_img_logo }}",
+  "platformTodayHeroImage": "{{ custom_values.bwci_img_platform_today_hero }}",
   "showHeader": true,
   "showFooter": true,
   "footer": {

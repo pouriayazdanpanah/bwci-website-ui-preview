@@ -1,5 +1,5 @@
 // Dev-only QA for the port's configuration: GHL Custom Value substitution (modelled as GHL's text replacement of
-// {{ custom_values.x }} in the pasted block), link availability (the Providence Asset Management card link and the
+// {{ custom_values.x }} in the pasted block), the hero and logo images (priority, fallbacks, no request when unset), link availability (the Providence Asset Management card link and the
 // breadcrumb), the guide dialog in a hostile host, repeat execution, a copied root with a changed config while the
 // guide is open, and teardown restoring the host's own <html> overflow.
 //   NODE_PATH=$(npm root -g) node config-qa.js <httpBase>      e.g. http://localhost:8123/
@@ -25,6 +25,7 @@ const page = (block, opts) => {
     (o.twice ? '<script>' + block.slice(block.lastIndexOf('<script>') + 8, block.lastIndexOf('</script>')) + '</script>' : '') + '</body></html>';
 };
 const URLS = (name) => (name === 'bwci_img_logo' ? httpBase + 'ghl/shared/site-chrome/assets/bwci-logo.png' :
+  name === 'bwci_img_platform_today_hero' ? httpBase + 'ghl/pages/platform-today/assets/platform-today-hero-arcs.png' :
   /^bwci_url_/.test(name) ? '/' + name.slice(9).replace(/_/g, '-') + '?v=1' : undefined);
 
 const STATE = () => {
@@ -34,6 +35,7 @@ const STATE = () => {
   return {
     page: a('main a[data-ptd-link]'),
     logo: img(r.querySelector('img[data-ptd-asset="logoImage"]')),
+    hero: (r.querySelector('img[data-ptd-asset="platformTodayHeroImage"]').hidden ? 'hidden ' : '') + img(r.querySelector('img[data-ptd-asset="platformTodayHeroImage"]')),
     raw: /\{\{|\}\}/.test([...r.querySelectorAll('a')].map((x) => x.getAttribute('href')).join('') + [...r.querySelectorAll('img')].map((x) => x.getAttribute('src') || '').join('')),
   };
 };

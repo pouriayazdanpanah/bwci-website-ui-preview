@@ -7,7 +7,7 @@
 (function () {
   'use strict';
 
-  /* Editable settings (logo image URL, header/footer toggles, footer legal wording, page links) live in the
+  /* Editable settings (logo and hero image URLs, header/footer toggles, footer legal wording, page links) live in the
      <script type="application/json" id="bwci-platform-today-config"> block at the very top of the Custom Code
      paste, not here. */
 
@@ -49,6 +49,15 @@
       if (cfgEl) cfg = JSON.parse(cfgEl.textContent || '{}') || {};
     } catch (err) { cfg = {}; }
     siteResolveImages(root,cfg);
+
+    /* ---------- hero image (source: ./assets/platform-today-hero-arcs.png): the configured URL, else no image ---------- */
+    qa('img[data-ptd-asset="platformTodayHeroImage"]').forEach(function (img) {
+      var url = cfg.platformTodayHeroImage;
+      var valid = siteImageAvailable(url);
+      img.hidden = !valid;
+      if (valid) { if (img.getAttribute('src') !== url) img.src = url; }
+      else img.removeAttribute('src');
+    });
 
     siteResolveLinks(cfg);
     var links = cfg.links || {};

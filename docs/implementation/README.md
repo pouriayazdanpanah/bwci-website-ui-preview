@@ -73,8 +73,18 @@ All 26 builders still reproduce their committed outputs.
 
 | Design source | Kind | GHL status |
 |---|---|---|
-| `Platform Today.dc.html` | Production page | `platform-today` implemented on `feat/ghl-platform-today` from `aa929dd` (PR to main open; not merged). Local QA PASS with real web fonts: [verification](../../ghl/pages/platform-today/qa/verification.md). Proposed link value `bwci_url_providence_asset_management` (the Providence Asset Management card). Nothing links to the page yet: the design's header and footer "The Platform Today" entries still go to `Main.dc.html#today`; pointing them here is a design change for all pages. Live GHL NOT VERIFIED |
+| `Platform Today.dc.html` | Production page | `platform-today` merged in PR #45 (`103a654`). The export `df79d85` (below) changed its hero; the update is on `feat/ghl-platform-today-hero`. Local QA PASS with real web fonts: [verification](../../ghl/pages/platform-today/qa/verification.md). Proposed link value `bwci_url_providence_asset_management` (the Providence Asset Management card). Nothing links to the page yet: the design's header and footer "The Platform Today" entries still go to `Main.dc.html#today`; pointing them here is a design change for all pages. Live GHL NOT VERIFIED |
 | `404.dc.html` | Production page (404) | Same as the ported standalone export; see the 404 row above |
+
+### November 2, 2026 design export (`df79d85`): Contact, Private Investors & Family Offices, Platform Today hero
+
+The import adds two production pages and changes The Platform Today's hero. All 26 other builders still reproduce their committed outputs.
+
+| Design source | Kind | GHL status |
+|---|---|---|
+| `Platform Today.dc.html` (+ `assets/platform-today-hero-arcs.png`) | Hero image and layout added | Port updated on `feat/ghl-platform-today-hero` from `df79d85` (PR to main open; not merged). Proposed page-only image value `bwci_img_platform_today_hero`; only this page's block changes. Local QA PASS. Live GHL NOT VERIFIED |
+| `Contact.dc.html` (+ `assets/contact-hero-hands.png`) | Production page | Not ported. Open owner decisions: its five links to a `Start a Conversation` page that is not in the export (main + `#smes`, `#investors`, `#banks`, `#partners`), and its empty `mailto:` / `tel:` links |
+| `Private Investors Family Offices.dc.html` (+ `assets/pf-hero-threads.png`, `assets/pf-impact-scale.png`) | Production page | Not ported. Every page's header already links to it through the existing `privateInvestors` value (`bwci_url_private_investors`). The design header's own link, `Private%20Investors.dc.html`, does not match the file name (preview only) |
 
 ## Reading and execution order
 
@@ -305,7 +315,7 @@ Implementation, merge and publication are separate states. A generated block or 
 
 - Page not found (404): ghl/pages/page-not-found/README.md. Hosted/inline outputs generated from _build/src/ and the owner's standalone export in _build/source/; full-viewport page with the white logo, animated network cone (fade, then float), entrance of the copy, Go home / Contact us. No site header or footer: only the shared link/image resolvers and logo/unavailable-link runtime are used. Install it as the domain's 404 page in GHL. Proposed value `bwci_img_page_not_found_cone`. Merged through PR #44; published GHL NOT VERIFIED.
 
-- The Platform Today: ghl/pages/platform-today/README.md. Hosted/inline outputs generated from _build/src/; hero with the `today` breadcrumb, three stages (Now / Next / Later) that light up at 15 % visibility, six cards with the paired-card highlight, status note, the fixed "How to read" button and its guide dialog (side panel / bottom sheet, `<html>` scroll lock restored to the host's value). Proposed value `bwci_url_providence_asset_management`. On `feat/ghl-platform-today`, PR open (not merged); published GHL NOT VERIFIED.
+- The Platform Today: ghl/pages/platform-today/README.md. Hosted/inline outputs generated from _build/src/; hero with the `today` breadcrumb, three stages (Now / Next / Later) that light up at 15 % visibility, six cards with the paired-card highlight, status note, the fixed "How to read" button and its guide dialog (side panel / bottom sheet, `<html>` scroll lock restored to the host's value). Proposed value `bwci_url_providence_asset_management`. Merged through PR #45; the hero image update (export `df79d85`, proposed `bwci_img_platform_today_hero`) is on `feat/ghl-platform-today-hero`, PR open (not merged); published GHL NOT VERIFIED.
 
 The completed-page README is the source of maintenance instructions; no duplicate brief is kept under docs/implementation/pages/. design/SiteHeader.dc.html, design/SiteFooter.dc.html, design/Breadcrumb.dc.html, design/GovNav.dc.html, design/GovProfile.dc.html and design/PersonCard.dc.html are shared source components. design/Before After.dc.html is a visual comparison/QA canvas, not a production website page.
 
