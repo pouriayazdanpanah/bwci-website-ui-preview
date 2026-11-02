@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Private investors &amp; family offices — Better World Capital Investments PLC</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&amp;family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&amp;display=swap">
+<style>
+:root{
+  --brand-ink:#123039; --brand-slate:#16323B; --brand-teal:#1D4A54;
+  --accent-emerald:#12836B; --accent-emerald-dark:#0D6E59; --accent-gold:#B98F2D; --accent-gold-dark:#9E7720;
+  --surface-canvas:#FFFFFF; --surface-subtle:#F7F9F8; --surface-cloud:#EFF3F1;
+  --text-primary:#123039; --text-secondary:#42585E; --text-muted:#5C7075; --text-inverse:#FFFFFF; --text-inverse-muted:#A8C2C8;
+  --border-subtle:#E2E9E6; --border-default:#D5E0DC; --border-strong:#8A9E99;
+  --status-op-mark:#12836B; --status-op-text:#0D6E59; --status-op-border:#A3D9C9; --status-op-bg:#E8F5F1;
+  --status-dev-mark:#B98F2D; --status-dev-text:#7D5B0F; --status-dev-border:#E8C46B; --status-dev-bg:#FDF8EB;
+  --font-sans:'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+  --container:1280px; --container-wide:1440px;
+}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body{ margin:0; background:var(--surface-canvas); color:var(--text-primary); font-family:var(--font-sans); font-size:max(15px,var(--fs-floor-body,0px)); line-height:1.65; -webkit-font-smoothing:antialiased; }
+h1,h2,h3,h4,h5{ margin:0; color:var(--text-primary); } p{ margin:0; } ul,ol{ margin:0; padding:0; list-style:none; } dl,dd,figure{ margin:0; }
+a{ color:var(--accent-emerald-dark); text-decoration:none; } a:hover{ color:var(--brand-ink); }
+a:focus-visible, button:focus-visible{ outline:2px solid var(--accent-emerald); outline-offset:2px; }
+[id]{ scroll-margin-top:calc(var(--nav-h, 116px) - var(--util-h, 40px) + 16px); }
+:root{ --fs-floor-sm:0px; --fs-floor-body:0px; }
+@media (max-width:767px){ :root{ --fs-floor-sm:14px; --fs-floor-body:16px; } }
+@keyframes bwShow{ to{ visibility:visible; } }
+.bw{ visibility:hidden; animation:bwShow 0s 2.5s forwards; }
+.vh{ position:absolute !important; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.tc{ display:inline-flex; align-items:center; gap:6px; margin-left:10px; padding:2px 9px; border-radius:999px; vertical-align:middle; background:var(--status-dev-bg); border:1px solid var(--status-dev-border); color:var(--status-dev-text); font-family:var(--font-mono); font-size:max(10.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; line-height:1.6; }
+.tc::before{ content:''; width:5px; height:5px; border-radius:50%; background:var(--status-dev-mark); }
+.tc--inv{ background:rgba(185,143,45,.14); border-color:rgba(232,196,107,.45); color:#E8C46B; }
+.ic{ display:flex; align-items:center; justify-content:center; flex:none; width:46px; height:46px; border-radius:12px; background:var(--status-op-bg); color:var(--accent-emerald-dark); transition:background-color .25s ease, color .25s ease, transform .35s var(--ease-out); }
+.ic svg{ width:22px; height:22px; }
+
+/* 01 HERO — site dark hero (Who We Are pattern); line-art inverted to sit on the dark ground */
+.hero{ position:relative; overflow:hidden; color:#fff; min-height:560px; display:flex; align-items:center;
+  background:radial-gradient(ellipse 720px 620px at 88% 44%, rgba(18,131,107,.20), transparent 60%), radial-gradient(ellipse 560px 460px at -4% 82%, rgba(29,74,84,.30), transparent 60%), linear-gradient(180deg,#05090B 0%,#090F11 55%,#0B1416 100%); }
+.hero::before{ content:''; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:26px 26px; -webkit-mask-image:linear-gradient(90deg,black,transparent 60%); mask-image:linear-gradient(90deg,black,transparent 60%); }
+.hero::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:90px; z-index:1; pointer-events:none; background:linear-gradient(180deg, transparent, rgba(11,20,22,.9)); }
+.hero-inner{ position:relative; z-index:2; width:100%; max-width:var(--container-wide); margin:0 auto; padding:clamp(64px,7vw,96px) 50px; }
+.hero-copy{ max-width:640px; }
+.hero-copy .h-display{ color:var(--text-inverse); margin:0 0 22px; }
+.hero-copy .body-lg{ color:var(--text-inverse-muted); max-width:580px; }
+.ph-meta{ display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px; margin:0 0 22px; }
+.ph-st{ display:inline-flex; align-items:center; gap:8px; padding:4px 12px; border-radius:999px; background:rgba(18,131,107,.16); border:1px solid rgba(163,217,201,.35); color:#A3D9C9; font-size:13.5px; font-weight:600; line-height:1.5; }
+.ph-st::before{ content:''; width:6px; height:6px; border-radius:50%; background:#3FBF9B; }
+.ph-kind{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-gold); }
+.ph-rel{ display:flex; flex-wrap:wrap; gap:4px 10px; margin-top:16px; font-size:max(14.5px,var(--fs-floor-sm,0px)); color:var(--text-inverse-muted); }
+.ph-rel b{ font-weight:600; color:#fff; }
+.hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
+.hero-btn{ display:inline-flex; align-items:center; gap:12px; min-height:44px; padding:0 22px; border-radius:2px; font-family:var(--font-mono); font-size:max(11.5px,var(--fs-floor-sm,0px)); font-weight:500; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; border:1px solid transparent; transition:background-color .18s, border-color .18s, color .18s, transform .16s var(--ease-out); }
+.hero-btn--solid{ background:#F1EEE6; color:var(--brand-ink); border-color:#F1EEE6; }
+.hero-btn--solid:hover{ background:#fff; color:var(--brand-ink); }
+.hero-btn--ghost{ background:transparent; color:#fff; border-color:rgba(255,255,255,.55); }
+.hero-btn--ghost:hover{ border-color:#fff; background:rgba(255,255,255,.06); color:#fff; }
+.hero-img{ position:absolute; z-index:1; pointer-events:none; left:34%; right:-4%; bottom:0; -webkit-mask-image:linear-gradient(90deg, transparent 0%, rgba(0,0,0,.4) 16%, #000 40%), linear-gradient(180deg, transparent 0%, #000 22%); -webkit-mask-composite:source-in; mask-image:linear-gradient(90deg, transparent 0%, rgba(0,0,0,.4) 16%, #000 40%), linear-gradient(180deg, transparent 0%, #000 22%); mask-composite:intersect; }
+.hero-img img{ display:block; width:100%; height:auto; -webkit-user-select:none; user-select:none; opacity:.92; }
+@media (min-width:1024px){ .hero-inner{ padding-bottom:calc(clamp(64px,7vw,96px) + 56px); } .hero-img{ bottom:72px; } }
+@media (max-width:1023px){
+  .hero{ min-height:0; align-items:flex-start; }
+  .hero-inner{ padding:64px 32px 0; }
+  .hero-copy{ padding-bottom:clamp(260px,46vw,420px); }
+  .hero-img{ left:-2%; right:-2%; bottom:48px; }
+  .hero::after{ top:0; height:auto; background:linear-gradient(180deg, rgba(8,14,16,.6) 0%, rgba(8,14,16,0) 45%, rgba(11,20,22,.5) 100%); }
+}
+@media (max-width:767px){
+  .hero{ min-height:0 !important; display:block !important; }
+  .hero-inner{ padding:56px 20px clamp(120px,32vw,150px) !important; }
+  .hero-copy{ max-width:none; padding-bottom:0; }
+  .hero-copy .h-display{ font-size:clamp(34px,9.6vw,44px) !important; line-height:1.06 !important; margin:0 0 16px !important; }
+  .hero-copy .body-lg{ font-size:16px !important; }
+  .hero-actions{ flex-direction:column; align-items:stretch; }
+  .hero-btn{ justify-content:center; }
+  .hero::after{ display:none; }
+  .hero-img{ position:absolute !important; inset:0 !important; z-index:0 !important; -webkit-mask-image:none !important; mask-image:none !important; }
+  .hero-img img{ position:absolute; bottom:0; width:220% !important; left:-60% !important; height:auto !important; opacity:.85; }
+  .hero-img::after{ content:''; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg, rgba(8,14,16,.94) 0%, rgba(8,14,16,.78) 34%, rgba(8,14,16,.35) 64%, rgba(8,14,16,.1) 100%); }
+}
+
+/* 02 IMPORTANT INFORMATION — note card overlapping the hero */
+.ii{ position:relative; z-index:3; }
+.ii-card{ display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:start; gap:20px clamp(20px,2.6vw,36px); margin-top:-72px; padding:clamp(24px,2.6vw,34px) clamp(22px,2.8vw,40px); border-radius:20px; background:#fff; border:1px solid var(--border-subtle); box-shadow:0 24px 48px -20px rgba(18,48,57,.18), 0 2px 6px rgba(18,48,57,.04); }
+.ii-card .ic{ background:var(--surface-cloud); color:var(--brand-ink); }
+.ii-card h2{ font-size:clamp(18px,1.6vw,21px); font-weight:700; letter-spacing:-.02em; line-height:1.3; color:var(--brand-ink); margin-bottom:8px; }
+.ii-card p{ max-width:760px; font-size:max(15.5px,var(--fs-floor-body,0px)); line-height:1.65; color:var(--text-secondary); text-wrap:pretty; }
+.ii-card .link{ align-self:center; white-space:nowrap; }
+@media (max-width:860px){ .ii-card{ grid-template-columns:auto minmax(0,1fr); } .ii-card .link{ grid-column:2; justify-self:start; } }
+@media (max-width:560px){ .ii-card{ grid-template-columns:minmax(0,1fr); } .ii-card .link{ grid-column:1; } .ii-card .ic{ width:40px; height:40px; } }
+
+/* 03 WHY — editorial split + capital-kind rail */
+.wy{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(28px,5vw,80px); align-items:start; }
+.wy-l{ display:grid; gap:20px; }
+.wy-l i{ display:block; width:28px; height:2px; background:var(--accent-gold); }
+.wy-big{ font-size:clamp(19px,1.7vw,23px); font-weight:600; line-height:1.5; letter-spacing:-.015em; color:var(--brand-ink); text-wrap:pretty; }
+.wy-r{ display:grid; gap:28px; padding-left:clamp(0px,3vw,48px); border-left:1px solid var(--border-subtle); }
+.wy-r > p{ font-size:clamp(16px,1.35vw,18px); line-height:1.65; color:var(--text-secondary); text-wrap:pretty; }
+.wy-k{ display:grid; gap:10px; }
+.wy-k li{ display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:16px; padding:14px 18px 14px 14px; border-radius:14px; background:var(--surface-subtle); border:1px solid var(--border-subtle); transition:border-color .2s ease, background-color .2s ease; }
+.wy-k .ic{ width:40px; height:40px; border-radius:10px; background:#fff; border:1px solid var(--border-subtle); }
+.wy-k .ic svg{ width:19px; height:19px; }
+.wy-k b{ font-size:16px; font-weight:600; color:var(--brand-ink); line-height:1.4; }
+.wy-k em{ font-style:normal; font-family:var(--font-mono); font-size:max(11.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
+@media (hover:hover) and (pointer:fine){ .wy-k li:hover{ background:#fff; border-color:var(--status-op-border); } .wy-k li:hover .ic{ background:var(--status-op-bg); border-color:transparent; } }
+@media (max-width:900px){ .wy{ grid-template-columns:minmax(0,1fr); } .wy-r{ padding-left:0; border-left:0; padding-top:28px; border-top:1px solid var(--border-subtle); } }
+@media (max-width:480px){ .wy-k li{ grid-template-columns:auto minmax(0,1fr); } .wy-k em{ display:none; } }
+
+/* 04 RELATIONSHIP — three conversation stages */
+.rl-sec{ background:var(--surface-subtle); overflow:hidden; }
+.rl-g{ position:relative; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(14px,1.6vw,22px); }
+.rl-c{ position:relative; display:grid; align-content:start; gap:14px; padding:clamp(24px,2.4vw,32px); border-radius:18px; background:#fff; border:1px solid var(--border-subtle); transition:transform .35s var(--ease-out), box-shadow .35s var(--ease-out), border-color .2s ease; }
+.rl-top{ display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+.rl-n{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.12em; color:var(--accent-gold-dark); }
+.rl-c h3{ font-size:clamp(18px,1.55vw,21px); font-weight:700; letter-spacing:-.02em; line-height:1.3; color:var(--brand-ink); text-wrap:balance; }
+.rl-c p{ font-size:max(15.5px,var(--fs-floor-body,0px)); line-height:1.6; color:var(--text-secondary); text-wrap:pretty; }
+.rl-c:not(:last-child)::after{ content:''; position:absolute; top:50%; right:calc(clamp(14px,1.6vw,22px) / -2 - 7px); z-index:2; width:14px; height:14px; border-radius:50%; background:#fff; border:1.5px solid var(--border-default); }
+@media (hover:hover) and (pointer:fine){ .rl-c:hover{ transform:translateY(-3px); border-color:var(--border-default); box-shadow:0 18px 36px -22px rgba(18,48,57,.28); } .rl-c:hover .ic{ background:var(--accent-emerald); color:#fff; } }
+@media (max-width:900px){ .rl-g{ grid-template-columns:minmax(0,1fr); } .rl-c:not(:last-child)::after{ top:auto; right:auto; left:44px; bottom:calc(clamp(14px,1.6vw,22px) / -2 - 7px); } }
+@media (max-width:640px){
+  .rl-g{ gap:0; border-radius:18px; background:#fff; border:1px solid var(--border-subtle); overflow:hidden; }
+  .rl-c{ grid-template-columns:44px minmax(0,1fr); column-gap:16px; row-gap:6px; padding:22px 20px; border:0; border-radius:0; background:transparent; }
+  .rl-c + .rl-c{ border-top:1px solid var(--border-subtle); }
+  .rl-top{ grid-row:1 / span 2; margin:0; align-self:start; }
+  .rl-c h3, .rl-c p{ grid-column:2; }
+  .rl-c h3{ font-size:18px; }
+  .rl-c:not(:last-child)::after{ content:''; left:41px; top:70px; bottom:-22px; width:2px; height:auto; border:0; border-radius:0; background:var(--border-default); }
+}
+
+/* 05 ARCHITECTURE — featured authorised entity + component cards */
+.ar-head{ display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:16px 32px; margin-bottom:clamp(32px,4vw,48px); }
+.ar-head .sec-head{ margin-bottom:0; }
+.ar-asat{ display:inline-flex; align-items:center; gap:10px; padding:8px 14px; border-radius:999px; background:var(--surface-subtle); border:1px solid var(--border-subtle); font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text-secondary); white-space:nowrap; }
+.ar-asat::before{ content:''; width:6px; height:6px; border-radius:50%; background:var(--accent-emerald); }
+.ar-g{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(14px,1.6vw,20px); }
+.ac{ position:relative; display:grid; grid-template-rows:auto auto 1fr auto; gap:14px; padding:clamp(24px,2.4vw,30px); border-radius:18px; background:#fff; border:1px solid var(--border-default); transition:transform .35s var(--ease-out), box-shadow .35s var(--ease-out), border-color .2s ease; }
+.ac-meta{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 12px; }
+.ac-type{ font-family:var(--font-mono); font-size:max(11.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-gold-dark); }
+.st{ display:inline-flex; align-items:center; gap:8px; padding:3px 11px; border-radius:999px; font-size:max(13px,var(--fs-floor-sm,0px)); font-weight:600; line-height:1.5; white-space:nowrap; }
+.st::before{ content:''; width:8px; height:8px; border-radius:50%; box-sizing:border-box; }
+.st--op{ background:var(--status-op-bg); border:1px solid var(--status-op-border); color:var(--status-op-text); }
+.st--op::before{ background:var(--status-op-mark); }
+.st--dev{ background:var(--status-dev-bg); border:1px solid var(--status-dev-border); color:var(--status-dev-text); }
+.st--dev::before{ border:1.5px solid var(--status-dev-mark); background:linear-gradient(90deg, var(--status-dev-mark) 50%, transparent 50%); }
+.ac h3{ font-size:clamp(19px,1.6vw,22px); font-weight:700; letter-spacing:-.02em; line-height:1.25; color:var(--brand-ink); text-wrap:balance; }
+.ac-pill{ display:inline-flex; margin-left:8px; padding:1px 8px; border-radius:6px; vertical-align:middle; background:var(--surface-cloud); color:var(--brand-teal); font-family:var(--font-mono); font-size:max(10.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
+.ac p{ font-size:max(15.5px,var(--fs-floor-body,0px)); line-height:1.6; color:var(--text-secondary); text-wrap:pretty; }
+.ac-ft{ display:grid; gap:14px; padding-top:16px; border-top:1px dashed var(--border-default); }
+.ac-rel{ font-size:max(13.5px,var(--fs-floor-sm,0px)); color:var(--text-muted); }
+.ac-rel b{ font-weight:600; color:var(--brand-ink); }
+.ac .link{ justify-self:start; min-height:32px; align-items:center; }
+@media (hover:hover) and (pointer:fine){ .ac:hover{ transform:translateY(-3px); border-color:var(--border-strong); box-shadow:0 20px 40px -24px rgba(18,48,57,.3); } }
+.ac--ft{ grid-column:1 / -1; grid-template-columns:minmax(0,7fr) minmax(0,5fr); grid-template-rows:auto; gap:24px clamp(28px,4vw,64px); padding:clamp(28px,3vw,44px); color:#fff; border-color:transparent; overflow:hidden; background:radial-gradient(ellipse 520px 380px at 100% 0%, rgba(18,131,107,.3), transparent 62%), linear-gradient(165deg,#123039,#0B1A1F); }
+.ac--ft::before{ content:''; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.07) 1px, transparent 1.6px); background-size:22px 22px; -webkit-mask-image:linear-gradient(200deg,#000,transparent 60%); mask-image:linear-gradient(200deg,#000,transparent 60%); }
+.ac--ft > *{ position:relative; }
+.ac--ft .ac-main{ display:grid; align-content:start; gap:16px; }
+.ac--ft .ac-type{ color:var(--accent-gold); }
+.ac--ft h3{ color:#fff; font-size:clamp(24px,2.4vw,32px); }
+.ac--ft p{ color:var(--text-inverse-muted); font-size:clamp(16px,1.35vw,18px); max-width:560px; }
+.ac--ft .st--op{ background:rgba(18,131,107,.16); border-color:rgba(163,217,201,.35); color:#A3D9C9; }
+.ac--ft .st--op::before{ background:#3FBF9B; }
+.ac--ft .ac-side{ display:grid; align-content:space-between; gap:24px; padding:clamp(20px,2vw,28px); border-radius:14px; background:rgba(255,255,255,.05); border:1px solid rgba(168,194,200,.18); }
+.ac--ft .ac-side dl{ display:grid; gap:16px; }
+.ac--ft dt{ font-family:var(--font-mono); font-size:max(11.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-inverse-muted); }
+.ac--ft dd{ margin-top:4px; font-size:16px; font-weight:600; color:#fff; }
+.ac--ft .hlink{ justify-self:start; min-height:32px; align-items:center; }
+@media (hover:hover) and (pointer:fine){ .ac--ft:hover{ border-color:transparent; box-shadow:0 26px 50px -26px rgba(11,26,31,.6); } }
+@media (max-width:1023px){ .ar-g{ grid-template-columns:repeat(2,minmax(0,1fr)); } .ac--ft{ grid-template-columns:minmax(0,1fr); } }
+@media (max-width:640px){ .ar-g{ grid-template-columns:minmax(0,1fr); } }
+
+/* 06 IMPACT — dark feature card with ribbon art */
+.im-card{ position:relative; isolation:isolate; overflow:hidden; display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); min-height:420px; border-radius:24px; color:#fff; background:radial-gradient(ellipse 620px 460px at 100% 50%, rgba(18,131,107,.26), transparent 62%), radial-gradient(ellipse 520px 380px at 0% 100%, rgba(29,74,84,.4), transparent 60%), linear-gradient(165deg,#0F252C,#081215); }
+.im-card::before{ content:''; position:absolute; inset:0; z-index:-1; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.07) 1px, transparent 1.6px); background-size:22px 22px; -webkit-mask-image:linear-gradient(90deg,#000,transparent 55%); mask-image:linear-gradient(90deg,#000,transparent 55%); }
+.im-copy{ display:grid; align-content:center; gap:22px; padding:clamp(32px,4.4vw,64px); }
+.im-copy h2{ display:inline-flex; align-items:center; gap:10px; font-family:var(--font-mono); font-size:max(12.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--accent-gold); }
+.im-copy h2::before{ content:''; width:18px; height:1.5px; background:currentColor; }
+.im-copy blockquote{ margin:0; font-size:clamp(28px,3.3vw,44px); font-weight:700; line-height:1.12; letter-spacing:-.03em; color:#fff; text-wrap:balance; }
+.im-copy blockquote span{ color:#A3D9C9; }
+.im-copy p{ max-width:520px; font-size:clamp(16px,1.35vw,18px); line-height:1.6; color:var(--text-inverse-muted); }
+.im-copy .hlink{ justify-self:start; margin-top:6px; }
+.im-art{ position:relative; z-index:-1; pointer-events:none; margin-left:-22%; -webkit-mask-image:linear-gradient(90deg, transparent 0%, rgba(0,0,0,.35) 18%, #000 42%); mask-image:linear-gradient(90deg, transparent 0%, rgba(0,0,0,.35) 18%, #000 42%); }
+.im-art img{ position:absolute; top:50%; right:-6%; width:128%; height:auto; transform:translateY(-50%); opacity:.92; filter:saturate(.95) brightness(.94); animation:imDrift 16s ease-in-out infinite alternate; }
+@keyframes imDrift{ from{ transform:translate(0,-50%); } to{ transform:translate(-14px,-50%); } }
+@media (max-width:900px){ .im-card{ grid-template-columns:minmax(0,1fr); min-height:0; } .im-copy{ padding-bottom:0; } .im-art{ position:relative; margin:0; height:clamp(200px,52vw,340px); -webkit-mask-image:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.4) 22%, #000 48%); mask-image:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.4) 22%, #000 48%); } .im-art img{ top:auto; bottom:4%; right:auto; left:50%; width:min(118%,640px); transform:translateX(-50%); animation:none; } }
+
+/* 07 HOW A CONVERSATION WORKS — segmented track */
+.cv{ border-radius:22px; background:#fff; border:1px solid var(--border-default); overflow:hidden; box-shadow:0 24px 48px -32px rgba(18,48,57,.25); }
+.cv-rail{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); }
+.cv-s{ position:relative; display:grid; align-content:start; gap:14px; padding:clamp(26px,2.6vw,36px) clamp(22px,2.2vw,30px) clamp(28px,2.8vw,36px); transition:background-color .25s ease; }
+.cv-s + .cv-s{ border-left:1px solid var(--border-subtle); }
+.cv-s::before, .cv-s::after{ content:''; position:absolute; top:0; left:0; right:0; height:4px; background:var(--surface-cloud); }
+.cv-s::after{ background:var(--accent-emerald); transform:scaleX(0); transform-origin:left; transition:transform .6s var(--ease-out); transition-delay:calc(var(--i) * 260ms + 120ms); }
+.cv-rail.lit .cv-s::after{ transform:scaleX(1); }
+.cv-hd{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.cv-n{ font-size:clamp(44px,4.4vw,60px); font-weight:800; line-height:1; letter-spacing:-.04em; color:transparent; -webkit-text-stroke:1.5px var(--border-strong); transition:color .3s ease, -webkit-text-stroke-color .3s ease; transition-delay:calc(var(--i) * 260ms + 300ms); }
+.cv-rail.lit .cv-n{ -webkit-text-stroke-color:var(--accent-emerald); }
+.cv-s .ic{ width:42px; height:42px; border-radius:11px; }
+.cv-s .ic svg{ width:20px; height:20px; }
+.cv-s h3{ margin-top:6px; font-size:clamp(17px,1.45vw,19px); font-weight:700; letter-spacing:-.015em; line-height:1.3; color:var(--brand-ink); text-wrap:balance; }
+.cv-s h3 small{ display:block; margin-top:3px; font-size:14px; font-weight:500; letter-spacing:0; color:var(--text-muted); }
+.cv-s p{ font-size:max(15.5px,var(--fs-floor-body,0px)); line-height:1.6; color:var(--text-secondary); text-wrap:pretty; }
+@media (hover:hover) and (pointer:fine){ .cv-s:hover{ background:var(--surface-subtle); } .cv-s:hover .cv-n{ color:var(--status-op-bg); } .cv-s:hover .ic{ background:var(--accent-emerald); color:#fff; } }
+.cv-note{ display:flex; align-items:center; gap:12px; padding:16px clamp(22px,2.2vw,30px); background:var(--surface-subtle); border-top:1px solid var(--border-subtle); font-size:max(15px,var(--fs-floor-body,0px)); font-weight:600; color:var(--brand-ink); }
+.cv-note svg{ flex:none; width:20px; height:20px; color:var(--accent-emerald-dark); }
+@media (max-width:1023px){ .cv-rail{ grid-template-columns:repeat(2,minmax(0,1fr)); } .cv-s:nth-child(3){ border-left:0; } .cv-s:nth-child(n+3){ border-top:1px solid var(--border-subtle); } }
+@media (max-width:640px){
+  .cv-rail{ grid-template-columns:minmax(0,1fr); }
+  .cv-s + .cv-s{ border-left:0; border-top:1px solid var(--border-subtle); }
+  .cv-s::before, .cv-s::after{ top:0; bottom:0; right:auto; width:4px; height:auto; }
+  .cv-s::after{ transform:scaleY(0); transform-origin:top; }
+  .cv-rail.lit .cv-s::after{ transform:scaleY(1); }
+  .cv-n{ font-size:44px; }
+}
+
+/* light-section pattern — dot field top-right + fading grid (Ecosystem/Platforms language) */
+.pt{ isolation:isolate; overflow:hidden; }
+.pt::before, .pt::after{ content:''; position:absolute; z-index:-1; pointer-events:none; }
+.pt::before{ top:0; right:0; width:640px; max-width:60%; height:460px; background-image:radial-gradient(circle, rgba(18,48,57,.12) 1px, transparent 1.6px); background-size:16px 16px; -webkit-mask-image:radial-gradient(ellipse 520px 380px at 88% 18%, black 0%, black 34%, transparent 76%); mask-image:radial-gradient(ellipse 520px 380px at 88% 18%, black 0%, black 34%, transparent 76%); }
+.pt::after{ left:0; right:0; bottom:0; height:50%; background-image:linear-gradient(rgba(18,48,57,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(18,48,57,.04) 1px, transparent 1px); background-size:56px 56px; -webkit-mask-image:linear-gradient(to bottom, transparent, #000 80%); mask-image:linear-gradient(to bottom, transparent, #000 80%); }
+.pt--l::before{ right:auto; left:0; -webkit-mask-image:radial-gradient(ellipse 520px 380px at 12% 18%, black 0%, black 34%, transparent 76%); mask-image:radial-gradient(ellipse 520px 380px at 12% 18%, black 0%, black 34%, transparent 76%); }
+
+/* 08 GOVERNANCE & TRUST — check-who-you-deal-with links */
+.gt{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(28px,5vw,80px); align-items:center; }
+.gt-l{ display:grid; gap:18px; }
+.gt-l .lead{ max-width:460px; }
+.gt-links{ display:grid; gap:10px; }
+.gt-a{ display:grid; grid-template-columns:auto minmax(0,1fr) auto; align-items:center; gap:16px; min-height:72px; padding:14px 20px 14px 14px; border-radius:16px; background:#fff; border:1px solid var(--border-default); color:var(--brand-ink); transition:border-color .2s ease, box-shadow .3s ease, transform .16s var(--ease-out); }
+.gt-a:active{ transform:scale(.985); }
+.gt-a b{ font-size:17px; font-weight:700; letter-spacing:-.01em; }
+.gt-a .ic{ width:44px; height:44px; background:var(--surface-cloud); color:var(--brand-teal); }
+.gt-a .ar{ font-size:18px; color:var(--text-muted); }
+.gt-a--v{ background:var(--brand-ink); border-color:var(--brand-ink); color:#fff; }
+.gt-a--v .ic{ background:rgba(255,255,255,.08); color:#A3D9C9; }
+.gt-a--v .ar{ color:#A3D9C9; }
+@media (hover:hover) and (pointer:fine){ .gt-a:hover{ color:var(--brand-ink); border-color:var(--border-strong); box-shadow:0 14px 28px -20px rgba(18,48,57,.3); } .gt-a:hover .ar{ transform:translateX(3px); } .gt-a--v:hover{ color:#fff; border-color:var(--brand-teal); background:var(--brand-teal); } }
+@media (max-width:900px){ .gt{ grid-template-columns:minmax(0,1fr); } }
+
+
+/* 08 NEXT */
+#next{ position:relative; overflow:hidden; text-align:center;
+  background:radial-gradient(ellipse 640px 560px at -6% 30%, rgba(29,74,84,.34), transparent 58%), radial-gradient(ellipse 640px 560px at 106% 30%, rgba(18,131,107,.28), transparent 58%), radial-gradient(ellipse 900px 420px at 50% 88%, rgba(18,131,107,.16), transparent 68%), linear-gradient(180deg, #05090B 0%, #090F11 50%, #0B1416 100%); }
+.cta-pattern{ position:absolute; inset:0; pointer-events:none; z-index:0; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:24px 24px; -webkit-mask-image:radial-gradient(ellipse 720px 320px at 50% 40%, black 0%, black 35%, transparent 80%); mask-image:radial-gradient(ellipse 720px 320px at 50% 40%, black 0%, black 35%, transparent 80%); }
+#next .container{ position:relative; z-index:1; margin:0 auto; }
+.nx-links{ display:flex; flex-wrap:wrap; justify-content:center; gap:12px 32px; margin-top:28px; }
+@media (max-width:767px){ .nx-links{ flex-direction:column; align-items:center; gap:16px; } #next .btn{ width:100%; } }
+
+@media (prefers-reduced-motion:reduce){
+  .rl-c:hover, .ac:hover{ transform:none; }
+  .cv-s::after{ transition:none; } .cv-n{ transition-delay:0s; } .im-art img{ animation:none; }
+}
+</style>
+<link rel="stylesheet" href="./bwci-system.css">
+<script src="./bwci-motion.js"></script>
+</helmet>
+<div class="bw" ref="{{ rootRef }}" style="width:100%; min-height:100vh; background:var(--surface-canvas); overflow-x:clip">
+  <dc-import name="SiteHeader" current="investors" style="position:sticky; top:calc(var(--util-h, 0px) * -1); z-index:60; display:block; width:100%" hint-size="100%,116px"></dc-import>
+  <main id="main">
+
+    <section class="hero" id="top" data-screen-label="01 Hero">
+      <div class="hero-img" aria-hidden="true"><img src="./assets/pf-hero-threads.png" alt="" width="1942" height="809"></div>
+      <div class="hero-inner" style="align-self:stretch">
+        <div class="hero-copy">
+          <dc-import name="Breadcrumb" current="private" style="display:block" hint-size="100%,47px"></dc-import>
+          <h1 class="h-display">Long-term capital, connected to the real economy<sc-if value="{{ flags }}" hint-placeholder-val="{{ false }}"><span class="tc tc--inv">Heading to approve</span></sc-if></h1>
+          <p class="body-lg">This page is for private investors and single- and multi-family offices. It explains how Better World Capital Investments PLC works with long-term capital, which parts of our architecture may be relevant to you and how to start a conversation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ii" id="important" data-screen-label="02 Important information">
+      <div class="wrap">
+        <div class="ii-card" role="note" aria-labelledby="ii-t">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5"></path><path d="M12 7.5h.01"></path></svg></span>
+          <div>
+            <h2 id="ii-t">Important information<sc-if value="{{ flags }}" hint-placeholder-val="{{ false }}"><span class="tc">Compliance wording</span></sc-if></h2>
+            <p>This page is for information only. It is not an invitation or recommendation to invest, and nothing on it is investment advice. Any regulated activity is carried out by an authorised entity, Providence Asset Management, within its permissions.</p>
+          </div>
+          <a class="link" href="Corporate%20IR.dc.html">Regulatory information <span class="ar" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec pt" id="why" data-screen-label="03 Why it matters">
+      <div class="wrap wy">
+        <div class="wy-l">
+          <i aria-hidden="true"></i>
+          <h2 class="h1">Why private and family capital matters</h2>
+          <p class="wy-big">Private and family capital can take a long view. That patience matters to productive businesses and projects that need time to build, and that capital does not always reach.</p>
+        </div>
+        <div class="wy-r">
+          <p>Capital is not one thing. Different capital belongs in different parts of the architecture: some suits trade activity, some long-term ownership, some long-duration institution-building. Our work is to connect each kind with the part where it fits.</p>
+          <ul class="wy-k" aria-hidden="true">
+            <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h13l-3-3"></path><path d="M20 17H7l3 3"></path></svg></span><b>Trade activity</b><em>Shorter cycle</em></li>
+            <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V9l9-6 9 6v12"></path><path d="M9 21v-6h6v6"></path></svg></span><b>Long-term ownership</b><em>Patient</em></li>
+            <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></span><b>Long-duration institution-building</b><em>Generational</em></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec rl-sec" id="relationship" data-screen-label="04 Relationship">
+      <div class="pat-dots" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 class="h1">What a relationship can look like</h2>
+          <p class="lead">A relationship with BWCI begins with understanding and discussion.</p>
+        </div>
+        <ol class="rl-g">
+          <li class="rl-c"><div class="rl-top"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="m15.5 8.5-2 5-5 2 2-5z"></path></svg></span></div><h3>Understanding the architecture</h3><p>A first conversation on how the Financial Engine and its institutions work.</p></li>
+          <li class="rl-c"><div class="rl-top"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1.2"></circle></svg></span></div><h3>Aligning with long-term objectives</h3><p>Discussing which parts of the architecture match your priorities, including impact.</p></li>
+          <li class="rl-c"><div class="rl-top"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"></path><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></svg></span></div><h3>Introduction to the relevant entity</h3><p>Where an activity is regulated, the conversation continues with the authorised entity.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="sec pt pt--l" id="architecture" data-screen-label="05 Architecture">
+      <div class="wrap">
+        <div class="ar-head">
+          <div class="sec-head">
+            <h2 class="h1">Relevant parts of the architecture</h2>
+            <p class="lead">These parts of the architecture may be relevant to private and family capital.</p>
+          </div>
+          <span class="ar-asat">Status as at November 2026</span>
+        </div>
+        <div class="ar-g">
+          <sc-if value="{{ showPam }}" hint-placeholder-val="{{ true }}">
+          <article class="ac ac--ft">
+            <div class="ac-main">
+              <div class="ac-meta" style="justify-content:flex-start; gap:12px 16px"><span class="ac-type">Asset management</span><span class="st st--op">Established &amp; Operational</span></div>
+              <h3>Providence Asset Management<sc-if value="{{ flags }}" hint-placeholder-val="{{ false }}"><span class="tc tc--inv">Wording to approve</span></sc-if></h3>
+              <p>The authorised entity. Any regulated activity is carried out by Providence Asset Management within its permissions.</p>
+            </div>
+            <div class="ac-side">
+              <dl>
+                <div><dt>Role</dt><dd>Authorised entity</dd></div>
+                <div><dt>Relationship</dt><dd>Within the BWCI architecture</dd></div>
+              </dl>
+              <a class="hlink" href="Providence%20Asset%20Management.dc.html">Learn more <span class="ar" aria-hidden="true">→</span></a>
+            </div>
+          </article>
+          </sc-if>
+          <article class="ac">
+            <div class="ac-meta"><span class="ac-type">Private equity</span><span class="st st--op">Established &amp; Operational</span></div>
+            <h3>Trade Finance Private Equity</h3>
+            <p>Private equity focused on trade finance and the movement of goods in the real economy.</p>
+            <div class="ac-ft"><span class="ac-rel">Relationship · <b>Within the BWCI architecture</b></span><a class="link" href="Platforms.dc.html">Explore our platforms <span class="ar" aria-hidden="true">→</span></a></div>
+          </article>
+          <article class="ac">
+            <div class="ac-meta"><span class="ac-type">Private equity</span><span class="st st--dev">Pre-Operational</span></div>
+            <h3>Community Bank Private Equity</h3>
+            <p>Private equity linked to building community banking and local financial infrastructure.</p>
+            <div class="ac-ft"><span class="ac-rel">Relationship · <b>Within the BWCI architecture</b></span><a class="link" href="Platforms.dc.html">Explore our platforms <span class="ar" aria-hidden="true">→</span></a></div>
+          </article>
+          <article class="ac">
+            <div class="ac-meta"><span class="ac-type">Private equity</span><span class="st st--dev">Pre-Operational</span></div>
+            <h3>Regenerative Economy Private Equity<span class="ac-pill">Broader pillar</span></h3>
+            <p>Private equity linked to regenerative, infrastructure and impact activity across the wider architecture.</p>
+            <div class="ac-ft"><span class="ac-rel">Relationship · <b>Within the BWCI architecture</b></span><a class="link" href="Platforms.dc.html">Explore our platforms <span class="ar" aria-hidden="true">→</span></a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="impact" data-screen-label="06 Impact alignment">
+      <div class="wrap">
+        <div class="im-card">
+          <div class="im-copy">
+            <h2>Impact alignment</h2>
+            <blockquote>Impact should influence the <span>architecture of capital</span> itself.</blockquote>
+            <p>Where impact is one of your priorities, we discuss it from the first conversation.</p>
+            <a class="hlink" href="Better%20World%20Impact.dc.html">Better World &amp; Impact <span class="ar" aria-hidden="true">→</span></a>
+          </div>
+          <div class="im-art" aria-hidden="true"><img src="./assets/pf-impact-scale.png" alt="" width="1774" height="887"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec pt" id="conversation" data-screen-label="07 How a conversation works">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 class="h1">How a conversation works</h2>
+        </div>
+        <div class="cv">
+          <ol class="cv-rail" ref="{{ cvRef }}">
+            <li class="cv-s" style="--i:0"><div class="cv-hd"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span></div><h3><span class="vh">Step 1: </span>Get in touch</h3><p>Send an enquiry through our investor form.</p></li>
+            <li class="cv-s" style="--i:1"><div class="cv-hd"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg></span></div><h3><span class="vh">Step 2: </span>Introductory conversation</h3><p>We discuss the architecture and your long-term priorities.</p></li>
+            <li class="cv-s" style="--i:2"><div class="cv-hd"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"></path><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></svg></span></div><h3><span class="vh">Step 3: </span>Introduction to the relevant entity<small>(where appropriate)</small></h3><p>Where an activity is regulated, we introduce you to the authorised entity.</p></li>
+            <li class="cv-s" style="--i:3"><div class="cv-hd"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4.5 4.5L19 7"></path></svg></span></div><h3><span class="vh">Step 4: </span>Next steps agreed together</h3><p>Any further step is agreed by both sides.</p></li>
+          </ol>
+          <p class="cv-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"></path><path d="m9 12 2 2 4-4"></path></svg>Sending an enquiry does not create any obligation on either side.<sc-if value="{{ flags }}" hint-placeholder-val="{{ false }}"><span class="tc">Compliance</span></sc-if></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec--subtle pt pt--l" id="trust" data-screen-label="08 Governance and trust">
+      <div class="wrap gt">
+        <div class="gt-l">
+          <h2 class="h1">Governance and trust</h2>
+          <p class="lead">Know who you are dealing with. If you receive a message that claims to come from BWCI, verify it before you reply or share any details.</p>
+        </div>
+        <nav class="gt-links" aria-label="Governance and trust">
+          <a class="gt-a" href="Governance.dc.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"></path><path d="M5 21V10"></path><path d="M19 21V10"></path><path d="M9 21v-7"></path><path d="M15 21v-7"></path><path d="M12 3 3 8h18z"></path></svg></span><b>How we’re governed</b><span class="ar" aria-hidden="true">→</span></a>
+          <a class="gt-a" href="Governance%20Leadership.dc.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c.8-3.5 3.3-5.5 6.5-5.5s5.7 2 6.5 5.5"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M18 14.5c2 .6 3.2 2.5 3.6 5.5"></path></svg></span><b>Meet our leadership</b><span class="ar" aria-hidden="true">→</span></a>
+          <a class="gt-a gt-a--v" href="Verify%20a%20Communication.dc.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"></path><path d="m9 12 2 2 4-4"></path></svg></span><b>Verify a Communication</b><span class="ar" aria-hidden="true">→</span></a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="section" id="next" data-screen-label="09 Next step">
+      <div class="cta-pattern" aria-hidden="true"></div>
+      <div class="container">
+        <h2 class="h1" style="color:#fff; margin-bottom:14px">Start an introductory conversation</h2>
+        <p class="body-lg" style="color:var(--text-inverse-muted); margin:0 auto 32px; max-width:560px">Tell us about your priorities and we will arrange a first conversation.</p>
+        <a class="btn btn--inverse" href="Contact.dc.html">Start a Conversation <span aria-hidden="true">→</span></a>
+        <div class="nx-links">
+          <a class="hlink" href="Investors%20Partners.dc.html">Back to Investors &amp; Partners <span class="ar" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <dc-import name="SiteFooter" style="display:block; width:100%" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showFlags&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Review&quot;},&quot;showPamCard&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Launch&quot;}}">
+class Component extends DCLogic {
+  rootRef = React.createRef();
+  cvRef = React.createRef();
+  componentDidMount() {
+    const el = this.cvRef.current;
+    if (!el) return;
+    if (!('IntersectionObserver' in window)) { el.classList.add('lit'); return; }
+    this.io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('lit'); this.io.disconnect(); } }), { threshold: 0.4 });
+    this.io.observe(el);
+  }
+  componentWillUnmount() { if (this.io) this.io.disconnect(); }
+  renderVals() {
+    return {
+      rootRef: this.rootRef, cvRef: this.cvRef,
+      flags: this.props.showFlags ?? false,
+      showPam: this.props.showPamCard ?? true,
+    };
+  }
+}
+</script>
+</body>
+</html>
