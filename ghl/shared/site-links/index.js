@@ -39,13 +39,18 @@ const sections={
 // Destinations a page links to that have no Custom Value in the supplied export yet. Their names follow
 // bwci_url_<destination>; the owner creates them (the merge field stays literal, so the link stays
 // unavailable, until then). Listed separately so the export-backed inventory above is unchanged.
-const proposed={ourRole:'our_role',providenceAssetManagement:'providence_asset_management'};
+const proposed={ourRole:'our_role',providenceAssetManagement:'providence_asset_management',
+ contactEmail:'contact_email',contactPhone:'contact_phone',mediaEmail:'media_email'};
+// Existing Custom Values outside the bwci_url_ naming, reused by their exact name. `contact` is the owner's external
+// survey form (the Contact page's "Start a Conversation" links, by the owner's decision); it is not bwci_url_contact.
+const named={contactSurvey:'contact'};
 // Section links only one page uses (see runtimeFor below); none yet.
 const pageSections={};
 function fieldFor(key){
  const sec=sections[key]||pageSections[key];
  const base=sec?sec[0]:key;
  if(Object.hasOwn(proposed,base)){const name='bwci_url_'+proposed[base];assert(!fields.has(name),'Proposed value already exists: '+name);return {name,fieldKey:'{{ custom_values.'+name+' }}',value:'#',proposed:true};}
+ if(Object.hasOwn(named,base)){assert(!sec,'Named values take no section: '+key);const field=fields.get(named[base]);assert(field,'Missing existing Custom Value for '+key);return field;}
  assert(Object.hasOwn(destinations,base),'Unmapped link property: '+key);
  const field=fields.get('bwci_url_'+destinations[base]);assert(field,'Missing existing Custom Value for '+key);return field;
 }
@@ -59,4 +64,4 @@ for(const [k,v] of Object.entries(pageSections)){assert(!Object.hasOwn(sections,
 const source=fs.readFileSync(path.join(__dirname,'links.runtime.js'),'utf8');
 const runtimeFor=(extra=[])=>{const list={...sections};for(const k of extra){assert(Object.hasOwn(pageSections,k),'Not a page section: '+k);list[k]=pageSections[k];}return source.replace('__SITE_LINK_SECTIONS__',JSON.stringify(list));};
 const runtime=runtimeFor([]);
-module.exports={snapshot,fields,destinations,proposed,sections,pageSections,fieldFor,local,reference,runtime,runtimeFor};
+module.exports={snapshot,fields,destinations,proposed,named,sections,pageSections,fieldFor,local,reference,runtime,runtimeFor};

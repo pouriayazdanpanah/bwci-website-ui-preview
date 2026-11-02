@@ -22,6 +22,19 @@ the Providence Asset Management card (source `Providence%20Asset%20Management.dc
 installed Providence Asset Management page. Only the Platform Today block uses it; the 26 other generated pages
 rebuild byte-identical.
 
+The Contact port (2 November 2026, `feat/ghl-contact`) follows two owner decisions:
+- **Proposed:** the design's empty `mailto:` / `tel:` links become `contactEmail` →
+  `{{ custom_values.bwci_url_contact_email }}`, `contactPhone` → `{{ custom_values.bwci_url_contact_phone }}` and
+  `mediaEmail` → `{{ custom_values.bwci_url_media_email }}`. Set them to `mailto:` / `tel:` values. The shareholder
+  address reuses the existing `irEmail` (`bwci_url_ir_email`).
+- **Named:** a new `named` list in `index.js` reuses existing values outside the `bwci_url_` naming by their exact
+  name. Its first entry is `contactSurvey` → `{{ custom_values.contact }}`, the external survey form noted below. The
+  Contact page's seven "Start a Conversation" links use it; a named value takes no section fragment.
+  `bwci_url_contact` (the Contact page itself) is unchanged and is still what the header and footer use.
+
+Both lists are resolved at build time; only the Contact block uses these keys, and the 28 other generated pages
+rebuild byte-identical. `qa/unit.js` checks both lists.
+
 ## Configuration and installation
 
 - Configure destination URLs centrally in the same GHL sub-account. All 43 used values in the
