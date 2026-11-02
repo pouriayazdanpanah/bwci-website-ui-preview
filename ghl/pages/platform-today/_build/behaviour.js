@@ -1,6 +1,7 @@
 // Dev-only: interaction trace of source or port, for a line-by-line diff of the two.
 //   NODE_PATH=$(npm root -g) node behaviour.js <url> <src|port>  > trace.txt
-// Port classes and ids are normalised by dropping the ptd- prefix. Covers: the stages lighting up at 15 % and the
+// Port classes and ids are normalised by dropping the ptd- prefix. Scrolls are instant: the source sets
+// html{scroll-behavior:smooth}, the port leaves the host's <html> alone. Covers: the stages lighting up at 15 % and the
 // "How to read" button following them on and off screen, the paired-card highlight (hover and focus), the guide
 // dialog (open, focus, scroll lock, Escape, backdrop, close and "Got it" buttons, focus return), the phone bottom
 // sheet, card hover, live resize across 1024 / 641 / 640 px, and reduced motion.
@@ -21,7 +22,10 @@ const norm = (c) => String(c || '').split(/\s+/).filter(Boolean).map((x) => x.re
     page.on('pageerror', (e) => log('ERROR', String(e)));
     await page.goto(url, { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts && document.fonts.ready);
-    await page.waitForTimeout(400);
+    // let the shared scroll motion settle first: its scans run 0.3, 1.2 and 2.6 s after the window load event, which
+    // the source reaches later (it loads its hero image from a file), so an earlier hover can land mid-scan
+    await page.evaluate(() => (document.readyState === 'complete' ? null : new Promise((r) => window.addEventListener('load', r, { once: true }))));
+    await page.waitForTimeout(3000);
     return page;
   };
   const state = (page) => page.evaluate(([sStages, sFab, sGd, sPanel, sCards]) => {
@@ -45,13 +49,13 @@ const norm = (c) => String(c || '').split(/\s+/).filter(Boolean).map((x) => x.re
     const page = await open(390, 500);
     log('top', await state(page));
     const top = await page.evaluate((s) => document.querySelector(s).getBoundingClientRect().top + scrollY, S('#stages .wrap'));
-    await page.evaluate((y) => window.scrollTo(0, y - 300), top); await page.waitForTimeout(500);
+    await page.evaluate((y) => window.scrollTo({ top: y - 300, behavior: 'instant' }), top); await page.waitForTimeout(500);
     log('stages 200px in (12 %)', await state(page));
-    await page.evaluate((y) => window.scrollTo(0, y - 100), top); await page.waitForTimeout(500);
+    await page.evaluate((y) => window.scrollTo({ top: y - 100, behavior: 'instant' }), top); await page.waitForTimeout(500);
     log('stages 400px in (25 %)', await state(page));
     await page.waitForTimeout(1800);
     log('rail', await page.evaluate(([r, d]) => ({ after: getComputedStyle(document.querySelector(r), '::after').transform, dots: [...document.querySelectorAll(d)].map((e) => getComputedStyle(e).opacity + ' ' + getComputedStyle(e).transform) }), [S('.st-rail'), S('.st-dot')]));
-    await page.evaluate(() => window.scrollTo(0, 0)); await page.waitForTimeout(500);
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' })); await page.waitForTimeout(500);
     log('back to top', await state(page));
     await page.close();
   }
@@ -59,7 +63,7 @@ const norm = (c) => String(c || '').split(/\s+/).filter(Boolean).map((x) => x.re
   {
     const page = await open(1440, 900);
     const card = (name) => page.locator(S('.st-box .pc')).filter({ hasText: name }).first();
-    await page.evaluate((s) => document.querySelector(s).scrollIntoView({ block: 'center' }), S('#stages')); await page.waitForTimeout(600);
+    await page.evaluate((s) => document.querySelector(s).scrollIntoView({ block: 'center', behavior: 'instant' }), S('#stages')); await page.waitForTimeout(600);
     for (const name of ['Trade Finance Private Equity', 'Community Bank Private Equity', 'Providence Asset Management', 'Regenerative Economy']) {
       await card(name).hover(); await page.waitForTimeout(400);
       const s = await state(page);
@@ -93,7 +97,7 @@ const norm = (c) => String(c || '').split(/\s+/).filter(Boolean).map((x) => x.re
   // 3. phone: bottom sheet, touch cards
   for (const [w, h] of [[390, 844], [640, 800], [641, 800]]) {
     const page = await open(w, h);
-    await page.evaluate((s) => document.querySelector(s).scrollIntoView({ block: 'start' }), S('#stages')); await page.waitForTimeout(800);
+    await page.evaluate((s) => document.querySelector(s).scrollIntoView({ block: 'start', behavior: 'instant' }), S('#stages')); await page.waitForTimeout(800);
     log(w + ' stages', await state(page));
     await page.locator(S('.gd-fab')).click(); await page.waitForTimeout(700);
     log(w + ' open', await state(page));
@@ -114,7 +118,7 @@ const norm = (c) => String(c || '').split(/\s+/).filter(Boolean).map((x) => x.re
   // 5. reduced motion
   {
     const page = await open(1440, 900, 'reduce');
-    await page.evaluate((s) => document.querySelector(s).scrollIntoView({ block: 'center' }), S('#stages')); await page.waitForTimeout(500);
+    await page.evaluate((s) => document.querySelector(s).scrollIntoView({ block: 'center', behavior: 'instant' }), S('#stages')); await page.waitForTimeout(500);
     log('reduced', await page.evaluate(([r, d, p, c]) => ({
       railAfter: getComputedStyle(document.querySelector(r), '::after').transitionDuration + ' ' + getComputedStyle(document.querySelector(r), '::after').transform,
       dot: getComputedStyle(document.querySelector(d)).transitionDuration + ' ' + getComputedStyle(document.querySelector(d)).opacity,
