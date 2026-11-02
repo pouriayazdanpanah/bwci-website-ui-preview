@@ -24,6 +24,8 @@ declare, and `qa/unit.js` fails if the shared list changes.
 | `pamHeroImage` | `{{ custom_values.bwci_img_providence_asset_management_hero }}` | providence-asset-management | [pam-hero.png](../../../ghl/pages/providence-asset-management/assets/pam-hero.png) |
 | `notFoundConeImage` | `{{ custom_values.bwci_img_page_not_found_cone }}` | page-not-found | [not-found-cone.png](../../../ghl/pages/page-not-found/assets/not-found-cone.png) |
 | `platformTodayHeroImage` | `{{ custom_values.bwci_img_platform_today_hero }}` | platform-today | [platform-today-hero-arcs.png](../../../ghl/pages/platform-today/assets/platform-today-hero-arcs.png) |
+| `privateInvestorsHeroImage` | `{{ custom_values.bwci_img_private_investors_family_offices_hero }}` | private-investors-family-offices | [pf-hero-threads.png](../../../ghl/pages/private-investors-family-offices/assets/pf-hero-threads.png) |
+| `privateInvestorsImpactImage` | `{{ custom_values.bwci_img_private_investors_family_offices_impact }}` | private-investors-family-offices | [pf-impact-scale.png](../../../ghl/pages/private-investors-family-offices/assets/pf-impact-scale.png) |
 
 History: Who We Are (PR #41) first added its hero to the shared list, which changed one line in all 46 existing
 outputs. That change had no effect on them (old and new resolvers gave identical results), but it made every file
@@ -32,8 +34,10 @@ outputs are byte-identical again to their files before PR #41, Who We Are is unc
 (built under the PR #41 list) changes that one line back. No installed block needs re-pasting because of either
 change. Both proposed keys are in [the to-create file](bwci-image-custom-values-to-create.json). Page not found (404,
 `feat/ghl-page-not-found`) adds `notFoundConeImage` the same way; the 25 other generated pages rebuild byte-identical.
-The Platform Today hero update (`feat/ghl-platform-today-hero`) adds `platformTodayHeroImage` the same way. The file
-now holds ten keys.
+The Platform Today hero update (`feat/ghl-platform-today-hero`) adds `platformTodayHeroImage` the same way.
+Private Investors & Family Offices (`feat/ghl-private-investors-family-offices`) adds two, `privateInvestorsHeroImage`
+and `privateInvestorsImpactImage`, the same way; the 27 other generated pages rebuild byte-identical. The file now
+holds twelve keys.
 The inventory tables below describe the 23-page revision of PR #39.
 
 ## How the outputs work
@@ -54,7 +58,7 @@ The inventory tables below describe the 23-page revision of PR #39.
 - `index.js` and the existing builders are development only. The small resolver is inlined into each
   page; pasted blocks load no shared JavaScript, React, source helpers or build tools.
 
-## Keys to create (six from PR #39, one each from Who We Are, Providence Asset Management, Page not found and The Platform Today)
+## Keys to create (six from PR #39, one each from Who We Are, Providence Asset Management, Page not found and The Platform Today, two from Private Investors & Family Offices)
 
 Upload the supplied assets to GHL Media Storage and use the direct image URLs as the values. `#` is
 only a safe initial placeholder; no hosted production URLs are invented here. Do not recreate the
@@ -72,9 +76,11 @@ only a safe initial placeholder; no hosted production URLs are invented here. Do
 | `bwci_img_providence_asset_management_hero` | `{{ custom_values.bwci_img_providence_asset_management_hero }}` | providence-asset-management | [pam-hero.png](../../../ghl/pages/providence-asset-management/assets/pam-hero.png) |
 | `bwci_img_page_not_found_cone` | `{{ custom_values.bwci_img_page_not_found_cone }}` | page-not-found | [not-found-cone.png](../../../ghl/pages/page-not-found/assets/not-found-cone.png) |
 | `bwci_img_platform_today_hero` | `{{ custom_values.bwci_img_platform_today_hero }}` | platform-today | [platform-today-hero-arcs.png](../../../ghl/pages/platform-today/assets/platform-today-hero-arcs.png) |
+| `bwci_img_private_investors_family_offices_hero` | `{{ custom_values.bwci_img_private_investors_family_offices_hero }}` | private-investors-family-offices | [pf-hero-threads.png](../../../ghl/pages/private-investors-family-offices/assets/pf-hero-threads.png) |
+| `bwci_img_private_investors_family_offices_impact` | `{{ custom_values.bwci_img_private_investors_family_offices_impact }}` | private-investors-family-offices | [pf-impact-scale.png](../../../ghl/pages/private-investors-family-offices/assets/pf-impact-scale.png) |
 
 [API request bodies](bwci-image-custom-values-to-create.json) contain only `name` and `value` for the
-ten proposed values. GHL's create endpoint accepts **one object per POST**, not the whole array.
+twelve proposed values. GHL's create endpoint accepts **one object per POST**, not the whole array.
 The existing loop script can read this file through `--file`. Check the returned `fieldKey` matches
 the proposed reference after creation. This repository does not create values in the account.
 

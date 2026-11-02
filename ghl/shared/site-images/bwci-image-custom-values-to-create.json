@@ -38,5 +38,13 @@
   {
     "name": "bwci_img_platform_today_hero",
     "value": "#"
+  },
+  {
+    "name": "bwci_img_private_investors_family_offices_hero",
+    "value": "#"
+  },
+  {
+    "name": "bwci_img_private_investors_family_offices_impact",
+    "value": "#"
   }
 ]
