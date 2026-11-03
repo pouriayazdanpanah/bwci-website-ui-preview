@@ -2,8 +2,8 @@
 
 This is a port of `design/Platform Today.dc.html` to one GoHighLevel Custom Code block. The block includes the shared header, breadcrumb and footer.
 - **First port:** design export `aa929dd` (1 November 2026), merged in PR #45.
-- **Hero update:** design export `df79d85` (2 November 2026) added a hero image and a new hero layout. The port follows it on branch `feat/ghl-platform-today-hero`, from main `df79d85` (a new branch name, because `feat/ghl-platform-today` is already merged).
-- Merge and live GoHighLevel installation are separate steps.
+- **Hero update:** design export `df79d85` (2 November 2026) added a hero image and a new hero layout. The port follows it on branch `feat/ghl-platform-today-hero`, from main `df79d85` (a new branch name, because `feat/ghl-platform-today` is already merged); merged in PR #46 (`b5a0d25`).
+- Live GoHighLevel installation is a separate step and is not verified.
 
 ## Files
 

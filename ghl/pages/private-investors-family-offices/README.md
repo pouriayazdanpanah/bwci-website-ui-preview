@@ -1,8 +1,8 @@
 # Private Investors & Family Offices — GoHighLevel port
 
 This is a port of `design/Private Investors Family Offices.dc.html` (design export `df79d85`, 2 November 2026) to one GoHighLevel Custom Code block. The block includes the shared header, breadcrumb and footer.
-- Branch `feat/ghl-private-investors-family-offices`, from main `b5a0d25`.
-- Merge and live GoHighLevel installation are separate steps.
+- Branch `feat/ghl-private-investors-family-offices`, from main `b5a0d25`; merged in PR #47 (`ee5629c`).
+- Live GoHighLevel installation is a separate step and is not verified.
 
 ## Files
 

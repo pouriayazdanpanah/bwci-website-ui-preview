@@ -1,8 +1,8 @@
 # Contact — GoHighLevel port
 
 This is a port of `design/Contact.dc.html` (design export `df79d85`, 2 November 2026) to one GoHighLevel Custom Code block. The block includes the shared header, breadcrumb and footer.
-- Branch `feat/ghl-contact`, from main `ee5629c`.
-- Merge and live GoHighLevel installation are separate steps.
+- Branch `feat/ghl-contact`, from main `ee5629c`; merged in PR #48 (`454f8e1`).
+- Live GoHighLevel installation is a separate step and is not verified.
 
 ## Files
 
