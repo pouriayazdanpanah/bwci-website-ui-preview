@@ -40,7 +40,9 @@ const sections={
 // bwci_url_<destination>; the owner creates them (the merge field stays literal, so the link stays
 // unavailable, until then). Listed separately so the export-backed inventory above is unchanged.
 const proposed={ourRole:'our_role',providenceAssetManagement:'providence_asset_management',
- contactEmail:'contact_email',contactPhone:'contact_phone',mediaEmail:'media_email'};
+ contactEmail:'contact_email',contactPhone:'contact_phone',mediaEmail:'media_email',
+ // Start a Conversation: the embed link of each route's GHL form (an iframe src, kept under the page config's `forms`)
+ formSmes:'form_smes',formInvestors:'form_investors',formBanks:'form_banks',formPartners:'form_partners'};
 // Existing Custom Values outside the bwci_url_ naming, reused by their exact name. `contact` is the owner's external
 // survey form (the Contact page's "Start a Conversation" links, by the owner's decision); it is not bwci_url_contact.
 const named={contactSurvey:'contact'};
