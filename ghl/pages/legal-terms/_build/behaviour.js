@@ -2,9 +2,10 @@
 //   NODE_PATH=$(npm root -g) node behaviour.js <url>  > trace.txt
 // Port classes and ids are normalised by dropping the ltm- prefix. Covers: the "On this page" index (first section
 // marked at load, the mark following the reading band while scrolling, a click scrolling smoothly to its section with
-// the hash and focus), the sticky index column (≥900 px) and its release, the legal pages switcher (current page,
-// hover, scroll position at widths where source and port agree), the hover states of the breadcrumb, index and
-// "Contact us" links, keyboard order, live resize across the breakpoints, and reduced motion.
+// the hash and focus), the sticky index column (≥900 px) and its release, the legal pages bar (LegalNav: the link list
+// or, below 768 px, the select; the current page, its options, the sticky position under the header, hover and focus),
+// the hover states of the breadcrumb, index and "Contact us" links, keyboard order, live resize across the breakpoints,
+// and reduced motion.
 const { chromium } = require('playwright');
 const routeReact = require('./qa-routes');
 const [url] = process.argv.slice(2);
@@ -12,6 +13,8 @@ const P = 'ltm';
 // a source selector and its port equivalent (every class and id carries the prefix)
 const S = (sel) => sel + ', ' + sel.replace(/\.([a-z][\w-]*)/g, '.' + P + '-$1').replace(/#([a-z][\w-]*)/g, '#' + P + '-$1');
 const strip = (s) => String(s).split(P + '-').join('');
+// the legal pages bar has no classes in the source (inline styles); it is found by its label in both pages
+const BAR = 'nav[aria-label="Legal pages"]';
 
 (async () => {
   const browser = await chromium.launch();
@@ -72,27 +75,54 @@ const strip = (s) => String(s).split(P + '-').join('');
     await page.close();
   }
 
-  // 3. the legal pages switcher: the current page, hover, scroll position (widths where source and port agree)
-  for (const w of [1440, 1100, 768, 390]) {
+  // 3. the legal pages bar: list or select, the current page, the options, sticky under the header while scrolling
+  for (const w of [1440, 1024, 768, 767, 390]) {
     const page = await open(w, 900);
-    log(w + ' switcher', await page.evaluate((s) => {
-      const u = document.querySelector(s); const c = u.querySelector('[aria-current="page"]');
-      const cs = getComputedStyle(c);
-      return { current: c.textContent.trim().slice(0, 14), scroll: Math.round(u.scrollLeft), max: u.scrollWidth - u.clientWidth, display: getComputedStyle(u).display, snap: getComputedStyle(u).scrollSnapType, bg: cs.backgroundImage.slice(0, 60), shadow: cs.boxShadow };
-    }, S('.lg-nav ul')));
+    const bar = async () => page.evaluate((b) => {
+      const n = document.querySelector(b); const host = n.parentElement;
+      const shown = (e) => !!e && getComputedStyle(e).display !== 'none' && !e.closest('[hidden]');
+      const ul = n.querySelector('ul'); const sel = n.querySelector('select');
+      const cur = n.querySelector('a[aria-current="page"]');
+      const r = n.getBoundingClientRect();
+      return {
+        list: shown(ul) ? [...ul.querySelectorAll('a')].map((a) => a.textContent.trim() + (a.getAttribute('aria-current') ? '*' : '')).join(' ') : 'absent',
+        select: shown(sel) ? sel.options[sel.selectedIndex].textContent.trim() + ' of ' + [...sel.options].map((o) => o.textContent.trim()).join('/') : 'absent',
+        current: shown(cur) ? (() => { const c = getComputedStyle(cur); return [c.color, c.fontWeight, c.borderBottom, c.minHeight].join(' ; '); })() : '-',
+        host: getComputedStyle(host).position + ' ' + getComputedStyle(host).top + ' ' + getComputedStyle(host).zIndex,
+        box: Math.round(r.top) + ' ' + Math.round(r.width) + 'x' + Math.round(r.height),
+      };
+    }, BAR);
+    log(w + ' bar at load', await bar());
+    for (const y of [400, 1200]) {
+      await page.evaluate((v) => window.scrollTo({ top: v, behavior: 'instant' }), y); await page.waitForTimeout(400);
+      log(w + ' bar at ' + y, (await bar()).box);
+    }
     await page.close();
   }
   {
     const page = await open(1440, 900);
-    const other = page.locator(S('.lg-nav a:not([aria-current])')).first();
-    const P2 = ['backgroundColor', 'color', 'transform', 'transition'];
+    const P2 = ['color', 'borderBottomColor', 'fontWeight', 'transition', 'outlineStyle', 'outlineColor', 'outlineOffset'];
+    const other = page.locator(BAR + ' a:not([aria-current])').first();
     const before = await styles(other, P2);
-    const icBefore = await styles(other.locator(S('.lg-ic')), ['backgroundColor', 'borderTopColor']);
     await other.hover(); await page.waitForTimeout(400);
-    log('switcher hover', { before, after: await styles(other, P2), ic: [icBefore, await styles(other.locator(S('.lg-ic')), ['backgroundColor', 'borderTopColor'])] });
-    const cur = page.locator(S('.lg-nav a[aria-current]'));
+    log('bar hover', { before, after: await styles(other, P2) });
+    const cur = page.locator(BAR + ' a[aria-current]');
     const cb = await styles(cur, P2); await cur.hover(); await page.waitForTimeout(400);
-    log('current hover', { before: cb, after: await styles(cur, P2) });
+    log('bar current hover', { before: cb, after: await styles(cur, P2) });
+    await page.mouse.move(2, 2); await other.focus(); await page.waitForTimeout(300);
+    log('bar focus', await styles(other, P2));
+    await page.close();
+  }
+  {
+    const page = await open(390, 844);
+    const sel = page.locator(BAR + ' select');
+    await sel.focus(); await page.waitForTimeout(200);
+    log('bar select', await sel.evaluate((e) => { const c = getComputedStyle(e); return [c.appearance, c.fontSize, c.fontWeight, c.minHeight, c.borderRadius, c.backgroundColor, c.borderTopColor, e.value ? 'value' : 'none'].join(' ; '); }));
+    log('bar label', await page.locator(BAR + ' label').evaluate((e) => e.firstElementChild.textContent + ' ' + getComputedStyle(e).padding));
+    await page.close();
+  }
+  {
+    const page = await open(1440, 900);
     // hovers of the breadcrumb, index and "Contact us" links
     for (const [label, sel, props] of [['breadcrumb', '.lg-bc a', ['color']], ['index link', '.pg-index a', ['color', 'borderLeftColor', 'backgroundColor']], ['contact us', '.lg-ask .link', ['color', 'borderBottomColor']]]) {
       const loc = page.locator(S(sel)).last();
@@ -101,10 +131,10 @@ const strip = (s) => String(s).split(P + '-').join('');
       const b = await styles(loc, props.concat(['transition'])); await loc.hover(); await page.waitForTimeout(500);
       log('hover ' + label, { before: b, after: await styles(loc, props.concat(['transition'])) });
     }
-    // keyboard order from the breadcrumb through the switcher, the index and the "Contact us" link
+    // keyboard order from the breadcrumb through the legal pages bar, the index and the "Contact us" link
     await page.evaluate((s) => { const a = document.querySelector(s); a.scrollIntoView({ block: 'center', behavior: 'instant' }); a.focus(); }, S('.lg-bc a'));
     const order = [];
-    for (let i = 0; i < 14; i++) {
+    for (let i = 0; i < 16; i++) {
       order.push(await page.evaluate(() => { const a = document.activeElement; return a.tagName + ':' + a.textContent.replace(/\s+/g, ' ').trim().slice(0, 24) + ':' + getComputedStyle(a).outlineStyle; }));
       await page.keyboard.press('Tab');
     }
@@ -115,15 +145,15 @@ const strip = (s) => String(s).split(P + '-').join('');
   // 4. live resize across the breakpoints
   {
     const page = await open(1440, 900);
-    const els = ['.lg-hero', '.lg-nav', '.lg-nav ul', '.lg-nav li', '.lg-grid', '.lg-side', '.lg-ask', '.lg-ask .link', '.pg-index'].map(S);
-    for (const [w, h] of [[1280, 900], [1101, 900], [1100, 900], [900, 900], [899, 900], [768, 900], [767, 900], [641, 900], [640, 900], [360, 640], [1600, 1000]]) {
+    const els = ['.lg-hero'].map(S).concat([BAR, BAR + ' ul', BAR + ' li', BAR + ' label']).concat(['.lg-grid', '.lg-side', '.lg-ask', '.lg-ask .link', '.pg-index'].map(S));
+    for (const [w, h] of [[1280, 900], [1101, 900], [1100, 900], [900, 900], [899, 900], [768, 900], [767, 900], [641, 900], [640, 900], [360, 640], [800, 900], [1600, 1000]]) {
       await page.setViewportSize({ width: w, height: h }); await page.waitForTimeout(150);
-      log('resize ' + w, await page.evaluate((es) => es.map((g) => { const e = document.querySelector(g); const c = getComputedStyle(e); const r = e.getBoundingClientRect(); return c.display + ' ' + c.gridTemplateColumns + ' ' + c.position + ' ' + Math.round(r.width) + 'x' + Math.round(r.height); }).concat([document.documentElement.scrollWidth]), els));
+      log('resize ' + w, await page.evaluate((es) => es.map((g) => { const e = document.querySelector(g); if (!e || e.closest('[hidden]')) return 'absent'; const c = getComputedStyle(e); const r = e.getBoundingClientRect(); return c.display + ' ' + c.gridTemplateColumns + ' ' + c.position + ' ' + Math.round(r.width) + 'x' + Math.round(r.height); }).concat([document.documentElement.scrollWidth]), els));
     }
     await page.close();
   }
 
-  // 5. reduced motion: the index click jumps at once, the switcher press does not scale
+  // 5. reduced motion: the index click (final position), the bar's colour transition (the source keeps it)
   {
     const page = await open(1440, 900, 'reduce');
     const link = page.locator(S('.pg-index a')).last();
@@ -131,7 +161,7 @@ const strip = (s) => String(s).split(P + '-').join('');
     // (html{scroll-behavior:smooth}), a documented difference
     await link.click(); await page.waitForTimeout(1600);
     log('reduced index click', await page.evaluate((sel) => Math.round(document.querySelector(sel).getBoundingClientRect().top), S('.pg-doc > section[id]:last-child')));
-    log('reduced press', await page.evaluate((s) => getComputedStyle(document.querySelector(s)).transitionDuration, S('.lg-nav a')));
+    log('reduced press', await page.evaluate((s) => getComputedStyle(document.querySelector(s)).transitionDuration, BAR + ' a:not([aria-current])'));
     await page.close();
   }
   console.log(strip(lines.join('\n')));

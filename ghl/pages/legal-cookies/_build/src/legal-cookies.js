@@ -1,9 +1,9 @@
 /* BWCI — Cookie notice · GoHighLevel runtime (vanilla JS, no dependencies).
    Replaces the Claude Design runtime (support.js + React) used by design/Cookies.dc.html and its SiteHeader /
    SiteFooter components and bwci-motion.js. Everything is scoped to #bwci-legal-cookies. The page's own text/x-dc component
-   (shared by the five legal pages) is reproduced below: the "Wording to approve" badge (source prop "flags"), the
-   legal pages switcher scrolled to the current page when it overflows, and the "On this page" index that marks the
-   section being read. */
+   (shared by the five legal pages) is reproduced below: the "Wording to approve" badge (source prop "flags") and the "On this page"
+   index that marks the section being read. The legal pages bar (design/LegalNav.dc.html) comes from the shared site
+   chrome. */
 (function () {
   'use strict';
 
@@ -81,11 +81,6 @@
       try { if (history.pushState) history.pushState(null, '', '#' + id); } catch (err) { /* sandboxed */ }
     });
 
-    /* ---------- legal pages switcher: when it scrolls sideways (≤1100 px), centre the current page once ---------- */
-    var cur = q('[data-lck-rail] [aria-current="page"]');
-    var rail = cur && cur.closest('ul');
-    if (rail && rail.scrollWidth > rail.clientWidth) rail.scrollLeft = cur.parentElement.offsetLeft - (rail.clientWidth - cur.parentElement.offsetWidth) / 2;
-
     /* ---------- "On this page" index: marks the section crossing the reading band ---------- */
     var doc = q('[data-lck-doc]');
     var index = q('[data-lck-index]');
@@ -103,8 +98,10 @@
       if (first) mark(first.id);
     }
 
-    /* ================= SITE HEADER + FOOTER (shared site chrome) ================= */
+    /* ================= SITE HEADER + FOOTER, LEGAL PAGES BAR (shared site chrome) ================= */
     var chrome = siteChrome(root, cfg, on, timers);
+    // design/LegalNav.dc.html: the link list, or below 768 px a select that opens the chosen page
+    var legalnav = siteGovNav(root, cfg, on);
 
     /* ================= SHARED SCROLL MOTION (design/bwci-motion.js) =================
        bwci-motion skips sections with id "hero" or class hero / hero-fe; this hero (#lck-top.pg-hero) has neither,
@@ -118,6 +115,7 @@
         if (instance.destroyed) return;
         instance.destroyed = true;
         if (chrome) chrome.destroy();
+        if (legalnav) legalnav.destroy();
         if (motion) motion.destroy();
         if (io) io.disconnect();
         if (ac) ac.abort();

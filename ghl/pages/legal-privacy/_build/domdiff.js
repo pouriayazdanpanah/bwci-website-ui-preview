@@ -8,7 +8,7 @@ const width = Number(wArg || 1440), height = Number(hArg || 900);
 const reducedMotion = motionArg === 'motion' ? 'no-preference' : 'reduce';
 // source selector -> port selector
 const PAIRS = [
-  ['#top', '#lpv-top'], ['section.lg-nav-s', 'section.lpv-lg-nav-s'], ['#content', '#lpv-content'],
+  ['#top', '#lpv-top'], ['nav[aria-label="Legal pages"]', 'nav[aria-label="Legal pages"]'], ['#content', '#lpv-content'],
   ['footer.sft', 'footer.lpv-sft'], ['header.hdr', 'header.lpv-hdr'],
 ];
 const PROPS = ['display', 'position', 'font-family', 'font-size', 'font-weight', 'line-height', 'letter-spacing', 'color',

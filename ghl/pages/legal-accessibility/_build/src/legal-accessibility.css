@@ -60,7 +60,7 @@
 h1,h2,h3,h4,h5{ margin:0; color:var(--text-primary); } p{ margin:0; } ul,ol{ margin:0; padding:0; list-style:none; }
 a{ color:var(--accent-emerald-dark); text-decoration:none; } a:hover{ color:var(--brand-ink); }
 a:focus-visible, button:focus-visible{ outline:2px solid var(--accent-emerald); outline-offset:2px; }
-[id]{ scroll-margin-top:calc(var(--nav-h, 116px) - var(--util-h, 40px) + 24px); }
+[id]{ scroll-margin-top:calc(var(--nav-h, 116px) - var(--util-h, 0px) + 57px + 24px); }
 :scope{ --fs-floor-sm:0px; --fs-floor-body:0px; }
 @media (max-width:767px){ :scope{ --fs-floor-sm:14px; --fs-floor-body:16px; } }
 /* source: html{scroll-behavior:smooth} -- the "On this page" links scroll smoothly from the script instead, so the
@@ -73,8 +73,7 @@ a:focus-visible, button:focus-visible{ outline:2px solid var(--accent-emerald); 
 .lac-tc--inv{ background:rgba(185,143,45,.14); border-color:rgba(232,196,107,.45); color:#E8C46B; }
 .lac-tc--0{ margin-left:0; }
 
-/* 01 HERO — the inner-page dark hero, with room for the raised legal nav */
-.lac-lg-hero{ padding-bottom:calc(clamp(56px,7vw,88px) + 44px) !important; }
+/* 01 HERO — the inner-page dark hero (as Governance) */
 .lac-lg-hero h1{ margin:0 0 18px !important; }
 .lac-lg-hero .lac-lead{ max-width:640px; }
 .lac-lg-bc{ margin:0 0 28px; }
@@ -87,37 +86,13 @@ a:focus-visible, button:focus-visible{ outline:2px solid var(--accent-emerald); 
 .lac-lg-meta b{ font-weight:600; color:#E8C46B; }
 @media (max-width:767px){ .lac-lg-hero h1{ font-size:clamp(34px,9.6vw,44px) !important; } }
 
-/* 02 LEGAL NAV — a document switcher: each legal page named and explained, the current one marked */
-.lac-lg-nav-s{ position:relative; z-index:3; }
-.lac-lg-nav{ margin-top:-48px; padding:8px; border-radius:20px; background:#fff; border:1px solid var(--border-subtle); box-shadow:0 24px 48px -20px rgba(18,48,57,.18), 0 2px 6px rgba(18,48,57,.04); }
-.lac-lg-nav ul{ position:relative; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:6px; }
-.lac-lg-nav a{ display:grid; grid-template-columns:36px minmax(0,1fr); grid-template-areas:"ic t" "ic d"; column-gap:12px; row-gap:1px; align-items:center; height:100%; padding:12px 14px; border-radius:14px; border:2px solid transparent; color:var(--brand-ink); transition:background-color .2s ease, transform .16s var(--ease-out); }
-.lac-lg-nav a:active{ transform:scale(.98); }
-.lac-lg-ic{ grid-area:ic; display:flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:10px; background:var(--surface-subtle); border:1px solid var(--border-subtle); color:var(--accent-emerald-dark); transition:background-color .2s ease, color .2s ease, border-color .2s ease; }
-.lac-lg-ic svg{ width:18px; height:18px; }
-.lac-lg-t{ grid-area:t; font-size:15px; font-weight:700; line-height:1.3; letter-spacing:-.01em; }
-.lac-lg-d{ grid-area:d; font-size:13px; line-height:1.4; color:var(--text-muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.lac-lg-nav a[aria-current="page"]{ background:linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,var(--brand-ink) 0%,var(--brand-teal) 45%,var(--accent-emerald) 100%) border-box; box-shadow:0 14px 28px -20px rgba(18,131,107,.55); }
-.lac-lg-nav a[aria-current="page"] .lac-lg-ic{ background:linear-gradient(135deg,var(--brand-ink),var(--accent-emerald)); border-color:transparent; color:#fff; }
-.lac-lg-nav a[aria-current="page"] .lac-lg-d{ color:var(--text-secondary); }
-@media (hover:hover) and (pointer:fine){
-  .lac-lg-nav a:not([aria-current]):hover{ background:var(--surface-subtle); color:var(--brand-ink); }
-  .lac-lg-nav a:not([aria-current]):hover .lac-lg-ic{ background:var(--status-op-bg); border-color:var(--status-op-border); }
-}
-@media (max-width:1100px){
-  .lac-lg-nav{ padding:6px; }
-  .lac-lg-nav ul{ display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scroll-padding-inline:6px; scrollbar-width:none; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain; }
-  .lac-lg-nav ul::-webkit-scrollbar{ display:none; }
-  .lac-lg-nav li{ flex:0 0 220px; scroll-snap-align:start; }
-}
-@media (max-width:767px){ .lac-lg-nav{ margin-top:-40px; } .lac-lg-nav li{ flex-basis:200px; } .lac-lg-nav a{ padding:10px 12px; } }
-@media (prefers-reduced-motion:reduce){ .lac-lg-nav a:active{ transform:none; } }
+/* 02 LEGAL NAV — the shared LegalNav bar (design/LegalNav.dc.html), from the shared site chrome */
 
 /* 03 CONTENT — side index + paragraphs */
 .lac-lg-sec{ padding-top:clamp(48px,6vw,80px) !important; }
 .lac-lg-grid{ display:grid; grid-template-columns:minmax(0,3fr) minmax(0,8fr); gap:clamp(28px,5vw,80px); align-items:start; }
 .lac-lg-side{ display:grid; gap:14px; }
-@media (min-width:900px){ .lac-lg-side{ position:sticky; top:calc(var(--nav-h, 116px) - var(--util-h, 40px) + 32px); } }
+@media (min-width:900px){ .lac-lg-side{ position:sticky; top:calc(var(--nav-h, 116px) - var(--util-h, 0px) + 57px + 32px); } }
 .lac-lg-side-l{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
 :scope.lac-bw .lac-pg-index a[aria-current]{ color:var(--brand-ink); font-weight:600; border-color:var(--accent-emerald); }
 .lac-lg-doc{ max-width:720px; }
