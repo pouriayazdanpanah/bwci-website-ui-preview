@@ -1,7 +1,8 @@
 // Dev-only QA for the port's configuration: GHL Custom Value substitution (modelled as GHL's text replacement of
 // {{ custom_values.x }} in the pasted block), the logo (no request when unset), link availability (the legal pages,
-// Home and the page-only "Contact us" section link, composed from the Contact page value), the source prop showFlags,
-// a hostile host with the script executed twice, a copied root with a changed config, teardown, and a browser without
+// Home and the page-only "Contact us" section link, composed from the Contact page value), the legal pages bar (links,
+// and the phone select: unavailable pages disabled, a configured page opened), the source prop showFlags, a hostile host
+// with the script executed twice, a copied root with a changed config, teardown, and a browser without
 // IntersectionObserver.
 //   NODE_PATH=$(npm root -g) node config-qa.js <httpBase>      e.g. http://localhost:8123/
 // (header, drawer, footer and re-render of the shared chrome: ghl/shared/site-chrome/qa/chrome-lifecycle.js)
@@ -31,6 +32,7 @@ const page = (block, opts) => {
 const URLS = (name) => (name === 'bwci_img_logo' ? httpBase + 'ghl/shared/site-chrome/assets/bwci-logo.png' :
   /^bwci_url_/.test(name) ? '/' + name.slice(9).replace(/_/g, '-') + '?v=1' : undefined);
 
+const BAR = 'nav[aria-label="Legal pages"]';
 const STATE = (args) => {
   const [rootId, p] = args;
   const r = document.getElementById(rootId);
@@ -40,6 +42,8 @@ const STATE = (args) => {
     page: a('main a[data-' + p + '-link]'),
     logo: (logo.complete && logo.naturalWidth ? 'ok ' + logo.naturalWidth : 'none') + (logo.getAttribute('src') ? (logo.src.startsWith('data:') ? ' data' : ' url') : ' nosrc'),
     flag: (() => { const f = r.querySelector('[data-' + p + '-flag]'); return f.hidden ? 'hidden' : 'shown'; })(),
+    bar: a('nav[aria-label="Legal pages"] a[data-' + p + '-link]'),
+    select: (() => { const s = r.querySelector('nav[aria-label="Legal pages"] select'); return s.options[s.selectedIndex].textContent + ' | ' + [...s.options].map((o) => o.getAttribute('data-' + p + '-link') + '=' + o.value + (o.disabled ? '(off)' : '') + (o.label !== o.textContent ? ' "' + o.label + '"' : '')).join(' '); })(),
     index: [...r.querySelectorAll('[data-' + p + '-index] a')].filter((x) => x.getAttribute('aria-current')).map((x) => x.textContent).join(',') || 'none',
     raw: /\{\{|\}\}/.test([...r.querySelectorAll('a')].map((x) => x.getAttribute('href')).join('') + [...r.querySelectorAll('img')].map((x) => x.getAttribute('src') || '').join('')),
   };
@@ -83,6 +87,21 @@ const STATE = (args) => {
     await Promise.all([p.waitForURL('**/contact?v=1#cnt-details'), a.click()]);
     return p.url().replace(httpBase, '');
   });
+  // the legal pages bar on a phone: the select opens a configured page; an unavailable one does not navigate
+  await run('select configured', page(substitute(HOSTED, URLS)), async (p) => {
+    await p.route(httpBase + 'terms?v=1', (r) => r.fulfill({ contentType: 'text/html', body: 'terms' }));
+    const sel = p.locator(BAR + ' select');
+    await Promise.all([p.waitForURL('**/terms?v=1'), sel.selectOption({ label: 'Terms' })]);
+    return p.url().replace(httpBase, '');
+  }, { viewport: { width: 390, height: 844 } });
+  await run('select unavailable', page(HOSTED), async (p) => {
+    const r = await p.evaluate((b) => {
+      const sel = document.querySelector(b + ' select'); sel.selectedIndex = 3; sel.dispatchEvent(new Event('change', { bubbles: true }));
+      return sel.options[sel.selectedIndex].textContent;
+    }, BAR);
+    await p.waitForTimeout(300);
+    return { shows: r, url: p.url().replace(httpBase, ''), status: await p.evaluate((rootId) => [...document.getElementById(rootId).querySelectorAll('[role="status"], [aria-live]')].map((e) => e.textContent).filter(Boolean).join(' | '), ROOT) };
+  }, { viewport: { width: 390, height: 844 } });
   // the source prop: default, off, and a non-boolean value (which keeps the default)
   await run('flags default', page(INLINE), async (p) => (await state(p)).flag);
   await run('flags off', page(withCfg(INLINE, (c) => { c.showFlags = false; })), async (p) => (await state(p)).flag);
@@ -96,8 +115,11 @@ const STATE = (args) => {
       r.layout = await p.evaluate((rootId) => {
         const root = document.getElementById(rootId);
         const pick = (s) => { const e = root.querySelector(s); const c = getComputedStyle(e); const b = e.getBoundingClientRect(); return Math.round(b.width) + 'x' + Math.round(b.height) + ' ' + c.display; };
-        return [pick('.lac-lg-nav ul'), pick('.lac-lg-grid'), pick('.lac-lg-side'), pick('.lac-pg-doc h2'), getComputedStyle(root.querySelector('.lac-pg-doc h2')).fontFamily.split(',')[0]];
+        return [pick('nav[aria-label="Legal pages"]'), pick('.lac-lg-grid'), pick('.lac-lg-side'), pick('.lac-pg-doc h2'), getComputedStyle(root.querySelector('.lac-pg-doc h2')).fontFamily.split(',')[0]];
       }, ROOT);
+      // the legal pages bar stays stuck under the sticky header while scrolling
+      await p.evaluate(() => window.scrollTo({ top: 1500, behavior: 'instant' })); await p.waitForTimeout(400);
+      r.barStuck = await p.evaluate((b) => { const n = document.querySelector(b).getBoundingClientRect(); const h = document.querySelector('header[class*="-hdr"]').getBoundingClientRect(); return Math.round(n.top) + ' ' + Math.round(h.bottom); }, BAR);
       // the index click inside the host lands the section below the sticky header
       await p.locator('[data-' + P + '-index] a').last().click(); await p.waitForTimeout(1500);
       r.jump = await p.evaluate((rootId) => Math.round(document.getElementById(rootId).querySelector('[data-lac-doc] section[id]:last-child').getBoundingClientRect().top) + ' ' + location.hash, ROOT);

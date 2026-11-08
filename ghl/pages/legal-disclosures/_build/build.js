@@ -31,11 +31,11 @@ const DYNAMIC_CLASSES = [];
 // every source class name carries the lds- prefix; bwci-system.css is renamed to match
 const rename = (n) => 'lds-' + n;
 const pageCss = fs.readFileSync(path.join(__dirname, 'src', 'legal-disclosures.css'), 'utf8');
-// shared site chrome: SiteHeader current="legal" (no menu item is current), no shared Breadcrumb (the page has its own);
+// shared site chrome: SiteHeader current="legal" (no menu item is current), no shared Breadcrumb (the page has its own); LegalNav current="disclosures";
 // sections adds the page-only Contact details link; content:true adds bwci-system.css
 // parts C and E
 const chrome = require('../../../shared/site-chrome/site-chrome')({
-  prefix: 'lds', current: 'legal', breadcrumb: null, content: true, rename, sections: ['contactDetails'],
+  prefix: 'lds', current: 'legal', breadcrumb: null, legalnav: 'disclosures', content: true, rename, sections: ['contactDetails'],
 });
 const siteLinks = require('../../../shared/site-links');
 
@@ -91,7 +91,7 @@ function scopeSelector(s) {
 
 /* ---------------- inputs ---------------- */
 const htmlSrc = fs.readFileSync(path.join(SRC, 'legal-disclosures.html'), 'utf8').trim()
-  .replace(/<!--chrome:(header|breadcrumb|footer)-->/g, (_, k) => chrome[k]);
+  .replace(/<!--chrome:(header|breadcrumb|legalnav|footer)-->/g, (_, k) => chrome[k]);
 const jsSrc = fs.readFileSync(path.join(SRC, 'legal-disclosures.js'), 'utf8').trim();
 if (!jsSrc.includes('/*@site-chrome*/')) throw new Error('/*@site-chrome*/ marker missing from legal-disclosures.js');
 const js = jsSrc.replace('/*@site-chrome*/', () => chrome.runtime);

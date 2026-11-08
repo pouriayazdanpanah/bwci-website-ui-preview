@@ -10,6 +10,7 @@
 //   Breadcrumb.dc.html  → TRAILS, plus its inline styles (kept inline, as in the source)
 //   bwci-system.css     → parts A, A2, B and D; with content:true also C and E (the .bw content pages)
 //   GovNav.dc.html      → the governance section bar (govnav option), with its own runtime part
+//   LegalNav.dc.html    → the legal pages bar (legalnav option), the same template and runtime part as GovNav
 //   PersonCard.dc.html + bwci-people.js + image-slot.js → person cards (people option), with their own runtime part
 // Every design href must map to a config link key (HREF_KEYS below). An unknown href fails the build,
 // so a new design destination cannot slip through without a config key.
@@ -136,6 +137,7 @@ module.exports = function siteChrome(opts) {
   const withSystem = opts.system !== false;  // false for a page that does not load bwci-system.css / bwci-motion.js (Main)
   const withContent = !!opts.content;      // true for a .bw content page: adds bwci-system.css parts C and E
   const govCur = opts.govnav || null;       // GovNav current prop ('hub', 'board', 'leadership'), or null when the page has none
+  const legalCur = opts.legalnav || null;   // LegalNav current prop ('privacy', 'cookies', 'accessibility', 'terms', 'disclosures'), or null
   const withPeople = !!opts.people;         // true for a page with PersonCard components (Board, Leadership)
   const defaults = Object.assign({}, LINK_DEFAULTS, opts.links || {}); // per-page default routes (e.g. Main's in-page #bwci-impact)
   const L = (k) => 'data-' + P + '-link="' + k + '"';
@@ -269,46 +271,47 @@ module.exports = function siteChrome(opts) {
     if (!/style-hover="color:#FFFFFF;"/.test(bcSrc) || !/style-focus="outline:2px solid #E8C46B; outline-offset:3px;"/.test(bcSrc)) throw new Error('Breadcrumb hover/focus styles changed; update site-chrome.js');
   }
 
-  /* ---------------- governance section bar (GovNav; inline styles kept, as in the source) ---------------- */
-  let govnav = '';
-  if (govCur) {
-    const gnSrc = read('GovNav.dc.html');
-    const { SECTIONS } = constants(between(gnSrc, 'data-dc-script', '</script>'), ['SECTIONS']);
-    const style = (re) => { const m = re.exec(gnSrc); if (!m) throw new Error('GovNav style not found: ' + re); return m[1]; };
-    const sNav = style(/<nav aria-label="Governance sections" style="([^"]*)"/);
+  /* ---------------- section bars (GovNav, LegalNav; inline styles kept, as in the source) ----------------
+     The two components share one template: a sticky link list, or below 768 px a native select. They differ in
+     the aria label, the select label, the list constant and (GovNav on the hub) an extra option and an in-page
+     link. Both use the same hooks, CSS and runtime part (site-chrome.govnav.js). */
+  function sectionBar(bar) {
+    const src = read(bar.file);
+    const LIST = constants(between(src, 'data-dc-script', '</script>'), [bar.list])[bar.list];
+    const style = (re) => { const m = re.exec(src); if (!m) throw new Error(bar.name + ' style not found: ' + re); return m[1]; };
+    const sNav = style(new RegExp('<nav aria-label="' + bar.aria + '" style="([^"]*)"'));
     const sIn = style(/<nav [^>]*>\s*<div style="([^"]*)"/);
     const sUl = style(/<ul style="([^"]*)"/);
     const sLi = style(/<li style="([^"]*)"/);
     const sOn = style(/aria-current="page" style="([^"]*)"/);
     const sOff = style(/<sc-if value="\{\{ it\.off \}\}"[^>]*><a href="\{\{ it\.href \}\}" style="([^"]*)"/);
     const sLabel = style(/<label style="([^"]*)"/);
-    const sLabelT = style(/<label [^>]*>\s*<span style="([^"]*)">Section<\/span>/);
-    const sWrap = style(/Section<\/span>\s*<span style="([^"]*)"/);
+    const sLabelT = style(new RegExp('<label [^>]*>\\s*<span style="([^"]*)">' + bar.label + '<\\/span>'));
+    const sWrap = style(new RegExp(bar.label + '<\\/span>\\s*<span style="([^"]*)"'));
     const sSel = style(/<select [^>]*style="([^"]*)"/);
-    const svg = /(<svg width="14"[\s\S]*?<\/svg>)/.exec(gnSrc)[1];
+    const svg = /(<svg width="14"[\s\S]*?<\/svg>)/.exec(src)[1];
     // the source emits style-hover / style-focus as !important :hover / :focus rules (see css())
-    if (!/style-hover="color:#123039; border-bottom-color:#D5E0DC;"/.test(gnSrc) || (gnSrc.match(/style-focus="outline:2px solid #12836B; outline-offset:-2px;"/g) || []).length !== 2) throw new Error('GovNav hover/focus styles changed; update site-chrome.js');
-    if (!/window\.matchMedia\('\(max-width:767px\)'\)/.test(gnSrc)) throw new Error('GovNav breakpoint changed; update site-chrome.govnav.js');
-    // on the hub the framework link stays on the page; elsewhere it is a configured route
-    const target = (href) => (govCur === 'hub' && href === 'Governance.dc.html#framework' ? { href: '#' + P + '-framework', attr: '' } : { href: defaults[keyOf(href)], attr: ' ' + L(keyOf(href)) });
-    const items = SECTIONS.map((sct) => {
-      const on = sct.k === govCur, tg = target(sct.href);
+    if (!/style-hover="color:#123039; border-bottom-color:#D5E0DC;"/.test(src) || (src.match(/style-focus="outline:2px solid #12836B; outline-offset:-2px;"/g) || []).length !== 2) throw new Error(bar.name + ' hover/focus styles changed; update site-chrome.js');
+    if (!/window\.matchMedia\('\(max-width:767px\)'\)/.test(src)) throw new Error(bar.name + ' breakpoint changed; update site-chrome.govnav.js');
+    const target = bar.target || ((href) => ({ href: defaults[keyOf(href)], attr: ' ' + L(keyOf(href)) }));
+    const items = LIST.map((sct) => {
+      const on = sct.k === bar.current, tg = target(sct.href);
       return '          <li style="' + esc(sLi) + '"><a class="' + P + '-gn__a' + (on ? '' : ' ' + P + '-gn__a--off') + '" href="' + esc(tg.href) + '"' + tg.attr +
         (on ? ' aria-current="page" style="' + esc(sOn) + '"' : ' style="' + esc(sOff) + '"') + '>' + I(sct.t) + '</a></li>';
     });
-    const opts = (govCur === 'hub' ? [{ t: 'Governance overview', href: 'Governance.dc.html' }] : []).concat(SECTIONS);
-    const curS = SECTIONS.find((sct) => sct.k === govCur);
-    const curHref = curS ? curS.href : 'Governance.dc.html';
+    const opts = (bar.extraOptions || []).concat(LIST);
+    const curS = LIST.find((sct) => sct.k === bar.current);
+    const curHref = curS ? curS.href : bar.fallbackHref;
     const options = opts.map((o) => { const tg = target(o.href); return '              <option value="' + esc(tg.href) + '"' + tg.attr + (o.href === curHref ? ' selected' : '') + '>' + esc(o.t) + '</option>'; });
-    govnav = [
+    return [
       '<div class="' + P + '-gn-host" data-' + P + '-govnav>',
-      '  <nav aria-label="Governance sections" style="' + esc(sNav) + '">',
+      '  <nav aria-label="' + bar.aria + '" style="' + esc(sNav) + '">',
       '    <div style="' + esc(sIn) + '">',
       '      <ul style="' + esc(sUl) + '" data-' + P + '-gn-wide>',
       items.join('\n'),
       '      </ul>',
       '      <label style="' + esc(sLabel) + '" data-' + P + '-gn-narrow hidden>',
-      '        <span style="' + esc(sLabelT) + '">Section</span>',
+      '        <span style="' + esc(sLabelT) + '">' + bar.label + '</span>',
       '        <span style="' + esc(sWrap) + '">',
       '          <select style="' + esc(sSel) + '" data-' + P + '-gn-select>',
       options.join('\n'),
@@ -321,6 +324,16 @@ module.exports = function siteChrome(opts) {
       '</div>',
     ].join('\n');
   }
+  // GovNav: on the hub the framework link stays on the page; elsewhere it is a configured route
+  const govnav = govCur ? sectionBar({
+    name: 'GovNav', file: 'GovNav.dc.html', list: 'SECTIONS', aria: 'Governance sections', label: 'Section', current: govCur,
+    target: (href) => (govCur === 'hub' && href === 'Governance.dc.html#framework' ? { href: '#' + P + '-framework', attr: '' } : { href: defaults[keyOf(href)], attr: ' ' + L(keyOf(href)) }),
+    extraOptions: govCur === 'hub' ? [{ t: 'Governance overview', href: 'Governance.dc.html' }] : [], fallbackHref: 'Governance.dc.html',
+  }) : '';
+  // LegalNav: the five legal pages, each a configured route (the source falls back to the first page)
+  const legalnav = legalCur ? sectionBar({
+    name: 'LegalNav', file: 'LegalNav.dc.html', list: 'PAGES', aria: 'Legal pages', label: 'Legal', current: legalCur, fallbackHref: 'Privacy.dc.html',
+  }) : '';
 
   /* ---------------- person cards (PersonCard; data from bwci-people.js, portrait in an image-slot) ---------------- */
   const D = withPeople ? loadPeople() : null;
@@ -427,8 +440,8 @@ module.exports = function siteChrome(opts) {
       '.' + P + '-slot__frame{ position:absolute; inset:0; overflow:hidden; background:rgba(127,127,127,.08); }',
       '.' + P + '-slot__frame img{ display:block; position:absolute; max-width:none; left:50%; top:50%; width:100%; height:100%; transform:translate(-50%,-50%); -webkit-user-drag:none; user-select:none; touch-action:none; }',
       '',
-    ] : []).concat(govCur ? [
-      '/* GovNav.dc.html — the dc-import wrapper, and style-hover / style-focus (the inline styles stay on the elements) */',
+    ] : []).concat(govCur || legalCur ? [
+      '/* GovNav.dc.html / LegalNav.dc.html — the dc-import wrapper, and style-hover / style-focus (the inline styles stay on the elements) */',
       '.' + P + '-gn-host{ display:block; position:sticky; top:calc(var(--nav-h, 116px) - var(--util-h, 0px)); z-index:50; }',
       '.' + P + '-gn-host [hidden]{ display:none !important; }',
       '.' + P + '-gn__a--off:hover{ color:#123039 !important; border-bottom-color:#D5E0DC !important; }',
@@ -451,11 +464,11 @@ module.exports = function siteChrome(opts) {
   }
 
   /* ---------------- runtime (inlined into the page script) ---------------- */
-  const runtime = (siteLinks.runtimeFor(opts.sections || []) + '\n' + siteImages.runtimeFor(opts.images || []) + '\n' + fs.readFileSync(RUNTIME, 'utf8') + (govCur ? '\n' + fs.readFileSync(GOVNAV_RUNTIME, 'utf8') : '') +
+  const runtime = (siteLinks.runtimeFor(opts.sections || []) + '\n' + siteImages.runtimeFor(opts.images || []) + '\n' + fs.readFileSync(RUNTIME, 'utf8') + (govCur || legalCur ? '\n' + fs.readFileSync(GOVNAV_RUNTIME, 'utf8') : '') +
     (withPeople ? '\n' + fs.readFileSync(PEOPLE_RUNTIME, 'utf8') : '')).replace(/__P__/g, P).trim();
 
   const links = {};
-  for (const m of (header + breadcrumb + govnav + footer).matchAll(new RegExp('data-' + P + '-link="([^"]+)"', 'g'))) links[m[1]] = defaults[m[1]];
+  for (const m of (header + breadcrumb + govnav + legalnav + footer).matchAll(new RegExp('data-' + P + '-link="([^"]+)"', 'g'))) links[m[1]] = defaults[m[1]];
   // the generated markup keeps the design hrefs; the page build swaps them for the config defaults
   const swap = (h) => h.replace(new RegExp('href="([^"]+)" data-' + P + '-link="([^"]+)"', 'g'), (_, href, k) => 'href="' + esc(defaults[k]) + '" data-' + P + '-link="' + k + '"');
 
@@ -465,7 +478,7 @@ module.exports = function siteChrome(opts) {
       for (const k of siteImages.pageRoots) if (Object.hasOwn(cfg, k) && !(opts.images || []).includes(k)) throw new Error('Image setting ' + k + ' needs images: [\'' + k + '\'] in the site-chrome options');
       return siteImages.forOutput(cfg);
     },
-    header: swap(header), breadcrumb: swap(breadcrumb), govnav, footer: swap(footer), css, runtime,
+    header: swap(header), breadcrumb: swap(breadcrumb), govnav, legalnav, footer: swap(footer), css, runtime,
     links,                                  // chrome link keys used by this page, with default routes
     unresolved: Object.keys(links).filter((k) => links[k] === '#'),
     // Retain the old homepage-anchor setting without making it the independent Impact destination.

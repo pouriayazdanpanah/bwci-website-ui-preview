@@ -11,6 +11,14 @@ The shared design footer now links to the five standalone policy pages. The 30 e
 Contact's owner-approved survey override is preserved. Do not replace it merely because the conversation design now
 exists.
 
+**Export `aac105f` (8 November, imported to `main` by the owner):** adds the shared `LegalNav.dc.html` and replaces the
+five policy pages' switcher with it: a sticky bar of five links under the header, and a "Legal" select below 768 px.
+Nothing else in the design changed. The five legal ports are updated on `feat/ghl-legal-nav` (PR to main open; not
+merged), again one PR for the five. The shared chrome builds LegalNav from the GovNav template (new `legalnav` option,
+GovNav's hooks, CSS and runtime part); the 31 other generated pages rebuild byte-identical and Main is untouched, so
+only the five legal blocks need re-pasting. No new Custom Values. Local QA PASS with real web fonts; live GHL NOT
+VERIFIED.
+
 **November 8 follow-up (merged in PR #51, `0ed3636`):** the five policy pages are implemented as
 separate ports `legal-privacy`, `legal-terms`, `legal-cookies`, `legal-disclosures` and `legal-accessibility` (prefixes
 `lpv`, `ltm`, `lck`, `lds`, `lac`). The owner chose one PR for the five, an exception to one page per branch. They use the
@@ -19,7 +27,7 @@ existing `bwci_url_privacy_policy`, `bwci_url_terms`, `bwci_url_cookies_policy`,
 (Contact value + `#cnt-details`). Local QA PASS with real web fonts; see each page's `qa/verification.md`. The 29 other
 generated pages rebuild byte-identical. Live GHL NOT VERIFIED.
 
-**Start a Conversation** (`feat/ghl-start-a-conversation`, PR to main open; not merged) is implemented as
+**Start a Conversation** (merged in PR #52, `5bd7d11`) is implemented as
 `start-a-conversation` (prefix `scv`). Owner decisions (8 November 2026):
 - each of its four routes embeds the owner's GHL form iframe from a proposed `bwci_url_form_smes`,
   `bwci_url_form_investors`, `bwci_url_form_banks` or `bwci_url_form_partners`, with a placeholder until set (the
@@ -359,9 +367,9 @@ Implementation, merge and publication are separate states. A generated block or 
 
 - Private Investors & Family Offices: ghl/pages/private-investors-family-offices/README.md. Hosted/inline outputs generated from _build/src/; hero with the threads image and the `private` breadcrumb, important-information notice, why it matters, three relationship cards, four architecture cards (the Providence Asset Management card is the source prop `showPamCard`), impact alignment with the drifting scale image, the four-step conversation track that lights up once at 40 % visibility, governance links and the dark next-step panel. `showFlags` adds the four review badges. Proposed values `bwci_img_private_investors_family_offices_hero` and `bwci_img_private_investors_family_offices_impact`. Merged through PR #47; published GHL NOT VERIFIED.
 
-- Privacy, Terms, Cookies, Disclosures and Accessibility: ghl/pages/legal-privacy/README.md (and legal-terms, legal-cookies, legal-disclosures, legal-accessibility). One design template, five separate ports: hero with the page's own breadcrumb and the "Wording to approve" badge (`showFlags`, default true), the legal pages switcher (five columns, a snapping row ≤1100 px centred on the current page), the document with the sticky "On this page" index marking the section being read, and the "Contact us" panel (`contactDetails`). Merged through PR #51; published GHL NOT VERIFIED.
+- Privacy, Terms, Cookies, Disclosures and Accessibility: ghl/pages/legal-privacy/README.md (and legal-terms, legal-cookies, legal-disclosures, legal-accessibility). One design template, five separate ports: hero with the page's own breadcrumb and the "Wording to approve" badge (`showFlags`, default true), the shared LegalNav bar (since export `aac105f`: sticky links under the header, a "Legal" select ≤767 px), the document with the sticky "On this page" index marking the section being read, and the "Contact us" panel (`contactDetails`). Merged through PR #51; the LegalNav update is on `feat/ghl-legal-nav` (PR open, not merged); published GHL NOT VERIFIED.
 
-- Start a Conversation: ghl/pages/start-a-conversation/README.md. Hero with its own breadcrumb and promise chips; four route cards as tabs (two columns ≤1023 px, an accordion ≤767 px keeping the tapped card in place), the route in the URL hash, each panel with its dark aside (sticky ≥1024 px), "Compliance to approve" badges (`showFlags`) and the owner's GHL form iframe (`forms.*` → proposed `bwci_url_form_*`, placeholder until set, `formHeight` / `formHeightPhone`); "Looking for something else?" cards. A route is always open (owner decision). On `feat/ghl-start-a-conversation`, PR open (not merged); published GHL NOT VERIFIED.
+- Start a Conversation: ghl/pages/start-a-conversation/README.md. Hero with its own breadcrumb and promise chips; four route cards as tabs (two columns ≤1023 px, an accordion ≤767 px keeping the tapped card in place), the route in the URL hash, each panel with its dark aside (sticky ≥1024 px), "Compliance to approve" badges (`showFlags`) and the owner's GHL form iframe (`forms.*` → proposed `bwci_url_form_*`, placeholder until set, `formHeight` / `formHeightPhone`); "Looking for something else?" cards. A route is always open (owner decision). Merged through PR #52; published GHL NOT VERIFIED.
 
 - Contact: ghl/pages/contact/README.md. Hosted/inline outputs generated from _build/src/; hero with the hands image, the `contact` breadcrumb and the smooth "Contact details" jump, enquiry router, contact details (sticky registered-office panel with the source props `showVisitorOffice` and `showMap`, directory, Providence Asset Management panel: `showPam`), five copy buttons with their live message, verify note and next step. Every "Start a Conversation" uses the existing survey value `contact`; emails and phone use proposed `bwci_url_contact_email`, `bwci_url_contact_phone`, `bwci_url_media_email` and the existing `bwci_url_ir_email`. Proposed image value `bwci_img_contact_hero`. Merged through PR #48; published GHL NOT VERIFIED.
 

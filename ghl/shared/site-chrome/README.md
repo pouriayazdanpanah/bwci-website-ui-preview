@@ -41,9 +41,9 @@ live GHL, published destinations and approved content remain **NOT VERIFIED**.
 
 ```
 ghl/shared/site-chrome/
-├── site-chrome.js           ← generator: require(...)({ prefix, current, breadcrumb, label, govnav, content, people, rename, system, links })
+├── site-chrome.js           ← generator: require(...)({ prefix, current, breadcrumb, label, govnav, legalnav, content, people, rename, system, links })
 ├── site-chrome.runtime.js   ← vanilla runtime template (__P__ = page prefix), inlined into each page script
-├── site-chrome.govnav.js    ← GovNav runtime part, appended only for pages with a govnav option
+├── site-chrome.govnav.js    ← GovNav / LegalNav runtime part, appended only for pages with a govnav or legalnav option
 ├── site-chrome.people.js    ← person-card runtime part (portraits, profile links), appended only with people:true
 ├── assets/bwci-logo.png     ← logo (640×153) — upload once to GHL Media Storage, set logoImage in each page
 └── qa/
@@ -62,6 +62,7 @@ ghl/shared/site-chrome/
 | `bwci-system.css` parts A, A2, B, D | Tokens, type scale, buttons, badges, font floors (pruned per page; `system:false` skips it) |
 | `bwci-system.css` parts C, E (`content:true`) | Content-page components and the governance hero, for the `.bw` pages (Governance, …). `.bw` is the widget root (class `<prefix>-bw`), so each selector gains the root id and keeps its class count |
 | `GovNav.dc.html` (`govnav: 'hub' \| 'board' \| 'leadership'`) | Governance section bar: sticky list ≥ 768 px, native select below (matchMedia, as the source), hover/focus as the source's `style-hover` / `style-focus` rules. On the hub the framework item is the in-page `#<prefix>-framework` |
+| `LegalNav.dc.html` (`legalnav: 'privacy' \| 'cookies' \| 'accessibility' \| 'terms' \| 'disclosures'`) | Legal pages bar (export `aac105f`): the same template as GovNav, built by the same `sectionBar()` with GovNav's hooks (`data-<prefix>-govnav`, `-gn-*`), CSS and runtime part. Five configured links (`legalPrivacy`, `legalCookies`, `legalAccessibility`, `legalTerms`, `legalDisclosures`), the select labelled "Legal"; the page inserts it at `<!--chrome:legalnav-->` and calls `siteGovNav()` |
 | `bwci-motion.js` | `siteMotion()`: root-scoped port of the scroll reveal (scans at 300/1200/2600 ms after load) |
 | `PersonCard.dc.html`, `bwci-people.js`, `image-slot.js` (`people:true`) | `personCard(slug, from)` renders a card as the source does (name and roles in `.<prefix>-i` spans, empty values included); the portrait is a `.<prefix>-slot` block with the image-slot's own styles, placed at its default framing (cover at scale 1, centred, refitted on load and resize). The page config holds `peopleImages.<slug>` and one profile link key per person (`profile` + slug in camel case, e.g. `profileFarhadReyazat`); the runtime appends `?from=<page>` to configured profile routes. `people` lists each person's key and portrait file for the page build |
 

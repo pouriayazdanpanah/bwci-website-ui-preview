@@ -1,18 +1,19 @@
 # Privacy notice — GoHighLevel port
 
-This is a port of `design/Privacy.dc.html` (design export `a012ab2`, imported 8 November 2026) to one GoHighLevel Custom Code
+This is a port of `design/Privacy.dc.html` (design export `aac105f`, imported 8 November 2026) to one GoHighLevel Custom Code
 block. The block includes the shared header and footer.
 - **One of five legal pages** (Privacy, Terms, Cookies, Disclosures, Accessibility) built from the same design template.
   Each is its own port with its own folder, prefix and block. The other four: Terms, Cookies, Disclosures, Accessibility.
-- **Branch:** `feat/ghl-legal-pages`, from main `12576d8`. The owner chose one PR for the five pages, an exception to
-  the one-page-per-branch rule.
+- **History:** first ported from export `a012ab2` on `feat/ghl-legal-pages` (PR #51; the owner chose one PR for the
+  five pages, an exception to the one-page-per-branch rule). Export `aac105f` replaced the page's legal pages switcher
+  with the shared LegalNav bar; that update is on `feat/ghl-legal-nav`, from main `aac105f`, again one PR for the five.
 - Merge and live GoHighLevel installation are separate steps.
 
 ## Files
 
 | File | Use |
 |---|---|
-| `legal-privacy.ghl.html` | **Production block** (84 KB). The logo comes only from its Custom Value; nothing is requested until it is set |
+| `legal-privacy.ghl.html` | **Production block** (85 KB). The logo comes only from its Custom Value; nothing is requested until it is set |
 | `legal-privacy.inline.ghl.html` | Self-contained block (131 KB). Same references, plus the original logo bytes as `imageFallbacks` |
 | `_build/` | Development only: `src/` (page CSS, markup, runtime, config), `build.js`, QA scripts. Nothing here runs in GHL |
 | `qa/verification.md` | Local QA record |
@@ -25,8 +26,8 @@ The page has no images of its own.
 2. Paste the whole of one block. Keep the config id `bwci-legal-privacy-config` and the JSON structure.
 3. Set the page title to "Privacy notice — Better World Capital Investments PLC", which is the source `<title>`.
 4. Set the **existing** Custom Value `bwci_url_privacy_policy` to this page's URL. Every page's footer link "Privacy" already uses it,
-   and so does this page's legal pages switcher.
-5. Check the published page: the switcher, the "On this page" index and the "Contact us" link.
+   and so does the legal pages bar of all five legal pages.
+5. Check the published page: the legal pages bar (tabs on desktop, the "Legal" select on a phone), the "On this page" index and the "Contact us" link.
 
 No new Custom Value is needed. Nothing was created in the account from this repository.
 
@@ -42,8 +43,8 @@ No new Custom Value is needed. Nothing was created in the account from this repo
 
 The page's own links:
 - `home`: the breadcrumb's "Home";
-- `legalPrivacy`, `legalCookies`, `legalAccessibility`, `legalTerms`, `legalDisclosures`: the five cards of the legal pages
-  switcher (the existing `bwci_url_privacy_policy`, `bwci_url_cookies_policy`, `bwci_url_accessibility`, `bwci_url_terms`,
+- `legalPrivacy`, `legalCookies`, `legalAccessibility`, `legalTerms`, `legalDisclosures`: the five tabs of the legal pages
+  bar and the options of its phone select (the existing `bwci_url_privacy_policy`, `bwci_url_cookies_policy`, `bwci_url_accessibility`, `bwci_url_terms`,
   `bwci_url_disclosures`, the same values the footer uses);
 - `contactDetails` → `{{ custom_values.bwci_url_contact }}#cnt-details`: "Contact us" in the questions panel. The
   design links to `Contact.dc.html#details`. In the Contact port that section's id is `cnt-details`, so this page-only
@@ -53,12 +54,16 @@ The page's own links:
 
 1. **Hero** (`#lpv-top`): the shared dark inner-page hero with the page's own breadcrumb (Home › Legal ›
    Privacy; "Legal" is not a link), the title, the lead, "Last updated [date]" and the "Wording to approve" badge.
-2. **Legal pages switcher**: the five documents, each with icon, name and one-line description. This page's card is
-   marked with the gradient border and filled icon.
-   - **≥1101 px:** five columns.
-   - **≤1100 px:** one row that scrolls sideways with snapping (cards 220 px, 200 px below 768 px). At load the current
-     card is centred when the row overflows.
-   - Hover (fine pointer) tints the other cards and their icons; pressing scales a card to 98 %.
+2. **Legal pages bar** (`design/LegalNav.dc.html`, `current="privacy"`, from the shared site chrome): Privacy, Cookies,
+   Accessibility, Terms and Disclosures.
+   - **≥768 px:** a centred row of links on a white bar 57 px tall; this page's link is bold with a dark underline.
+     Hover darkens another link and gives it a light underline; keyboard focus shows a green inset outline.
+   - **Below 768 px** (matchMedia, as the source): a "Legal" label and a native select showing this page; choosing
+     another page opens it.
+   - The bar sticks under the sticky header while the page scrolls (`top: var(--nav-h) − var(--util-h)`, z-index 50).
+     The sticky index column and the section jump targets sit 57 px lower to clear it.
+   - An unset destination: its link is marked unavailable, its option is disabled ("— not yet available"), and
+     choosing it announces "This destination is not yet available." without navigating.
 3. **Document** (`#lpv-content`): the "On this page" index and the sections (Who we are, What we collect, How we use it, Who we share it with, How long we keep it, Your rights).
    - **≥900 px:** the index is a sticky column beside the text.
    - **Below 900 px:** it sits above the text, and the marked item is filled dark.
@@ -69,56 +74,56 @@ The page's own links:
 4. **Questions panel**: "Questions about your personal information?" with "Contact us →"; it stacks below 640 px.
 
 Also: the shared scroll motion (bwci-motion), the shared header (no menu item is current, as the source's
-`current="legal"`), drawer and footer, and reduced motion (no press scaling; the shared fade-in kept).
+`current="legal"`), drawer and footer, and reduced motion (the shared fade-in kept).
 
 ## How it is built
 
 `node ghl/pages/legal-privacy/_build/build.js` generates both blocks from `_build/src/` and the shared chrome
-(`current: 'legal'`, no shared breadcrumb, `content: true`, `sections: ['contactDetails']`).
+(`current: 'legal'`, no shared breadcrumb, `legalnav: 'privacy'`, `content: true`, `sections: ['contactDetails']`).
 - **CSS:** scoped to `#bwci-legal-privacy`, with unused selectors pruned. Every source class and id carries the `lpv-` prefix;
   the source `.bw` wrapper is the root (`:scope.lpv-bw`). The source's exact `:root` tokens are kept, and its page
   font-size floors become `:scope` rules. The element resets also neutralise a host's `float` and `width` on sectioning
   elements.
 - **Markup:** generated once from the source's rendered DOM, so text and structure match it. Hooks (`data-lpv-*`) are added
-  for links, the badge, the switcher row, the index and the document.
-- **Script:** the page's text/x-dc component (badge, switcher centring, index marking) and the index links' smooth
-  scroll, in native JavaScript, plus the shared chrome runtime.
+  for links, the badge, the index and the document. The legal pages bar is the shared chrome's markup, inserted at
+  `<!--chrome:legalnav-->`.
+- **Script:** the page's text/x-dc component (badge, index marking) and the index links' smooth
+  scroll, in native JavaScript, plus the shared chrome runtime (header, footer and the legal pages bar).
 - **Build checks:** link values against the shared mapping, in-page anchor targets, scoped selectors, and no Claude
   Design or local paths.
 
-Shared changes (only the five legal blocks are new; the 29 other generated pages rebuild byte-identical and Main is
-untouched):
-- `ghl/shared/site-links/index.js`: the first page-only section link, `contactDetails` → `contact` + `#cnt-details`,
-  declared by these five builds. `qa/unit.js` gains a check for it.
-- `ghl/shared/site-chrome/qa/chrome-behaviour.js` (development only) normalises the five prefixes.
+Shared changes:
+- **This update** (`feat/ghl-legal-nav`): `ghl/shared/site-chrome/site-chrome.js` builds the GovNav and LegalNav bars
+  from one template (`sectionBar()`), with a new `legalnav` option. LegalNav reuses GovNav's hooks, CSS and runtime
+  part (`site-chrome.govnav.js`, unchanged). The 31 other generated pages rebuild byte-identical and Main is untouched,
+  so only the five legal blocks need re-pasting.
+- **First port** (PR #51): `ghl/shared/site-links/index.js` gained the first page-only section link, `contactDetails` →
+  `contact` + `#cnt-details`, declared by these five builds (`qa/unit.js` checks it).
+  `ghl/shared/site-chrome/qa/chrome-behaviour.js` (development only) normalises the five prefixes.
 
 ## Validation (local, headless Chromium with real web fonts — not a published GoHighLevel page)
 
-Full record: [qa/verification.md](qa/verification.md).
-- **Pixels, 13 widths (320–2560) × 900:** 0.000 %, 0 differing rows at every width.
-- **Other pixel sets:** 0.000 % at six widths × 600 and × 1200, with motion on at 390/1440, in landscape (844 and
-  568 × 390), and with the badge off. Isolated one- to four-row blips did not repeat on re-capture.
-- **DOM:** box and style walk of the hero, switcher, document, header and footer: 0 differences at 1440, 1024, 768, 390
-  and 320, and with the badge off at 1440 and 390.
-- **Behaviour (45 trace lines):** identical to the source, covering the index (load, reading band, click,
-  hash, focus), the sticky index column, the switcher, hovers, keyboard order, live resize across every breakpoint
-  and reduced motion.
+Full record: [qa/verification.md](qa/verification.md). Against export `aac105f`:
+- **Pixels, 13 widths (320–2560) × 900:** 0.000 % at every width.
+- **Other pixel sets:** @@OTHER@@
+- **DOM:** box and style walk of the hero, the legal pages bar, the document, header and footer: 0 differences at 1440,
+  1024, 768, 390 and 320, and with the badge off at 1440 and 390.
+- **Behaviour (60 trace lines):** identical to the source, covering the index (load, reading band, click, hash,
+  focus), the sticky index column, the legal pages bar (list or select at 1440, 1024, 768, 767 and 390 px, the current
+  page, the options, the sticky position while scrolling, hover, focus, the select's style), the other hovers,
+  keyboard order, live resize across every breakpoint and reduced motion.
 - **Shared header/drawer/footer/motion trace:** identical. The lifecycle suite passes.
 - **Config:**
-  - literal, `#`, empty and resolved values;
+  - literal, `#`, empty and resolved values, for the page links, the bar's links and the select's options;
   - `contactDetails` composed from the Contact value, with its query kept and fragment replaced;
-  - disabled and enabled clicks;
+  - disabled and enabled clicks; the phone select opening a configured page, and refusing an unset one;
   - the badge prop, including a non-boolean value;
-  - a hostile host at 1440 and 390;
+  - a hostile host at 1440 and 390, with the bar stuck under the header;
   - a copied root with a changed config;
   - teardown, `pagehide`, and no IntersectionObserver.
 
 ## Intentional differences and source quirks
 
-- **Switcher centring.** The source centres the current card when it mounts, before the shared system stylesheet has
-  applied, so it measures the row about 40 px wider than it ends up; the snapping then settles on a neighbouring card at
-  some widths. The port measures the final layout and centres the card as the source's code intends. Measured from 320
-  to 1100 px in 10 px steps: 0 of 79 widths: Privacy is the first card, so the switcher never scrolls.
 - **Unset values:** destinations are marked unavailable instead of linking to design files.
 - **Smooth scroll:** the source sets `html{scroll-behavior:smooth}` on the whole page, also with reduced motion. The port
   scrolls only its own index links, and jumps at once with reduced motion. The host's `<html>` is left alone.

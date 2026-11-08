@@ -82,7 +82,7 @@
 #bwci-legal-terms a{ color:var(--accent-emerald-dark); text-decoration:none; }
 #bwci-legal-terms a:hover{ color:var(--brand-ink); }
 #bwci-legal-terms a:focus-visible, #bwci-legal-terms button:focus-visible{ outline:2px solid var(--accent-emerald); outline-offset:2px; }
-#bwci-legal-terms [id]{ scroll-margin-top:calc(var(--nav-h, 116px) - var(--util-h, 40px) + 24px); }
+#bwci-legal-terms [id]{ scroll-margin-top:calc(var(--nav-h, 116px) - var(--util-h, 0px) + 57px + 24px); }
 #bwci-legal-terms{ --fs-floor-sm:0px; --fs-floor-body:0px; }
 @media (max-width:767px){
   #bwci-legal-terms{ --fs-floor-sm:14px; --fs-floor-body:16px; }
@@ -91,7 +91,6 @@
 #bwci-legal-terms .ltm-tc::before{ content:''; width:5px; height:5px; border-radius:50%; background:var(--status-dev-mark); }
 #bwci-legal-terms .ltm-tc--inv{ background:rgba(185,143,45,.14); border-color:rgba(232,196,107,.45); color:#E8C46B; }
 #bwci-legal-terms .ltm-tc--0{ margin-left:0; }
-#bwci-legal-terms .ltm-lg-hero{ padding-bottom:calc(clamp(56px,7vw,88px) + 44px) !important; }
 #bwci-legal-terms .ltm-lg-hero h1{ margin:0 0 18px !important; }
 #bwci-legal-terms .ltm-lg-hero .ltm-lead{ max-width:640px; }
 #bwci-legal-terms .ltm-lg-bc{ margin:0 0 28px; }
@@ -105,41 +104,11 @@
 @media (max-width:767px){
   #bwci-legal-terms .ltm-lg-hero h1{ font-size:clamp(34px,9.6vw,44px) !important; }
 }
-#bwci-legal-terms .ltm-lg-nav-s{ position:relative; z-index:3; }
-#bwci-legal-terms .ltm-lg-nav{ margin-top:-48px; padding:8px; border-radius:20px; background:#fff; border:1px solid var(--border-subtle); box-shadow:0 24px 48px -20px rgba(18,48,57,.18), 0 2px 6px rgba(18,48,57,.04); }
-#bwci-legal-terms .ltm-lg-nav ul{ position:relative; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:6px; }
-#bwci-legal-terms .ltm-lg-nav a{ display:grid; grid-template-columns:36px minmax(0,1fr); grid-template-areas:"ic t" "ic d"; column-gap:12px; row-gap:1px; align-items:center; height:100%; padding:12px 14px; border-radius:14px; border:2px solid transparent; color:var(--brand-ink); transition:background-color .2s ease, transform .16s var(--ease-out); }
-#bwci-legal-terms .ltm-lg-nav a:active{ transform:scale(.98); }
-#bwci-legal-terms .ltm-lg-ic{ grid-area:ic; display:flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:10px; background:var(--surface-subtle); border:1px solid var(--border-subtle); color:var(--accent-emerald-dark); transition:background-color .2s ease, color .2s ease, border-color .2s ease; }
-#bwci-legal-terms .ltm-lg-ic svg{ width:18px; height:18px; }
-#bwci-legal-terms .ltm-lg-t{ grid-area:t; font-size:15px; font-weight:700; line-height:1.3; letter-spacing:-.01em; }
-#bwci-legal-terms .ltm-lg-d{ grid-area:d; font-size:13px; line-height:1.4; color:var(--text-muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-#bwci-legal-terms .ltm-lg-nav a[aria-current="page"]{ background:linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg,var(--brand-ink) 0%,var(--brand-teal) 45%,var(--accent-emerald) 100%) border-box; box-shadow:0 14px 28px -20px rgba(18,131,107,.55); }
-#bwci-legal-terms .ltm-lg-nav a[aria-current="page"] .ltm-lg-ic{ background:linear-gradient(135deg,var(--brand-ink),var(--accent-emerald)); border-color:transparent; color:#fff; }
-#bwci-legal-terms .ltm-lg-nav a[aria-current="page"] .ltm-lg-d{ color:var(--text-secondary); }
-@media (hover:hover) and (pointer:fine){
-  #bwci-legal-terms .ltm-lg-nav a:not([aria-current]):hover{ background:var(--surface-subtle); color:var(--brand-ink); }
-  #bwci-legal-terms .ltm-lg-nav a:not([aria-current]):hover .ltm-lg-ic{ background:var(--status-op-bg); border-color:var(--status-op-border); }
-}
-@media (max-width:1100px){
-  #bwci-legal-terms .ltm-lg-nav{ padding:6px; }
-  #bwci-legal-terms .ltm-lg-nav ul{ display:flex; overflow-x:auto; scroll-snap-type:x mandatory; scroll-padding-inline:6px; scrollbar-width:none; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain; }
-  #bwci-legal-terms .ltm-lg-nav ul::-webkit-scrollbar{ display:none; }
-  #bwci-legal-terms .ltm-lg-nav li{ flex:0 0 220px; scroll-snap-align:start; }
-}
-@media (max-width:767px){
-  #bwci-legal-terms .ltm-lg-nav{ margin-top:-40px; }
-  #bwci-legal-terms .ltm-lg-nav li{ flex-basis:200px; }
-  #bwci-legal-terms .ltm-lg-nav a{ padding:10px 12px; }
-}
-@media (prefers-reduced-motion:reduce){
-  #bwci-legal-terms .ltm-lg-nav a:active{ transform:none; }
-}
 #bwci-legal-terms .ltm-lg-sec{ padding-top:clamp(48px,6vw,80px) !important; }
 #bwci-legal-terms .ltm-lg-grid{ display:grid; grid-template-columns:minmax(0,3fr) minmax(0,8fr); gap:clamp(28px,5vw,80px); align-items:start; }
 #bwci-legal-terms .ltm-lg-side{ display:grid; gap:14px; }
 @media (min-width:900px){
-  #bwci-legal-terms .ltm-lg-side{ position:sticky; top:calc(var(--nav-h, 116px) - var(--util-h, 40px) + 32px); }
+  #bwci-legal-terms .ltm-lg-side{ position:sticky; top:calc(var(--nav-h, 116px) - var(--util-h, 0px) + 57px + 32px); }
 }
 #bwci-legal-terms .ltm-lg-side-l{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
 #bwci-legal-terms.ltm-bw .ltm-pg-index a[aria-current]{ color:var(--brand-ink); font-weight:600; border-color:var(--accent-emerald); }
@@ -213,6 +182,10 @@
 @media (prefers-reduced-motion:reduce){
   #bwci-legal-terms .ltm-pg-hero--in .ltm-wrap > *{ animation:none; }
 }
+#bwci-legal-terms .ltm-gn-host{ display:block; position:sticky; top:calc(var(--nav-h, 116px) - var(--util-h, 0px)); z-index:50; }
+#bwci-legal-terms .ltm-gn-host [hidden]{ display:none !important; }
+#bwci-legal-terms .ltm-gn__a--off:hover{ color:#123039 !important; border-bottom-color:#D5E0DC !important; }
+#bwci-legal-terms .ltm-gn__a:focus{ outline:2px solid #12836B !important; outline-offset:-2px !important; }
 #bwci-legal-terms .ltm-hdr-host{ position:sticky; top:calc(var(--util-h, 0px) * -1); z-index:60; display:block; width:100%; }
 #bwci-legal-terms .ltm-hdr{ position:relative; width:100%; font-family:var(--font-sans); }
 #bwci-legal-terms .ltm-hdr__in{ max-width:var(--container-wide,1440px); margin:0 auto; padding:0 clamp(20px,3vw,40px); display:flex; align-items:center; }
@@ -435,11 +408,33 @@
       </div>
     </section>
 
-    <section class="ltm-lg-nav-s" data-screen-label="02 Legal pages">
-      <div class="ltm-wrap">
-        <nav class="ltm-lg-nav" aria-label="Legal pages"><ul data-ltm-rail><li><a href="#" data-ltm-link="legalPrivacy"><span class="ltm-lg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.5 3.2 8.2 7.5 9.5 4.3-1.3 7.5-5 7.5-9.5V6z"></path><rect x="9" y="11" width="6" height="5" rx="1"></rect><path d="M10.5 11V9.5a1.5 1.5 0 0 1 3 0V11"></path></svg></span><span class="ltm-lg-t">Privacy</span><span class="ltm-lg-d">How we use your data</span></a></li><li><a href="#" data-ltm-link="legalCookies"><span class="ltm-lg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12.5A8.5 8.5 0 1 1 11.5 3.5a3 3 0 0 0 4 3.5 3 3 0 0 0 5 5.5z"></path><path d="M8.5 9.5h.01M10 15h.01M15 14.5h.01"></path></svg></span><span class="ltm-lg-t">Cookies</span><span class="ltm-lg-d">What we store and why</span></a></li><li><a href="#" data-ltm-link="legalAccessibility"><span class="ltm-lg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="7.5" r="1.2"></circle><path d="M7.5 10h9M12 10v4M12 14l-2.5 4M12 14l2.5 4"></path></svg></span><span class="ltm-lg-t">Accessibility</span><span class="ltm-lg-d">Using this site your way</span></a></li><li><a href="#" data-ltm-link="legalTerms" aria-current="page"><span class="ltm-lg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"></path><path d="M14 3v4h4"></path><path d="M10 12h5M10 15.5h5"></path></svg></span><span class="ltm-lg-t">Terms</span><span class="ltm-lg-d">Rules for using this site</span></a></li><li><a href="#" data-ltm-link="legalDisclosures"><span class="ltm-lg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 20h14"></path><path d="M6 8h12"></path><path d="m6 8-3 6a3 3 0 0 0 6 0zM18 8l-3 6a3 3 0 0 0 6 0z"></path></svg></span><span class="ltm-lg-t">Disclosures</span><span class="ltm-lg-d">Regulatory status and risk</span></a></li></ul></nav>
-      </div>
-    </section>
+    <!-- 02 LEGAL NAV  (source: design/LegalNav.dc.html, current="terms"; shared site chrome) -->
+<div class="ltm-gn-host" data-ltm-govnav>
+  <nav aria-label="Legal pages" style="display:block; background:#FFFFFF; border-bottom:1px solid #E2E9E6; font-family:'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+    <div style="max-width:1280px; margin:0 auto; padding:0 clamp(20px,4vw,40px);">
+      <ul style="display:flex; justify-content:center; flex-wrap:wrap; column-gap:32px; margin:0; padding:0; list-style:none;" data-ltm-gn-wide>
+          <li style="display:flex;"><a class="ltm-gn__a ltm-gn__a--off" href="#" data-ltm-link="legalPrivacy" style="display:flex; align-items:center; min-height:56px; margin-bottom:-1px; border-bottom:3px solid transparent; font-size:15px; font-weight:500; color:#5C7075; text-decoration:none; transition:color .2s ease, border-color .2s ease;"><span class="ltm-i">Privacy</span></a></li>
+          <li style="display:flex;"><a class="ltm-gn__a ltm-gn__a--off" href="#" data-ltm-link="legalCookies" style="display:flex; align-items:center; min-height:56px; margin-bottom:-1px; border-bottom:3px solid transparent; font-size:15px; font-weight:500; color:#5C7075; text-decoration:none; transition:color .2s ease, border-color .2s ease;"><span class="ltm-i">Cookies</span></a></li>
+          <li style="display:flex;"><a class="ltm-gn__a ltm-gn__a--off" href="#" data-ltm-link="legalAccessibility" style="display:flex; align-items:center; min-height:56px; margin-bottom:-1px; border-bottom:3px solid transparent; font-size:15px; font-weight:500; color:#5C7075; text-decoration:none; transition:color .2s ease, border-color .2s ease;"><span class="ltm-i">Accessibility</span></a></li>
+          <li style="display:flex;"><a class="ltm-gn__a" href="#" data-ltm-link="legalTerms" aria-current="page" style="display:flex; align-items:center; min-height:56px; margin-bottom:-1px; border-bottom:3px solid #123039; font-size:15px; font-weight:700; color:#123039; text-decoration:none;"><span class="ltm-i">Terms</span></a></li>
+          <li style="display:flex;"><a class="ltm-gn__a ltm-gn__a--off" href="#" data-ltm-link="legalDisclosures" style="display:flex; align-items:center; min-height:56px; margin-bottom:-1px; border-bottom:3px solid transparent; font-size:15px; font-weight:500; color:#5C7075; text-decoration:none; transition:color .2s ease, border-color .2s ease;"><span class="ltm-i">Disclosures</span></a></li>
+      </ul>
+      <label style="display:flex; align-items:center; gap:10px; padding:12px 0;" data-ltm-gn-narrow hidden>
+        <span style="flex:none; font-size:14px; font-weight:600; color:#5C7075;">Legal</span>
+        <span style="position:relative; flex:1; min-width:0; display:block;">
+          <select style="appearance:none; -webkit-appearance:none; width:100%; min-height:48px; padding:10px 40px 10px 14px; border-radius:12px; border:1px solid #D5E0DC; background:#F7F9F8; font-family:inherit; font-size:16px; font-weight:600; color:#123039;" data-ltm-gn-select>
+              <option value="#" data-ltm-link="legalPrivacy">Privacy</option>
+              <option value="#" data-ltm-link="legalCookies">Cookies</option>
+              <option value="#" data-ltm-link="legalAccessibility">Accessibility</option>
+              <option value="#" data-ltm-link="legalTerms" selected>Terms</option>
+              <option value="#" data-ltm-link="legalDisclosures">Disclosures</option>
+          </select>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5C7075" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position:absolute; right:14px; top:50%; translate:0 -50%; pointer-events:none;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </span>
+      </label>
+    </div>
+  </nav>
+</div>
 
     <section class="ltm-sec ltm-lg-sec" id="ltm-content" data-screen-label="03 Terms">
       <div class="ltm-wrap">
@@ -520,9 +515,9 @@
 /* BWCI — Terms of use · GoHighLevel runtime (vanilla JS, no dependencies).
    Replaces the Claude Design runtime (support.js + React) used by design/Terms.dc.html and its SiteHeader /
    SiteFooter components and bwci-motion.js. Everything is scoped to #bwci-legal-terms. The page's own text/x-dc component
-   (shared by the five legal pages) is reproduced below: the "Wording to approve" badge (source prop "flags"), the
-   legal pages switcher scrolled to the current page when it overflows, and the "On this page" index that marks the
-   section being read. */
+   (shared by the five legal pages) is reproduced below: the "Wording to approve" badge (source prop "flags") and the "On this page"
+   index that marks the section being read. The legal pages bar (design/LegalNav.dc.html) comes from the shared site
+   chrome. */
 (function () {
   'use strict';
 
@@ -909,6 +904,52 @@
     };
   }
 
+  /* ================= GOVERNANCE SECTION BAR (design/GovNav.dc.html) =================
+     The source renders the link list, or below 768 px (matchMedia, not CSS) a native select that navigates
+     on change. Both are in the markup; this switches them. Option values follow the configured routes. */
+  function siteGovNav(root, cfg, on) {
+    var host = root.querySelector('[data-ltm-govnav]');
+    if (!host) return null;
+    var wide = host.querySelector('[data-ltm-gn-wide]');
+    var narrow = host.querySelector('[data-ltm-gn-narrow]');
+    var select = host.querySelector('[data-ltm-gn-select]');
+    var links = cfg.links || {};
+    var current = select.selectedIndex;
+    Array.prototype.forEach.call(host.querySelectorAll('option[data-ltm-link]'), function (o, i) {
+      var v = links[o.getAttribute('data-ltm-link')];
+      o.value = siteLinkAvailable(v) ? v : '#';
+      o.disabled = i !== current && !siteLinkAvailable(v);
+      if (o.disabled) o.label = o.textContent + ' — not yet available';
+      else o.removeAttribute('label');
+    });
+    select.selectedIndex = current;
+    var mq = window.matchMedia ? window.matchMedia('(max-width:767px)') : null;
+    function apply() {
+      var isNarrow = !!(mq && mq.matches);
+      wide.hidden = isNarrow;
+      narrow.hidden = !isNarrow;
+    }
+    apply();
+    if (mq) { if (mq.addEventListener) mq.addEventListener('change', apply); else if (mq.addListener) mq.addListener(apply); }
+    // the source select is controlled (its value is always the current page), so after navigating it shows
+    // the current page again, e.g. after a jump to the framework section on the hub
+    on(select, 'change', function () {
+      var v = select.value;
+      select.selectedIndex = current;
+      if (!siteLinkAvailable(v)) {
+        var status = root.querySelector('.ltm-status, .ltm-link-status');
+        if (status) status.textContent = 'This destination is not yet available.';
+        return;
+      }
+      window.location.href = v;
+    });
+    return {
+      destroy: function () {
+        if (mq) { if (mq.removeEventListener) mq.removeEventListener('change', apply); else if (mq.removeListener) mq.removeListener(apply); }
+      }
+    };
+  }
+
   function prefersReducedMotion() {
     return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   }
@@ -968,11 +1009,6 @@
       try { if (history.pushState) history.pushState(null, '', '#' + id); } catch (err) { /* sandboxed */ }
     });
 
-    /* ---------- legal pages switcher: when it scrolls sideways (≤1100 px), centre the current page once ---------- */
-    var cur = q('[data-ltm-rail] [aria-current="page"]');
-    var rail = cur && cur.closest('ul');
-    if (rail && rail.scrollWidth > rail.clientWidth) rail.scrollLeft = cur.parentElement.offsetLeft - (rail.clientWidth - cur.parentElement.offsetWidth) / 2;
-
     /* ---------- "On this page" index: marks the section crossing the reading band ---------- */
     var doc = q('[data-ltm-doc]');
     var index = q('[data-ltm-index]');
@@ -990,8 +1026,10 @@
       if (first) mark(first.id);
     }
 
-    /* ================= SITE HEADER + FOOTER (shared site chrome) ================= */
+    /* ================= SITE HEADER + FOOTER, LEGAL PAGES BAR (shared site chrome) ================= */
     var chrome = siteChrome(root, cfg, on, timers);
+    // design/LegalNav.dc.html: the link list, or below 768 px a select that opens the chosen page
+    var legalnav = siteGovNav(root, cfg, on);
 
     /* ================= SHARED SCROLL MOTION (design/bwci-motion.js) =================
        bwci-motion skips sections with id "hero" or class hero / hero-fe; this hero (#ltm-top.pg-hero) has neither,
@@ -1005,6 +1043,7 @@
         if (instance.destroyed) return;
         instance.destroyed = true;
         if (chrome) chrome.destroy();
+        if (legalnav) legalnav.destroy();
         if (motion) motion.destroy();
         if (io) io.disconnect();
         if (ac) ac.abort();
