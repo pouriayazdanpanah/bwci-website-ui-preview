@@ -42,6 +42,12 @@ legal pages declare it (`sections: ['contactDetails']`) for their "Contact us" l
 every section link it is unavailable while `bwci_url_contact` is unset, and keeps the value's query. `qa/unit.js`
 checks it.
 
+The Start a Conversation port (8 November 2026, `feat/ghl-start-a-conversation`) proposes four more values, one per
+route form: `formSmes`, `formInvestors`, `formBanks` and `formPartners` → `{{ custom_values.bwci_url_form_smes }}` and
+so on. They hold the embed link (iframe `src`) of the owner's GHL forms. They sit in that page's config under `forms`,
+not `links`, and its build checks them against this mapping. They are resolved at build time; the 34 other generated
+pages rebuild byte-identical.
+
 ## Configuration and installation
 
 - Configure destination URLs centrally in the same GHL sub-account. All 43 used values in the
