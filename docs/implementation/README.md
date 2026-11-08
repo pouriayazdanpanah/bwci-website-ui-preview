@@ -2,7 +2,28 @@
 
 This guide turns a finished Claude Design page in design/ into one pasteable GoHighLevel Website Builder Custom Code block. CLAUDE.md holds project-wide rules. pages/<slug>.md is a brief for a page not yet ported; ghl/pages/<slug>/README.md is the durable record for a completed port.
 
-## Current status — October 28, 2026
+## Current status — November 8, 2026
+
+The latest Drive design export was imported and pushed directly to `main` at `a012ab2`, as the owner
+explicitly requested the `--publish` operation. It adds six design pages: `Start a Conversation.dc.html`,
+`Privacy.dc.html`, `Terms.dc.html`, `Cookies.dc.html`, `Disclosures.dc.html` and `Accessibility.dc.html`.
+The shared design footer now links to the five standalone policy pages. These six pages have **no GHL
+ports yet**. The 30 existing ports remain intact; Contact's owner-approved survey override is preserved.
+Do not replace it merely because the conversation design now exists.
+GitHub Pages [deployment 42472019472](https://github.com/pouriayazdanpanah/bwci-website-ui-preview/actions/runs/42472019472)
+completed successfully for this import.
+
+The ZIP contains a `BWCI-Website-UI/` wrapper, which the old importer reports as missing required files.
+The importer fix on `fix/design-export-folder-import` detects one complete export folder, retaining
+path, duplicate, size and dependency validation. Its build-time policy-route aliases preserve existing
+GHL config keys and all 60 output bytes across 29 builders. No installed block needs re-pasting for
+this compatibility change. See the [import/validation record](design-import-2026-11-08.md).
+The import was published using an equivalent temporary ZIP with the wrapper removed; the importer
+and mapping fixes are a separate PR for manual merge. No GHL values were edited and no GHL page was
+installed. Follow-up GHL ports require their own task; sitemap and unapproved source placeholders
+remain as supplied.
+
+### October 27–28 baseline: PRs #35–#39
 
 All **23 target pages** have merged implementations. Main/shared synchronization merged in PR #35
 (`3d93dcf`); the required Impact interaction correction merged in PR #36 (`7ddc04f`). Stage 9 started

@@ -68,6 +68,12 @@ ghl/shared/site-chrome/
 Every design `href` maps to a config link key (`HREF_KEYS`). An unknown href fails the build, so a
 new destination in the design cannot ship without a config key.
 
+The November 8 export replaces the footer's five `Legal.dc.html#...` routes with standalone
+`Privacy.dc.html`, `Terms.dc.html`, `Cookies.dc.html`, `Disclosures.dc.html` and `Accessibility.dc.html`.
+Both route forms map to the existing legal config keys/Custom Values. This build-time compatibility
+mapping preserves the generated footer and requires no change to installed blocks. The unknown-route
+guard remains active. Check with `node scripts/tests/footer-route-compatibility.js`.
+
 ### October 26, 2026 export compatibility
 
 `Better%20World%20Impact.dc.html` maps to **`betterWorldImpact`**, default `#` until its published

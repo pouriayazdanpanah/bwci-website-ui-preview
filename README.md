@@ -43,7 +43,11 @@ changes only in `ghl/` do not redeploy the preview.
 ## Update from a Claude Design ZIP
 
 The ZIP importer accepts the exported root `*.dc.html` pages, root CSS/JS,
-the image-slot state file, `assets/`, and `vendor/`. It publishes the ZIP's
+the image-slot state file, `assets/`, and `vendor/`. These may be at the ZIP root or
+inside one complete export folder (for example `BWCI-Website-UI/`); the importer
+detects that folder from the required files. It validates original archive paths
+before removing the folder prefix and rejects multiple complete nested exports
+rather than choosing one. It publishes the ZIP's
 `.image-slots.state.json` as `image-slots.state.json` and updates
 `image-slot.js` to load that path. It checks local CSS/JS references and
 requires the state file when `image-slot.js` is present. It

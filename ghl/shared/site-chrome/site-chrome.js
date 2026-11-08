@@ -54,6 +54,11 @@ const HREF_KEYS = {
   'Legal.dc.html#cookies': 'legalCookies',
   'Legal.dc.html#disclosures': 'legalDisclosures',
   'Legal.dc.html#accessibility': 'legalAccessibility',
+  'Privacy.dc.html': 'legalPrivacy',
+  'Terms.dc.html': 'legalTerms',
+  'Cookies.dc.html': 'legalCookies',
+  'Disclosures.dc.html': 'legalDisclosures',
+  'Accessibility.dc.html': 'legalAccessibility',
   'Legal.dc.html#sitemap': 'legalSitemap',
 };
 // Runtime configuration supplies GHL Custom Values. Static cross-page fallbacks remain unavailable;
