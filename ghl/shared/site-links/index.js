@@ -44,8 +44,9 @@ const proposed={ourRole:'our_role',providenceAssetManagement:'providence_asset_m
 // Existing Custom Values outside the bwci_url_ naming, reused by their exact name. `contact` is the owner's external
 // survey form (the Contact page's "Start a Conversation" links, by the owner's decision); it is not bwci_url_contact.
 const named={contactSurvey:'contact'};
-// Section links only one page uses (see runtimeFor below); none yet.
-const pageSections={};
+// Section links only some pages use (see runtimeFor below). contactDetails: the Contact port's details section (its
+// ids carry the cnt- prefix), linked from the five legal pages ("Contact us").
+const pageSections={contactDetails:['contact','#cnt-details']};
 function fieldFor(key){
  const sec=sections[key]||pageSections[key];
  const base=sec?sec[0]:key;

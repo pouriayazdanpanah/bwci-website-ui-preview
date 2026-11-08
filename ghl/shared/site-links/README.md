@@ -35,6 +35,13 @@ The Contact port (2 November 2026, `feat/ghl-contact`) follows two owner decisio
 Both lists are resolved at build time; only the Contact block uses these keys, and the 28 other generated pages
 rebuild byte-identical. `qa/unit.js` checks both lists.
 
+The legal pages port (8 November 2026, `feat/ghl-legal-pages`) adds the first page-only section link: `contactDetails`
+→ the Contact value plus `#cnt-details`, the Contact port's details section (its ids carry the `cnt-` prefix). The five
+legal pages declare it (`sections: ['contactDetails']`) for their "Contact us" link, the design's
+`Contact.dc.html#details`; it reaches only their scripts, and the 29 other generated pages rebuild byte-identical. Like
+every section link it is unavailable while `bwci_url_contact` is unset, and keeps the value's query. `qa/unit.js`
+checks it.
+
 ## Configuration and installation
 
 - Configure destination URLs centrally in the same GHL sub-account. All 43 used values in the
