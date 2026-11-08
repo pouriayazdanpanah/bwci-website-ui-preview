@@ -105,7 +105,8 @@ Shared changes:
 
 Full record: [qa/verification.md](qa/verification.md). Against export `aac105f`:
 - **Pixels, 13 widths (320–2560) × 900:** 0.000 % at every width.
-- **Other pixel sets:** @@OTHER@@
+- **Other pixel sets:** 0.000 % at six widths × 600 and × 1200, with motion on at 390/1440, in landscape (844 and 568 × 390),
+  and with the badge off. Isolated 1–17-row blips in single captures re-captured to 0 rows.
 - **DOM:** box and style walk of the hero, the legal pages bar, the document, header and footer: 0 differences at 1440,
   1024, 768, 390 and 320, and with the badge off at 1440 and 390.
 - **Behaviour (56 trace lines):** identical to the source, covering the index (load, reading band, click, hash,
