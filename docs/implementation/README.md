@@ -7,9 +7,22 @@ This guide turns a finished Claude Design page in design/ into one pasteable GoH
 The latest Drive design export was imported and pushed directly to `main` at `a012ab2`, as the owner
 explicitly requested the `--publish` operation. It adds six design pages: `Start a Conversation.dc.html`,
 `Privacy.dc.html`, `Terms.dc.html`, `Cookies.dc.html`, `Disclosures.dc.html` and `Accessibility.dc.html`.
-The shared design footer now links to the five standalone policy pages. These six pages have **no GHL
-ports yet**. The 30 existing ports remain intact; Contact's owner-approved survey override is preserved.
-Do not replace it merely because the conversation design now exists.
+The shared design footer now links to the five standalone policy pages. The 30 existing ports remain intact;
+Contact's owner-approved survey override is preserved. Do not replace it merely because the conversation design now
+exists.
+
+**November 8 follow-up (`feat/ghl-legal-pages`, PR to main open; not merged):** the five policy pages are implemented as
+separate ports `legal-privacy`, `legal-terms`, `legal-cookies`, `legal-disclosures` and `legal-accessibility` (prefixes
+`lpv`, `ltm`, `lck`, `lds`, `lac`). The owner chose one PR for the five, an exception to one page per branch. They use the
+existing `bwci_url_privacy_policy`, `bwci_url_terms`, `bwci_url_cookies_policy`, `bwci_url_disclosures` and
+`bwci_url_accessibility` values (no new Custom Values), plus the first site-links page-only section `contactDetails`
+(Contact value + `#cnt-details`). Local QA PASS with real web fonts; see each page's `qa/verification.md`. The 29 other
+generated pages rebuild byte-identical. Live GHL NOT VERIFIED.
+
+**Start a Conversation** is not ported yet. Owner decisions (8 November 2026): port it after the legal pages; its four
+route forms (SMEs, Investors, Banks, Partners) get four new Custom Values, proposed as `bwci_url_form_smes`,
+`bwci_url_form_investors`, `bwci_url_form_banks` and `bwci_url_form_partners`. Whether Contact's seven "Start a
+Conversation" links move from the survey to this page is still open (the owner gave no preference); ask when porting it.
 GitHub Pages [deployment 42472019472](https://github.com/pouriayazdanpanah/bwci-website-ui-preview/actions/runs/42472019472)
 completed successfully for this import.
 
@@ -339,6 +352,8 @@ Implementation, merge and publication are separate states. A generated block or 
 - The Platform Today: ghl/pages/platform-today/README.md. Hosted/inline outputs generated from _build/src/; hero with the `today` breadcrumb, three stages (Now / Next / Later) that light up at 15 % visibility, six cards with the paired-card highlight, status note, the fixed "How to read" button and its guide dialog (side panel / bottom sheet, `<html>` scroll lock restored to the host's value). Proposed value `bwci_url_providence_asset_management`. Merged through PR #45; the hero image update (export `df79d85`, proposed `bwci_img_platform_today_hero`) merged in PR #46; published GHL NOT VERIFIED.
 
 - Private Investors & Family Offices: ghl/pages/private-investors-family-offices/README.md. Hosted/inline outputs generated from _build/src/; hero with the threads image and the `private` breadcrumb, important-information notice, why it matters, three relationship cards, four architecture cards (the Providence Asset Management card is the source prop `showPamCard`), impact alignment with the drifting scale image, the four-step conversation track that lights up once at 40 % visibility, governance links and the dark next-step panel. `showFlags` adds the four review badges. Proposed values `bwci_img_private_investors_family_offices_hero` and `bwci_img_private_investors_family_offices_impact`. Merged through PR #47; published GHL NOT VERIFIED.
+
+- Privacy, Terms, Cookies, Disclosures and Accessibility: ghl/pages/legal-privacy/README.md (and legal-terms, legal-cookies, legal-disclosures, legal-accessibility). One design template, five separate ports: hero with the page's own breadcrumb and the "Wording to approve" badge (`showFlags`, default true), the legal pages switcher (five columns, a snapping row ≤1100 px centred on the current page), the document with the sticky "On this page" index marking the section being read, and the "Contact us" panel (`contactDetails`). On `feat/ghl-legal-pages`, PR open (not merged); published GHL NOT VERIFIED.
 
 - Contact: ghl/pages/contact/README.md. Hosted/inline outputs generated from _build/src/; hero with the hands image, the `contact` breadcrumb and the smooth "Contact details" jump, enquiry router, contact details (sticky registered-office panel with the source props `showVisitorOffice` and `showMap`, directory, Providence Asset Management panel: `showPam`), five copy buttons with their live message, verify note and next step. Every "Start a Conversation" uses the existing survey value `contact`; emails and phone use proposed `bwci_url_contact_email`, `bwci_url_contact_phone`, `bwci_url_media_email` and the existing `bwci_url_ir_email`. Proposed image value `bwci_img_contact_hero`. Merged through PR #48; published GHL NOT VERIFIED.
 
