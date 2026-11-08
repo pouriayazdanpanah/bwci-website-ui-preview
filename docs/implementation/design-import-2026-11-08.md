@@ -21,12 +21,16 @@ was inaccessible through the available web tool; it was not edited or treated as
 - GitHub Pages [deployment run 42472019472](https://github.com/pouriayazdanpanah/bwci-website-ui-preview/actions/runs/42472019472)
   for `a012ab2` completed successfully, including `actions/deploy-pages@v4` (job `128704782083`).
   This verifies deployment completion, separately from the local browser checks below.
+  The public preview could not be read through the available web tool; the deployment result was
+  verified through GitHub Actions.
 
 ## Importer and build compatibility fix
 
 `fix/design-export-folder-import` starts from refreshed `main` at `a322211`; publication commit
 `a012ab2` was subsequently integrated into the branch without changing its imported files. The fix
-and this handoff are delivered in a PR for manual review/merge.
+and this handoff are delivered in [PR #50](https://github.com/pouriayazdanpanah/bwci-website-ui-preview/pull/50),
+open for manual review/merge at handoff. The initial fix commit is `1681ce8`; verify the branch/PR state
+before resuming.
 
 The importer accepts existing root exports or one complete folder-wrapped export, including nested
 folder names. It validates original paths and case duplicates before removing the selected prefix,
