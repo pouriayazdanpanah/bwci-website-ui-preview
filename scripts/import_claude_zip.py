@@ -93,7 +93,7 @@ def git(*args):
 def collect(archive):
     files = {}
     seen = set()
-    total_size = 0
+    entries = []
     for item in archive.infolist():
         name = item.filename
         path = PurePosixPath(name)
@@ -110,6 +110,33 @@ def collect(archive):
         if key in seen:
             raise ValueError(f"duplicate ZIP path: {name}")
         seen.add(key)
+        entries.append(item)
+
+    # Some exports put the whole site inside a named folder. Validate original
+    # paths first, then select one complete export without guessing its name.
+    names = {item.filename for item in entries}
+    prefix = ""
+    if not REQUIRED.issubset(names):
+        candidates = {
+            name.removesuffix("Main.dc.html")
+            for name in names
+            if PurePosixPath(name).name == "Main.dc.html"
+        }
+        roots = [
+            candidate for candidate in candidates
+            if all(candidate + required in names for required in REQUIRED)
+        ]
+        if len(roots) > 1:
+            raise ValueError("ZIP contains multiple complete design exports; keep only one")
+        if roots:
+            prefix = roots[0]
+
+    total_size = 0
+    for item in entries:
+        if not item.filename.startswith(prefix):
+            continue
+        name = item.filename[len(prefix):]
+        path = PurePosixPath(name)
         publishable = (
             (len(path.parts) == 1 and name.endswith(".dc.html"))
             or (len(path.parts) == 1 and name.lower().endswith((".css", ".js")))
