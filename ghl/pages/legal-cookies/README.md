@@ -6,7 +6,7 @@ block. The block includes the shared header and footer.
   Each is its own port with its own folder, prefix and block. The other four: Privacy, Terms, Disclosures, Accessibility.
 - **History:** first ported from export `a012ab2` on `feat/ghl-legal-pages` (PR #51; the owner chose one PR for the
   five pages, an exception to the one-page-per-branch rule). Export `aac105f` replaced the page's legal pages switcher
-  with the shared LegalNav bar; that update is on `feat/ghl-legal-nav`, from main `aac105f`, again one PR for the five.
+  with the shared LegalNav bar; that update (`feat/ghl-legal-nav`, from main `aac105f`, again one PR for the five) merged in PR #53 (`2f13c21`).
 - Merge and live GoHighLevel installation are separate steps.
 
 ## Files
@@ -93,7 +93,7 @@ Also: the shared scroll motion (bwci-motion), the shared header (no menu item is
   Design or local paths.
 
 Shared changes:
-- **This update** (`feat/ghl-legal-nav`): `ghl/shared/site-chrome/site-chrome.js` builds the GovNav and LegalNav bars
+- **This update** (`feat/ghl-legal-nav`, merged in PR #53): `ghl/shared/site-chrome/site-chrome.js` builds the GovNav and LegalNav bars
   from one template (`sectionBar()`), with a new `legalnav` option. LegalNav reuses GovNav's hooks, CSS and runtime
   part (`site-chrome.govnav.js`, unchanged). The 31 other generated pages rebuild byte-identical and Main is untouched,
   so only the five legal blocks need re-pasting.

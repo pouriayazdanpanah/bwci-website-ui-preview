@@ -2,7 +2,17 @@
 
 This guide turns a finished Claude Design page in design/ into one pasteable GoHighLevel Website Builder Custom Code block. CLAUDE.md holds project-wide rules. pages/<slug>.md is a brief for a page not yet ported; ghl/pages/<slug>/README.md is the durable record for a completed port.
 
-## Current status — November 8, 2026
+## Current status — November 9, 2026
+
+**November 9 review:** every production page in `design/` is ported and merged; no PR is open. The LegalNav update
+below merged in PR #53 (`2f13c21`). From that main, all 35 generated builders were re-run and reproduced their committed
+outputs byte-for-byte (clean working tree). Remaining work is outside the code: the owner creates the proposed Custom
+Values and sets real destinations (the last supplied snapshot had all 43 link values at `#`), installs the blocks in
+GHL (re-pasting the five legal blocks if already installed), and decides the open questions recorded below (Contact's
+"Start a Conversation" links, The Platform Today header/footer destination, and which link reaches Providence Asset
+Management). Live GHL remains NOT VERIFIED for every page.
+
+### November 8, 2026
 
 The latest Drive design export was imported and pushed directly to `main` at `a012ab2`, as the owner
 explicitly requested the `--publish` operation. It adds six design pages: `Start a Conversation.dc.html`,
@@ -13,8 +23,8 @@ exists.
 
 **Export `aac105f` (8 November, imported to `main` by the owner):** adds the shared `LegalNav.dc.html` and replaces the
 five policy pages' switcher with it: a sticky bar of five links under the header, and a "Legal" select below 768 px.
-Nothing else in the design changed. The five legal ports are updated on `feat/ghl-legal-nav` (PR to main open; not
-merged), again one PR for the five. The shared chrome builds LegalNav from the GovNav template (new `legalnav` option,
+Nothing else in the design changed. The five legal ports were updated on `feat/ghl-legal-nav` and merged in PR #53
+(`2f13c21`), again one PR for the five. The shared chrome builds LegalNav from the GovNav template (new `legalnav` option,
 GovNav's hooks, CSS and runtime part); the 31 other generated pages rebuild byte-identical and Main is untouched, so
 only the five legal blocks need re-pasting. No new Custom Values. Local QA PASS with real web fonts; live GHL NOT
 VERIFIED.
@@ -367,7 +377,7 @@ Implementation, merge and publication are separate states. A generated block or 
 
 - Private Investors & Family Offices: ghl/pages/private-investors-family-offices/README.md. Hosted/inline outputs generated from _build/src/; hero with the threads image and the `private` breadcrumb, important-information notice, why it matters, three relationship cards, four architecture cards (the Providence Asset Management card is the source prop `showPamCard`), impact alignment with the drifting scale image, the four-step conversation track that lights up once at 40 % visibility, governance links and the dark next-step panel. `showFlags` adds the four review badges. Proposed values `bwci_img_private_investors_family_offices_hero` and `bwci_img_private_investors_family_offices_impact`. Merged through PR #47; published GHL NOT VERIFIED.
 
-- Privacy, Terms, Cookies, Disclosures and Accessibility: ghl/pages/legal-privacy/README.md (and legal-terms, legal-cookies, legal-disclosures, legal-accessibility). One design template, five separate ports: hero with the page's own breadcrumb and the "Wording to approve" badge (`showFlags`, default true), the shared LegalNav bar (since export `aac105f`: sticky links under the header, a "Legal" select ≤767 px), the document with the sticky "On this page" index marking the section being read, and the "Contact us" panel (`contactDetails`). Merged through PR #51; the LegalNav update is on `feat/ghl-legal-nav` (PR open, not merged); published GHL NOT VERIFIED.
+- Privacy, Terms, Cookies, Disclosures and Accessibility: ghl/pages/legal-privacy/README.md (and legal-terms, legal-cookies, legal-disclosures, legal-accessibility). One design template, five separate ports: hero with the page's own breadcrumb and the "Wording to approve" badge (`showFlags`, default true), the shared LegalNav bar (since export `aac105f`: sticky links under the header, a "Legal" select ≤767 px), the document with the sticky "On this page" index marking the section being read, and the "Contact us" panel (`contactDetails`). Merged through PR #51; the LegalNav update merged in PR #53 (`2f13c21`); published GHL NOT VERIFIED.
 
 - Start a Conversation: ghl/pages/start-a-conversation/README.md. Hero with its own breadcrumb and promise chips; four route cards as tabs (two columns ≤1023 px, an accordion ≤767 px keeping the tapped card in place), the route in the URL hash, each panel with its dark aside (sticky ≥1024 px), "Compliance to approve" badges (`showFlags`) and the owner's GHL form iframe (`forms.*` → proposed `bwci_url_form_*`, placeholder until set, `formHeight` / `formHeightPhone`); "Looking for something else?" cards. A route is always open (owner decision). Merged through PR #52; published GHL NOT VERIFIED.
 
