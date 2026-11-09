@@ -5,7 +5,7 @@ const path = require('path');
 const siteChrome = require('./site-chrome');
 const DESIGN = path.resolve(__dirname, '../../../design');
 const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-module.exports = function profileParts({slug, prefix: P, rename}) {
+module.exports = function profileParts({slug, prefix: P, rename, global: globalPage}) {
   const D = siteChrome.loadPeople(), p = D.get(slug);
   if (!p) throw new Error('Unknown profile: ' + slug);
   const source = fs.readFileSync(path.join(DESIGN, 'GovProfile.dc.html'), 'utf8');
@@ -17,7 +17,7 @@ module.exports = function profileParts({slug, prefix: P, rename}) {
   let chrome;
   for (const via of ['board', 'leadership']) {
     const c = siteChrome({prefix: P, current: 'governance', breadcrumb: 'gov-profile', profile: {name: p.name, via},
-      govnav: via, content: true, people: true, rename});
+      govnav: via, content: true, people: true, rename, global: !!globalPage});
     contexts[via] = {breadcrumb: c.breadcrumb, govnav: c.govnav};
     if (via === defaultVia) chrome = c;
   }

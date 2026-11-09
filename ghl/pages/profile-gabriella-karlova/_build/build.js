@@ -26,12 +26,28 @@ const KEYFRAME_PREFIX = 'pgk-';
 const PAGE_DIR = path.resolve(__dirname, '..');
 const SRC = path.join(__dirname, 'src');
 const REPORT = process.argv.includes('--report');
+// --global: the page block for use with the global header and footer (ghl/global/): no header or footer, no logo /
+// header / footer settings, only the links the page itself uses, and the root marked data-bwci-current for the global
+// header. Writes profile-gabriella-karlova.global*.ghl.html; the regular outputs are untouched.
+const GLOBAL = process.argv.includes('--global');
+const forGlobal = (c) => {
+  if (!GLOBAL) return c;
+  const o = Object.assign({}, c);
+  ['logoImage', 'showHeader', 'showFooter', 'footer'].forEach((k) => { delete o[k]; });
+  if (o.imageFallbacks) { o.imageFallbacks = Object.assign({}, o.imageFallbacks); delete o.imageFallbacks.logoImage; if (!Object.keys(o.imageFallbacks).length) delete o.imageFallbacks; }
+  return o;
+};
+const globalBanner = (s) => (GLOBAL ? s.replace(/^<!--\n/, '<!--\n' +
+  '  FOR THE GLOBAL HEADER AND FOOTER (built with --global): this block has NO header or footer of its own. Paste it\n' +
+  '  between the "BWCI Header" and "BWCI Footer" GoHighLevel Global Sections (ghl/global/). The logo, header/footer\n' +
+  '  and footer-wording settings live in those sections; any such setting named below is not in this block.\n') : s);
+
 // classes the runtime adds outside the static markup (keep in sync with the shared site chrome)
 const DYNAMIC_CLASSES = ['pgk-is-drag'];
 const PGK_RENAME = new Set(['wrap', 'sec', 'sec--line', 'sec--subtle', 'lead', 'link', 'ar', 'h1', 'h3',
   'pg-hero', 'pg-hero--in', 'gv-portrait', 'pg-body', 'pg-kv', 'gv-also', 'is-drag']);
 const pageCss = fs.readFileSync(path.join(SRC, 'profile-gabriella-karlova.css'), 'utf8');
-const profile = require('../../../shared/site-chrome/site-chrome.profile')({
+const profile = require('../../../shared/site-chrome/site-chrome.profile')({ global: GLOBAL,
   slug: 'gabriella-karlova', prefix: 'pgk', rename: (n) => PGK_RENAME.has(n) ? 'pgk-' + n : n,
 });
 const chrome = profile.chrome;
@@ -89,7 +105,8 @@ function scopeSelector(s) {
 /* ---------------- inputs ---------------- */
 const slugs = profile.imageSlugs;
 const htmlSrc = fs.readFileSync(path.join(SRC, 'profile-gabriella-karlova.html'), 'utf8').trim()
-  .replace(/<!--chrome:(header|breadcrumb|govnav|footer)-->/g, (_, k) => chrome[k])
+  .replace(/<!--chrome:(header|breadcrumb|govnav|footer)-->/g, (_, k) => (GLOBAL && (k === 'header' || k === 'footer') ? '' : chrome[k]))
+  .replace('id="' + ROOT.slice(1) + '"', (m) => (GLOBAL ? m + ' data-bwci-current="' + chrome.current + '"' : m))
   .replace(/<!--profile:(hero|biography|related)-->/g, (_, k) => profile[k]);
 const jsSrc = fs.readFileSync(path.join(SRC, 'profile-gabriella-karlova.js'), 'utf8').trim();
 if (!jsSrc.includes('/*@site-chrome*/') || !jsSrc.includes('/*@profile*/')) throw new Error('Runtime marker missing');
@@ -188,6 +205,7 @@ const FONT_LINKS = [
 
 /* ---------------- checks ---------------- */
 const usedKeys = new Set([...htmlCode.matchAll(/data-pgk-link="([^"]+)"/g)].map((m) => m[1]));
+if (GLOBAL) Object.keys(config.links).forEach((k) => { if (!usedKeys.has(k)) delete config.links[k]; });
 const cfgKeys = new Set(Object.keys(config.links));
 usedKeys.forEach((k) => { if (!cfgKeys.has(k)) throw new Error('Link key missing from config: ' + k); });
 cfgKeys.forEach((k) => { /* Only known legacy keys retain their original configuration semantics. */ if (!usedKeys.has(k) && !chrome.legacyLinkKeys.includes(k)) throw new Error('Unused link key in config: ' + k); });
@@ -229,13 +247,13 @@ function banner(variant) {
 }
 function assemble(logoValue, peopleValues, variant) {
   const cfg = Object.assign({}, config, { logoImage: logoValue, peopleImages: peopleValues });
-  const cfgBlock = '<script type="application/json" id="bwci-profile-gabriella-karlova-config">\n' + JSON.stringify(chrome.imageConfig(cfg), null, 2).replace(/</g, '\\u003c') + '\n</script>';
+  const cfgBlock = '<script type="application/json" id="bwci-profile-gabriella-karlova-config">\n' + JSON.stringify(chrome.imageConfig(forGlobal(cfg)), null, 2).replace(/</g, '\\u003c') + '\n</script>';
   return banner(variant) + '\n' + cfgBlock + '\n' + FONT_LINKS + '\n<style>\n' + css + '</style>\n\n' + html + '\n\n<script>\n' + js + '\n</script>\n';
 }
 const ghl = assemble(config.logoImage, config.peopleImages, 'production — hosted images');
 const inline = assemble(dataUri(chrome.logoPath), Object.fromEntries(cfgSlugs.map((sl) => [sl, dataUri(assetOf(sl))])), 'self-contained — embedded images');
-fs.writeFileSync(path.join(PAGE_DIR, 'profile-gabriella-karlova.ghl.html'), ghl);
-fs.writeFileSync(path.join(PAGE_DIR, 'profile-gabriella-karlova.inline.ghl.html'), inline);
+fs.writeFileSync(path.join(PAGE_DIR, GLOBAL ? 'profile-gabriella-karlova.global.ghl.html' : 'profile-gabriella-karlova.ghl.html'), globalBanner(ghl));
+fs.writeFileSync(path.join(PAGE_DIR, GLOBAL ? 'profile-gabriella-karlova.global.inline.ghl.html' : 'profile-gabriella-karlova.inline.ghl.html'), globalBanner(inline));
 
 console.log('keyframes kept   :', keptKf.join(', '));
 console.log('keyframes dropped:', droppedKf.join(', ') || '-');

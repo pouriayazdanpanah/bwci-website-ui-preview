@@ -5,6 +5,16 @@ GoHighLevel Custom Code block. The block includes the shared header and footer.
 - **Branch:** `feat/ghl-start-a-conversation`, from main `0ed3636`.
 - Merge and live GoHighLevel installation are separate steps.
 
+## Global header/footer version (9 November 2026)
+
+`node ghl/pages/start-a-conversation/_build/build.js --global` also writes `start-a-conversation.global.ghl.html` and
+`start-a-conversation.global.inline.ghl.html`: this page **without** its header and footer, for use between the
+[global header and footer](../../global/README.md) GoHighLevel Global Sections ("BWCI Header" / "BWCI Footer"). Its root
+carries `data-bwci-current="contact"` (the global header marks the current page from it); its config drops `logoImage`,
+`showHeader`, `showFooter` and `footer` and keeps only the links the page itself uses. The regular outputs below are
+unchanged. Local QA against the regular block: [global rollout verification](../../global/qa/verification.md). Live GHL
+NOT VERIFIED for this page. Never paste it without the two global sections, and never combine the regular block with them.
+
 ## Owner decisions applied (8 November 2026)
 
 - **The forms are the owner's GHL form iframes.** Each of the four routes embeds a GHL form from its own Custom Value.

@@ -486,7 +486,7 @@ module.exports = function siteChrome(opts) {
     // override them with 0px on its root
     const reset = "if (!hdr) { root.style.setProperty('--util-h', '0px'); root.style.setProperty('--nav-h', '0px'); return { destroy: removeStatus }; }";
     if (runtime.split(reset).length !== 2) throw new Error('site-chrome.runtime.js header-less branch changed; review the global option');
-    runtime = runtime.replace(reset, () => 'if (!hdr) return { destroy: removeStatus }; // global header: --util-h / --nav-h come from <html>');
+    runtime = runtime.replace(reset, () => GLOBAL_HEADERLESS);
     // a page block (root marked data-bwci-current) tells the global header that it is ready, in whatever order
     // GoHighLevel runs the blocks; the header then marks the current page
     const start = 'function siteChrome(root, cfg, on, timers) {';
@@ -506,6 +506,7 @@ module.exports = function siteChrome(opts) {
       return siteImages.forOutput(cfg);
     },
     header: swap(header), breadcrumb: swap(breadcrumb), govnav, legalnav, footer: swap(footer), css, runtime,
+    current,                                // SiteHeader `current` (a --global page marks its root data-bwci-current with it)
     links,                                  // chrome link keys used by this page, with default routes
     unresolved: Object.keys(links).filter((k) => links[k] === '#'),
     // Retain the old homepage-anchor setting without making it the independent Impact destination.
@@ -518,6 +519,31 @@ module.exports = function siteChrome(opts) {
   };
 };
 module.exports.HREF_KEYS = HREF_KEYS;
+// The header-less branch of a --global page's chrome runtime (also used by ghl/global/_build/main-global.js).
+// --util-h / --nav-h come from the global header on <html>. A page root marked data-bwci-overlays (fixed overlays of
+// its own, e.g. The Platform Today's guide) keeps its GoHighLevel section(s) layered just below the global header's
+// raised section (998 < 999) and so above the footer's; overlay(true) lifts them above the header while an overlay is
+// open. Only ancestors that already have a z-index are touched, and every value is restored on teardown.
+const GLOBAL_HEADERLESS = [
+  'if (!hdr) { // global header: --util-h / --nav-h come from <html>',
+  '      var layered = [];',
+  "      if (root.hasAttribute('data-bwci-overlays')) {",
+  '        for (var el = root.parentElement; el && el !== document.body && el !== document.documentElement; el = el.parentElement) {',
+  "          if (getComputedStyle(el).zIndex !== 'auto') layered.push([el, el.style.getPropertyValue('z-index'), el.style.getPropertyPriority('z-index')]);",
+  '        }',
+  '      }',
+  "      var layer = function (z) { layered.forEach(function (r) { r[0].style.setProperty('z-index', z, 'important'); }); };",
+  "      layer('998');",
+  '      return {',
+  "        overlay: function (open) { layer(open ? '1000' : '998'); },",
+  '        destroy: function () {',
+  '          removeStatus();',
+  "          layered.forEach(function (r) { if (r[1]) r[0].style.setProperty('z-index', r[1], r[2]); else r[0].style.removeProperty('z-index'); });",
+  '        }',
+  '      };',
+  '    }',
+].join('\n');
+module.exports.GLOBAL_HEADERLESS = GLOBAL_HEADERLESS;
 module.exports.LINK_DEFAULTS = LINK_DEFAULTS;
 
 // Development-only data access for the reusable profile generator.

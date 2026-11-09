@@ -239,12 +239,11 @@ const ghl = assemble(config.logoImage, 'production — hosted logo');
 const inline = assemble('data:image/png;base64,' + fs.readFileSync(chrome.logoPath).toString('base64'), 'self-contained — embedded logo');
 const OUT_NAME = GLOBAL ? 'governance.global' : 'governance';
 fs.writeFileSync(path.join(PAGE_DIR, OUT_NAME + '.ghl.html'), ghl);
-// with the global header/footer the page has no image of its own, so both variants are the same block
-if (!GLOBAL) fs.writeFileSync(path.join(PAGE_DIR, 'governance.inline.ghl.html'), inline);
+fs.writeFileSync(path.join(PAGE_DIR, GLOBAL ? 'governance.global.inline.ghl.html' : 'governance.inline.ghl.html'), inline);
 
 console.log('keyframes kept   :', keptKf.join(', '));
 console.log('keyframes dropped:', droppedKf.join(', ') || '-');
 console.log('selectors dropped:', pruned.length + (REPORT ? '' : ' (run with --report to list)'));
 if (REPORT) pruned.forEach((p) => console.log('   ' + p));
 console.log(OUT_NAME + '.ghl.html        ', (Buffer.byteLength(ghl) / 1024).toFixed(1) + ' KB');
-if (!GLOBAL) console.log('governance.inline.ghl.html ', (Buffer.byteLength(inline) / 1024).toFixed(1) + ' KB');
+console.log(OUT_NAME + '.inline.ghl.html ', (Buffer.byteLength(inline) / 1024).toFixed(1) + ' KB');

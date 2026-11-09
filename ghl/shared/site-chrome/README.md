@@ -52,7 +52,7 @@ ghl/shared/site-chrome/
     └── sync/               ← current all-23-page synchronization checks and verification report
 ```
 
-## Global header/footer options (pilot, 9 November 2026)
+## Global header/footer options (9 November 2026)
 
 Two opt-in options serve the [global header and footer](../../global/README.md); without them the output is
 unchanged (all 72 page outputs rebuild byte-identical):
@@ -60,9 +60,13 @@ unchanged (all 72 page outputs rebuild byte-identical):
   each dropdown trigger / drawer accordion `data-<prefix>-cg="<the values of its items>"`, so the global header's
   runtime can mark the current page that the page block names (`data-bwci-current` on its root). Use with
   `current: null`.
-- `global: true` (global blocks, and a page built with `--global`): the header-less runtime no longer resets
-  `--util-h` / `--nav-h` to 0 on its root (the global header sets them on `<html>`), and the header/footer dynamic
-  classes are not expected in the page markup.
+- `global: true` (global blocks, and a page built with `--global`): the header-less runtime branch is replaced by
+  `GLOBAL_HEADERLESS` (exported; Main's derivation uses the same text). It no longer resets `--util-h` / `--nav-h` to
+  0 on the root (the global header sets them on `<html>`); a root marked `data-bwci-current` dispatches
+  `bwci:page-ready`; a root marked `data-bwci-overlays` layers its GoHighLevel section(s) at 998 and returns
+  `overlay(open)` (1000 while a page overlay is open). The header/footer dynamic classes are not expected in the page
+  markup, and the result carries `current` (the SiteHeader `current` value).
+- `site-chrome.profile.js` passes `global` through to the profile pages' chrome.
 
 ## What it reads from design/ (at build time)
 

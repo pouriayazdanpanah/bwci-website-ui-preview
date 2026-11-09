@@ -1,0 +1,2167 @@
+<!--
+  FOR THE GLOBAL HEADER AND FOOTER (derived by ghl/global/_build/main-global.js): this block has NO header or footer
+  of its own. Paste it between the "BWCI Header" and "BWCI Footer" GoHighLevel Global Sections (ghl/global/). The
+  logo, header/footer and footer-wording settings live in those sections; any such setting named below is not here.
+  BWCI — HOMEPAGE (Main) · GoHighLevel Custom Code block (production — hosted images)
+  Source: design/Main.dc.html (+ SiteHeader, SiteFooter, image-slot.js image state)
+  Paste this whole file into ONE GoHighLevel "Custom Code" element placed in a full-width section with no padding.
+  Edit ONLY the JSON block below: "heroImage", "images" and "logoImage" (image URLs), "showHeader",
+  "showFooter", "footer" (legal wording) and "links" (every link to another page; "#" marks a destination
+  that has no GoHighLevel page yet). The hosted and inline files differ only in these image values.
+-->
+<script type="application/json" id="bwci-main-config">
+{
+  "heroImage": "{{ custom_values.hero_image }}",
+  "images": {
+    "whoPhoto": "{{ custom_values.bwci_img_who_photo }}",
+    "impact1": "{{ custom_values.bwci_img_impact_1 }}",
+    "impact2": "{{ custom_values.bwci_img_impact_2 }}",
+    "impact3": "{{ custom_values.bwci_img_impact_3 }}",
+    "impact4": "{{ custom_values.bwci_img_impact_4 }}",
+    "leaderAlexander": "{{ custom_values.bwci_img_profile_alexander_alegria_saif }}",
+    "leaderFarhad": "{{ custom_values.bwci_img_profile_farhad_reyazat }}",
+    "leaderGabriela": "{{ custom_values.bwci_img_profile_gabriella_karlova }}"
+  },
+  "links": {
+    "leadership": "{{ custom_values.bwci_url_governance_leadership }}",
+    "financialEngine": "{{ custom_values.bwci_url_financial_engine }}",
+    "ecosystem": "{{ custom_values.bwci_url_ecosystem }}",
+    "platforms": "{{ custom_values.bwci_url_platforms }}",
+    "smes": "{{ custom_values.bwci_url_smes_projects }}",
+    "investors": "{{ custom_values.bwci_url_investors_partners }}",
+    "governance": "{{ custom_values.bwci_url_governance }}",
+    "corporateIR": "{{ custom_values.bwci_url_corporate_ir }}",
+    "verify": "{{ custom_values.bwci_url_verify }}",
+    "smesProcess": "{{ custom_values.bwci_url_smes_projects }}#sme-process",
+    "platformsDirectory": "{{ custom_values.bwci_url_platforms }}#plt-directory",
+    "investorsRoute": "{{ custom_values.bwci_url_investors_partners }}#inv-route",
+    "governanceBoard": "{{ custom_values.bwci_url_governance_board }}",
+    "governanceCommittees": "{{ custom_values.bwci_url_governance }}#gov-committees",
+    "governanceCapital": "{{ custom_values.bwci_url_governance }}#gov-capital",
+    "governanceRisk": "{{ custom_values.bwci_url_governance }}#gov-risk",
+    "governancePerimeter": "{{ custom_values.bwci_url_governance }}#gov-perimeter",
+    "platformsRegisters": "{{ custom_values.bwci_url_platforms }}#plt-registers",
+    "smesEngage": "{{ custom_values.bwci_url_smes_projects }}#sme-engage",
+    "investorsEngage": "{{ custom_values.bwci_url_investors_partners }}#inv-engage"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+@media (max-width:1023px){
+  #bwci-main-page .bw-hero-sub blockquote{ margin:0; padding:0; border:0; }
+  #bwci-main-page .bw-hero-sub p, #bwci-main-page .bw-hero-sub p span{ position:static !important; left:auto !important; top:auto !important; width:auto !important; height:auto !important; max-width:100% !important; }
+}
+#bwci-main-page{ --brand-ink:#123039; --brand-teal:#1D4A54; --accent-emerald:#12836B; --accent-emerald-dark:#0D6E59; --accent-gold:#B98F2D; --accent-gold-dark:#9E7720; --surface-canvas:#FFFFFF; --surface-subtle:#F7F9F8; --surface-cloud:#EFF3F1; --text-primary:#123039; --text-secondary:#42585E; --text-muted:#5C7075; --text-inverse:#FFFFFF; --text-inverse-muted:#A8C2C8; --border-subtle:#E2E9E6; --border-default:#D5E0DC; --border-strong:#8A9E99; --border-inverse:#2D5964; --status-op-mark:#12836B; --status-op-text:#0D6E59; --status-op-border:#A3D9C9; --status-op-bg:#E8F5F1; --status-dev-mark:#B98F2D; --status-dev-text:#7D5B0F; --status-dev-border:#E8C46B; --status-dev-bg:#FDF8EB; --status-pro-mark:#6C8085; --status-pro-text:#384C51; --status-pro-border:#BDCCD0; --status-pro-bg:#F0F4F5; --rel-partner-mark:#3D5A80; --rel-partner-text:#253B57; --rel-partner-border:#A8BDD7; --rel-partner-bg:#EFF4FA; --shadow-card:0 1px 3px rgba(18,48,57,.04), 0 1px 2px rgba(18,48,57,.02); --shadow-elevated:0 12px 32px rgba(18,48,57,.08), 0 2px 6px rgba(18,48,57,.04); --font-sans:'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; --font-mono:'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace; --ease-out:cubic-bezier(0.23,1,0.32,1); --radius-sm:2px; --radius-md:4px; --radius-lg:8px; --radius-full:9999px; --container:1280px; --container-wide:1440px; --text-disabled:#A0B0B4; --surface-dark:#123039; --surface-dark-elevated:#1D4A54; --fs-floor-sm:0px; --fs-floor-body:0px; }
+@media (max-width:767px){
+  #bwci-main-page{ --fs-floor-sm:14px; --fs-floor-body:16px; }
+}
+@media (max-width:767px){
+  #bwci-main-page .pk-top .bw-badge{ white-space:normal; min-width:0; flex-shrink:1; line-height:1.3; }
+}
+#bwci-main-page, #bwci-main-page *{ box-sizing:border-box; }
+#bwci-main-page{ display:block; position:relative; width:100%; min-height:100vh; margin:0; padding:0; overflow-x:hidden; overflow-x:clip; background:#fff; color:var(--text-primary); font-family:var(--font-sans); font-size:max(15px,var(--fs-floor-body,0px)); font-weight:400; font-style:normal; line-height:1.65; letter-spacing:normal; word-spacing:normal; text-align:left; text-transform:none; text-shadow:none; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+#bwci-main-page :is(h1,h2,h3,h4,h5,h6){ margin:0; padding:0; font-weight:700; line-height:inherit; letter-spacing:normal; text-transform:none; text-align:inherit; background:none; border:0; }
+#bwci-main-page :is(p,li,span,a,small,b,strong,em,i,article){ font-family:inherit; font-size:inherit; line-height:inherit; letter-spacing:inherit; text-transform:inherit; text-align:inherit; color:inherit; }
+#bwci-main-page :is(p){ margin:0; padding:0; }
+#bwci-main-page :is(a){ background:none; text-decoration:none; }
+#bwci-main-page :is(img){ max-width:none; border:0; }
+#bwci-main-page :is(ul,ol){ margin:0; padding:0; list-style:none; }
+#bwci-main-page :is(li){ margin:0; padding:0; }
+#bwci-main-page :is(li)::marker{ content:none; }
+#bwci-main-page :is(dl,dd,figure,blockquote){ margin:0; padding:0; border:0; }
+#bwci-main-page :is(dt){ font-weight:inherit; margin:0; }
+#bwci-main-page :is(cite){ font-style:normal; }
+#bwci-main-page :is(section,header,footer,nav,aside,article){ display:block; margin:0; padding:0; border:0; }
+#bwci-main-page :is(b,strong){ font-weight:bolder; }
+#bwci-main-page :is(svg){ vertical-align:baseline; }
+#bwci-main-page :is(button){ font-size:13.3333px; font-weight:400; font-style:normal; line-height:normal; letter-spacing:normal; text-transform:none; text-indent:0; text-shadow:none; margin:0; border-radius:0; box-shadow:none; min-width:auto; min-height:auto; max-width:none; width:auto; height:auto; -webkit-appearance:none; appearance:none; }
+#bwci-main-page [hidden]{ display:none !important; }
+#bwci-main-page h1, #bwci-main-page h2, #bwci-main-page h3, #bwci-main-page h4, #bwci-main-page p, #bwci-main-page blockquote, #bwci-main-page ul{ margin:0; }
+#bwci-main-page ul{ padding:0; list-style:none; }
+#bwci-main-page a{ color:inherit; text-decoration:none; }
+#bwci-main-page a:hover{ color:var(--accent-emerald-dark); }
+#bwci-main-page button{ font-family:inherit; cursor:pointer; }
+#bwci-main-page :focus-visible{ outline:2px solid var(--accent-emerald); outline-offset:3px; }
+#bwci-main-page .bw-wrap{ max-width:1280px; margin:0 auto; padding:0 clamp(20px,4vw,40px); }
+#bwci-main-page .bw-sec{ padding:clamp(64px,8vw,112px) 0; position:relative; }
+#bwci-main-page .bw-sec--subtle{ background:var(--surface-subtle); }
+#bwci-main-page .bw-eyebrow{ display:inline-flex; align-items:center; gap:10px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-gold-dark); }
+#bwci-main-page .bw-eyebrow::before{ content:''; width:16px; height:1.5px; background:currentColor; }
+#bwci-main-page .bw-h-display{ font-size:clamp(36px,5vw,60px); font-weight:700; line-height:1.06; letter-spacing:-.035em; text-wrap:balance; }
+#bwci-main-page .bw-h1{ font-size:clamp(28px,3.4vw,42px); font-weight:700; line-height:1.15; letter-spacing:-.025em; text-wrap:balance; }
+#bwci-main-page .bw-lead{ font-size:clamp(16px,1.35vw,18px); line-height:1.6; color:var(--text-secondary); text-wrap:pretty; }
+#bwci-main-page .bw-sec-head{ display:grid; gap:16px; max-width:780px; margin-bottom:clamp(36px,4.5vw,56px); }
+#bwci-main-page .bw-btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:48px; padding:0 24px; border-radius:6px; border:1px solid transparent; font-size:15px; font-weight:600; letter-spacing:.005em; white-space:nowrap; transition:background-color .2s ease, border-color .2s ease, color .2s ease, transform .16s var(--ease-out); }
+#bwci-main-page .bw-btn:active{ transform:scale(.97); }
+#bwci-main-page .bw-btn .bw-ar{ transition:transform .2s var(--ease-out); }
+#bwci-main-page .bw-btn--primary{ background:var(--brand-ink); color:#fff; }
+#bwci-main-page .bw-btn--secondary{ background:transparent; color:var(--brand-ink); border-color:var(--brand-ink); }
+#bwci-main-page .bw-btn--inverse{ background:#fff; color:var(--brand-ink); }
+#bwci-main-page .bw-link{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--brand-ink); padding-bottom:4px; border-bottom:1px solid var(--border-strong); transition:color .2s ease, border-color .2s ease; }
+#bwci-main-page .bw-link .bw-ar{ transition:transform .2s var(--ease-out); }
+#bwci-main-page .bw-link--inv{ color:#fff; border-color:rgba(255,255,255,.35); }
+@media (hover:hover) and (pointer:fine){
+  #bwci-main-page .bw-btn--primary:hover{ background:var(--brand-teal); color:#fff; }
+  #bwci-main-page .bw-btn--secondary:hover{ background:var(--brand-ink); color:#fff; }
+  #bwci-main-page .bw-btn--inverse:hover{ background:#E6EEEC; color:var(--brand-ink); }
+  #bwci-main-page .bw-btn:hover .bw-ar, #bwci-main-page .bw-link:hover .bw-ar{ transform:translateX(3px); }
+  #bwci-main-page .bw-link:hover{ color:var(--accent-emerald-dark); border-color:var(--accent-emerald-dark); }
+  #bwci-main-page .bw-link--inv:hover{ color:var(--accent-gold); border-color:var(--accent-gold); }
+}
+#bwci-main-page .bw-badge{ display:inline-flex; align-items:center; gap:7px; padding:4px 11px 4px 9px; border-radius:999px; border:1px solid; font-family:var(--font-mono); font-size:max(11px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.05em; text-transform:uppercase; line-height:1.4; white-space:nowrap; }
+#bwci-main-page .bw-badge i{ width:7px; height:7px; border-radius:50%; flex:none; }
+#bwci-main-page .bw-b-op{ background:var(--status-op-bg); color:var(--status-op-text); border-color:var(--status-op-border); }
+#bwci-main-page .bw-b-op i{ background:var(--status-op-mark); }
+#bwci-main-page .bw-b-dev{ background:var(--status-dev-bg); color:var(--status-dev-text); border-color:var(--status-dev-border); }
+#bwci-main-page .bw-b-dev i{ background:var(--status-dev-mark); }
+#bwci-main-page .bw-b-pro{ background:var(--status-pro-bg); color:var(--status-pro-text); border-color:var(--status-pro-border); }
+#bwci-main-page .bw-b-pro i{ border:1.5px solid var(--status-pro-mark); }
+#bwci-main-page .bw-b-par{ background:var(--rel-partner-bg); color:var(--rel-partner-text); border-color:var(--rel-partner-border); }
+#bwci-main-page .bw-b-par i{ background:var(--rel-partner-mark); }
+#bwci-main-page .bw-b-tbc{ background:#fff; color:var(--text-muted); border-color:var(--border-default); border-style:dashed; }
+#bwci-main-page .bw-b-tbc i{ background:var(--border-strong); }
+#bwci-main-page.bw-rv-on .rv{ opacity:0; transform:translateY(14px); transition:opacity .7s var(--ease-out), transform .7s var(--ease-out); transition-delay:calc(var(--d,0) * 70ms); }
+#bwci-main-page.bw-rv-on .rv.bw-in{ opacity:1; transform:none; }
+@keyframes bw-heroIn{ from{ opacity:0; transform:translateY(16px); } to{ opacity:1; transform:none; } }
+#bwci-main-page .bw-hi{ animation:bw-heroIn .9s var(--ease-out) both; animation-delay:calc(var(--d,0) * 90ms + 80ms); }
+@media (prefers-reduced-motion:reduce){
+  #bwci-main-page.bw-rv-on .rv{ transform:none; transition:opacity .3s ease; }
+  #bwci-main-page .bw-hi{ animation:none; }
+}
+#bwci-main-page .bw-hero{ position:relative; overflow:hidden; color:#fff; margin-top:calc(var(--nav-h, 117px) * -1); padding:calc(var(--nav-h, 117px) + 24px) 0 0; background:radial-gradient(ellipse 700px 560px at 88% 30%, rgba(18,131,107,.24), transparent 60%), radial-gradient(ellipse 640px 520px at -8% 20%, rgba(29,74,84,.36), transparent 60%), linear-gradient(180deg,#05090B 0%,#0A1214 60%,#0E1A1D 100%); }
+#bwci-main-page .bw-hero-grid{ display:grid; grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr); gap:clamp(24px,3vw,48px); align-items:center; }
+#bwci-main-page .bw-hero-grid > :first-child{ padding:clamp(32px,4vw,56px) 0; }
+#bwci-main-page .bw-hero-eye{ display:inline-flex; align-items:center; gap:12px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--accent-gold); }
+#bwci-main-page .bw-hero-eye::before{ content:''; width:24px; height:1.5px; background:currentColor; }
+#bwci-main-page .bw-hero h1{ color:#fff; margin:22px 0 24px; font-size:clamp(38px,5.2vw,66px); line-height:1.04; letter-spacing:-.04em; }
+#bwci-main-page .bw-hero-sub{ color:var(--text-inverse-muted); max-width:520px; }
+#bwci-main-page .bw-hero-actions{ display:flex; flex-direction:column; align-items:flex-start; gap:22px; margin-top:40px; }
+#bwci-main-page .bw-hero-links{ display:flex; flex-wrap:wrap; gap:12px 28px; }
+#bwci-main-page .hlink{ display:inline-flex; gap:8px; font-size:15px; font-weight:600; color:#fff; padding-bottom:3px; border-bottom:1px solid rgba(255,255,255,.3); transition:color .2s ease, border-color .2s ease; }
+#bwci-main-page .hlink .bw-ar{ transition:transform .2s var(--ease-out); }
+@media (hover:hover) and (pointer:fine){
+  #bwci-main-page .hlink:hover{ color:var(--accent-gold); border-color:var(--accent-gold); }
+  #bwci-main-page .hlink:hover .bw-ar{ transform:translateX(3px); }
+}
+#bwci-main-page .hm{ --bleed:calc((100vw - min(100vw, 1280px)) / 2 + clamp(20px,4vw,40px)); position:relative; align-self:end; justify-self:end; aspect-ratio:600/625; width:min(calc(100% + var(--bleed)), calc((100svh - var(--nav-h, 117px)) * 600 / 625)); margin-right:calc(var(--bleed) * -1); margin-top:24px; }
+@media (min-width:1024px){
+  #bwci-main-page .bw-hero{ min-height:max(680px,100svh); padding-top:var(--nav-h, 117px); display:flex; flex-direction:column; }
+  #bwci-main-page .hm{ margin-top:0; }
+  #bwci-main-page .bw-hero > .bw-wrap{ flex:1; min-height:0; width:100%; display:flex; max-width:none; padding-left:clamp(24px,5vw,112px); padding-right:0; }
+  #bwci-main-page .bw-hero .hm{ --bleed:0px; }
+  #bwci-main-page .bw-hero-grid{ flex:1; min-height:0; grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  #bwci-main-page .bw-hero-grid > :first-child{ position:relative; z-index:2; }
+  #bwci-main-page .bw-hero-grid > :first-child{ padding:clamp(16px,3vh,48px) 0; }
+  #bwci-main-page .bw-hero h1{ font-size:clamp(44px, min(4.4vw, 8.2vh), 68px); margin:clamp(14px,2.2vh,22px) 0 clamp(16px,2.6vh,24px); }
+  #bwci-main-page .bw-hero-actions{ margin-top:clamp(20px,4vh,40px); gap:clamp(14px,2.4vh,22px); }
+}
+#bwci-main-page .hm-frame{ position:absolute; left:0; right:0; bottom:0; }
+#bwci-main-page .hm-clip{ position:relative; aspect-ratio:600/560; clip-path:url(#bwci-heroClip); -webkit-clip-path:url(#bwci-heroClip); background:linear-gradient(160deg,var(--brand-teal),var(--brand-ink)); }
+#bwci-main-page .hm-clip .bw-slot{ position:absolute; inset:0; }
+#bwci-main-page .hm-img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:60% 55%; display:block; }
+#bwci-main-page .hm-shade{ position:absolute; inset:0; z-index:2; pointer-events:none; background:linear-gradient(0deg, rgba(5,9,11,.62) 0%, rgba(5,9,11,0) 46%); }
+#bwci-main-page .hm-lines{ position:absolute; left:0; top:0; width:100%; aspect-ratio:600/560; overflow:visible; pointer-events:none; z-index:1; }
+#bwci-main-page .bw-hl{ fill:none; stroke:#A8C2C8; stroke-width:.85; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:1; stroke-dashoffset:1; animation:bw-hlDraw 1.8s cubic-bezier(.65,0,.35,1) forwards; animation-delay:calc(560ms + var(--k) * 110ms); }
+@keyframes bw-hlDraw{ to{ stroke-dashoffset:0; } }
+@keyframes bw-hmIn{ from{ opacity:0; transform:translateY(18px) scale(.985); } to{ opacity:1; transform:none; } }
+#bwci-main-page .hm-in{ animation:bw-hmIn 1.1s var(--ease-out) both; animation-delay:.18s; }
+#bwci-main-page .bw-tk{ position:relative; z-index:3; flex:none; overflow:hidden; border-top:1px solid rgba(255,255,255,.12); border-bottom:1px solid rgba(255,255,255,.08); background:rgba(10,18,20,.55); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px); -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); }
+#bwci-main-page .tk-track{ display:flex; width:max-content; animation:bw-tkMove 48s linear infinite; }
+#bwci-main-page .bw-tk:hover .tk-track{ animation-play-state:paused; }
+#bwci-main-page .tk-list{ display:flex; align-items:center; margin:0; padding:0; list-style:none; }
+#bwci-main-page .tk-list li{ display:flex; align-items:center; gap:clamp(20px,2.4vw,36px); padding-right:clamp(20px,2.4vw,36px); min-height:60px; font-size:max(13.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; color:rgba(255,255,255,.88); }
+#bwci-main-page .tk-list i{ width:7px; height:7px; flex:none; background:var(--accent-gold); transform:rotate(45deg); }
+@keyframes bw-tkMove{ to{ transform:translateX(-50%); } }
+@media (max-width:767px){
+  #bwci-main-page .tk-list li{ min-height:52px; font-size:max(12.5px,var(--fs-floor-sm,0px)); }
+  #bwci-main-page .bw-hero{ padding-bottom:0 !important; }
+  #bwci-main-page .bw-tk{ margin-top:32px; }
+}
+@media (prefers-reduced-motion:reduce){
+  #bwci-main-page .tk-track{ animation:none; flex-wrap:wrap; width:auto; justify-content:center; }
+  #bwci-main-page .tk-list[aria-hidden]{ display:none; }
+  #bwci-main-page .tk-list{ flex-wrap:wrap; justify-content:center; }
+  #bwci-main-page .bw-tk{ -webkit-mask-image:none; mask-image:none; }
+}
+#bwci-main-page .hk{ container-type:inline-size; position:relative; width:100%; margin:clamp(24px,4.4vh,44px) 0 0; max-width:600px; border-radius:16px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px); }
+#bwci-main-page .hk-row{ display:grid; grid-template-columns:repeat(4,minmax(0,auto)); justify-content:space-between; padding:6px; }
+@container (max-width:540px){
+  #bwci-main-page .hk-row{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #bwci-main-page .hk-i:nth-child(3)::before{ display:none; }
+  #bwci-main-page .hk-i{ min-height:56px; }
+}
+#bwci-main-page .hk-i{ position:relative; display:flex; align-items:center; justify-content:center; min-height:72px; padding:10px clamp(10px,1.4vw,18px); border:none; border-radius:10px; background:transparent; color:#fff; font-family:var(--font-sans); cursor:pointer; transition:background-color .2s ease; }
+#bwci-main-page .hk-i + .hk-i::before{ content:''; position:absolute; left:0; top:28%; bottom:28%; width:1px; background:rgba(255,255,255,.14); transition:opacity .2s ease; }
+#bwci-main-page .hk-t{ font-size:15px; font-weight:600; line-height:1.25; white-space:nowrap; transition:opacity .2s ease; }
+#bwci-main-page .hk-i:focus-visible{ outline:2px solid var(--accent-gold); outline-offset:-2px; }
+@media (hover:hover) and (pointer:fine){
+  #bwci-main-page .hk:not(.bw-act) .hk-i:hover{ background:rgba(255,255,255,.06); }
+}
+#bwci-main-page .hk-d{ position:absolute; inset:6px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; padding:0 20px; text-align:center; pointer-events:none; opacity:0; transform:translateY(4px); transition:opacity .22s ease, transform .3s var(--ease-out); }
+#bwci-main-page .hk-d b{ font-size:15px; font-weight:600; color:var(--accent-gold); }
+#bwci-main-page .hk-d p{ margin:0; font-size:max(14.5px,var(--fs-floor-body,0px)); line-height:1.45; color:rgba(255,255,255,.9); text-wrap:pretty; }
+#bwci-main-page .hk.bw-act .hk-t, #bwci-main-page .hk.bw-act .hk-i::before{ opacity:0; }
+#bwci-main-page .hk.bw-act .hk-d{ opacity:1; transform:none; }
+@media (max-width:599px){
+  #bwci-main-page .hk-row{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #bwci-main-page .hk-i:nth-child(3)::before{ display:none; }
+  #bwci-main-page .hk-i{ min-height:60px; }
+}
+@media (prefers-reduced-motion:reduce){
+  #bwci-main-page .hk-d, #bwci-main-page .hk-t{ transition:none; }
+}
+@media (prefers-reduced-motion:reduce){
+  #bwci-main-page .bw-hl{ animation:none; stroke-dashoffset:0; }
+  #bwci-main-page .hm-in{ animation:none; opacity:1; }
+}
+#bwci-main-page .pb-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+#bwci-main-page .pb-card{ position:relative; padding:28px 28px 32px; border-radius:14px; background:var(--surface-subtle); border:1px solid var(--border-subtle); display:flex; flex-direction:column; gap:12px; overflow:hidden; }
+#bwci-main-page .pb-card::before{ content:''; position:absolute; left:0; top:0; height:2px; width:100%; background:linear-gradient(90deg,var(--brand-ink),transparent); }
+#bwci-main-page .pb-card h3{ font-size:20px; font-weight:600; letter-spacing:-.015em; line-height:1.3; }
+#bwci-main-page .pb-card p{ font-size:max(15px,var(--fs-floor-body,0px)); color:var(--text-secondary); text-wrap:pretty; }
+#bwci-main-page .pb-foot{ margin-top:36px; }
+#bwci-main-page .pat-dots{ position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(18,48,57,.13) 1px, transparent 1.6px); background-size:22px 22px; -webkit-mask-image:radial-gradient(ellipse 70% 60% at 85% 20%, #000 10%, transparent 70%); mask-image:radial-gradient(ellipse 70% 60% at 85% 20%, #000 10%, transparent 70%); }
+#bwci-main-page .bw-sec > .bw-wrap{ position:relative; }
+#bwci-main-page .cmp{ display:grid; grid-template-columns:180px minmax(0,1fr) minmax(0,1.15fr); border-radius:18px; background:#fff; border:1px solid var(--border-subtle); box-shadow:var(--shadow-elevated); overflow:hidden; }
+#bwci-main-page .cmp-h{ padding:22px 24px; display:flex; flex-direction:column; gap:4px; border-bottom:1px solid var(--border-subtle); }
+#bwci-main-page .cmp-h b{ font-size:17px; font-weight:700; letter-spacing:-.01em; }
+#bwci-main-page .cmp-h small{ font-family:var(--font-mono); font-size:max(11px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; text-transform:uppercase; }
+#bwci-main-page .cmp-h--prod{ color:var(--text-muted); }
+#bwci-main-page .cmp-h--prod small{ color:var(--text-muted); }
+#bwci-main-page .cmp-h--need{ background:var(--brand-ink); color:#fff; border-bottom-color:var(--brand-ink); }
+#bwci-main-page .cmp-h--need small{ color:#E8C46B; }
+#bwci-main-page .cmp-row{ display:contents; }
+#bwci-main-page .cmp-l, #bwci-main-page .cmp-p, #bwci-main-page .cmp-n{ padding:22px 24px; border-bottom:1px solid var(--border-subtle); transition:background-color .25s ease; }
+#bwci-main-page .cmp-row:last-of-type > *{ border-bottom:0; }
+#bwci-main-page .cmp-l{ display:flex; flex-direction:column; gap:6px; }
+#bwci-main-page .cmp-l span{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; color:var(--accent-gold-dark); }
+#bwci-main-page .cmp-l b{ font-size:15px; font-weight:600; line-height:1.35; }
+#bwci-main-page .cmp-p, #bwci-main-page .cmp-n{ display:grid; grid-template-columns:28px minmax(0,1fr); gap:14px; align-items:start; font-size:16px; line-height:1.5; text-wrap:pretty; }
+#bwci-main-page .cmp-p{ color:var(--text-muted); border-left:1px dashed var(--border-default); }
+#bwci-main-page .cmp-n{ color:var(--text-primary); font-weight:500; border-left:1px solid var(--border-subtle); background:linear-gradient(90deg, rgba(18,131,107,.04), transparent); }
+#bwci-main-page .cmp-ic{ width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; transition:background-color .25s ease, color .25s ease, transform .3s var(--ease-out); }
+#bwci-main-page .cmp-ic svg{ width:14px; height:14px; }
+#bwci-main-page .cmp-p .cmp-ic{ border:1px dashed var(--border-strong); color:var(--border-strong); }
+#bwci-main-page .cmp-n .cmp-ic{ background:var(--status-op-bg); color:var(--accent-emerald-dark); border:1px solid var(--status-op-border); }
+@media (hover:hover) and (pointer:fine){
+  #bwci-main-page .cmp-row:hover > *{ background-color:var(--surface-subtle); }
+  #bwci-main-page .cmp-row:hover .cmp-n{ background:var(--status-op-bg); }
+  #bwci-main-page .cmp-row:hover .cmp-n .cmp-ic{ background:var(--accent-emerald); color:#fff; border-color:var(--accent-emerald); transform:scale(1.08); }
+}
+#bwci-main-page .cmp-foot{ grid-column:1 / -1; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px 24px; padding:20px 24px; background:var(--surface-subtle); border-top:1px solid var(--border-subtle); }
+#bwci-main-page .cmp-foot p{ font-size:max(15px,var(--fs-floor-body,0px)); color:var(--text-secondary); max-width:620px; }
+#bwci-main-page .cmp-tag{ display:none; font-family:var(--font-mono); font-size:max(11px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; grid-column:2; margin-bottom:-8px; }
+#bwci-main-page .lp{ --R:118px; --y:44px; position:relative; height:calc(var(--y) + var(--R) * 2 + 48px); margin-top:clamp(24px,3vw,40px); }
+#bwci-main-page .lp-ring{ position:absolute; left:0; right:0; top:var(--y); height:calc(var(--R) * 2); border:1.5px solid var(--accent-gold-dark); border-top-color:var(--brand-ink); border-radius:var(--R); opacity:.9; }
+#bwci-main-page .lp-ring::before{ content:''; position:absolute; left:calc(var(--R) - 1.5px); right:calc(var(--R) - 1.5px); top:-1.5px; height:1.5px; background:var(--brand-ink); }
+#bwci-main-page .lp-prog{ position:absolute; left:var(--R); top:calc(var(--y) - .5px); height:3px; width:calc((100% - var(--R) * 2) * var(--p)); background:var(--accent-emerald); border-radius:2px; transition:width .5s var(--ease-out); }
+#bwci-main-page .lp-chev{ position:absolute; top:calc(var(--y) - 4px); width:9px; height:9px; border-top:1.5px solid var(--brand-ink); border-right:1.5px solid var(--brand-ink); transform:translateX(-50%) rotate(45deg); }
+#bwci-main-page .lp-chev--ret{ top:calc(var(--y) + var(--R) * 2 - 4.5px); left:50%; border-color:var(--accent-gold-dark); transform:translateX(-50%) rotate(-135deg); }
+#bwci-main-page .lp-chev--in{ left:calc(var(--R) - 16px); border-color:var(--accent-gold-dark); }
+#bwci-main-page .lp-ret{ position:absolute; left:50%; top:calc(var(--y) + var(--R) * 2 + 18px); transform:translateX(-50%); white-space:nowrap; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--accent-gold-dark); }
+#bwci-main-page .lp-nodes{ position:absolute; left:var(--R); right:var(--R); top:0; display:flex; justify-content:space-between; }
+#bwci-main-page .lp-n{ position:relative; width:0; height:0; padding:0; border:0; background:none; color:var(--text-primary); }
+#bwci-main-page .lp-in{ position:absolute; left:0; top:0; transform:translateX(-50%); width:150px; display:flex; flex-direction:column; align-items:center; text-align:center; }
+#bwci-main-page .lp-num{ height:24px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; color:var(--text-muted); transition:color .25s ease; }
+#bwci-main-page .lp-dot{ width:22px; height:22px; margin-top:9px; border-radius:50%; background:#fff; border:1.5px solid var(--brand-ink); display:flex; align-items:center; justify-content:center; transition:background-color .25s ease, border-color .25s ease, transform .3s var(--ease-out), box-shadow .3s ease; }
+#bwci-main-page .lp-dot::after{ content:''; width:8px; height:8px; border-radius:50%; background:transparent; transition:background-color .25s ease; }
+#bwci-main-page .lp-t{ margin-top:16px; font-size:18px; font-weight:700; letter-spacing:-.015em; line-height:1.25; transition:color .25s ease; }
+#bwci-main-page .lp-s{ margin-top:4px; font-size:14px; line-height:1.45; color:var(--text-muted); text-wrap:balance; }
+#bwci-main-page .lp-n.is-past .lp-dot{ border-color:var(--accent-emerald); }
+#bwci-main-page .lp-n.is-past .lp-dot::after{ background:var(--accent-emerald); }
+#bwci-main-page .lp-n.is-on .lp-dot{ background:var(--accent-emerald); border-color:var(--accent-emerald); transform:scale(1.25); box-shadow:0 0 0 6px rgba(18,131,107,.14); }
+#bwci-main-page .lp-n.is-on .lp-dot::after{ background:#fff; }
+#bwci-main-page .lp-n.is-on .lp-num, #bwci-main-page .lp-n.is-on .lp-t{ color:var(--accent-emerald-dark); }
+@media (hover:hover) and (pointer:fine){
+  #bwci-main-page .lp-n:not(.is-on):hover .lp-dot{ transform:scale(1.15); border-color:var(--accent-emerald); }
+  #bwci-main-page .lp-n:not(.is-on):hover .lp-t{ color:var(--accent-emerald-dark); }
+}
+#bwci-main-page .lp-n:focus-visible{ outline:none; }
+#bwci-main-page .lp-n:focus-visible .lp-dot{ outline:2px solid var(--accent-emerald); outline-offset:4px; }
+#bwci-main-page .lpd{ margin-top:clamp(32px,4vw,48px); padding-top:28px; border-top:1px solid var(--border-default); display:grid; grid-template-columns:minmax(0,1fr) auto; gap:24px 40px; align-items:end; }
+#bwci-main-page .lpd-stack{ display:grid; }
+#bwci-main-page .lpd-pane{ grid-area:1/1; display:grid; grid-template-columns:minmax(200px,.8fr) minmax(0,2fr); gap:16px 40px; opacity:0; visibility:hidden; transform:translateY(6px); transition:opacity .28s ease, transform .4s var(--ease-out), visibility 0s linear .28s; }
+#bwci-main-page .lpd-pane.is-on{ opacity:1; visibility:visible; transform:none; transition:opacity .28s ease, transform .4s var(--ease-out), visibility 0s; }
+#bwci-main-page .lpd-k{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
+#bwci-main-page .lpd-h{ margin-top:6px; font-size:clamp(28px,3vw,38px); font-weight:700; letter-spacing:-.03em; line-height:1.1; color:var(--brand-ink); }
+#bwci-main-page .lpd-full{ font-size:14px; font-weight:600; color:var(--accent-emerald-dark); }
+#bwci-main-page .lpd-d{ margin-top:6px; font-size:clamp(16px,1.4vw,18px); line-height:1.55; color:var(--text-primary); text-wrap:pretty; }
+#bwci-main-page .lpd-ex{ margin-top:14px; display:grid; grid-template-columns:auto minmax(0,1fr); gap:12px; align-items:start; font-size:15px; color:var(--text-secondary); text-wrap:pretty; }
+#bwci-main-page .lpd-side{ display:flex; flex-direction:column; align-items:flex-end; gap:18px; }
+#bwci-main-page .lpd-ctrl{ display:flex; gap:8px; }
+#bwci-main-page .lpd-ctrl button{ width:44px; height:44px; border-radius:50%; border:1px solid var(--border-default); background:#fff; color:var(--brand-ink); display:flex; align-items:center; justify-content:center; transition:border-color .2s ease, transform .16s var(--ease-out); }
+#bwci-main-page .lpd-ctrl button:active{ transform:scale(.94); }
+@media (hover:hover) and (pointer:fine){
+  #bwci-main-page .lpd-ctrl button:hover{ border-color:var(--brand-ink); }
+}
+#bwci-main-page .lpd-ctrl svg{ width:18px; height:18px; }
+#bwci-main-page .eng-note{ margin-top:20px; font-size:14px; color:var(--text-muted); }
+@media (max-width:1023px){
+  #bwci-main-page .lp{ height:auto; margin-top:8px; }
+  #bwci-main-page .lp-ring, #bwci-main-page .lp-prog, #bwci-main-page .lp-chev, #bwci-main-page .lp-ret{ display:none; }
+  #bwci-main-page .lp-nodes{ position:relative; left:auto; right:auto; flex-direction:column; gap:0; padding-left:0; }
+  #bwci-main-page .lp-nodes::before{ content:''; position:absolute; left:10px; top:20px; bottom:20px; width:1.5px; background:var(--border-default); }
+  #bwci-main-page .lp-n{ width:auto; height:auto; text-align:left; }
+  #bwci-main-page .lp-in{ position:relative; transform:none; width:auto; display:grid; grid-template-columns:22px minmax(0,1fr); grid-template-rows:auto auto; column-gap:18px; align-items:center; text-align:left; padding:12px 0; }
+  #bwci-main-page .lp-dot{ grid-row:1 / span 2; margin:0; position:relative; z-index:1; }
+  #bwci-main-page .lp-num{ display:none; }
+  #bwci-main-page .lp-t{ margin:0; font-size:17px; }
+  #bwci-main-page .lp-s{ margin:0; grid-column:2; }
+  #bwci-main-page .lp-loopnote{ display:flex !important; }
+  #bwci-main-page .lpd{ grid-template-columns:minmax(0,1fr); }
+  #bwci-main-page .lpd-pane{ grid-template-columns:minmax(0,1fr); }
+  #bwci-main-page .lpd-side{ flex-direction:row; align-items:center; justify-content:space-between; flex-wrap:wrap; }
+}
+#bwci-main-page .pat-grid{ position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(rgba(18,48,57,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(18,48,57,.05) 1px, transparent 1px); background-size:56px 56px; -webkit-mask-image:radial-gradient(ellipse 50% 70% at 100% 30%, #000, transparent 75%); mask-image:radial-gradient(ellipse 50% 70% at 100% 30%, #000, transparent 75%); }
+#bwci-main-page .pf-rel{ display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; font-size:max(13px,var(--fs-floor-sm,0px)); color:var(--text-muted); }
+#bwci-main-page .bw-sw{ display:inline-flex; align-items:center; gap:7px; }
+#bwci-main-page .bw-sw i{ width:18px; height:13px; border-radius:3px; flex:none; }
+@keyframes bw-pcIn{ from{ opacity:0; transform:translateY(10px) scale(.985); } to{ opacity:1; transform:none; } }
+#bwci-main-page .pc-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+#bwci-main-page .pfx{ display:grid; grid-template-columns:minmax(0,1fr) 280px; gap:14px; align-items:start; }
+#bwci-main-page .pfx.bw-is-all .pc-grid{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+#bwci-main-page .pfx-main{ min-width:0; display:flex; flex-direction:column; }
+#bwci-main-page .pfx.bw-is-all{ align-items:stretch; }
+#bwci-main-page .pfx.bw-is-all .pf-panel{ flex:1; display:flex; flex-direction:column; }
+#bwci-main-page .pfx.bw-is-all .pf-panel .pc-grid{ flex:1; align-content:stretch; grid-auto-rows:1fr; }
+#bwci-main-page .pfx-sum{ padding-bottom:44px; }
+#bwci-main-page .pfx-dark{ padding-top:50px; }
+#bwci-main-page .pfx.bw-is-all .pfx-side{ align-self:stretch; }
+#bwci-main-page .pfx.bw-is-all .pfx-dark{ flex:1; align-content:end; }
+#bwci-main-page .pf-tabs{ display:flex; gap:6px; overflow-x:auto; scrollbar-width:none; }
+#bwci-main-page .pf-tab{ position:relative; flex:none; display:inline-flex; align-items:center; gap:9px; min-height:52px; padding:0 22px; border:0; border-radius:16px 16px 0 0; background:var(--border-subtle); color:var(--text-secondary); font-size:15px; font-weight:600; transition:background-color .2s ease, color .2s ease; }
+#bwci-main-page .pf-tab i{ width:8px; height:8px; border-radius:50%; flex:none; }
+#bwci-main-page .pf-tab em{ font-style:normal; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); color:var(--text-muted); }
+#bwci-main-page .pf-tab.bw-on{ background:#fff; color:var(--brand-ink); }
+#bwci-main-page .pf-tab.bw-on em{ color:var(--accent-emerald-dark); }
+@media (hover:hover) and (pointer:fine){
+  #bwci-main-page .pf-tab:not(.bw-on):hover{ background:var(--border-default); color:var(--brand-ink); }
+}
+#bwci-main-page .pf-panel{ background:#fff; border-radius:20px; padding:clamp(16px,2vw,24px); box-shadow:var(--shadow-card); }
+#bwci-main-page .pf-panel.bw-first{ border-top-left-radius:0; }
+#bwci-main-page .pfx .pc-grid{ grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:14px; }
+#bwci-main-page .bw-sw i.bw-swb{ width:22px; height:3px; border-radius:2px; }
+#bwci-main-page .pfx .pf-rel{ margin-top:18px; padding-top:16px; border-top:1px solid var(--border-subtle); }
+#bwci-main-page .pfx-side{ display:flex; flex-direction:column; gap:10px; margin-top:58px; }
+#bwci-main-page .pfx-sum{ display:grid; gap:22px; padding:28px 26px 52px; border-radius:20px; background:#fff; box-shadow:var(--shadow-card); clip-path:polygon(0 0,100% 0,100% 100%,0 calc(100% - 34px)); }
+#bwci-main-page .pfx-sum div{ display:grid; gap:2px; }
+#bwci-main-page .pfx-sum b{ font-size:clamp(32px,3vw,40px); font-weight:600; letter-spacing:-.03em; line-height:1.05; color:var(--brand-ink); font-variant-numeric:tabular-nums; }
+#bwci-main-page .pfx-sum div > span{ font-size:max(15px,var(--fs-floor-body,0px)); color:var(--text-secondary); }
+#bwci-main-page .pfx-sum b span{ font:inherit; color:inherit; }
+#bwci-main-page .pfx-dark{ margin-top:-30px; display:grid; gap:12px; padding:58px 26px 28px; border-radius:20px; background:var(--brand-ink); color:#fff; clip-path:polygon(0 0,100% 34px,100% 100%,0 100%); }
+#bwci-main-page .pfx-dark b{ font-size:22px; font-weight:600; letter-spacing:-.02em; }
+#bwci-main-page .pfx-dark p{ font-size:max(14px,var(--fs-floor-body,0px)); line-height:1.55; color:var(--text-inverse-muted); text-wrap:pretty; }
+#bwci-main-page .pfx-dark .bw-link{ justify-self:start; margin-top:6px; }
+@media (max-width:1199px){
+  #bwci-main-page .pfx{ grid-template-columns:minmax(0,1fr); }
+  #bwci-main-page .pfx.bw-is-all .pfx-dark{ flex:none; align-content:start; }
+  #bwci-main-page .pfx-side{ margin-top:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #bwci-main-page .pfx-sum, #bwci-main-page .pfx-dark{ clip-path:none; margin-top:0; padding:24px; }
+}
+@media (max-width:900px){
+  #bwci-main-page .pfx.bw-is-all .pc-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:767px){
+  #bwci-main-page .pfx-side{ grid-template-columns:minmax(0,1fr); }
+  #bwci-main-page .pfx.bw-is-all .pc-grid{ grid-template-columns:minmax(0,1fr); }
+  #bwci-main-page .pf-tab{ min-height:48px; padding:0 16px; font-size:14px; }
+  #bwci-main-page .pf-tabs{ margin-right:-20px; padding-right:20px; }
+}
+#bwci-main-page .pk{ position:relative; overflow:hidden; display:flex; flex-direction:column; gap:16px; padding:22px 20px 18px; border-radius:16px; background:#fff; border:1px solid var(--border-default); color:var(--text-primary); animation:bw-pcIn .5s var(--ease-out) both; animation-delay:calc(var(--d,0) * 50ms); transition:transform .35s var(--ease-out), box-shadow .35s ease, border-color .25s ease; }
+#bwci-main-page .pk-bar{ position:absolute; left:0; right:0; top:0; height:3px; background:var(--border-default); }
+#bwci-main-page .pk--own .pk-bar{ background:var(--brand-ink); }
+#bwci-main-page .pk--build .pk-bar{ background:var(--border-strong); }
+#bwci-main-page .pk--par .pk-bar{ background:repeating-linear-gradient(90deg,var(--rel-partner-mark) 0 8px,transparent 8px 13px); }
+#bwci-main-page .pk--pro .pk-bar{ background:repeating-linear-gradient(90deg,var(--border-strong) 0 3px,transparent 3px 7px); }
+#bwci-main-page .pk-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+#bwci-main-page .pk-ic{ width:44px; height:44px; border-radius:12px; flex:none; display:flex; align-items:center; justify-content:center; background:var(--surface-subtle); border:1px solid var(--border-subtle); color:var(--brand-ink); transition:background-color .3s ease, color .3s ease, border-color .3s ease; }
+#bwci-main-page .pk-ic svg{ width:22px; height:22px; }
+#bwci-main-page .pk-hd{ display:grid; gap:4px; }
+#bwci-main-page .pk-k{ font-family:var(--font-mono); font-size:max(11px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
+#bwci-main-page .pk h3{ font-size:20px; font-weight:700; letter-spacing:-.02em; line-height:1.2; text-wrap:balance; }
+#bwci-main-page .pk-more{ display:grid; gap:14px; padding-top:16px; border-top:1px solid var(--border-subtle); }
+#bwci-main-page .pk-row{ display:grid; gap:3px; }
+#bwci-main-page .pk-row span, #bwci-main-page .pk-sl{ font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; color:var(--text-muted); }
+#bwci-main-page .pk-row b{ font-size:15px; font-weight:500; line-height:1.45; }
+#bwci-main-page .pk-st{ display:grid; gap:8px; }
+#bwci-main-page .pk-steps{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
+#bwci-main-page .pk-s{ display:flex; flex-direction:column; gap:7px; font-family:var(--font-mono); font-size:max(10.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--border-strong); line-height:1.3; }
+#bwci-main-page .pk-s i{ height:4px; border-radius:3px; background:var(--surface-cloud); }
+#bwci-main-page .pk-s.bw-done{ color:var(--text-muted); }
+#bwci-main-page .pk-s.bw-done i{ background:var(--c); opacity:.4; }
+#bwci-main-page .pk-s.bw-cur{ color:var(--text-primary); }
+#bwci-main-page .pk-s.bw-cur i{ background:var(--c); }
+#bwci-main-page .pk-reg{ padding:10px 12px; border-radius:10px; background:var(--surface-subtle); font-size:14px; line-height:1.5; color:var(--text-secondary); text-wrap:pretty; }
+#bwci-main-page .pk-go{ margin-top:auto; display:flex; align-items:center; justify-content:space-between; padding-top:4px; font-size:14px; font-weight:600; color:var(--accent-emerald-dark); }
+#bwci-main-page .pk-go .bw-ar{ transition:transform .25s var(--ease-out); }
+@media (hover:hover) and (pointer:fine){
+  #bwci-main-page .pk:hover{ color:var(--text-primary); transform:translateY(-4px); box-shadow:var(--shadow-elevated); border-color:var(--status-op-border); }
+  #bwci-main-page .pk:hover .pk-ic{ background:var(--brand-ink); border-color:var(--brand-ink); color:#fff; }
+  #bwci-main-page .pk:hover .pk-go .bw-ar{ transform:translateX(4px); }
+}
+#bwci-main-page .pfx.bw-is-all .pk-more{ display:none; }
+#bwci-main-page .pfx.bw-is-all .pk{ gap:12px; padding:20px 18px 16px; }
+#bwci-main-page .pfx.bw-is-all .pk h3{ font-size:18px; }
+#bwci-main-page .pat-rings{ position:absolute; z-index:0; top:-220px; right:-200px; width:min(38vw,520px); aspect-ratio:1; border-radius:50%; border:1px solid rgba(18,48,57,.10); box-shadow:0 0 0 52px rgba(18,48,57,.022), 0 0 0 106px rgba(18,48,57,.015), 0 0 0 160px rgba(18,48,57,.009); pointer-events:none; }
+#bwci-main-page #bwci-platforms{ overflow:hidden; }
+#bwci-main-page #bwci-platforms > .bw-wrap{ position:relative; z-index:1; }
+@media (max-width:767px){
+  #bwci-main-page .pat-rings{ width:320px; top:-180px; right:-180px; }
+}
+#bwci-main-page .im-head{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(24px,5vw,72px); align-items:end; margin-bottom:clamp(36px,4vw,48px); }
+#bwci-main-page .im-head .bw-left{ display:grid; gap:16px; }
+#bwci-main-page .im-quote{ position:relative; overflow:hidden; display:grid; grid-template-columns:minmax(0,1.5fr) minmax(0,1fr); gap:clamp(24px,5vw,72px); align-items:end; padding:clamp(32px,4.5vw,56px); border-radius:20px; background:linear-gradient(135deg,#0E1A1D 0%,var(--brand-ink) 70%); color:#fff; margin-bottom:clamp(40px,5vw,56px); }
+#bwci-main-page .im-quote::before{ content:''; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:22px 22px; -webkit-mask-image:radial-gradient(ellipse 60% 90% at 100% 0%, #000, transparent 70%); mask-image:radial-gradient(ellipse 60% 90% at 100% 0%, #000, transparent 70%); }
+#bwci-main-page .im-quote > *{ position:relative; }
+#bwci-main-page .im-quote blockquote{ font-size:clamp(28px,3.4vw,44px); font-weight:600; line-height:1.14; letter-spacing:-.03em; text-wrap:balance; color:#fff; }
+#bwci-main-page .im-quote blockquote em{ font-style:normal; color:#5FC2A6; }
+#bwci-main-page .im-quote p{ font-size:16px; color:var(--text-inverse-muted); text-wrap:pretty; padding-left:20px; border-left:1px solid rgba(255,255,255,.2); }
+#bwci-main-page .im-foot{ margin-top:clamp(32px,4vw,48px); padding:20px 24px; border-radius:14px; background:var(--surface-subtle); border:1px solid var(--border-subtle); display:flex; flex-wrap:wrap; gap:16px 32px; align-items:center; justify-content:space-between; }
+#bwci-main-page .im-foot .bw-note{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; max-width:700px; font-size:15px; color:var(--text-secondary); }
+#bwci-main-page .ix{ display:flex; align-items:center; gap:16px; min-height:440px; }
+#bwci-main-page .ix-c{ position:relative; flex:1 1 0; min-width:0; display:flex; flex-direction:column; justify-content:center; padding:0; overflow:hidden; border-radius:22px; color:#fff; cursor:pointer; outline:none; box-shadow:inset 0 0 0 1px rgba(255,255,255,.16), inset 0 1px 0 rgba(255,255,255,.25), 0 18px 40px -24px rgba(18,48,57,.55); transition:flex-grow .45s cubic-bezier(.22,1,.36,1), transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease; min-height:280px; will-change:flex-grow; contain:layout paint; }
+#bwci-main-page .ix-c::after{ content:''; position:absolute; inset:0; border-radius:inherit; pointer-events:none; background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,255,255,.14), transparent 70%); }
+#bwci-main-page .ix-c:focus-visible{ box-shadow:0 0 0 3px var(--accent-emerald), inset 0 0 0 1px rgba(255,255,255,.16); }
+#bwci-main-page .ix-media{ display:grid; grid-template-rows:0fr; opacity:0; transition:grid-template-rows .45s cubic-bezier(.22,1,.36,1), opacity .2s ease; }
+#bwci-main-page .ix-media > div{ min-height:0; overflow:hidden; }
+#bwci-main-page .ix-img{ position:relative; aspect-ratio:16/10; border-radius:0; overflow:hidden; background:rgba(255,255,255,.12); }
+#bwci-main-page .ix-body{ position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:10px; padding:28px 22px; text-align:center; transition:padding .45s cubic-bezier(.22,1,.36,1); }
+#bwci-main-page .ix-n{ display:none; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; color:rgba(255,255,255,.75); }
+#bwci-main-page .ix-c h3{ font-size:19px; font-weight:700; line-height:1.25; letter-spacing:-.015em; text-wrap:wrap; max-width:24ch; color:#fff; }
+#bwci-main-page .ix-c p{ font-size:max(15px,var(--fs-floor-body,0px)); line-height:1.55; color:rgba(255,255,255,.88); text-wrap:pretty; max-width:34ch; }
+#bwci-main-page .ix-c.bw-on{ flex-grow:1.55; }
+#bwci-main-page .ix-c.bw-on .ix-media{ grid-template-rows:1fr; opacity:1; transition:grid-template-rows .45s cubic-bezier(.22,1,.36,1), opacity .3s ease .1s; }
+#bwci-main-page .ix-c.bw-on .ix-body{ padding-top:20px; }
+@media (hover:hover) and (pointer:fine){
+  #bwci-main-page .ix-c:not(.bw-on):hover{ transform:translateY(-4px); }
+}
+@media (max-width:1023px){
+  #bwci-main-page .ix{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); min-height:0; align-items:stretch; }
+  #bwci-main-page .ix-c.bw-on{ flex-grow:1; }
+  #bwci-main-page .ix-media{ grid-template-rows:1fr; opacity:1; }
+  #bwci-main-page .ix-c{ cursor:default; justify-content:flex-start; }
+}
+@media (max-width:600px){
+  #bwci-main-page .ix{ grid-template-columns:minmax(0,1fr); }
+}
+@media (prefers-reduced-motion:reduce){
+  #bwci-main-page .ix-c, #bwci-main-page .ix-media, #bwci-main-page .ix-body, #bwci-main-page .ix-c.bw-on .ix-media{ transition:none; }
+}
+#bwci-main-page .ww-sec{ background:#fff; padding-top:clamp(40px,5vw,72px); }
+#bwci-main-page .ww-band{ position:absolute; left:0; right:0; top:0; height:clamp(260px,34vw,460px); background:radial-gradient(ellipse 700px 400px at 85% 0%, rgba(18,131,107,.28), transparent 65%), linear-gradient(160deg,var(--brand-teal) 0%,var(--brand-ink) 60%,#0E1A1D 100%); overflow:hidden; }
+#bwci-main-page .ww-band::before{ content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size:56px 56px; -webkit-mask-image:linear-gradient(180deg,#000 30%,transparent 100%); mask-image:linear-gradient(180deg,#000 30%,transparent 100%); }
+#bwci-main-page .ww-band::after{ content:''; position:absolute; left:8%; top:56px; width:112px; height:56px; background:rgba(255,255,255,.07); box-shadow:calc(min(84vw,1150px) - 112px) 112px 0 -0px rgba(255,255,255,.06); }
+#bwci-main-page .ww-sec .ww-img{ position:relative; z-index:1; aspect-ratio:21/9; margin-bottom:clamp(40px,5vw,64px); border-radius:20px; box-shadow:0 0 0 1px rgba(255,255,255,.16), 0 30px 60px -28px rgba(18,48,57,.55); }
+#bwci-main-page .ww-head{ text-align:center; justify-items:center; margin-left:auto; margin-right:auto; }
+#bwci-main-page .ww-hero .ww-fade{ position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.88) 30%, rgba(255,255,255,.45) 52%, rgba(255,255,255,0) 70%); }
+#bwci-main-page .ww-hero .ww-head{ position:absolute; z-index:2; left:clamp(28px,5vw,72px); top:50%; transform:translateY(-50%); width:min(44%,520px); margin:0; text-align:left; justify-items:start; pointer-events:none; }
+#bwci-main-page .ww-hero .ww-head .bw-h1{ color:var(--text-primary, #123039); }
+#bwci-main-page .ww-img{ position:relative; aspect-ratio:21/8; border-radius:18px; overflow:hidden; margin-bottom:20px; background:var(--surface-cloud); }
+#bwci-main-page .ww-grid{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+#bwci-main-page .ww{ position:relative; overflow:hidden; display:flex; flex-direction:column; gap:12px; min-height:280px; padding:24px; border-radius:16px; background:#fff; border:1px solid var(--border-default); color:var(--text-primary); transition:background-color .35s ease, border-color .35s ease, transform .35s var(--ease-out), box-shadow .35s ease; }
+#bwci-main-page .ww-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+#bwci-main-page .ww-ic{ width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; background:var(--status-op-bg); color:var(--accent-emerald-dark); transition:background-color .35s ease, color .35s ease; }
+#bwci-main-page .ww-ic svg{ width:22px; height:22px; }
+#bwci-main-page .ww h3{ font-size:19px; font-weight:700; line-height:1.3; letter-spacing:-.015em; transition:color .35s ease; }
+#bwci-main-page .ww p{ font-size:max(15px,var(--fs-floor-body,0px)); color:var(--text-secondary); text-wrap:pretty; transition:color .35s ease; }
+#bwci-main-page .ww-go{ margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:12px; padding-top:16px; border-top:1px solid var(--border-subtle); font-size:15px; font-weight:600; color:var(--accent-emerald-dark); transition:color .35s ease, border-color .35s ease; }
+#bwci-main-page .ww-go b{ width:36px; height:36px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; border:1px solid var(--border-default); font-weight:600; transition:background-color .35s ease, border-color .35s ease, color .35s ease, transform .35s var(--ease-out); }
+@media (hover:hover) and (pointer:fine){
+  #bwci-main-page .ww:hover{ background:var(--brand-ink); border-color:var(--brand-ink); transform:translateY(-4px); box-shadow:0 20px 40px -18px rgba(18,48,57,.55); }
+  #bwci-main-page .ww:hover h3{ color:#fff; }
+  #bwci-main-page .ww:hover p{ color:var(--text-inverse-muted); }
+  #bwci-main-page .ww:hover .ww-ic{ background:rgba(255,255,255,.1); color:#5FC2A6; }
+  #bwci-main-page .ww:hover .ww-go{ color:#fff; border-color:rgba(255,255,255,.15); }
+  #bwci-main-page .ww:hover .ww-go b{ background:#E8C46B; border-color:#E8C46B; color:var(--brand-ink); transform:translateX(3px); }
+}
+#bwci-main-page .ww-also{ margin-top:20px; padding:16px 20px; border-radius:12px; background:#fff; border:1px solid var(--border-subtle); font-size:15px; color:var(--text-secondary); display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; justify-content:space-between; }
+#bwci-main-page .ww-also .bw-tags{ display:flex; flex-wrap:wrap; gap:6px; align-items:center; }
+#bwci-main-page .ww-also .bw-tags span{ padding:4px 10px; border-radius:999px; background:var(--surface-subtle); border:1px solid var(--border-subtle); font-size:max(13px,var(--fs-floor-sm,0px)); font-weight:500; }
+#bwci-main-page .ww-also a{ font-weight:600; color:var(--brand-ink); white-space:nowrap; }
+#bwci-main-page .bw-ld{ display:grid; grid-template-columns:minmax(0,2fr) minmax(0,1fr); gap:clamp(24px,3vw,40px); align-items:start; }
+#bwci-main-page .ld-k{ display:flex; align-items:center; gap:10px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:16px; }
+#bwci-main-page .ld-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+#bwci-main-page .ld-p{ display:flex; flex-direction:column; border-radius:16px; overflow:hidden; background:#fff; border:1px solid var(--border-subtle); color:var(--text-primary); transition:transform .35s var(--ease-out), box-shadow .35s ease, border-color .25s ease; }
+#bwci-main-page .ld-img{ position:relative; aspect-ratio:4/5; overflow:hidden; background:var(--surface-cloud); }
+#bwci-main-page .ld-img .bw-slot{ transition:transform .6s var(--ease-out); }
+#bwci-main-page .ld-ov{ position:absolute; inset:auto 0 0 0; z-index:2; padding:14px; display:flex; justify-content:flex-end; pointer-events:none; opacity:0; transform:translateY(8px); transition:opacity .3s ease, transform .35s var(--ease-out); }
+#bwci-main-page .ld-ov span{ display:inline-flex; gap:8px; align-items:center; padding:8px 14px; border-radius:999px; background:rgba(255,255,255,.92); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); font-size:14px; font-weight:600; color:var(--brand-ink); box-shadow:0 6px 16px rgba(18,48,57,.15); }
+#bwci-main-page .ld-t{ padding:16px 18px 18px; display:grid; gap:2px; }
+#bwci-main-page .ld-t b{ font-size:17px; font-weight:600; line-height:1.3; }
+#bwci-main-page .ld-t span{ font-size:14px; color:var(--text-secondary); }
+@media (hover:hover) and (pointer:fine){
+  #bwci-main-page .ld-p:hover{ color:var(--text-primary); transform:translateY(-4px); box-shadow:var(--shadow-elevated); border-color:var(--status-op-border); }
+  #bwci-main-page .ld-p:hover .ld-img .bw-slot{ transform:scale(1.04); }
+  #bwci-main-page .ld-p:hover .ld-ov{ opacity:1; transform:none; }
+}
+@media (hover:none){
+  #bwci-main-page .ld-ov{ opacity:1; transform:none; }
+}
+#bwci-main-page .bw-gv{ position:relative; overflow:hidden; padding:28px; border-radius:16px; background:linear-gradient(160deg,#0E1A1D,var(--brand-ink)); color:#fff; }
+#bwci-main-page .bw-gv::before{ content:''; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:20px 20px; -webkit-mask-image:radial-gradient(ellipse 80% 60% at 100% 0%, #000, transparent 70%); mask-image:radial-gradient(ellipse 80% 60% at 100% 0%, #000, transparent 70%); }
+#bwci-main-page .bw-gv > *{ position:relative; }
+#bwci-main-page .bw-gv .ld-k{ color:#E8C46B; }
+#bwci-main-page .bw-gv h3{ font-size:20px; font-weight:600; line-height:1.35; letter-spacing:-.01em; margin-bottom:20px; color:#fff; text-wrap:balance; }
+#bwci-main-page .bw-gv ul{ display:flex; flex-direction:column; margin-bottom:24px; }
+#bwci-main-page .bw-gv li a{ display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 12px; margin:0 -12px; border-radius:10px; font-size:15px; font-weight:500; color:#fff; border-bottom:1px solid rgba(255,255,255,.1); transition:background-color .2s ease; }
+#bwci-main-page .bw-gv li a .bw-ar{ color:var(--text-inverse-muted); transition:transform .25s var(--ease-out), color .2s ease; }
+@media (hover:hover) and (pointer:fine){
+  #bwci-main-page .bw-gv li a:hover{ color:#fff; background:rgba(255,255,255,.07); }
+  #bwci-main-page .bw-gv li a:hover .bw-ar{ transform:translateX(4px); color:#E8C46B; }
+}
+#bwci-main-page .ld-more{ margin-top:24px; }
+#bwci-main-page .bw-pt{ position:relative; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+#bwci-main-page .pt-line{ position:absolute; left:calc(100%/6); right:calc(100%/6); top:22px; height:2px; background:linear-gradient(90deg,var(--status-op-mark),var(--status-dev-mark) 50%,var(--status-pro-border)); border-radius:2px; }
+#bwci-main-page .pt-c{ display:flex; flex-direction:column; gap:16px; }
+#bwci-main-page .pt-stage{ position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; }
+#bwci-main-page .pt-dot{ width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:#fff; border:2px solid; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:700; }
+#bwci-main-page .pt-c--op .pt-dot{ border-color:var(--status-op-mark); color:var(--status-op-text); }
+#bwci-main-page .pt-c--dev .pt-dot{ border-color:var(--status-dev-mark); color:var(--status-dev-text); }
+#bwci-main-page .pt-c--road .pt-dot{ border-color:var(--status-pro-border); border-style:dashed; color:var(--status-pro-text); }
+#bwci-main-page .pt-stage small{ font-family:var(--font-mono); font-size:max(11px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
+#bwci-main-page .pt-stage h3{ font-size:19px; font-weight:700; letter-spacing:-.015em; }
+#bwci-main-page .pt-box{ flex:1; display:flex; flex-direction:column; gap:10px; padding:14px; border-radius:16px; background:#fff; border:1px solid var(--border-default); }
+#bwci-main-page .pt-c--dev .pt-box{ border-style:dashed; }
+#bwci-main-page .pt-c--road .pt-box{ border-style:dotted; border-width:2px; background:#FBFCFC; }
+#bwci-main-page .pt-i{ display:grid; grid-template-columns:auto minmax(0,1fr) auto; gap:2px 12px; align-items:center; padding:14px; border-radius:12px; background:var(--surface-subtle); border:1px solid transparent; color:var(--text-primary); transition:background-color .2s ease, border-color .2s ease, transform .3s var(--ease-out), box-shadow .3s ease; }
+#bwci-main-page .pt-i > i{ width:10px; height:10px; border-radius:50%; grid-row:1 / span 2; }
+#bwci-main-page .pt-i b{ font-size:15px; font-weight:600; line-height:1.35; }
+#bwci-main-page .pt-i span{ grid-column:2; font-size:max(13px,var(--fs-floor-sm,0px)); color:var(--text-muted); }
+#bwci-main-page .pt-i .bw-ar{ grid-column:3; grid-row:1 / span 2; color:var(--border-strong); transition:transform .25s var(--ease-out), color .2s ease; }
+@media (hover:hover) and (pointer:fine){
+  #bwci-main-page .pt-i:hover{ color:var(--text-primary); background:#fff; border-color:var(--border-default); transform:translateY(-2px); box-shadow:var(--shadow-elevated); }
+  #bwci-main-page .pt-i:hover .bw-ar{ transform:translateX(3px); color:var(--accent-emerald-dark); }
+}
+#bwci-main-page .pt-foot{ margin-top:28px; display:flex; flex-wrap:wrap; gap:16px 32px; align-items:center; justify-content:space-between; }
+#bwci-main-page .pt-foot p{ font-size:max(14px,var(--fs-floor-body,0px)); color:var(--text-muted); }
+#bwci-main-page .bw-hero .bw-wrap{ position:relative; z-index:1; }
+#bwci-main-page .bw-cta{ position:relative; overflow:hidden; color:#fff; background:radial-gradient(ellipse 640px 560px at -6% 30%, rgba(29,74,84,.34), transparent 58%), radial-gradient(ellipse 640px 560px at 106% 30%, rgba(18,131,107,.28), transparent 58%), radial-gradient(ellipse 900px 420px at 50% 88%, rgba(18,131,107,.16), transparent 68%), linear-gradient(180deg, #05090B 0%, #090F11 50%, #0B1416 100%); text-align:center; padding:clamp(72px,9vw,120px) 0; }
+#bwci-main-page .bw-cta::before{ content:''; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:24px 24px; -webkit-mask-image:radial-gradient(ellipse 720px 320px at 50% 40%, black 0%, black 35%, transparent 80%); mask-image:radial-gradient(ellipse 720px 320px at 50% 40%, black 0%, black 35%, transparent 80%); }
+#bwci-main-page .bw-cta .bw-wrap{ position:relative; }
+#bwci-main-page .bw-cta h2{ color:#fff; margin-bottom:16px; }
+#bwci-main-page .bw-cta .bw-lead{ color:var(--text-inverse-muted); max-width:560px; margin:0 auto 44px; }
+#bwci-main-page .bw-cta-grid{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; max-width:1080px; margin:0 auto; text-align:left; }
+#bwci-main-page .bw-route{ display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:72px; padding:18px 20px; border-radius:12px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); font-size:15px; font-weight:600; line-height:1.35; color:#fff; transition:background-color .25s ease, border-color .25s ease, transform .16s var(--ease-out); }
+#bwci-main-page .bw-route:active{ transform:scale(.98); }
+#bwci-main-page .bw-route .bw-ar{ flex:none; transition:transform .2s var(--ease-out); color:#E8C46B; }
+@media (hover:hover) and (pointer:fine){
+  #bwci-main-page .bw-route:hover{ color:#fff; background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.3); }
+  #bwci-main-page .bw-route:hover .bw-ar{ transform:translateX(3px); }
+}
+#bwci-main-page .bw-cta-small{ margin-top:32px; display:flex; flex-wrap:wrap; justify-content:center; gap:8px 24px; font-size:14px; color:var(--text-inverse-muted); }
+#bwci-main-page .bw-cta-small a{ color:#fff; border-bottom:1px solid rgba(255,255,255,.3); }
+@media (max-width:1023px){
+  #bwci-main-page .bw-hero-grid{ grid-template-columns:minmax(0,1fr); }
+  #bwci-main-page .bw-hero-grid > :first-child{ padding:clamp(24px,4vw,40px) 0 0; }
+  #bwci-main-page .hm{ justify-self:stretch; width:auto; margin-left:clamp(40px,10vw,120px); margin-top:24px; }
+  #bwci-main-page .pb-grid, #bwci-main-page .pc-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #bwci-main-page .im-head, #bwci-main-page .im-quote{ grid-template-columns:minmax(0,1fr); align-items:start; }
+  #bwci-main-page .cmp{ grid-template-columns:140px minmax(0,1fr) minmax(0,1fr); }
+  #bwci-main-page .ww-grid, #bwci-main-page .bw-cta-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #bwci-main-page .bw-ld{ grid-template-columns:minmax(0,1fr); }
+  #bwci-main-page .bw-pt{ grid-template-columns:minmax(0,1fr); }
+}
+@media (max-width:767px){
+  #bwci-main-page .bw-hero{ padding-bottom:40px; }
+  #bwci-main-page .hm{ margin-left:0; aspect-ratio:auto; }
+  #bwci-main-page .hm-frame{ position:relative; margin-top:11%; }
+  #bwci-main-page .bw-h1{ font-size:clamp(26px,7.2vw,30px); }
+  #bwci-main-page .bw-h-display{ font-size:clamp(34px,9.6vw,42px); }
+  #bwci-main-page .bw-hero-actions .bw-btn{ width:100%; }
+  #bwci-main-page .pb-grid, #bwci-main-page .pc-grid, #bwci-main-page .ww-grid, #bwci-main-page .bw-cta-grid{ grid-template-columns:minmax(0,1fr); }
+  #bwci-main-page .cmp{ grid-template-columns:minmax(0,1fr); }
+  #bwci-main-page .cmp-h{ display:none; }
+  #bwci-main-page .cmp-l{ background:var(--surface-subtle); padding:16px 20px; flex-direction:row; gap:10px; align-items:baseline; }
+  #bwci-main-page .cmp-p, #bwci-main-page .cmp-n{ border-left:0 !important; padding:16px 20px; }
+  #bwci-main-page .cmp-tag{ display:block; }
+  #bwci-main-page .cmp-p .cmp-tag{ color:var(--text-muted); }
+  #bwci-main-page .cmp-n .cmp-tag{ color:var(--accent-emerald-dark); }
+  #bwci-main-page .cmp-row:last-of-type > *{ border-bottom:1px solid var(--border-subtle); }
+  #bwci-main-page .im-quote p{ padding-left:0; border-left:0; }
+  #bwci-main-page .ww-img{ aspect-ratio:16/10; }
+  #bwci-main-page .ld-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+}
+@media (max-width:1023px){
+  #bwci-main-page .pc-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #bwci-main-page .ww-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #bwci-main-page .ww{ min-height:0; }
+  #bwci-main-page .bw-ld{ grid-template-columns:minmax(0,1fr); }
+  #bwci-main-page .bw-pt{ grid-template-columns:minmax(0,1fr); gap:28px; }
+  #bwci-main-page .pt-line{ left:22px; right:auto; top:22px; bottom:22px; width:2px; height:auto; background:linear-gradient(180deg,var(--status-op-mark),var(--status-dev-mark) 50%,var(--status-pro-border)); }
+  #bwci-main-page .pt-stage{ flex-direction:row; text-align:left; gap:14px; }
+  #bwci-main-page .pt-stage > div{ display:grid; }
+  #bwci-main-page .pt-box{ margin-left:60px; }
+  #bwci-main-page .pf-rel{ flex-basis:100%; }
+}
+@media (max-width:767px){
+  #bwci-main-page .pc-grid, #bwci-main-page .ww-grid{ grid-template-columns:minmax(0,1fr); }
+  #bwci-main-page .ld-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  #bwci-main-page .ww-img{ aspect-ratio:16/10; }
+  #bwci-main-page .pt-box{ margin-left:0; }
+  #bwci-main-page .pt-line{ display:none; }
+}
+@media (max-width:420px){
+  #bwci-main-page .ld-grid{ grid-template-columns:minmax(0,1fr); }
+}
+#bwci-main-page .lp-item{ display:contents; }
+#bwci-main-page .lp-acc, #bwci-main-page .lp-tn, #bwci-main-page .lp-pm{ display:none; }
+@media (max-width:1023px){
+  #bwci-main-page .lp-item{ display:block; position:relative; }
+  #bwci-main-page .lp-nodes::before{ left:10px; top:24px; bottom:24px; }
+  #bwci-main-page .lp-n{ display:block; width:100%; cursor:pointer; }
+  #bwci-main-page .lp-in{ grid-template-columns:22px minmax(0,1fr) 20px; padding:14px 0; }
+  #bwci-main-page .lp-dot{ align-self:start; margin-top:1px; }
+  #bwci-main-page .lp-t{ display:flex; align-items:baseline; gap:10px; }
+  #bwci-main-page .lp-tn{ display:inline; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; color:var(--text-muted); }
+  #bwci-main-page .lp-n.is-on .lp-tn{ color:var(--accent-emerald-dark); }
+  #bwci-main-page .lp-s{ grid-column:2; }
+  #bwci-main-page .lp-pm{ display:block; grid-column:3; grid-row:1; position:relative; width:14px; height:14px; justify-self:end; }
+  #bwci-main-page .lp-pm::before, #bwci-main-page .lp-pm::after{ content:''; position:absolute; left:0; right:0; top:50%; height:1.5px; margin-top:-.75px; background:var(--brand-ink); transition:transform .3s var(--ease-out); }
+  #bwci-main-page .lp-pm::after{ transform:rotate(90deg); }
+  #bwci-main-page .lp-n.is-on .lp-pm::after{ transform:rotate(0); }
+  #bwci-main-page .lp-acc{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .35s var(--ease-out); padding-left:40px; }
+  #bwci-main-page .lp-acc > div{ overflow:hidden; min-height:0; }
+  #bwci-main-page .lp-item.is-on .lp-acc{ grid-template-rows:1fr; }
+  #bwci-main-page .lp-acc .lpd-d{ margin:0; padding-bottom:6px; font-size:max(15.5px,var(--fs-floor-body,0px)); }
+  #bwci-main-page .lp-acc .lpd-ex{ margin:0 0 14px; grid-template-columns:minmax(0,1fr); gap:8px; font-size:14.5px; }
+  #bwci-main-page .lp-acc .lpd-ex .bw-badge{ justify-self:start; }
+  #bwci-main-page .lp-loopnote{ margin-top:4px !important; padding-left:40px; }
+  #bwci-main-page .lpd{ margin-top:24px; padding-top:0; border-top:0; }
+  #bwci-main-page .lpd-stack, #bwci-main-page .lpd-ctrl{ display:none; }
+  #bwci-main-page .lpd-side{ align-items:stretch; }
+  #bwci-main-page .lpd-side .bw-link{ width:100%; box-sizing:border-box; }
+  #bwci-main-page .lpd-side .bw-link{ display:flex; justify-content:center; min-height:52px; padding:0 20px; border:0; border-radius:var(--radius-md); background:var(--brand-ink); color:#fff; font-weight:600; align-items:center; }
+  #bwci-main-page .lpd-side .bw-link:hover{ color:#fff; background:var(--brand-teal); }
+  #bwci-main-page .eng-note{ font-size:max(13.5px,var(--fs-floor-sm,0px)); }
+}
+@media (min-width:768px) and (max-width:1023px){
+  #bwci-main-page .lp-nodes, #bwci-main-page .lp-loopnote{ max-width:640px; }
+  #bwci-main-page .lpd-side .bw-link{ align-self:flex-start; }
+}
+@media (prefers-reduced-motion:reduce){
+  #bwci-main-page .lp-acc{ transition:none; }
+}
+@media (max-width:1199px){
+  #bwci-main-page .pfx-side{ grid-template-columns:minmax(0,1fr) minmax(0,1.4fr); }
+  #bwci-main-page .pfx-sum{ grid-template-columns:repeat(2,minmax(0,1fr)); align-content:center; }
+}
+@media (max-width:767px){
+  #bwci-main-page .pft{ margin:0 -20px 14px; }
+  #bwci-main-page .pf-tabs{ gap:8px; padding:2px 20px !important; margin:0 !important; scroll-padding:0 20px; }
+  #bwci-main-page .pft-arr{ display:none !important; }
+  #bwci-main-page .pf-tab{ min-height:44px !important; padding:0 14px !important; border-radius:999px; background:#fff; border:1px solid var(--border-default); font-size:14px; }
+  #bwci-main-page .pf-tab.bw-on{ background:var(--brand-ink); border-color:var(--brand-ink); color:#fff; }
+  #bwci-main-page .pf-tab.bw-on em{ color:#E8C46B; }
+  #bwci-main-page .pf-panel, #bwci-main-page .pf-panel.bw-first{ border-radius:16px; }
+  #bwci-main-page .pf-panel{ border-radius:16px; padding:14px 0 16px; background:#fff; }
+  #bwci-main-page .pf-panel .pc-grid, #bwci-main-page .pfx.bw-is-all .pf-panel .pc-grid{ display:grid; grid-template-columns:minmax(0,1fr) !important; grid-auto-rows:auto; gap:12px; padding:2px 14px 4px; }
+  #bwci-main-page .pfx .pf-rel{ margin:6px 14px 0; }
+  #bwci-main-page .pfx-side{ grid-template-columns:minmax(0,1fr); gap:10px; }
+  #bwci-main-page .pfx-sum{ padding:18px 20px; gap:16px; }
+  #bwci-main-page .pfx-sum b{ font-size:30px; }
+  #bwci-main-page .pfx-sum div > span{ font-size:max(14px,var(--fs-floor-body,0px)); }
+  #bwci-main-page .pfx-dark{ padding:22px 20px; }
+  #bwci-main-page .pfx-dark b{ font-size:19px; }
+}
+@media (max-width:1023px){
+  #bwci-main-page .ww-band{ height:calc(clamp(40px,5vw,72px) + (100vw - 2 * clamp(20px,4vw,40px)) * 9 / 21 * .6); }
+}
+@media (max-width:767px){
+  #bwci-main-page .ww-sec .ww-img{ aspect-ratio:16/10; margin-bottom:32px; border-radius:16px; }
+  #bwci-main-page .ww-band{ height:calc(40px + (100vw - 40px) * 10 / 16 * .6); }
+  #bwci-main-page .ww-band::after{ display:none; }
+  #bwci-main-page .ww-head{ text-align:left; justify-items:start; margin-left:0; }
+  #bwci-main-page .ww-hero{ aspect-ratio:auto !important; display:flex; flex-direction:column; background:#fff; }
+  #bwci-main-page .ww-hero .bw-slot{ aspect-ratio:16/10; display:block; }
+  #bwci-main-page .ww-hero .ww-fade{ display:none; }
+  #bwci-main-page .ww-hero .ww-head{ position:static; transform:none; width:auto; gap:10px; padding:24px 20px 28px; }
+}
+@media (max-width:1023px){
+  #bwci-main-page .bw-hero{ min-height:100svh; display:flex; flex-direction:column; padding-bottom:0; }
+  #bwci-main-page .bw-hero > .bw-wrap{ flex:1; display:flex; flex-direction:column; position:static; width:100%; min-width:0; box-sizing:border-box; }
+  #bwci-main-page .bw-hero-grid{ flex:1; display:flex; flex-direction:column; justify-content:center; width:100%; min-width:0; }
+  #bwci-main-page .bw-hero-grid > :first-child{ position:relative; z-index:2; padding:12px 0 24px; width:100%; min-width:0; }
+  #bwci-main-page .hm{ position:absolute; inset:0; z-index:0; width:auto; height:auto; margin:0 !important; aspect-ratio:auto; align-self:stretch; justify-self:stretch; }
+  #bwci-main-page .hm-frame{ position:absolute; inset:0; margin:0; align-self:stretch; }
+  #bwci-main-page .hm-lines{ display:none; }
+  #bwci-main-page .hm-clip{ position:absolute; inset:0; aspect-ratio:auto; clip-path:none; -webkit-clip-path:none; }
+  #bwci-main-page .hm-img{ object-position:70% 100%; }
+  #bwci-main-page .hm-in{ animation:none; }
+  #bwci-main-page .hm-shade{ background:linear-gradient(180deg, rgba(10,18,20,.94) 0%, rgba(10,18,20,.86) 55%, rgba(10,18,20,.55) 85%, rgba(10,18,20,.7) 100%); }
+  #bwci-main-page .bw-tk{ margin-top:auto !important; }
+}
+@media (max-width:767px){
+  #bwci-main-page .bw-hero-grid{ justify-content:flex-start; }
+  #bwci-main-page .bw-hero-eye{ letter-spacing:.08em; }
+  #bwci-main-page .bw-hero-eye::before{ display:none; }
+  #bwci-main-page .bw-hero h1{ margin:12px 0 14px; }
+  #bwci-main-page .bw-hero-sub{ font-size:max(15px,var(--fs-floor-body,0px)); }
+  #bwci-main-page .bw-hero-actions{ margin-top:22px; gap:16px; }
+  #bwci-main-page .hk{ margin-top:22px; }
+  #bwci-main-page .hk-i{ min-height:52px !important; }
+  #bwci-main-page .bw-hero{ min-height:0; }
+  #bwci-main-page .bw-hero-grid{ flex:none; }
+  #bwci-main-page .bw-hero-grid > :first-child{ padding-bottom:0; }
+  #bwci-main-page .bw-tk{ margin-top:28px !important; }
+}
+@media (min-width:1024px){
+  #bwci-main-page .bw-hero{ height:100svh; min-height:640px; max-height:1200px; }
+  #bwci-main-page .bw-hero > .bw-wrap, #bwci-main-page .bw-hero-grid{ min-height:0; }
+  #bwci-main-page .bw-hero-grid > :first-child{ padding:clamp(8px,2vh,40px) 0; }
+  #bwci-main-page .bw-hero h1{ font-size:clamp(44px, min(4.4vw, 8.2vh), 68px); margin:clamp(10px,1.6vh,22px) 0 clamp(12px,2vh,24px); }
+  #bwci-main-page .bw-hero-sub{ font-size:clamp(15px,2vh,20px); }
+  #bwci-main-page .bw-hero-actions{ margin-top:clamp(16px,3vh,40px); gap:clamp(12px,2vh,22px); }
+  #bwci-main-page .hk{ margin-top:clamp(16px,3vh,44px); }
+  #bwci-main-page .bw-tk{ margin-top:0 !important; }
+}
+@media (min-width:1024px) and (max-height:760px){
+  #bwci-main-page .hk-i{ min-height:60px !important; }
+}
+#bwci-main-page .pft{ position:relative; min-width:0; }
+#bwci-main-page .pf-tabs{ overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x proximity; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+#bwci-main-page .pf-tabs::-webkit-scrollbar{ display:none; }
+#bwci-main-page .pf-tab{ scroll-snap-align:start; }
+#bwci-main-page .pft.bw-can-l .pf-tabs, #bwci-main-page .pft.bw-can-r .pf-tabs{ cursor:grab; }
+#bwci-main-page .pf-tabs.bw-is-drag{ cursor:grabbing; user-select:none; -webkit-user-select:none; }
+#bwci-main-page .pf-tabs.bw-is-drag .pf-tab{ pointer-events:none; }
+#bwci-main-page .pft.bw-can-r .pf-tabs{ -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 72px),transparent); mask-image:linear-gradient(90deg,#000 calc(100% - 72px),transparent); }
+#bwci-main-page .pft.bw-can-l .pf-tabs{ -webkit-mask-image:linear-gradient(90deg,transparent,#000 72px); mask-image:linear-gradient(90deg,transparent,#000 72px); }
+#bwci-main-page .pft.bw-can-l.bw-can-r .pf-tabs{ -webkit-mask-image:linear-gradient(90deg,transparent,#000 72px,#000 calc(100% - 72px),transparent); mask-image:linear-gradient(90deg,transparent,#000 72px,#000 calc(100% - 72px),transparent); }
+#bwci-main-page .pft-arr{ position:absolute; top:50%; z-index:2; width:36px; height:36px; margin-top:-18px; display:flex; align-items:center; justify-content:center; padding:0; border-radius:50%; border:1px solid var(--border-default); background:#fff; color:var(--brand-ink); box-shadow:0 4px 12px -4px rgba(18,48,57,.25); cursor:pointer; opacity:0; pointer-events:none; transition:opacity .2s ease, transform .16s var(--ease-out); }
+#bwci-main-page .pft-arr svg{ width:16px; height:16px; }
+#bwci-main-page .pft-arr:active{ transform:scale(.92); }
+#bwci-main-page .pft-arr--l{ left:4px; }
+#bwci-main-page .pft-arr--r{ right:4px; }
+#bwci-main-page .pft.bw-can-l .pft-arr--l, #bwci-main-page .pft.bw-can-r .pft-arr--r{ opacity:1; pointer-events:auto; }
+@media (max-width:767px){
+  #bwci-main-page .pft::after{ content:''; position:absolute; right:12px; top:50%; width:8px; height:8px; margin-top:-4px; border-top:2px solid var(--brand-ink); border-right:2px solid var(--brand-ink); transform:rotate(45deg); opacity:0; transition:opacity .2s ease; pointer-events:none; animation:bw-pftNudge 1.6s var(--ease-out) 3; }
+  #bwci-main-page .pft.bw-can-r::after{ opacity:.7; }
+  #bwci-main-page .pft.bw-can-r .pf-tabs{ -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 64px),transparent calc(100% - 8px)); mask-image:linear-gradient(90deg,#000 calc(100% - 64px),transparent calc(100% - 8px)); }
+  #bwci-main-page .pft.bw-can-l.bw-can-r .pf-tabs{ -webkit-mask-image:linear-gradient(90deg,transparent 8px,#000 48px,#000 calc(100% - 64px),transparent calc(100% - 8px)); mask-image:linear-gradient(90deg,transparent 8px,#000 48px,#000 calc(100% - 64px),transparent calc(100% - 8px)); }
+}
+@keyframes bw-pftNudge{ 0%,100%{ transform:translateX(0) rotate(45deg); } 50%{ transform:translateX(4px) rotate(45deg); } }
+@media (prefers-reduced-motion:reduce){
+  #bwci-main-page .pft::after{ animation:none; }
+}
+@media (max-width:767px){
+  #bwci-main-page .bw-btn{ white-space:normal; text-align:center; line-height:1.3; padding-top:12px; padding-bottom:12px; }
+  #bwci-main-page .im-foot, #bwci-main-page .cmp-foot{ flex-direction:column; align-items:stretch; padding:20px; }
+  #bwci-main-page .im-foot .bw-btn, #bwci-main-page .cmp-foot .bw-btn{ width:100%; box-sizing:border-box; }
+}
+@media (min-width:1024px){
+  #bwci-main-page .lpd{ padding:0; border:1px solid var(--border-subtle); border-radius:16px; background:#fff; box-shadow:var(--shadow-elevated); grid-template-columns:minmax(0,1fr); gap:0; align-items:stretch; overflow:hidden; }
+  #bwci-main-page .lpd-stack{ padding:clamp(28px,3vw,40px); }
+  #bwci-main-page .lpd-pane{ grid-template-columns:minmax(180px,.62fr) minmax(0,2fr); gap:0; align-items:stretch; }
+  #bwci-main-page .lpd-pane > div:first-child{ padding-right:clamp(24px,3vw,40px); border-right:1px solid var(--border-subtle); display:flex; flex-direction:column; }
+  #bwci-main-page .lpd-k{ color:var(--accent-emerald-dark); }
+  #bwci-main-page .lpd-h{ margin-top:10px; font-size:clamp(32px,3.2vw,44px); }
+  #bwci-main-page .lpd-pane > div:nth-child(2){ padding-left:clamp(24px,3vw,40px); display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); grid-template-rows:auto 1fr; gap:10px clamp(24px,3vw,40px); align-content:start; }
+  #bwci-main-page .lpd-full{ grid-column:1; grid-row:1; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
+  #bwci-main-page .lpd-d{ grid-column:1; grid-row:2; margin:0; font-size:clamp(17px,1.5vw,20px); line-height:1.5; }
+  #bwci-main-page .lpd-ex{ grid-column:2; grid-row:1 / span 2; margin:0; display:flex; flex-direction:column; align-items:flex-start; gap:12px; padding:20px 22px; border-radius:12px; background:var(--surface-subtle); border:1px solid var(--border-subtle); font-size:15px; line-height:1.55; }
+  #bwci-main-page .lpd-side{ flex-direction:row; align-items:center; justify-content:space-between; gap:16px; padding:14px clamp(28px,3vw,40px); border-top:1px solid var(--border-subtle); background:var(--surface-subtle); }
+  #bwci-main-page .lpd-ctrl{ order:2; margin-left:auto; }
+  #bwci-main-page .lpd-ctrl button{ width:40px; height:40px; }
+}
+@media (min-width:1024px) and (max-height:860px){
+  #bwci-main-page .lp{ --R:84px; }
+  #bwci-main-page .lpd-stack{ padding:24px 32px; }
+  #bwci-main-page .lpd-h{ font-size:clamp(28px,2.8vw,36px); }
+}
+#bwci-main-page .bw-slot{ display:block; position:relative; width:100%; height:100%; aspect-ratio:3/2; font:13px/1.3 system-ui,-apple-system,sans-serif; }
+#bwci-main-page .bw-slot__frame{ position:absolute; inset:0; overflow:hidden; background:rgba(127,127,127,.08); }
+#bwci-main-page .bw-slot__frame img{ display:block; position:absolute; max-width:none; left:50%; top:50%; width:100%; height:100%; object-fit:cover; transform:translate(-50%,-50%); -webkit-user-drag:none; user-select:none; }
+</style>
+
+<div id="bwci-main-page" data-bwci-current="home" data-bwci-under-header>
+
+
+  
+  <section class="bw-hero" id="bwci-hero" data-screen-label="01 Hero">
+    <svg width="0" height="0" aria-hidden="true" style="position: absolute;">
+      <defs>
+        <clipPath id="bwci-heroClip" clipPathUnits="objectBoundingBox"><path d="M0,1 L0,0.7375 Q0,0.7125 0.0205,0.7006 L0.5528,0.3922 Q0.5733,0.3804 0.5733,0.3554 L0.5733,0.2625 Q0.5733,0.2375 0.594,0.226 L0.9734,0.0148 Q1,0 1,0.0321 L1,1 Z"></path></clipPath>
+        <linearGradient id="bwci-hlGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="560"><stop offset="0" stop-color="#A8C2C8"></stop><stop offset=".55" stop-color="#A8C2C8"></stop><stop offset=".8" stop-color="#A8C2C8" stop-opacity="0"></stop></linearGradient>
+      </defs>
+    </svg>
+    <div class="bw-wrap">
+      <div class="bw-hero-grid">
+        <div style="max-width: 808px; min-width: 0px;">
+          <div class="bw-hero-eye bw-hi" style="--d: 0;">Better World Capital Investments PLC</div>
+          <h1 class="bw-h-display bw-hi" style="--d: 1; max-width: 702px;">Reconnecting capital with the real economy.</h1>
+          <p class="bw-lead bw-hero-sub bw-hi" style="--d: 2; max-width: 667px;">Better World Capital Investments PLC is developing an integrated financial platform connecting capital, institutions and financial capability with productive businesses and projects.</p>
+          <div class="bw-hero-actions bw-hi" style="--d: 3;">
+            <a class="bw-btn bw-btn--inverse" href="#" data-bw-link="financialEngine">Explore the Financial Engine <span class="bw-ar" aria-hidden="true">→</span></a>
+            <div class="bw-hero-links">
+              <a class="hlink" href="#" data-bw-link="smes">For SMEs &amp; Projects <span class="bw-ar" aria-hidden="true">→</span></a>
+              <a class="hlink" href="#" data-bw-link="investors">For Investors &amp; Partners <span class="bw-ar" aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="hk bw-hi" style="--d: 4;">
+            <div class="hk-row" role="group" aria-label="At a glance">
+              
+                <button class="hk-i" type="button" aria-expanded="false" aria-controls="bwci-hk-desc"><span class="hk-t"><span class="bw-i">What we are</span></span></button>
+              
+                <button class="hk-i" type="button" aria-expanded="false" aria-controls="bwci-hk-desc"><span class="hk-t"><span class="bw-i">What we do</span></span></button>
+              
+                <button class="hk-i" type="button" aria-expanded="false" aria-controls="bwci-hk-desc"><span class="hk-t"><span class="bw-i">Where we sit</span></span></button>
+              
+                <button class="hk-i" type="button" aria-expanded="false" aria-controls="bwci-hk-desc"><span class="hk-t"><span class="bw-i">Why the engine</span></span></button>
+              
+            </div>
+            <div class="hk-d" id="bwci-hk-desc" aria-live="polite"><b><span class="bw-i"></span></b><p><span class="bw-i"></span></p></div>
+          </div>
+        </div>
+        <div class="hm">
+          <div class="hm-frame">
+          <svg class="hm-lines" viewBox="0 0 600 560" aria-hidden="true">
+            <path class="bw-hl" pathLength="1" d="M0,411 L0,402 Q0,393 7.917,388.719 L333.444,212.707 Q344,207 344,195 L344,139 Q344,127 354.649,121.468 L600,-6" style="--k: 0; stroke-opacity: 0.36;"></path>
+            <path class="bw-hl" pathLength="1" d="M0,403 L0,394 Q0,385 7.917,380.719 L333.444,204.707 Q344,199 344,187 L344,131 Q344,119 354.649,113.468 L600,-14" style="--k: 1; stroke-opacity: 0.334;"></path>
+            <path class="bw-hl" pathLength="1" d="M0,395 L0,386 Q0,377 7.917,372.719 L333.444,196.707 Q344,191 344,179 L344,123 Q344,111 354.649,105.468 L600,-22" style="--k: 2; stroke-opacity: 0.308;"></path>
+            <path class="bw-hl" pathLength="1" d="M0,387 L0,378 Q0,369 7.917,364.719 L333.444,188.707 Q344,183 344,171 L344,115 Q344,103 354.649,97.468 L600,-30" style="--k: 3; stroke-opacity: 0.282;"></path>
+            <path class="bw-hl" pathLength="1" d="M0,379 L0,370 Q0,361 7.917,356.719 L333.444,180.707 Q344,175 344,163 L344,107 Q344,95 354.649,89.468 L600,-38" style="--k: 4; stroke-opacity: 0.256;"></path>
+            <path class="bw-hl" pathLength="1" d="M0,371 L0,362 Q0,353 7.917,348.719 L333.444,172.707 Q344,167 344,155 L344,99 Q344,87 354.649,81.468 L600,-46" style="--k: 5; stroke-opacity: 0.23;"></path>
+            <path class="bw-hl" pathLength="1" d="M0,363 L0,354 Q0,345 7.917,340.719 L333.444,164.707 Q344,159 344,147 L344,91 Q344,79 354.649,73.468 L600,-54" style="--k: 6; stroke-opacity: 0.204;"></path>
+            <path class="bw-hl" pathLength="1" d="M0,355 L0,346 Q0,337 7.917,332.719 L333.444,156.707 Q344,151 344,139 L344,83 Q344,71 354.649,65.468 L600,-62" style="--k: 7; stroke-opacity: 0.178;"></path>
+          </svg>
+          <div class="hm-clip hm-in">
+            <img class="hm-img" data-bw-asset="heroImage" decoding="async" fetchpriority="high" alt="Container port and city skyline at dusk, with warehouses, trucks and freight trains in the foreground">
+            <div class="hm-shade" aria-hidden="true"></div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="bw-tk" id="bwci-credibility" role="region" aria-label="Institutional credibility">
+      <div class="tk-track">
+        <ul class="tk-list">
+          <li><i aria-hidden="true"></i><span class="bw-i">Better World Capital Investments PLC</span></li><li><i aria-hidden="true"></i><span class="bw-i">UK Public Limited Company</span></li><li><i aria-hidden="true"></i><span class="bw-i">Holding Company &amp; Capital Architecture</span></li><li><i aria-hidden="true"></i><span class="bw-i">Regulated capability through relevant operating entities</span></li><li><i aria-hidden="true"></i><span class="bw-i">Real-Economy Investment Focus</span></li><li><i aria-hidden="true"></i><span class="bw-i">Long-Term Institution Building</span></li>
+        </ul>
+        <ul class="tk-list" aria-hidden="true">
+          <li><i></i><span class="bw-i">Better World Capital Investments PLC</span></li><li><i></i><span class="bw-i">UK Public Limited Company</span></li><li><i></i><span class="bw-i">Holding Company &amp; Capital Architecture</span></li><li><i></i><span class="bw-i">Regulated capability through relevant operating entities</span></li><li><i></i><span class="bw-i">Real-Economy Investment Focus</span></li><li><i></i><span class="bw-i">Long-Term Institution Building</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  
+  <section class="bw-sec" id="bwci-problem" data-screen-label="03 The Problem">
+    <div class="bw-wrap">
+      <div class="bw-sec-head rv" style="max-width: 860px;">
+        <h2 class="bw-h1">Capital exists, but it does not always reach productive economic activity in the appropriate structure.</h2>
+      </div>
+      <div class="pb-grid">
+        <div class="pb-card rv" style="--d: 0;"><h3>Products come first</h3><p>Financial products are designed in advance, so businesses are asked to fit the product rather than the other way round.</p></div>
+        <div class="pb-card rv" style="--d: 1;"><h3>Capital is fragmented</h3><p>Capital, institutions and specialist capability sit in separate places and rarely arrive together.</p></div>
+        <div class="pb-card rv" style="--d: 2;"><h3>Structures don’t fit the activity</h3><p>Terms, timing and repayment are often set without reference to how the business actually earns.</p></div>
+      </div>
+      <div class="pb-foot rv"><a class="bw-link" href="#bwci-engine">See how the Financial Engine responds <span class="bw-ar" aria-hidden="true">→</span></a></div>
+    </div>
+  </section>
+
+  
+  <section class="bw-sec bw-sec--subtle" id="bwci-need" data-screen-label="04 Need, Not Product">
+    <div class="pat-dots" aria-hidden="true"></div>
+    <div class="bw-wrap">
+      <div class="bw-sec-head rv">
+        <h2 class="bw-h1">We start with the economic need, not the financial product</h2>
+        <p class="bw-lead">Two ways of connecting a business with capital, compared step by step.</p>
+      </div>
+      <div class="cmp rv" role="table" aria-label="Product-led compared with need-led">
+        <div class="cmp-h" aria-hidden="true"></div>
+        <div class="cmp-h cmp-h--prod"><small>The usual approach</small><b>Product-led</b></div>
+        <div class="cmp-h cmp-h--need"><small>How BWCI works</small><b>Need-led</b></div>
+        <div class="cmp-row">
+          <div class="cmp-l"><b>Starting point</b></div>
+          <div class="cmp-p"><span class="cmp-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="12" x2="18" y2="12"></line></svg></span><span class="cmp-tag">Product-led</span><span style="grid-column: 2;">A financial product, designed in advance</span></div>
+          <div class="cmp-n"><span class="cmp-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12.5 10 17 19 7"></polyline></svg></span><span class="cmp-tag">Need-led · BWCI</span><span style="grid-column: 2;">The business’s real need: its cash flows, contracts and constraints</span></div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-l"><b>How it’s shaped</b></div>
+          <div class="cmp-p"><span class="cmp-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="12" x2="18" y2="12"></line></svg></span><span class="cmp-tag">Product-led</span><span style="grid-column: 2;">The search is for a client who fits the product</span></div>
+          <div class="cmp-n"><span class="cmp-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12.5 10 17 19 7"></polyline></svg></span><span class="cmp-tag">Need-led · BWCI</span><span style="grid-column: 2;">A structure is designed around how the business actually earns</span></div>
+        </div>
+        <div class="cmp-row">
+          <div class="cmp-l"><b>Result</b></div>
+          <div class="cmp-p"><span class="cmp-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="12" x2="18" y2="12"></line></svg></span><span class="cmp-tag">Product-led</span><span style="grid-column: 2;">The business adapts to the terms on offer</span></div>
+          <div class="cmp-n"><span class="cmp-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12.5 10 17 19 7"></polyline></svg></span><span class="cmp-tag">Need-led · BWCI</span><span style="grid-column: 2;">Capital is matched to a structure that fits</span></div>
+        </div>
+        <div class="cmp-foot"><p>Need → structure → the right capital. The order matters: the structure comes before the capital.</p><a class="bw-btn bw-btn--secondary" href="#" data-bw-link="smesProcess">How we approach it <span class="bw-ar" aria-hidden="true">→</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="bw-sec" id="bwci-engine" data-screen-label="05 The Financial Engine">
+    <div class="pat-dots" aria-hidden="true"></div>
+    <div class="bw-wrap">
+      <div class="bw-sec-head rv">
+        <h2 class="bw-h1">The Financial Engine</h2>
+        <p class="bw-lead">Six steps, one loop: from economic need to productive activity, and back into reinvestment.</p>
+      </div>
+      <div class="rv">
+        <div class="lp" style="--p: 0;" data-bw-eng-lp>
+          <div class="lp-ring" aria-hidden="true"></div>
+          <div class="lp-prog" aria-hidden="true"></div>
+          <span class="lp-chev lp-chev--in" aria-hidden="true"></span><span class="lp-chev" style="left: calc(var(--R) + (100% - var(--R) * 2) * 0.1);"></span><span class="lp-chev" style="left: calc(var(--R) + (100% - var(--R) * 2) * 0.3);"></span><span class="lp-chev" style="left: calc(var(--R) + (100% - var(--R) * 2) * 0.5);"></span><span class="lp-chev" style="left: calc(var(--R) + (100% - var(--R) * 2) * 0.7);"></span><span class="lp-chev" style="left: calc(var(--R) + (100% - var(--R) * 2) * 0.9);"></span>
+          <span class="lp-chev lp-chev--ret" aria-hidden="true"></span>
+          <span class="lp-ret" aria-hidden="true">Reinvestment returns to need</span>
+          <div class="lp-nodes" role="tablist" aria-label="Financial Engine steps">
+            
+              <div class="lp-item is-on">
+              <button class="lp-n is-on" type="button" role="tab" aria-selected="true" aria-expanded="true" aria-label="Economic Need" data-bw-eng-step="0">
+                <span class="lp-in"><span class="lp-num"><span class="bw-i">01</span></span><span class="lp-dot"></span><span class="lp-t"><span class="lp-tn"><span class="bw-i">01</span></span><span class="bw-i">Need</span></span><span class="lp-s"><span class="bw-i">Economic Need</span></span><span class="lp-pm" aria-hidden="true"></span></span>
+              </button>
+              <div class="lp-acc"><div><p class="lpd-d"><span class="bw-i">A real business or project need is identified and understood: its cash flows, contracts and constraints.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">A regional food manufacturer wins a large export order. It needs working capital to buy inputs now, but the buyer pays in 120 days.</span></span></div></div></div>
+              </div>
+            
+              <div class="lp-item">
+              <button class="lp-n" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-label="Financial Architecture" data-bw-eng-step="1">
+                <span class="lp-in"><span class="lp-num"><span class="bw-i">02</span></span><span class="lp-dot"></span><span class="lp-t"><span class="lp-tn"><span class="bw-i">02</span></span><span class="bw-i">Architecture</span></span><span class="lp-s"><span class="bw-i">Financial Architecture</span></span><span class="lp-pm" aria-hidden="true"></span></span>
+              </button>
+              <div class="lp-acc"><div><p class="lpd-d"><span class="bw-i">A structure is designed around the need, with terms, timing and repayment matched to how the activity earns.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">The facility is sized to the order and repaid from the buyer’s payment, rather than through a standard term loan.</span></span></div></div></div>
+              </div>
+            
+              <div class="lp-item">
+              <button class="lp-n" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-label="Appropriate Institution / Delivery Capability" data-bw-eng-step="2">
+                <span class="lp-in"><span class="lp-num"><span class="bw-i">03</span></span><span class="lp-dot"></span><span class="lp-t"><span class="lp-tn"><span class="bw-i">03</span></span><span class="bw-i">Institution</span></span><span class="lp-s"><span class="bw-i">Appropriate Institution / Delivery Capability</span></span><span class="lp-pm" aria-hidden="true"></span></span>
+              </button>
+              <div class="lp-acc"><div><p class="lpd-d"><span class="bw-i">The structure is matched to the platform, group company or authorised partner able to deliver it.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">Delivery sits with the entity that holds the relevant capability and, where needed, the regulatory permission.</span></span></div></div></div>
+              </div>
+            
+              <div class="lp-item">
+              <button class="lp-n" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-label="Capital" data-bw-eng-step="3">
+                <span class="lp-in"><span class="lp-num"><span class="bw-i">04</span></span><span class="lp-dot"></span><span class="lp-t"><span class="lp-tn"><span class="bw-i">04</span></span><span class="bw-i">Capital</span></span><span class="lp-s"><span class="bw-i"></span></span><span class="lp-pm" aria-hidden="true"></span></span>
+              </button>
+              <div class="lp-acc"><div><p class="lpd-d"><span class="bw-i">Capital whose mandate fits the structure, risk and tenor is connected through the appropriate authorised vehicle.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">Capital providers looking for short-tenor, trade-linked exposure are matched to the facility.</span></span></div></div></div>
+              </div>
+            
+              <div class="lp-item">
+              <button class="lp-n" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-label="Productive Economic Activity" data-bw-eng-step="4">
+                <span class="lp-in"><span class="lp-num"><span class="bw-i">05</span></span><span class="lp-dot"></span><span class="lp-t"><span class="lp-tn"><span class="bw-i">05</span></span><span class="bw-i">Activity</span></span><span class="lp-s"><span class="bw-i">Productive Economic Activity</span></span><span class="lp-pm" aria-hidden="true"></span></span>
+              </button>
+              <div class="lp-acc"><div><p class="lpd-d"><span class="bw-i">Capital reaches the underlying activity and is put to productive use.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">The manufacturer buys its inputs, fulfils the order and keeps its workforce and suppliers busy.</span></span></div></div></div>
+              </div>
+            
+              <div class="lp-item">
+              <button class="lp-n" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-label="Performance / Learning / Reinvestment" data-bw-eng-step="5">
+                <span class="lp-in"><span class="lp-num"><span class="bw-i">06</span></span><span class="lp-dot"></span><span class="lp-t"><span class="lp-tn"><span class="bw-i">06</span></span><span class="bw-i">Reinvestment</span></span><span class="lp-s"><span class="bw-i">Performance / Learning / Reinvestment</span></span><span class="lp-pm" aria-hidden="true"></span></span>
+              </button>
+              <div class="lp-acc"><div><p class="lpd-d"><span class="bw-i">Performance is tracked, returns flow back, and what was learned informs the next structure.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">The buyer pays, the facility is repaid, and the engagement informs how the next order is structured.</span></span></div></div></div>
+              </div>
+            
+          </div>
+        </div>
+        <div class="lp-loopnote" style="display: none; margin-top: 8px; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: max(12px,var(--fs-floor-sm,0px)); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-gold-dark);">↑ Reinvestment returns to Need</div>
+        <div class="lpd">
+          <div class="lpd-stack">
+            
+              <div class="lpd-pane is-on" role="tabpanel" aria-hidden="false">
+                <div><span class="lpd-k">Step <span class="bw-i">01</span> of 06</span><div class="lpd-h"><span class="bw-i">Need</span></div></div>
+                <div><span class="lpd-full"><span class="bw-i">Economic Need</span></span><p class="lpd-d"><span class="bw-i">A real business or project need is identified and understood: its cash flows, contracts and constraints.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">A regional food manufacturer wins a large export order. It needs working capital to buy inputs now, but the buyer pays in 120 days.</span></span></div></div>
+              </div>
+            
+              <div class="lpd-pane" role="tabpanel" aria-hidden="true">
+                <div><span class="lpd-k">Step <span class="bw-i">02</span> of 06</span><div class="lpd-h"><span class="bw-i">Architecture</span></div></div>
+                <div><span class="lpd-full"><span class="bw-i">Financial Architecture</span></span><p class="lpd-d"><span class="bw-i">A structure is designed around the need, with terms, timing and repayment matched to how the activity earns.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">The facility is sized to the order and repaid from the buyer’s payment, rather than through a standard term loan.</span></span></div></div>
+              </div>
+            
+              <div class="lpd-pane" role="tabpanel" aria-hidden="true">
+                <div><span class="lpd-k">Step <span class="bw-i">03</span> of 06</span><div class="lpd-h"><span class="bw-i">Institution</span></div></div>
+                <div><span class="lpd-full"><span class="bw-i">Appropriate Institution / Delivery Capability</span></span><p class="lpd-d"><span class="bw-i">The structure is matched to the platform, group company or authorised partner able to deliver it.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">Delivery sits with the entity that holds the relevant capability and, where needed, the regulatory permission.</span></span></div></div>
+              </div>
+            
+              <div class="lpd-pane" role="tabpanel" aria-hidden="true">
+                <div><span class="lpd-k">Step <span class="bw-i">04</span> of 06</span><div class="lpd-h"><span class="bw-i">Capital</span></div></div>
+                <div><span class="lpd-full"><span class="bw-i">Capital</span></span><p class="lpd-d"><span class="bw-i">Capital whose mandate fits the structure, risk and tenor is connected through the appropriate authorised vehicle.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">Capital providers looking for short-tenor, trade-linked exposure are matched to the facility.</span></span></div></div>
+              </div>
+            
+              <div class="lpd-pane" role="tabpanel" aria-hidden="true">
+                <div><span class="lpd-k">Step <span class="bw-i">05</span> of 06</span><div class="lpd-h"><span class="bw-i">Activity</span></div></div>
+                <div><span class="lpd-full"><span class="bw-i">Productive Economic Activity</span></span><p class="lpd-d"><span class="bw-i">Capital reaches the underlying activity and is put to productive use.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">The manufacturer buys its inputs, fulfils the order and keeps its workforce and suppliers busy.</span></span></div></div>
+              </div>
+            
+              <div class="lpd-pane" role="tabpanel" aria-hidden="true">
+                <div><span class="lpd-k">Step <span class="bw-i">06</span> of 06</span><div class="lpd-h"><span class="bw-i">Reinvestment</span></div></div>
+                <div><span class="lpd-full"><span class="bw-i">Performance / Learning / Reinvestment</span></span><p class="lpd-d"><span class="bw-i">Performance is tracked, returns flow back, and what was learned informs the next structure.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">The buyer pays, the facility is repaid, and the engagement informs how the next order is structured.</span></span></div></div>
+              </div>
+            
+          </div>
+          <div class="lpd-side">
+            <div class="lpd-ctrl">
+              <button type="button" aria-label="Previous step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="11 6 5 12 11 18"></polyline></svg></button>
+              <button type="button" aria-label="Next step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></button>
+            </div>
+            <a class="bw-link" href="#" data-bw-link="financialEngine">How the Financial Engine works <span class="bw-ar" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <p class="eng-note">Illustrative example only. It does not describe a specific transaction or offer.</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="bw-sec bw-sec--subtle" id="bwci-platforms" data-screen-label="06 Platforms &amp; Institutions">
+    <div class="pat-rings" aria-hidden="true"></div>
+    <div class="bw-wrap">
+      <div class="bw-sec-head rv">
+        <h2 class="bw-h1">Our platforms and institutions, and their status</h2>
+        <p class="bw-lead">Filter by status. Each card shows who is responsible, how it relates to BWCI, and how far along it is.</p>
+      </div>
+      <div class="pfx rv bw-is-all">
+        <div class="pfx-main">
+          <div class="pft">
+            <div class="pf-tabs" role="tablist" aria-label="Filter by status">
+              
+                <button class="pf-tab bw-on" type="button" role="tab" aria-selected="true" data-bw-pf="all"><i style="background: var(--brand-ink);"></i><span class="bw-i">All</span><em><span class="bw-i">6</span></em></button>
+              
+                <button class="pf-tab" type="button" role="tab" aria-selected="false" data-bw-pf="op"><i style="background: var(--status-op-mark);"></i><span class="bw-i">Operating</span><em><span class="bw-i">1</span></em></button>
+              
+                <button class="pf-tab" type="button" role="tab" aria-selected="false" data-bw-pf="dev"><i style="background: var(--status-dev-mark);"></i><span class="bw-i">In development</span><em><span class="bw-i">2</span></em></button>
+              
+                <button class="pf-tab" type="button" role="tab" aria-selected="false" data-bw-pf="pro"><i style="background: var(--status-pro-mark);"></i><span class="bw-i">Proposed</span><em><span class="bw-i">1</span></em></button>
+              
+                <button class="pf-tab" type="button" role="tab" aria-selected="false" data-bw-pf="par"><i style="background: var(--rel-partner-mark);"></i><span class="bw-i">Partner capability</span><em><span class="bw-i">1</span></em></button>
+              
+            </div>
+            <button class="pft-arr pft-arr--l" type="button" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 6 9 12 15 18"></polyline></svg></button>
+            <button class="pft-arr pft-arr--r" type="button" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg></button>
+          </div>
+          <div class="pf-panel bw-first">
+            <div class="pc-grid">
+              
+                <a class="pk pk--own" href="#" data-bw-link="platformsDirectory" style="--d: 0; --c: var(--status-op-mark);">
+                  <span class="pk-bar" aria-hidden="true"></span>
+                  <div class="pk-top"><span class="pk-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v9h9"></path><path d="M20.5 15A9 9 0 1 1 9 3.5"></path></svg></span><span class="bw-badge bw-b-op"><i></i><span class="bw-i">Operating</span></span></div>
+                  <div class="pk-hd"><span class="pk-k"><span class="bw-i">Group company</span></span><h3><span class="bw-i">Asset Management</span></h3></div>
+                  <div class="pk-more">
+                    <div class="pk-row"><span>Responsible entity</span><b><span class="bw-i">Providence Asset Management Ltd*</span></b></div>
+                    <div class="pk-st"><span class="pk-sl">Stage</span><div class="pk-steps"><span class="pk-s bw-done"><i></i><span class="bw-i">Proposed</span></span><span class="pk-s bw-done"><i></i><span class="bw-i">In development</span></span><span class="pk-s bw-cur"><i></i><span class="bw-i">Operating</span></span></div></div>
+                    <p class="pk-reg"><span class="bw-i">Regulated activity is carried out by the entity, within its own permissions.</span></p>
+                  </div>
+                  <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>
+                </a>
+              
+                <a class="pk pk--build" href="#" data-bw-link="platformsDirectory" style="--d: 1; --c: var(--status-dev-mark);">
+                  <span class="pk-bar" aria-hidden="true"></span>
+                  <div class="pk-top"><span class="pk-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l2 3h14l2-3"></path><path d="M5 17V9h6v8"></path><path d="M11 12h8v5"></path><line x1="8" y1="5" x2="8" y2="9"></line></svg></span><span class="bw-badge bw-b-dev"><i></i><span class="bw-i">In development</span></span></div>
+                  <div class="pk-hd"><span class="pk-k"><span class="bw-i">Group build</span></span><h3><span class="bw-i">Trade Finance</span></h3></div>
+                  <div class="pk-more">
+                    <div class="pk-row"><span>Responsible entity</span><b><span class="bw-i">No operating entity yet</span></b></div>
+                    <div class="pk-st"><span class="pk-sl">Stage</span><div class="pk-steps"><span class="pk-s bw-done"><i></i><span class="bw-i">Proposed</span></span><span class="pk-s bw-cur"><i></i><span class="bw-i">In development</span></span><span class="pk-s"><i></i><span class="bw-i">Operating</span></span></div></div>
+                    <p class="pk-reg"><span class="bw-i">Not currently offered as a service.</span></p>
+                  </div>
+                  <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>
+                </a>
+              
+                <a class="pk pk--pro" href="#" data-bw-link="platformsDirectory" style="--d: 2; --c: var(--status-pro-mark);">
+                  <span class="pk-bar" aria-hidden="true"></span>
+                  <div class="pk-top"><span class="pk-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"></path><line x1="5" y1="10" x2="5" y2="18"></line><line x1="10" y1="10" x2="10" y2="18"></line><line x1="14" y1="10" x2="14" y2="18"></line><line x1="19" y1="10" x2="19" y2="18"></line><line x1="3" y1="21" x2="21" y2="21"></line></svg></span><span class="bw-badge bw-b-pro"><i></i><span class="bw-i">Proposed</span></span></div>
+                  <div class="pk-hd"><span class="pk-k"><span class="bw-i">Proposed</span></span><h3><span class="bw-i">Community Banking</span></h3></div>
+                  <div class="pk-more">
+                    <div class="pk-row"><span>Responsible entity</span><b><span class="bw-i">Proposed institution, not yet established</span></b></div>
+                    <div class="pk-st"><span class="pk-sl">Stage</span><div class="pk-steps"><span class="pk-s bw-cur"><i></i><span class="bw-i">Proposed</span></span><span class="pk-s"><i></i><span class="bw-i">In development</span></span><span class="pk-s"><i></i><span class="bw-i">Operating</span></span></div></div>
+                    <p class="pk-reg"><span class="bw-i">Not authorised. Would require PRA authorisation and FCA and PRA regulation.</span></p>
+                  </div>
+                  <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>
+                </a>
+              
+                <a class="pk pk--build" href="#" data-bw-link="platformsDirectory" style="--d: 3; --c: var(--status-dev-mark);">
+                  <span class="pk-bar" aria-hidden="true"></span>
+                  <div class="pk-top"><span class="pk-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 14 15 20 8"></polyline><polyline points="15 8 20 8 20 13"></polyline></svg></span><span class="bw-badge bw-b-dev"><i></i><span class="bw-i">In development</span></span></div>
+                  <div class="pk-hd"><span class="pk-k"><span class="bw-i">Group build</span></span><h3><span class="bw-i">Private Capital</span></h3></div>
+                  <div class="pk-more">
+                    <div class="pk-row"><span>Responsible entity</span><b><span class="bw-i">No operating entity yet</span></b></div>
+                    <div class="pk-st"><span class="pk-sl">Stage</span><div class="pk-steps"><span class="pk-s bw-done"><i></i><span class="bw-i">Proposed</span></span><span class="pk-s bw-cur"><i></i><span class="bw-i">In development</span></span><span class="pk-s"><i></i><span class="bw-i">Operating</span></span></div></div>
+                    <p class="pk-reg"><span class="bw-i">Not currently offered as a service.</span></p>
+                  </div>
+                  <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>
+                </a>
+              
+                <a class="pk pk--tbc" href="#" data-bw-link="platformsDirectory" style="--d: 4; --c: var(--border-strong);">
+                  <span class="pk-bar" aria-hidden="true"></span>
+                  <div class="pk-top"><span class="pk-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"></ellipse><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"></path><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"></path></svg></span><span class="bw-badge bw-b-tbc"><i></i><span class="bw-i">Status to confirm</span></span></div>
+                  <div class="pk-hd"><span class="pk-k"><span class="bw-i">To be confirmed</span></span><h3><span class="bw-i">Treasury &amp; Liquidity</span></h3></div>
+                  <div class="pk-more">
+                    <div class="pk-row"><span>Responsible entity</span><b><span class="bw-i">To be confirmed</span></b></div>
+                    <div class="pk-st"><span class="pk-sl">Stage</span><div class="pk-steps"><span class="pk-s"><i></i><span class="bw-i">Proposed</span></span><span class="pk-s"><i></i><span class="bw-i">In development</span></span><span class="pk-s"><i></i><span class="bw-i">Operating</span></span></div></div>
+                    <p class="pk-reg"><span class="bw-i">Regulatory position to be confirmed.</span></p>
+                  </div>
+                  <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>
+                </a>
+              
+                <a class="pk pk--par" href="#" data-bw-link="platformsDirectory" style="--d: 5; --c: var(--rel-partner-mark);">
+                  <span class="pk-bar" aria-hidden="true"></span>
+                  <div class="pk-top"><span class="pk-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"></rect><rect x="10" y="10" width="4" height="4"></rect><line x1="9" y1="2" x2="9" y2="6"></line><line x1="15" y1="2" x2="15" y2="6"></line><line x1="9" y1="18" x2="9" y2="22"></line><line x1="15" y1="18" x2="15" y2="22"></line><line x1="2" y1="9" x2="6" y2="9"></line><line x1="2" y1="15" x2="6" y2="15"></line><line x1="18" y1="9" x2="22" y2="9"></line><line x1="18" y1="15" x2="22" y2="15"></line></svg></span><span class="bw-badge bw-b-par"><i></i><span class="bw-i">Partner capability</span></span></div>
+                  <div class="pk-hd"><span class="pk-k"><span class="bw-i">Partner capability</span></span><h3><span class="bw-i">Financial Technology</span></h3></div>
+                  <div class="pk-more">
+                    <div class="pk-row"><span>Responsible entity</span><b><span class="bw-i">Independent partner, named at engagement</span></b></div>
+                    <div class="pk-st"><span class="pk-sl">Stage</span><div class="pk-steps"><span class="pk-s"><i></i><span class="bw-i">Proposed</span></span><span class="pk-s"><i></i><span class="bw-i">In development</span></span><span class="pk-s bw-cur"><i></i><span class="bw-i">Operating</span></span></div></div>
+                    <p class="pk-reg"><span class="bw-i">Provided by the partner entity under its own terms.</span></p>
+                  </div>
+                  <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>
+                </a>
+              
+            </div>
+            <div class="pf-rel"><span>Top bar:</span>
+              <span class="bw-sw"><i class="bw-swb" style="background: var(--brand-ink);"></i>Group company</span>
+              <span class="bw-sw"><i class="bw-swb" style="background: var(--border-strong);"></i>Group build</span>
+              <span class="bw-sw"><i class="bw-swb" style="background: repeating-linear-gradient(90deg,var(--rel-partner-mark) 0 6px,transparent 6px 9px);"></i>Partner</span>
+              <span class="bw-sw"><i class="bw-swb" style="background: repeating-linear-gradient(90deg,var(--border-strong) 0 3px,transparent 3px 6px);"></i>Proposed</span>
+            </div>
+          </div>
+        </div>
+        <aside class="pfx-side">
+          <div class="pfx-sum">
+            <div><b><span class="bw-i">06</span></b><span><span class="bw-i">Shown in this view</span></span></div>
+            <div><b>06</b><span>Platforms &amp; institutions in total</span></div>
+          </div>
+          <div class="pfx-dark">
+            <b>As at September 2026</b>
+            <p>Every status is dated and reviewed as platforms progress. * Entity identity verified; scope of activities and regulatory permissions remain subject to verification.</p>
+            <a class="bw-link bw-link--inv" href="#" data-bw-link="platforms">See all platforms <span class="bw-ar" aria-hidden="true">→</span></a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="bw-sec" id="bwci-impact" data-screen-label="07 Better World / Impact">
+    <div class="bw-wrap">
+      <div class="im-head">
+        <div class="bw-left rv"><span class="bw-eyebrow">Better World</span><h2 class="bw-h1">What “Better World” means in practice</h2></div>
+        <p class="bw-lead rv" style="--d: 1;">Most financial organisations treat impact as a filter, applied after capital has already been allocated. Our approach starts earlier. At BWCI, the outcomes we intend to support shape how capital is structured, owned and deployed.</p>
+      </div>
+      <div class="im-quote rv">
+        <blockquote>“Impact should influence the <em>architecture of capital</em> itself.”</blockquote>
+        <p>That means designing investment structures, ownership and capital flows around long-term productive outcomes, not adding them as an afterthought.</p>
+      </div>
+      <div class="ix rv">
+        
+          <div class="ix-c bw-on" tabindex="0" role="button" aria-expanded="true" style="background: radial-gradient(70% 60% at 20% 20%, rgb(29, 74, 84) 0%, transparent 70%), radial-gradient(80% 70% at 85% 90%, rgb(18, 131, 107) 0%, transparent 70%), rgb(18, 48, 57);">
+            <div class="ix-media"><div><div class="ix-img"><div class="bw-slot" data-bw-slot="home-impact-1"><div class="bw-slot__frame"><img data-bw-asset="impact1" alt="" decoding="async"></div></div></div></div></div>
+            <div class="ix-body">
+              <span class="ix-n"><span class="bw-i">01</span></span>
+              <h3><span class="bw-i">Productive enterprise</span></h3>
+              <p><span class="bw-i">Capital that reaches SMEs and entrepreneurs, supporting the businesses that create employment.</span></p>
+            </div>
+          </div>
+        
+          <div class="ix-c" tabindex="0" role="button" aria-expanded="false" style="background: radial-gradient(70% 60% at 85% 15%, rgb(185, 143, 45) 0%, transparent 70%), radial-gradient(80% 70% at 15% 90%, rgb(29, 74, 84) 0%, transparent 70%), rgb(18, 48, 57);">
+            <div class="ix-media"><div><div class="ix-img"><div class="bw-slot" data-bw-slot="home-impact-2"><div class="bw-slot__frame"><img data-bw-asset="impact2" alt="" decoding="async"></div></div></div></div></div>
+            <div class="ix-body">
+              <span class="ix-n"><span class="bw-i">02</span></span>
+              <h3><span class="bw-i">Resilient trade and supply chains</span></h3>
+              <p><span class="bw-i">Finance structured around how goods and services actually move, so working capital doesn’t become a bottleneck.</span></p>
+            </div>
+          </div>
+        
+          <div class="ix-c" tabindex="0" role="button" aria-expanded="false" style="background: radial-gradient(70% 60% at 80% 10%, rgba(163, 217, 201, 0.75) 0%, transparent 70%), radial-gradient(80% 70% at 20% 90%, rgb(18, 131, 107) 0%, transparent 70%), rgb(13, 110, 89);">
+            <div class="ix-media"><div><div class="ix-img"><div class="bw-slot" data-bw-slot="home-impact-3"><div class="bw-slot__frame"><img data-bw-asset="impact3" alt="" decoding="async"></div></div></div></div></div>
+            <div class="ix-body">
+              <span class="ix-n"><span class="bw-i">03</span></span>
+              <h3><span class="bw-i">Sustainable infrastructure and regenerative business</span></h3>
+              <p><span class="bw-i">Patient, long-term capital for productive assets and businesses that restore rather than deplete.</span></p>
+            </div>
+          </div>
+        
+          <div class="ix-c" tabindex="0" role="button" aria-expanded="false" style="background: radial-gradient(70% 60% at 20% 25%, rgb(61, 90, 128) 0%, transparent 70%), radial-gradient(80% 70% at 85% 85%, rgba(168, 189, 215, 0.6) 0%, transparent 70%), rgb(37, 59, 87);">
+            <div class="ix-media"><div><div class="ix-img"><div class="bw-slot" data-bw-slot="home-impact-4"><div class="bw-slot__frame"><img data-bw-asset="impact4" alt="" decoding="async"></div></div></div></div></div>
+            <div class="ix-body">
+              <span class="ix-n"><span class="bw-i">04</span></span>
+              <h3><span class="bw-i">Stronger local economies</span></h3>
+              <p><span class="bw-i">Capital that circulates in the communities where it is earned, supporting local resilience and, where relevant, financial inclusion.</span></p>
+            </div>
+          </div>
+        
+      </div>
+      <div class="im-foot rv">
+        <div class="bw-note"><span>We only report outcomes we can evidence. Our Impact &amp; Outcomes methodology sets out what we intend to measure and how.</span><span class="bw-badge bw-b-dev"><i></i>In development</span></div>
+        <a class="bw-btn bw-btn--primary" href="#" data-bw-link="ecosystem">Explore Better World &amp; Impact <span class="bw-ar" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="bw-sec ww-sec" id="bwci-audiences" data-screen-label="08 Who We Work With">
+    <div class="ww-band" aria-hidden="true"></div>
+    <div class="bw-wrap">
+      <div class="ww-img ww-hero rv"><div class="bw-slot" data-bw-slot="home-who-photo"><div class="bw-slot__frame"><img data-bw-asset="whoPhoto" alt="" decoding="async"></div></div><div class="ww-fade" aria-hidden="true"></div><div class="bw-sec-head ww-head"><h2 class="bw-h1">Who we work with</h2><p class="bw-lead">Choose the group closest to you to see how you can take part.</p></div></div>
+      <div class="ww-grid">
+        <a class="ww rv" href="#" data-bw-link="smes" style="--d: 0;"><div class="ww-top"><span class="ww-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="7" height="10"></rect><rect x="14" y="5" width="7" height="15"></rect></svg></span></div><h3>SMEs &amp; Projects</h3><p>Businesses and projects looking for capital structured around how they actually work.</p><span class="ww-go">Start with your need<b aria-hidden="true">→</b></span></a>
+        <a class="ww rv" href="#" data-bw-link="investors" style="--d: 1;"><div class="ww-top"><span class="ww-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5"></path><polyline points="18 3 18 7 14 7"></polyline><path d="M20 12a8 8 0 0 1-14 5"></path><polyline points="6 21 6 17 10 17"></polyline></svg></span></div><h3>Investors &amp; Capital Providers</h3><p>Institutional, wholesale and impact capital looking for pathways into the real economy.</p><span class="ww-go">Why participate<b aria-hidden="true">→</b></span></a>
+        <a class="ww rv" href="#" data-bw-link="investorsRoute" style="--d: 2;"><div class="ww-top"><span class="ww-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="1"></rect><path d="M6 10V7l6-4 6 4v3"></path></svg></span></div><h3>Banks &amp; Lenders</h3><p>Banks and regulated lenders exploring co-financing, referrals or structured collaboration.</p><span class="ww-go">Work with us<b aria-hidden="true">→</b></span></a>
+        <a class="ww rv" href="#" data-bw-link="investorsRoute" style="--d: 3;"><div class="ww-top"><span class="ww-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="3"></circle><circle cx="17" cy="9" r="3"></circle><path d="M2 20c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5"></path><path d="M12 20c0-3 2.2-5 5-5s5 2 5 5"></path></svg></span></div><h3>Strategic Corporate Partners</h3><p>Organisations bringing technology, infrastructure, distribution or specialist expertise.</p><span class="ww-go">Partner with us<b aria-hidden="true">→</b></span></a>
+      </div>
+      <div class="ww-also rv"><div class="bw-tags"><span style="padding: 0px; border: 0px; background: none; font-weight: 600;">Also:</span><span>Family Offices</span><span>Institutional</span><span>Impact</span><span>DFIs</span><span>PE &amp; Co-investment</span><span>Technology partners</span></div><a href="#" data-bw-link="investorsRoute">All audiences →</a></div>
+    </div>
+  </section>
+
+  
+  <section class="bw-sec" id="bwci-leadership" data-screen-label="09 Leadership &amp; Governance">
+    <div class="pat-grid" aria-hidden="true"></div>
+    <div class="bw-wrap">
+      <div class="bw-sec-head rv"><h2 class="bw-h1">Accountable people. Clear oversight.</h2></div>
+      <div class="bw-ld">
+        <div>
+          <div class="ld-k rv">Leadership</div>
+          <div class="ld-grid">
+            <a class="ld-p rv" href="#" data-bw-link="leadership" style="--d: 0;"><div class="ld-img"><img data-bw-asset="leaderAlexander" alt="Alexander Alegria Saif" loading="lazy" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;"><div class="ld-ov"><span>View profile →</span></div></div><div class="ld-t"><b>Alexander Alegria Saif</b><span>Chairman</span></div></a>
+            <a class="ld-p rv" href="#" data-bw-link="leadership" style="--d: 1;"><div class="ld-img"><img data-bw-asset="leaderFarhad" alt="Farhad Reyazat" loading="lazy" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;"><div class="ld-ov"><span>View profile →</span></div></div><div class="ld-t"><b>Farhad Reyazat</b><span>Founder &amp; CEO</span></div></a>
+            <a class="ld-p rv" href="#" data-bw-link="leadership" style="--d: 2;"><div class="ld-img"><img data-bw-asset="leaderGabriela" alt="Gabriela Karlova" loading="lazy" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;"><div class="ld-ov"><span>View profile →</span></div></div><div class="ld-t"><b>Gabriela Karlova</b><span>Director</span></div></a>
+          </div>
+          <div class="ld-more rv"><a class="bw-link" href="#" data-bw-link="leadership">Meet our leadership <span class="bw-ar" aria-hidden="true">→</span></a></div>
+        </div>
+        <div class="bw-gv rv" style="--d: 2;">
+          <div class="ld-k"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path></svg>Governance</div>
+          <h3>How decisions are made, overseen and kept separate.</h3>
+          <ul><li><a href="#" data-bw-link="governanceBoard">Board of Directors<span class="bw-ar" aria-hidden="true">→</span></a></li><li><a href="#" data-bw-link="governanceCommittees">Board oversight &amp; committees<span class="bw-ar" aria-hidden="true">→</span></a></li><li><a href="#" data-bw-link="governanceCapital">Capital-allocation governance<span class="bw-ar" aria-hidden="true">→</span></a></li><li><a href="#" data-bw-link="governanceRisk">Risk, compliance &amp; conflicts<span class="bw-ar" aria-hidden="true">→</span></a></li><li><a href="#" data-bw-link="governancePerimeter">Regulated vs non-regulated activity<span class="bw-ar" aria-hidden="true">→</span></a></li></ul>
+          <a class="bw-link bw-link--inv" href="#" data-bw-link="governance">How we’re governed <span class="bw-ar" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="bw-sec bw-sec--subtle" id="bwci-today" data-screen-label="10 The Platform Today">
+    <div class="pat-dots" aria-hidden="true"></div>
+    <div class="bw-wrap">
+      <div class="bw-sec-head rv"><h2 class="bw-h1">What operates today, and what we’re building</h2><p class="bw-lead">Three stages, read left to right: what exists now, what is being built next, and what is planned for later.</p></div>
+      <div class="bw-pt">
+        <div class="pt-line" aria-hidden="true"></div>
+        <div class="pt-c pt-c--op rv" style="--d: 0;"><div class="pt-stage"><span class="pt-dot">01</span><div><small>Now</small><h3>Operating today</h3></div></div>
+          <div class="pt-box"><a class="pt-i" href="#" data-bw-link="platformsDirectory"><i style="background: var(--status-op-mark);"></i><b>Providence Asset Management Ltd*</b><span>Group company</span><span class="bw-ar" aria-hidden="true">→</span></a><a class="pt-i" href="#" data-bw-link="platformsDirectory"><i style="background: var(--rel-partner-mark);"></i><b>Partner capabilities</b><span>Independent, authorised partner institutions</span><span class="bw-ar" aria-hidden="true">→</span></a></div></div>
+        <div class="pt-c pt-c--dev rv" style="--d: 1;"><div class="pt-stage"><span class="pt-dot">02</span><div><small>Next</small><h3>Being developed</h3></div></div>
+          <div class="pt-box"><a class="pt-i" href="#" data-bw-link="platformsDirectory"><i style="background: var(--status-dev-mark);"></i><b>Private Capital Platform</b><span>Group build</span><span class="bw-ar" aria-hidden="true">→</span></a><a class="pt-i" href="#" data-bw-link="platformsDirectory"><i style="background: var(--status-dev-mark);"></i><b>Trade Finance Platform</b><span>Group build</span><span class="bw-ar" aria-hidden="true">→</span></a><a class="pt-i" href="#" data-bw-link="platformsDirectory"><i style="background: var(--status-dev-mark);"></i><b>Financial Infrastructure</b><span>Enabling layer</span><span class="bw-ar" aria-hidden="true">→</span></a></div></div>
+        <div class="pt-c pt-c--road rv" style="--d: 2;"><div class="pt-stage"><span class="pt-dot">03</span><div><small>Later</small><h3>Long-term roadmap</h3></div></div>
+          <div class="pt-box"><a class="pt-i" href="#" data-bw-link="platformsDirectory"><i style="border: 1.5px solid var(--status-pro-mark);"></i><b>Community Banking Institution</b><span>Proposed, subject to authorisation</span><span class="bw-ar" aria-hidden="true">→</span></a></div></div>
+      </div>
+      <div class="pt-foot rv">
+        <p>As at September 2026. Statuses are reviewed as platforms progress.</p>
+        <a class="bw-btn bw-btn--secondary" href="#" data-bw-link="platformsRegisters">See the platform today <span class="bw-ar" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+
+  
+  <section class="bw-cta" id="bwci-cta" data-screen-label="12 Final CTA">
+    <div class="bw-wrap">
+      <h2 class="bw-h1 rv">Start the right conversation.</h2>
+      <p class="bw-lead rv" style="--d: 1;">Tell us who you are and we’ll route you to the right team.</p>
+      <div class="bw-cta-grid">
+        <a class="bw-route rv" href="#" data-bw-link="smesEngage" style="--d: 2;">I’m an SME or Project <span class="bw-ar" aria-hidden="true">→</span></a>
+        <a class="bw-route rv" href="#" data-bw-link="investorsEngage" style="--d: 3;">I’m an Investor or Capital Provider <span class="bw-ar" aria-hidden="true">→</span></a>
+        <a class="bw-route rv" href="#" data-bw-link="investorsRoute" style="--d: 4;">I’m a Bank / Financial Institution <span class="bw-ar" aria-hidden="true">→</span></a>
+        <a class="bw-route rv" href="#" data-bw-link="investorsRoute" style="--d: 5;">I’m a Strategic Partner <span class="bw-ar" aria-hidden="true">→</span></a>
+      </div>
+      <div class="bw-cta-small rv"><span>Corporate / investor information: <a href="#" data-bw-link="corporateIR">Corporate/IR</a></span><span>Received a message from us? <a href="#" data-bw-link="verify">Verify a Communication</a></span></div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+/* BWCI — Homepage (Main) · GoHighLevel runtime (vanilla JS, no dependencies).
+   Replaces the Claude Design runtime (support.js + React), image-slot.js and the SiteHeader / SiteFooter
+   components used by design/Main.dc.html. Everything is scoped to #bwci-main-page. */
+(function () {
+  'use strict';
+
+  /* Editable settings (image URLs, header/footer toggles, footer legal wording, page links) live in the
+     <script type="application/json" id="bwci-main-config"> block at the very top of the Custom Code paste. */
+
+  /* ======================= BEHAVIOUR (source values) ======================= */
+  var OPTIONS = {
+    revealMargin: '0px 0px -8% 0px', // .rv reveal: IntersectionObserver rootMargin / threshold
+    revealThreshold: 0.08,
+    engRevealMin: 1024,   // >= this width, picking a step scrolls the detail card fully into view
+    engRevealGap: 16,
+    engRevealTop: 80,
+    ixHoverDelay: 70,     // impact card opens 70 ms after the pointer arrives
+    tabsEdge: 6,          // status tabs: px of overflow before an edge arrow shows
+    tabsPad: 48,          // a picked tab is kept this far inside the visible strip
+    dragThreshold: 5      // px of mouse movement before the tab strip drags
+  };
+
+  var ROOT_ID = 'bwci-main-page';
+  var CONFIG_ID = 'bwci-main-config';
+  var INSTANCE_KEY = '__bwciMain';
+  var IMAGE_KEYS = ['whoPhoto', 'impact1', 'impact2', 'impact3', 'impact4', 'leaderAlexander', 'leaderFarhad', 'leaderGabriela'];
+
+  /* VIEW:start — data and markup of the parts the script re-renders (source text/x-dc). The default
+     markup in the page was generated from this part, so the static HTML and the script agree; edit both together. */
+  var STEPS = [
+    ['Economic Need', 'A real business or project need is identified and understood: its cash flows, contracts and constraints.', 'A regional food manufacturer wins a large export order. It needs working capital to buy inputs now, but the buyer pays in 120 days.'],
+    ['Financial Architecture', 'A structure is designed around the need, with terms, timing and repayment matched to how the activity earns.', 'The facility is sized to the order and repaid from the buyer’s payment, rather than through a standard term loan.'],
+    ['Appropriate Institution / Delivery Capability', 'The structure is matched to the platform, group company or authorised partner able to deliver it.', 'Delivery sits with the entity that holds the relevant capability and, where needed, the regulatory permission.'],
+    ['Capital', 'Capital whose mandate fits the structure, risk and tenor is connected through the appropriate authorised vehicle.', 'Capital providers looking for short-tenor, trade-linked exposure are matched to the facility.'],
+    ['Productive Economic Activity', 'Capital reaches the underlying activity and is put to productive use.', 'The manufacturer buys its inputs, fulfils the order and keeps its workforce and suppliers busy.'],
+    ['Performance / Learning / Reinvestment', 'Performance is tracked, returns flow back, and what was learned informs the next structure.', 'The buyer pays, the facility is repaid, and the engagement informs how the next order is structured.']
+  ];
+  var SH = [['Need', 'Economic Need'], ['Architecture', 'Financial Architecture'], ['Institution', 'Appropriate Institution / Delivery Capability'], ['Capital', ''], ['Activity', 'Productive Economic Activity'], ['Reinvestment', 'Performance / Learning / Reinvestment']];
+  var P = [
+    { v: 'own', name: 'Asset Management', entity: 'Providence Asset Management Ltd*', rel: 'Group company', b: 'op', status: 'Operating', reg: 'Regulated activity is carried out by the entity, within its own permissions.' },
+    { v: 'build', name: 'Trade Finance', entity: 'No operating entity yet', rel: 'Group build', b: 'dev', status: 'In development', reg: 'Not currently offered as a service.' },
+    { v: 'pro', name: 'Community Banking', entity: 'Proposed institution, not yet established', rel: 'Proposed', b: 'pro', status: 'Proposed', reg: 'Not authorised. Would require PRA authorisation and FCA and PRA regulation.' },
+    { v: 'build', name: 'Private Capital', entity: 'No operating entity yet', rel: 'Group build', b: 'dev', status: 'In development', reg: 'Not currently offered as a service.' },
+    { v: 'tbc', name: 'Treasury & Liquidity', entity: 'To be confirmed', rel: 'To be confirmed', b: 'tbc', status: 'Status to confirm', reg: 'Regulatory position to be confirmed.' },
+    { v: 'par', name: 'Financial Technology', entity: 'Independent partner, named at engagement', rel: 'Partner capability', b: 'par', status: 'Partner capability', reg: 'Provided by the partner entity under its own terms.' }
+  ];
+  var IC = {
+    'Asset Management': '<path d="M12 3v9h9"></path><path d="M20.5 15A9 9 0 1 1 9 3.5"></path>',
+    'Trade Finance': '<path d="M3 17l2 3h14l2-3"></path><path d="M5 17V9h6v8"></path><path d="M11 12h8v5"></path><line x1="8" y1="5" x2="8" y2="9"></line>',
+    'Community Banking': '<path d="M3 10l9-6 9 6"></path><line x1="5" y1="10" x2="5" y2="18"></line><line x1="10" y1="10" x2="10" y2="18"></line><line x1="14" y1="10" x2="14" y2="18"></line><line x1="19" y1="10" x2="19" y2="18"></line><line x1="3" y1="21" x2="21" y2="21"></line>',
+    'Private Capital': '<polyline points="4 17 10 11 14 15 20 8"></polyline><polyline points="15 8 20 8 20 13"></polyline>',
+    'Treasury & Liquidity': '<ellipse cx="12" cy="6" rx="7" ry="3"></ellipse><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"></path><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"></path>',
+    'Financial Technology': '<rect x="6" y="6" width="12" height="12" rx="2"></rect><rect x="10" y="10" width="4" height="4"></rect><line x1="9" y1="2" x2="9" y2="6"></line><line x1="15" y1="2" x2="15" y2="6"></line><line x1="9" y1="18" x2="9" y2="22"></line><line x1="15" y1="18" x2="15" y2="22"></line><line x1="2" y1="9" x2="6" y2="9"></line><line x1="2" y1="15" x2="6" y2="15"></line><line x1="18" y1="9" x2="22" y2="9"></line><line x1="18" y1="15" x2="22" y2="15"></line>'
+  };
+  var STG = { op: 2, dev: 1, pro: 0, par: -1, tbc: -2 };
+  var STAGE_C = { op: 'var(--status-op-mark)', dev: 'var(--status-dev-mark)', pro: 'var(--status-pro-mark)', par: 'var(--rel-partner-mark)', tbc: 'var(--border-strong)' };
+  var FIL = [['all', 'All', 'var(--brand-ink)'], ['op', 'Operating', 'var(--status-op-mark)'], ['dev', 'In development', 'var(--status-dev-mark)'], ['pro', 'Proposed', 'var(--status-pro-mark)'], ['par', 'Partner capability', 'var(--rel-partner-mark)']];
+  var FACTS = [['What we are', 'A UK holding company (PLC)'], ['What we do', 'Structure and connect capital to productive enterprise'], ['Where we sit', 'Between capital providers and operating entities'], ['Why the engine', 'To start from the business need, then match the capital']];
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) { return c === '&' ? '&amp;' : c === '<' ? '&lt;' : c === '>' ? '&gt;' : '&quot;'; });
+  }
+  // the source runtime wraps every interpolated value in span.sc-interp (reproduced as .bw-i)
+  function ip(s) { return '<span class="bw-i">' + esc(s) + '</span>'; }
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+  function shown(pf) { return P.filter(function (p) { return pf === 'all' || p.b === pf; }); }
+  var VIEW = {
+    progress: function (cur) { return String(cur / (STEPS.length - 1)); },
+    nodeCls: function (i, cur) { return 'lp-n' + (i === cur ? ' is-on' : i < cur ? ' is-past' : ''); },
+    ex: function (st) { return '<div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span>' + ip(st[2]) + '</span></div>'; },
+    engNodes: function (cur) {
+      return '\n            ' + STEPS.map(function (st, i) {
+        var n = pad2(i + 1), on = i === cur;
+        return '\n              <div class="lp-item' + (on ? ' is-on' : '') + '">\n' +
+          '              <button class="' + VIEW.nodeCls(i, cur) + '" type="button" role="tab" aria-selected="' + on + '" aria-expanded="' + on + '" aria-label="' + esc(st[0]) + '" data-bw-eng-step="' + i + '">\n' +
+          '                <span class="lp-in"><span class="lp-num">' + ip(n) + '</span><span class="lp-dot"></span><span class="lp-t"><span class="lp-tn">' + ip(n) + '</span>' + ip(SH[i][0]) + '</span><span class="lp-s">' + ip(SH[i][1]) + '</span><span class="lp-pm" aria-hidden="true"></span></span>\n' +
+          '              </button>\n' +
+          '              <div class="lp-acc"><div><p class="lpd-d">' + ip(st[1]) + '</p>' + VIEW.ex(st) + '</div></div>\n' +
+          '              </div>\n            ';
+      }).join('') + '\n          ';
+    },
+    engPanes: function (cur) {
+      return '\n            ' + STEPS.map(function (st, i) {
+        var n = pad2(i + 1), on = i === cur;
+        return '\n              <div class="lpd-pane' + (on ? ' is-on' : '') + '" role="tabpanel" aria-hidden="' + !on + '">\n' +
+          '                <div><span class="lpd-k">Step ' + ip(n) + ' of 06</span><div class="lpd-h">' + ip(SH[i][0]) + '</div></div>\n' +
+          '                <div><span class="lpd-full">' + ip(st[0]) + '</span><p class="lpd-d">' + ip(st[1]) + '</p>' + VIEW.ex(st) + '</div>\n' +
+          '              </div>\n            ';
+      }).join('') + '\n          ';
+    },
+    tabs: function (pf) {
+      return FIL.map(function (f) {
+        var on = pf === f[0], count = f[0] === 'all' ? P.length : P.filter(function (p) { return p.b === f[0]; }).length;
+        return '\n              \n                <button class="pf-tab' + (on ? ' bw-on' : '') + '" type="button" role="tab" aria-selected="' + on + '" data-bw-pf="' + f[0] + '"><i style="background: ' + f[2] + ';"></i>' + ip(f[1]) + '<em>' + ip(String(count)) + '</em></button>';
+      }).join('') + '\n              \n            ';
+    },
+    cardCls: function (p) { return 'pk pk--' + p.v; },
+    cardStyle: function (p, i) { return '--d: ' + i + '; --c: ' + STAGE_C[p.b] + ';'; },
+    cardInner: function (p) {
+      var lv = STG[p.b];
+      var steps = ['Proposed', 'In development', 'Operating'].map(function (l, j) {
+        var c = lv >= 0 ? (j < lv ? ' bw-done' : j === lv ? ' bw-cur' : '') : (p.b === 'par' && j === 2 ? ' bw-cur' : '');
+        return '<span class="pk-s' + c + '"><i></i>' + ip(l) + '</span>';
+      }).join('');
+      return '\n                  <span class="pk-bar" aria-hidden="true"></span>\n' +
+        '                  <div class="pk-top"><span class="pk-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' + (IC[p.name] || '') + '</svg></span><span class="bw-badge bw-b-' + p.b + '"><i></i>' + ip(p.status) + '</span></div>\n' +
+        '                  <div class="pk-hd"><span class="pk-k">' + ip(p.rel) + '</span><h3>' + ip(p.name) + '</h3></div>\n' +
+        '                  <div class="pk-more">\n' +
+        '                    <div class="pk-row"><span>Responsible entity</span><b>' + ip(p.entity) + '</b></div>\n' +
+        '                    <div class="pk-st"><span class="pk-sl">Stage</span><div class="pk-steps">' + steps + '</div></div>\n' +
+        '                    <p class="pk-reg">' + ip(p.reg) + '</p>\n' +
+        '                  </div>\n' +
+        '                  <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>\n                ';
+    },
+    card: function (p, i, href) {
+      return '<a class="' + VIEW.cardCls(p) + '" href="' + esc(href) + '" data-bw-link="platformsDirectory" style="' + VIEW.cardStyle(p, i) + '">' + VIEW.cardInner(p) + '</a>';
+    },
+    cards: function (pf, href) {
+      return shown(pf).map(function (p, i) { return '\n              \n                ' + VIEW.card(p, i, href); }).join('') + '\n              \n            ';
+    },
+    shownCount: function (pf) { return pad2(shown(pf).length); },
+    shownLabel: function (pf) {
+      if (pf === 'all') return 'Shown in this view';
+      var f = FIL.filter(function (x) { return x[0] === pf; })[0];
+      return f[1] + (shown(pf).length === 1 ? ' platform' : ' platforms');
+    }
+  };
+  /* VIEW:end */
+
+  function prefersReducedMotion() {
+    return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }
+  function scrollBehavior() { return prefersReducedMotion() ? 'auto' : 'smooth'; }
+  function finePointer() { return !!(window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches); }
+  function fragment(html) {
+    var t = document.createElement('template');
+    t.innerHTML = html;
+    return t.content;
+  }
+
+/* Resolve page-section links after GHL substitutes the top JSON. No requests or shared globals. */
+  function siteResolveLinks(cfg) {
+    var links = cfg.links;
+    if (!links || typeof links !== 'object' || Array.isArray(links)) return;
+    var sections = {"whoPurpose":["whoWeAre","#purpose"],"whoRole":["whoWeAre","#role"],"whoPrinciples":["whoWeAre","#principles"],"whoStory":["whoWeAre","#story"],"governanceFramework":["governance","#gov-framework"],"governanceCommittees":["governance","#gov-committees"],"governanceCapital":["governance","#gov-capital"],"governanceRisk":["governance","#gov-risk"],"governancePerimeter":["governance","#gov-perimeter"],"impact":["home","#bwci-impact"],"today":["home","#bwci-today"],"explorePlatforms":["home","#bwci-platforms"],"financialEngineHero":["financialEngine","#fe-hero"],"ecosystemBlueprint":["ecosystem","#eco-blueprint"],"platformsDirectory":["platforms","#plt-directory"],"platformsRegisters":["platforms","#plt-registers"],"investorsEngage":["investors","#inv-engage"],"investorsParticipation":["investors","#inv-participation"],"investorsRoute":["investors","#inv-route"],"smesEngage":["smes","#sme-engage"],"smesProcess":["smes","#sme-process"],"smesSituation":["smes","#sme-situation"]};
+    function pageAvailable(value) {
+      return typeof value === 'string' && siteLinkAvailable(value.trim()) && /^(?:https?:\/\/|\/(?!\/))/.test(value.trim());
+    }
+    Object.keys(sections).forEach(function (key) {
+      if (!Object.prototype.hasOwnProperty.call(links,key)) return;
+      var section = sections[key], value = links[key], base = links[section[0]];
+      // Main's original local anchors remain usable even when its page URL is unavailable.
+      if (ROOT_ID === 'bwci-main-page' && (key === 'impact' || key === 'today') && value === section[1]) return;
+      // Only compose the generated base+fragment form; preserve explicit page-specific overrides.
+      if (typeof base === 'string' && (value === base + section[1] || value === base)) {
+        links[key] = pageAvailable(base) ? base.trim().split('#')[0] + section[1] : '#';
+      }
+    });
+    Object.keys(links).forEach(function (key) {
+      var value = typeof links[key] === 'string' ? links[key].trim() : '';
+      links[key] = siteLinkAvailable(value) ? value : '#';
+    });
+  }
+
+  /* Image Custom Values take priority. Inline blocks retain the original bytes as optional fallbacks. */
+  function siteImageAvailable(value) {
+    return typeof value === 'string' && value.trim() !== '' && value.trim() !== '#' &&
+      !/\{\{|\}\}|REPLACE-WITH/.test(value) &&
+      /^(?:https?:\/\/|\/(?!\/)|data:image\/(?:png|jpeg|jpg|webp|gif|avif|svg\+xml);base64,)/i.test(value.trim());
+  }
+  function siteResolveImages(root, cfg) {
+    var paths = [["logoImage"],["heroImage"],["financialEngineImage"],["ecosystemHeroImage"],["platformsHeroImage"],["smesHeroImage"],["investorsHeroImage"],["impactHeroImage"],["images","whoPhoto"],["images","impact1"],["images","impact2"],["images","impact3"],["images","impact4"],["images","leaderAlexander"],["images","leaderFarhad"],["images","leaderGabriela"],["peopleImages","alexander-alegria-saif"],["peopleImages","farhad-reyazat"],["peopleImages","gabriella-karlova"],["peopleImages","richard-werner"],["peopleImages","ewa-dudek"],["peopleImages","agnes-gradzewicz"],["peopleImages","christie-osarenren"]];
+    function read(object, parts) {
+      for (var i = 0; i < parts.length; i++) {
+        if (!object || typeof object !== 'object') return undefined;
+        object = object[parts[i]];
+      }
+      return object;
+    }
+    paths.forEach(function (parts) {
+      var value = read(cfg,parts);
+      if (value === undefined) return;
+      var fallback = read(cfg.imageFallbacks,parts);
+      var resolved = siteImageAvailable(value) ? value.trim() : siteImageAvailable(fallback) ? fallback.trim() : '';
+      var target = parts.length === 1 ? cfg : cfg[parts[0]];
+      target[parts[parts.length-1]] = resolved;
+    });
+    // Clear copied live URLs when the replacement hosted config has no usable image value.
+    // Existing page loaders still assign valid URLs and perform their original crop/load handling.
+    Array.prototype.forEach.call(root.querySelectorAll('img[data-bw-asset],img[data-bw-person]'),function (img) {
+      var person = img.getAttribute('data-bw-person'), key = img.getAttribute('data-bw-asset');
+      var value = person ? (cfg.peopleImages || {})[person] : Object.prototype.hasOwnProperty.call(cfg,key) ? cfg[key] : (cfg.images || {})[key];
+      if (!siteImageAvailable(value)) img.removeAttribute('src');
+    });
+  }
+
+  /* ======================= SHARED SITE CHROME =======================
+     Generated from ghl/shared/site-chrome/site-chrome.runtime.js. It is the vanilla replacement for the
+     React logic of design/SiteHeader.dc.html and design/SiteFooter.dc.html, plus a root-scoped port of
+     design/bwci-motion.js. Everything works inside the page root; the only document-level effects are
+     the ones the source has: the mousedown/keydown listeners that close the menus, and the body
+     overflow lock while the mobile drawer is open (restored to the host's own value on close/teardown). */
+  var CHROME = {
+    desktopMin: 1280,   // SiteHeader: burger/drawer at max-width 1279px
+    ddLeaveDelay: 160,  // dropdown closes 160 ms after the pointer leaves
+    focusable: 'a[href], button:not([disabled])'
+  };
+
+  function siteLinkAvailable(url) {
+    return typeof url === 'string' && url.trim() && url !== '#' && url.indexOf('REPLACE-WITH') < 0 &&
+      !/\{\{|\}\}/.test(url) &&
+      /^(?:https?:\/\/|mailto:|tel:|\/(?!\/)|#(?!$))/.test(url);
+  }
+  function siteLink(a, url) {
+    var enabled = siteLinkAvailable(url);
+    a.setAttribute('href', enabled ? url : '#');
+    if (enabled) { a.removeAttribute('aria-disabled'); a.removeAttribute('title'); }
+    else { a.setAttribute('aria-disabled', 'true'); a.setAttribute('title', 'Not yet available'); }
+    return enabled;
+  }
+
+  function siteChrome(root, cfg, on, timers) {
+    if (root.hasAttribute('data-bwci-current')) { try { document.dispatchEvent(new CustomEvent('bwci:page-ready')); } catch (err) { /* old browser */ } }
+    function cq(sel) { return root.querySelector(sel); }
+    function cqa(sel) { return Array.prototype.slice.call(root.querySelectorAll(sel)); }
+
+    // A cloned live block must use the new settings, including formerly unavailable destinations.
+    var links = cfg.links || {};
+    cqa('a[data-bw-link]').forEach(function (a) {
+      var key = a.getAttribute('data-bw-link');
+      siteLink(a, Object.prototype.hasOwnProperty.call(links, key) ? links[key] : a.getAttribute('href'));
+    });
+    cqa('.bw-link-status').forEach(function (el) { el.remove(); });
+    var status = cq('.bw-status');
+    var ownsStatus = !status;
+    if (!status) {
+      status = document.createElement('p');
+      status.className = 'bw-link-status';
+      status.setAttribute('role', 'status');
+      status.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;margin:0;padding:0;border:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap';
+      root.appendChild(status);
+    }
+    function removeStatus() { if (ownsStatus) status.remove(); }
+    function linkFromEvent(e) {
+      var a = e.target.closest && e.target.closest('a[data-bw-link]');
+      return a && root.contains(a) ? a : null;
+    }
+    // Rendered card links can appear after init. Inspect their actual href, preserving ?from context.
+    on(root, 'focusin', function (e) { var a = linkFromEvent(e); if (a) siteLink(a, a.getAttribute('href')); });
+    on(root, 'click', function (e) {
+      var a = linkFromEvent(e);
+      if (a && !siteLink(a, a.getAttribute('href'))) {
+        e.preventDefault();
+        status.textContent = 'This destination is not yet available.';
+      }
+    }, { capture: true });
+
+    /* ---------- logo image, header/footer toggles, footer legal wording ---------- */
+    var logoUrl = cfg.logoImage;
+    // the untouched placeholder is skipped so it never produces a 404 request
+    if (typeof logoUrl === 'string' && logoUrl && logoUrl.indexOf('REPLACE-WITH') === -1) {
+      cqa('[data-bw-asset="logoImage"]').forEach(function (img) { img.src = logoUrl; });
+    }
+    var hostEl = cq('[data-bw-hdr-host]');
+    if (cfg.showHeader === false && hostEl) hostEl.parentNode.removeChild(hostEl);
+    var footEl = cq('[data-bw-footer]');
+    if (cfg.showFooter === false && footEl) footEl.parentNode.removeChild(footEl);
+    var ft = cfg.footer || {};
+    var line = cq('[data-bw-legal-line]');
+    if (line) {
+      // source: REGISTERED { jurisdiction, companyNo, office } — empty values are not shown
+      var parts = ['Better World Capital Investments PLC'];
+      if (ft.registeredJurisdiction) parts.push('Registered in ' + ft.registeredJurisdiction);
+      if (ft.companyNumber) parts.push('Company no. ' + ft.companyNumber);
+      if (ft.registeredOffice) parts.push('Registered office: ' + ft.registeredOffice);
+      line.textContent = parts.join(' · ');
+    }
+    var legal = cq('[data-bw-legal]');
+    cqa('.bw-sft__reg').forEach(function (el) { el.remove(); });
+    if (legal && typeof ft.regulatoryLine === 'string' && ft.regulatoryLine) {
+      // source: REGULATORY_LINE, rendered above the legal bar only when it is filled in
+      var reg = document.createElement('p');
+      reg.className = 'bw-sft__reg';
+      var regText = document.createElement('span');
+      regText.className = 'bw-i';
+      regText.textContent = ft.regulatoryLine;
+      reg.appendChild(regText);
+      legal.insertBefore(reg, legal.firstChild);
+    }
+
+    /* ---------- header ---------- */
+    var hdr = cq('[data-bw-hdr]');
+    if (!hdr) { // global header: --util-h / --nav-h come from <html>
+      var layered = [];
+      if (root.hasAttribute('data-bwci-overlays')) {
+        for (var el = root.parentElement; el && el !== document.body && el !== document.documentElement; el = el.parentElement) {
+          if (getComputedStyle(el).zIndex !== 'auto') layered.push([el, el.style.getPropertyValue('z-index'), el.style.getPropertyPriority('z-index')]);
+        }
+      }
+      var layer = function (z) { layered.forEach(function (r) { r[0].style.setProperty('z-index', z, 'important'); }); };
+      layer('998');
+      return {
+        overlay: function (open) { layer(open ? '1000' : '998'); },
+        destroy: function () {
+          removeStatus();
+          layered.forEach(function (r) { if (r[1]) r[0].style.setProperty('z-index', r[1], r[2]); else r[0].style.removeProperty('z-index'); });
+        }
+      };
+    }
+    function hq(sel) { return hdr.querySelector(sel); }
+    function hqa(sel) { return Array.prototype.slice.call(hdr.querySelectorAll(sel)); }
+    var util = hq('[data-bw-hdr-util]');
+    var burger = hq('[data-bw-menu-open]');
+    var closeBtn = hq('[data-bw-menu-x]');
+    var drawer = hq('[data-bw-drawer]');
+    var menuParts = hqa('[data-bw-menu-part]');
+    var groups = {};
+    hqa('[data-bw-dd]').forEach(function (li) {
+      groups[li.getAttribute('data-bw-dd')] = { li: li, btn: li.querySelector('[data-bw-dd-btn]'), panel: li.querySelector('[data-bw-dd-panel]') };
+    });
+    var utilH = 0, stuck = false, dd = null, hov = false, menuOpen = false, prevOverflow = '';
+    // start from the closed state even if the markup was copied from a running instance (GHL re-render)
+    hdr.classList.remove('bw-hdr--stuck');
+    Object.keys(groups).forEach(function (k) { groups[k].btn.setAttribute('aria-expanded', 'false'); groups[k].panel.hidden = true; });
+    burger.setAttribute('aria-expanded', 'false');
+    menuParts.forEach(function (el) { el.hidden = true; });
+
+    function hoverable() { return !!(window.matchMedia && window.matchMedia('(hover:hover)').matches); }
+    // one dropdown open at a time; re-opening the open one changes nothing (its entrance does not replay)
+    function setDd(k) {
+      if (k === dd) return;
+      if (dd && groups[dd]) { groups[dd].btn.setAttribute('aria-expanded', 'false'); groups[dd].panel.hidden = true; }
+      dd = k;
+      if (k && groups[k]) { groups[k].btn.setAttribute('aria-expanded', 'true'); groups[k].panel.hidden = false; }
+    }
+    function focusIn(k, which) {
+      var links = groups[k] ? Array.prototype.slice.call(groups[k].panel.querySelectorAll('a')) : [];
+      if (!links.length) return;
+      var i = links.indexOf(document.activeElement);
+      var n = which === 'first' ? 0 : which === 'last' ? links.length - 1 : which === 'next' ? (i + 1) % links.length : (i - 1 + links.length) % links.length;
+      links[n].focus();
+    }
+    function lockScroll(open) {
+      if (open) { prevOverflow = document.body.style.overflow; document.body.style.overflow = 'hidden'; }
+      else document.body.style.overflow = prevOverflow;
+    }
+    function setMenu(open) {
+      if (open !== menuOpen) lockScroll(open);
+      menuOpen = open;
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menuParts.forEach(function (el) { el.hidden = !open; });
+      var el = open ? closeBtn : burger;
+      if (el) el.focus();
+    }
+    function onScroll() {
+      // source: stuck once window.scrollY > utility-bar height + 2 (header at the page top). Measured from
+      // the widget's own top so it stays right when GHL content sits above the block.
+      var s = -root.getBoundingClientRect().top > utilH + 2;
+      if (s !== stuck) { stuck = s; hdr.classList.toggle('bw-hdr--stuck', s); }
+    }
+    function measure() {
+      utilH = util ? util.offsetHeight : 0;
+      // source sets these on <html>; here they stay on the widget root
+      root.style.setProperty('--util-h', utilH + 'px');
+      root.style.setProperty('--nav-h', hdr.offsetHeight + 'px');
+      if (window.innerWidth >= CHROME.desktopMin && menuOpen) setMenu(false);
+      onScroll();
+    }
+
+    Object.keys(groups).forEach(function (k) {
+      var g = groups[k];
+      on(g.li, 'mouseenter', function () {
+        clearTimeout(timers.chromeDd);
+        if (hoverable() && dd !== k) { hov = true; setDd(k); }
+      });
+      on(g.li, 'mouseleave', function () {
+        clearTimeout(timers.chromeDd);
+        if (dd === k) timers.chromeDd = setTimeout(function () { setDd(null); }, CHROME.ddLeaveDelay);
+      });
+      on(g.li, 'focusout', function (e) { if (!g.li.contains(e.relatedTarget) && dd === k) setDd(null); });
+      on(g.btn, 'click', function () {
+        // a click right after a hover-open keeps the panel open (source: _hov flag)
+        var keep = hov && dd === k;
+        hov = false;
+        if (!keep) setDd(dd === k ? null : k);
+      });
+      on(g.btn, 'keydown', function (e) {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          setDd(k);
+          focusIn(k, e.key === 'ArrowDown' ? 'first' : 'last');
+        }
+      });
+      on(g.panel, 'keydown', function (e) {
+        var m = { ArrowDown: 'next', ArrowUp: 'prev', Home: 'first', End: 'last' }[e.key];
+        if (m) { e.preventDefault(); focusIn(k, m); }
+      });
+      Array.prototype.forEach.call(g.panel.querySelectorAll('a'), function (a) { on(a, 'click', function () { setDd(null); }); });
+    });
+    on(document, 'mousedown', function (e) {
+      if (!dd) return;
+      var g = groups[dd];
+      if (g && !g.li.contains(e.target)) setDd(null);
+    });
+    on(document, 'keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      if (dd) { var b = groups[dd] && groups[dd].btn; setDd(null); if (b) b.focus(); }
+      if (menuOpen) setMenu(false);
+    });
+    on(burger, 'click', function () { setMenu(true); });
+    hqa('[data-bw-menu-close]').forEach(function (el) { on(el, 'click', function () { setMenu(false); }); });
+    if (drawer) {
+      on(drawer, 'keydown', function (e) {
+        if (e.key !== 'Tab') return;
+        var f = Array.prototype.slice.call(drawer.querySelectorAll(CHROME.focusable));
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      });
+    }
+    // drawer accordions (the open state survives closing and reopening the drawer, as in the source)
+    hqa('[data-bw-acc]').forEach(function (btn) {
+      var panel = hq('[data-bw-acc-panel="' + btn.getAttribute('data-bw-acc') + '"]');
+      on(btn, 'click', function () {
+        var open = btn.getAttribute('aria-expanded') !== 'true';
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (panel) panel.hidden = !open;
+      });
+    });
+    on(window, 'scroll', onScroll, { passive: true });
+    on(window, 'resize', measure);
+    measure();
+    timers.chromeRaf = requestAnimationFrame(measure);
+
+    return {
+      destroy: function () {
+        removeStatus();
+        clearTimeout(timers.chromeDd);
+        cancelAnimationFrame(timers.chromeRaf);
+        if (menuOpen) { lockScroll(false); menuOpen = false; }
+      }
+    };
+  }
+
+  /* Root-scoped port of design/bwci-motion.js. About 0.3, 1.2 and 2.6 s after the window load it tags
+     section blocks (or the children of a card group) that start below the fold as data-bw-rv="wait"
+     (opacity 0, 14px down). Each one fades up once it is 8% visible, with a 70 ms stagger capped at 5.
+     Content already on screen is never hidden. As in the source, reduced motion keeps the fade (0.3 s)
+     but drops the movement. */
+  function siteMotion(root, opts, on) {
+    if (!('IntersectionObserver' in window)) return null;
+    var MOTION = 'bw-motion';
+    var SKIP = '.rv, .rv-in, [aria-hidden="true"], script, style, template, svg';
+    var tagged = [], waits = [], scanned = [], starts = [];
+    // drop tags left on markup copied from a running instance, so nothing stays hidden
+    Array.prototype.forEach.call(root.querySelectorAll('[data-bw-rv]'), function (el) { el.removeAttribute('data-bw-rv'); el.style.removeProperty('--bw-d'); });
+    root.classList.add(MOTION);
+    function closestIn(el, sel) { var c = el.closest(sel); return c && root.contains(c) ? c : null; }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target, d = parseFloat(el.style.getPropertyValue('--bw-d')) || 0;
+        io.unobserve(el);
+        el.setAttribute('data-bw-rv', 'in');
+        waits.push(setTimeout(function () { el.removeAttribute('data-bw-rv'); el.style.removeProperty('--bw-d'); }, 900 + d * 70));
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    function ok(el) {
+      if (!(el instanceof HTMLElement) || el.matches(SKIP)) return false;
+      if (closestIn(el, '.rv, [data-bw-rv]') || el.querySelector('.rv, [data-bw-rv]')) return false;
+      var cs = getComputedStyle(el);
+      if (cs.display === 'none' || cs.visibility === 'hidden' || /absolute|fixed|sticky/.test(cs.position) || cs.animationName !== 'none') return false;
+      var r = el.getBoundingClientRect();
+      if (r.height < 8 || r.top < window.innerHeight * 0.92) return false;
+      return true;
+    }
+    function tag(el, i) {
+      if (!ok(el)) return;
+      el.style.setProperty('--bw-d', String(Math.min(i, 5)));
+      el.setAttribute('data-bw-rv', 'wait');
+      tagged.push(el);
+      io.observe(el);
+    }
+    function kids(el) {
+      return Array.prototype.filter.call(el.children, function (c) { return c.offsetHeight > 0 && !c.matches('[aria-hidden="true"]'); });
+    }
+    function group(el) {
+      var k = kids(el).filter(function (c) { return c.offsetHeight > 40; });
+      if (k.length < 2 || k.length > 8 || !/grid|flex/.test(getComputedStyle(el).display)) return null;
+      return k;
+    }
+    function scan(sec) {
+      if (scanned.indexOf(sec) >= 0 || !sec.offsetHeight) return;
+      var box = Array.prototype.find.call(sec.children, function (c) {
+        return c.children.length && !c.matches('[aria-hidden="true"]') && !/absolute|fixed/.test(getComputedStyle(c).position);
+      });
+      if (!box) return;
+      scanned.push(sec);
+      var items = kids(box);
+      if (items.length === 1 && items[0].children.length > 1) items = kids(items[0]);
+      items.forEach(function (it, n) {
+        var g = group(it);
+        if (g && !it.querySelector('.rv')) g.forEach(function (c, j) { tag(c, j); });
+        else tag(it, n);
+      });
+    }
+    function run() {
+      Array.prototype.forEach.call(root.querySelectorAll('section'), function (s) {
+        var outer = s.parentElement && s.parentElement.closest('section');
+        if (s.id === opts.heroId || s.matches(opts.heroSel) || (outer && root.contains(outer))) return;
+        scan(s);
+      });
+    }
+    function start() { [300, 1200, 2600].forEach(function (t) { starts.push(setTimeout(run, t)); }); }
+    if (document.readyState === 'complete') start(); else on(window, 'load', start);
+    return {
+      destroy: function () {
+        io.disconnect();
+        starts.concat(waits).forEach(clearTimeout);
+        // leave nothing hidden behind for a re-initialisation of the same markup
+        tagged.forEach(function (el) { el.removeAttribute('data-bw-rv'); el.style.removeProperty('--bw-d'); });
+        root.classList.remove(MOTION);
+      }
+    };
+  }
+
+  /* ---------------------------------------------------------------- */
+  function init(root) {
+    var ac = typeof AbortController === 'function' ? new AbortController() : null;
+    var cleanups = [];
+    var timers = {};
+    var observers = [];
+    function on(target, type, fn, opts) {
+      if (!target) return;
+      var o = opts || {};
+      if (ac) {
+        o = Object.assign({}, o, { signal: ac.signal });
+        target.addEventListener(type, fn, o);
+      } else {
+        target.addEventListener(type, fn, o);
+        cleanups.push(function () { target.removeEventListener(type, fn, o); });
+      }
+    }
+    function q(sel) { return root.querySelector(sel); }
+    function qa(sel) { return Array.prototype.slice.call(root.querySelectorAll(sel)); }
+
+    /* ---------- config: images, links ---------- */
+    var cfg = {};
+    try {
+      var cfgEl = document.getElementById(CONFIG_ID);
+      if (cfgEl) cfg = JSON.parse(cfgEl.textContent || '{}') || {};
+    } catch (err) { cfg = {}; }
+    siteResolveImages(root,cfg);
+    siteResolveLinks(cfg);
+    var links = cfg.links || {};
+    function applyLinks(scope) {
+      Array.prototype.forEach.call(scope.querySelectorAll('[data-bw-link]'), function (a) {
+        var v = links[a.getAttribute('data-bw-link')];
+        siteLink(a, typeof v === 'string' && v ? v : a.getAttribute('href'));
+      });
+    }
+    applyLinks(root);
+    // the untouched placeholder is skipped so it never produces a 404 request
+    function usable(u) { return typeof u === 'string' && u && u.indexOf('REPLACE-WITH') === -1; }
+    var images = cfg.images || {};
+    var heroImg = q('[data-bw-asset="heroImage"]');
+    if (heroImg && usable(cfg.heroImage)) heroImg.src = cfg.heroImage;
+    IMAGE_KEYS.forEach(function (k) {
+      if (!usable(images[k])) return;
+      qa('[data-bw-asset="' + k + '"]').forEach(function (img) { img.src = images[k]; });
+    });
+
+    /* ---------- in-page anchors: smooth scroll (source used html{scroll-behavior:smooth}) ---------- */
+    on(root, 'click', function (e) {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+      if (!a || !root.contains(a)) return;
+      var id = a.getAttribute('href').slice(1);
+      if (!id) return;
+      var target = document.getElementById(id);
+      if (!target || !root.contains(target)) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
+      try { if (history.pushState) history.pushState(null, '', '#' + id); } catch (err) { /* sandboxed */ }
+      if (a.blur) a.blur();
+    });
+
+    /* ================= SITE HEADER + FOOTER (shared site chrome) ================= */
+    var chrome = siteChrome(root, cfg, on, timers);
+
+    /* ================= IMAGE SLOTS (design/image-slot.js geometry) =================
+       Cover fit at view scale 1, centred: width/height in frame-% from the natural and frame sizes, re-applied
+       when the image loads and when the slot resizes, so the crop matches the source to the subpixel. */
+    var slotImgs = qa('.bw-slot img');
+    function fitSlot(img) {
+      var slot = img.closest('.bw-slot');
+      var iw = img.naturalWidth, ih = img.naturalHeight, fw = slot.clientWidth, fh = slot.clientHeight;
+      if (!iw || !ih || !fw || !fh) return;
+      var base = Math.max(fw / iw, fh / ih);
+      img.style.width = (iw * base / fw * 100) + '%';
+      img.style.height = (ih * base / fh * 100) + '%';
+      // The source clears its temporary fit mode after sizing; override this block's CSS fallback too.
+      img.style.objectFit = 'fill';
+    }
+    slotImgs.forEach(function (img) {
+      on(img, 'load', function () { fitSlot(img); });
+      if (img.complete) fitSlot(img);
+    });
+    if (slotImgs.length && typeof ResizeObserver === 'function') {
+      var slotRO = new ResizeObserver(function () { slotImgs.forEach(fitSlot); });
+      slotImgs.forEach(function (img) { slotRO.observe(img.closest('.bw-slot')); });
+      observers.push(slotRO);
+    }
+
+    /* ================= SCROLL REVEAL (.rv → .bw-in once, 8% visible, 8% bottom margin) ================= */
+    if (typeof IntersectionObserver === 'function') {
+      root.classList.add('bw-rv-on');
+      var rvIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) { en.target.classList.add('bw-in'); rvIO.unobserve(en.target); }
+        });
+      }, { rootMargin: OPTIONS.revealMargin, threshold: OPTIONS.revealThreshold });
+      qa('.rv').forEach(function (el) { rvIO.observe(el); });
+      observers.push(rvIO);
+    }
+
+    /* ================= 01 · HERO "AT A GLANCE" FACTS ================= */
+    var hk = q('.hk');
+    if (hk) {
+      (function () {
+        var fo = null;
+        var btns = qa('.hk-i');
+        var dB = q('.hk-d b .bw-i'), dP = q('.hk-d p .bw-i');
+        function setF(v) {
+          if (v === fo) return;
+          fo = v;
+          hk.classList.toggle('bw-act', v !== null);
+          btns.forEach(function (b, i) { b.classList.toggle('bw-on', i === v); b.setAttribute('aria-expanded', i === v ? 'true' : 'false'); });
+          dB.textContent = v === null ? '' : FACTS[v][0];
+          dP.textContent = v === null ? '' : FACTS[v][1];
+        }
+        btns.forEach(function (b, i) {
+          on(b, 'pointerenter', function (e) { if (e.pointerType === 'mouse') setF(i); });
+          on(b, 'focus', function (e) { try { if (e.target.matches(':focus-visible')) setF(i); } catch (err) { /* old engines */ } });
+          on(b, 'click', function () { setF(fo === i && !finePointer() ? null : i); });
+        });
+        // source: onMouseLeave on the panel (a mouse event, so never the touch exception)
+        on(hk, 'mouseleave', function () { setF(null); });
+      })();
+    }
+
+    /* ================= 05 · THE FINANCIAL ENGINE (six-step loop) ================= */
+    var eng = q('[data-bw-eng-lp]');
+    if (eng) {
+      (function () {
+        var cur = 0;
+        var items = qa('#bwci-engine .lp-item');
+        var nodes = qa('[data-bw-eng-step]');
+        var panes = qa('#bwci-engine .lpd-pane');
+        var lpd = q('#bwci-engine .lpd');
+        function go(i) {
+          var next = (i + STEPS.length) % STEPS.length;
+          if (next === cur) return;
+          cur = next;
+          eng.style.setProperty('--p', VIEW.progress(cur));
+          nodes.forEach(function (b, j) {
+            b.className = VIEW.nodeCls(j, cur);
+            b.setAttribute('aria-selected', String(j === cur));
+            b.setAttribute('aria-expanded', String(j === cur));
+          });
+          items.forEach(function (el, j) { el.className = 'lp-item' + (j === cur ? ' is-on' : ''); });
+          panes.forEach(function (el, j) { el.className = 'lpd-pane' + (j === cur ? ' is-on' : ''); el.setAttribute('aria-hidden', String(j !== cur)); });
+        }
+        // source lpdReveal: on desktop, bring the whole detail card on screen after picking a step
+        function reveal() {
+          if (window.innerWidth < OPTIONS.engRevealMin) return;
+          cancelAnimationFrame(timers.engRaf);
+          timers.engRaf = requestAnimationFrame(function () {
+            if (!lpd) return;
+            var r = lpd.getBoundingClientRect();
+            var over = r.bottom - (window.innerHeight - OPTIONS.engRevealGap);
+            if (over > 0) window.scrollBy({ top: Math.min(over, r.top - OPTIONS.engRevealTop), behavior: scrollBehavior() });
+          });
+        }
+        nodes.forEach(function (b, i) { on(b, 'click', function () { go(i); reveal(); }); });
+        var ctrl = qa('#bwci-engine .lpd-ctrl button');
+        on(ctrl[0], 'click', function () { go(cur - 1); });
+        on(ctrl[1], 'click', function () { go(cur + 1); });
+      })();
+    }
+
+    /* ================= 06 · PLATFORMS: status tabs + cards ================= */
+    var pfx = q('.pfx');
+    if (pfx) {
+      (function () {
+        var pf = 'all';
+        var pft = q('.pft');
+        var tabsEl = q('.pf-tabs');
+        var grid = q('.pc-grid');
+        var panel = q('.pf-panel');
+        var sumB = q('.pfx-sum > div:first-child b .bw-i');
+        var sumL = q('.pfx-sum > div:first-child > span .bw-i');
+        var tbL = false, tbR = false;
+        function href() { return typeof links.platformsDirectory === 'string' && links.platformsDirectory ? links.platformsDirectory : '#'; }
+        function cards() { return Array.prototype.slice.call(grid.children).filter(function (el) { return el.classList.contains('pk'); }); }
+        // React reconciles the card list by index: existing cards are updated in place (no re-entrance),
+        // surplus cards are removed and new ones are appended (and play pcIn)
+        function render() {
+          var list = shown(pf), els = cards();
+          list.forEach(function (p, i) {
+            var el = els[i];
+            if (el) {
+              el.className = VIEW.cardCls(p);
+              el.setAttribute('style', VIEW.cardStyle(p, i));
+              el.innerHTML = VIEW.cardInner(p);
+            } else {
+              var frag = fragment('\n              \n                ' + VIEW.card(p, i, href()));
+              grid.appendChild(frag);
+            }
+          });
+          els.slice(list.length).forEach(function (el) {
+            var prev = el.previousSibling;
+            if (prev && prev.nodeType === 3) prev.parentNode.removeChild(prev);
+            el.parentNode.removeChild(el);
+          });
+          qa('[data-bw-pf]').forEach(function (b) {
+            var isOn = b.getAttribute('data-bw-pf') === pf;
+            b.classList.toggle('bw-on', isOn);
+            b.setAttribute('aria-selected', String(isOn));
+          });
+          // source className: 'pfx rv' + is-all + in (the reveal state is kept across filter changes)
+          pfx.className = 'pfx rv' + (pf === 'all' ? ' bw-is-all' : '') + (pfx.classList.contains('bw-in') ? ' bw-in' : '');
+          panel.classList.toggle('bw-first', pf === 'all');
+          sumB.textContent = VIEW.shownCount(pf);
+          sumL.textContent = VIEW.shownLabel(pf);
+        }
+        function edges() {
+          var l = tabsEl.scrollLeft > OPTIONS.tabsEdge;
+          var r = Math.ceil(tabsEl.scrollLeft + tabsEl.clientWidth) < tabsEl.scrollWidth - OPTIONS.tabsEdge;
+          if (l !== tbL || r !== tbR) { tbL = l; tbR = r; pft.classList.toggle('bw-can-l', l); pft.classList.toggle('bw-can-r', r); }
+        }
+        function syncTabs() {
+          edges();
+          clearTimeout(timers.tabs);
+          timers.tabs = setTimeout(edges, 150);
+        }
+        function tabsBy(dir) { tabsEl.scrollBy({ left: dir * tabsEl.clientWidth * 0.6, behavior: 'smooth' }); }
+        function tabsReveal(b) {
+          var pad = OPTIONS.tabsPad;
+          var x = b.getBoundingClientRect().left - tabsEl.getBoundingClientRect().left + tabsEl.scrollLeft;
+          var to = null;
+          if (x < tabsEl.scrollLeft + pad) to = Math.max(0, x - pad);
+          else if (x + b.offsetWidth > tabsEl.scrollLeft + tabsEl.clientWidth - pad) to = x + b.offsetWidth - tabsEl.clientWidth + pad;
+          if (to !== null) {
+            tabsEl.style.scrollSnapType = 'none';
+            tabsEl.scrollTo({ left: to, behavior: scrollBehavior() });
+            clearTimeout(timers.snap);
+            timers.snap = setTimeout(function () { tabsEl.style.scrollSnapType = ''; }, 500);
+          }
+        }
+        qa('[data-bw-pf]').forEach(function (b) {
+          on(b, 'click', function () { var k = b.getAttribute('data-bw-pf'); if (k !== pf) { pf = k; render(); } tabsReveal(b); });
+        });
+        on(q('.pft-arr--l'), 'click', function () { tabsBy(-1); });
+        on(q('.pft-arr--r'), 'click', function () { tabsBy(1); });
+        on(tabsEl, 'scroll', syncTabs, { passive: true });
+        on(window, 'resize', syncTabs);
+        if (typeof ResizeObserver === 'function') {
+          var ro = new ResizeObserver(syncTabs);
+          ro.observe(tabsEl);
+          observers.push(ro);
+        }
+        // mouse drag-to-scroll on the tab strip; the click that ends a drag is swallowed
+        var drag = null;
+        function dragMove(e) {
+          if (!drag) return;
+          var dx = e.clientX - drag.x;
+          if (!drag.moved && Math.abs(dx) > OPTIONS.dragThreshold) {
+            drag.moved = true; tabsEl.style.scrollSnapType = 'none'; tabsEl.style.scrollBehavior = 'auto'; tabsEl.classList.add('bw-is-drag');
+          }
+          if (drag.moved) { tabsEl.scrollLeft = drag.sl - dx; e.preventDefault(); }
+        }
+        function dragEnd() {
+          var g = drag; drag = null;
+          document.removeEventListener('pointermove', dragMove);
+          document.removeEventListener('pointerup', dragEnd);
+          document.removeEventListener('pointercancel', dragEnd);
+          if (!g) return;
+          tabsEl.classList.remove('bw-is-drag'); tabsEl.style.scrollSnapType = ''; tabsEl.style.scrollBehavior = '';
+          if (g.moved) {
+            var stop = function (ev) { ev.stopPropagation(); ev.preventDefault(); };
+            tabsEl.addEventListener('click', stop, { capture: true, once: true });
+            timers.dragClick = setTimeout(function () { tabsEl.removeEventListener('click', stop, true); }, 50);
+          }
+        }
+        on(tabsEl, 'pointerdown', function (e) {
+          if (e.pointerType !== 'mouse' || e.button !== 0 || tabsEl.scrollWidth <= tabsEl.clientWidth) return;
+          drag = { x: e.clientX, sl: tabsEl.scrollLeft, moved: false };
+          // listening on document only for the length of a drag (source: permanent document listeners)
+          document.addEventListener('pointermove', dragMove, { passive: false });
+          document.addEventListener('pointerup', dragEnd);
+          document.addEventListener('pointercancel', dragEnd);
+        });
+        cleanups.push(dragEnd);
+        syncTabs();
+      })();
+    }
+
+    /* ================= 07 · IMPACT CARDS ================= */
+    var ix = q('.ix');
+    if (ix) {
+      (function () {
+        var io = 0;
+        var cardsEls = qa('.ix-c');
+        function setIx(v) {
+          if (v === io) return;
+          io = v;
+          cardsEls.forEach(function (c, j) { c.classList.toggle('bw-on', j === v); c.setAttribute('aria-expanded', String(j === v)); });
+        }
+        cardsEls.forEach(function (c, j) {
+          on(c, 'pointerenter', function (e) {
+            if (e.pointerType !== 'mouse') return;
+            clearTimeout(timers.ix);
+            timers.ix = setTimeout(function () { setIx(j); }, OPTIONS.ixHoverDelay);
+          });
+          on(c, 'focus', function () { setIx(j); });
+          on(c, 'click', function () { setIx(j); });
+        });
+        on(ix, 'mouseleave', function () { clearTimeout(timers.ix); });
+      })();
+    }
+
+    /* ================= re-render detection ================= */
+    var instance;
+    function guardConnected() { return root.isConnected; }
+
+    instance = {
+      root: root,
+      destroy: function () {
+        if (instance.destroyed) return;
+        instance.destroyed = true;
+        if (chrome) chrome.destroy();
+        if (ac) ac.abort();
+        cleanups.forEach(function (fn) { fn(); });
+        observers.forEach(function (o) { o.disconnect(); });
+        ['tabs', 'snap', 'dragClick', 'ix'].forEach(function (k) { clearTimeout(timers[k]); });
+        cancelAnimationFrame(timers.engRaf);
+        delete root.dataset.bwInit;
+        if (window[INSTANCE_KEY] === instance) window[INSTANCE_KEY] = null;
+      }
+    };
+    return instance;
+  }
+
+  // One owner per block: repeated execution reuses it; replacements tear down immediately, including
+  // when GHL removes an ancestor without a scroll/resize event. No polling or continuous frames.
+  var previous = window[INSTANCE_KEY];
+  if (previous && !previous.destroyed && typeof previous.boot === 'function') { previous.boot(); return; }
+  if (previous && typeof previous.destroy === 'function') previous.destroy();
+  var pending = window[INSTANCE_KEY + 'Pending'];
+  if (pending && typeof pending.destroy === 'function') pending.destroy();
+  var app = { root: null, instance: null, observer: null, frame: null, destroyed: false };
+  function boot() {
+    if (app.destroyed) return;
+    var root = document.getElementById(ROOT_ID);
+    if (root === app.root && app.instance) return;
+    if (app.instance) app.instance.destroy();
+    app.root = root;
+    if (root) root.dataset.bwInit = 'true';
+    app.instance = root ? init(root) : null;
+  }
+  app.boot = boot;
+  app.destroy = function () {
+    if (app.destroyed) return;
+    app.destroyed = true;
+    if (app.observer) app.observer.disconnect();
+    cancelAnimationFrame(app.frame);
+    if (app.instance) app.instance.destroy();
+    window.removeEventListener('pagehide', pagehide);
+    document.removeEventListener('DOMContentLoaded', boot);
+    app.root = null;
+    app.instance = null;
+    if (window[INSTANCE_KEY] === app) delete window[INSTANCE_KEY];
+  };
+  function pagehide(e) { if (!e.persisted) app.destroy(); }
+  window[INSTANCE_KEY] = app;
+  boot();
+  app.observer = new MutationObserver(function () {
+    if (app.root && app.root.isConnected) return;
+    if (app.frame !== null) return;
+    app.frame = requestAnimationFrame(function () { app.frame = null; boot(); });
+  });
+  app.observer.observe(document.documentElement, { childList: true, subtree: true });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  window.addEventListener('pagehide', pagehide);
+})();
+</script>

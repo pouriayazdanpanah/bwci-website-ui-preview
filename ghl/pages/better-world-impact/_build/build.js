@@ -25,6 +25,22 @@ const KEYFRAME_PREFIX = 'bwi-';
 const PAGE_DIR = path.resolve(__dirname, '..');
 const SRC = path.join(__dirname, 'src');
 const REPORT = process.argv.includes('--report');
+// --global: the page block for use with the global header and footer (ghl/global/): no header or footer, no logo /
+// header / footer settings, only the links the page itself uses, and the root marked data-bwci-current for the global
+// header. Writes better-world-impact.global*.ghl.html; the regular outputs are untouched.
+const GLOBAL = process.argv.includes('--global');
+const forGlobal = (c) => {
+  if (!GLOBAL) return c;
+  const o = Object.assign({}, c);
+  ['logoImage', 'showHeader', 'showFooter', 'footer'].forEach((k) => { delete o[k]; });
+  if (o.imageFallbacks) { o.imageFallbacks = Object.assign({}, o.imageFallbacks); delete o.imageFallbacks.logoImage; if (!Object.keys(o.imageFallbacks).length) delete o.imageFallbacks; }
+  return o;
+};
+const globalBanner = (s) => (GLOBAL ? s.replace(/^<!--\n/, '<!--\n' +
+  '  FOR THE GLOBAL HEADER AND FOOTER (built with --global): this block has NO header or footer of its own. Paste it\n' +
+  '  between the "BWCI Header" and "BWCI Footer" GoHighLevel Global Sections (ghl/global/). The logo, header/footer\n' +
+  '  and footer-wording settings live in those sections; any such setting named below is not in this block.\n') : s);
+
 // classes the runtime adds outside the static markup (keep in sync with the shared site chrome)
 const DYNAMIC_CLASSES = ['bwi-is-past'];
 // the page's generic source class names carry the bwi- prefix; bwci-system.css is renamed to match
@@ -32,6 +48,7 @@ const pageCss = fs.readFileSync(path.join(__dirname, 'src', 'better-world-impact
 // Shared site chrome: SiteHeader current="impact", Breadcrumb current="impact".
 // content:true adds bwci-system.css parts C and E, which style this page's hero and cards
 const chrome = require('../../../shared/site-chrome/site-chrome')({
+  global: GLOBAL,
   prefix: 'bwi', current: 'impact', breadcrumb: 'impact', content: true,
   rename: (n) => 'bwi-' + n,
 });
@@ -88,7 +105,8 @@ function scopeSelector(s) {
 
 /* ---------------- inputs ---------------- */
 const htmlSrc = fs.readFileSync(path.join(SRC, 'better-world-impact.html'), 'utf8').trim()
-  .replace(/<!--chrome:(header|breadcrumb|footer)-->/g, (_, k) => chrome[k]);
+  .replace(/<!--chrome:(header|breadcrumb|footer)-->/g, (_, k) => (GLOBAL && (k === 'header' || k === 'footer') ? '' : chrome[k]))
+  .replace('id="' + ROOT.slice(1) + '"', (m) => (GLOBAL ? m + ' data-bwci-current="' + chrome.current + '"' : m));
 const jsSrc = fs.readFileSync(path.join(SRC, 'better-world-impact.js'), 'utf8').trim();
 if (!jsSrc.includes('/*@site-chrome*/')) throw new Error('/*@site-chrome*/ marker missing from better-world-impact.js');
 const js = jsSrc.replace('/*@site-chrome*/', () => chrome.runtime);
@@ -186,6 +204,7 @@ const FONT_LINKS = [
 
 /* ---------------- checks ---------------- */
 const usedKeys = new Set([...htmlCode.matchAll(/data-bwi-link="([^"]+)"/g)].map((m) => m[1]));
+if (GLOBAL) Object.keys(config.links).forEach((k) => { if (!usedKeys.has(k)) delete config.links[k]; });
 const cfgKeys = new Set(Object.keys(config.links));
 usedKeys.forEach((k) => { if (!cfgKeys.has(k)) throw new Error('Link key missing from config: ' + k); });
 cfgKeys.forEach((k) => { if (!usedKeys.has(k)) throw new Error('Unused link key in config: ' + k); });
@@ -211,13 +230,13 @@ function banner(variant) {
 }
 function assemble(imageValue, logoValue, variant) {
   const cfg = Object.assign({}, config, { impactHeroImage: imageValue, logoImage: logoValue });
-  const cfgBlock = '<script type="application/json" id="bwci-better-world-impact-config">\n' + JSON.stringify(chrome.imageConfig(cfg), null, 2).replace(/</g, '\\u003c') + '\n</script>';
+  const cfgBlock = '<script type="application/json" id="bwci-better-world-impact-config">\n' + JSON.stringify(chrome.imageConfig(forGlobal(cfg)), null, 2).replace(/</g, '\\u003c') + '\n</script>';
   return banner(variant) + '\n' + cfgBlock + '\n' + FONT_LINKS + '\n<style>\n' + css + '</style>\n\n' + html + '\n\n<script>\n' + js + '\n</script>\n';
 }
 const ghl = assemble(config.impactHeroImage, config.logoImage, 'production — hosted images');
 const inline = assemble('data:image/png;base64,' + fs.readFileSync(path.join(PAGE_DIR,'assets/impact-hero-ribbons.png')).toString('base64'), 'data:image/png;base64,' + fs.readFileSync(chrome.logoPath).toString('base64'), 'self-contained — embedded images');
-fs.writeFileSync(path.join(PAGE_DIR, 'better-world-impact.ghl.html'), ghl);
-fs.writeFileSync(path.join(PAGE_DIR, 'better-world-impact.inline.ghl.html'), inline);
+fs.writeFileSync(path.join(PAGE_DIR, GLOBAL ? 'better-world-impact.global.ghl.html' : 'better-world-impact.ghl.html'), globalBanner(ghl));
+fs.writeFileSync(path.join(PAGE_DIR, GLOBAL ? 'better-world-impact.global.inline.ghl.html' : 'better-world-impact.inline.ghl.html'), globalBanner(inline));
 
 console.log('keyframes kept   :', keptKf.join(', '));
 console.log('keyframes dropped:', droppedKf.join(', ') || '-');

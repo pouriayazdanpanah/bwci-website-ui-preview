@@ -9,6 +9,16 @@ block. The block includes the shared header and footer.
   with the shared LegalNav bar; that update (`feat/ghl-legal-nav`, from main `aac105f`, again one PR for the five) merged in PR #53 (`2f13c21`).
 - Merge and live GoHighLevel installation are separate steps.
 
+## Global header/footer version (9 November 2026)
+
+`node ghl/pages/legal-privacy/_build/build.js --global` also writes `legal-privacy.global.ghl.html` and
+`legal-privacy.global.inline.ghl.html`: this page **without** its header and footer, for use between the
+[global header and footer](../../global/README.md) GoHighLevel Global Sections ("BWCI Header" / "BWCI Footer"). Its root
+carries `data-bwci-current="legal"` (the global header marks the current page from it); its config drops `logoImage`,
+`showHeader`, `showFooter` and `footer` and keeps only the links the page itself uses. The regular outputs below are
+unchanged. Local QA against the regular block: [global rollout verification](../../global/qa/verification.md). Live GHL
+NOT VERIFIED for this page. Never paste it without the two global sections, and never combine the regular block with them.
+
 ## Files
 
 | File | Use |

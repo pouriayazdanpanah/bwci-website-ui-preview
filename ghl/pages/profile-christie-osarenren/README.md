@@ -1,5 +1,15 @@
 # Christie Osarenren - GoHighLevel profile
 
+## Global header/footer version (9 November 2026)
+
+`node ghl/pages/profile-christie-osarenren/_build/build.js --global` also writes `profile-christie-osarenren.global.ghl.html` and
+`profile-christie-osarenren.global.inline.ghl.html`: this page **without** its header and footer, for use between the
+[global header and footer](../../global/README.md) GoHighLevel Global Sections ("BWCI Header" / "BWCI Footer"). Its root
+carries `data-bwci-current="governance"` (the global header marks the current page from it); its config drops `logoImage`,
+`showHeader`, `showFooter` and `footer` and keeps only the links the page itself uses. The regular outputs below are
+unchanged. Local QA against the regular block: [global rollout verification](../../global/qa/verification.md). Live GHL
+NOT VERIFIED for this page. Never paste it without the two global sections, and never combine the regular block with them.
+
 ## Centralized images — October 27, 2026
 
 Both outputs now use GHL image Custom Values for this page's 5 image settings.

@@ -10,6 +10,8 @@
    - the current page: the page block marks its root with data-bwci-current="<SiteHeader current>" and, when it
      starts, dispatches "bwci:page-ready" on document; the header marks the matching links, dropdown and drawer
      accordion (the source bakes this per page), whichever block runs first;
+   - a page block marked data-bwci-under-header (Main: its hero is pulled up under the header) gets a transparent
+     placeholder, so the hero shows behind the see-through stuck header as on the page block;
    - "raiseSection": GoHighLevel sections that create their own stacking layer (z-index) would paint later sections
      over a fixed header, so the z-index of those ancestors of this block is raised while it runs, then restored.
    Settings live in the <script type="application/json" id="bwci-site-header-config"> block at the top. */
@@ -60,6 +62,8 @@
     }
     function applyCurrent() {
       var marker = document.querySelector('[data-bwci-current]');
+      // a page whose content runs up under the header (Main's hero): the placeholder must not cover it
+      root.classList.toggle('bwh-under', !!(marker && marker.hasAttribute('data-bwci-under-header')));
       var key = marker && marker.getAttribute('data-bwci-current');
       if (!key || key === current) return;
       clearCurrent();
@@ -84,6 +88,17 @@
 
     /* ================= SITE HEADER (shared site chrome) ================= */
     var chrome = siteChrome(root, cfg, on, timers);
+
+    /* a header link to a section of the page being viewed (Main's "The Platform Today": home + #bwci-today) becomes
+       a plain in-page jump, as on the page blocks, instead of a navigation to the same address */
+    qa('a[data-bwh-link]').forEach(function (a) {
+      var href = a.getAttribute('href');
+      if (!href || href.indexOf('#') <= 0) return;
+      try {
+        var u = new URL(href, location.href);
+        if (u.hash && u.origin === location.origin && u.pathname.replace(/\/+$/, '') === location.pathname.replace(/\/+$/, '') && u.search === location.search) a.setAttribute('href', u.hash);
+      } catch (err) { /* not a URL */ }
+    });
 
     /* ---------- pinned header: fixed host, in-flow placeholder, sizes on <html> ---------- */
     var host = root.querySelector('[data-bwh-hdr-host]');
@@ -151,6 +166,7 @@
         if (setVars && html.style.getPropertyValue('--util-h') === setVars.util) { if (prevVars.util) html.style.setProperty('--util-h', prevVars.util); else html.style.removeProperty('--util-h'); }
         if (setVars && html.style.getPropertyValue('--nav-h') === setVars.nav) { if (prevVars.nav) html.style.setProperty('--nav-h', prevVars.nav); else html.style.removeProperty('--nav-h'); }
         root.classList.remove('bwh-fixed');
+        root.classList.remove('bwh-under');
         root.style.removeProperty('height');
         if (host) { host.style.removeProperty('top'); host.style.removeProperty('left'); host.style.removeProperty('width'); }
         delete root.dataset.bwhInit;

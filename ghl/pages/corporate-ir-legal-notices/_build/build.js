@@ -25,6 +25,22 @@ const KEYFRAME_PREFIX = 'cil-';
 const PAGE_DIR = path.resolve(__dirname, '..');
 const SRC = path.join(__dirname, 'src');
 const REPORT = process.argv.includes('--report');
+// --global: the page block for use with the global header and footer (ghl/global/): no header or footer, no logo /
+// header / footer settings, only the links the page itself uses, and the root marked data-bwci-current for the global
+// header. Writes corporate-ir-legal-notices.global*.ghl.html; the regular outputs are untouched.
+const GLOBAL = process.argv.includes('--global');
+const forGlobal = (c) => {
+  if (!GLOBAL) return c;
+  const o = Object.assign({}, c);
+  ['logoImage', 'showHeader', 'showFooter', 'footer'].forEach((k) => { delete o[k]; });
+  if (o.imageFallbacks) { o.imageFallbacks = Object.assign({}, o.imageFallbacks); delete o.imageFallbacks.logoImage; if (!Object.keys(o.imageFallbacks).length) delete o.imageFallbacks; }
+  return o;
+};
+const globalBanner = (s) => (GLOBAL ? s.replace(/^<!--\n/, '<!--\n' +
+  '  FOR THE GLOBAL HEADER AND FOOTER (built with --global): this block has NO header or footer of its own. Paste it\n' +
+  '  between the "BWCI Header" and "BWCI Footer" GoHighLevel Global Sections (ghl/global/). The logo, header/footer\n' +
+  '  and footer-wording settings live in those sections; any such setting named below is not in this block.\n') : s);
+
 // classes the runtime adds outside the static markup (keep in sync with the shared site chrome)
 const DYNAMIC_CLASSES = ['cil-sr-on', 'cil-in'];
 // the page's generic source class names carry the cil- prefix; bwci-system.css is renamed to match
@@ -32,6 +48,7 @@ const pageCss = fs.readFileSync(path.join(__dirname, 'src', 'corporate-ir-legal-
 // Shared site chrome: SiteHeader current="ir", Breadcrumb current="ir".
 // content:true adds bwci-system.css parts C and E, which style this page's hero and cards
 const chrome = require('../../../shared/site-chrome/site-chrome')({
+  global: GLOBAL,
   prefix: 'cil', current: 'ir', breadcrumb: 'ir', label: 'Legal notices', content: true,
   rename: (n) => 'cil-' + n,
 });
@@ -88,7 +105,8 @@ function scopeSelector(s) {
 
 /* ---------------- inputs ---------------- */
 const htmlSrc = fs.readFileSync(path.join(SRC, 'corporate-ir-legal-notices.html'), 'utf8').trim()
-  .replace(/<!--chrome:(header|breadcrumb|footer)-->/g, (_, k) => chrome[k]);
+  .replace(/<!--chrome:(header|breadcrumb|footer)-->/g, (_, k) => (GLOBAL && (k === 'header' || k === 'footer') ? '' : chrome[k]))
+  .replace('id="' + ROOT.slice(1) + '"', (m) => (GLOBAL ? m + ' data-bwci-current="' + chrome.current + '"' : m));
 const jsSrc = fs.readFileSync(path.join(SRC, 'corporate-ir-legal-notices.js'), 'utf8').trim();
 if (!jsSrc.includes('/*@site-chrome*/')) throw new Error('/*@site-chrome*/ marker missing from corporate-ir-legal-notices.js');
 const js = jsSrc.replace('/*@site-chrome*/', () => chrome.runtime);
@@ -186,6 +204,7 @@ const FONT_LINKS = [
 
 /* ---------------- checks ---------------- */
 const usedKeys = new Set([...htmlCode.matchAll(/data-cil-link="([^"]+)"/g)].map((m) => m[1]));
+if (GLOBAL) Object.keys(config.links).forEach((k) => { if (!usedKeys.has(k)) delete config.links[k]; });
 const cfgKeys = new Set(Object.keys(config.links));
 usedKeys.forEach((k) => { if (!cfgKeys.has(k)) throw new Error('Link key missing from config: ' + k); });
 cfgKeys.forEach((k) => { if (!usedKeys.has(k)) throw new Error('Unused link key in config: ' + k); });
@@ -211,13 +230,13 @@ function banner(variant) {
 }
 function assemble(logoValue, variant) {
   const cfg = Object.assign({}, config, { logoImage: logoValue });
-  const cfgBlock = '<script type="application/json" id="bwci-corporate-ir-legal-notices-config">\n' + JSON.stringify(chrome.imageConfig(cfg), null, 2).replace(/</g, '\\u003c') + '\n</script>';
+  const cfgBlock = '<script type="application/json" id="bwci-corporate-ir-legal-notices-config">\n' + JSON.stringify(chrome.imageConfig(forGlobal(cfg)), null, 2).replace(/</g, '\\u003c') + '\n</script>';
   return banner(variant) + '\n' + cfgBlock + '\n' + FONT_LINKS + '\n<style>\n' + css + '</style>\n\n' + html + '\n\n<script>\n' + js + '\n</script>\n';
 }
 const ghl = assemble(config.logoImage, 'production — hosted logo');
 const inline = assemble('data:image/png;base64,' + fs.readFileSync(chrome.logoPath).toString('base64'), 'self-contained — embedded logo');
-fs.writeFileSync(path.join(PAGE_DIR, 'corporate-ir-legal-notices.ghl.html'), ghl);
-fs.writeFileSync(path.join(PAGE_DIR, 'corporate-ir-legal-notices.inline.ghl.html'), inline);
+fs.writeFileSync(path.join(PAGE_DIR, GLOBAL ? 'corporate-ir-legal-notices.global.ghl.html' : 'corporate-ir-legal-notices.ghl.html'), globalBanner(ghl));
+fs.writeFileSync(path.join(PAGE_DIR, GLOBAL ? 'corporate-ir-legal-notices.global.inline.ghl.html' : 'corporate-ir-legal-notices.inline.ghl.html'), globalBanner(inline));
 
 console.log('keyframes kept   :', keptKf.join(', '));
 console.log('keyframes dropped:', droppedKf.join(', ') || '-');

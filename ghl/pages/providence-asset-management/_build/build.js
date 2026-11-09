@@ -28,6 +28,22 @@ const KEYFRAME_PREFIX = 'pam-';
 const PAGE_DIR = path.resolve(__dirname, '..');
 const SRC = path.join(__dirname, 'src');
 const REPORT = process.argv.includes('--report');
+// --global: the page block for use with the global header and footer (ghl/global/): no header or footer, no logo /
+// header / footer settings, only the links the page itself uses, and the root marked data-bwci-current for the global
+// header. Writes providence-asset-management.global*.ghl.html; the regular outputs are untouched.
+const GLOBAL = process.argv.includes('--global');
+const forGlobal = (c) => {
+  if (!GLOBAL) return c;
+  const o = Object.assign({}, c);
+  ['logoImage', 'showHeader', 'showFooter', 'footer'].forEach((k) => { delete o[k]; });
+  if (o.imageFallbacks) { o.imageFallbacks = Object.assign({}, o.imageFallbacks); delete o.imageFallbacks.logoImage; if (!Object.keys(o.imageFallbacks).length) delete o.imageFallbacks; }
+  return o;
+};
+const globalBanner = (s) => (GLOBAL ? s.replace(/^<!--\n/, '<!--\n' +
+  '  FOR THE GLOBAL HEADER AND FOOTER (built with --global): this block has NO header or footer of its own. Paste it\n' +
+  '  between the "BWCI Header" and "BWCI Footer" GoHighLevel Global Sections (ghl/global/). The logo, header/footer\n' +
+  '  and footer-wording settings live in those sections; any such setting named below is not in this block.\n') : s);
+
 // classes the runtime adds outside the static markup (keep in sync with the shared site chrome)
 // classes the runtime adds: engine/carousel/map states, and the review badges (data-pam-flag, shown with showFlags)
 const DYNAMIC_CLASSES = ['pam-lit', 'pam-is-drag', 'pam-in', 'pam-on', 'pam-tc', 'pam-tc--inv'];
@@ -38,6 +54,7 @@ const pageCss = fs.readFileSync(path.join(__dirname, 'src', 'providence-asset-ma
 // shared site chrome: SiteHeader current="platforms", Breadcrumb current="pam" (Home › Platforms & Institutions ›
 // Providence Asset Management); content:true adds bwci-system.css parts C and E (the gv- card styles)
 const chrome = require('../../../shared/site-chrome/site-chrome')({
+  global: GLOBAL,
   prefix: 'pam', current: 'platforms', breadcrumb: 'pam', content: true, rename,
   images: ['pamHeroImage'], // this page's own image setting (ghl/shared/site-images pageRoots)
 });
@@ -95,7 +112,8 @@ function scopeSelector(s) {
 
 /* ---------------- inputs ---------------- */
 const htmlSrc = fs.readFileSync(path.join(SRC, 'providence-asset-management.html'), 'utf8').trim()
-  .replace(/<!--chrome:(header|breadcrumb|footer)-->/g, (_, k) => chrome[k]);
+  .replace(/<!--chrome:(header|breadcrumb|footer)-->/g, (_, k) => (GLOBAL && (k === 'header' || k === 'footer') ? '' : chrome[k]))
+  .replace('id="' + ROOT.slice(1) + '"', (m) => (GLOBAL ? m + ' data-bwci-current="' + chrome.current + '"' : m));
 const jsSrc = fs.readFileSync(path.join(SRC, 'providence-asset-management.js'), 'utf8').trim();
 if (!jsSrc.includes('/*@site-chrome*/')) throw new Error('/*@site-chrome*/ marker missing from providence-asset-management.js');
 // the reach-map bitmap of design/pam-worldmap.js, inlined as a local constant (the source sets window.PAM_WORLD)
@@ -200,6 +218,7 @@ const FONT_LINKS = [
 
 /* ---------------- checks ---------------- */
 const usedKeys = new Set([...htmlCode.matchAll(/data-pam-link="([^"]+)"/g)].map((m) => m[1]));
+if (GLOBAL) Object.keys(config.links).forEach((k) => { if (!usedKeys.has(k)) delete config.links[k]; });
 const cfgKeys = new Set(Object.keys(config.links));
 usedKeys.forEach((k) => { if (!cfgKeys.has(k)) throw new Error('Link key missing from config: ' + k); });
 // every value is the shared mapping's reference for its key (existing Custom Values, or a proposed one)
@@ -246,13 +265,13 @@ function banner(variant) {
 }
 function assemble(logoValue, heroValue, peopleValues, variant) {
   const cfg = Object.assign({}, config, { logoImage: logoValue, pamHeroImage: heroValue, peopleImages: peopleValues });
-  const cfgBlock = '<script type="application/json" id="bwci-providence-asset-management-config">\n' + JSON.stringify(chrome.imageConfig(cfg), null, 2) + '\n</script>';
+  const cfgBlock = '<script type="application/json" id="bwci-providence-asset-management-config">\n' + JSON.stringify(chrome.imageConfig(forGlobal(cfg)), null, 2) + '\n</script>';
   return banner(variant) + '\n' + cfgBlock + '\n' + FONT_LINKS + '\n<style>\n' + css + '</style>\n\n' + html + '\n\n<script>\n' + js + '\n</script>\n';
 }
 const ghl = assemble(config.logoImage, config.pamHeroImage, config.peopleImages, 'production — hosted images');
 const inline = assemble(dataUri(chrome.logoPath), dataUri(heroFile), Object.fromEntries(cfgSlugs.map((sl) => [sl, dataUri(assetOf(sl))])), 'self-contained — embedded images');
-fs.writeFileSync(path.join(PAGE_DIR, 'providence-asset-management.ghl.html'), ghl);
-fs.writeFileSync(path.join(PAGE_DIR, 'providence-asset-management.inline.ghl.html'), inline);
+fs.writeFileSync(path.join(PAGE_DIR, GLOBAL ? 'providence-asset-management.global.ghl.html' : 'providence-asset-management.ghl.html'), globalBanner(ghl));
+fs.writeFileSync(path.join(PAGE_DIR, GLOBAL ? 'providence-asset-management.global.inline.ghl.html' : 'providence-asset-management.inline.ghl.html'), globalBanner(inline));
 
 console.log('keyframes kept   :', keptKf.join(', '));
 console.log('keyframes dropped:', droppedKf.join(', ') || '-');

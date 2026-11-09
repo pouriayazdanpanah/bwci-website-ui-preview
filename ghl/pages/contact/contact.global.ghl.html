@@ -665,7 +665,23 @@
 
     /* ---------- header ---------- */
     var hdr = cq('[data-cnt-hdr]');
-    if (!hdr) return { destroy: removeStatus }; // global header: --util-h / --nav-h come from <html>
+    if (!hdr) { // global header: --util-h / --nav-h come from <html>
+      var layered = [];
+      if (root.hasAttribute('data-bwci-overlays')) {
+        for (var el = root.parentElement; el && el !== document.body && el !== document.documentElement; el = el.parentElement) {
+          if (getComputedStyle(el).zIndex !== 'auto') layered.push([el, el.style.getPropertyValue('z-index'), el.style.getPropertyPriority('z-index')]);
+        }
+      }
+      var layer = function (z) { layered.forEach(function (r) { r[0].style.setProperty('z-index', z, 'important'); }); };
+      layer('998');
+      return {
+        overlay: function (open) { layer(open ? '1000' : '998'); },
+        destroy: function () {
+          removeStatus();
+          layered.forEach(function (r) { if (r[1]) r[0].style.setProperty('z-index', r[1], r[2]); else r[0].style.removeProperty('z-index'); });
+        }
+      };
+    }
     function hq(sel) { return hdr.querySelector(sel); }
     function hqa(sel) { return Array.prototype.slice.call(hdr.querySelectorAll(sel)); }
     var util = hq('[data-cnt-hdr-util]');

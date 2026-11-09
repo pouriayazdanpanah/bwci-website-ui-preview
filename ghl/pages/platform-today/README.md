@@ -5,6 +5,16 @@ This is a port of `design/Platform Today.dc.html` to one GoHighLevel Custom Code
 - **Hero update:** design export `df79d85` (2 November 2026) added a hero image and a new hero layout. The port follows it on branch `feat/ghl-platform-today-hero`, from main `df79d85` (a new branch name, because `feat/ghl-platform-today` is already merged); merged in PR #46 (`b5a0d25`).
 - Live GoHighLevel installation is a separate step and is not verified.
 
+## Global header/footer version (9 November 2026)
+
+`node ghl/pages/platform-today/_build/build.js --global` also writes `platform-today.global.ghl.html` and
+`platform-today.global.inline.ghl.html`: this page **without** its header and footer, for use between the
+[global header and footer](../../global/README.md) GoHighLevel Global Sections ("BWCI Header" / "BWCI Footer"). Its root
+carries `data-bwci-current="today"` (the global header marks the current page from it); its config drops `logoImage`,
+`showHeader`, `showFooter` and `footer` and keeps only the links the page itself uses. The regular outputs below are
+unchanged. Local QA against the regular block: [global rollout verification](../../global/qa/verification.md). Live GHL
+NOT VERIFIED for this page. Never paste it without the two global sections, and never combine the regular block with them.
+
 ## Files
 
 | File | Use |

@@ -1,4 +1,80 @@
-# Global header/footer pilot — local verification (9 November 2026)
+# Global header/footer — local verification (9 November 2026)
+
+## Rollout: all 35 pages
+
+**Scope:** every page with a `.global` block — the 34 generated pages and Main — against today's page block
+(`<page>.inline.ghl.html`), with `site-header.inline` / `site-footer.inline`. **Local only**; headless Chromium with the
+real fonts. The owner tested the pilot pages on a GHL test page (reported working, address not recorded); the other
+pages are NOT VERIFIED in GHL.
+
+**Revision:** branch `feat/ghl-global-chrome-pilot` working tree after `ef0bcf2`, committed with this record.
+
+Run: `NODE_PATH=$(npm root -g) node ghl/global/qa/rollout.js <outDir> <shard> 4` for shards 0–3 in parallel
+(≈40 min). Results: [results/rollout-run.log](results/rollout-run.log),
+[results/rollout-results.json](results/rollout-results.json).
+
+**Method:** as the pilot (one variant open at a time; reduced motion; every font file loaded and served from a cache;
+GHL-like host). Per page:
+- layout of every page, header and footer element, document height and every content link target, at 7 widths
+  (320, 390, 768, 1024, 1280, 1440, 1920);
+- pixels at 4 scroll positions per width;
+- header state (current-page marks, expanded states, hrefs) and the `--util-h` / `--nav-h` the page sees, at 1440 and 390;
+- a dropdown opened over the page while stuck (1440) and the phone drawer opened while stuck (390);
+- a hostile host (generic element CSS, every GHL section `z-index:1`) with GHL content above, at 1440 and 390,
+  4 scroll positions, header on top once stuck;
+- the page's first in-page jump at 1440 and 390;
+- the header lifecycle (Main, hostile host) and The Platform Today's overlays in a layered host.
+
+**Pixel rule:**
+- identical; or
+- with identical layout:
+  - anti-aliasing (under 0.2 % of the viewport differs); or
+  - imperceptible shading (pixels off by more than 2/255 under 0.2 %, e.g. gradients and resampled images); or
+- a recorded token / label difference confined to the header, drawer or footer. If a difference remains, today's
+  block is reloaded to see whether it varies by itself (not needed in the final run).
+
+### Result — 35 pages, 853 checks, 0 failures, no script errors
+
+| Verdict for differing screenshots | Count | What |
+|---|---|---|
+| Anti-aliasing | 83 | Mostly 4 px at the active underline's ends (the pages without `--radius-full`: rounded ends now) or text/icon edges; the phone drawer's half-pixel icons |
+| Imperceptible shading | 11 | Colour off by 1/255 over gradients and the hero images (e.g. Ecosystem, Who We Are in the hostile host), with identical layout |
+| Token / label differences (recorded) | 8 screenshots + 2 layout notes | The open phone drawer on Ecosystem, Financial Engine, Investors & Partners, Platforms and SMEs & Projects (14 px → design sizes); The Platform Today's phone footer (15 → 16 px text, +28 px height) |
+
+All other screenshots are pixel-identical.
+
+Other checks:
+- Header state matches on every page. On Main, today's in-page `#bwci-today` becomes home + `#bwci-today`, which the
+  global header turns back into an in-page jump on the real home address.
+- `--util-h` / `--nav-h`, in-page jumps and content links all match.
+- Menus open over every page's content.
+- The header stays on top in the layered host.
+- The Platform Today in a layered host:
+  - "How to read" stays visible, also over the footer;
+  - the open guide covers the header;
+  - section layers are restored on teardown.
+- Header lifecycle on Main:
+  - transparent placeholder (`data-bwci-under-header`);
+  - three executions leave one owner;
+  - removal restores `<html>` and the sections;
+  - re-insertion re-initialises with the same current-page marks;
+  - `pagehide` tears down.
+
+### Found and fixed during the rollout
+
+- **Main's hero runs under the header** → `data-bwci-under-header` (transparent placeholder).
+- **Main's in-page "The Platform Today" link** → same-page header links become in-page jumps.
+- **The Platform Today's floating button and guide** would be covered by separate header/footer sections in a layered
+  host → `data-bwci-overlays` (section layered at 998, lifted to 1000 while the guide is open).
+- **QA corrections:**
+  - screen-reader status elements are excluded from the layout comparison;
+  - shading-only rule;
+  - footer token rule;
+  - Main's same-page link;
+  - a control reload for pages that vary by themselves (Providence's world map does).
+
+
+## Pilot: Contact and Governance
 
 **Scope:** `ghl/global/site-header*.ghl.html` and `site-footer*.ghl.html`, with `contact.global*.ghl.html` and
 `governance.global.ghl.html`, compared with today's page blocks `contact.inline.ghl.html` and

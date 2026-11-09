@@ -4,12 +4,15 @@ This guide turns a finished Claude Design page in design/ into one pasteable GoH
 
 ## Current status — November 9, 2026
 
-**Global header/footer pilot (9 November, owner request; branch `feat/ghl-global-chrome-pilot`, draft PR #56 stacked on PR #55, not merged):** one header block
-and one footer block for GoHighLevel Global Sections instead of a header and footer in every page block
-([ghl/global/README.md](../../ghl/global/README.md)). Pilot pages: Contact and Governance, built with `--global` into
-extra `*.global*.ghl.html` outputs; the 72 regular outputs are unchanged. The owner tests it on one GHL page before the
-other 34 pages get `--global` builds and every page is re-pasted once (re-pasting for PR #55 waits for this). Local QA:
-[ghl/global/qa/verification.md](../../ghl/global/qa/verification.md). Live GHL NOT VERIFIED.
+**Global header and footer (9 November, owner request; branch `feat/ghl-global-chrome-pilot`, draft PR #56 stacked on
+PR #55, not merged):** one header block and one footer block for GoHighLevel Global Sections instead of a header and
+footer in every page block ([ghl/global/README.md](../../ghl/global/README.md)). Every page with a site header has a
+global version, `<page>.global(.inline).ghl.html`: the 34 generated pages via `build.js --global`, Main via
+`ghl/global/_build/main-global.js`; the 404 page keeps its own logo bar. The 72 regular outputs are unchanged. The
+owner tested the pilot (Contact, Governance) on a GHL test page and reported it working (page address not recorded).
+Recorded differences and the open owner decision (phone-menu label size on 5 pages) are in the global README. Rollout:
+each page's Custom Code is replaced by its `.global` block and the two Global Sections are inserted, in one publish per
+page; this also delivers PR #55's link change. Local QA: [ghl/global/qa/verification.md](../../ghl/global/qa/verification.md).
 
 **Start a Conversation links (9 November, branch `claude/wonderful-ptolemy-k1o60k`, PR #55 to main open, not merged):**
 by the owner's decision, every "Start a Conversation" button opens the Start a Conversation page through the
