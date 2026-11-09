@@ -4,7 +4,7 @@ This guide turns a finished Claude Design page in design/ into one pasteable GoH
 
 ## Current status — November 9, 2026
 
-**Start a Conversation links (9 November, branch `claude/wonderful-ptolemy-k1o60k`, PR to main open, not merged):**
+**Start a Conversation links (9 November, branch `claude/wonderful-ptolemy-k1o60k`, PR #55 to main open, not merged):**
 by the owner's decision, every "Start a Conversation" button opens the Start a Conversation page through the
 owner-created Custom Value `bwci_url_start_a_conversation` (link key `startAConversation`). Before, the header,
 mobile-menu and footer buttons shared `bwci_url_contact` with the "Contact" links, Contact's seven buttons opened the
