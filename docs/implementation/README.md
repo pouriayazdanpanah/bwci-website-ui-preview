@@ -4,7 +4,7 @@ This guide turns a finished Claude Design page in design/ into one pasteable GoH
 
 ## Current status — November 9, 2026
 
-**Global header/footer pilot (9 November, owner request; local, not pushed until PR #55 merges):** one header block
+**Global header/footer pilot (9 November, owner request; branch `feat/ghl-global-chrome-pilot`, draft PR #56 stacked on PR #55, not merged):** one header block
 and one footer block for GoHighLevel Global Sections instead of a header and footer in every page block
 ([ghl/global/README.md](../../ghl/global/README.md)). Pilot pages: Contact and Governance, built with `--global` into
 extra `*.global*.ghl.html` outputs; the 72 regular outputs are unchanged. The owner tests it on one GHL page before the
