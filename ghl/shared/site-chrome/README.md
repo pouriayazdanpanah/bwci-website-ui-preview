@@ -52,6 +52,18 @@ ghl/shared/site-chrome/
     └── sync/               ← current all-23-page synchronization checks and verification report
 ```
 
+## Global header/footer options (pilot, 9 November 2026)
+
+Two opt-in options serve the [global header and footer](../../global/README.md); without them the output is
+unchanged (all 72 page outputs rebuild byte-identical):
+- `currentAttrs: true` (global header): each header link carries `data-<prefix>-c="<SiteHeader current value>"` and
+  each dropdown trigger / drawer accordion `data-<prefix>-cg="<the values of its items>"`, so the global header's
+  runtime can mark the current page that the page block names (`data-bwci-current` on its root). Use with
+  `current: null`.
+- `global: true` (global blocks, and a page built with `--global`): the header-less runtime no longer resets
+  `--util-h` / `--nav-h` to 0 on its root (the global header sets them on `<html>`), and the header/footer dynamic
+  classes are not expected in the page markup.
+
 ## What it reads from design/ (at build time)
 
 | Source | Output |

@@ -1,0 +1,2308 @@
+{
+ "pixels": [
+  {
+   "slug": "contact",
+   "w": 320,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 320,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 320,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 320,
+   "y": 2114,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 320,
+   "y": 4228,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 360,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 360,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 360,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 360,
+   "y": 2035,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 360,
+   "y": 4069,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 375,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 375,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 375,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 375,
+   "y": 1990,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 375,
+   "y": 3979,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 390,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 390,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 390,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 390,
+   "y": 1981,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 390,
+   "y": 3961,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 430,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 430,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 430,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 430,
+   "y": 1919,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 430,
+   "y": 3838,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 768,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 768,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 768,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 768,
+   "y": 1596,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 768,
+   "y": 3191,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1024,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1024,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1024,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1024,
+   "y": 1048,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1024,
+   "y": 2095,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1280,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1280,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1280,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1280,
+   "y": 1176,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1280,
+   "y": 2351,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1366,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1366,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1366,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1366,
+   "y": 1223,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1366,
+   "y": 2446,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1440,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1440,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1440,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1440,
+   "y": 1231,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1440,
+   "y": 2461,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1600,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1600,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1600,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1600,
+   "y": 1231,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1600,
+   "y": 2461,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1920,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1920,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1920,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1920,
+   "y": 1231,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 1920,
+   "y": 2461,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 2560,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 2560,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 2560,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 2560,
+   "y": 1231,
+   "diff": 0
+  },
+  {
+   "slug": "contact",
+   "w": 2560,
+   "y": 2461,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 320,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 320,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 320,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 320,
+   "y": 1279,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 320,
+   "y": 2558,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 360,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 360,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 360,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 360,
+   "y": 1198,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 360,
+   "y": 2395,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 375,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 375,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 375,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 375,
+   "y": 1173,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 375,
+   "y": 2346,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 390,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 390,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 390,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 390,
+   "y": 1147,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 390,
+   "y": 2293,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 430,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 430,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 430,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 430,
+   "y": 1095,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 430,
+   "y": 2189,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 768,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 768,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 768,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 768,
+   "y": 600,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 768,
+   "y": 1200,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1024,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1024,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1024,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1024,
+   "y": 378,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1024,
+   "y": 755,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1280,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1280,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1280,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1280,
+   "y": 418,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1280,
+   "y": 835,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1366,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1366,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1366,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1366,
+   "y": 430,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1366,
+   "y": 859,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1440,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1440,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1440,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1440,
+   "y": 435,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1440,
+   "y": 870,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1600,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1600,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1600,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1600,
+   "y": 435,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1600,
+   "y": 870,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1920,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1920,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1920,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1920,
+   "y": 435,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 1920,
+   "y": 870,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 2560,
+   "y": 0,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 2560,
+   "y": 20,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 2560,
+   "y": 120,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 2560,
+   "y": 435,
+   "diff": 0
+  },
+  {
+   "slug": "governance",
+   "w": 2560,
+   "y": 870,
+   "diff": 0
+  }
+ ],
+ "checks": [
+  {
+   "name": "contact 320 same document height",
+   "ok": true,
+   "detail": [
+    4228,
+    4228
+   ]
+  },
+  {
+   "name": "contact 320 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "contact 360 same document height",
+   "ok": true,
+   "detail": [
+    4069,
+    4069
+   ]
+  },
+  {
+   "name": "contact 360 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "contact 375 same document height",
+   "ok": true,
+   "detail": [
+    3979,
+    3979
+   ]
+  },
+  {
+   "name": "contact 375 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "contact 390 same document height",
+   "ok": true,
+   "detail": [
+    3961,
+    3961
+   ]
+  },
+  {
+   "name": "contact 390 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "contact 430 same document height",
+   "ok": true,
+   "detail": [
+    3838,
+    3838
+   ]
+  },
+  {
+   "name": "contact 430 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "contact 768 same document height",
+   "ok": true,
+   "detail": [
+    3191,
+    3191
+   ]
+  },
+  {
+   "name": "contact 768 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "contact 1024 same document height",
+   "ok": true,
+   "detail": [
+    2095,
+    2095
+   ]
+  },
+  {
+   "name": "contact 1024 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "contact 1280 same document height",
+   "ok": true,
+   "detail": [
+    2351,
+    2351
+   ]
+  },
+  {
+   "name": "contact 1280 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "contact 1366 same document height",
+   "ok": true,
+   "detail": [
+    2446,
+    2446
+   ]
+  },
+  {
+   "name": "contact 1366 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "contact 1440 same document height",
+   "ok": true,
+   "detail": [
+    2461,
+    2461
+   ]
+  },
+  {
+   "name": "contact 1440 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "contact 1600 same document height",
+   "ok": true,
+   "detail": [
+    2461,
+    2461
+   ]
+  },
+  {
+   "name": "contact 1600 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "contact 1920 same document height",
+   "ok": true,
+   "detail": [
+    2461,
+    2461
+   ]
+  },
+  {
+   "name": "contact 1920 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "contact 2560 same document height",
+   "ok": true,
+   "detail": [
+    2461,
+    2461
+   ]
+  },
+  {
+   "name": "contact 2560 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "governance 320 same document height",
+   "ok": true,
+   "detail": [
+    2558,
+    2558
+   ]
+  },
+  {
+   "name": "governance 320 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "governance 360 same document height",
+   "ok": true,
+   "detail": [
+    2395,
+    2395
+   ]
+  },
+  {
+   "name": "governance 360 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "governance 375 same document height",
+   "ok": true,
+   "detail": [
+    2346,
+    2346
+   ]
+  },
+  {
+   "name": "governance 375 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "governance 390 same document height",
+   "ok": true,
+   "detail": [
+    2293,
+    2293
+   ]
+  },
+  {
+   "name": "governance 390 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "governance 430 same document height",
+   "ok": true,
+   "detail": [
+    2189,
+    2189
+   ]
+  },
+  {
+   "name": "governance 430 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "governance 768 same document height",
+   "ok": true,
+   "detail": [
+    1200,
+    1200
+   ]
+  },
+  {
+   "name": "governance 768 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "governance 1024 same document height",
+   "ok": true,
+   "detail": [
+    755,
+    755
+   ]
+  },
+  {
+   "name": "governance 1024 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "governance 1280 same document height",
+   "ok": true,
+   "detail": [
+    835,
+    835
+   ]
+  },
+  {
+   "name": "governance 1280 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "governance 1366 same document height",
+   "ok": true,
+   "detail": [
+    859,
+    859
+   ]
+  },
+  {
+   "name": "governance 1366 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "governance 1440 same document height",
+   "ok": true,
+   "detail": [
+    870,
+    870
+   ]
+  },
+  {
+   "name": "governance 1440 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "governance 1600 same document height",
+   "ok": true,
+   "detail": [
+    870,
+    870
+   ]
+  },
+  {
+   "name": "governance 1600 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "governance 1920 same document height",
+   "ok": true,
+   "detail": [
+    870,
+    870
+   ]
+  },
+  {
+   "name": "governance 1920 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "governance 2560 same document height",
+   "ok": true,
+   "detail": [
+    870,
+    870
+   ]
+  },
+  {
+   "name": "governance 2560 same layout of every page, header and footer element",
+   "ok": true,
+   "detail": {
+    "page": true,
+    "header": true,
+    "footer": true
+   }
+  },
+  {
+   "name": "contact 390 motion on: header area identical (69 px)",
+   "ok": true,
+   "detail": 0
+  },
+  {
+   "name": "contact 1024 motion on: header area identical (77 px)",
+   "ok": true,
+   "detail": 0
+  },
+  {
+   "name": "contact 1440 motion on: header area identical (117 px)",
+   "ok": true,
+   "detail": 0
+  },
+  {
+   "name": "governance 390 motion on: header area identical (69 px)",
+   "ok": true,
+   "detail": 0
+  },
+  {
+   "name": "governance 1024 motion on: header area identical (77 px)",
+   "ok": true,
+   "detail": 0
+  },
+  {
+   "name": "governance 1440 motion on: header area identical (117 px)",
+   "ok": true,
+   "detail": 0
+  },
+  {
+   "name": "contact 1440 header links: same text, current-page marks, expanded states and hrefs",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "name": "contact 1440 page sees the same --util-h / --nav-h",
+   "ok": true,
+   "detail": [
+    [
+     "40px",
+     "117px"
+    ],
+    [
+     "40px",
+     "117px"
+    ]
+   ]
+  },
+  {
+   "name": "contact 1440 dropdown hover: same geometry, states, focus and body overflow; pixels identical",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "",
+     "{ \"logoImage\": \"{{ custom_valu"
+    ],
+    "b": [
+     "",
+     "{ \"logoImage\": \"{{ custom_valu"
+    ]
+   }
+  },
+  {
+   "name": "contact 1440 dropdown keyboard ArrowDown: same geometry, states, focus and body overflow; pixels identical",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "",
+     "The Financial EngineHow capita"
+    ],
+    "b": [
+     "",
+     "The Financial EngineHow capita"
+    ]
+   }
+  },
+  {
+   "name": "contact 1440 dropdown Escape: same geometry, states, focus and body overflow; pixels identical",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "",
+     "How It Works"
+    ],
+    "b": [
+     "",
+     "How It Works"
+    ]
+   }
+  },
+  {
+   "name": "contact 1440 stuck after scroll: same geometry, states, focus and body overflow; pixels identical",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "",
+     "How It Works"
+    ],
+    "b": [
+     "",
+     "How It Works"
+    ]
+   }
+  },
+  {
+   "name": "contact 1440 dropdown over page content while stuck: same geometry, states, focus and body overflow; pixels identical",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "",
+     "Investors & Partners"
+    ],
+    "b": [
+     "",
+     "Investors & Partners"
+    ]
+   }
+  },
+  {
+   "name": "contact 390 header links: same text, current-page marks, expanded states and hrefs",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "name": "contact 390 page sees the same --util-h / --nav-h",
+   "ok": true,
+   "detail": [
+    [
+     "0px",
+     "69px"
+    ],
+    [
+     "0px",
+     "69px"
+    ]
+   ]
+  },
+  {
+   "name": "contact 390 drawer open: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "hidden",
+     ""
+    ],
+    "b": [
+     "hidden",
+     ""
+    ]
+   }
+  },
+  {
+   "name": "contact 390 drawer Tab wraps: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "hidden",
+     "SMEs & Projects"
+    ],
+    "b": [
+     "hidden",
+     "SMEs & Projects"
+    ]
+   }
+  },
+  {
+   "name": "contact 390 drawer accordion toggle: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "hidden",
+     "Who We Are"
+    ],
+    "b": [
+     "hidden",
+     "Who We Are"
+    ]
+   }
+  },
+  {
+   "name": "contact 390 drawer Escape: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "",
+     ""
+    ],
+    "b": [
+     "",
+     ""
+    ]
+   }
+  },
+  {
+   "name": "contact 390 drawer open while stuck: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "hidden",
+     ""
+    ],
+    "b": [
+     "hidden",
+     ""
+    ]
+   }
+  },
+  {
+   "name": "contact 390 drawer close button: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "",
+     ""
+    ],
+    "b": [
+     "",
+     ""
+    ]
+   }
+  },
+  {
+   "name": "governance 1440 header links: same text, current-page marks, expanded states and hrefs",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "name": "governance 1440 page sees the same --util-h / --nav-h",
+   "ok": true,
+   "detail": [
+    [
+     "40px",
+     "117px"
+    ],
+    [
+     "40px",
+     "117px"
+    ]
+   ]
+  },
+  {
+   "name": "governance 1440 dropdown hover: same geometry, states, focus and body overflow; pixels identical",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "",
+     "{ \"logoImage\": \"{{ custom_valu"
+    ],
+    "b": [
+     "",
+     "{ \"logoImage\": \"{{ custom_valu"
+    ]
+   }
+  },
+  {
+   "name": "governance 1440 dropdown keyboard ArrowDown: same geometry, states, focus and body overflow; pixels identical",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "",
+     "The Financial EngineHow capita"
+    ],
+    "b": [
+     "",
+     "The Financial EngineHow capita"
+    ]
+   }
+  },
+  {
+   "name": "governance 1440 dropdown Escape: same geometry, states, focus and body overflow; pixels identical",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "",
+     "How It Works"
+    ],
+    "b": [
+     "",
+     "How It Works"
+    ]
+   }
+  },
+  {
+   "name": "governance 1440 stuck after scroll: same geometry, states, focus and body overflow; pixels identical",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "",
+     "How It Works"
+    ],
+    "b": [
+     "",
+     "How It Works"
+    ]
+   }
+  },
+  {
+   "name": "governance 1440 dropdown over page content while stuck: same geometry, states, focus and body overflow; pixels identical",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "",
+     "Investors & Partners"
+    ],
+    "b": [
+     "",
+     "Investors & Partners"
+    ]
+   }
+  },
+  {
+   "name": "governance 390 header links: same text, current-page marks, expanded states and hrefs",
+   "ok": true,
+   "detail": []
+  },
+  {
+   "name": "governance 390 page sees the same --util-h / --nav-h",
+   "ok": true,
+   "detail": [
+    [
+     "0px",
+     "69px"
+    ],
+    [
+     "0px",
+     "69px"
+    ]
+   ]
+  },
+  {
+   "name": "governance 390 drawer open: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "hidden",
+     ""
+    ],
+    "b": [
+     "hidden",
+     ""
+    ]
+   }
+  },
+  {
+   "name": "governance 390 drawer Tab wraps: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "hidden",
+     "SMEs & Projects"
+    ],
+    "b": [
+     "hidden",
+     "SMEs & Projects"
+    ]
+   }
+  },
+  {
+   "name": "governance 390 drawer accordion toggle: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "hidden",
+     "Who We Are"
+    ],
+    "b": [
+     "hidden",
+     "Who We Are"
+    ]
+   }
+  },
+  {
+   "name": "governance 390 drawer Escape: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "",
+     ""
+    ],
+    "b": [
+     "",
+     ""
+    ]
+   }
+  },
+  {
+   "name": "governance 390 drawer open while stuck: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "hidden",
+     ""
+    ],
+    "b": [
+     "hidden",
+     ""
+    ]
+   }
+  },
+  {
+   "name": "governance 390 drawer close button: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "sameGeometry": true,
+    "sameState": true,
+    "a": [
+     "",
+     ""
+    ],
+    "b": [
+     "",
+     ""
+    ]
+   }
+  },
+  {
+   "name": "governance 1440 in-page jump lands at the same place (scroll, target, sticky GovNav)",
+   "ok": true,
+   "detail": [
+    {
+     "y": 473,
+     "target": 93,
+     "govnavTop": 77
+    },
+    {
+     "y": 473,
+     "target": 93,
+     "govnavTop": 77
+    }
+   ]
+  },
+  {
+   "name": "governance 390 in-page jump lands at the same place (scroll, target, sticky GovNav)",
+   "ok": true,
+   "detail": [
+    {
+     "y": 352,
+     "target": 85,
+     "govnavTop": 69
+    },
+    {
+     "y": 352,
+     "target": 85,
+     "govnavTop": 69
+    }
+   ]
+  },
+  {
+   "name": "contact 1440 in-page jump lands at the same place (scroll, target, sticky GovNav)",
+   "ok": true,
+   "detail": [
+    {
+     "y": 1022,
+     "target": 93,
+     "govnavTop": null
+    },
+    {
+     "y": 1022,
+     "target": 93,
+     "govnavTop": null
+    }
+   ]
+  },
+  {
+   "name": "contact 390 in-page jump lands at the same place (scroll, target, sticky GovNav)",
+   "ok": true,
+   "detail": [
+    {
+     "y": 1176,
+     "target": 85,
+     "govnavTop": null
+    },
+    {
+     "y": 1176,
+     "target": 85,
+     "govnavTop": null
+    }
+   ]
+  },
+  {
+   "name": "contact-around 1440 same layout of every page, header and footer element",
+   "ok": true
+  },
+  {
+   "name": "contact-around 1440 y=0: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 18
+   }
+  },
+  {
+   "name": "contact-around 1440 y=150: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": -40
+   }
+  },
+  {
+   "name": "contact-around 1440 y=320: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": -40
+   }
+  },
+  {
+   "name": "contact-around 1440 y=700: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": -40
+   }
+  },
+  {
+   "name": "contact-around 1440 y=1249: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": -40
+   }
+  },
+  {
+   "name": "contact-around 1440 y=2497: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": -40
+   }
+  },
+  {
+   "name": "contact-around 390 same layout of every page, header and footer element",
+   "ok": true
+  },
+  {
+   "name": "contact-around 390 y=0: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 18
+   }
+  },
+  {
+   "name": "contact-around 390 y=150: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 0
+   }
+  },
+  {
+   "name": "contact-around 390 y=320: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 0
+   }
+  },
+  {
+   "name": "contact-around 390 y=700: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 0
+   }
+  },
+  {
+   "name": "contact-around 390 y=1999: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 0
+   }
+  },
+  {
+   "name": "contact-around 390 y=3997: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 0
+   }
+  },
+  {
+   "name": "governance-around 1440 same layout of every page, header and footer element",
+   "ok": true
+  },
+  {
+   "name": "governance-around 1440 y=0: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 18
+   }
+  },
+  {
+   "name": "governance-around 1440 y=150: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": -40
+   }
+  },
+  {
+   "name": "governance-around 1440 y=320: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": -40
+   }
+  },
+  {
+   "name": "governance-around 1440 y=700: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": -40
+   }
+  },
+  {
+   "name": "governance-around 1440 y=453: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": -40
+   }
+  },
+  {
+   "name": "governance-around 1440 y=906: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": -40
+   }
+  },
+  {
+   "name": "governance-around 390 same layout of every page, header and footer element",
+   "ok": true
+  },
+  {
+   "name": "governance-around 390 y=0: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 18
+   }
+  },
+  {
+   "name": "governance-around 390 y=150: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 0
+   }
+  },
+  {
+   "name": "governance-around 390 y=320: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 0
+   }
+  },
+  {
+   "name": "governance-around 390 y=700: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 0
+   }
+  },
+  {
+   "name": "governance-around 390 y=1165: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 0
+   }
+  },
+  {
+   "name": "governance-around 390 y=2329: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 0
+   }
+  },
+  {
+   "name": "contact-hostile 1440 same layout of every page, header and footer element",
+   "ok": true
+  },
+  {
+   "name": "contact-hostile 1440 y=0: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": false,
+    "hdrTop": 300
+   }
+  },
+  {
+   "name": "contact-hostile 1440 y=150: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": false,
+    "hdrTop": 150
+   }
+  },
+  {
+   "name": "contact-hostile 1440 y=320: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": -20
+   }
+  },
+  {
+   "name": "contact-hostile 1440 y=700: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": -40
+   }
+  },
+  {
+   "name": "contact-hostile 1440 y=1567: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": -40
+   }
+  },
+  {
+   "name": "contact-hostile 1440 y=3133: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": -40
+   }
+  },
+  {
+   "name": "contact-hostile 390 same layout of every page, header and footer element",
+   "ok": true
+  },
+  {
+   "name": "contact-hostile 390 y=0: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": false,
+    "hdrTop": 300
+   }
+  },
+  {
+   "name": "contact-hostile 390 y=150: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": false,
+    "hdrTop": 150
+   }
+  },
+  {
+   "name": "contact-hostile 390 y=320: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 0
+   }
+  },
+  {
+   "name": "contact-hostile 390 y=700: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 0
+   }
+  },
+  {
+   "name": "contact-hostile 390 y=2403: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 0
+   }
+  },
+  {
+   "name": "contact-hostile 390 y=4806: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 0
+   }
+  },
+  {
+   "name": "governance-hostile 1440 same layout of every page, header and footer element",
+   "ok": true
+  },
+  {
+   "name": "governance-hostile 1440 y=0: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": false,
+    "hdrTop": 300
+   }
+  },
+  {
+   "name": "governance-hostile 1440 y=150: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": false,
+    "hdrTop": 150
+   }
+  },
+  {
+   "name": "governance-hostile 1440 y=320: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": -20
+   }
+  },
+  {
+   "name": "governance-hostile 1440 y=700: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": -40
+   }
+  },
+  {
+   "name": "governance-hostile 1440 y=774: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": -40
+   }
+  },
+  {
+   "name": "governance-hostile 1440 y=1548: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": -40
+   }
+  },
+  {
+   "name": "governance-hostile 390 same layout of every page, header and footer element",
+   "ok": true
+  },
+  {
+   "name": "governance-hostile 390 y=0: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": false,
+    "hdrTop": 300
+   }
+  },
+  {
+   "name": "governance-hostile 390 y=150: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": false,
+    "hdrTop": 150
+   }
+  },
+  {
+   "name": "governance-hostile 390 y=320: same pixels",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 0
+   }
+  },
+  {
+   "name": "governance-hostile 390 y=700: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 0
+   }
+  },
+  {
+   "name": "governance-hostile 390 y=1567: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 0
+   }
+  },
+  {
+   "name": "governance-hostile 390 y=3133: same pixels, header on top",
+   "ok": true,
+   "detail": {
+    "diff": 0,
+    "topEl": true,
+    "hdrTop": 0
+   }
+  },
+  {
+   "name": "raiseSection lifts the layered header section",
+   "ok": true,
+   "detail": "999"
+  },
+  {
+   "name": "header script executed three times: one owner, one status element, still pinned",
+   "ok": true,
+   "detail": [
+    true,
+    1,
+    true
+   ]
+  },
+  {
+   "name": "header removed: <html> sizes and the raised section are restored",
+   "ok": true,
+   "detail": [
+    "",
+    "ok",
+    "",
+    ",,"
+   ]
+  },
+  {
+   "name": "header re-inserted: re-initialised closed and pinned",
+   "ok": true,
+   "detail": [
+    "117px",
+    true,
+    0,
+    "-40px"
+   ]
+  },
+  {
+   "name": "pagehide tears the header down",
+   "ok": true,
+   "detail": [
+    null,
+    "",
+    false
+   ]
+  },
+  {
+   "name": "current-page marker inserted after the header is applied",
+   "ok": true,
+   "detail": [
+    "Governance",
+    "Governance"
+   ]
+  },
+  {
+   "name": "no script errors in any run",
+   "ok": true,
+   "detail": []
+  }
+ ],
+ "errors": [],
+ "antiAliasingOnly": [
+  "contact 390 drawer open: 144 px, max channel difference 61",
+  "contact 390 drawer Tab wraps: 144 px, max channel difference 61",
+  "contact 390 drawer accordion toggle: 144 px, max channel difference 61",
+  "governance 390 drawer open: 144 px, max channel difference 61",
+  "governance 390 drawer Tab wraps: 144 px, max channel difference 61",
+  "governance 390 drawer accordion toggle: 144 px, max channel difference 61",
+  "contact-around 1440 y=150: 33 px, max channel difference 2",
+  "contact-around 1440 y=320: 33 px, max channel difference 2",
+  "contact-around 1440 y=700: 33 px, max channel difference 2",
+  "governance-around 1440 y=150: 42 px, max channel difference 1",
+  "governance-around 1440 y=320: 42 px, max channel difference 1",
+  "governance-around 1440 y=700: 42 px, max channel difference 1",
+  "governance-around 1440 y=453: 42 px, max channel difference 1"
+ ]
+}

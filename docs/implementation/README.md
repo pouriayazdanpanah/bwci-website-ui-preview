@@ -4,6 +4,13 @@ This guide turns a finished Claude Design page in design/ into one pasteable GoH
 
 ## Current status — November 9, 2026
 
+**Global header/footer pilot (9 November, owner request; local, not pushed until PR #55 merges):** one header block
+and one footer block for GoHighLevel Global Sections instead of a header and footer in every page block
+([ghl/global/README.md](../../ghl/global/README.md)). Pilot pages: Contact and Governance, built with `--global` into
+extra `*.global*.ghl.html` outputs; the 72 regular outputs are unchanged. The owner tests it on one GHL page before the
+other 34 pages get `--global` builds and every page is re-pasted once (re-pasting for PR #55 waits for this). Local QA:
+[ghl/global/qa/verification.md](../../ghl/global/qa/verification.md). Live GHL NOT VERIFIED.
+
 **Start a Conversation links (9 November, branch `claude/wonderful-ptolemy-k1o60k`, PR #55 to main open, not merged):**
 by the owner's decision, every "Start a Conversation" button opens the Start a Conversation page through the
 owner-created Custom Value `bwci_url_start_a_conversation` (link key `startAConversation`). Before, the header,
