@@ -45,7 +45,7 @@ const CFG_RE = /(<script type="application\/json" id="bwci-investors-partners-co
     utilH: await page.evaluate(() => getComputedStyle(document.getElementById('bwci-investors-partners')).getPropertyValue('--util-h')),
     heroTop: await page.evaluate(() => Math.round(document.getElementById('inv-hero').getBoundingClientRect().top)),
   }));
-  await run('links override', withCfg(PLAIN, (c) => { c.links.ecosystem = 'https://example.com/eco'; c.links.startConversation = '/contact'; return c; }), async (page) => (await hrefs(page)).filter((h) => /^(ecosystem|startConversation)=/.test(h)));
+  await run('links override', withCfg(PLAIN, (c) => { c.links.ecosystem = 'https://example.com/eco'; c.links.startAConversation = '/start-a-conversation'; return c; }), async (page) => (await hrefs(page)).filter((h) => /^(ecosystem|startAConversation)=/.test(h)));
   await run('broken JSON', withCfg(PLAIN, '{ this is not json'), async (page) => ({
     header: !!(await page.$('#bwci-investors-partners .inv-hdr')),
     links: (await hrefs(page)).slice(0, 3),

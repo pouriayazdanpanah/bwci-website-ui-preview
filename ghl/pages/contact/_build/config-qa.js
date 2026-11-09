@@ -1,7 +1,7 @@
 // Dev-only QA for the port's configuration: GHL Custom Value substitution (modelled as GHL's text replacement of
 // {{ custom_values.x }} in the pasted block), the hero image and logo (priority, fallbacks, no request when unset),
-// the source props showVisitorOffice, showPam and showMap, link availability (the survey form behind every "Start a
-// Conversation", the emails and phone, the page links), what the copy buttons copy once an email or phone is set,
+// the source props showVisitorOffice, showPam and showMap, link availability (the Start a Conversation page behind every "Start a
+// Conversation" button, its four routes, the emails and phone, the page links), what the copy buttons copy once an email or phone is set,
 // a hostile host with the script executed twice, a copied root mid-copy with a changed config, teardown, and a
 // browser without the Clipboard API.
 //   NODE_PATH=$(npm root -g) node config-qa.js <httpBase>      e.g. http://localhost:8123/
@@ -27,10 +27,10 @@ const page = (block, opts) => {
     (o.hostile ? '<div class="above">above</div><section style="padding:0">' : '') + block + (o.hostile ? '</section><div class="above">below</div>' : '') +
     (o.twice ? '<script>' + block.slice(block.lastIndexOf('<script>') + 8, block.lastIndexOf('</script>')) + '</script>' : '') + '</body></html>';
 };
-const SURVEY = 'https://api.example.test/widget/survey/abc';
+const START = 'https://start.example.test/start-a-conversation';
 const URLS = (name) => (name === 'bwci_img_logo' ? httpBase + 'ghl/shared/site-chrome/assets/bwci-logo.png' :
   name === 'bwci_img_contact_hero' ? httpBase + 'ghl/pages/contact/assets/contact-hero-hands.png' :
-  name === 'contact' ? SURVEY :
+  name === 'bwci_url_start_a_conversation' ? START :
   name === 'bwci_url_contact_email' ? 'mailto:hello@example.test?subject=Enquiry' :
   name === 'bwci_url_contact_phone' ? 'tel:+44%2020%207946%200000' :
   name === 'bwci_url_media_email' ? 'mailto:press@example.test' :
@@ -104,15 +104,15 @@ const COPIED = () => {
   await run('copy configured', page(substitute(INLINE, URLS)), (p) => copyAll(p));
   await run('copy unusable values', page(substitute(INLINE, (n) => (n === 'bwci_url_contact_email' ? 'mailto:' : n === 'bwci_url_contact_phone' ? 'javascript:alert(1)' : n === 'bwci_url_media_email' ? 'https://example.test/press' : URLS(n)))), async (p) => ({ copied: await copyAll(p), links: (await state(p)).page }));
   await run('disabled click', page(HOSTED), async (p) => {
-    const a = p.locator('main a[data-cnt-link="contactSurvey"]').first();
+    const a = p.locator('main a[data-cnt-link="startAConversation"]').first();
     await a.click({ force: true }); await p.waitForTimeout(200);
     return { url: p.url().replace(httpBase, ''), title: await a.getAttribute('title') };
   });
-  await run('enabled click (survey)', page(substitute(HOSTED, URLS)), async (p) => {
-    await p.route(SURVEY, (r) => r.fulfill({ contentType: 'text/html', body: 'survey' }));
-    const a = p.locator('main a[data-cnt-link="contactSurvey"]').nth(2);
+  await run('enabled click (Start a Conversation, Banks route)', page(substitute(HOSTED, URLS)), async (p) => {
+    await p.route(START, (r) => r.fulfill({ contentType: 'text/html', body: 'start' }));
+    const a = p.locator('main a[data-cnt-link="startAConversationBanks"]');
     await a.scrollIntoViewIfNeeded(); await p.waitForTimeout(300);
-    await Promise.all([p.waitForURL(SURVEY), a.click()]);
+    await Promise.all([p.waitForURL(START + '#banks'), a.click()]);
     return p.url();
   });
 
@@ -146,14 +146,14 @@ const COPIED = () => {
     r.before = await copied(p);
     await p.evaluate(() => {
       const cfgEl = document.getElementById('bwci-contact-config');
-      const cfg = JSON.parse(cfgEl.textContent); cfg.showPam = false; cfg.showMap = true; cfg.links.contactSurvey = '#'; cfg.links.mediaEmail = 'mailto:media@new.test';
+      const cfg = JSON.parse(cfgEl.textContent); cfg.showPam = false; cfg.showMap = true; cfg.links.startAConversation = '#'; cfg.links.mediaEmail = 'mailto:media@new.test';
       cfgEl.textContent = JSON.stringify(cfg);
       const old = document.getElementById('bwci-contact');
       old.replaceWith(old.cloneNode(true));
     });
     await p.waitForTimeout(300);
     r.afterCopy = Object.assign(await copied(p), await props(p));
-    r.afterCopyLinks = await p.evaluate(() => [...document.querySelectorAll('#bwci-contact main a[data-cnt-link="contactSurvey"], #bwci-contact a[data-cnt-link="mediaEmail"]')].map((a) => a.getAttribute('data-cnt-link') + '=' + a.getAttribute('href') + (a.getAttribute('aria-disabled') ? '(off)' : '')).join(' '));
+    r.afterCopyLinks = await p.evaluate(() => [...document.querySelectorAll('#bwci-contact main a[data-cnt-link="startAConversation"], #bwci-contact a[data-cnt-link="mediaEmail"]')].map((a) => a.getAttribute('data-cnt-link') + '=' + a.getAttribute('href') + (a.getAttribute('aria-disabled') ? '(off)' : '')).join(' '));
     r.owner = await p.evaluate(() => { const a = window.__bwciContact; return !!a && a.instance && a.instance.root === document.getElementById('bwci-contact'); });
     // the old instance's timer does not touch the new root
     await p.waitForTimeout(1700);

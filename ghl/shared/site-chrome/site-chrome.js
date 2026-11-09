@@ -49,6 +49,7 @@ const HREF_KEYS = {
   'Governance.dc.html': 'governance',
   'Corporate%20IR.dc.html': 'corporateIR',
   'Contact.dc.html': 'contact',
+  'Start%20a%20Conversation.dc.html': 'startAConversation',
   'Verify%20a%20Communication.dc.html': 'verify',
   'Legal.dc.html#privacy': 'legalPrivacy',
   'Legal.dc.html#terms': 'legalTerms',
@@ -62,6 +63,11 @@ const HREF_KEYS = {
   'Accessibility.dc.html': 'legalAccessibility',
   'Legal.dc.html#sitemap': 'legalSitemap',
 };
+// The design's "Start a Conversation" button (header, mobile menu) and footer link still point at Contact.dc.html,
+// which is also the "Contact" link. By the owner's decision (9 November 2026) they open the Start a Conversation page
+// through their own key, so "Contact" keeps bwci_url_contact. The header button keeps the design's current-page state.
+const START_KEY = 'startAConversation';
+const START_LABEL = 'Start a Conversation';
 // Runtime configuration supplies GHL Custom Values. Static cross-page fallbacks remain unavailable;
 // page-local overrides, including Main's own section anchors, keep their existing semantics.
 const LINK_DEFAULTS = {
@@ -69,7 +75,7 @@ const LINK_DEFAULTS = {
   smes: '#', investors: '#', impact: '#', today: '#',
   whoWeAre: '#', whoPurpose: '#', whoRole: '#', whoPrinciples: '#', whoStory: '#', leadership: '#',
   privateInvestors: '#', governance: '#', corporateIR: '#', contact: '#', verify: '#',
-  betterWorldImpact: '#',
+  betterWorldImpact: '#', startAConversation: '#',
   governanceBoard: '#', governanceFramework: '#',
   legalPrivacy: '#', legalTerms: '#', legalCookies: '#', legalDisclosures: '#', legalAccessibility: '#', legalSitemap: '#',
 };
@@ -201,7 +207,7 @@ module.exports = function siteChrome(opts) {
     groupsNav,
     '        </ul>',
     '      </nav>',
-    '      <a class="' + H + '__cta" href="' + ctaHref + '" ' + L(keyOf(ctaHref)) + cur('contact') + '>Start a Conversation</a>',
+    '      <a class="' + H + '__cta" href="' + ctaHref + '" ' + L(START_KEY) + cur('contact') + '>Start a Conversation</a>',
     '      <button class="' + H + '__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="' + H + '-drawer" data-' + P + '-menu-open>' + SVG_BURGER + '</button>',
     '    </div>',
     '  </div>',
@@ -219,7 +225,7 @@ module.exports = function siteChrome(opts) {
     utilLinks(' data-' + P + '-menu-close').map((s) => '        ' + s).join('\n'),
     '      </ul>',
     '    </nav>',
-    '    <div class="' + H + '__dfoot"><a class="' + H + '__cta" href="' + ctaHref + '" ' + L(keyOf(ctaHref)) + cur('contact') + ' data-' + P + '-menu-close>Start a Conversation</a></div>',
+    '    <div class="' + H + '__dfoot"><a class="' + H + '__cta" href="' + ctaHref + '" ' + L(START_KEY) + cur('contact') + ' data-' + P + '-menu-close>Start a Conversation</a></div>',
     '  </div>',
     '</header>',
     '</div>',
@@ -372,10 +378,12 @@ module.exports = function siteChrome(opts) {
   const F = P + '-sft';
   const navs = [...ftSrc.matchAll(/<nav aria-label="([^"]+)"><h2>([^<]+)<\/h2><ul>([\s\S]*?)<\/ul><\/nav>/g)];
   if (navs.length !== 4) throw new Error('SiteFooter.dc.html: expected 4 link columns, found ' + navs.length);
-  const linkItems = (ul, ind) => [...ul.matchAll(/<li><a href="([^"]+)">([^<]+)<\/a><\/li>/g)].map((m) => ind + '<li><a href="' + m[1] + '" ' + L(keyOf(m[1])) + '>' + m[2] + '</a></li>').join('\n');
+  const linkItems = (ul, ind) => [...ul.matchAll(/<li><a href="([^"]+)">([^<]+)<\/a><\/li>/g)].map((m) => ind + '<li><a href="' + m[1] + '" ' + L(m[2] === START_LABEL ? START_KEY : keyOf(m[1])) + '>' + m[2] + '</a></li>').join('\n');
   const legalUl = /<nav aria-label="Legal"><ul>([\s\S]*?)<\/ul><\/nav>/.exec(ftSrc);
   const tagline = /<div class="sft__brand">[\s\S]*?<p>([^<]+)<\/p>/.exec(ftSrc)[1];
   const logoStyle = /<div class="sft__brand">\s*<a href="Main.dc.html" style="([^"]*)"/.exec(ftSrc)[1];
+  if ((ftSrc.match(new RegExp('<li><a href="[^"]+">' + START_LABEL + '<\\/a><\\/li>', 'g')) || []).length !== 1) throw new Error('SiteFooter.dc.html: expected one ' + START_LABEL + ' link; review site-chrome.js');
+  if ((hdrSrc.match(new RegExp('>' + START_LABEL + '<', 'g')) || []).length !== 2) throw new Error('SiteHeader.dc.html: expected two ' + START_LABEL + ' buttons; review site-chrome.js');
   const ftScript = between(ftSrc, 'data-dc-script', '</script>');
   if (!/parts = \['Better World Capital Investments PLC'\]/.test(ftScript)) throw new Error('SiteFooter legal line changed; update site-chrome.js');
   const footer = [

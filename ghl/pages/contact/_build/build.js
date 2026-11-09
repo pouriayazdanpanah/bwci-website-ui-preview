@@ -35,6 +35,7 @@ const pageCss = fs.readFileSync(path.join(__dirname, 'src', 'contact.css'), 'utf
 // parts C and E
 const chrome = require('../../../shared/site-chrome/site-chrome')({
   prefix: 'cnt', current: 'contact', breadcrumb: 'contact', content: true, rename, images: ['contactHeroImage'],
+  sections: ['startAConversationSmes', 'startAConversationInvestors', 'startAConversationBanks', 'startAConversationPartners'],
 });
 const siteLinks = require('../../../shared/site-links');
 

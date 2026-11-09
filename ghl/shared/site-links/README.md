@@ -1,5 +1,24 @@
 # Centralized GHL navigation — October 27, 2026
 
+## Start a Conversation links — 9 November 2026
+
+By the owner's decision, every "Start a Conversation" button opens the Start a Conversation page through
+`{{ custom_values.bwci_url_start_a_conversation }}`, a value the owner created in GHL after the supplied export. It sits
+in a new `created` list in `index.js` (owner-created values not in the snapshot; their `fieldKey` spelling follows the
+owner's report until a new export confirms it). Link key: `startAConversation`.
+- Header button, mobile-menu button and footer link (shared chrome, all pages except the 404). Before, they shared
+  `contact` → `bwci_url_contact` with the "Contact" links, so they could not have their own destination.
+- Content buttons: Contact (three, plus four route buttons — page-only sections `startAConversationSmes`, `…Investors`,
+  `…Banks`, `…Partners` = the value plus `#smes`, `#investors`, `#banks`, `#partners`); Platforms, Ecosystem, Financial
+  Engine, Investors & Partners and SMEs & Projects (before, section `startConversation` = Home + `#bwci-cta`, now
+  removed from `sections`); Better World & Impact, Who We Are, Private Investors & Family Offices, Providence Asset
+  Management and Verify a Communication (before, `contact`).
+- `named` is now empty: the survey value `contact` is not linked from any page. "Contact" links still use
+  `bwci_url_contact`.
+
+All 36 blocks change (the inlined section list lost `startConversation`), so every installed block needs re-pasting.
+Evidence: [qa/start-a-conversation/verification.md](qa/start-a-conversation/verification.md).
+
 The 23 page ports / 46 pasteable outputs now use the **43 existing Custom Values** supplied in the
 user's GHL export. Names and `fieldKey` spelling are reused exactly; none are created, renamed or
 updated in GHL. This is a navigation-only migration from merged PR #37 (`a41c1ae`).
@@ -28,8 +47,9 @@ The Contact port (2 November 2026, `feat/ghl-contact`) follows two owner decisio
   `mediaEmail` → `{{ custom_values.bwci_url_media_email }}`. Set them to `mailto:` / `tel:` values. The shareholder
   address reuses the existing `irEmail` (`bwci_url_ir_email`).
 - **Named:** a new `named` list in `index.js` reuses existing values outside the `bwci_url_` naming by their exact
-  name. Its first entry is `contactSurvey` → `{{ custom_values.contact }}`, the external survey form noted below. The
-  Contact page's seven "Start a Conversation" links use it; a named value takes no section fragment.
+  name. Its first entry was `contactSurvey` → `{{ custom_values.contact }}`, the external survey form noted below. The
+  Contact page's seven "Start a Conversation" links used it until 9 November 2026 (see above); a named value takes no
+  section fragment.
   `bwci_url_contact` (the Contact page itself) is unchanged and is still what the header and footer use.
 
 Both lists are resolved at build time; only the Contact block uses these keys, and the 28 other generated pages

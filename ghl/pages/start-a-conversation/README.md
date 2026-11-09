@@ -40,11 +40,17 @@ The page has no images of its own.
 5. If a form is taller or shorter than the frame, adjust `formHeight` / `formHeightPhone` in the config (see below).
 6. Check the published page: each route's form, the route cards, and a link with `#investors` at the end.
 
-**Nothing links to this page yet.** The header's "Start a Conversation" button goes to the Contact page, as in the
-design. Contact's own seven "Start a Conversation" buttons still open the survey form (`{{ custom_values.contact }}`),
-by the owner's 2 November decision. Pointing them here is an open owner decision; it would rebuild Contact and need a
-re-paste of its block. This page would then get a proposed `bwci_url_start_a_conversation`, and Contact's four route
-buttons would open their matching route (`#smes`, `#investors`, `#banks`, `#partners`).
+**Every "Start a Conversation" button links here (owner decision, 9 November 2026)** through the Custom Value
+`{{ custom_values.bwci_url_start_a_conversation }}`, which the owner created in GHL. Set it to this page's published URL.
+- On every page except the 404: the header button, the mobile-menu button and the footer link (link key
+  `startAConversation`; before, they shared the Contact page's `bwci_url_contact`).
+- In page content: Contact (three buttons, plus its four route buttons, which open `#smes`, `#investors`, `#banks` and
+  `#partners`); Platforms, Ecosystem, Financial Engine, Investors & Partners and SMEs & Projects (before, the home
+  page's closing section `#bwci-cta`); Better World & Impact and Who We Are (two each), Private Investors & Family
+  Offices, Providence Asset Management and Verify a Communication (before, the Contact page).
+- The design still links the header and footer buttons to Contact, and the five closing-section buttons to the home
+  page; these GHL links are an owner-approved difference. All 36 blocks need re-pasting once.
+- Investors & Partners and SMEs & Projects also keep their hero buttons, which scroll to their own closing section.
 
 ## Configuration — the JSON block at the top of the paste
 

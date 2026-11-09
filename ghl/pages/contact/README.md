@@ -29,7 +29,7 @@ The page's own image is the hero; the logo is the shared `bwci_img_logo`.
 
 ## Owner decisions applied (2 November 2026)
 
-- **"Start a Conversation" → the survey form.** The design links seven buttons and rows to a "Start a Conversation" page that is not in the export: the hero button, the router's lead button, the four enquiry routes (`#smes`, `#investors`, `#banks`, `#partners`) and the next-step button. All seven use the existing Custom Value `contact` (`{{ custom_values.contact }}`), the owner's external survey form. The section fragments are dropped because the form has no such sections. This is a different value from `bwci_url_contact`, the Contact page itself.
+- **"Start a Conversation" → the Start a Conversation page (updated 9 November 2026).** The design links seven buttons and rows to the Start a Conversation page: the hero button, the router's lead button, the four enquiry routes (`#smes`, `#investors`, `#banks`, `#partners`) and the next-step button. Until 9 November they opened the owner's external survey form (`{{ custom_values.contact }}`, with the route fragments dropped), because that page did not exist yet. Now, by the owner's decision, they use `{{ custom_values.bwci_url_start_a_conversation }}`: the three buttons open the page, and the four routes open it with their route hash, as in the design. The survey value is no longer linked from any page. `bwci_url_contact` (the Contact page itself) is unchanged.
 - **Email and phone → new Custom Values.** The design's `mailto:` and `tel:` links are empty. They become:
   - general enquiries email → proposed `bwci_url_contact_email`;
   - general enquiries phone → proposed `bwci_url_contact_phone`;
@@ -57,7 +57,8 @@ The page's own links:
 
 | Key | Reference | Where |
 |---|---|---|
-| `contactSurvey` | `{{ custom_values.contact }}` (existing survey form) | The seven "Start a Conversation" buttons and enquiry routes |
+| `startAConversation` | `{{ custom_values.bwci_url_start_a_conversation }}` (created by the owner) | The hero button, the router's lead button and the next-step button; also the header button, the mobile-menu button and the footer link |
+| `startAConversationSmes`, `…Investors`, `…Banks`, `…Partners` | the same value plus `#smes`, `#investors`, `#banks`, `#partners` | The four enquiry routes; each opens its route of the Start a Conversation page |
 | `contactEmail` | `{{ custom_values.bwci_url_contact_email }}` — **proposed** | General enquiries email |
 | `contactPhone` | `{{ custom_values.bwci_url_contact_phone }}` — **proposed** | General enquiries phone |
 | `mediaEmail` | `{{ custom_values.bwci_url_media_email }}` — **proposed** | Media enquiries email |
@@ -128,6 +129,7 @@ Shared changes (only this page's block is new; the 28 other generated pages rebu
 ## Validation (local, headless Chromium with real web fonts — not a published GoHighLevel page)
 
 Full record: [qa/verification.md](qa/verification.md).
+The 9 November 2026 "Start a Conversation" link change (survey → Start a Conversation page) is verified separately: [shared record](../../shared/site-links/qa/start-a-conversation/verification.md). The survey-click check below describes the earlier revision.
 - **Pixels:** 0.000 % against the source at all 13 widths (320–2560) at 900 px height, at six widths at 600 and 1200 px, with motion on at 390/1440, in landscape at 844×390 and 568×320, and with the three props flipped at six widths.
 - **DOM:** box and style walk of the five sections, header and footer: 0 differences at 1440, 1024, 768, 390 and 320, and with the props flipped at 1440 and 390.
 - **Behaviour (53 trace lines):** identical to the source. It covers the copy buttons (clipboard, labels, icons, message, reset, switching, keyboard), the "Contact details" jump, the sticky panel, every hover state, keyboard order, the drift, live resize across every breakpoint and reduced motion.
@@ -145,12 +147,12 @@ Full record: [qa/verification.md](qa/verification.md).
 ## Intentional differences and source quirks
 
 - **Unset values:** destinations are marked unavailable instead of linking to design files or to empty `mailto:` / `tel:` links. An unset hero image is left out of the hosted block.
-- **Survey links:** the four route fragments are dropped (owner decision above).
+- **Route links:** none since 9 November 2026 — the four routes keep their fragments, as in the design. (From 2 to 9 November they opened the survey form without them.)
 - **Copied text:** the configured address once set, instead of the placeholder (above).
 - **Smooth scroll:** the source sets `html{scroll-behavior:smooth}` on the whole page, also with reduced motion. The port scrolls only its own "Contact details" link, and jumps at once with reduced motion. The host's `<html>` is left alone.
 - **Paint hold:** the `.bw` paint-hold rule is omitted; the system CSS is inline.
 - **Source quirk, kept as designed:** in "Verify before you reply", the "Verify a Communication" link is white on the white note card (the shared `.hlink` colour), so it only shows on hover or focus. The port reproduces it exactly; fixing it is a design change.
-- **Header:** on this page the header's "Start a Conversation" button is the current page (green), as in the source: it links to Contact (`bwci_url_contact`), not to the survey.
+- **Header:** on this page the header's "Start a Conversation" button keeps the source's current-page state (darker green), because the design passes `current="contact"` to the header on this page. Since 9 November 2026 the button opens the Start a Conversation page (`bwci_url_start_a_conversation`), so on this page it is marked current while linking to another page. Removing that state would change this page's look from the design; it is left for the owner to decide.
 
 ## Rebuild and test
 

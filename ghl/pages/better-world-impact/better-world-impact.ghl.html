@@ -25,6 +25,7 @@
     "governance": "{{ custom_values.bwci_url_governance }}",
     "corporateIR": "{{ custom_values.bwci_url_corporate_ir }}",
     "contact": "{{ custom_values.bwci_url_contact }}",
+    "startAConversation": "{{ custom_values.bwci_url_start_a_conversation }}",
     "verify": "{{ custom_values.bwci_url_verify }}",
     "home": "{{ custom_values.bwci_url_home }}",
     "whoWeAre": "{{ custom_values.bwci_url_who_we_are }}",
@@ -518,7 +519,7 @@
           </li>
         </ul>
       </nav>
-      <a class="bwi-hdr__cta" href="#" data-bwi-link="contact">Start a Conversation</a>
+      <a class="bwi-hdr__cta" href="#" data-bwi-link="startAConversation">Start a Conversation</a>
       <button class="bwi-hdr__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="bwi-hdr-drawer" data-bwi-menu-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
     </div>
   </div>
@@ -563,7 +564,7 @@
         <li><a href="#" data-bwi-link="verify" data-bwi-menu-close><span class="bwi-i">Verify a Communication</span></a></li>
       </ul>
     </nav>
-    <div class="bwi-hdr__dfoot"><a class="bwi-hdr__cta" href="#" data-bwi-link="contact" data-bwi-menu-close>Start a Conversation</a></div>
+    <div class="bwi-hdr__dfoot"><a class="bwi-hdr__cta" href="#" data-bwi-link="startAConversation" data-bwi-menu-close>Start a Conversation</a></div>
   </div>
 </header>
 </div>
@@ -585,7 +586,7 @@
           <p class="bwi-body-lg" style="max-width: 640px">“Better World” is the purpose behind Better World Capital Investments PLC: finance designed from the start around productive, measurable outcomes, not after the fact.</p>
           <div class="bwi-hero-actions">
             <a class="bwi-hero-btn bwi-hero-btn--solid" href="#bwi-approach">Our approach <span aria-hidden="true">↓</span></a>
-            <a class="bwi-hero-btn bwi-hero-btn--ghost" href="#" data-bwi-link="contact">Start a Conversation <span aria-hidden="true">→</span></a>
+            <a class="bwi-hero-btn bwi-hero-btn--ghost" href="#" data-bwi-link="startAConversation">Start a Conversation <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
@@ -787,7 +788,7 @@
         <h2 class="bwi-h1" style="color:#fff; margin-bottom:16px">Start with the need.</h2>
         <p class="bwi-body-lg bwi-ns-d" style="color:var(--text-inverse-muted); max-width:560px; margin:0 auto 32px; text-wrap:pretty">Briefly tell us what your business, project, or organization needs, and we'll pass your inquiry to the person best placed to respond.</p>
         <p class="bwi-body-lg bwi-ns-m" style="color:var(--text-inverse-muted); max-width:560px; margin:0 auto 32px; text-wrap:pretty">Tell us briefly what you need.</p>
-        <a class="bwi-btn bwi-btn--inverse" href="#" data-bwi-link="contact">Start a Conversation <span aria-hidden="true">→</span></a>
+        <a class="bwi-btn bwi-btn--inverse" href="#" data-bwi-link="startAConversation">Start a Conversation <span aria-hidden="true">→</span></a>
       </div>
     </section>
   </main>
@@ -816,7 +817,7 @@
         <li><a href="#" data-bwi-link="platforms">Platforms &amp; Institutions</a></li>
         <li><a href="#" data-bwi-link="smes">SMEs &amp; Projects</a></li>
         <li><a href="#" data-bwi-link="investors">Investors &amp; Partners</a></li>
-        <li><a href="#" data-bwi-link="contact">Start a Conversation</a></li>
+        <li><a href="#" data-bwi-link="startAConversation">Start a Conversation</a></li>
       </ul></nav>
       <nav aria-label="Corporate"><h2>Corporate</h2><ul>
         <li><a href="#" data-bwi-link="governance">Governance</a></li>
@@ -855,7 +856,7 @@
   function siteResolveLinks(cfg) {
     var links = cfg.links;
     if (!links || typeof links !== 'object' || Array.isArray(links)) return;
-    var sections = {"whoPurpose":["whoWeAre","#purpose"],"whoRole":["whoWeAre","#role"],"whoPrinciples":["whoWeAre","#principles"],"whoStory":["whoWeAre","#story"],"governanceFramework":["governance","#gov-framework"],"governanceCommittees":["governance","#gov-committees"],"governanceCapital":["governance","#gov-capital"],"governanceRisk":["governance","#gov-risk"],"governancePerimeter":["governance","#gov-perimeter"],"impact":["home","#bwci-impact"],"today":["home","#bwci-today"],"explorePlatforms":["home","#bwci-platforms"],"startConversation":["home","#bwci-cta"],"financialEngineHero":["financialEngine","#fe-hero"],"ecosystemBlueprint":["ecosystem","#eco-blueprint"],"platformsDirectory":["platforms","#plt-directory"],"platformsRegisters":["platforms","#plt-registers"],"investorsEngage":["investors","#inv-engage"],"investorsParticipation":["investors","#inv-participation"],"investorsRoute":["investors","#inv-route"],"smesEngage":["smes","#sme-engage"],"smesProcess":["smes","#sme-process"],"smesSituation":["smes","#sme-situation"]};
+    var sections = {"whoPurpose":["whoWeAre","#purpose"],"whoRole":["whoWeAre","#role"],"whoPrinciples":["whoWeAre","#principles"],"whoStory":["whoWeAre","#story"],"governanceFramework":["governance","#gov-framework"],"governanceCommittees":["governance","#gov-committees"],"governanceCapital":["governance","#gov-capital"],"governanceRisk":["governance","#gov-risk"],"governancePerimeter":["governance","#gov-perimeter"],"impact":["home","#bwci-impact"],"today":["home","#bwci-today"],"explorePlatforms":["home","#bwci-platforms"],"financialEngineHero":["financialEngine","#fe-hero"],"ecosystemBlueprint":["ecosystem","#eco-blueprint"],"platformsDirectory":["platforms","#plt-directory"],"platformsRegisters":["platforms","#plt-registers"],"investorsEngage":["investors","#inv-engage"],"investorsParticipation":["investors","#inv-participation"],"investorsRoute":["investors","#inv-route"],"smesEngage":["smes","#sme-engage"],"smesProcess":["smes","#sme-process"],"smesSituation":["smes","#sme-situation"]};
     function pageAvailable(value) {
       return typeof value === 'string' && siteLinkAvailable(value.trim()) && /^(?:https?:\/\/|\/(?!\/))/.test(value.trim());
     }

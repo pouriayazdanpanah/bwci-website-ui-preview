@@ -161,9 +161,9 @@ links in the markup and the default loop settings (the image then stays empty).
 set them here once the live GHL URLs exist. No URL was invented for them.
  `loop.defaultLens` | `"full"` | Loop lens on load: `full`, `sme`, `investor` or `partner` (source prop `defaultLens`); anything else → `full` |
 | `loop.intervalSec` | `4` | Seconds per autoplay step (source prop `intervalSec`); values outside 1–60 → 4 |
-| `links.startConversation` | `/#bwci-cta` | "Start a conversation" button in the last section (source `Main.dc.html#cta`) |
+| `links.startAConversation` | `{{ custom_values.bwci_url_start_a_conversation }}` | "Start a conversation" button in the last section, plus the header, mobile-menu and footer buttons. Owner decision of 9 November 2026: the Start a Conversation page (the source links the section button to `Main.dc.html#cta`; this setting was `links.startConversation` → `/#bwci-cta` until then) |
 
-`/#bwci-cta` is the Main port's closing section. Links within this page are fixed: the hero buttons go to
+`/#bwci-cta` is the Main port's closing section (no longer linked from this page since 9 November 2026). Links within this page are fixed: the hero buttons go to
 `#eco-blueprint` and `#eco-compare`. Header, drawer and footer items for this page use its configured route (`links.ecosystem`) and are marked `aria-current="page"`, as in the source. Page ids carry an `eco-` prefix
 (`#eco-hero`, `#eco-architecture`, `#eco-blueprint`, `#eco-layers`, `#eco-mechanics`, `#eco-participants`,
 `#eco-flows`, `#eco-compare`, `#eco-governance`, `#eco-engage`).

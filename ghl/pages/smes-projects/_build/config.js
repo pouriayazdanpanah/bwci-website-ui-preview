@@ -45,7 +45,7 @@ const CFG_RE = /(<script type="application\/json" id="bwci-smes-projects-config"
     utilH: await page.evaluate(() => getComputedStyle(document.getElementById('bwci-smes-projects')).getPropertyValue('--util-h')),
     heroTop: await page.evaluate(() => Math.round(document.getElementById('sme-hero').getBoundingClientRect().top)),
   }));
-  await run('links override', withCfg(PLAIN, (c) => { c.links.ecosystem = 'https://example.com/eco'; c.links.startConversation = '/contact'; return c; }), async (page) => (await hrefs(page)).filter((h) => /^(ecosystem|startConversation)=/.test(h)));
+  await run('links override', withCfg(PLAIN, (c) => { c.links.ecosystem = 'https://example.com/eco'; c.links.startAConversation = '/start-a-conversation'; return c; }), async (page) => (await hrefs(page)).filter((h) => /^(ecosystem|startAConversation)=/.test(h)));
   await run('broken JSON', withCfg(PLAIN, '{ this is not json'), async (page) => ({
     header: !!(await page.$('#bwci-smes-projects .sme-hdr')),
     links: (await hrefs(page)).slice(0, 3),

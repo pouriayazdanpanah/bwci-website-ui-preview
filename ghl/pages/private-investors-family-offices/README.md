@@ -47,7 +47,7 @@ The page's own links all reuse existing or already proposed values:
 - `platforms`: the three other architecture cards;
 - `betterWorldImpact`: the impact card;
 - `governance`, `leadership`, `verify`: the governance links;
-- `contact`: "Start a Conversation".
+- `startAConversation`: "Start a Conversation" (since 9 November 2026 the Start a Conversation page, `bwci_url_start_a_conversation`; before, `contact`, the Contact page).
 
 Custom Values to create (GHL accepts one object per POST; check that each returned `fieldKey` matches the reference above). The bodies are also in `ghl/shared/site-images/bwci-image-custom-values-to-create.json`:
 

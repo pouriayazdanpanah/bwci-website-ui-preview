@@ -1,0 +1,35 @@
+{
+ "default (inline image)": {
+  "header": true,
+  "footer": true,
+  "img": "data:image/webp;base64 1400x511",
+  "links": 26
+ },
+ "hosted placeholder": {
+  "imgSrc": null,
+  "placeholderRequested": false
+ },
+ "hosted real URL": {
+  "img": "sme-hero-flow.webp 1400x511"
+ },
+ "showHeader/showFooter false": {
+  "header": false,
+  "footer": false,
+  "utilH": "0px",
+  "heroTop": 0
+ },
+ "links override": [
+  "ecosystem=https://example.com/eco",
+  "startAConversation=/start-a-conversation"
+ ],
+ "broken JSON": {
+  "header": true,
+  "links": [
+   "governance=#",
+   "corporateIR=#",
+   "contact=#"
+  ],
+  "stillWorks": "Providence Asset Management Ltd*"
+ }
+}
+errors []

@@ -29,6 +29,7 @@
     "governance": "{{ custom_values.bwci_url_governance }}",
     "corporateIR": "{{ custom_values.bwci_url_corporate_ir }}",
     "contact": "{{ custom_values.bwci_url_contact }}",
+    "startAConversation": "{{ custom_values.bwci_url_start_a_conversation }}",
     "verify": "{{ custom_values.bwci_url_verify }}",
     "whoPurpose": "{{ custom_values.bwci_url_who_we_are }}#purpose",
     "whoRole": "{{ custom_values.bwci_url_who_we_are }}#role",

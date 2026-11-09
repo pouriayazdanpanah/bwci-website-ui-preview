@@ -1,0 +1,76 @@
+PASS better-world-impact/better-world-impact.ghl.html  start-a-conversation links: 5  contact links: 3
+PASS better-world-impact/better-world-impact.inline.ghl.html  start-a-conversation links: 5  contact links: 3
+PASS contact/contact.ghl.html  start-a-conversation links: 10  contact links: 3
+PASS contact/contact.inline.ghl.html  start-a-conversation links: 10  contact links: 3
+PASS corporate-ir-company-information/corporate-ir-company-information.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS corporate-ir-company-information/corporate-ir-company-information.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS corporate-ir-legal-notices/corporate-ir-legal-notices.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS corporate-ir-legal-notices/corporate-ir-legal-notices.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS corporate-ir-regulatory/corporate-ir-regulatory.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS corporate-ir-regulatory/corporate-ir-regulatory.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS corporate-ir-reports-documents/corporate-ir-reports-documents.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS corporate-ir-reports-documents/corporate-ir-reports-documents.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS corporate-ir-shareholders/corporate-ir-shareholders.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS corporate-ir-shareholders/corporate-ir-shareholders.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS corporate-ir/corporate-ir.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS corporate-ir/corporate-ir.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS ecosystem/ecosystem.ghl.html  start-a-conversation links: 4  contact links: 3
+PASS ecosystem/ecosystem.inline.ghl.html  start-a-conversation links: 4  contact links: 3
+PASS financial-engine/financial-engine.ghl.html  start-a-conversation links: 4  contact links: 3
+PASS financial-engine/financial-engine.inline.ghl.html  start-a-conversation links: 4  contact links: 3
+PASS governance-board/governance-board.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS governance-board/governance-board.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS governance-leadership/governance-leadership.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS governance-leadership/governance-leadership.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS governance/governance.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS governance/governance.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS investors-partners/investors-partners.ghl.html  start-a-conversation links: 4 (+1 same-page jump)  contact links: 3
+PASS investors-partners/investors-partners.inline.ghl.html  start-a-conversation links: 4 (+1 same-page jump)  contact links: 3
+PASS legal-accessibility/legal-accessibility.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS legal-accessibility/legal-accessibility.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS legal-cookies/legal-cookies.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS legal-cookies/legal-cookies.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS legal-disclosures/legal-disclosures.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS legal-disclosures/legal-disclosures.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS legal-privacy/legal-privacy.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS legal-privacy/legal-privacy.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS legal-terms/legal-terms.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS legal-terms/legal-terms.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS main/main.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS main/main.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS page-not-found/page-not-found.ghl.html  start-a-conversation links: 0  contact links: 0
+PASS page-not-found/page-not-found.inline.ghl.html  start-a-conversation links: 0  contact links: 0
+PASS platform-today/platform-today.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS platform-today/platform-today.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS platforms/platforms.ghl.html  start-a-conversation links: 4  contact links: 3
+PASS platforms/platforms.inline.ghl.html  start-a-conversation links: 4  contact links: 3
+PASS private-investors-family-offices/private-investors-family-offices.ghl.html  start-a-conversation links: 4  contact links: 3
+PASS private-investors-family-offices/private-investors-family-offices.inline.ghl.html  start-a-conversation links: 4  contact links: 3
+PASS profile-agnes-gradzewicz/profile-agnes-gradzewicz.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS profile-agnes-gradzewicz/profile-agnes-gradzewicz.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS profile-alexander-alegria-saif/profile-alexander-alegria-saif.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS profile-alexander-alegria-saif/profile-alexander-alegria-saif.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS profile-christie-osarenren/profile-christie-osarenren.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS profile-christie-osarenren/profile-christie-osarenren.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS profile-ewa-dudek/profile-ewa-dudek.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS profile-ewa-dudek/profile-ewa-dudek.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS profile-farhad-reyazat/profile-farhad-reyazat.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS profile-farhad-reyazat/profile-farhad-reyazat.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS profile-gabriella-karlova/profile-gabriella-karlova.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS profile-gabriella-karlova/profile-gabriella-karlova.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS profile-richard-werner/profile-richard-werner.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS profile-richard-werner/profile-richard-werner.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS providence-asset-management/providence-asset-management.ghl.html  start-a-conversation links: 4  contact links: 3
+PASS providence-asset-management/providence-asset-management.inline.ghl.html  start-a-conversation links: 4  contact links: 3
+PASS smes-projects/smes-projects.ghl.html  start-a-conversation links: 4 (+1 same-page jump)  contact links: 3
+PASS smes-projects/smes-projects.inline.ghl.html  start-a-conversation links: 4 (+1 same-page jump)  contact links: 3
+PASS start-a-conversation/start-a-conversation.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS start-a-conversation/start-a-conversation.inline.ghl.html  start-a-conversation links: 3  contact links: 3
+PASS verify-a-communication/verify-a-communication.ghl.html  start-a-conversation links: 4  contact links: 3
+PASS verify-a-communication/verify-a-communication.inline.ghl.html  start-a-conversation links: 4  contact links: 3
+PASS who-we-are/who-we-are.ghl.html  start-a-conversation links: 5  contact links: 3
+PASS who-we-are/who-we-are.inline.ghl.html  start-a-conversation links: 5  contact links: 3
+PASS unset value contact/contact.ghl.html: 10 buttons disabled, Contact still live
+PASS unset value governance/governance.inline.ghl.html: 3 buttons disabled, Contact still live
+PASS unset value main/main.ghl.html: 3 buttons disabled, Contact still live
+PASS all 72 outputs + unset-value checks

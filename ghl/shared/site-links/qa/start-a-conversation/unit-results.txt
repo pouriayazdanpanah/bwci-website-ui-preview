@@ -1,0 +1,209 @@
+PASS whoPurpose safely disabled for "#"
+PASS whoPurpose safely disabled for ""
+PASS whoPurpose safely disabled for "  "
+PASS whoPurpose safely disabled for "{{ custom_values.bwci_url_who_we_are }}"
+PASS whoPurpose safely disabled for "javascript:alert(1)"
+PASS whoPurpose safely disabled for "//wrong.test"
+PASS whoPurpose preserves query and composes real fragment
+PASS whoPurpose preserves query and composes real fragment
+PASS whoPurpose explicit override is preserved
+PASS whoRole safely disabled for "#"
+PASS whoRole safely disabled for ""
+PASS whoRole safely disabled for "  "
+PASS whoRole safely disabled for "{{ custom_values.bwci_url_who_we_are }}"
+PASS whoRole safely disabled for "javascript:alert(1)"
+PASS whoRole safely disabled for "//wrong.test"
+PASS whoRole preserves query and composes real fragment
+PASS whoRole preserves query and composes real fragment
+PASS whoRole explicit override is preserved
+PASS whoPrinciples safely disabled for "#"
+PASS whoPrinciples safely disabled for ""
+PASS whoPrinciples safely disabled for "  "
+PASS whoPrinciples safely disabled for "{{ custom_values.bwci_url_who_we_are }}"
+PASS whoPrinciples safely disabled for "javascript:alert(1)"
+PASS whoPrinciples safely disabled for "//wrong.test"
+PASS whoPrinciples preserves query and composes real fragment
+PASS whoPrinciples preserves query and composes real fragment
+PASS whoPrinciples explicit override is preserved
+PASS whoStory safely disabled for "#"
+PASS whoStory safely disabled for ""
+PASS whoStory safely disabled for "  "
+PASS whoStory safely disabled for "{{ custom_values.bwci_url_who_we_are }}"
+PASS whoStory safely disabled for "javascript:alert(1)"
+PASS whoStory safely disabled for "//wrong.test"
+PASS whoStory preserves query and composes real fragment
+PASS whoStory preserves query and composes real fragment
+PASS whoStory explicit override is preserved
+PASS governanceFramework safely disabled for "#"
+PASS governanceFramework safely disabled for ""
+PASS governanceFramework safely disabled for "  "
+PASS governanceFramework safely disabled for "{{ custom_values.bwci_url_governance }}"
+PASS governanceFramework safely disabled for "javascript:alert(1)"
+PASS governanceFramework safely disabled for "//wrong.test"
+PASS governanceFramework preserves query and composes real fragment
+PASS governanceFramework preserves query and composes real fragment
+PASS governanceFramework explicit override is preserved
+PASS governanceCommittees safely disabled for "#"
+PASS governanceCommittees safely disabled for ""
+PASS governanceCommittees safely disabled for "  "
+PASS governanceCommittees safely disabled for "{{ custom_values.bwci_url_governance }}"
+PASS governanceCommittees safely disabled for "javascript:alert(1)"
+PASS governanceCommittees safely disabled for "//wrong.test"
+PASS governanceCommittees preserves query and composes real fragment
+PASS governanceCommittees preserves query and composes real fragment
+PASS governanceCommittees explicit override is preserved
+PASS governanceCapital safely disabled for "#"
+PASS governanceCapital safely disabled for ""
+PASS governanceCapital safely disabled for "  "
+PASS governanceCapital safely disabled for "{{ custom_values.bwci_url_governance }}"
+PASS governanceCapital safely disabled for "javascript:alert(1)"
+PASS governanceCapital safely disabled for "//wrong.test"
+PASS governanceCapital preserves query and composes real fragment
+PASS governanceCapital preserves query and composes real fragment
+PASS governanceCapital explicit override is preserved
+PASS governanceRisk safely disabled for "#"
+PASS governanceRisk safely disabled for ""
+PASS governanceRisk safely disabled for "  "
+PASS governanceRisk safely disabled for "{{ custom_values.bwci_url_governance }}"
+PASS governanceRisk safely disabled for "javascript:alert(1)"
+PASS governanceRisk safely disabled for "//wrong.test"
+PASS governanceRisk preserves query and composes real fragment
+PASS governanceRisk preserves query and composes real fragment
+PASS governanceRisk explicit override is preserved
+PASS governancePerimeter safely disabled for "#"
+PASS governancePerimeter safely disabled for ""
+PASS governancePerimeter safely disabled for "  "
+PASS governancePerimeter safely disabled for "{{ custom_values.bwci_url_governance }}"
+PASS governancePerimeter safely disabled for "javascript:alert(1)"
+PASS governancePerimeter safely disabled for "//wrong.test"
+PASS governancePerimeter preserves query and composes real fragment
+PASS governancePerimeter preserves query and composes real fragment
+PASS governancePerimeter explicit override is preserved
+PASS impact safely disabled for "#"
+PASS impact safely disabled for ""
+PASS impact safely disabled for "  "
+PASS impact safely disabled for "{{ custom_values.bwci_url_home }}"
+PASS impact safely disabled for "javascript:alert(1)"
+PASS impact safely disabled for "//wrong.test"
+PASS impact preserves query and composes real fragment
+PASS impact preserves query and composes real fragment
+PASS impact explicit override is preserved
+PASS today safely disabled for "#"
+PASS today safely disabled for ""
+PASS today safely disabled for "  "
+PASS today safely disabled for "{{ custom_values.bwci_url_home }}"
+PASS today safely disabled for "javascript:alert(1)"
+PASS today safely disabled for "//wrong.test"
+PASS today preserves query and composes real fragment
+PASS today preserves query and composes real fragment
+PASS today explicit override is preserved
+PASS explorePlatforms safely disabled for "#"
+PASS explorePlatforms safely disabled for ""
+PASS explorePlatforms safely disabled for "  "
+PASS explorePlatforms safely disabled for "{{ custom_values.bwci_url_home }}"
+PASS explorePlatforms safely disabled for "javascript:alert(1)"
+PASS explorePlatforms safely disabled for "//wrong.test"
+PASS explorePlatforms preserves query and composes real fragment
+PASS explorePlatforms preserves query and composes real fragment
+PASS explorePlatforms explicit override is preserved
+PASS financialEngineHero safely disabled for "#"
+PASS financialEngineHero safely disabled for ""
+PASS financialEngineHero safely disabled for "  "
+PASS financialEngineHero safely disabled for "{{ custom_values.bwci_url_financial_engine }}"
+PASS financialEngineHero safely disabled for "javascript:alert(1)"
+PASS financialEngineHero safely disabled for "//wrong.test"
+PASS financialEngineHero preserves query and composes real fragment
+PASS financialEngineHero preserves query and composes real fragment
+PASS financialEngineHero explicit override is preserved
+PASS ecosystemBlueprint safely disabled for "#"
+PASS ecosystemBlueprint safely disabled for ""
+PASS ecosystemBlueprint safely disabled for "  "
+PASS ecosystemBlueprint safely disabled for "{{ custom_values.bwci_url_ecosystem }}"
+PASS ecosystemBlueprint safely disabled for "javascript:alert(1)"
+PASS ecosystemBlueprint safely disabled for "//wrong.test"
+PASS ecosystemBlueprint preserves query and composes real fragment
+PASS ecosystemBlueprint preserves query and composes real fragment
+PASS ecosystemBlueprint explicit override is preserved
+PASS platformsDirectory safely disabled for "#"
+PASS platformsDirectory safely disabled for ""
+PASS platformsDirectory safely disabled for "  "
+PASS platformsDirectory safely disabled for "{{ custom_values.bwci_url_platforms }}"
+PASS platformsDirectory safely disabled for "javascript:alert(1)"
+PASS platformsDirectory safely disabled for "//wrong.test"
+PASS platformsDirectory preserves query and composes real fragment
+PASS platformsDirectory preserves query and composes real fragment
+PASS platformsDirectory explicit override is preserved
+PASS platformsRegisters safely disabled for "#"
+PASS platformsRegisters safely disabled for ""
+PASS platformsRegisters safely disabled for "  "
+PASS platformsRegisters safely disabled for "{{ custom_values.bwci_url_platforms }}"
+PASS platformsRegisters safely disabled for "javascript:alert(1)"
+PASS platformsRegisters safely disabled for "//wrong.test"
+PASS platformsRegisters preserves query and composes real fragment
+PASS platformsRegisters preserves query and composes real fragment
+PASS platformsRegisters explicit override is preserved
+PASS investorsEngage safely disabled for "#"
+PASS investorsEngage safely disabled for ""
+PASS investorsEngage safely disabled for "  "
+PASS investorsEngage safely disabled for "{{ custom_values.bwci_url_investors_partners }}"
+PASS investorsEngage safely disabled for "javascript:alert(1)"
+PASS investorsEngage safely disabled for "//wrong.test"
+PASS investorsEngage preserves query and composes real fragment
+PASS investorsEngage preserves query and composes real fragment
+PASS investorsEngage explicit override is preserved
+PASS investorsParticipation safely disabled for "#"
+PASS investorsParticipation safely disabled for ""
+PASS investorsParticipation safely disabled for "  "
+PASS investorsParticipation safely disabled for "{{ custom_values.bwci_url_investors_partners }}"
+PASS investorsParticipation safely disabled for "javascript:alert(1)"
+PASS investorsParticipation safely disabled for "//wrong.test"
+PASS investorsParticipation preserves query and composes real fragment
+PASS investorsParticipation preserves query and composes real fragment
+PASS investorsParticipation explicit override is preserved
+PASS investorsRoute safely disabled for "#"
+PASS investorsRoute safely disabled for ""
+PASS investorsRoute safely disabled for "  "
+PASS investorsRoute safely disabled for "{{ custom_values.bwci_url_investors_partners }}"
+PASS investorsRoute safely disabled for "javascript:alert(1)"
+PASS investorsRoute safely disabled for "//wrong.test"
+PASS investorsRoute preserves query and composes real fragment
+PASS investorsRoute preserves query and composes real fragment
+PASS investorsRoute explicit override is preserved
+PASS smesEngage safely disabled for "#"
+PASS smesEngage safely disabled for ""
+PASS smesEngage safely disabled for "  "
+PASS smesEngage safely disabled for "{{ custom_values.bwci_url_smes_projects }}"
+PASS smesEngage safely disabled for "javascript:alert(1)"
+PASS smesEngage safely disabled for "//wrong.test"
+PASS smesEngage preserves query and composes real fragment
+PASS smesEngage preserves query and composes real fragment
+PASS smesEngage explicit override is preserved
+PASS smesProcess safely disabled for "#"
+PASS smesProcess safely disabled for ""
+PASS smesProcess safely disabled for "  "
+PASS smesProcess safely disabled for "{{ custom_values.bwci_url_smes_projects }}"
+PASS smesProcess safely disabled for "javascript:alert(1)"
+PASS smesProcess safely disabled for "//wrong.test"
+PASS smesProcess preserves query and composes real fragment
+PASS smesProcess preserves query and composes real fragment
+PASS smesProcess explicit override is preserved
+PASS smesSituation safely disabled for "#"
+PASS smesSituation safely disabled for ""
+PASS smesSituation safely disabled for "  "
+PASS smesSituation safely disabled for "{{ custom_values.bwci_url_smes_projects }}"
+PASS smesSituation safely disabled for "javascript:alert(1)"
+PASS smesSituation safely disabled for "//wrong.test"
+PASS smesSituation preserves query and composes real fragment
+PASS smesSituation preserves query and composes real fragment
+PASS smesSituation explicit override is preserved
+PASS Main local impact/today work with unavailable page URL
+PASS unresolved token inside an otherwise valid URL is disabled
+PASS mailto, tel, external and local anchors remain usable
+PASS empty/non-string input values are unavailable
+PASS exact returned fieldKey spelling is retained in JSON
+PASS named existing values keep their exact key and take no section
+PASS owner-created startAConversation is its own value, not the Contact page or the survey
+PASS Contact route buttons compose the Start a Conversation value with their route hash
+PASS proposed values follow bwci_url_ naming and do not exist yet
+PASS page-only section contactDetails composes the Contact value and reaches only declaring pages
+PASS 208 navigation boundary checks

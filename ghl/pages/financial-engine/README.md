@@ -156,7 +156,7 @@ links in the markup (the images then stay empty).
 | `links.betterWorldImpact` | `#` | Independent Better World & Impact page (header/drawer/footer); configure the verified destination |
 | `links.impact`, `links.today` | `/#bwci-impact`, `/#bwci-today` | Legacy homepage Impact setting (currently unused); Today remains the homepage section link |
 | `links.explorePlatforms` | `/#bwci-platforms` | Capabilities "Explore Platforms" (source `Main.dc.html#platforms`) |
-| `links.startConversation` | `/#bwci-cta` | Closing section button (source `Main.dc.html#cta`) |
+| `links.startAConversation` | `{{ custom_values.bwci_url_start_a_conversation }}` | Closing section button, plus the header, mobile-menu and footer buttons. Owner decision of 9 November 2026: the Start a Conversation page (the source links the section button to `Main.dc.html#cta`; this setting was `links.startConversation` → `/#bwci-cta` until then) |
 | `links.whoWeAre`, `whoPurpose`, `whoRole`, `whoPrinciples`, `whoStory`, `leadership`, `privateInvestors`, `governance`, `corporateIR`, `contact`, `verify`, `legalPrivacy`, `legalTerms`, `legalCookies`, `legalDisclosures`, `legalAccessibility`, `legalSitemap` | `#` | Who We Are menu, Leadership, Private Investors, Governance, Corporate/IR, Contact, Verify, legal links — **unresolved** (see below) |
 
 **Unresolved routes.** The design links the keys marked unresolved to pages that have no GHL port yet

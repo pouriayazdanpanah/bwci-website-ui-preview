@@ -34,6 +34,7 @@
     "governance": "{{ custom_values.bwci_url_governance }}",
     "corporateIR": "{{ custom_values.bwci_url_corporate_ir }}",
     "contact": "{{ custom_values.bwci_url_contact }}",
+    "startAConversation": "{{ custom_values.bwci_url_start_a_conversation }}",
     "verify": "{{ custom_values.bwci_url_verify }}",
     "whoPurpose": "{{ custom_values.bwci_url_who_we_are }}#purpose",
     "whoRole": "{{ custom_values.bwci_url_who_we_are }}#role",
@@ -48,7 +49,6 @@
     "smesSituation": "{{ custom_values.bwci_url_smes_projects }}#sme-situation",
     "platformsDirectory": "{{ custom_values.bwci_url_platforms }}#plt-directory",
     "ecosystemBlueprint": "{{ custom_values.bwci_url_ecosystem }}#eco-blueprint",
-    "startConversation": "{{ custom_values.bwci_url_home }}#bwci-cta",
     "betterWorldImpact": "{{ custom_values.bwci_url_better_world_impact }}"
   },
   "imageFallbacks": {
@@ -617,7 +617,7 @@
           </li>
         </ul>
       </nav>
-      <a class="inv-hdr__cta" href="#" data-inv-link="contact">Start a Conversation</a>
+      <a class="inv-hdr__cta" href="#" data-inv-link="startAConversation">Start a Conversation</a>
       <button class="inv-hdr__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="inv-hdr-drawer" data-inv-menu-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
     </div>
   </div>
@@ -662,7 +662,7 @@
         <li><a href="#" data-inv-link="verify" data-inv-menu-close><span class="inv-i">Verify a Communication</span></a></li>
       </ul>
     </nav>
-    <div class="inv-hdr__dfoot"><a class="inv-hdr__cta" href="#" data-inv-link="contact" data-inv-menu-close>Start a Conversation</a></div>
+    <div class="inv-hdr__dfoot"><a class="inv-hdr__cta" href="#" data-inv-link="startAConversation" data-inv-menu-close>Start a Conversation</a></div>
   </div>
 </header>
 </div>
@@ -931,7 +931,7 @@
     <div class="inv-container">
       <h2 class="inv-h1" style="color:#fff; margin-bottom:16px">Start a conversation</h2>
       <p class="inv-body-lg" style="color:var(--text-inverse-muted); max-width:560px; margin:0 auto 32px; text-wrap:pretty">Tell us about your mandate or capabilities. We’ll explore with you whether, and where, it could connect with productive activity across the ecosystem.</p>
-      <a class="inv-btn inv-btn--inverse" href="#" data-inv-link="startConversation">Start a conversation <span aria-hidden="true">→</span></a>
+      <a class="inv-btn inv-btn--inverse" href="#" data-inv-link="startAConversation">Start a conversation <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
@@ -964,7 +964,7 @@
         <li><a href="#" data-inv-link="platforms">Platforms &amp; Institutions</a></li>
         <li><a href="#" data-inv-link="smes">SMEs &amp; Projects</a></li>
         <li><a href="#" data-inv-link="investors">Investors &amp; Partners</a></li>
-        <li><a href="#" data-inv-link="contact">Start a Conversation</a></li>
+        <li><a href="#" data-inv-link="startAConversation">Start a Conversation</a></li>
       </ul></nav>
       <nav aria-label="Corporate"><h2>Corporate</h2><ul>
         <li><a href="#" data-inv-link="governance">Governance</a></li>
@@ -1150,7 +1150,7 @@
   function siteResolveLinks(cfg) {
     var links = cfg.links;
     if (!links || typeof links !== 'object' || Array.isArray(links)) return;
-    var sections = {"whoPurpose":["whoWeAre","#purpose"],"whoRole":["whoWeAre","#role"],"whoPrinciples":["whoWeAre","#principles"],"whoStory":["whoWeAre","#story"],"governanceFramework":["governance","#gov-framework"],"governanceCommittees":["governance","#gov-committees"],"governanceCapital":["governance","#gov-capital"],"governanceRisk":["governance","#gov-risk"],"governancePerimeter":["governance","#gov-perimeter"],"impact":["home","#bwci-impact"],"today":["home","#bwci-today"],"explorePlatforms":["home","#bwci-platforms"],"startConversation":["home","#bwci-cta"],"financialEngineHero":["financialEngine","#fe-hero"],"ecosystemBlueprint":["ecosystem","#eco-blueprint"],"platformsDirectory":["platforms","#plt-directory"],"platformsRegisters":["platforms","#plt-registers"],"investorsEngage":["investors","#inv-engage"],"investorsParticipation":["investors","#inv-participation"],"investorsRoute":["investors","#inv-route"],"smesEngage":["smes","#sme-engage"],"smesProcess":["smes","#sme-process"],"smesSituation":["smes","#sme-situation"]};
+    var sections = {"whoPurpose":["whoWeAre","#purpose"],"whoRole":["whoWeAre","#role"],"whoPrinciples":["whoWeAre","#principles"],"whoStory":["whoWeAre","#story"],"governanceFramework":["governance","#gov-framework"],"governanceCommittees":["governance","#gov-committees"],"governanceCapital":["governance","#gov-capital"],"governanceRisk":["governance","#gov-risk"],"governancePerimeter":["governance","#gov-perimeter"],"impact":["home","#bwci-impact"],"today":["home","#bwci-today"],"explorePlatforms":["home","#bwci-platforms"],"financialEngineHero":["financialEngine","#fe-hero"],"ecosystemBlueprint":["ecosystem","#eco-blueprint"],"platformsDirectory":["platforms","#plt-directory"],"platformsRegisters":["platforms","#plt-registers"],"investorsEngage":["investors","#inv-engage"],"investorsParticipation":["investors","#inv-participation"],"investorsRoute":["investors","#inv-route"],"smesEngage":["smes","#sme-engage"],"smesProcess":["smes","#sme-process"],"smesSituation":["smes","#sme-situation"]};
     function pageAvailable(value) {
       return typeof value === 'string' && siteLinkAvailable(value.trim()) && /^(?:https?:\/\/|\/(?!\/))/.test(value.trim());
     }

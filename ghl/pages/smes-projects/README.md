@@ -148,7 +148,7 @@ links in the markup (the image then stays empty).
 | `links.betterWorldImpact` | `#` | Independent Better World & Impact page (header/drawer/footer); configure the verified destination |
 | `links.impact`, `links.today` | `/#bwci-impact`, `/#bwci-today` | Legacy homepage Impact setting (currently unused); Today remains the homepage section link |
 | `links.whoWeAre`, `whoPurpose`, `whoRole`, `whoPrinciples`, `whoStory`, `leadership`, `privateInvestors`, `governance`, `corporateIR`, `contact`, `verify`, `legalPrivacy`, `legalTerms`, `legalCookies`, `legalDisclosures`, `legalAccessibility`, `legalSitemap` | `#` | Who We Are menu, Leadership, Private Investors, Governance, Corporate/IR, Contact, Verify, legal links — **unresolved** (see below) |
-| `links.startConversation` | `/#bwci-cta` | "Start a conversation" button in the last section (source `Main.dc.html#cta`) |
+| `links.startAConversation` | `{{ custom_values.bwci_url_start_a_conversation }}` | "Start a conversation" button in the last section, plus the header, mobile-menu and footer buttons. Owner decision of 9 November 2026: the Start a Conversation page (the source links the section button to `Main.dc.html#cta`; this setting was `links.startConversation` → `/#bwci-cta` until then) |
 
 
 **Unresolved routes.** The design links the keys marked unresolved to pages that have no GHL port yet
@@ -156,7 +156,7 @@ links in the markup (the image then stays empty).
 (Who We Are, Private Investors, Corporate IR, Contact, Verify a Communication, Legal). They default to `#`;
 set them here once the live GHL URLs exist. No URL was invented for them.
 
-`/#bwci-cta` is the Main port's closing section. Links within this page are fixed: "Discuss this need" and
+`/#bwci-cta` is the Main port's closing section (no longer linked from this page since 9 November 2026). Links within this page are fixed: "Discuss this need" and
 the hero's "Start a conversation" go to `#sme-engage` (source `#engage`); "See how we approach your need"
 goes to `#sme-process`; each situation card's link goes to `#sme-perimeters`. Header, drawer and footer items for this page use its configured route (`links.smes`) and are marked `aria-current="page"`, as in the source. Page ids carry an `sme-` prefix
 (`#sme-hero`, `#sme-situation`, `#sme-process`, `#sme-perimeters`, `#sme-principles`, `#sme-engage`).
