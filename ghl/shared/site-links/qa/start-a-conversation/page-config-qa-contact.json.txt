@@ -1,0 +1,181 @@
+{
+ "hosted literal": {
+  "page": "home=#(off) startAConversation=#(off) startAConversation=#(off) startAConversationSmes=#(off) startAConversationInvestors=#(off) startAConversationBanks=#(off) startAConversationPartners=#(off) contactEmail=#(off) contactPhone=#(off) mediaEmail=#(off) corporateIR=#(off) irEmail=#(off) providenceAssetManagement=#(off) verify=#(off) startAConversation=#(off) governance=#(off) corporateIR=#(off)",
+  "header": "contact=#(off) contact=#(off)",
+  "logo": "none nosrc",
+  "hero": "hidden none nosrc",
+  "raw": false,
+  "imageRequests": 0
+ },
+ "inline literal": {
+  "page": "home=#(off) startAConversation=#(off) startAConversation=#(off) startAConversationSmes=#(off) startAConversationInvestors=#(off) startAConversationBanks=#(off) startAConversationPartners=#(off) contactEmail=#(off) contactPhone=#(off) mediaEmail=#(off) corporateIR=#(off) irEmail=#(off) providenceAssetManagement=#(off) verify=#(off) startAConversation=#(off) governance=#(off) corporateIR=#(off)",
+  "header": "contact=#(off) contact=#(off)",
+  "logo": "ok 640 data",
+  "hero": "ok 1774 data",
+  "raw": false
+ },
+ "hosted all #": {
+  "page": "home=#(off) startAConversation=#(off) startAConversation=#(off) startAConversationSmes=#(off) startAConversationInvestors=#(off) startAConversationBanks=#(off) startAConversationPartners=#(off) contactEmail=#(off) contactPhone=#(off) mediaEmail=#(off) corporateIR=#(off) irEmail=#(off) providenceAssetManagement=#(off) verify=#(off) startAConversation=#(off) governance=#(off) corporateIR=#(off)",
+  "header": "contact=#(off) contact=#(off)",
+  "logo": "none nosrc",
+  "hero": "hidden none nosrc",
+  "raw": false,
+  "imageRequests": 0
+ },
+ "inline all #": {
+  "page": "home=#(off) startAConversation=#(off) startAConversation=#(off) startAConversationSmes=#(off) startAConversationInvestors=#(off) startAConversationBanks=#(off) startAConversationPartners=#(off) contactEmail=#(off) contactPhone=#(off) mediaEmail=#(off) corporateIR=#(off) irEmail=#(off) providenceAssetManagement=#(off) verify=#(off) startAConversation=#(off) governance=#(off) corporateIR=#(off)",
+  "header": "contact=#(off) contact=#(off)",
+  "logo": "ok 640 data",
+  "hero": "ok 1774 data",
+  "raw": false
+ },
+ "inline empty": {
+  "page": "home=#(off) startAConversation=#(off) startAConversation=#(off) startAConversationSmes=#(off) startAConversationInvestors=#(off) startAConversationBanks=#(off) startAConversationPartners=#(off) contactEmail=#(off) contactPhone=#(off) mediaEmail=#(off) corporateIR=#(off) irEmail=#(off) providenceAssetManagement=#(off) verify=#(off) startAConversation=#(off) governance=#(off) corporateIR=#(off)",
+  "header": "contact=#(off) contact=#(off)",
+  "logo": "ok 640 data",
+  "hero": "ok 1774 data",
+  "raw": false
+ },
+ "hosted configured": {
+  "page": "home=/home?v=1 startAConversation=https://start.example.test/start-a-conversation startAConversation=https://start.example.test/start-a-conversation startAConversationSmes=https://start.example.test/start-a-conversation#smes startAConversationInvestors=https://start.example.test/start-a-conversation#investors startAConversationBanks=https://start.example.test/start-a-conversation#banks startAConversationPartners=https://start.example.test/start-a-conversation#partners contactEmail=mailto:hello@example.test?subject=Enquiry contactPhone=tel:+44%2020%207946%200000 mediaEmail=mailto:press@example.test corporateIR=/corporate-ir?v=1 irEmail=mailto:ir@example.test providenceAssetManagement=/providence-asset-management?v=1 verify=/verify?v=1 startAConversation=https://start.example.test/start-a-conversation governance=/governance?v=1 corporateIR=/corporate-ir?v=1",
+  "header": "contact=/contact?v=1 contact=/contact?v=1",
+  "logo": "ok 640 url",
+  "hero": "ok 1774 url",
+  "raw": false,
+  "imageRequests": 2
+ },
+ "inline configured": {
+  "page": "home=/home?v=1 startAConversation=https://start.example.test/start-a-conversation startAConversation=https://start.example.test/start-a-conversation startAConversationSmes=https://start.example.test/start-a-conversation#smes startAConversationInvestors=https://start.example.test/start-a-conversation#investors startAConversationBanks=https://start.example.test/start-a-conversation#banks startAConversationPartners=https://start.example.test/start-a-conversation#partners contactEmail=mailto:hello@example.test?subject=Enquiry contactPhone=tel:+44%2020%207946%200000 mediaEmail=mailto:press@example.test corporateIR=/corporate-ir?v=1 irEmail=mailto:ir@example.test providenceAssetManagement=/providence-asset-management?v=1 verify=/verify?v=1 startAConversation=https://start.example.test/start-a-conversation governance=/governance?v=1 corporateIR=/corporate-ir?v=1",
+  "header": "contact=/contact?v=1 contact=/contact?v=1",
+  "logo": "ok 640 url",
+  "hero": "ok 1774 url",
+  "raw": false
+ },
+ "copy unset": [
+  "09881564",
+  "[email]",
+  "[phone]",
+  "[email]",
+  "[email or registrar details]"
+ ],
+ "copy configured": [
+  "09881564",
+  "hello@example.test",
+  "+44 20 7946 0000",
+  "press@example.test",
+  "ir@example.test"
+ ],
+ "copy unusable values": {
+  "copied": [
+   "09881564",
+   "[email]",
+   "[phone]",
+   "[email]",
+   "ir@example.test"
+  ],
+  "links": "home=/home?v=1 startAConversation=https://start.example.test/start-a-conversation startAConversation=https://start.example.test/start-a-conversation startAConversationSmes=https://start.example.test/start-a-conversation#smes startAConversationInvestors=https://start.example.test/start-a-conversation#investors startAConversationBanks=https://start.example.test/start-a-conversation#banks startAConversationPartners=https://start.example.test/start-a-conversation#partners contactEmail=mailto: contactPhone=#(off) mediaEmail=https://example.test/press corporateIR=/corporate-ir?v=1 irEmail=mailto:ir@example.test providenceAssetManagement=/providence-asset-management?v=1 verify=/verify?v=1 startAConversation=https://start.example.test/start-a-conversation governance=/governance?v=1 corporateIR=/corporate-ir?v=1"
+ },
+ "disabled click": {
+  "url": "variant.html",
+  "title": "Not yet available"
+ },
+ "enabled click (Start a Conversation, Banks route)": "https://start.example.test/start-a-conversation#banks",
+ "props default": {
+  "visitor": "shown 100",
+  "map": "hidden",
+  "pam": "shown 179"
+ },
+ "props flipped": {
+  "visitor": "hidden",
+  "map": "shown 160",
+  "pam": "hidden"
+ },
+ "props strings": {
+  "visitor": "shown 100",
+  "map": "hidden",
+  "pam": "shown 179"
+ },
+ "hostile 1440": {
+  "owners": [
+   1,
+   [
+    "__bwciContact"
+   ]
+  ],
+  "props": {
+   "visitor": "shown 106",
+   "map": "shown 160",
+   "pam": "shown 191"
+  },
+  "copyButtons": "44x44 rgba(0, 0, 0, 0) 1px | 44x44 rgb(255, 255, 255) 1px | 44x44 rgb(255, 255, 255) 1px | 44x44 rgb(255, 255, 255) 1px | 44x44 rgb(255, 255, 255) 1px",
+  "address": "normal 0px 24px",
+  "copy": {
+   "btns": "false:Copy company number | true:Copied | false:Copy general enquiries phone | false:Copy media email | false:Copy shareholder email",
+   "live": "General enquiries email copied"
+  },
+  "jump": "93 #cnt-details",
+  "image": "922x544",
+  "overflowX": 0
+ },
+ "hostile 390": {
+  "owners": [
+   1,
+   [
+    "__bwciContact"
+   ]
+  ],
+  "props": {
+   "visitor": "shown 106",
+   "map": "shown 160",
+   "pam": "shown 320"
+  },
+  "copyButtons": "44x44 rgba(0, 0, 0, 0) 1px | 44x44 rgb(255, 255, 255) 1px | 44x44 rgb(255, 255, 255) 1px | 44x44 rgb(255, 255, 255) 1px | 44x44 rgb(255, 255, 255) 1px",
+  "address": "normal 0px 20px",
+  "copy": {
+   "btns": "false:Copy company number | true:Copied | false:Copy general enquiries phone | false:Copy media email | false:Copy shareholder email",
+   "live": "General enquiries email copied"
+  },
+  "jump": "85 #cnt-details",
+  "image": "390x498",
+  "overflowX": 0
+ },
+ "copied root": {
+  "before": {
+   "btns": "false:Copy company number | false:Copy general enquiries email | false:Copy general enquiries phone | true:Copied | false:Copy shareholder email",
+   "live": "Media email copied"
+  },
+  "afterCopy": {
+   "btns": "false:Copy company number | false:Copy general enquiries email | false:Copy general enquiries phone | false:Copy media email | false:Copy shareholder email",
+   "live": "",
+   "visitor": "shown 100",
+   "map": "shown 160",
+   "pam": "hidden"
+  },
+  "afterCopyLinks": "startAConversation=#(off) startAConversation=#(off) mediaEmail=mailto:media@new.test startAConversation=#(off)",
+  "owner": true,
+  "afterOldTimer": {
+   "btns": "false:Copy company number | false:Copy general enquiries email | false:Copy general enquiries phone | false:Copy media email | false:Copy shareholder email",
+   "live": ""
+  },
+  "copiesNew": "media@new.test"
+ },
+ "teardown mid-copy": {
+  "instance": false,
+  "detachedState": "true"
+ },
+ "pagehide": {
+  "app": "undefined",
+  "init": 0
+ },
+ "no clipboard": {
+  "btns": "false:Copy company number | false:Copy general enquiries email | true:Copied | false:Copy media email | false:Copy shareholder email",
+  "live": "General enquiries phone copied"
+ },
+ "no IntersectionObserver": {
+  "visitor": "shown 100",
+  "map": "hidden",
+  "pam": "shown 179",
+  "hidden": 5
+ }
+}
+errors []

@@ -152,7 +152,7 @@ links in the markup (the image then stays empty).
 | `links.smesSituation` | `/smes-projects#sme-situation` | Participation cards 02 and 03 (source `SMEs Projects.dc.html#situation`; `#sme-situation` is the SMEs port's section id) |
 | `links.platformsDirectory` | `/platforms#plt-directory` | "View the full Platforms & Institutions directory →" (source `Platforms.dc.html#directory`) |
 | `links.ecosystemBlueprint` | `/ecosystem#eco-blueprint` | "Explore the ecosystem →" (source `Ecosystem.dc.html#blueprint`) |
-| `links.startConversation` | `/#bwci-cta` | "Start a conversation" button in the last section (source `Main.dc.html#cta`) |
+| `links.startAConversation` | `{{ custom_values.bwci_url_start_a_conversation }}` | "Start a conversation" button in the last section, plus the header, mobile-menu and footer buttons. Owner decision of 9 November 2026: the Start a Conversation page (the source links the section button to `Main.dc.html#cta`; this setting was `links.startConversation` → `/#bwci-cta` until then) |
 
 
 **Unresolved routes.** The design links the keys marked unresolved to pages that have no GHL port yet
@@ -160,7 +160,7 @@ links in the markup (the image then stays empty).
 (Who We Are, Private Investors, Corporate IR, Contact, Verify a Communication, Legal). They default to `#`;
 set them here once the live GHL URLs exist. No URL was invented for them.
 
-`/#bwci-cta` is the Main port's closing section; `#sme-…`, `#plt-…` and `#eco-…` are the section ids of the
+`/#bwci-cta` is the Main port's closing section (no longer linked from this page since 9 November 2026); `#sme-…`, `#plt-…` and `#eco-…` are the section ids of the
 SMEs & Projects, Platforms and Ecosystem ports. Links within this page are fixed: the hero's "Start a
 conversation" and the route call to action go to `#inv-engage` (source `#engage`); "See where capital can
 connect" goes to `#inv-participation`; participation cards 01 and 04 go to `#inv-perimeters` and `#inv-route`.

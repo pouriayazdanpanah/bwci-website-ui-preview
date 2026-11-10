@@ -4,6 +4,18 @@ This guide turns a finished Claude Design page in design/ into one pasteable GoH
 
 ## Current status — November 9, 2026
 
+**Start a Conversation links (9 November, branch `claude/wonderful-ptolemy-k1o60k`, PR #55 to main open, not merged):**
+by the owner's decision, every "Start a Conversation" button opens the Start a Conversation page through the
+owner-created Custom Value `bwci_url_start_a_conversation` (link key `startAConversation`). Before, the header,
+mobile-menu and footer buttons shared `bwci_url_contact` with the "Contact" links, Contact's seven buttons opened the
+survey value `contact`, and five closing-section buttons went to Home `#bwci-cta`. "Contact" keeps `bwci_url_contact`;
+Contact's four route buttons open `#smes`, `#investors`, `#banks`, `#partners`. This is an owner-approved shared change:
+all 35 generated pages were rebuilt and Main edited by hand, so **all 36 blocks need re-pasting**. Pages look exactly as
+before (CSS and text unchanged); the design still links these buttons to Contact / Home, a recorded difference. The
+header button keeps the design's current-page state on Contact, now while linking elsewhere (open for the owner).
+Local QA PASS: [verification](../../ghl/shared/site-links/qa/start-a-conversation/verification.md). Live GHL NOT VERIFIED.
+This answers the Contact "Start a Conversation" question below.
+
 **November 9 review:** every production page in `design/` is ported and merged; no PR is open. The LegalNav update
 below merged in PR #53 (`2f13c21`). From that main, all 35 generated builders were re-run and reproduced their committed
 outputs byte-for-byte (clean working tree). Remaining work is outside the code: the owner creates the proposed Custom
@@ -18,8 +30,8 @@ The latest Drive design export was imported and pushed directly to `main` at `a0
 explicitly requested the `--publish` operation. It adds six design pages: `Start a Conversation.dc.html`,
 `Privacy.dc.html`, `Terms.dc.html`, `Cookies.dc.html`, `Disclosures.dc.html` and `Accessibility.dc.html`.
 The shared design footer now links to the five standalone policy pages. The 30 existing ports remain intact;
-Contact's owner-approved survey override is preserved. Do not replace it merely because the conversation design now
-exists.
+Contact's owner-approved survey override was preserved at that import; on 9 November the owner replaced it with links to
+the Start a Conversation page (above).
 
 **Export `aac105f` (8 November, imported to `main` by the owner):** adds the shared `LegalNav.dc.html` and replaces the
 five policy pages' switcher with it: a sticky bar of five links under the header, and a "Legal" select below 768 px.
@@ -45,8 +57,8 @@ generated pages rebuild byte-identical. Live GHL NOT VERIFIED.
 - a route is always open, starting on the default (SMEs) or the URL hash (the design's empty state is not used);
 - the review-only success panel is not used.
 
-Local QA PASS; see its `qa/verification.md`. Whether Contact's seven "Start a Conversation" links move from the survey
-to this page is still open (the owner gave no preference); nothing links to the page yet.
+Local QA PASS; see its `qa/verification.md`. Since 9 November every "Start a Conversation" button links to this page,
+including Contact's seven (see the current status above).
 GitHub Pages [deployment 42472019472](https://github.com/pouriayazdanpanah/bwci-website-ui-preview/actions/runs/42472019472)
 completed successfully for this import.
 
@@ -141,7 +153,7 @@ The import adds two production pages and changes The Platform Today's hero. All 
 | Design source | Kind | GHL status |
 |---|---|---|
 | `Platform Today.dc.html` (+ `assets/platform-today-hero-arcs.png`) | Hero image and layout added | Port updated from `df79d85`, merged in PR #46 (`b5a0d25`). Proposed page-only image value `bwci_img_platform_today_hero`; only this page's block changes. Local QA PASS. Live GHL NOT VERIFIED |
-| `Contact.dc.html` (+ `assets/contact-hero-hands.png`) | Production page | `contact` merged in PR #48 (`454f8e1`). Local QA PASS with real web fonts: [verification](../../ghl/pages/contact/qa/verification.md). Owner decisions (2 November 2026): its seven links to the missing `Start a Conversation` page use the existing survey value `{{ custom_values.contact }}` (route fragments dropped); its empty `mailto:` / `tel:` links use proposed `bwci_url_contact_email`, `bwci_url_contact_phone`, `bwci_url_media_email` and the existing `bwci_url_ir_email`. Proposed page-only image value `bwci_img_contact_hero`; only this page's block is new. Live GHL NOT VERIFIED |
+| `Contact.dc.html` (+ `assets/contact-hero-hands.png`) | Production page | `contact` merged in PR #48 (`454f8e1`). Local QA PASS with real web fonts: [verification](../../ghl/pages/contact/qa/verification.md). Owner decisions (2 November 2026): its seven links to the then-missing `Start a Conversation` page used the existing survey value `{{ custom_values.contact }}` (route fragments dropped) — since 9 November they use `bwci_url_start_a_conversation`, with the route fragments; its empty `mailto:` / `tel:` links use proposed `bwci_url_contact_email`, `bwci_url_contact_phone`, `bwci_url_media_email` and the existing `bwci_url_ir_email`. Proposed page-only image value `bwci_img_contact_hero`; only this page's block is new. Live GHL NOT VERIFIED |
 | `Private Investors Family Offices.dc.html` (+ `assets/pf-hero-threads.png`, `assets/pf-impact-scale.png`) | Production page | `private-investors-family-offices` merged in PR #47 (`ee5629c`). Local QA PASS with real web fonts: [verification](../../ghl/pages/private-investors-family-offices/qa/verification.md). Every page's header already links to it through the existing `privateInvestors` value (`bwci_url_private_investors`); the design header's own link, `Private%20Investors.dc.html`, does not match the file name (preview only). Proposed page-only image values `bwci_img_private_investors_family_offices_hero` and `bwci_img_private_investors_family_offices_impact`; only this page's block is new. Live GHL NOT VERIFIED |
 
 ## Reading and execution order
@@ -381,7 +393,7 @@ Implementation, merge and publication are separate states. A generated block or 
 
 - Start a Conversation: ghl/pages/start-a-conversation/README.md. Hero with its own breadcrumb and promise chips; four route cards as tabs (two columns ≤1023 px, an accordion ≤767 px keeping the tapped card in place), the route in the URL hash, each panel with its dark aside (sticky ≥1024 px), "Compliance to approve" badges (`showFlags`) and the owner's GHL form iframe (`forms.*` → proposed `bwci_url_form_*`, placeholder until set, `formHeight` / `formHeightPhone`); "Looking for something else?" cards. A route is always open (owner decision). Merged through PR #52; published GHL NOT VERIFIED.
 
-- Contact: ghl/pages/contact/README.md. Hosted/inline outputs generated from _build/src/; hero with the hands image, the `contact` breadcrumb and the smooth "Contact details" jump, enquiry router, contact details (sticky registered-office panel with the source props `showVisitorOffice` and `showMap`, directory, Providence Asset Management panel: `showPam`), five copy buttons with their live message, verify note and next step. Every "Start a Conversation" uses the existing survey value `contact`; emails and phone use proposed `bwci_url_contact_email`, `bwci_url_contact_phone`, `bwci_url_media_email` and the existing `bwci_url_ir_email`. Proposed image value `bwci_img_contact_hero`. Merged through PR #48; published GHL NOT VERIFIED.
+- Contact: ghl/pages/contact/README.md. Hosted/inline outputs generated from _build/src/; hero with the hands image, the `contact` breadcrumb and the smooth "Contact details" jump, enquiry router, contact details (sticky registered-office panel with the source props `showVisitorOffice` and `showMap`, directory, Providence Asset Management panel: `showPam`), five copy buttons with their live message, verify note and next step. Every "Start a Conversation" opens the Start a Conversation page (`bwci_url_start_a_conversation`, routes with their hash; the survey value `contact` until 9 November); emails and phone use proposed `bwci_url_contact_email`, `bwci_url_contact_phone`, `bwci_url_media_email` and the existing `bwci_url_ir_email`. Proposed image value `bwci_img_contact_hero`. Merged through PR #48; published GHL NOT VERIFIED.
 
 The completed-page README is the source of maintenance instructions; no duplicate brief is kept under docs/implementation/pages/. design/SiteHeader.dc.html, design/SiteFooter.dc.html, design/Breadcrumb.dc.html, design/GovNav.dc.html, design/GovProfile.dc.html and design/PersonCard.dc.html are shared source components. design/Before After.dc.html is a visual comparison/QA canvas, not a production website page.
 

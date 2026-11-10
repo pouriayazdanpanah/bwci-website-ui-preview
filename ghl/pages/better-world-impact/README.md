@@ -110,6 +110,7 @@ No shared generator/runtime, design source or other 22 page outputs are modified
 | `cases` | `[]`; complete records use label, title, summary, href, img, alt |
 | `footer` | Existing optional regulatory/registration wording |
 | `links.contact` | `#`; explicitly unavailable until a verified destination is configured |
+| `links.startAConversation` | `{{ custom_values.bwci_url_start_a_conversation }}`: the hero and closing "Start a Conversation" buttons, the header, mobile-menu and footer buttons (owner decision, 9 November 2026; before, `links.contact`) |
 | `links.betterWorldImpact` | `#`; independent Impact header/drawer/footer route |
 | `links.financialEngineHero` | `/financial-engine#fe-hero`; existing local port anchor, live URL unverified |
 | Other `links` | Existing shared destinations; configure each confirmed published URL |

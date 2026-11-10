@@ -65,7 +65,7 @@ the account from this repository.
    - **After a drag:** the click that ends it is cancelled, and native image drag is prevented.
    - **Touch** swipes natively.
    - Below the cards are links to Leadership and Governance.
-9. **Next step** (`#who-next`). Dark CTA with a pattern, "Start a Conversation", and links to Platforms and Corporate / IR.
+9. **Next step** (`#who-next`). Dark CTA with a pattern, "Start a Conversation", and links to Platforms and Corporate / IR. Since 9 November 2026 this button and the hero's "Start a Conversation" use `startAConversation` (`bwci_url_start_a_conversation`, the Start a Conversation page) instead of `contact`.
 
 Also: the shared scroll motion (bwci-motion), which skips the hero as the source does; the shared header, drawer and footer; reduced-motion behaviour (no drift, no lift or slide, no stagger; content visible).
 

@@ -69,6 +69,13 @@ ghl/shared/site-chrome/
 Every design `href` maps to a config link key (`HREF_KEYS`). An unknown href fails the build, so a
 new destination in the design cannot ship without a config key.
 
+Exception (owner decision, 9 November 2026): the header and mobile-menu "Start a Conversation" button and the footer's
+"Start a Conversation" link use their own key `startAConversation` (`bwci_url_start_a_conversation`), although the
+design still points them at `Contact.dc.html` like the "Contact" links. The generator assigns the key by position/label
+and fails if the design no longer has exactly two such header buttons and one such footer link. The header button keeps
+the design's current-page state (`current: 'contact'`, on Contact and Start a Conversation). `Start%20a%20Conversation.dc.html`
+also maps to `startAConversation`, for a future design that links it directly.
+
 The November 8 export replaces the footer's five `Legal.dc.html#...` routes with standalone
 `Privacy.dc.html`, `Terms.dc.html`, `Cookies.dc.html`, `Disclosures.dc.html` and `Accessibility.dc.html`.
 Both route forms map to the existing legal config keys/Custom Values. This build-time compatibility

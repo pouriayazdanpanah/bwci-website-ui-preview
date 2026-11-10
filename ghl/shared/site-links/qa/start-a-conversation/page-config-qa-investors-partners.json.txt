@@ -1,0 +1,35 @@
+{
+ "default (inline image)": {
+  "header": true,
+  "footer": true,
+  "img": "data:image/png;base64, 2017x780",
+  "links": 29
+ },
+ "hosted placeholder": {
+  "imgSrc": null,
+  "placeholderRequested": false
+ },
+ "hosted real URL": {
+  "img": "inv-hero-flow.png 2017x780"
+ },
+ "showHeader/showFooter false": {
+  "header": false,
+  "footer": false,
+  "utilH": "0px",
+  "heroTop": 0
+ },
+ "links override": [
+  "ecosystem=https://example.com/eco",
+  "startAConversation=/start-a-conversation"
+ ],
+ "broken JSON": {
+  "header": true,
+  "links": [
+   "governance=#",
+   "corporateIR=#",
+   "contact=#"
+  ],
+  "stillWorks": "You are building or connecting a platform"
+ }
+}
+errors []

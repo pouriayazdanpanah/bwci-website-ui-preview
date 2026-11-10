@@ -30,7 +30,7 @@ const sections={
  whoPurpose:['whoWeAre','#purpose'],whoRole:['whoWeAre','#role'],whoPrinciples:['whoWeAre','#principles'],whoStory:['whoWeAre','#story'],
  governanceFramework:['governance','#gov-framework'],governanceCommittees:['governance','#gov-committees'],
  governanceCapital:['governance','#gov-capital'],governanceRisk:['governance','#gov-risk'],governancePerimeter:['governance','#gov-perimeter'],
- impact:['home','#bwci-impact'],today:['home','#bwci-today'],explorePlatforms:['home','#bwci-platforms'],startConversation:['home','#bwci-cta'],
+ impact:['home','#bwci-impact'],today:['home','#bwci-today'],explorePlatforms:['home','#bwci-platforms'],
  financialEngineHero:['financialEngine','#fe-hero'],ecosystemBlueprint:['ecosystem','#eco-blueprint'],
  platformsDirectory:['platforms','#plt-directory'],platformsRegisters:['platforms','#plt-registers'],
  investorsEngage:['investors','#inv-engage'],investorsParticipation:['investors','#inv-participation'],investorsRoute:['investors','#inv-route'],
@@ -43,15 +43,24 @@ const proposed={ourRole:'our_role',providenceAssetManagement:'providence_asset_m
  contactEmail:'contact_email',contactPhone:'contact_phone',mediaEmail:'media_email',
  // Start a Conversation: the embed link of each route's GHL form (an iframe src, kept under the page config's `forms`)
  formSmes:'form_smes',formInvestors:'form_investors',formBanks:'form_banks',formPartners:'form_partners'};
-// Existing Custom Values outside the bwci_url_ naming, reused by their exact name. `contact` is the owner's external
-// survey form (the Contact page's "Start a Conversation" links, by the owner's decision); it is not bwci_url_contact.
-const named={contactSurvey:'contact'};
+// Values the owner created in GHL after the supplied export. They are not in the snapshot, so their fieldKey spelling
+// follows the owner's report and is not yet confirmed from a GHL export.
+// startAConversation: the Start a Conversation page. Every "Start a Conversation" button links to it (owner decision,
+// 9 November 2026): the header and mobile-menu button, the footer link and the page-content buttons.
+const created={startAConversation:'start_a_conversation'};
+// Existing Custom Values outside the bwci_url_ naming, reused by their exact name. None is used now: `contact` (the
+// owner's external survey form) served the Contact page's "Start a Conversation" links until 9 November 2026.
+const named={};
 // Section links only some pages use (see runtimeFor below). contactDetails: the Contact port's details section (its
-// ids carry the cnt- prefix), linked from the five legal pages ("Contact us").
-const pageSections={contactDetails:['contact','#cnt-details']};
+// ids carry the cnt- prefix), linked from the five legal pages ("Contact us"). startAConversation*: the Contact page's
+// four route buttons, which open their route of the Start a Conversation page (its URL hash names the route).
+const pageSections={contactDetails:['contact','#cnt-details'],
+ startAConversationSmes:['startAConversation','#smes'],startAConversationInvestors:['startAConversation','#investors'],
+ startAConversationBanks:['startAConversation','#banks'],startAConversationPartners:['startAConversation','#partners']};
 function fieldFor(key){
  const sec=sections[key]||pageSections[key];
  const base=sec?sec[0]:key;
+ if(Object.hasOwn(created,base)){const name='bwci_url_'+created[base];assert(!fields.has(name),'Created value is now in the snapshot; map it as a destination: '+name);return {name,fieldKey:'{{ custom_values.'+name+' }}',value:'#',created:true};}
  if(Object.hasOwn(proposed,base)){const name='bwci_url_'+proposed[base];assert(!fields.has(name),'Proposed value already exists: '+name);return {name,fieldKey:'{{ custom_values.'+name+' }}',value:'#',proposed:true};}
  if(Object.hasOwn(named,base)){assert(!sec,'Named values take no section: '+key);const field=fields.get(named[base]);assert(field,'Missing existing Custom Value for '+key);return field;}
  assert(Object.hasOwn(destinations,base),'Unmapped link property: '+key);
@@ -63,8 +72,8 @@ Object.keys(destinations).forEach(fieldFor);
 // The section list is inlined into every page's script, so it is frozen for the same reason as the shared image
 // settings: adding a page must not change existing pasted blocks. A section link only one page uses is declared by
 // that page's build (site-chrome option `sections`, keys of pageSections) and reaches only that page's script.
-for(const [k,v] of Object.entries(pageSections)){assert(!Object.hasOwn(sections,k),'Duplicate section: '+k);assert(Object.hasOwn(destinations,v[0])||Object.hasOwn(proposed,v[0]),'Unmapped section base: '+k);}
+for(const [k,v] of Object.entries(pageSections)){assert(!Object.hasOwn(sections,k),'Duplicate section: '+k);assert(Object.hasOwn(destinations,v[0])||Object.hasOwn(proposed,v[0])||Object.hasOwn(created,v[0]),'Unmapped section base: '+k);}
 const source=fs.readFileSync(path.join(__dirname,'links.runtime.js'),'utf8');
 const runtimeFor=(extra=[])=>{const list={...sections};for(const k of extra){assert(Object.hasOwn(pageSections,k),'Not a page section: '+k);list[k]=pageSections[k];}return source.replace('__SITE_LINK_SECTIONS__',JSON.stringify(list));};
 const runtime=runtimeFor([]);
-module.exports={snapshot,fields,destinations,proposed,named,sections,pageSections,fieldFor,local,reference,runtime,runtimeFor};
+module.exports={snapshot,fields,destinations,proposed,created,named,sections,pageSections,fieldFor,local,reference,runtime,runtimeFor};

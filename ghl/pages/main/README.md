@@ -120,7 +120,12 @@ Sections, in source order: hero (`#bwci-hero`, with the key-facts strip), proble
 need (`#bwci-need`), the financial-engine loop (`#bwci-engine`), platforms by status (`#bwci-platforms`),
 impact (`#bwci-impact`), audiences (`#bwci-audiences`), leadership (`#bwci-leadership`), today
 (`#bwci-today`), closing CTA (`#bwci-cta`), then the footer. Other pages' configs link to
-`/#bwci-impact`, `/#bwci-today` and `/#bwci-cta`, so keep these ids stable.
+`/#bwci-impact` and `/#bwci-today`, so keep these ids stable. (Until 9 November 2026 five pages also linked to
+`/#bwci-cta`; their "Start a conversation" buttons now open the Start a Conversation page.)
+
+Since 9 November 2026 Main's header button, mobile-menu button and footer "Start a Conversation" link use the link key
+`startAConversation` → `{{ custom_values.bwci_url_start_a_conversation }}` (the Start a Conversation page), edited by
+hand in both outputs; "Contact" keeps `bwci_url_contact`. The inlined section list no longer has `startConversation`.
 
 ### Interactions ported
 

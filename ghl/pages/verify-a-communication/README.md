@@ -33,7 +33,7 @@ No new Custom Values are needed.
 | `showFormerName` | `true` | Source prop. Shows the optional "Former name" row of the official channels |
 | `showAlerts` | `false` | Source prop. Shows the phase-2 "Known impersonation alerts" table |
 | `footer.*` | `""` | Optional legal wording, as on every page |
-| `links.*` | 25 references | From the shared mapping (`ghl/shared/site-links`); the build fails if one differs. The page's own links are `contact` (Start a Conversation, Contact us) and `corporateIR` (Regulatory information, Company information) |
+| `links.*` | 25 references | From the shared mapping (`ghl/shared/site-links`); the build fails if one differs. The page's own links are `startAConversation` (Start a Conversation: the Start a Conversation page since 9 November 2026; before, `contact`), `contact` (Contact us) and `corporateIR` (Regulatory information, Company information) |
 
 A non-boolean prop value falls back to the source default.
 

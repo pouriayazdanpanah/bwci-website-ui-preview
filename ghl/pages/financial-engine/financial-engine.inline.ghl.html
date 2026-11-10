@@ -34,6 +34,7 @@
     "governance": "{{ custom_values.bwci_url_governance }}",
     "corporateIR": "{{ custom_values.bwci_url_corporate_ir }}",
     "contact": "{{ custom_values.bwci_url_contact }}",
+    "startAConversation": "{{ custom_values.bwci_url_start_a_conversation }}",
     "verify": "{{ custom_values.bwci_url_verify }}",
     "whoPurpose": "{{ custom_values.bwci_url_who_we_are }}#purpose",
     "whoRole": "{{ custom_values.bwci_url_who_we_are }}#role",
@@ -46,7 +47,6 @@
     "legalAccessibility": "{{ custom_values.bwci_url_accessibility }}",
     "legalSitemap": "{{ custom_values.bwci_url_sitemap }}",
     "explorePlatforms": "{{ custom_values.bwci_url_home }}#bwci-platforms",
-    "startConversation": "{{ custom_values.bwci_url_home }}#bwci-cta",
     "betterWorldImpact": "{{ custom_values.bwci_url_better_world_impact }}"
   },
   "imageFallbacks": {
@@ -719,7 +719,7 @@
           </li>
         </ul>
       </nav>
-      <a class="fe-hdr__cta" href="#" data-fe-link="contact">Start a Conversation</a>
+      <a class="fe-hdr__cta" href="#" data-fe-link="startAConversation">Start a Conversation</a>
       <button class="fe-hdr__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="fe-hdr-drawer" data-fe-menu-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
     </div>
   </div>
@@ -764,7 +764,7 @@
         <li><a href="#" data-fe-link="verify" data-fe-menu-close><span class="fe-i">Verify a Communication</span></a></li>
       </ul>
     </nav>
-    <div class="fe-hdr__dfoot"><a class="fe-hdr__cta" href="#" data-fe-link="contact" data-fe-menu-close>Start a Conversation</a></div>
+    <div class="fe-hdr__dfoot"><a class="fe-hdr__cta" href="#" data-fe-link="startAConversation" data-fe-menu-close>Start a Conversation</a></div>
   </div>
 </header>
 </div>
@@ -1129,7 +1129,7 @@
     <div class="fe-container fe-cta-inner">
       <h2 class="fe-h1" style="color:#fff; margin-bottom:14px">Have a requirement to explore?</h2>
       <p class="fe-body-lg" style="color:var(--text-inverse-muted); max-width:520px; margin:0 auto 36px">Whether you run a business or project, or represent an institution or capital provider, start by telling us what you need.</p>
-      <a class="fe-btn fe-btn--inverse" href="#" data-fe-link="startConversation">Start a Conversation</a>
+      <a class="fe-btn fe-btn--inverse" href="#" data-fe-link="startAConversation">Start a Conversation</a>
     </div>
   </section>
 
@@ -1162,7 +1162,7 @@
         <li><a href="#" data-fe-link="platforms">Platforms &amp; Institutions</a></li>
         <li><a href="#" data-fe-link="smes">SMEs &amp; Projects</a></li>
         <li><a href="#" data-fe-link="investors">Investors &amp; Partners</a></li>
-        <li><a href="#" data-fe-link="contact">Start a Conversation</a></li>
+        <li><a href="#" data-fe-link="startAConversation">Start a Conversation</a></li>
       </ul></nav>
       <nav aria-label="Corporate"><h2>Corporate</h2><ul>
         <li><a href="#" data-fe-link="governance">Governance</a></li>
@@ -1273,7 +1273,7 @@
   function siteResolveLinks(cfg) {
     var links = cfg.links;
     if (!links || typeof links !== 'object' || Array.isArray(links)) return;
-    var sections = {"whoPurpose":["whoWeAre","#purpose"],"whoRole":["whoWeAre","#role"],"whoPrinciples":["whoWeAre","#principles"],"whoStory":["whoWeAre","#story"],"governanceFramework":["governance","#gov-framework"],"governanceCommittees":["governance","#gov-committees"],"governanceCapital":["governance","#gov-capital"],"governanceRisk":["governance","#gov-risk"],"governancePerimeter":["governance","#gov-perimeter"],"impact":["home","#bwci-impact"],"today":["home","#bwci-today"],"explorePlatforms":["home","#bwci-platforms"],"startConversation":["home","#bwci-cta"],"financialEngineHero":["financialEngine","#fe-hero"],"ecosystemBlueprint":["ecosystem","#eco-blueprint"],"platformsDirectory":["platforms","#plt-directory"],"platformsRegisters":["platforms","#plt-registers"],"investorsEngage":["investors","#inv-engage"],"investorsParticipation":["investors","#inv-participation"],"investorsRoute":["investors","#inv-route"],"smesEngage":["smes","#sme-engage"],"smesProcess":["smes","#sme-process"],"smesSituation":["smes","#sme-situation"]};
+    var sections = {"whoPurpose":["whoWeAre","#purpose"],"whoRole":["whoWeAre","#role"],"whoPrinciples":["whoWeAre","#principles"],"whoStory":["whoWeAre","#story"],"governanceFramework":["governance","#gov-framework"],"governanceCommittees":["governance","#gov-committees"],"governanceCapital":["governance","#gov-capital"],"governanceRisk":["governance","#gov-risk"],"governancePerimeter":["governance","#gov-perimeter"],"impact":["home","#bwci-impact"],"today":["home","#bwci-today"],"explorePlatforms":["home","#bwci-platforms"],"financialEngineHero":["financialEngine","#fe-hero"],"ecosystemBlueprint":["ecosystem","#eco-blueprint"],"platformsDirectory":["platforms","#plt-directory"],"platformsRegisters":["platforms","#plt-registers"],"investorsEngage":["investors","#inv-engage"],"investorsParticipation":["investors","#inv-participation"],"investorsRoute":["investors","#inv-route"],"smesEngage":["smes","#sme-engage"],"smesProcess":["smes","#sme-process"],"smesSituation":["smes","#sme-situation"]};
     function pageAvailable(value) {
       return typeof value === 'string' && siteLinkAvailable(value.trim()) && /^(?:https?:\/\/|\/(?!\/))/.test(value.trim());
     }

@@ -1,0 +1,59 @@
+{
+ "default (inline image)": {
+  "header": true,
+  "footer": true,
+  "img": "data:image/png;base64, 2020x778",
+  "links": 28
+ },
+ "hosted placeholder": {
+  "imgSrc": null,
+  "placeholderRequested": false
+ },
+ "hosted real URL": {
+  "img": "plat-hero-rails.png 2020x778"
+ },
+ "showHeader/showFooter false": {
+  "header": false,
+  "footer": false,
+  "utilH": "0px",
+  "heroTop": 0
+ },
+ "links override": [
+  "ecosystem=https://example.com/eco",
+  "startAConversation=/start-a-conversation"
+ ],
+ "broken JSON": {
+  "header": true,
+  "links": [
+   "governance=#",
+   "corporateIR=#",
+   "contact=#"
+  ],
+  "directoryWorks": "1 of 6"
+ },
+ "url: initial read keeps URL": {
+  "url": "variant.html?utm_source=a%2Cb&maturity=Operating#plt-directory",
+  "res": "2 of 6"
+ },
+ "url: updates own params only": {
+  "steps": [
+   "variant.html?utm_source=a%2Cb&x=1&relationship=Partner%20Capability#top",
+   "variant.html?utm_source=a%2Cb&x=1&relationship=Partner%20Capability#top",
+   "variant.html?utm_source=a%2Cb&x=1&maturity=In%20Development&relationship=Group%20Build#top",
+   "variant.html?utm_source=a%2Cb&x=1#top"
+  ],
+  "hostState": {
+   "host": "state"
+  },
+  "histLen": 2
+ },
+ "url: unknown values ignored": {
+  "url": "variant.html?maturity=toString&relationship=Group%20Build",
+  "res": "3 of 6"
+ },
+ "url: syncUrl false": {
+  "url": "variant.html?relationship=Group%20Build",
+  "res": "1 of 6"
+ }
+}
+errors []

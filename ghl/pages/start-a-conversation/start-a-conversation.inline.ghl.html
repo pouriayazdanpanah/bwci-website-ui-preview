@@ -34,6 +34,7 @@
     "governance": "{{ custom_values.bwci_url_governance }}",
     "corporateIR": "{{ custom_values.bwci_url_corporate_ir }}",
     "contact": "{{ custom_values.bwci_url_contact }}",
+    "startAConversation": "{{ custom_values.bwci_url_start_a_conversation }}",
     "verify": "{{ custom_values.bwci_url_verify }}",
     "home": "{{ custom_values.bwci_url_home }}",
     "whoWeAre": "{{ custom_values.bwci_url_who_we_are }}",
@@ -474,7 +475,7 @@
           </li>
         </ul>
       </nav>
-      <a class="scv-hdr__cta" href="#" data-scv-link="contact" aria-current="page">Start a Conversation</a>
+      <a class="scv-hdr__cta" href="#" data-scv-link="startAConversation" aria-current="page">Start a Conversation</a>
       <button class="scv-hdr__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="scv-hdr-drawer" data-scv-menu-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
     </div>
   </div>
@@ -519,7 +520,7 @@
         <li><a href="#" data-scv-link="verify" data-scv-menu-close><span class="scv-i">Verify a Communication</span></a></li>
       </ul>
     </nav>
-    <div class="scv-hdr__dfoot"><a class="scv-hdr__cta" href="#" data-scv-link="contact" aria-current="page" data-scv-menu-close>Start a Conversation</a></div>
+    <div class="scv-hdr__dfoot"><a class="scv-hdr__cta" href="#" data-scv-link="startAConversation" aria-current="page" data-scv-menu-close>Start a Conversation</a></div>
   </div>
 </header>
 </div>
@@ -765,7 +766,7 @@
         <li><a href="#" data-scv-link="platforms">Platforms &amp; Institutions</a></li>
         <li><a href="#" data-scv-link="smes">SMEs &amp; Projects</a></li>
         <li><a href="#" data-scv-link="investors">Investors &amp; Partners</a></li>
-        <li><a href="#" data-scv-link="contact">Start a Conversation</a></li>
+        <li><a href="#" data-scv-link="startAConversation">Start a Conversation</a></li>
       </ul></nav>
       <nav aria-label="Corporate"><h2>Corporate</h2><ul>
         <li><a href="#" data-scv-link="governance">Governance</a></li>
@@ -827,7 +828,7 @@
   function siteResolveLinks(cfg) {
     var links = cfg.links;
     if (!links || typeof links !== 'object' || Array.isArray(links)) return;
-    var sections = {"whoPurpose":["whoWeAre","#purpose"],"whoRole":["whoWeAre","#role"],"whoPrinciples":["whoWeAre","#principles"],"whoStory":["whoWeAre","#story"],"governanceFramework":["governance","#gov-framework"],"governanceCommittees":["governance","#gov-committees"],"governanceCapital":["governance","#gov-capital"],"governanceRisk":["governance","#gov-risk"],"governancePerimeter":["governance","#gov-perimeter"],"impact":["home","#bwci-impact"],"today":["home","#bwci-today"],"explorePlatforms":["home","#bwci-platforms"],"startConversation":["home","#bwci-cta"],"financialEngineHero":["financialEngine","#fe-hero"],"ecosystemBlueprint":["ecosystem","#eco-blueprint"],"platformsDirectory":["platforms","#plt-directory"],"platformsRegisters":["platforms","#plt-registers"],"investorsEngage":["investors","#inv-engage"],"investorsParticipation":["investors","#inv-participation"],"investorsRoute":["investors","#inv-route"],"smesEngage":["smes","#sme-engage"],"smesProcess":["smes","#sme-process"],"smesSituation":["smes","#sme-situation"],"contactDetails":["contact","#cnt-details"]};
+    var sections = {"whoPurpose":["whoWeAre","#purpose"],"whoRole":["whoWeAre","#role"],"whoPrinciples":["whoWeAre","#principles"],"whoStory":["whoWeAre","#story"],"governanceFramework":["governance","#gov-framework"],"governanceCommittees":["governance","#gov-committees"],"governanceCapital":["governance","#gov-capital"],"governanceRisk":["governance","#gov-risk"],"governancePerimeter":["governance","#gov-perimeter"],"impact":["home","#bwci-impact"],"today":["home","#bwci-today"],"explorePlatforms":["home","#bwci-platforms"],"financialEngineHero":["financialEngine","#fe-hero"],"ecosystemBlueprint":["ecosystem","#eco-blueprint"],"platformsDirectory":["platforms","#plt-directory"],"platformsRegisters":["platforms","#plt-registers"],"investorsEngage":["investors","#inv-engage"],"investorsParticipation":["investors","#inv-participation"],"investorsRoute":["investors","#inv-route"],"smesEngage":["smes","#sme-engage"],"smesProcess":["smes","#sme-process"],"smesSituation":["smes","#sme-situation"],"contactDetails":["contact","#cnt-details"]};
     function pageAvailable(value) {
       return typeof value === 'string' && siteLinkAvailable(value.trim()) && /^(?:https?:\/\/|\/(?!\/))/.test(value.trim());
     }

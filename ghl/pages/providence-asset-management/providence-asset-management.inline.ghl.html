@@ -31,6 +31,7 @@
     "governance": "{{ custom_values.bwci_url_governance }}",
     "corporateIR": "{{ custom_values.bwci_url_corporate_ir }}",
     "contact": "{{ custom_values.bwci_url_contact }}",
+    "startAConversation": "{{ custom_values.bwci_url_start_a_conversation }}",
     "verify": "{{ custom_values.bwci_url_verify }}",
     "home": "{{ custom_values.bwci_url_home }}",
     "whoWeAre": "{{ custom_values.bwci_url_who_we_are }}",
@@ -605,7 +606,7 @@
           </li>
         </ul>
       </nav>
-      <a class="pam-hdr__cta" href="#" data-pam-link="contact">Start a Conversation</a>
+      <a class="pam-hdr__cta" href="#" data-pam-link="startAConversation">Start a Conversation</a>
       <button class="pam-hdr__burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="pam-hdr-drawer" data-pam-menu-open><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
     </div>
   </div>
@@ -650,7 +651,7 @@
         <li><a href="#" data-pam-link="verify" data-pam-menu-close><span class="pam-i">Verify a Communication</span></a></li>
       </ul>
     </nav>
-    <div class="pam-hdr__dfoot"><a class="pam-hdr__cta" href="#" data-pam-link="contact" data-pam-menu-close>Start a Conversation</a></div>
+    <div class="pam-hdr__dfoot"><a class="pam-hdr__cta" href="#" data-pam-link="startAConversation" data-pam-menu-close>Start a Conversation</a></div>
   </div>
 </header>
 </div>
@@ -847,7 +848,7 @@
       <div class="pam-cta-pattern" aria-hidden="true"></div>
       <div class="pam-container">
         <h2 class="pam-h1" style="color:#fff; margin-bottom:32px">[Next-step heading]</h2>
-        <a class="pam-btn pam-btn--inverse" href="#" data-pam-link="contact">Start a Conversation <span aria-hidden="true">→</span></a>
+        <a class="pam-btn pam-btn--inverse" href="#" data-pam-link="startAConversation">Start a Conversation <span aria-hidden="true">→</span></a>
         <div class="pam-nx-links">
           <a class="pam-hlink" href="https://providenceassetmanagement.co.uk" target="_blank" rel="noopener">Visit Providence Asset Management <span class="pam-ar" aria-hidden="true">↗</span><span class="pam-vh">(opens in a new tab)</span></a>
           <a class="pam-hlink" href="#" data-pam-link="platforms">See all platforms &amp; institutions <span class="pam-ar" aria-hidden="true">→</span></a>
@@ -884,7 +885,7 @@
         <li><a href="#" data-pam-link="platforms">Platforms &amp; Institutions</a></li>
         <li><a href="#" data-pam-link="smes">SMEs &amp; Projects</a></li>
         <li><a href="#" data-pam-link="investors">Investors &amp; Partners</a></li>
-        <li><a href="#" data-pam-link="contact">Start a Conversation</a></li>
+        <li><a href="#" data-pam-link="startAConversation">Start a Conversation</a></li>
       </ul></nav>
       <nav aria-label="Corporate"><h2>Corporate</h2><ul>
         <li><a href="#" data-pam-link="governance">Governance</a></li>
@@ -935,7 +936,7 @@
   function siteResolveLinks(cfg) {
     var links = cfg.links;
     if (!links || typeof links !== 'object' || Array.isArray(links)) return;
-    var sections = {"whoPurpose":["whoWeAre","#purpose"],"whoRole":["whoWeAre","#role"],"whoPrinciples":["whoWeAre","#principles"],"whoStory":["whoWeAre","#story"],"governanceFramework":["governance","#gov-framework"],"governanceCommittees":["governance","#gov-committees"],"governanceCapital":["governance","#gov-capital"],"governanceRisk":["governance","#gov-risk"],"governancePerimeter":["governance","#gov-perimeter"],"impact":["home","#bwci-impact"],"today":["home","#bwci-today"],"explorePlatforms":["home","#bwci-platforms"],"startConversation":["home","#bwci-cta"],"financialEngineHero":["financialEngine","#fe-hero"],"ecosystemBlueprint":["ecosystem","#eco-blueprint"],"platformsDirectory":["platforms","#plt-directory"],"platformsRegisters":["platforms","#plt-registers"],"investorsEngage":["investors","#inv-engage"],"investorsParticipation":["investors","#inv-participation"],"investorsRoute":["investors","#inv-route"],"smesEngage":["smes","#sme-engage"],"smesProcess":["smes","#sme-process"],"smesSituation":["smes","#sme-situation"]};
+    var sections = {"whoPurpose":["whoWeAre","#purpose"],"whoRole":["whoWeAre","#role"],"whoPrinciples":["whoWeAre","#principles"],"whoStory":["whoWeAre","#story"],"governanceFramework":["governance","#gov-framework"],"governanceCommittees":["governance","#gov-committees"],"governanceCapital":["governance","#gov-capital"],"governanceRisk":["governance","#gov-risk"],"governancePerimeter":["governance","#gov-perimeter"],"impact":["home","#bwci-impact"],"today":["home","#bwci-today"],"explorePlatforms":["home","#bwci-platforms"],"financialEngineHero":["financialEngine","#fe-hero"],"ecosystemBlueprint":["ecosystem","#eco-blueprint"],"platformsDirectory":["platforms","#plt-directory"],"platformsRegisters":["platforms","#plt-registers"],"investorsEngage":["investors","#inv-engage"],"investorsParticipation":["investors","#inv-participation"],"investorsRoute":["investors","#inv-route"],"smesEngage":["smes","#sme-engage"],"smesProcess":["smes","#sme-process"],"smesSituation":["smes","#sme-situation"]};
     function pageAvailable(value) {
       return typeof value === 'string' && siteLinkAvailable(value.trim()) && /^(?:https?:\/\/|\/(?!\/))/.test(value.trim());
     }
