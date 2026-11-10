@@ -4,8 +4,7 @@ This guide turns a finished Claude Design page in design/ into one pasteable GoH
 
 ## Current status — November 9, 2026
 
-**Global header and footer (9 November, owner request; branch `feat/ghl-global-chrome-pilot`, draft PR #56 stacked on
-PR #55, not merged):** one header block and one footer block for GoHighLevel Global Sections instead of a header and
+**Global header and footer (9 November, owner request; branch `feat/ghl-global-chrome-pilot`, draft PR #56 to main, not merged; PR #55 merged):** one header block and one footer block for GoHighLevel Global Sections instead of a header and
 footer in every page block ([ghl/global/README.md](../../ghl/global/README.md)). Every page with a site header has a
 global version, `<page>.global(.inline).ghl.html`: the 34 generated pages via `build.js --global`, Main via
 `ghl/global/_build/main-global.js`; the 404 page keeps its own logo bar. The 72 regular outputs are unchanged. The
@@ -14,7 +13,7 @@ Recorded differences and the open owner decision (phone-menu label size on 5 pag
 each page's Custom Code is replaced by its `.global` block and the two Global Sections are inserted, in one publish per
 page; this also delivers PR #55's link change. Local QA: [ghl/global/qa/verification.md](../../ghl/global/qa/verification.md).
 
-**Start a Conversation links (9 November, branch `claude/wonderful-ptolemy-k1o60k`, PR #55 to main open, not merged):**
+**Start a Conversation links (9 November, merged in PR #55, `9cf41b5`, on 10 November):**
 by the owner's decision, every "Start a Conversation" button opens the Start a Conversation page through the
 owner-created Custom Value `bwci_url_start_a_conversation` (link key `startAConversation`). Before, the header,
 mobile-menu and footer buttons shared `bwci_url_contact` with the "Contact" links, Contact's seven buttons opened the
