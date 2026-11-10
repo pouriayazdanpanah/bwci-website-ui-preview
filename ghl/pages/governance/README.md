@@ -1,5 +1,14 @@
 # Governance — GoHighLevel port
 
+## Global header/footer version (9 November 2026)
+
+`node ghl/pages/governance/_build/build.js --global` also writes `governance.global.ghl.html` (no image of its own, so no inline variant): this page **without** its header and footer, for
+use between the [global header and footer](../../global/README.md) GoHighLevel Global Sections. Its root carries
+`data-bwci-current="governance"` (the global header marks the current page from it), its config drops `showHeader`,
+`showFooter`, `footer` and `logoImage` and keeps only the links the page itself uses. The regular outputs below are
+unchanged. Tested locally against the regular block ([verification](../../global/qa/verification.md)); the owner
+reported a working GHL test page on 9 November 2026 (address not recorded). Do not paste it without the global sections.
+
 ## Centralized images — October 27, 2026
 
 Both outputs now use GHL image Custom Values for this page's 1 image settings.

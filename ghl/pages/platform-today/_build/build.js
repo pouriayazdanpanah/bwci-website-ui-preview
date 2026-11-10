@@ -26,6 +26,22 @@ const KEYFRAME_PREFIX = 'ptd-';
 const PAGE_DIR = path.resolve(__dirname, '..');
 const SRC = path.join(__dirname, 'src');
 const REPORT = process.argv.includes('--report');
+// --global: the page block for use with the global header and footer (ghl/global/): no header or footer, no logo /
+// header / footer settings, only the links the page itself uses, and the root marked data-bwci-current for the global
+// header. Writes platform-today.global*.ghl.html; the regular outputs are untouched.
+const GLOBAL = process.argv.includes('--global');
+const forGlobal = (c) => {
+  if (!GLOBAL) return c;
+  const o = Object.assign({}, c);
+  ['logoImage', 'showHeader', 'showFooter', 'footer'].forEach((k) => { delete o[k]; });
+  if (o.imageFallbacks) { o.imageFallbacks = Object.assign({}, o.imageFallbacks); delete o.imageFallbacks.logoImage; if (!Object.keys(o.imageFallbacks).length) delete o.imageFallbacks; }
+  return o;
+};
+const globalBanner = (s) => (GLOBAL ? s.replace(/^<!--\n/, '<!--\n' +
+  '  FOR THE GLOBAL HEADER AND FOOTER (built with --global): this block has NO header or footer of its own. Paste it\n' +
+  '  between the "BWCI Header" and "BWCI Footer" GoHighLevel Global Sections (ghl/global/). The logo, header/footer\n' +
+  '  and footer-wording settings live in those sections; any such setting named below is not in this block.\n') : s);
+
 // classes the runtime adds outside the static markup (keep in sync with the shared site chrome)
 const DYNAMIC_CLASSES = ['ptd-st-on', 'ptd-pc--hl', 'ptd-pc--dim', 'ptd-gd-fab--on', 'ptd-gd--open'];
 // every source class name carries the ptd- prefix; bwci-system.css is renamed to match
@@ -34,6 +50,7 @@ const pageCss = fs.readFileSync(path.join(__dirname, 'src', 'platform-today.css'
 // shared site chrome: SiteHeader current="today", Breadcrumb current="today"; content:true adds bwci-system.css
 // parts C and E (the pg-hero--in hero)
 const chrome = require('../../../shared/site-chrome/site-chrome')({
+  global: GLOBAL,
   prefix: 'ptd', current: 'today', breadcrumb: 'today', content: true, rename, images: ['platformTodayHeroImage'],
 });
 const siteLinks = require('../../../shared/site-links');
@@ -90,10 +107,19 @@ function scopeSelector(s) {
 
 /* ---------------- inputs ---------------- */
 const htmlSrc = fs.readFileSync(path.join(SRC, 'platform-today.html'), 'utf8').trim()
-  .replace(/<!--chrome:(header|breadcrumb|footer)-->/g, (_, k) => chrome[k]);
+  .replace(/<!--chrome:(header|breadcrumb|footer)-->/g, (_, k) => (GLOBAL && (k === 'header' || k === 'footer') ? '' : chrome[k]))
+  .replace('id="' + ROOT.slice(1) + '"', (m) => (GLOBAL ? m + ' data-bwci-current="' + chrome.current + '" data-bwci-overlays' : m));
 const jsSrc = fs.readFileSync(path.join(SRC, 'platform-today.js'), 'utf8').trim();
 if (!jsSrc.includes('/*@site-chrome*/')) throw new Error('/*@site-chrome*/ marker missing from platform-today.js');
-const js = jsSrc.replace('/*@site-chrome*/', () => chrome.runtime);
+const jsGlobal = (src) => {
+  // global header/footer: while the guide (a full-screen overlay, z-index 100 like the source) is open, its GoHighLevel
+  // section is lifted above the global header's (see site-chrome GLOBAL_HEADERLESS); the regular block is unchanged
+  if (!GLOBAL) return src;
+  const at = "guide.setAttribute('aria-hidden', state.lg ? 'false' : 'true');";
+  if (src.split(at).length !== 2) throw new Error('platform-today.js renderGuide changed; review the --global overlay hook');
+  return src.replace(at, () => at + "\n      if (chrome && chrome.overlay) chrome.overlay(state.lg);");
+};
+const js = jsGlobal(jsSrc.replace('/*@site-chrome*/', () => chrome.runtime));
 const config = JSON.parse(fs.readFileSync(path.join(SRC, 'platform-today.config.json'), 'utf8'));
 const cssSrc = pageCss + '\n' + chrome.css();
 
@@ -188,6 +214,7 @@ const FONT_LINKS = [
 
 /* ---------------- checks ---------------- */
 const usedKeys = new Set([...htmlCode.matchAll(/data-ptd-link="([^"]+)"/g)].map((m) => m[1]));
+if (GLOBAL) Object.keys(config.links).forEach((k) => { if (!usedKeys.has(k)) delete config.links[k]; });
 const cfgKeys = new Set(Object.keys(config.links));
 usedKeys.forEach((k) => { if (!cfgKeys.has(k)) throw new Error('Link key missing from config: ' + k); });
 // every value is the shared mapping's reference for its key (existing Custom Values, or a proposed one)
@@ -223,13 +250,13 @@ function banner(variant) {
 }
 function assemble(images, variant) {
   const cfg = Object.assign({}, config, images);
-  const cfgBlock = '<script type="application/json" id="bwci-platform-today-config">\n' + JSON.stringify(chrome.imageConfig(cfg), null, 2) + '\n</script>';
+  const cfgBlock = '<script type="application/json" id="bwci-platform-today-config">\n' + JSON.stringify(chrome.imageConfig(forGlobal(cfg)), null, 2) + '\n</script>';
   return banner(variant) + '\n' + cfgBlock + '\n' + FONT_LINKS + '\n<style>\n' + css + '</style>\n\n' + html + '\n\n<script>\n' + js + '\n</script>\n';
 }
 const ghl = assemble({}, 'production — hosted images');
 const inline = assemble({ logoImage: dataUri(chrome.logoPath), platformTodayHeroImage: dataUri(HERO) }, 'self-contained — embedded images');
-fs.writeFileSync(path.join(PAGE_DIR, 'platform-today.ghl.html'), ghl);
-fs.writeFileSync(path.join(PAGE_DIR, 'platform-today.inline.ghl.html'), inline);
+fs.writeFileSync(path.join(PAGE_DIR, GLOBAL ? 'platform-today.global.ghl.html' : 'platform-today.ghl.html'), globalBanner(ghl));
+fs.writeFileSync(path.join(PAGE_DIR, GLOBAL ? 'platform-today.global.inline.ghl.html' : 'platform-today.inline.ghl.html'), globalBanner(inline));
 
 console.log('keyframes kept   :', keptKf.join(', '));
 console.log('keyframes dropped:', droppedKf.join(', ') || '-');

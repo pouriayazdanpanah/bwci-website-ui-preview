@@ -4,6 +4,15 @@ This is a port of `design/Contact.dc.html` (design export `df79d85`, 2 November 
 - Branch `feat/ghl-contact`, from main `ee5629c`; merged in PR #48 (`454f8e1`).
 - Live GoHighLevel installation is a separate step and is not verified.
 
+## Global header/footer version (9 November 2026)
+
+`node ghl/pages/contact/_build/build.js --global` also writes `contact.global.ghl.html` and `contact.global.inline.ghl.html`: this page **without** its header and footer, for
+use between the [global header and footer](../../global/README.md) GoHighLevel Global Sections. Its root carries
+`data-bwci-current="contact"` (the global header marks the current page from it), its config drops `showHeader`,
+`showFooter`, `footer` and `logoImage` and keeps only the links the page itself uses. The regular outputs below are
+unchanged. Tested locally against the regular block ([verification](../../global/qa/verification.md)); the owner
+reported a working GHL test page on 9 November 2026 (address not recorded). Do not paste it without the global sections.
+
 ## Files
 
 | File | Use |

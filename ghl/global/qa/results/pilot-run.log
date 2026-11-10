@@ -1,0 +1,173 @@
+PASS contact 320 same document height  [4228,4228]
+PASS contact 320 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS contact 360 same document height  [4069,4069]
+PASS contact 360 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS contact 375 same document height  [3979,3979]
+PASS contact 375 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS contact 390 same document height  [3961,3961]
+PASS contact 390 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS contact 430 same document height  [3838,3838]
+PASS contact 430 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS contact 768 same document height  [3191,3191]
+PASS contact 768 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS contact 1024 same document height  [2095,2095]
+PASS contact 1024 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS contact 1280 same document height  [2351,2351]
+PASS contact 1280 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS contact 1366 same document height  [2446,2446]
+PASS contact 1366 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS contact 1440 same document height  [2461,2461]
+PASS contact 1440 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS contact 1600 same document height  [2461,2461]
+PASS contact 1600 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS contact 1920 same document height  [2461,2461]
+PASS contact 1920 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS contact 2560 same document height  [2461,2461]
+PASS contact 2560 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS contact pixels: 65/65 viewports identical
+PASS governance 320 same document height  [2558,2558]
+PASS governance 320 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS governance 360 same document height  [2395,2395]
+PASS governance 360 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS governance 375 same document height  [2346,2346]
+PASS governance 375 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS governance 390 same document height  [2293,2293]
+PASS governance 390 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS governance 430 same document height  [2189,2189]
+PASS governance 430 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS governance 768 same document height  [1200,1200]
+PASS governance 768 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS governance 1024 same document height  [755,755]
+PASS governance 1024 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS governance 1280 same document height  [835,835]
+PASS governance 1280 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS governance 1366 same document height  [859,859]
+PASS governance 1366 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS governance 1440 same document height  [870,870]
+PASS governance 1440 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS governance 1600 same document height  [870,870]
+PASS governance 1600 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS governance 1920 same document height  [870,870]
+PASS governance 1920 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS governance 2560 same document height  [870,870]
+PASS governance 2560 same layout of every page, header and footer element  {"page":true,"header":true,"footer":true}
+PASS governance pixels: 65/65 viewports identical
+PASS contact 390 motion on: header area identical (69 px)  0
+PASS contact 1024 motion on: header area identical (77 px)  0
+PASS contact 1440 motion on: header area identical (117 px)  0
+PASS governance 390 motion on: header area identical (69 px)  0
+PASS governance 1024 motion on: header area identical (77 px)  0
+PASS governance 1440 motion on: header area identical (117 px)  0
+PASS contact 1440 header links: same text, current-page marks, expanded states and hrefs  []
+PASS contact 1440 page sees the same --util-h / --nav-h  [["40px","117px"],["40px","117px"]]
+PASS contact 1440 dropdown hover: same geometry, states, focus and body overflow; pixels identical  {"diff":0,"sameGeometry":true,"sameState":true,"a":["","{ \"logoImage\": \"{{ custom_valu"],"b":["","{ \"logoImage\": \"{{ custom_valu"]}
+PASS contact 1440 dropdown keyboard ArrowDown: same geometry, states, focus and body overflow; pixels identical  {"diff":0,"sameGeometry":true,"sameState":true,"a":["","The Financial EngineHow capita"],"b":["","The Financial EngineHow capita"]}
+PASS contact 1440 dropdown Escape: same geometry, states, focus and body overflow; pixels identical  {"diff":0,"sameGeometry":true,"sameState":true,"a":["","How It Works"],"b":["","How It Works"]}
+PASS contact 1440 stuck after scroll: same geometry, states, focus and body overflow; pixels identical  {"diff":0,"sameGeometry":true,"sameState":true,"a":["","How It Works"],"b":["","How It Works"]}
+PASS contact 1440 dropdown over page content while stuck: same geometry, states, focus and body overflow; pixels identical  {"diff":0,"sameGeometry":true,"sameState":true,"a":["","Investors & Partners"],"b":["","Investors & Partners"]}
+PASS contact 390 header links: same text, current-page marks, expanded states and hrefs  []
+PASS contact 390 page sees the same --util-h / --nav-h  [["0px","69px"],["0px","69px"]]
+PASS contact 390 drawer open: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased  {"diff":0,"sameGeometry":true,"sameState":true,"a":["hidden",""],"b":["hidden",""]}
+PASS contact 390 drawer Tab wraps: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased  {"diff":0,"sameGeometry":true,"sameState":true,"a":["hidden","SMEs & Projects"],"b":["hidden","SMEs & Projects"]}
+PASS contact 390 drawer accordion toggle: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased  {"diff":0,"sameGeometry":true,"sameState":true,"a":["hidden","Who We Are"],"b":["hidden","Who We Are"]}
+PASS contact 390 drawer Escape: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased  {"diff":0,"sameGeometry":true,"sameState":true,"a":["",""],"b":["",""]}
+PASS contact 390 drawer open while stuck: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased  {"diff":0,"sameGeometry":true,"sameState":true,"a":["hidden",""],"b":["hidden",""]}
+PASS contact 390 drawer close button: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased  {"diff":0,"sameGeometry":true,"sameState":true,"a":["",""],"b":["",""]}
+PASS governance 1440 header links: same text, current-page marks, expanded states and hrefs  []
+PASS governance 1440 page sees the same --util-h / --nav-h  [["40px","117px"],["40px","117px"]]
+PASS governance 1440 dropdown hover: same geometry, states, focus and body overflow; pixels identical  {"diff":0,"sameGeometry":true,"sameState":true,"a":["","{ \"logoImage\": \"{{ custom_valu"],"b":["","{ \"logoImage\": \"{{ custom_valu"]}
+PASS governance 1440 dropdown keyboard ArrowDown: same geometry, states, focus and body overflow; pixels identical  {"diff":0,"sameGeometry":true,"sameState":true,"a":["","The Financial EngineHow capita"],"b":["","The Financial EngineHow capita"]}
+PASS governance 1440 dropdown Escape: same geometry, states, focus and body overflow; pixels identical  {"diff":0,"sameGeometry":true,"sameState":true,"a":["","How It Works"],"b":["","How It Works"]}
+PASS governance 1440 stuck after scroll: same geometry, states, focus and body overflow; pixels identical  {"diff":0,"sameGeometry":true,"sameState":true,"a":["","How It Works"],"b":["","How It Works"]}
+PASS governance 1440 dropdown over page content while stuck: same geometry, states, focus and body overflow; pixels identical  {"diff":0,"sameGeometry":true,"sameState":true,"a":["","Investors & Partners"],"b":["","Investors & Partners"]}
+PASS governance 390 header links: same text, current-page marks, expanded states and hrefs  []
+PASS governance 390 page sees the same --util-h / --nav-h  [["0px","69px"],["0px","69px"]]
+PASS governance 390 drawer open: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased  {"diff":0,"sameGeometry":true,"sameState":true,"a":["hidden",""],"b":["hidden",""]}
+PASS governance 390 drawer Tab wraps: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased  {"diff":0,"sameGeometry":true,"sameState":true,"a":["hidden","SMEs & Projects"],"b":["hidden","SMEs & Projects"]}
+PASS governance 390 drawer accordion toggle: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased  {"diff":0,"sameGeometry":true,"sameState":true,"a":["hidden","Who We Are"],"b":["hidden","Who We Are"]}
+PASS governance 390 drawer Escape: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased  {"diff":0,"sameGeometry":true,"sameState":true,"a":["",""],"b":["",""]}
+PASS governance 390 drawer open while stuck: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased  {"diff":0,"sameGeometry":true,"sameState":true,"a":["hidden",""],"b":["hidden",""]}
+PASS governance 390 drawer close button: same geometry, states, focus and body overflow; pixels ≤ 200 anti-aliased  {"diff":0,"sameGeometry":true,"sameState":true,"a":["",""],"b":["",""]}
+PASS governance 1440 in-page jump lands at the same place (scroll, target, sticky GovNav)  [{"y":473,"target":93,"govnavTop":77},{"y":473,"target":93,"govnavTop":77}]
+PASS governance 390 in-page jump lands at the same place (scroll, target, sticky GovNav)  [{"y":352,"target":85,"govnavTop":69},{"y":352,"target":85,"govnavTop":69}]
+PASS contact 1440 in-page jump lands at the same place (scroll, target, sticky GovNav)  [{"y":1022,"target":93,"govnavTop":null},{"y":1022,"target":93,"govnavTop":null}]
+PASS contact 390 in-page jump lands at the same place (scroll, target, sticky GovNav)  [{"y":1176,"target":85,"govnavTop":null},{"y":1176,"target":85,"govnavTop":null}]
+PASS contact-around 1440 same layout of every page, header and footer element
+PASS contact-around 1440 y=0: same pixels  {"diff":0,"topEl":true,"hdrTop":18}
+PASS contact-around 1440 y=150: same pixels  {"diff":0,"topEl":true,"hdrTop":-40}
+PASS contact-around 1440 y=320: same pixels  {"diff":0,"topEl":true,"hdrTop":-40}
+PASS contact-around 1440 y=700: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":-40}
+PASS contact-around 1440 y=1249: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":-40}
+PASS contact-around 1440 y=2497: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":-40}
+PASS contact-around 390 same layout of every page, header and footer element
+PASS contact-around 390 y=0: same pixels  {"diff":0,"topEl":true,"hdrTop":18}
+PASS contact-around 390 y=150: same pixels  {"diff":0,"topEl":true,"hdrTop":0}
+PASS contact-around 390 y=320: same pixels  {"diff":0,"topEl":true,"hdrTop":0}
+PASS contact-around 390 y=700: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":0}
+PASS contact-around 390 y=1999: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":0}
+PASS contact-around 390 y=3997: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":0}
+PASS governance-around 1440 same layout of every page, header and footer element
+PASS governance-around 1440 y=0: same pixels  {"diff":0,"topEl":true,"hdrTop":18}
+PASS governance-around 1440 y=150: same pixels  {"diff":0,"topEl":true,"hdrTop":-40}
+PASS governance-around 1440 y=320: same pixels  {"diff":0,"topEl":true,"hdrTop":-40}
+PASS governance-around 1440 y=700: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":-40}
+PASS governance-around 1440 y=453: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":-40}
+PASS governance-around 1440 y=906: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":-40}
+PASS governance-around 390 same layout of every page, header and footer element
+PASS governance-around 390 y=0: same pixels  {"diff":0,"topEl":true,"hdrTop":18}
+PASS governance-around 390 y=150: same pixels  {"diff":0,"topEl":true,"hdrTop":0}
+PASS governance-around 390 y=320: same pixels  {"diff":0,"topEl":true,"hdrTop":0}
+PASS governance-around 390 y=700: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":0}
+PASS governance-around 390 y=1165: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":0}
+PASS governance-around 390 y=2329: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":0}
+PASS contact-hostile 1440 same layout of every page, header and footer element
+PASS contact-hostile 1440 y=0: same pixels  {"diff":0,"topEl":false,"hdrTop":300}
+PASS contact-hostile 1440 y=150: same pixels  {"diff":0,"topEl":false,"hdrTop":150}
+PASS contact-hostile 1440 y=320: same pixels  {"diff":0,"topEl":true,"hdrTop":-20}
+PASS contact-hostile 1440 y=700: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":-40}
+PASS contact-hostile 1440 y=1567: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":-40}
+PASS contact-hostile 1440 y=3133: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":-40}
+PASS contact-hostile 390 same layout of every page, header and footer element
+PASS contact-hostile 390 y=0: same pixels  {"diff":0,"topEl":false,"hdrTop":300}
+PASS contact-hostile 390 y=150: same pixels  {"diff":0,"topEl":false,"hdrTop":150}
+PASS contact-hostile 390 y=320: same pixels  {"diff":0,"topEl":true,"hdrTop":0}
+PASS contact-hostile 390 y=700: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":0}
+PASS contact-hostile 390 y=2403: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":0}
+PASS contact-hostile 390 y=4806: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":0}
+PASS governance-hostile 1440 same layout of every page, header and footer element
+PASS governance-hostile 1440 y=0: same pixels  {"diff":0,"topEl":false,"hdrTop":300}
+PASS governance-hostile 1440 y=150: same pixels  {"diff":0,"topEl":false,"hdrTop":150}
+PASS governance-hostile 1440 y=320: same pixels  {"diff":0,"topEl":true,"hdrTop":-20}
+PASS governance-hostile 1440 y=700: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":-40}
+PASS governance-hostile 1440 y=774: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":-40}
+PASS governance-hostile 1440 y=1548: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":-40}
+PASS governance-hostile 390 same layout of every page, header and footer element
+PASS governance-hostile 390 y=0: same pixels  {"diff":0,"topEl":false,"hdrTop":300}
+PASS governance-hostile 390 y=150: same pixels  {"diff":0,"topEl":false,"hdrTop":150}
+PASS governance-hostile 390 y=320: same pixels  {"diff":0,"topEl":true,"hdrTop":0}
+PASS governance-hostile 390 y=700: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":0}
+PASS governance-hostile 390 y=1567: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":0}
+PASS governance-hostile 390 y=3133: same pixels, header on top  {"diff":0,"topEl":true,"hdrTop":0}
+PASS raiseSection lifts the layered header section  "999"
+PASS header script executed three times: one owner, one status element, still pinned  [true,1,true]
+PASS header removed: <html> sizes and the raised section are restored  ["","ok","",",,"]
+PASS header re-inserted: re-initialised closed and pinned  ["117px",true,0,"-40px"]
+PASS pagehide tears the header down  [null,"",false]
+PASS current-page marker inserted after the header is applied  ["Governance","Governance"]
+anti-aliasing-only differences (passed, layout identical): 13
+  contact 390 drawer open: 144 px, max channel difference 61
+  contact 390 drawer Tab wraps: 144 px, max channel difference 61
+  contact 390 drawer accordion toggle: 144 px, max channel difference 61
+  governance 390 drawer open: 144 px, max channel difference 61
+  governance 390 drawer Tab wraps: 144 px, max channel difference 61
+  governance 390 drawer accordion toggle: 144 px, max channel difference 61
+  contact-around 1440 y=150: 33 px, max channel difference 2
+  contact-around 1440 y=320: 33 px, max channel difference 2
+  contact-around 1440 y=700: 33 px, max channel difference 2
+  governance-around 1440 y=150: 42 px, max channel difference 1
+  governance-around 1440 y=320: 42 px, max channel difference 1
+  governance-around 1440 y=700: 42 px, max channel difference 1
+  governance-around 1440 y=453: 42 px, max channel difference 1
+PASS no script errors in any run  []
+ALL PASS
+exit=0

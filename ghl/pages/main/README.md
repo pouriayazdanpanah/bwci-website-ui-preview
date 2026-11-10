@@ -1,5 +1,17 @@
 # Main (Homepage) — GoHighLevel port
 
+## Global header/footer version (9 November 2026)
+
+`node ghl/global/_build/main-global.js` derives `main.global.ghl.html` and `main.global.inline.ghl.html` from the two
+hand-edited outputs (which stay the source of truth; re-run it after editing them). They are Main **without** its header
+and footer, for use between the [global header and footer](../../global/README.md) Global Sections. The script removes
+the header/footer markup and CSS, drops `logoImage`, `showHeader`, `showFooter`, `footer` and the header-only links
+(`home`, `impact`, `today`), applies the shared chrome's `global` runtime changes, and marks the root
+`data-bwci-current="home" data-bwci-under-header`: Main's hero is pulled up under the header
+(`margin-top: calc(var(--nav-h) * -1)`), so the global header keeps its placeholder transparent. The global header turns
+its "The Platform Today" link (home + `#bwci-today`) into an in-page jump on Main, as before. Every step checks its match
+and fails if Main's file changed shape. Local QA: [global rollout verification](../../global/qa/verification.md).
+
 ## Centralized images — October 27, 2026
 
 Both outputs now use GHL image Custom Values for this page's 10 image settings.

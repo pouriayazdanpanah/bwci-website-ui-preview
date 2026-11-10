@@ -145,6 +145,12 @@ module.exports = function siteChrome(opts) {
   const govCur = opts.govnav || null;       // GovNav current prop ('hub', 'board', 'leadership'), or null when the page has none
   const legalCur = opts.legalnav || null;   // LegalNav current prop ('privacy', 'cookies', 'accessibility', 'terms', 'disclosures'), or null
   const withPeople = !!opts.people;         // true for a page with PersonCard components (Board, Leadership)
+  // Global header/footer (ghl/global/): `currentAttrs` marks each header link and group with its SiteHeader `current`
+  // value (data-<prefix>-c / -cg) so the global header's runtime can apply the page's current state; `global` is
+  // for a page block used with the global header/footer: the header-less runtime leaves --util-h / --nav-h to the
+  // global header (set on <html>), and the chrome's dynamic classes are not expected in the page markup.
+  const currentAttrs = !!opts.currentAttrs;
+  const globalPage = !!opts.global;
   const defaults = Object.assign({}, LINK_DEFAULTS, opts.links || {}); // per-page default routes (e.g. Main's in-page #bwci-impact)
   const L = (k) => 'data-' + P + '-link="' + k + '"';
   const I = (t) => '<span class="' + P + '-i">' + esc(t) + '</span>'; // {{value}} → span.sc-interp in the source runtime
@@ -153,7 +159,8 @@ module.exports = function siteChrome(opts) {
   const hdrSrc = read('SiteHeader.dc.html');
   const hdrScript = between(hdrSrc, 'data-dc-script', '</script>');
   const { NAV, UTIL } = constants(hdrScript, ['NAV', 'UTIL']);
-  const cur = (c) => (c === current ? ' aria-current="page"' : '');
+  const cur = (c) => (c === current ? ' aria-current="page"' : '') + (currentAttrs && c ? ' data-' + P + '-c="' + c + '"' : '');
+  const cg = (g) => (currentAttrs ? ' data-' + P + '-cg="' + g.items.map((it) => it.c).filter(Boolean).join(' ') + '"' : '');
   const SVG_DOWN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>';
   const SVG_ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>';
   const SVG_PLUS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><line class="' + P + '-hdr__v" x1="12" y1="5" x2="12" y2="19"></line></svg>';
@@ -166,7 +173,7 @@ module.exports = function siteChrome(opts) {
     if (!g.items) return '          <li class="' + H + '__dd"><a class="' + H + '__link" href="' + esc(g.href) + '" ' + L(keyOf(g.href)) + cur(g.k) + '>' + I(g.label) + '</a></li>';
     return [
       '          <li class="' + H + '__dd" data-' + P + '-dd="' + g.k + '">',
-      '            <button class="' + H + '__link ' + H + '__trigger" type="button" aria-expanded="false" aria-controls="' + H + '-p-' + g.k + '"' + (has(g) ? ' aria-current="page"' : '') + ' data-' + P + '-dd-btn>' + I(g.label) + SVG_DOWN + '</button>',
+      '            <button class="' + H + '__link ' + H + '__trigger" type="button" aria-expanded="false" aria-controls="' + H + '-p-' + g.k + '"' + (has(g) ? ' aria-current="page"' : '') + cg(g) + ' data-' + P + '-dd-btn>' + I(g.label) + SVG_DOWN + '</button>',
       '            <ul class="' + H + '__panel" id="' + H + '-p-' + g.k + '" data-' + P + '-dd-panel hidden>',
       g.items.map((it) => '              <li><a class="' + H + '__item" href="' + esc(it.href) + '" ' + L(keyOf(it.href)) + cur(it.c) + '><span><span class="' + H + '__item-t">' + I(it.t) + '</span><span class="' + H + '__item-d">' + I(it.d) + '</span></span>' + SVG_ARROW + '</a></li>').join('\n'),
       '            </ul>',
@@ -178,7 +185,7 @@ module.exports = function siteChrome(opts) {
     const open = has(g); // source: an accordion starts open when it holds the current page
     return [
       '          <li>',
-      '            <button class="' + H + '__drow" type="button" aria-expanded="' + open + '" aria-controls="' + H + '-a-' + g.k + '" data-' + P + '-acc="' + g.k + '">' + I(g.label) + SVG_PLUS + '</button>',
+      '            <button class="' + H + '__drow" type="button" aria-expanded="' + open + '" aria-controls="' + H + '-a-' + g.k + '" data-' + P + '-acc="' + g.k + '"' + cg(g) + '>' + I(g.label) + SVG_PLUS + '</button>',
       '            <ul class="' + H + '__sub" id="' + H + '-a-' + g.k + '" data-' + P + '-acc-panel="' + g.k + '"' + (open ? '' : ' hidden') + '>',
       g.items.map((it) => '              <li><a href="' + esc(it.href) + '" ' + L(keyOf(it.href)) + cur(it.c) + ' data-' + P + '-menu-close><span class="' + H + '__sub-t">' + I(it.t) + '</span><span class="' + H + '__sub-d">' + I(it.d) + '</span></a></li>').join('\n'),
       '            </ul>',
@@ -472,8 +479,20 @@ module.exports = function siteChrome(opts) {
   }
 
   /* ---------------- runtime (inlined into the page script) ---------------- */
-  const runtime = (siteLinks.runtimeFor(opts.sections || []) + '\n' + siteImages.runtimeFor(opts.images || []) + '\n' + fs.readFileSync(RUNTIME, 'utf8') + (govCur || legalCur ? '\n' + fs.readFileSync(GOVNAV_RUNTIME, 'utf8') : '') +
+  let runtime = (siteLinks.runtimeFor(opts.sections || []) + '\n' + siteImages.runtimeFor(opts.images || []) + '\n' + fs.readFileSync(RUNTIME, 'utf8') + (govCur || legalCur ? '\n' + fs.readFileSync(GOVNAV_RUNTIME, 'utf8') : '') +
     (withPeople ? '\n' + fs.readFileSync(PEOPLE_RUNTIME, 'utf8') : '')).replace(/__P__/g, P).trim();
+  if (globalPage) {
+    // the header lives in the global header block, which sets --util-h / --nav-h on <html>; the page must not
+    // override them with 0px on its root
+    const reset = "if (!hdr) { root.style.setProperty('--util-h', '0px'); root.style.setProperty('--nav-h', '0px'); return { destroy: removeStatus }; }";
+    if (runtime.split(reset).length !== 2) throw new Error('site-chrome.runtime.js header-less branch changed; review the global option');
+    runtime = runtime.replace(reset, () => GLOBAL_HEADERLESS);
+    // a page block (root marked data-bwci-current) tells the global header that it is ready, in whatever order
+    // GoHighLevel runs the blocks; the header then marks the current page
+    const start = 'function siteChrome(root, cfg, on, timers) {';
+    if (runtime.split(start).length !== 2) throw new Error('site-chrome.runtime.js siteChrome() changed; review the global option');
+    runtime = runtime.replace(start, () => start + "\n    if (root.hasAttribute('data-bwci-current')) { try { document.dispatchEvent(new CustomEvent('bwci:page-ready')); } catch (err) { /* old browser */ } }");
+  }
 
   const links = {};
   for (const m of (header + breadcrumb + govnav + legalnav + footer).matchAll(new RegExp('data-' + P + '-link="([^"]+)"', 'g'))) links[m[1]] = defaults[m[1]];
@@ -487,11 +506,12 @@ module.exports = function siteChrome(opts) {
       return siteImages.forOutput(cfg);
     },
     header: swap(header), breadcrumb: swap(breadcrumb), govnav, legalnav, footer: swap(footer), css, runtime,
+    current,                                // SiteHeader `current` (a --global page marks its root data-bwci-current with it)
     links,                                  // chrome link keys used by this page, with default routes
     unresolved: Object.keys(links).filter((k) => links[k] === '#'),
     // Retain the old homepage-anchor setting without making it the independent Impact destination.
     legacyLinkKeys: ['impact'],
-    dynamicClasses: [H + '--stuck', P + '-motion', F + '__reg'],
+    dynamicClasses: globalPage ? [P + '-motion'] : [H + '--stuck', P + '-motion', F + '__reg'],
     logoPath: LOGO,
     // person cards: markup function, and per person the profile link key and the portrait file (for the page config)
     personCard,
@@ -499,6 +519,31 @@ module.exports = function siteChrome(opts) {
   };
 };
 module.exports.HREF_KEYS = HREF_KEYS;
+// The header-less branch of a --global page's chrome runtime (also used by ghl/global/_build/main-global.js).
+// --util-h / --nav-h come from the global header on <html>. A page root marked data-bwci-overlays (fixed overlays of
+// its own, e.g. The Platform Today's guide) keeps its GoHighLevel section(s) layered just below the global header's
+// raised section (998 < 999) and so above the footer's; overlay(true) lifts them above the header while an overlay is
+// open. Only ancestors that already have a z-index are touched, and every value is restored on teardown.
+const GLOBAL_HEADERLESS = [
+  'if (!hdr) { // global header: --util-h / --nav-h come from <html>',
+  '      var layered = [];',
+  "      if (root.hasAttribute('data-bwci-overlays')) {",
+  '        for (var el = root.parentElement; el && el !== document.body && el !== document.documentElement; el = el.parentElement) {',
+  "          if (getComputedStyle(el).zIndex !== 'auto') layered.push([el, el.style.getPropertyValue('z-index'), el.style.getPropertyPriority('z-index')]);",
+  '        }',
+  '      }',
+  "      var layer = function (z) { layered.forEach(function (r) { r[0].style.setProperty('z-index', z, 'important'); }); };",
+  "      layer('998');",
+  '      return {',
+  "        overlay: function (open) { layer(open ? '1000' : '998'); },",
+  '        destroy: function () {',
+  '          removeStatus();',
+  "          layered.forEach(function (r) { if (r[1]) r[0].style.setProperty('z-index', r[1], r[2]); else r[0].style.removeProperty('z-index'); });",
+  '        }',
+  '      };',
+  '    }',
+].join('\n');
+module.exports.GLOBAL_HEADERLESS = GLOBAL_HEADERLESS;
 module.exports.LINK_DEFAULTS = LINK_DEFAULTS;
 
 // Development-only data access for the reusable profile generator.

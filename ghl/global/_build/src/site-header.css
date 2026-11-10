@@ -1,0 +1,5 @@
+/* Global header only. Before the script runs, the header sits in the flow (no layout jump). The script then pins it:
+   the root keeps the header's height as a placeholder, and the host is fixed at the placeholder's position, limited
+   to -(utility bar height) like the source's sticky top. The script sets top / left / width. */
+:scope.bwh-fixed .bwh-hdr-host{ position:fixed; top:0; left:0; width:100%; }
+:scope.bwh-under{ background:transparent; }

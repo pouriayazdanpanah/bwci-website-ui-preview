@@ -26,6 +26,22 @@ const KEYFRAME_PREFIX = 'who-';
 const PAGE_DIR = path.resolve(__dirname, '..');
 const SRC = path.join(__dirname, 'src');
 const REPORT = process.argv.includes('--report');
+// --global: the page block for use with the global header and footer (ghl/global/): no header or footer, no logo /
+// header / footer settings, only the links the page itself uses, and the root marked data-bwci-current for the global
+// header. Writes who-we-are.global*.ghl.html; the regular outputs are untouched.
+const GLOBAL = process.argv.includes('--global');
+const forGlobal = (c) => {
+  if (!GLOBAL) return c;
+  const o = Object.assign({}, c);
+  ['logoImage', 'showHeader', 'showFooter', 'footer'].forEach((k) => { delete o[k]; });
+  if (o.imageFallbacks) { o.imageFallbacks = Object.assign({}, o.imageFallbacks); delete o.imageFallbacks.logoImage; if (!Object.keys(o.imageFallbacks).length) delete o.imageFallbacks; }
+  return o;
+};
+const globalBanner = (s) => (GLOBAL ? s.replace(/^<!--\n/, '<!--\n' +
+  '  FOR THE GLOBAL HEADER AND FOOTER (built with --global): this block has NO header or footer of its own. Paste it\n' +
+  '  between the "BWCI Header" and "BWCI Footer" GoHighLevel Global Sections (ghl/global/). The logo, header/footer\n' +
+  '  and footer-wording settings live in those sections; any such setting named below is not in this block.\n') : s);
+
 // classes the runtime adds outside the static markup (keep in sync with the shared site chrome)
 const DYNAMIC_CLASSES = ['who-lit', 'who-is-drag'];
 // every source class name carries the who- prefix (bwci-system.css is renamed to match), except the shared
@@ -35,6 +51,7 @@ const pageCss = fs.readFileSync(path.join(__dirname, 'src', 'who-we-are.css'), '
 // shared site chrome: SiteHeader current="who", Breadcrumb current="who"; content:true adds bwci-system.css parts C
 // and E (cards); people:true adds the PersonCard markup and runtime
 const chrome = require('../../../shared/site-chrome/site-chrome')({
+  global: GLOBAL,
   prefix: 'who', current: 'who', breadcrumb: 'who', content: true, people: true, rename,
   images: ['whoWeAreHeroImage'], // this page's own image setting (ghl/shared/site-images pageRoots)
 });
@@ -94,7 +111,8 @@ function scopeSelector(s) {
 /* ---------------- inputs ---------------- */
 const slugs = [];
 const htmlSrc = fs.readFileSync(path.join(SRC, 'who-we-are.html'), 'utf8').trim()
-  .replace(/<!--chrome:(header|breadcrumb|footer)-->/g, (_, k) => chrome[k])
+  .replace(/<!--chrome:(header|breadcrumb|footer)-->/g, (_, k) => (GLOBAL && (k === 'header' || k === 'footer') ? '' : chrome[k]))
+  .replace('id="' + ROOT.slice(1) + '"', (m) => (GLOBAL ? m + ' data-bwci-current="' + chrome.current + '"' : m))
   .replace(/<!--person:([\w-]+)-->/g, (_, slug) => { slugs.push(slug); return chrome.personCard(slug, FROM); });
 const jsSrc = fs.readFileSync(path.join(SRC, 'who-we-are.js'), 'utf8').trim();
 if (!jsSrc.includes('/*@site-chrome*/')) throw new Error('/*@site-chrome*/ marker missing from who-we-are.js');
@@ -193,6 +211,7 @@ const FONT_LINKS = [
 
 /* ---------------- checks ---------------- */
 const usedKeys = new Set([...htmlCode.matchAll(/data-who-link="([^"]+)"/g)].map((m) => m[1]));
+if (GLOBAL) Object.keys(config.links).forEach((k) => { if (!usedKeys.has(k)) delete config.links[k]; });
 const cfgKeys = new Set(Object.keys(config.links));
 usedKeys.forEach((k) => { if (!cfgKeys.has(k)) throw new Error('Link key missing from config: ' + k); });
 // every value is the shared mapping's reference for its key (existing Custom Values, or a proposed one)
@@ -238,13 +257,13 @@ function banner(variant) {
 }
 function assemble(logoValue, heroValue, peopleValues, variant) {
   const cfg = Object.assign({}, config, { logoImage: logoValue, whoWeAreHeroImage: heroValue, peopleImages: peopleValues });
-  const cfgBlock = '<script type="application/json" id="bwci-who-we-are-config">\n' + JSON.stringify(chrome.imageConfig(cfg), null, 2) + '\n</script>';
+  const cfgBlock = '<script type="application/json" id="bwci-who-we-are-config">\n' + JSON.stringify(chrome.imageConfig(forGlobal(cfg)), null, 2) + '\n</script>';
   return banner(variant) + '\n' + cfgBlock + '\n' + FONT_LINKS + '\n<style>\n' + css + '</style>\n\n' + html + '\n\n<script>\n' + js + '\n</script>\n';
 }
 const ghl = assemble(config.logoImage, config.whoWeAreHeroImage, config.peopleImages, 'production — hosted images');
 const inline = assemble(dataUri(chrome.logoPath), dataUri(heroFile), Object.fromEntries(cfgSlugs.map((sl) => [sl, dataUri(assetOf(sl))])), 'self-contained — embedded images');
-fs.writeFileSync(path.join(PAGE_DIR, 'who-we-are.ghl.html'), ghl);
-fs.writeFileSync(path.join(PAGE_DIR, 'who-we-are.inline.ghl.html'), inline);
+fs.writeFileSync(path.join(PAGE_DIR, GLOBAL ? 'who-we-are.global.ghl.html' : 'who-we-are.ghl.html'), globalBanner(ghl));
+fs.writeFileSync(path.join(PAGE_DIR, GLOBAL ? 'who-we-are.global.inline.ghl.html' : 'who-we-are.inline.ghl.html'), globalBanner(inline));
 
 console.log('keyframes kept   :', keptKf.join(', '));
 console.log('keyframes dropped:', droppedKf.join(', ') || '-');

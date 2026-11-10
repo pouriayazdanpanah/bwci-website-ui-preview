@@ -29,6 +29,22 @@ const PAGE_DIR = path.resolve(__dirname, '..');
 const SRC = path.join(__dirname, 'src');
 const IMAGE = path.join(PAGE_DIR, 'assets', 'inv-hero-flow.png');
 const REPORT = process.argv.includes('--report');
+// --global: the page block for use with the global header and footer (ghl/global/): no header or footer, no logo /
+// header / footer settings, only the links the page itself uses, and the root marked data-bwci-current for the global
+// header. Writes investors-partners.global*.ghl.html; the regular outputs are untouched.
+const GLOBAL = process.argv.includes('--global');
+const forGlobal = (c) => {
+  if (!GLOBAL) return c;
+  const o = Object.assign({}, c);
+  ['logoImage', 'showHeader', 'showFooter', 'footer'].forEach((k) => { delete o[k]; });
+  if (o.imageFallbacks) { o.imageFallbacks = Object.assign({}, o.imageFallbacks); delete o.imageFallbacks.logoImage; if (!Object.keys(o.imageFallbacks).length) delete o.imageFallbacks; }
+  return o;
+};
+const globalBanner = (s) => (GLOBAL ? s.replace(/^<!--\n/, '<!--\n' +
+  '  FOR THE GLOBAL HEADER AND FOOTER (built with --global): this block has NO header or footer of its own. Paste it\n' +
+  '  between the "BWCI Header" and "BWCI Footer" GoHighLevel Global Sections (ghl/global/). The logo, header/footer\n' +
+  '  and footer-wording settings live in those sections; any such setting named below is not in this block.\n') : s);
+
 // classes the runtime adds outside the VIEW markup (keep in sync with investors-partners.js)
 const DYNAMIC_CLASSES = ['inv-js', 'rv-in'];
 
@@ -87,11 +103,13 @@ const pageCss = fs.readFileSync(path.join(SRC, 'investors-partners.css'), 'utf8'
 // shared site chrome for this page (SiteHeader current="investors", Breadcrumb current="investors"). rename: the
 // page's own class vocabulary, so bwci-system.css targets the same elements as in the source
 const chrome = require('../../../shared/site-chrome/site-chrome')({
+  global: GLOBAL,
   prefix: 'inv', current: 'investors', breadcrumb: 'investors',
   rename: (n) => (new RegExp('\\.' + 'inv-' + n + '(?![\\w-])').test(pageCss) ? 'inv-' + n : n),
 });
 const htmlSrc = fs.readFileSync(path.join(SRC, 'investors-partners.html'), 'utf8').trim()
-  .replace(/<!--chrome:(header|breadcrumb|footer)-->/g, (_, k) => chrome[k]);
+  .replace(/<!--chrome:(header|breadcrumb|footer)-->/g, (_, k) => (GLOBAL && (k === 'header' || k === 'footer') ? '' : chrome[k]))
+  .replace('id="' + ROOT.slice(1) + '"', (m) => (GLOBAL ? m + ' data-bwci-current="' + chrome.current + '"' : m));
 const jsSrc = fs.readFileSync(path.join(SRC, 'investors-partners.js'), 'utf8').trim();
 if (!jsSrc.includes('/*@site-chrome*/')) throw new Error('/*@site-chrome*/ marker missing from investors-partners.js');
 const js = jsSrc.replace('/*@site-chrome*/', () => chrome.runtime);
@@ -208,6 +226,7 @@ const FONT_LINKS = [
 
 /* ---------------- checks ---------------- */
 const usedKeys = new Set([...htmlCode.matchAll(/data-inv-link="([^"]+)"/g)].map((m) => m[1]));
+if (GLOBAL) Object.keys(config.links).forEach((k) => { if (!usedKeys.has(k)) delete config.links[k]; });
 const cfgKeys = new Set(Object.keys(config.links));
 usedKeys.forEach((k) => { if (!cfgKeys.has(k)) throw new Error('Link key missing from config: ' + k); });
 cfgKeys.forEach((k) => { /* Only known legacy keys retain their original configuration semantics. */ if (!usedKeys.has(k) && !chrome.legacyLinkKeys.includes(k)) throw new Error('Unused link key in config: ' + k); });
@@ -234,14 +253,14 @@ function banner(variant) {
 }
 function assemble(imageValue, logoValue, variant) {
   const cfg = Object.assign({}, config, { investorsHeroImage: imageValue, logoImage: logoValue });
-  const cfgBlock = '<script type="application/json" id="bwci-investors-partners-config">\n' + JSON.stringify(chrome.imageConfig(cfg), null, 2) + '\n</script>';
+  const cfgBlock = '<script type="application/json" id="bwci-investors-partners-config">\n' + JSON.stringify(chrome.imageConfig(forGlobal(cfg)), null, 2) + '\n</script>';
   return banner(variant) + '\n' + cfgBlock + '\n' + FONT_LINKS + '\n<style>\n' + css + '</style>\n\n' + html + '\n\n<script>\n' + js + '\n</script>\n';
 }
 const ghl = assemble(config.investorsHeroImage, config.logoImage, 'production — hosted images');
 const inline = assemble('data:image/png;base64,' + fs.readFileSync(IMAGE).toString('base64'),
   'data:image/png;base64,' + fs.readFileSync(chrome.logoPath).toString('base64'), 'self-contained — embedded images');
-fs.writeFileSync(path.join(PAGE_DIR, 'investors-partners.ghl.html'), ghl);
-fs.writeFileSync(path.join(PAGE_DIR, 'investors-partners.inline.ghl.html'), inline);
+fs.writeFileSync(path.join(PAGE_DIR, GLOBAL ? 'investors-partners.global.ghl.html' : 'investors-partners.ghl.html'), globalBanner(ghl));
+fs.writeFileSync(path.join(PAGE_DIR, GLOBAL ? 'investors-partners.global.inline.ghl.html' : 'investors-partners.inline.ghl.html'), globalBanner(inline));
 
 console.log('keyframes kept   :', keptKf.join(', '));
 console.log('keyframes dropped:', droppedKf.join(', ') || '-');

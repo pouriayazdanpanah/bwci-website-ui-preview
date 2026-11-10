@@ -1,0 +1,969 @@
+PASS better-world-impact 320 layout (height, page, header, footer) and content links
+PASS better-world-impact 320 pixels at 4 scroll positions
+PASS better-world-impact 390 layout (height, page, header, footer) and content links
+PASS better-world-impact 390 pixels at 4 scroll positions
+PASS better-world-impact 390 header state (current page, expanded, hrefs)
+PASS better-world-impact 390 page sees the same --util-h / --nav-h
+PASS better-world-impact 768 layout (height, page, header, footer) and content links
+PASS better-world-impact 768 pixels at 4 scroll positions
+PASS better-world-impact 1024 layout (height, page, header, footer) and content links
+PASS better-world-impact 1024 pixels at 4 scroll positions
+PASS better-world-impact 1280 layout (height, page, header, footer) and content links
+PASS better-world-impact 1280 pixels at 4 scroll positions
+PASS better-world-impact 1440 layout (height, page, header, footer) and content links
+PASS better-world-impact 1440 pixels at 4 scroll positions
+PASS better-world-impact 1440 header state (current page, expanded, hrefs)
+PASS better-world-impact 1440 page sees the same --util-h / --nav-h
+PASS better-world-impact 1920 layout (height, page, header, footer) and content links
+PASS better-world-impact 1920 pixels at 4 scroll positions
+PASS better-world-impact 1440 dropdown open over the page while stuck
+PASS better-world-impact 390 drawer open while stuck
+PASS better-world-impact hostile 1440: layout, pixels, header on top once stuck
+PASS better-world-impact hostile 390: layout, pixels, header on top once stuck
+PASS better-world-impact 1440 in-page jump lands at the same place
+PASS better-world-impact 390 in-page jump lands at the same place
+PASS corporate-ir-legal-notices 320 layout (height, page, header, footer) and content links
+PASS corporate-ir-legal-notices 320 pixels at 4 scroll positions
+PASS corporate-ir-legal-notices 390 layout (height, page, header, footer) and content links
+PASS corporate-ir-legal-notices 390 pixels at 4 scroll positions
+PASS corporate-ir-legal-notices 390 header state (current page, expanded, hrefs)
+PASS corporate-ir-legal-notices 390 page sees the same --util-h / --nav-h
+PASS corporate-ir-legal-notices 768 layout (height, page, header, footer) and content links
+PASS corporate-ir-legal-notices 768 pixels at 4 scroll positions
+PASS corporate-ir-legal-notices 1024 layout (height, page, header, footer) and content links
+PASS corporate-ir-legal-notices 1024 pixels at 4 scroll positions
+PASS corporate-ir-legal-notices 1280 layout (height, page, header, footer) and content links
+PASS corporate-ir-legal-notices 1280 pixels at 4 scroll positions
+PASS corporate-ir-legal-notices 1440 layout (height, page, header, footer) and content links
+PASS corporate-ir-legal-notices 1440 pixels at 4 scroll positions
+PASS corporate-ir-legal-notices 1440 header state (current page, expanded, hrefs)
+PASS corporate-ir-legal-notices 1440 page sees the same --util-h / --nav-h
+PASS corporate-ir-legal-notices 1920 layout (height, page, header, footer) and content links
+PASS corporate-ir-legal-notices 1920 pixels at 4 scroll positions
+PASS corporate-ir-legal-notices 1440 dropdown open over the page while stuck
+PASS corporate-ir-legal-notices 390 drawer open while stuck
+PASS corporate-ir-legal-notices hostile 1440: layout, pixels, header on top once stuck
+PASS corporate-ir-legal-notices hostile 390: layout, pixels, header on top once stuck
+PASS corporate-ir-legal-notices 1440 in-page jump lands at the same place
+PASS corporate-ir-legal-notices 390 in-page jump lands at the same place
+PASS ecosystem 320 layout (height, page, header, footer) and content links
+PASS ecosystem 320 pixels at 4 scroll positions
+PASS ecosystem 390 layout (height, page, header, footer) and content links
+PASS ecosystem 390 pixels at 4 scroll positions
+PASS ecosystem 390 header state (current page, expanded, hrefs)
+PASS ecosystem 390 page sees the same --util-h / --nav-h
+PASS ecosystem 768 layout (height, page, header, footer) and content links
+PASS ecosystem 768 pixels at 4 scroll positions
+PASS ecosystem 1024 layout (height, page, header, footer) and content links
+PASS ecosystem 1024 pixels at 4 scroll positions
+PASS ecosystem 1280 layout (height, page, header, footer) and content links
+PASS ecosystem 1280 pixels at 4 scroll positions
+PASS ecosystem 1440 layout (height, page, header, footer) and content links
+PASS ecosystem 1440 pixels at 4 scroll positions
+PASS ecosystem 1440 header state (current page, expanded, hrefs)
+PASS ecosystem 1440 page sees the same --util-h / --nav-h
+PASS ecosystem 1920 layout (height, page, header, footer) and content links
+PASS ecosystem 1920 pixels at 4 scroll positions
+PASS ecosystem 1440 dropdown open over the page while stuck
+PASS ecosystem 390 drawer open while stuck
+PASS ecosystem hostile 1440: layout, pixels, header on top once stuck
+PASS ecosystem hostile 390: layout, pixels, header on top once stuck
+PASS ecosystem 1440 in-page jump lands at the same place
+PASS ecosystem 390 in-page jump lands at the same place
+PASS governance-leadership 320 layout (height, page, header, footer) and content links
+PASS governance-leadership 320 pixels at 4 scroll positions
+PASS governance-leadership 390 layout (height, page, header, footer) and content links
+PASS governance-leadership 390 pixels at 4 scroll positions
+PASS governance-leadership 390 header state (current page, expanded, hrefs)
+PASS governance-leadership 390 page sees the same --util-h / --nav-h
+PASS governance-leadership 768 layout (height, page, header, footer) and content links
+PASS governance-leadership 768 pixels at 4 scroll positions
+PASS governance-leadership 1024 layout (height, page, header, footer) and content links
+PASS governance-leadership 1024 pixels at 4 scroll positions
+PASS governance-leadership 1280 layout (height, page, header, footer) and content links
+PASS governance-leadership 1280 pixels at 4 scroll positions
+PASS governance-leadership 1440 layout (height, page, header, footer) and content links
+PASS governance-leadership 1440 pixels at 4 scroll positions
+PASS governance-leadership 1440 header state (current page, expanded, hrefs)
+PASS governance-leadership 1440 page sees the same --util-h / --nav-h
+PASS governance-leadership 1920 layout (height, page, header, footer) and content links
+PASS governance-leadership 1920 pixels at 4 scroll positions
+PASS governance-leadership 1440 dropdown open over the page while stuck
+PASS governance-leadership 390 drawer open while stuck
+PASS governance-leadership hostile 1440: layout, pixels, header on top once stuck
+PASS governance-leadership hostile 390: layout, pixels, header on top once stuck
+PASS governance-leadership 1440 in-page jump lands at the same place
+PASS governance-leadership 390 in-page jump lands at the same place
+PASS legal-disclosures 320 layout (height, page, header, footer) and content links
+PASS legal-disclosures 320 pixels at 4 scroll positions
+PASS legal-disclosures 390 layout (height, page, header, footer) and content links
+PASS legal-disclosures 390 pixels at 4 scroll positions
+PASS legal-disclosures 390 header state (current page, expanded, hrefs)
+PASS legal-disclosures 390 page sees the same --util-h / --nav-h
+PASS legal-disclosures 768 layout (height, page, header, footer) and content links
+PASS legal-disclosures 768 pixels at 4 scroll positions
+PASS legal-disclosures 1024 layout (height, page, header, footer) and content links
+PASS legal-disclosures 1024 pixels at 4 scroll positions
+PASS legal-disclosures 1280 layout (height, page, header, footer) and content links
+PASS legal-disclosures 1280 pixels at 4 scroll positions
+PASS legal-disclosures 1440 layout (height, page, header, footer) and content links
+PASS legal-disclosures 1440 pixels at 4 scroll positions
+PASS legal-disclosures 1440 header state (current page, expanded, hrefs)
+PASS legal-disclosures 1440 page sees the same --util-h / --nav-h
+PASS legal-disclosures 1920 layout (height, page, header, footer) and content links
+PASS legal-disclosures 1920 pixels at 4 scroll positions
+PASS legal-disclosures 1440 dropdown open over the page while stuck
+PASS legal-disclosures 390 drawer open while stuck
+PASS legal-disclosures hostile 1440: layout, pixels, header on top once stuck
+PASS legal-disclosures hostile 390: layout, pixels, header on top once stuck
+PASS legal-disclosures 1440 in-page jump lands at the same place
+PASS legal-disclosures 390 in-page jump lands at the same place
+PASS platform-today 320 layout (height, page, header, footer) and content links (footer: token difference)
+PASS platform-today 320 pixels at 4 scroll positions
+PASS platform-today 390 layout (height, page, header, footer) and content links (footer: token difference)
+PASS platform-today 390 pixels at 4 scroll positions
+PASS platform-today 390 header state (current page, expanded, hrefs)
+PASS platform-today 390 page sees the same --util-h / --nav-h
+PASS platform-today 768 layout (height, page, header, footer) and content links
+PASS platform-today 768 pixels at 4 scroll positions
+PASS platform-today 1024 layout (height, page, header, footer) and content links
+PASS platform-today 1024 pixels at 4 scroll positions
+PASS platform-today 1280 layout (height, page, header, footer) and content links
+PASS platform-today 1280 pixels at 4 scroll positions
+PASS platform-today 1440 layout (height, page, header, footer) and content links
+PASS platform-today 1440 pixels at 4 scroll positions
+PASS platform-today 1440 header state (current page, expanded, hrefs)
+PASS platform-today 1440 page sees the same --util-h / --nav-h
+PASS platform-today 1920 layout (height, page, header, footer) and content links
+PASS platform-today 1920 pixels at 4 scroll positions
+PASS platform-today 1440 dropdown open over the page while stuck
+PASS platform-today 390 drawer open while stuck
+PASS platform-today hostile 1440: layout, pixels, header on top once stuck
+PASS platform-today hostile 390: layout, pixels, header on top once stuck (footer: token difference)
+PASS platform-today 1440 in-page jump lands at the same place
+PASS platform-today 390 in-page jump lands at the same place
+PASS profile-alexander-alegria-saif 320 layout (height, page, header, footer) and content links
+PASS profile-alexander-alegria-saif 320 pixels at 4 scroll positions
+PASS profile-alexander-alegria-saif 390 layout (height, page, header, footer) and content links
+PASS profile-alexander-alegria-saif 390 pixels at 4 scroll positions
+PASS profile-alexander-alegria-saif 390 header state (current page, expanded, hrefs)
+PASS profile-alexander-alegria-saif 390 page sees the same --util-h / --nav-h
+PASS profile-alexander-alegria-saif 768 layout (height, page, header, footer) and content links
+PASS profile-alexander-alegria-saif 768 pixels at 4 scroll positions
+PASS profile-alexander-alegria-saif 1024 layout (height, page, header, footer) and content links
+PASS profile-alexander-alegria-saif 1024 pixels at 4 scroll positions
+PASS profile-alexander-alegria-saif 1280 layout (height, page, header, footer) and content links
+PASS profile-alexander-alegria-saif 1280 pixels at 4 scroll positions
+PASS profile-alexander-alegria-saif 1440 layout (height, page, header, footer) and content links
+PASS profile-alexander-alegria-saif 1440 pixels at 4 scroll positions
+PASS profile-alexander-alegria-saif 1440 header state (current page, expanded, hrefs)
+PASS profile-alexander-alegria-saif 1440 page sees the same --util-h / --nav-h
+PASS profile-alexander-alegria-saif 1920 layout (height, page, header, footer) and content links
+PASS profile-alexander-alegria-saif 1920 pixels at 4 scroll positions
+PASS profile-alexander-alegria-saif 1440 dropdown open over the page while stuck
+PASS profile-alexander-alegria-saif 390 drawer open while stuck
+PASS profile-alexander-alegria-saif hostile 1440: layout, pixels, header on top once stuck
+PASS profile-alexander-alegria-saif hostile 390: layout, pixels, header on top once stuck
+PASS profile-alexander-alegria-saif 1440 in-page jump lands at the same place
+PASS profile-alexander-alegria-saif 390 in-page jump lands at the same place
+PASS profile-gabriella-karlova 320 layout (height, page, header, footer) and content links
+PASS profile-gabriella-karlova 320 pixels at 4 scroll positions
+PASS profile-gabriella-karlova 390 layout (height, page, header, footer) and content links
+PASS profile-gabriella-karlova 390 pixels at 4 scroll positions
+PASS profile-gabriella-karlova 390 header state (current page, expanded, hrefs)
+PASS profile-gabriella-karlova 390 page sees the same --util-h / --nav-h
+PASS profile-gabriella-karlova 768 layout (height, page, header, footer) and content links
+PASS profile-gabriella-karlova 768 pixels at 4 scroll positions
+PASS profile-gabriella-karlova 1024 layout (height, page, header, footer) and content links
+PASS profile-gabriella-karlova 1024 pixels at 4 scroll positions
+PASS profile-gabriella-karlova 1280 layout (height, page, header, footer) and content links
+PASS profile-gabriella-karlova 1280 pixels at 4 scroll positions
+PASS profile-gabriella-karlova 1440 layout (height, page, header, footer) and content links
+PASS profile-gabriella-karlova 1440 pixels at 4 scroll positions
+PASS profile-gabriella-karlova 1440 header state (current page, expanded, hrefs)
+PASS profile-gabriella-karlova 1440 page sees the same --util-h / --nav-h
+PASS profile-gabriella-karlova 1920 layout (height, page, header, footer) and content links
+PASS profile-gabriella-karlova 1920 pixels at 4 scroll positions
+PASS profile-gabriella-karlova 1440 dropdown open over the page while stuck
+PASS profile-gabriella-karlova 390 drawer open while stuck
+PASS profile-gabriella-karlova hostile 1440: layout, pixels, header on top once stuck
+PASS profile-gabriella-karlova hostile 390: layout, pixels, header on top once stuck
+PASS profile-gabriella-karlova 1440 in-page jump lands at the same place
+PASS profile-gabriella-karlova 390 in-page jump lands at the same place
+PASS start-a-conversation 320 layout (height, page, header, footer) and content links
+PASS start-a-conversation 320 pixels at 4 scroll positions
+PASS start-a-conversation 390 layout (height, page, header, footer) and content links
+PASS start-a-conversation 390 pixels at 4 scroll positions
+PASS start-a-conversation 390 header state (current page, expanded, hrefs)
+PASS start-a-conversation 390 page sees the same --util-h / --nav-h
+PASS start-a-conversation 768 layout (height, page, header, footer) and content links
+PASS start-a-conversation 768 pixels at 4 scroll positions
+PASS start-a-conversation 1024 layout (height, page, header, footer) and content links
+PASS start-a-conversation 1024 pixels at 4 scroll positions
+PASS start-a-conversation 1280 layout (height, page, header, footer) and content links
+PASS start-a-conversation 1280 pixels at 4 scroll positions
+PASS start-a-conversation 1440 layout (height, page, header, footer) and content links
+PASS start-a-conversation 1440 pixels at 4 scroll positions
+PASS start-a-conversation 1440 header state (current page, expanded, hrefs)
+PASS start-a-conversation 1440 page sees the same --util-h / --nav-h
+PASS start-a-conversation 1920 layout (height, page, header, footer) and content links
+PASS start-a-conversation 1920 pixels at 4 scroll positions
+PASS start-a-conversation 1440 dropdown open over the page while stuck
+PASS start-a-conversation 390 drawer open while stuck
+PASS start-a-conversation hostile 1440: layout, pixels, header on top once stuck
+PASS start-a-conversation hostile 390: layout, pixels, header on top once stuck
+PASS start-a-conversation 1440 in-page jump lands at the same place
+PASS start-a-conversation 390 in-page jump lands at the same place
+PASS platform-today layered host: "How to read" button visible (over the footer at the bottom)
+PASS platform-today layered host: the open guide covers the header; closed, the header is on top again
+PASS platform-today layered host: section layers restored on teardown
+PASS Main marks data-bwci-under-header: transparent placeholder
+PASS raiseSection lifts the layered header section
+PASS header script executed three times: one owner, one status element, pinned
+PASS header removed: <html> sizes and raised section restored
+PASS header re-inserted: closed, pinned, under-header mark, same current-page marks as before
+PASS pagehide tears the header down
+PASS no script errors and all fonts loaded
+notes (passed unless a check above failed):
+  ecosystem 390 drawer open while stuck: token (11503 px, max 242, box y99-639 x20-219)
+  ecosystem hostile 1440 y=0: imperceptible (448529 px, max 1, box y417-899 x0-1439)
+  ecosystem hostile 1440 y=320: imperceptible (626659 px, max 1, box y97-762 x0-1439)
+  ecosystem hostile 1440 y=700: imperceptible (295100 px, max 2, box y0-382 x0-1439)
+  ecosystem hostile 390 y=0: imperceptible (175627 px, max 2, box y369-899 x0-389)
+  ecosystem hostile 390 y=320: imperceptible (216541 px, max 2, box y8-741 x0-389)
+  ecosystem hostile 390 y=700: imperceptible (90646 px, max 2, box y0-361 x0-389)
+  governance-leadership 320 y=2086: anti-aliasing (553 px, max 229, box y99-115 x98-182)
+  platform-today 320: token difference in the footer (document height 3634 -> 3662)
+  platform-today 320 y=2734: token (32261 px, max 181, box y0-892 x0-299)
+  platform-today 390: token difference in the footer (document height 3405 -> 3433)
+  platform-today 390 y=2505: token (32320 px, max 181, box y0-892 x0-369)
+  platform-today 1280 y=0: anti-aliasing (4 px, max 59, box y94-95 x398-508)
+  platform-today 1280 y=120: anti-aliasing (4 px, max 37, box y54-55 x398-508)
+  platform-today 1280 y=570: anti-aliasing (4 px, max 46, box y54-55 x398-508)
+  platform-today 1280 y=1139: anti-aliasing (4 px, max 59, box y54-55 x398-508)
+  platform-today 1440 y=0: anti-aliasing (4 px, max 59, box y94-95 x555-666)
+  platform-today 1440 y=120: anti-aliasing (4 px, max 37, box y54-55 x555-666)
+  platform-today 1440 y=612: anti-aliasing (4 px, max 37, box y54-55 x555-666)
+  platform-today 1440 y=1223: anti-aliasing (4 px, max 58, box y54-55 x555-666)
+  platform-today 1920 y=0: anti-aliasing (4 px, max 59, box y94-95 x795-906)
+  platform-today 1920 y=120: anti-aliasing (4 px, max 37, box y54-55 x795-906)
+  platform-today 1920 y=614: anti-aliasing (4 px, max 37, box y54-55 x795-906)
+  platform-today 1920 y=1227: anti-aliasing (4 px, max 58, box y54-55 x795-906)
+  platform-today 1440 dropdown open over the page while stuck: anti-aliasing (4 px, max 58, box y54-55 x555-666)
+  platform-today hostile 1440 y=0: anti-aliasing (4 px, max 59, box y394-395 x555-666)
+  platform-today hostile 1440 y=320: anti-aliasing (4 px, max 59, box y74-75 x555-666)
+  platform-today hostile 1440 y=700: anti-aliasing (4 px, max 39, box y54-55 x555-666)
+  platform-today hostile 1440 y=1584: anti-aliasing (4 px, max 59, box y54-55 x555-666)
+  platform-today hostile 390 y=3012: token (32765 px, max 181, box y0-896 x0-369)
+  start-a-conversation 320 y=120: anti-aliasing (6 px, max 1, box y796-802 x281-282)
+  start-a-conversation 390 y=0: anti-aliasing (15 px, max 1, box y780-797 x337-352)
+  start-a-conversation 390 y=120: anti-aliasing (15 px, max 1, box y660-677 x337-352)
+ALL PASS
+exit=0
+PASS contact 320 layout (height, page, header, footer) and content links
+PASS contact 320 pixels at 4 scroll positions
+PASS contact 390 layout (height, page, header, footer) and content links
+PASS contact 390 pixels at 4 scroll positions
+PASS contact 390 header state (current page, expanded, hrefs)
+PASS contact 390 page sees the same --util-h / --nav-h
+PASS contact 768 layout (height, page, header, footer) and content links
+PASS contact 768 pixels at 4 scroll positions
+PASS contact 1024 layout (height, page, header, footer) and content links
+PASS contact 1024 pixels at 4 scroll positions
+PASS contact 1280 layout (height, page, header, footer) and content links
+PASS contact 1280 pixels at 4 scroll positions
+PASS contact 1440 layout (height, page, header, footer) and content links
+PASS contact 1440 pixels at 4 scroll positions
+PASS contact 1440 header state (current page, expanded, hrefs)
+PASS contact 1440 page sees the same --util-h / --nav-h
+PASS contact 1920 layout (height, page, header, footer) and content links
+PASS contact 1920 pixels at 4 scroll positions
+PASS contact 1440 dropdown open over the page while stuck
+PASS contact 390 drawer open while stuck
+PASS contact hostile 1440: layout, pixels, header on top once stuck
+PASS contact hostile 390: layout, pixels, header on top once stuck
+PASS contact 1440 in-page jump lands at the same place
+PASS contact 390 in-page jump lands at the same place
+PASS corporate-ir-regulatory 320 layout (height, page, header, footer) and content links
+PASS corporate-ir-regulatory 320 pixels at 4 scroll positions
+PASS corporate-ir-regulatory 390 layout (height, page, header, footer) and content links
+PASS corporate-ir-regulatory 390 pixels at 4 scroll positions
+PASS corporate-ir-regulatory 390 header state (current page, expanded, hrefs)
+PASS corporate-ir-regulatory 390 page sees the same --util-h / --nav-h
+PASS corporate-ir-regulatory 768 layout (height, page, header, footer) and content links
+PASS corporate-ir-regulatory 768 pixels at 4 scroll positions
+PASS corporate-ir-regulatory 1024 layout (height, page, header, footer) and content links
+PASS corporate-ir-regulatory 1024 pixels at 4 scroll positions
+PASS corporate-ir-regulatory 1280 layout (height, page, header, footer) and content links
+PASS corporate-ir-regulatory 1280 pixels at 4 scroll positions
+PASS corporate-ir-regulatory 1440 layout (height, page, header, footer) and content links
+PASS corporate-ir-regulatory 1440 pixels at 4 scroll positions
+PASS corporate-ir-regulatory 1440 header state (current page, expanded, hrefs)
+PASS corporate-ir-regulatory 1440 page sees the same --util-h / --nav-h
+PASS corporate-ir-regulatory 1920 layout (height, page, header, footer) and content links
+PASS corporate-ir-regulatory 1920 pixels at 4 scroll positions
+PASS corporate-ir-regulatory 1440 dropdown open over the page while stuck
+PASS corporate-ir-regulatory 390 drawer open while stuck
+PASS corporate-ir-regulatory hostile 1440: layout, pixels, header on top once stuck
+PASS corporate-ir-regulatory hostile 390: layout, pixels, header on top once stuck
+PASS corporate-ir-regulatory 1440 in-page jump lands at the same place
+PASS corporate-ir-regulatory 390 in-page jump lands at the same place
+PASS financial-engine 320 layout (height, page, header, footer) and content links
+PASS financial-engine 320 pixels at 4 scroll positions
+PASS financial-engine 390 layout (height, page, header, footer) and content links
+PASS financial-engine 390 pixels at 4 scroll positions
+PASS financial-engine 390 header state (current page, expanded, hrefs)
+PASS financial-engine 390 page sees the same --util-h / --nav-h
+PASS financial-engine 768 layout (height, page, header, footer) and content links
+PASS financial-engine 768 pixels at 4 scroll positions
+PASS financial-engine 1024 layout (height, page, header, footer) and content links
+PASS financial-engine 1024 pixels at 4 scroll positions
+PASS financial-engine 1280 layout (height, page, header, footer) and content links
+PASS financial-engine 1280 pixels at 4 scroll positions
+PASS financial-engine 1440 layout (height, page, header, footer) and content links
+PASS financial-engine 1440 pixels at 4 scroll positions
+PASS financial-engine 1440 header state (current page, expanded, hrefs)
+PASS financial-engine 1440 page sees the same --util-h / --nav-h
+PASS financial-engine 1920 layout (height, page, header, footer) and content links
+PASS financial-engine 1920 pixels at 4 scroll positions
+PASS financial-engine 1440 dropdown open over the page while stuck
+PASS financial-engine 390 drawer open while stuck
+PASS financial-engine hostile 1440: layout, pixels, header on top once stuck
+PASS financial-engine hostile 390: layout, pixels, header on top once stuck
+PASS financial-engine 1440 in-page jump lands at the same place
+PASS financial-engine 390 in-page jump lands at the same place
+PASS investors-partners 320 layout (height, page, header, footer) and content links
+PASS investors-partners 320 pixels at 4 scroll positions
+PASS investors-partners 390 layout (height, page, header, footer) and content links
+PASS investors-partners 390 pixels at 4 scroll positions
+PASS investors-partners 390 header state (current page, expanded, hrefs)
+PASS investors-partners 390 page sees the same --util-h / --nav-h
+PASS investors-partners 768 layout (height, page, header, footer) and content links
+PASS investors-partners 768 pixels at 4 scroll positions
+PASS investors-partners 1024 layout (height, page, header, footer) and content links
+PASS investors-partners 1024 pixels at 4 scroll positions
+PASS investors-partners 1280 layout (height, page, header, footer) and content links
+PASS investors-partners 1280 pixels at 4 scroll positions
+PASS investors-partners 1440 layout (height, page, header, footer) and content links
+PASS investors-partners 1440 pixels at 4 scroll positions
+PASS investors-partners 1440 header state (current page, expanded, hrefs)
+PASS investors-partners 1440 page sees the same --util-h / --nav-h
+PASS investors-partners 1920 layout (height, page, header, footer) and content links
+PASS investors-partners 1920 pixels at 4 scroll positions
+PASS investors-partners 1440 dropdown open over the page while stuck
+PASS investors-partners 390 drawer open while stuck
+PASS investors-partners hostile 1440: layout, pixels, header on top once stuck
+PASS investors-partners hostile 390: layout, pixels, header on top once stuck
+PASS investors-partners 1440 in-page jump lands at the same place
+PASS investors-partners 390 in-page jump lands at the same place
+PASS legal-privacy 320 layout (height, page, header, footer) and content links
+PASS legal-privacy 320 pixels at 4 scroll positions
+PASS legal-privacy 390 layout (height, page, header, footer) and content links
+PASS legal-privacy 390 pixels at 4 scroll positions
+PASS legal-privacy 390 header state (current page, expanded, hrefs)
+PASS legal-privacy 390 page sees the same --util-h / --nav-h
+PASS legal-privacy 768 layout (height, page, header, footer) and content links
+PASS legal-privacy 768 pixels at 4 scroll positions
+PASS legal-privacy 1024 layout (height, page, header, footer) and content links
+PASS legal-privacy 1024 pixels at 4 scroll positions
+PASS legal-privacy 1280 layout (height, page, header, footer) and content links
+PASS legal-privacy 1280 pixels at 4 scroll positions
+PASS legal-privacy 1440 layout (height, page, header, footer) and content links
+PASS legal-privacy 1440 pixels at 4 scroll positions
+PASS legal-privacy 1440 header state (current page, expanded, hrefs)
+PASS legal-privacy 1440 page sees the same --util-h / --nav-h
+PASS legal-privacy 1920 layout (height, page, header, footer) and content links
+PASS legal-privacy 1920 pixels at 4 scroll positions
+PASS legal-privacy 1440 dropdown open over the page while stuck
+PASS legal-privacy 390 drawer open while stuck
+PASS legal-privacy hostile 1440: layout, pixels, header on top once stuck
+PASS legal-privacy hostile 390: layout, pixels, header on top once stuck
+PASS legal-privacy 1440 in-page jump lands at the same place
+PASS legal-privacy 390 in-page jump lands at the same place
+PASS platforms 320 layout (height, page, header, footer) and content links
+PASS platforms 320 pixels at 4 scroll positions
+PASS platforms 390 layout (height, page, header, footer) and content links
+PASS platforms 390 pixels at 4 scroll positions
+PASS platforms 390 header state (current page, expanded, hrefs)
+PASS platforms 390 page sees the same --util-h / --nav-h
+PASS platforms 768 layout (height, page, header, footer) and content links
+PASS platforms 768 pixels at 4 scroll positions
+PASS platforms 1024 layout (height, page, header, footer) and content links
+PASS platforms 1024 pixels at 4 scroll positions
+PASS platforms 1280 layout (height, page, header, footer) and content links
+PASS platforms 1280 pixels at 4 scroll positions
+PASS platforms 1440 layout (height, page, header, footer) and content links
+PASS platforms 1440 pixels at 4 scroll positions
+PASS platforms 1440 header state (current page, expanded, hrefs)
+PASS platforms 1440 page sees the same --util-h / --nav-h
+PASS platforms 1920 layout (height, page, header, footer) and content links
+PASS platforms 1920 pixels at 4 scroll positions
+PASS platforms 1440 dropdown open over the page while stuck
+PASS platforms 390 drawer open while stuck
+PASS platforms hostile 1440: layout, pixels, header on top once stuck
+PASS platforms hostile 390: layout, pixels, header on top once stuck
+PASS platforms 1440 in-page jump lands at the same place
+PASS platforms 390 in-page jump lands at the same place
+PASS profile-christie-osarenren 320 layout (height, page, header, footer) and content links
+PASS profile-christie-osarenren 320 pixels at 4 scroll positions
+PASS profile-christie-osarenren 390 layout (height, page, header, footer) and content links
+PASS profile-christie-osarenren 390 pixels at 4 scroll positions
+PASS profile-christie-osarenren 390 header state (current page, expanded, hrefs)
+PASS profile-christie-osarenren 390 page sees the same --util-h / --nav-h
+PASS profile-christie-osarenren 768 layout (height, page, header, footer) and content links
+PASS profile-christie-osarenren 768 pixels at 4 scroll positions
+PASS profile-christie-osarenren 1024 layout (height, page, header, footer) and content links
+PASS profile-christie-osarenren 1024 pixels at 4 scroll positions
+PASS profile-christie-osarenren 1280 layout (height, page, header, footer) and content links
+PASS profile-christie-osarenren 1280 pixels at 4 scroll positions
+PASS profile-christie-osarenren 1440 layout (height, page, header, footer) and content links
+PASS profile-christie-osarenren 1440 pixels at 4 scroll positions
+PASS profile-christie-osarenren 1440 header state (current page, expanded, hrefs)
+PASS profile-christie-osarenren 1440 page sees the same --util-h / --nav-h
+PASS profile-christie-osarenren 1920 layout (height, page, header, footer) and content links
+PASS profile-christie-osarenren 1920 pixels at 4 scroll positions
+PASS profile-christie-osarenren 1440 dropdown open over the page while stuck
+PASS profile-christie-osarenren 390 drawer open while stuck
+PASS profile-christie-osarenren hostile 1440: layout, pixels, header on top once stuck
+PASS profile-christie-osarenren hostile 390: layout, pixels, header on top once stuck
+PASS profile-christie-osarenren 1440 in-page jump lands at the same place
+PASS profile-christie-osarenren 390 in-page jump lands at the same place
+PASS profile-richard-werner 320 layout (height, page, header, footer) and content links
+PASS profile-richard-werner 320 pixels at 4 scroll positions
+PASS profile-richard-werner 390 layout (height, page, header, footer) and content links
+PASS profile-richard-werner 390 pixels at 4 scroll positions
+PASS profile-richard-werner 390 header state (current page, expanded, hrefs)
+PASS profile-richard-werner 390 page sees the same --util-h / --nav-h
+PASS profile-richard-werner 768 layout (height, page, header, footer) and content links
+PASS profile-richard-werner 768 pixels at 4 scroll positions
+PASS profile-richard-werner 1024 layout (height, page, header, footer) and content links
+PASS profile-richard-werner 1024 pixels at 4 scroll positions
+PASS profile-richard-werner 1280 layout (height, page, header, footer) and content links
+PASS profile-richard-werner 1280 pixels at 4 scroll positions
+PASS profile-richard-werner 1440 layout (height, page, header, footer) and content links
+PASS profile-richard-werner 1440 pixels at 4 scroll positions
+PASS profile-richard-werner 1440 header state (current page, expanded, hrefs)
+PASS profile-richard-werner 1440 page sees the same --util-h / --nav-h
+PASS profile-richard-werner 1920 layout (height, page, header, footer) and content links
+PASS profile-richard-werner 1920 pixels at 4 scroll positions
+PASS profile-richard-werner 1440 dropdown open over the page while stuck
+PASS profile-richard-werner 390 drawer open while stuck
+PASS profile-richard-werner hostile 1440: layout, pixels, header on top once stuck
+PASS profile-richard-werner hostile 390: layout, pixels, header on top once stuck
+PASS profile-richard-werner 1440 in-page jump lands at the same place
+PASS profile-richard-werner 390 in-page jump lands at the same place
+PASS verify-a-communication 320 layout (height, page, header, footer) and content links
+PASS verify-a-communication 320 pixels at 4 scroll positions
+PASS verify-a-communication 390 layout (height, page, header, footer) and content links
+PASS verify-a-communication 390 pixels at 4 scroll positions
+PASS verify-a-communication 390 header state (current page, expanded, hrefs)
+PASS verify-a-communication 390 page sees the same --util-h / --nav-h
+PASS verify-a-communication 768 layout (height, page, header, footer) and content links
+PASS verify-a-communication 768 pixels at 4 scroll positions
+PASS verify-a-communication 1024 layout (height, page, header, footer) and content links
+PASS verify-a-communication 1024 pixels at 4 scroll positions
+PASS verify-a-communication 1280 layout (height, page, header, footer) and content links
+PASS verify-a-communication 1280 pixels at 4 scroll positions
+PASS verify-a-communication 1440 layout (height, page, header, footer) and content links
+PASS verify-a-communication 1440 pixels at 4 scroll positions
+PASS verify-a-communication 1440 header state (current page, expanded, hrefs)
+PASS verify-a-communication 1440 page sees the same --util-h / --nav-h
+PASS verify-a-communication 1920 layout (height, page, header, footer) and content links
+PASS verify-a-communication 1920 pixels at 4 scroll positions
+PASS verify-a-communication 1440 dropdown open over the page while stuck
+PASS verify-a-communication 390 drawer open while stuck
+PASS verify-a-communication hostile 1440: layout, pixels, header on top once stuck
+PASS verify-a-communication hostile 390: layout, pixels, header on top once stuck
+PASS verify-a-communication 1440 in-page jump lands at the same place
+PASS verify-a-communication 390 in-page jump lands at the same place
+PASS no script errors and all fonts loaded
+notes (passed unless a check above failed):
+  contact 320 y=120: anti-aliasing (115 px, max 6, box y799-842 x257-278)
+  financial-engine 390 drawer open while stuck: token (11502 px, max 242, box y99-639 x20-219)
+  investors-partners 1440 dropdown open over the page while stuck: anti-aliasing (19 px, max 2, box y114-129 x705-720)
+  investors-partners 390 drawer open while stuck: token (10136 px, max 242, box y99-478 x20-299)
+  platforms 390 drawer open while stuck: token (6743 px, max 242, box y99-353 x20-219)
+  profile-christie-osarenren 320 y=0: anti-aliasing (553 px, max 229, box y788-804 x98-182)
+  profile-christie-osarenren 320 y=120: anti-aliasing (553 px, max 229, box y668-684 x98-182)
+  profile-christie-osarenren 320 y=1191: anti-aliasing (553 px, max 229, box y99-115 x98-182)
+  profile-christie-osarenren 390 y=1196: anti-aliasing (553 px, max 229, box y99-115 x98-182)
+ALL PASS
+exit=0
+PASS corporate-ir 320 layout (height, page, header, footer) and content links
+PASS corporate-ir 320 pixels at 4 scroll positions
+PASS corporate-ir 390 layout (height, page, header, footer) and content links
+PASS corporate-ir 390 pixels at 4 scroll positions
+PASS corporate-ir 390 header state (current page, expanded, hrefs)
+PASS corporate-ir 390 page sees the same --util-h / --nav-h
+PASS corporate-ir 768 layout (height, page, header, footer) and content links
+PASS corporate-ir 768 pixels at 4 scroll positions
+PASS corporate-ir 1024 layout (height, page, header, footer) and content links
+PASS corporate-ir 1024 pixels at 4 scroll positions
+PASS corporate-ir 1280 layout (height, page, header, footer) and content links
+PASS corporate-ir 1280 pixels at 4 scroll positions
+PASS corporate-ir 1440 layout (height, page, header, footer) and content links
+PASS corporate-ir 1440 pixels at 4 scroll positions
+PASS corporate-ir 1440 header state (current page, expanded, hrefs)
+PASS corporate-ir 1440 page sees the same --util-h / --nav-h
+PASS corporate-ir 1920 layout (height, page, header, footer) and content links
+PASS corporate-ir 1920 pixels at 4 scroll positions
+PASS corporate-ir 1440 dropdown open over the page while stuck
+PASS corporate-ir 390 drawer open while stuck
+PASS corporate-ir hostile 1440: layout, pixels, header on top once stuck
+PASS corporate-ir hostile 390: layout, pixels, header on top once stuck
+PASS corporate-ir 1440 in-page jump lands at the same place
+PASS corporate-ir 390 in-page jump lands at the same place
+PASS corporate-ir-reports-documents 320 layout (height, page, header, footer) and content links
+PASS corporate-ir-reports-documents 320 pixels at 4 scroll positions
+PASS corporate-ir-reports-documents 390 layout (height, page, header, footer) and content links
+PASS corporate-ir-reports-documents 390 pixels at 4 scroll positions
+PASS corporate-ir-reports-documents 390 header state (current page, expanded, hrefs)
+PASS corporate-ir-reports-documents 390 page sees the same --util-h / --nav-h
+PASS corporate-ir-reports-documents 768 layout (height, page, header, footer) and content links
+PASS corporate-ir-reports-documents 768 pixels at 4 scroll positions
+PASS corporate-ir-reports-documents 1024 layout (height, page, header, footer) and content links
+PASS corporate-ir-reports-documents 1024 pixels at 4 scroll positions
+PASS corporate-ir-reports-documents 1280 layout (height, page, header, footer) and content links
+PASS corporate-ir-reports-documents 1280 pixels at 4 scroll positions
+PASS corporate-ir-reports-documents 1440 layout (height, page, header, footer) and content links
+PASS corporate-ir-reports-documents 1440 pixels at 4 scroll positions
+PASS corporate-ir-reports-documents 1440 header state (current page, expanded, hrefs)
+PASS corporate-ir-reports-documents 1440 page sees the same --util-h / --nav-h
+PASS corporate-ir-reports-documents 1920 layout (height, page, header, footer) and content links
+PASS corporate-ir-reports-documents 1920 pixels at 4 scroll positions
+PASS corporate-ir-reports-documents 1440 dropdown open over the page while stuck
+PASS corporate-ir-reports-documents 390 drawer open while stuck
+PASS corporate-ir-reports-documents hostile 1440: layout, pixels, header on top once stuck
+PASS corporate-ir-reports-documents hostile 390: layout, pixels, header on top once stuck
+PASS corporate-ir-reports-documents 1440 in-page jump lands at the same place
+PASS corporate-ir-reports-documents 390 in-page jump lands at the same place
+PASS governance 320 layout (height, page, header, footer) and content links
+PASS governance 320 pixels at 4 scroll positions
+PASS governance 390 layout (height, page, header, footer) and content links
+PASS governance 390 pixels at 4 scroll positions
+PASS governance 390 header state (current page, expanded, hrefs)
+PASS governance 390 page sees the same --util-h / --nav-h
+PASS governance 768 layout (height, page, header, footer) and content links
+PASS governance 768 pixels at 4 scroll positions
+PASS governance 1024 layout (height, page, header, footer) and content links
+PASS governance 1024 pixels at 4 scroll positions
+PASS governance 1280 layout (height, page, header, footer) and content links
+PASS governance 1280 pixels at 4 scroll positions
+PASS governance 1440 layout (height, page, header, footer) and content links
+PASS governance 1440 pixels at 4 scroll positions
+PASS governance 1440 header state (current page, expanded, hrefs)
+PASS governance 1440 page sees the same --util-h / --nav-h
+PASS governance 1920 layout (height, page, header, footer) and content links
+PASS governance 1920 pixels at 4 scroll positions
+PASS governance 1440 dropdown open over the page while stuck
+PASS governance 390 drawer open while stuck
+PASS governance hostile 1440: layout, pixels, header on top once stuck
+PASS governance hostile 390: layout, pixels, header on top once stuck
+PASS governance 1440 in-page jump lands at the same place
+PASS governance 390 in-page jump lands at the same place
+PASS legal-accessibility 320 layout (height, page, header, footer) and content links
+PASS legal-accessibility 320 pixels at 4 scroll positions
+PASS legal-accessibility 390 layout (height, page, header, footer) and content links
+PASS legal-accessibility 390 pixels at 4 scroll positions
+PASS legal-accessibility 390 header state (current page, expanded, hrefs)
+PASS legal-accessibility 390 page sees the same --util-h / --nav-h
+PASS legal-accessibility 768 layout (height, page, header, footer) and content links
+PASS legal-accessibility 768 pixels at 4 scroll positions
+PASS legal-accessibility 1024 layout (height, page, header, footer) and content links
+PASS legal-accessibility 1024 pixels at 4 scroll positions
+PASS legal-accessibility 1280 layout (height, page, header, footer) and content links
+PASS legal-accessibility 1280 pixels at 4 scroll positions
+PASS legal-accessibility 1440 layout (height, page, header, footer) and content links
+PASS legal-accessibility 1440 pixels at 4 scroll positions
+PASS legal-accessibility 1440 header state (current page, expanded, hrefs)
+PASS legal-accessibility 1440 page sees the same --util-h / --nav-h
+PASS legal-accessibility 1920 layout (height, page, header, footer) and content links
+PASS legal-accessibility 1920 pixels at 4 scroll positions
+PASS legal-accessibility 1440 dropdown open over the page while stuck
+PASS legal-accessibility 390 drawer open while stuck
+PASS legal-accessibility hostile 1440: layout, pixels, header on top once stuck
+PASS legal-accessibility hostile 390: layout, pixels, header on top once stuck
+PASS legal-accessibility 1440 in-page jump lands at the same place
+PASS legal-accessibility 390 in-page jump lands at the same place
+PASS legal-terms 320 layout (height, page, header, footer) and content links
+PASS legal-terms 320 pixels at 4 scroll positions
+PASS legal-terms 390 layout (height, page, header, footer) and content links
+PASS legal-terms 390 pixels at 4 scroll positions
+PASS legal-terms 390 header state (current page, expanded, hrefs)
+PASS legal-terms 390 page sees the same --util-h / --nav-h
+PASS legal-terms 768 layout (height, page, header, footer) and content links
+PASS legal-terms 768 pixels at 4 scroll positions
+PASS legal-terms 1024 layout (height, page, header, footer) and content links
+PASS legal-terms 1024 pixels at 4 scroll positions
+PASS legal-terms 1280 layout (height, page, header, footer) and content links
+PASS legal-terms 1280 pixels at 4 scroll positions
+PASS legal-terms 1440 layout (height, page, header, footer) and content links
+PASS legal-terms 1440 pixels at 4 scroll positions
+PASS legal-terms 1440 header state (current page, expanded, hrefs)
+PASS legal-terms 1440 page sees the same --util-h / --nav-h
+PASS legal-terms 1920 layout (height, page, header, footer) and content links
+PASS legal-terms 1920 pixels at 4 scroll positions
+PASS legal-terms 1440 dropdown open over the page while stuck
+PASS legal-terms 390 drawer open while stuck
+PASS legal-terms hostile 1440: layout, pixels, header on top once stuck
+PASS legal-terms hostile 390: layout, pixels, header on top once stuck
+PASS legal-terms 1440 in-page jump lands at the same place
+PASS legal-terms 390 in-page jump lands at the same place
+PASS private-investors-family-offices 320 layout (height, page, header, footer) and content links
+PASS private-investors-family-offices 320 pixels at 4 scroll positions
+PASS private-investors-family-offices 390 layout (height, page, header, footer) and content links
+PASS private-investors-family-offices 390 pixels at 4 scroll positions
+PASS private-investors-family-offices 390 header state (current page, expanded, hrefs)
+PASS private-investors-family-offices 390 page sees the same --util-h / --nav-h
+PASS private-investors-family-offices 768 layout (height, page, header, footer) and content links
+PASS private-investors-family-offices 768 pixels at 4 scroll positions
+PASS private-investors-family-offices 1024 layout (height, page, header, footer) and content links
+PASS private-investors-family-offices 1024 pixels at 4 scroll positions
+PASS private-investors-family-offices 1280 layout (height, page, header, footer) and content links
+PASS private-investors-family-offices 1280 pixels at 4 scroll positions
+PASS private-investors-family-offices 1440 layout (height, page, header, footer) and content links
+PASS private-investors-family-offices 1440 pixels at 4 scroll positions
+PASS private-investors-family-offices 1440 header state (current page, expanded, hrefs)
+PASS private-investors-family-offices 1440 page sees the same --util-h / --nav-h
+PASS private-investors-family-offices 1920 layout (height, page, header, footer) and content links
+PASS private-investors-family-offices 1920 pixels at 4 scroll positions
+PASS private-investors-family-offices 1440 dropdown open over the page while stuck
+PASS private-investors-family-offices 390 drawer open while stuck
+PASS private-investors-family-offices hostile 1440: layout, pixels, header on top once stuck
+PASS private-investors-family-offices hostile 390: layout, pixels, header on top once stuck
+PASS private-investors-family-offices 1440 in-page jump lands at the same place
+PASS private-investors-family-offices 390 in-page jump lands at the same place
+PASS profile-ewa-dudek 320 layout (height, page, header, footer) and content links
+PASS profile-ewa-dudek 320 pixels at 4 scroll positions
+PASS profile-ewa-dudek 390 layout (height, page, header, footer) and content links
+PASS profile-ewa-dudek 390 pixels at 4 scroll positions
+PASS profile-ewa-dudek 390 header state (current page, expanded, hrefs)
+PASS profile-ewa-dudek 390 page sees the same --util-h / --nav-h
+PASS profile-ewa-dudek 768 layout (height, page, header, footer) and content links
+PASS profile-ewa-dudek 768 pixels at 4 scroll positions
+PASS profile-ewa-dudek 1024 layout (height, page, header, footer) and content links
+PASS profile-ewa-dudek 1024 pixels at 4 scroll positions
+PASS profile-ewa-dudek 1280 layout (height, page, header, footer) and content links
+PASS profile-ewa-dudek 1280 pixels at 4 scroll positions
+PASS profile-ewa-dudek 1440 layout (height, page, header, footer) and content links
+PASS profile-ewa-dudek 1440 pixels at 4 scroll positions
+PASS profile-ewa-dudek 1440 header state (current page, expanded, hrefs)
+PASS profile-ewa-dudek 1440 page sees the same --util-h / --nav-h
+PASS profile-ewa-dudek 1920 layout (height, page, header, footer) and content links
+PASS profile-ewa-dudek 1920 pixels at 4 scroll positions
+PASS profile-ewa-dudek 1440 dropdown open over the page while stuck
+PASS profile-ewa-dudek 390 drawer open while stuck
+PASS profile-ewa-dudek hostile 1440: layout, pixels, header on top once stuck
+PASS profile-ewa-dudek hostile 390: layout, pixels, header on top once stuck
+PASS profile-ewa-dudek 1440 in-page jump lands at the same place
+PASS profile-ewa-dudek 390 in-page jump lands at the same place
+PASS providence-asset-management 320 layout (height, page, header, footer) and content links
+PASS providence-asset-management 320 pixels at 4 scroll positions
+PASS providence-asset-management 390 layout (height, page, header, footer) and content links
+PASS providence-asset-management 390 pixels at 4 scroll positions
+PASS providence-asset-management 390 header state (current page, expanded, hrefs)
+PASS providence-asset-management 390 page sees the same --util-h / --nav-h
+PASS providence-asset-management 768 layout (height, page, header, footer) and content links
+PASS providence-asset-management 768 pixels at 4 scroll positions
+PASS providence-asset-management 1024 layout (height, page, header, footer) and content links
+PASS providence-asset-management 1024 pixels at 4 scroll positions
+PASS providence-asset-management 1280 layout (height, page, header, footer) and content links
+PASS providence-asset-management 1280 pixels at 4 scroll positions
+PASS providence-asset-management 1440 layout (height, page, header, footer) and content links
+PASS providence-asset-management 1440 pixels at 4 scroll positions
+PASS providence-asset-management 1440 header state (current page, expanded, hrefs)
+PASS providence-asset-management 1440 page sees the same --util-h / --nav-h
+PASS providence-asset-management 1920 layout (height, page, header, footer) and content links
+PASS providence-asset-management 1920 pixels at 4 scroll positions
+PASS providence-asset-management 1440 dropdown open over the page while stuck
+PASS providence-asset-management 390 drawer open while stuck
+PASS providence-asset-management hostile 1440: layout, pixels, header on top once stuck
+PASS providence-asset-management hostile 390: layout, pixels, header on top once stuck
+PASS providence-asset-management 1440 in-page jump lands at the same place
+PASS providence-asset-management 390 in-page jump lands at the same place
+PASS who-we-are 320 layout (height, page, header, footer) and content links
+PASS who-we-are 320 pixels at 4 scroll positions
+PASS who-we-are 390 layout (height, page, header, footer) and content links
+PASS who-we-are 390 pixels at 4 scroll positions
+PASS who-we-are 390 header state (current page, expanded, hrefs)
+PASS who-we-are 390 page sees the same --util-h / --nav-h
+PASS who-we-are 768 layout (height, page, header, footer) and content links
+PASS who-we-are 768 pixels at 4 scroll positions
+PASS who-we-are 1024 layout (height, page, header, footer) and content links
+PASS who-we-are 1024 pixels at 4 scroll positions
+PASS who-we-are 1280 layout (height, page, header, footer) and content links
+PASS who-we-are 1280 pixels at 4 scroll positions
+PASS who-we-are 1440 layout (height, page, header, footer) and content links
+PASS who-we-are 1440 pixels at 4 scroll positions
+PASS who-we-are 1440 header state (current page, expanded, hrefs)
+PASS who-we-are 1440 page sees the same --util-h / --nav-h
+PASS who-we-are 1920 layout (height, page, header, footer) and content links
+PASS who-we-are 1920 pixels at 4 scroll positions
+PASS who-we-are 1440 dropdown open over the page while stuck
+PASS who-we-are 390 drawer open while stuck
+PASS who-we-are hostile 1440: layout, pixels, header on top once stuck
+PASS who-we-are hostile 390: layout, pixels, header on top once stuck
+PASS who-we-are 1440 in-page jump lands at the same place
+PASS who-we-are 390 in-page jump lands at the same place
+PASS no script errors and all fonts loaded
+notes (passed unless a check above failed):
+  corporate-ir-reports-documents 390 y=0: anti-aliasing (14 px, max 1, box y763-796 x20-21)
+  corporate-ir-reports-documents 390 y=120: anti-aliasing (15 px, max 1, box y643-676 x368-369)
+  corporate-ir-reports-documents 1280 y=0: anti-aliasing (14 px, max 1, box y711-744 x40-41)
+  corporate-ir-reports-documents 1280 y=120: anti-aliasing (14 px, max 1, box y591-624 x40-41)
+  corporate-ir-reports-documents 1920 y=0: anti-aliasing (7 px, max 1, box y735-739 x768-769)
+  private-investors-family-offices 1280 y=0: anti-aliasing (4 px, max 59, box y94-95 x869-1027)
+  private-investors-family-offices 1280 y=120: anti-aliasing (4 px, max 37, box y54-55 x869-1027)
+  private-investors-family-offices 1280 y=2362: anti-aliasing (4 px, max 40, box y54-55 x869-1027)
+  private-investors-family-offices 1280 y=4724: anti-aliasing (4 px, max 59, box y54-55 x869-1027)
+  private-investors-family-offices 1440 y=0: anti-aliasing (4 px, max 59, box y94-95 x1028-1186)
+  private-investors-family-offices 1440 y=120: anti-aliasing (4 px, max 37, box y54-55 x1028-1186)
+  private-investors-family-offices 1440 y=2470: anti-aliasing (4 px, max 38, box y54-55 x1028-1186)
+  private-investors-family-offices 1440 y=4939: anti-aliasing (4 px, max 50, box y54-55 x1028-1186)
+  private-investors-family-offices 1920 y=0: anti-aliasing (4 px, max 59, box y94-95 x1268-1426)
+  private-investors-family-offices 1920 y=120: anti-aliasing (4 px, max 37, box y54-55 x1268-1426)
+  private-investors-family-offices 1920 y=2470: anti-aliasing (4 px, max 38, box y54-55 x1268-1426)
+  private-investors-family-offices 1920 y=4940: anti-aliasing (4 px, max 50, box y54-55 x1268-1426)
+  private-investors-family-offices 1440 dropdown open over the page while stuck: anti-aliasing (4 px, max 55, box y54-55 x1028-1186)
+  private-investors-family-offices hostile 1440 y=0: anti-aliasing (4 px, max 59, box y394-395 x1028-1186)
+  private-investors-family-offices hostile 1440 y=320: anti-aliasing (4 px, max 59, box y74-75 x1028-1186)
+  private-investors-family-offices hostile 1440 y=700: anti-aliasing (4 px, max 39, box y54-55 x1028-1186)
+  private-investors-family-offices hostile 1440 y=5314: anti-aliasing (4 px, max 37, box y54-55 x1028-1186)
+  providence-asset-management 320 y=3249: imperceptible (2487 px, max 1, box y0-68 x102-319)
+  providence-asset-management 768 y=2500: imperceptible (1880 px, max 29, box y233-286 x492-611)
+  providence-asset-management 1024 y=2126: imperceptible (5454 px, max 53, box y2-176 x504-800)
+  providence-asset-management 1280 y=0: anti-aliasing (4 px, max 59, box y94-95 x537-699)
+  providence-asset-management 1280 y=120: anti-aliasing (4 px, max 37, box y54-55 x537-699)
+  providence-asset-management 1280 y=2518: anti-aliasing (4 px, max 59, box y54-55 x537-699)
+  providence-asset-management 1280 y=5036: anti-aliasing (4 px, max 59, box y54-55 x537-699)
+  providence-asset-management 1440 y=0: anti-aliasing (4 px, max 59, box y94-95 x695-856)
+  providence-asset-management 1440 y=120: anti-aliasing (4 px, max 37, box y54-55 x695-856)
+  providence-asset-management 1440 y=2622: anti-aliasing (4 px, max 58, box y54-55 x695-856)
+  providence-asset-management 1440 y=5244: anti-aliasing (4 px, max 59, box y54-55 x695-856)
+  providence-asset-management 1920 y=0: anti-aliasing (4 px, max 59, box y94-95 x935-1096)
+  providence-asset-management 1920 y=120: anti-aliasing (4 px, max 37, box y54-55 x935-1096)
+  providence-asset-management 1920 y=2622: anti-aliasing (704 px, max 58, box y0-82 x935-1383)
+  providence-asset-management 1920 y=5244: anti-aliasing (4 px, max 59, box y54-55 x935-1096)
+  providence-asset-management 1440 dropdown open over the page while stuck: anti-aliasing (4 px, max 39, box y54-55 x695-856)
+  providence-asset-management hostile 1440 y=0: anti-aliasing (4 px, max 59, box y394-395 x695-856)
+  providence-asset-management hostile 1440 y=320: anti-aliasing (4 px, max 59, box y74-75 x695-856)
+  providence-asset-management hostile 1440 y=700: anti-aliasing (4 px, max 37, box y54-55 x695-856)
+  providence-asset-management hostile 1440 y=5607: anti-aliasing (4 px, max 52, box y54-55 x695-856)
+  who-we-are 1280 y=0: anti-aliasing (6 px, max 59, box y94-586 x40-368)
+  who-we-are 1280 y=120: anti-aliasing (6 px, max 37, box y54-466 x40-368)
+  who-we-are 1280 y=2945: anti-aliasing (4 px, max 37, box y54-55 x264-368)
+  who-we-are 1280 y=5889: anti-aliasing (4 px, max 59, box y54-55 x264-368)
+  who-we-are 1440 y=0: anti-aliasing (6 px, max 59, box y94-596 x120-525)
+  who-we-are 1440 y=120: anti-aliasing (6 px, max 37, box y54-476 x120-525)
+  who-we-are 1440 y=3095: anti-aliasing (4 px, max 37, box y54-55 x421-525)
+  who-we-are 1440 y=6189: anti-aliasing (4 px, max 49, box y54-55 x421-525)
+  who-we-are 1920 y=0: anti-aliasing (6 px, max 59, box y94-596 x360-765)
+  who-we-are 1920 y=120: anti-aliasing (6 px, max 37, box y54-476 x360-765)
+  who-we-are 1920 y=3095: anti-aliasing (4 px, max 37, box y54-55 x661-765)
+  who-we-are 1920 y=6189: anti-aliasing (4 px, max 49, box y54-55 x661-765)
+  who-we-are 1440 dropdown open over the page while stuck: anti-aliasing (4 px, max 58, box y54-55 x421-525)
+  who-we-are hostile 1440 y=0: anti-aliasing (4 px, max 59, box y394-395 x421-525)
+  who-we-are hostile 1440 y=320: imperceptible (46735 px, max 59, box y74-774 x0-1439)
+  who-we-are hostile 1440 y=700: imperceptible (46735 px, max 41, box y54-394 x0-1439)
+  who-we-are hostile 1440 y=6546: anti-aliasing (4 px, max 37, box y54-55 x421-525)
+ALL PASS
+exit=0
+PASS corporate-ir-company-information 320 layout (height, page, header, footer) and content links
+PASS corporate-ir-company-information 320 pixels at 4 scroll positions
+PASS corporate-ir-company-information 390 layout (height, page, header, footer) and content links
+PASS corporate-ir-company-information 390 pixels at 4 scroll positions
+PASS corporate-ir-company-information 390 header state (current page, expanded, hrefs)
+PASS corporate-ir-company-information 390 page sees the same --util-h / --nav-h
+PASS corporate-ir-company-information 768 layout (height, page, header, footer) and content links
+PASS corporate-ir-company-information 768 pixels at 4 scroll positions
+PASS corporate-ir-company-information 1024 layout (height, page, header, footer) and content links
+PASS corporate-ir-company-information 1024 pixels at 4 scroll positions
+PASS corporate-ir-company-information 1280 layout (height, page, header, footer) and content links
+PASS corporate-ir-company-information 1280 pixels at 4 scroll positions
+PASS corporate-ir-company-information 1440 layout (height, page, header, footer) and content links
+PASS corporate-ir-company-information 1440 pixels at 4 scroll positions
+PASS corporate-ir-company-information 1440 header state (current page, expanded, hrefs)
+PASS corporate-ir-company-information 1440 page sees the same --util-h / --nav-h
+PASS corporate-ir-company-information 1920 layout (height, page, header, footer) and content links
+PASS corporate-ir-company-information 1920 pixels at 4 scroll positions
+PASS corporate-ir-company-information 1440 dropdown open over the page while stuck
+PASS corporate-ir-company-information 390 drawer open while stuck
+PASS corporate-ir-company-information hostile 1440: layout, pixels, header on top once stuck
+PASS corporate-ir-company-information hostile 390: layout, pixels, header on top once stuck
+PASS corporate-ir-company-information 1440 in-page jump lands at the same place
+PASS corporate-ir-company-information 390 in-page jump lands at the same place
+PASS corporate-ir-shareholders 320 layout (height, page, header, footer) and content links
+PASS corporate-ir-shareholders 320 pixels at 4 scroll positions
+PASS corporate-ir-shareholders 390 layout (height, page, header, footer) and content links
+PASS corporate-ir-shareholders 390 pixels at 4 scroll positions
+PASS corporate-ir-shareholders 390 header state (current page, expanded, hrefs)
+PASS corporate-ir-shareholders 390 page sees the same --util-h / --nav-h
+PASS corporate-ir-shareholders 768 layout (height, page, header, footer) and content links
+PASS corporate-ir-shareholders 768 pixels at 4 scroll positions
+PASS corporate-ir-shareholders 1024 layout (height, page, header, footer) and content links
+PASS corporate-ir-shareholders 1024 pixels at 4 scroll positions
+PASS corporate-ir-shareholders 1280 layout (height, page, header, footer) and content links
+PASS corporate-ir-shareholders 1280 pixels at 4 scroll positions
+PASS corporate-ir-shareholders 1440 layout (height, page, header, footer) and content links
+PASS corporate-ir-shareholders 1440 pixels at 4 scroll positions
+PASS corporate-ir-shareholders 1440 header state (current page, expanded, hrefs)
+PASS corporate-ir-shareholders 1440 page sees the same --util-h / --nav-h
+PASS corporate-ir-shareholders 1920 layout (height, page, header, footer) and content links
+PASS corporate-ir-shareholders 1920 pixels at 4 scroll positions
+PASS corporate-ir-shareholders 1440 dropdown open over the page while stuck
+PASS corporate-ir-shareholders 390 drawer open while stuck
+PASS corporate-ir-shareholders hostile 1440: layout, pixels, header on top once stuck
+PASS corporate-ir-shareholders hostile 390: layout, pixels, header on top once stuck
+PASS corporate-ir-shareholders 1440 in-page jump lands at the same place
+PASS corporate-ir-shareholders 390 in-page jump lands at the same place
+PASS governance-board 320 layout (height, page, header, footer) and content links
+PASS governance-board 320 pixels at 4 scroll positions
+PASS governance-board 390 layout (height, page, header, footer) and content links
+PASS governance-board 390 pixels at 4 scroll positions
+PASS governance-board 390 header state (current page, expanded, hrefs)
+PASS governance-board 390 page sees the same --util-h / --nav-h
+PASS governance-board 768 layout (height, page, header, footer) and content links
+PASS governance-board 768 pixels at 4 scroll positions
+PASS governance-board 1024 layout (height, page, header, footer) and content links
+PASS governance-board 1024 pixels at 4 scroll positions
+PASS governance-board 1280 layout (height, page, header, footer) and content links
+PASS governance-board 1280 pixels at 4 scroll positions
+PASS governance-board 1440 layout (height, page, header, footer) and content links
+PASS governance-board 1440 pixels at 4 scroll positions
+PASS governance-board 1440 header state (current page, expanded, hrefs)
+PASS governance-board 1440 page sees the same --util-h / --nav-h
+PASS governance-board 1920 layout (height, page, header, footer) and content links
+PASS governance-board 1920 pixels at 4 scroll positions
+PASS governance-board 1440 dropdown open over the page while stuck
+PASS governance-board 390 drawer open while stuck
+PASS governance-board hostile 1440: layout, pixels, header on top once stuck
+PASS governance-board hostile 390: layout, pixels, header on top once stuck
+PASS governance-board 1440 in-page jump lands at the same place
+PASS governance-board 390 in-page jump lands at the same place
+PASS legal-cookies 320 layout (height, page, header, footer) and content links
+PASS legal-cookies 320 pixels at 4 scroll positions
+PASS legal-cookies 390 layout (height, page, header, footer) and content links
+PASS legal-cookies 390 pixels at 4 scroll positions
+PASS legal-cookies 390 header state (current page, expanded, hrefs)
+PASS legal-cookies 390 page sees the same --util-h / --nav-h
+PASS legal-cookies 768 layout (height, page, header, footer) and content links
+PASS legal-cookies 768 pixels at 4 scroll positions
+PASS legal-cookies 1024 layout (height, page, header, footer) and content links
+PASS legal-cookies 1024 pixels at 4 scroll positions
+PASS legal-cookies 1280 layout (height, page, header, footer) and content links
+PASS legal-cookies 1280 pixels at 4 scroll positions
+PASS legal-cookies 1440 layout (height, page, header, footer) and content links
+PASS legal-cookies 1440 pixels at 4 scroll positions
+PASS legal-cookies 1440 header state (current page, expanded, hrefs)
+PASS legal-cookies 1440 page sees the same --util-h / --nav-h
+PASS legal-cookies 1920 layout (height, page, header, footer) and content links
+PASS legal-cookies 1920 pixels at 4 scroll positions
+PASS legal-cookies 1440 dropdown open over the page while stuck
+PASS legal-cookies 390 drawer open while stuck
+PASS legal-cookies hostile 1440: layout, pixels, header on top once stuck
+PASS legal-cookies hostile 390: layout, pixels, header on top once stuck
+PASS legal-cookies 1440 in-page jump lands at the same place
+PASS legal-cookies 390 in-page jump lands at the same place
+PASS main 320 layout (height, page, header, footer) and content links
+PASS main 320 pixels at 4 scroll positions
+PASS main 390 layout (height, page, header, footer) and content links
+PASS main 390 pixels at 4 scroll positions
+PASS main 390 header state (current page, expanded, hrefs)
+PASS main 390 page sees the same --util-h / --nav-h
+PASS main 768 layout (height, page, header, footer) and content links
+PASS main 768 pixels at 4 scroll positions
+PASS main 1024 layout (height, page, header, footer) and content links
+PASS main 1024 pixels at 4 scroll positions
+PASS main 1280 layout (height, page, header, footer) and content links
+PASS main 1280 pixels at 4 scroll positions
+PASS main 1440 layout (height, page, header, footer) and content links
+PASS main 1440 pixels at 4 scroll positions
+PASS main 1440 header state (current page, expanded, hrefs)
+PASS main 1440 page sees the same --util-h / --nav-h
+PASS main 1920 layout (height, page, header, footer) and content links
+PASS main 1920 pixels at 4 scroll positions
+PASS main 1440 dropdown open over the page while stuck
+PASS main 390 drawer open while stuck
+PASS main hostile 1440: layout, pixels, header on top once stuck
+PASS main hostile 390: layout, pixels, header on top once stuck
+PASS main 1440 in-page jump lands at the same place
+PASS main 390 in-page jump lands at the same place
+PASS profile-agnes-gradzewicz 320 layout (height, page, header, footer) and content links
+PASS profile-agnes-gradzewicz 320 pixels at 4 scroll positions
+PASS profile-agnes-gradzewicz 390 layout (height, page, header, footer) and content links
+PASS profile-agnes-gradzewicz 390 pixels at 4 scroll positions
+PASS profile-agnes-gradzewicz 390 header state (current page, expanded, hrefs)
+PASS profile-agnes-gradzewicz 390 page sees the same --util-h / --nav-h
+PASS profile-agnes-gradzewicz 768 layout (height, page, header, footer) and content links
+PASS profile-agnes-gradzewicz 768 pixels at 4 scroll positions
+PASS profile-agnes-gradzewicz 1024 layout (height, page, header, footer) and content links
+PASS profile-agnes-gradzewicz 1024 pixels at 4 scroll positions
+PASS profile-agnes-gradzewicz 1280 layout (height, page, header, footer) and content links
+PASS profile-agnes-gradzewicz 1280 pixels at 4 scroll positions
+PASS profile-agnes-gradzewicz 1440 layout (height, page, header, footer) and content links
+PASS profile-agnes-gradzewicz 1440 pixels at 4 scroll positions
+PASS profile-agnes-gradzewicz 1440 header state (current page, expanded, hrefs)
+PASS profile-agnes-gradzewicz 1440 page sees the same --util-h / --nav-h
+PASS profile-agnes-gradzewicz 1920 layout (height, page, header, footer) and content links
+PASS profile-agnes-gradzewicz 1920 pixels at 4 scroll positions
+PASS profile-agnes-gradzewicz 1440 dropdown open over the page while stuck
+PASS profile-agnes-gradzewicz 390 drawer open while stuck
+PASS profile-agnes-gradzewicz hostile 1440: layout, pixels, header on top once stuck
+PASS profile-agnes-gradzewicz hostile 390: layout, pixels, header on top once stuck
+PASS profile-agnes-gradzewicz 1440 in-page jump lands at the same place
+PASS profile-agnes-gradzewicz 390 in-page jump lands at the same place
+PASS profile-farhad-reyazat 320 layout (height, page, header, footer) and content links
+PASS profile-farhad-reyazat 320 pixels at 4 scroll positions
+PASS profile-farhad-reyazat 390 layout (height, page, header, footer) and content links
+PASS profile-farhad-reyazat 390 pixels at 4 scroll positions
+PASS profile-farhad-reyazat 390 header state (current page, expanded, hrefs)
+PASS profile-farhad-reyazat 390 page sees the same --util-h / --nav-h
+PASS profile-farhad-reyazat 768 layout (height, page, header, footer) and content links
+PASS profile-farhad-reyazat 768 pixels at 4 scroll positions
+PASS profile-farhad-reyazat 1024 layout (height, page, header, footer) and content links
+PASS profile-farhad-reyazat 1024 pixels at 4 scroll positions
+PASS profile-farhad-reyazat 1280 layout (height, page, header, footer) and content links
+PASS profile-farhad-reyazat 1280 pixels at 4 scroll positions
+PASS profile-farhad-reyazat 1440 layout (height, page, header, footer) and content links
+PASS profile-farhad-reyazat 1440 pixels at 4 scroll positions
+PASS profile-farhad-reyazat 1440 header state (current page, expanded, hrefs)
+PASS profile-farhad-reyazat 1440 page sees the same --util-h / --nav-h
+PASS profile-farhad-reyazat 1920 layout (height, page, header, footer) and content links
+PASS profile-farhad-reyazat 1920 pixels at 4 scroll positions
+PASS profile-farhad-reyazat 1440 dropdown open over the page while stuck
+PASS profile-farhad-reyazat 390 drawer open while stuck
+PASS profile-farhad-reyazat hostile 1440: layout, pixels, header on top once stuck
+PASS profile-farhad-reyazat hostile 390: layout, pixels, header on top once stuck
+PASS profile-farhad-reyazat 1440 in-page jump lands at the same place
+PASS profile-farhad-reyazat 390 in-page jump lands at the same place
+PASS smes-projects 320 layout (height, page, header, footer) and content links
+PASS smes-projects 320 pixels at 4 scroll positions
+PASS smes-projects 390 layout (height, page, header, footer) and content links
+PASS smes-projects 390 pixels at 4 scroll positions
+PASS smes-projects 390 header state (current page, expanded, hrefs)
+PASS smes-projects 390 page sees the same --util-h / --nav-h
+PASS smes-projects 768 layout (height, page, header, footer) and content links
+PASS smes-projects 768 pixels at 4 scroll positions
+PASS smes-projects 1024 layout (height, page, header, footer) and content links
+PASS smes-projects 1024 pixels at 4 scroll positions
+PASS smes-projects 1280 layout (height, page, header, footer) and content links
+PASS smes-projects 1280 pixels at 4 scroll positions
+PASS smes-projects 1440 layout (height, page, header, footer) and content links
+PASS smes-projects 1440 pixels at 4 scroll positions
+PASS smes-projects 1440 header state (current page, expanded, hrefs)
+PASS smes-projects 1440 page sees the same --util-h / --nav-h
+PASS smes-projects 1920 layout (height, page, header, footer) and content links
+PASS smes-projects 1920 pixels at 4 scroll positions
+PASS smes-projects 1440 dropdown open over the page while stuck
+PASS smes-projects 390 drawer open while stuck
+PASS smes-projects hostile 1440: layout, pixels, header on top once stuck
+PASS smes-projects hostile 390: layout, pixels, header on top once stuck
+PASS smes-projects 1440 in-page jump lands at the same place
+PASS smes-projects 390 in-page jump lands at the same place
+PASS no script errors and all fonts loaded
+notes (passed unless a check above failed):
+  governance-board hostile 1440 y=320: anti-aliasing (21 px, max 1, box y687-688 x131-1004)
+  governance-board hostile 1440 y=700: anti-aliasing (21 px, max 1, box y307-308 x131-1004)
+  smes-projects 390 drawer open while stuck: token (6743 px, max 242, box y99-353 x20-219)
+ALL PASS
+exit=0

@@ -29,12 +29,29 @@ const PAGE_DIR = path.resolve(__dirname, '..');
 const SRC = path.join(__dirname, 'src');
 const IMAGE = path.join(PAGE_DIR, 'assets', 'financial-engine-hero.webp');
 const REPORT = process.argv.includes('--report');
+// --global: the page block for use with the global header and footer (ghl/global/): no header or footer, no logo /
+// header / footer settings, only the links the page itself uses, and the root marked data-bwci-current for the global
+// header. Writes financial-engine.global*.ghl.html; the regular outputs are untouched.
+const GLOBAL = process.argv.includes('--global');
+const forGlobal = (c) => {
+  if (!GLOBAL) return c;
+  const o = Object.assign({}, c);
+  ['logoImage', 'showHeader', 'showFooter', 'footer'].forEach((k) => { delete o[k]; });
+  if (o.imageFallbacks) { o.imageFallbacks = Object.assign({}, o.imageFallbacks); delete o.imageFallbacks.logoImage; if (!Object.keys(o.imageFallbacks).length) delete o.imageFallbacks; }
+  return o;
+};
+const globalBanner = (s) => (GLOBAL ? s.replace(/^<!--\n/, '<!--\n' +
+  '  FOR THE GLOBAL HEADER AND FOOTER (built with --global): this block has NO header or footer of its own. Paste it\n' +
+  '  between the "BWCI Header" and "BWCI Footer" GoHighLevel Global Sections (ghl/global/). The logo, header/footer\n' +
+  '  and footer-wording settings live in those sections; any such setting named below is not in this block.\n') : s);
+
 // classes the runtime adds outside the VIEW markup (keep in sync with financial-engine.js)
 const DYNAMIC_CLASSES = ['cap-item--active'];
 // shared site chrome for this page (SiteHeader current="engine", Breadcrumb current="engine"). rename: the
 // page's own class vocabulary, so bwci-system.css targets the same elements as in the source
 const pageCss = fs.readFileSync(path.join(__dirname, 'src', 'financial-engine.css'), 'utf8');
 const chrome = require('../../../shared/site-chrome/site-chrome')({
+  global: GLOBAL,
   prefix: 'fe', current: 'engine', breadcrumb: 'engine',
   rename: (n) => (new RegExp('\\.' + 'fe-' + n + '(?![\\w-])').test(pageCss) ? 'fe-' + n : n),
 });
@@ -91,7 +108,8 @@ function scopeSelector(s) {
 
 /* ---------------- inputs ---------------- */
 const htmlSrc = fs.readFileSync(path.join(SRC, 'financial-engine.html'), 'utf8').trim()
-  .replace(/<!--chrome:(header|breadcrumb|footer)-->/g, (_, k) => chrome[k]);
+  .replace(/<!--chrome:(header|breadcrumb|footer)-->/g, (_, k) => (GLOBAL && (k === 'header' || k === 'footer') ? '' : chrome[k]))
+  .replace('id="' + ROOT.slice(1) + '"', (m) => (GLOBAL ? m + ' data-bwci-current="' + chrome.current + '"' : m));
 const jsSrc = fs.readFileSync(path.join(SRC, 'financial-engine.js'), 'utf8').trim();
 if (!jsSrc.includes('/*@site-chrome*/')) throw new Error('/*@site-chrome*/ marker missing from financial-engine.js');
 const js = jsSrc.replace('/*@site-chrome*/', () => chrome.runtime);
@@ -200,6 +218,7 @@ const FONT_LINKS = [
 
 /* ---------------- checks ---------------- */
 const usedKeys = new Set([...htmlCode.matchAll(/data-fe-link="([^"]+)"/g)].map((m) => m[1]));
+if (GLOBAL) Object.keys(config.links).forEach((k) => { if (!usedKeys.has(k)) delete config.links[k]; });
 const cfgKeys = new Set(Object.keys(config.links));
 usedKeys.forEach((k) => { if (!cfgKeys.has(k)) throw new Error('Link key missing from config: ' + k); });
 cfgKeys.forEach((k) => { /* Only known legacy keys retain their original configuration semantics. */ if (!usedKeys.has(k) && !chrome.legacyLinkKeys.includes(k)) throw new Error('Unused link key in config: ' + k); });
@@ -226,14 +245,14 @@ function banner(variant) {
 }
 function assemble(imageValue, logoValue, variant) {
   const cfg = Object.assign({}, config, { financialEngineImage: imageValue, logoImage: logoValue });
-  const cfgBlock = '<script type="application/json" id="bwci-financial-engine-config">\n' + JSON.stringify(chrome.imageConfig(cfg), null, 2) + '\n</script>';
+  const cfgBlock = '<script type="application/json" id="bwci-financial-engine-config">\n' + JSON.stringify(chrome.imageConfig(forGlobal(cfg)), null, 2) + '\n</script>';
   return banner(variant) + '\n' + cfgBlock + '\n' + FONT_LINKS + '\n<style>\n' + css + '</style>\n\n' + html + '\n\n<script>\n' + js + '\n</script>\n';
 }
 const ghl = assemble(config.financialEngineImage, config.logoImage, 'production — hosted images');
 const inline = assemble('data:image/webp;base64,' + fs.readFileSync(IMAGE).toString('base64'),
   'data:image/png;base64,' + fs.readFileSync(chrome.logoPath).toString('base64'), 'self-contained — embedded images');
-fs.writeFileSync(path.join(PAGE_DIR, 'financial-engine.ghl.html'), ghl);
-fs.writeFileSync(path.join(PAGE_DIR, 'financial-engine.inline.ghl.html'), inline);
+fs.writeFileSync(path.join(PAGE_DIR, GLOBAL ? 'financial-engine.global.ghl.html' : 'financial-engine.ghl.html'), globalBanner(ghl));
+fs.writeFileSync(path.join(PAGE_DIR, GLOBAL ? 'financial-engine.global.inline.ghl.html' : 'financial-engine.inline.ghl.html'), globalBanner(inline));
 
 console.log('keyframes kept   :', keptKf.join(', '));
 console.log('keyframes dropped:', droppedKf.join(', ') || '-');
