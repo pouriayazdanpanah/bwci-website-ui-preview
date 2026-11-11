@@ -1,90 +1,92 @@
-# Who We Are — local verification (28 October 2026)
+# Who We Are — local verification (11 November 2026)
 
-Revision: branch `feat/ghl-who-we-are`, based on main `37102cf` (design export "Import Claude Design site export").
-Environment: headless Chromium (Playwright), local `http-server` at the repo root, source page rendered through
-`design/support.js` with React served from `design/vendor/`. Google Fonts are not reachable from this environment
-for either the source or the port, so both render with the same fallback fonts. **This is local QA, not a
-published GHL page.**
+- **Revision:** branch `feat/ghl-who-we-are`, based on main `505e162` (design export `505e162`).
+- **Reference:** the design page with the owner's live text, built in memory by `_build/merged-source.js` and served
+  by `qa-routes.js` (`MERGED=1`) at `design/Who We Are (merged).dc.html`. It applies 26 text/markup substitutions
+  to the design page and 4 to `bwci-people.js` (this page's card names and roles); the design files are not edited.
+- **Environment:** headless Chromium (Playwright) against a local `http-server` at the repo root.
+  - The reference is rendered through `design/support.js`, with React served from `design/vendor/`.
+  - The real Google Fonts loaded.
+  - Pixel diffs use Python 3.11 with numpy and Pillow (threshold 24/255 per channel).
+- **Scope:** local QA, not a published GHL page. The first port's record (export `37102cf`, PR #41) is in the git
+  history of this file.
 
 ## Source fidelity
 
 | Check | Result |
 |---|---|
-| Pixel diff, 13 widths (320, 360, 375, 390, 430, 768, 1024, 1280, 1366, 1440, 1600, 1920, 2560) × 900 px, reduced motion | 0.000 %, 0 differing rows at every width |
-| Pixel diff, 320/390/768/1024/1440/1920 × 600 px and × 1200 px | 0.000 %, 0 rows |
+| Pixel diff, 13 widths (320, 360, 375, 390, 430, 768, 1024, 1280, 1366, 1440, 1600, 1920, 2560) × 900 px, reduced motion | 0.000 %, 0 differing rows at every width (after re-capture; see below) |
+| Pixel diff, 320/390/768/1024/1440/1920 × 600 px and × 1200 px | 0.000 %, 0 rows (two 6–7-row blips at 1200 px re-captured to 0) |
 | Pixel diff, motion on, 390 and 1440 | 0.000 %, 0 rows |
-| Page height (px) | 10290 · 9756 · 9651 · 9409 · 9101 · 7930 · 6257 · 6734 · 6961 · 7005 · 7005 · 7005 · 7005, identical to the source |
-| Horizontal overflow / console errors | none at any width |
-| DOM box and style walk of hero, glance, purpose, role, principles, how, explore, leadership, next, header, footer | 0 differences at 1440, 1024, 768, 390, 320 |
+| Landscape 844×390 and 568×390 | 0.000 %, 0 rows |
+| Founder quote and "Next" row off (`showFounderQuote` / `showNextRow` false; reference `MERGED_PROPS=founderQuote=false,nextRow=false`), 320/390/768/1024/1440/1920 × 900 | 0.000 %, 0 rows |
+| Page height (px), 320 → 2560 at 900 | 14159 · 13234 · 12855 · 12658 · 12097 · 10263 · 8587 · 9438 · 9743 · 9811 · 9811 · 9811 · 9811, identical to the reference |
+| Horizontal overflow / console errors | none at any width, in either page |
+| DOM box and style walk of every section (Our story, In his words, Where we are today and What you can expect included), header and footer | 0 differences at 1440, 1024, 768, 390 and 320 |
 
-Earlier runs on this branch found and fixed two differences: a 16 px shift from "How we work" down (a `.bw`
-selector had lost a class of specificity) and the square vs rounded ends of the header's current-item underline
-(the source defines no `--radius-full`; the port now uses the source's exact tokens).
+Two differences were found and fixed during this run:
+- **Principles:** the design's principle cards are static markup; its `PR` list in the script is not rendered. The
+  reference first changed the list, so its cards kept the old text (port 26 px taller at 1440). The reference now
+  changes the cards.
+- **The "In his words" quote mark** (font-weight 800) was a synthesised bold in the port, whose font link lacked
+  weight 800 (unused until this export). The port now loads the source's exact font link, including 800.
 
-## Behaviour (`_build/behaviour.js`, 90 trace lines, source vs port)
+Isolated 1–9-row differences at 390, 1440 and 1600 in one capture re-captured to 0 rows; at 1440 the reference also
+differed from its own earlier capture.
 
-Identical except for the hero image's x offset (±1 px). The image drifts continuously (14 s), and the two runs
-sample it at slightly different moments. Covered:
-- hero regimes at 1440/1024/768/390/320/700;
-- glance tiles and their hover;
-- hero button hover;
-- the sticky role aside;
-- principle card hover;
-- engine strip unlit, then lit at 45 % visibility (dot colours, vertical list below 1024 px);
-- explore row hover;
-- card hover and focus;
-- grid press-move-release;
-- "Our role" anchor: scroll, focus and hash;
-- carousel at 390/320/700:
-  - a short move clicks through;
-  - a drag sets `is-drag` and scrolls;
-  - the release snaps to the next card (`273 = 259 + 14` at 390);
-  - the click that ends a drag is swallowed, and the next click works;
-- touch: overlay visible, tap clicks through, no drag;
-- live resize (1100/900/700/500/1600);
+## Behaviour (`_build/behaviour.js`, 104 trace lines, reference vs port)
+
+Identical except one value: the hero image's x offset at the live resize to 900 px (184 vs 185 px). The image drifts
+continuously (14 s) and the two runs sample it at different moments, as already recorded for the first port.
+Covered:
+- hero regimes at 1440/1024/768/390/320/700, glance tiles and their hover, hero button hover;
+- the sticky role aside, principle card hover;
+- engine strip unlit, then lit at 45 % visibility;
+- **the new sections** at 1440/1024/768 and 390/320/700: the story grid, "Since" block, timeline and its first marker;
+  the founder card's grid, padding, quote mark (weight 800), quote style and portrait; the "Where we are today"
+  rows and markers; the "What you can expect" grid, its heading sticky at ≥1024 px (static below), and the numbered
+  list;
+- explore row hover, card hover and focus, grid press-move-release;
+- the leadership carousel at 390/320/700 (short move, drag, snap, swallowed click), touch;
+- live resize (1100/900/700/500/1600), including the new sections' grid columns;
 - reduced motion.
 
-Off-screen carousel cards stay in the reveal "wait" state until swiped into view, then fade in. The source does the
-same.
+The first port's "Our role ↓" anchor test was removed: the owner's live page links "Our role →" to the Our Role page.
 
 ## Shared chrome
 
-- `ghl/shared/site-chrome/qa/chrome-behaviour.js`: 64-line header/drawer/dropdown/sticky/footer/motion trace, identical to the source (its class normaliser now includes `who-`).
-- `ghl/shared/site-chrome/qa/chrome-lifecycle.js who-we-are who … bwci-who-we-are bwci-who-we-are-config`: pass, no errors. One instance after a duplicate script; no overflow in the hostile host at 1440 or 390; the header still sticks below host content; re-attached after a GHL-style re-render; body overflow restored after the drawer; reduced motion leaves nothing hidden or translated.
+- **`ghl/shared/site-chrome/qa/chrome-behaviour.js`** against the design page: the 64-line
+  header/drawer/dropdown/sticky/footer/motion trace is identical except the hero button's label in the keyboard order
+  ("Our role ↓" in the design, "Our role →" in the owner's text).
+- **`ghl/shared/site-chrome/qa/chrome-lifecycle.js who-we-are who …`:** pass, no errors (config keys and logos, hosted
+  placeholders, a hostile host at 1440 and 390 with one instance and no overflow, re-attached, body overflow restored,
+  reduced motion with nothing invisible or translated). The 2 elements still waiting to reveal at 390 are the
+  off-screen carousel cards, the same count as on main before this change and as the source.
+- **`ghl/global/qa/rollout.js` (who-we-are):** ALL PASS. The global header + `who-we-are.global.inline.ghl.html` +
+  global footer against the regular block: layout and pixels at 7 widths × 4 scroll positions (anti-aliasing notes
+  only), header state, dropdown and drawer while stuck, hostile host, in-page jumps, no script errors.
 
 ## Configuration (`_build/config-qa.js`)
 
-- **Literal merge fields (as pasted) and every value `#`:**
-  - all 18 page links and 4 card links are `#`, with `aria-disabled` and "Not yet available";
-  - a disabled link does not navigate;
-  - the hosted block makes 0 image requests, and its hero is hidden;
-  - the inline block shows the original hero, portraits and logo from `imageFallbacks`;
-  - no raw `{{ }}` reaches an href or src.
-- **All values resolved (synthetic `/<page>?v=1` URLs and hosted asset URLs), both variants:**
-  - page links resolve; `financialEngineHero` becomes `/financial-engine?v=1#fe-hero`;
-  - profile cards get `…?v=1&from=leadership`;
-  - the footer gets `/who-we-are?v=1#purpose|#role|#principles|#story`;
-  - hero, portraits and logo load from the URLs.
-- **A base URL with its own fragment:** the section link replaces it (`/fe?x=1#fe-hero`), and the profile query goes before the hash (`/people/farhad?from=leadership#bio`).
-- **Duplicate execution + content above + a copied live root with a changed config:**
-  - one owner (`__bwciWhoWeAre`);
-  - the new `ourRole` URL is applied and `contact: "#"` is disabled;
-  - the engine starts unlit and lights on scroll;
-  - no overflow.
+- **Literal merge fields, every value `#`, every value empty, synthetic URLs and hosted images**, both variants:
+  - unset links are `#` with `aria-disabled`; resolved links compose sections and keep queries; profile links keep
+    `?from=leadership` before any hash;
+  - the hosted block makes 0 image requests until values are set; the founder portrait in "In his words" is hidden
+    without a value and uses `peopleImages.farhad-reyazat` when set (the inline block uses the embedded portrait);
+  - no raw `{{ }}` reaches the page.
+- **Duplicate script, content above, copied live root with a changed config:** one owner, the new `ourRole` value
+  applied to both its links, the engine strip unlit again until scrolled, no overflow.
+- **Disabled click:** "Our role" does not navigate and carries "Not yet available".
+- **Switches:** `showFounderQuote` / `showNextRow` `false` hide the section and the row; the string `"false"` keeps
+  both shown.
 
-## Shared image entry (`whoWeAreHeroImage`)
+## Shared entries and regression
 
-Superseded on 29 October 2026: the setting is now page-only (see `ghl/shared/site-images/README.md`), and the other
-pages' outputs are back to their files before PR #41. The record below describes the PR #41 revision.
-
-
-- 22 generated pages rebuilt and both Main files edited: in all 46 outputs the only change is the one-line list of image settings.
-- Old and new resolvers applied to every existing output's config, with values literal, resolved and `#`: 138/138 identical results.
-- `ghl/shared/site-images/qa/unit.js`: PASS (330 checks).
-- `ghl/shared/site-links/qa/unit.js`: PASS (212 checks).
+- No shared file changes. Only this page's outputs (regular, inline and both global variants) changed; every other
+  page's block is untouched.
 
 ## Not verified
 
-- GHL substitution of Custom Values inside `application/json` and cache propagation.
-- Real web fonts, physical devices, and the published page.
-- The two proposed Custom Values do not exist in the account yet.
+- Physical devices and the published page.
+- GHL substitution of Custom Values inside `application/json`, and cache propagation.
+- The owner's live page itself: its text was taken from the rendered page supplied in the conversation.

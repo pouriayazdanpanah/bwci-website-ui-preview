@@ -57,6 +57,25 @@ const chrome = require('../../../shared/site-chrome/site-chrome')({
 });
 const siteLinks = require('../../../shared/site-links');
 const FROM = 'leadership'; // PersonCard from="leadership" (the profile link's ?from=)
+// The owner's live page (11 November 2026) shows these names and roles on this page's cards. They are applied here,
+// to this page only; the shared people data (bwci-people.js, used by Board, Leadership and the profiles) is unchanged.
+const CARD_TEXT = {
+  'alexander-alegria-saif': { name: 'Alexander Alegria-Seif', roles: [['Chairman', '']] },
+  'farhad-reyazat': { name: 'Dr Farhad Reyazat', roles: [['Founder & Chief Executive Officer', '']] },
+  'gabriella-karlova': { name: 'Gabriella Karlova', roles: [['Director', '']] },
+  'richard-werner': { name: 'Professor Richard A. Werner', roles: [['Strategic Banking Advisor', '']] },
+};
+const escHtml = (t) => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const cardFor = (slug) => {
+  const card = chrome.personCard(slug, FROM);
+  const t = CARD_TEXT[slug];
+  if (!t) throw new Error('CARD_TEXT missing: ' + slug);
+  const i = (v) => '<span class="who-i">' + escHtml(v) + '</span>';
+  const body = ['  <div class="gv-card-t">', '    <b>' + i(t.name) + '</b>'].concat(t.roles.map((r) => '    <div class="gv-role"><span>' + i(r[0]) + '</span><span>' + i(r[1]) + '</span></div>'), ['  </div>']).join('\n');
+  const out = card.replace(/aria-label="[^"]*"/, 'aria-label="' + escHtml(t.name + ', view profile') + '"').replace(/  <div class="gv-card-t">[\s\S]*?\n  <\/div>(?=\n<\/a>)/, body);
+  if (out === card || !out.includes(body)) throw new Error('Card text not applied: ' + slug);
+  return out;
+};
 
 /* ---------------- CSS parsing helpers ---------------- */
 function stripComments(css) {
@@ -113,7 +132,7 @@ const slugs = [];
 const htmlSrc = fs.readFileSync(path.join(SRC, 'who-we-are.html'), 'utf8').trim()
   .replace(/<!--chrome:(header|breadcrumb|footer)-->/g, (_, k) => (GLOBAL && (k === 'header' || k === 'footer') ? '' : chrome[k]))
   .replace('id="' + ROOT.slice(1) + '"', (m) => (GLOBAL ? m + ' data-bwci-current="' + chrome.current + '"' : m))
-  .replace(/<!--person:([\w-]+)-->/g, (_, slug) => { slugs.push(slug); return chrome.personCard(slug, FROM); });
+  .replace(/<!--person:([\w-]+)-->/g, (_, slug) => { slugs.push(slug); return cardFor(slug); });
 const jsSrc = fs.readFileSync(path.join(SRC, 'who-we-are.js'), 'utf8').trim();
 if (!jsSrc.includes('/*@site-chrome*/')) throw new Error('/*@site-chrome*/ marker missing from who-we-are.js');
 const js = jsSrc.replace('/*@site-chrome*/', () => chrome.runtime);
@@ -202,11 +221,11 @@ scoped.split('\n').forEach((line) => {
 });
 const css = scoped;
 
-// Identical to the Main and Financial Engine GHL blocks (loads correctly in GoHighLevel).
+// The source's font link (weight 800 is used by the "In his words" quote mark since export 505e162).
 const FONT_LINKS = [
   '<link rel="preconnect" href="https://fonts.googleapis.com">',
   '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
-  '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">',
+  '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">',
 ].join('\n');
 
 /* ---------------- checks ---------------- */

@@ -2,9 +2,21 @@
 
 This guide turns a finished Claude Design page in design/ into one pasteable GoHighLevel Website Builder Custom Code block. CLAUDE.md holds project-wide rules. pages/<slug>.md is a brief for a page not yet ported; ghl/pages/<slug>/README.md is the durable record for a completed port.
 
-## Current status — November 9, 2026
+## Current status — November 11, 2026
 
-**Global header and footer (9 November, owner request; branch `feat/ghl-global-chrome-pilot`, draft PR #56 to main, not merged; PR #55 merged):** one header block and one footer block for GoHighLevel Global Sections instead of a header and
+**Who We Are content update (11 November, branch `feat/ghl-who-we-are`, PR to main open; not merged):** by the
+owner's instruction the page takes its text from the owner's live GHL page (supplied rendered, "the source is correct")
+and its layout from design export `505e162`, which adds four sections (Our story, In his words, Where we are today,
+What you can expect from us). Leadership card names and roles follow the live page on this page only. Two new
+settings, `showFounderQuote` and `showNextRow` (source props `founderQuote`, `nextRow`). No new Custom Values; only
+the Who We Are blocks change (re-paste it, or its `.global` block). Local QA PASS against the merged reference
+(`ghl/pages/who-we-are/_build/merged-source.js`); live GHL NOT VERIFIED. **Home (Main)** gets the same treatment next
+(the owner's live text, the removed Platform Today section, and export `04715d6`'s "Why it matters now, and why us"),
+on its own branch. Export `505e162` also titles the design page "(review)" with `noindex`; a block sets neither.
+
+## Status — November 9, 2026
+
+**Global header and footer (9 November, owner request; merged in PR #56, `10b1f2f`; PR #55 merged):** one header block and one footer block for GoHighLevel Global Sections instead of a header and
 footer in every page block ([ghl/global/README.md](../../ghl/global/README.md)). Every page with a site header has a
 global version, `<page>.global(.inline).ghl.html`: the 34 generated pages via `build.js --global`, Main via
 `ghl/global/_build/main-global.js`; the 404 page keeps its own logo bar. The 72 regular outputs are unchanged. The

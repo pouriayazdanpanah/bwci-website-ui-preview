@@ -8,8 +8,8 @@ const width = Number(wArg || 1440), height = Number(hArg || 900);
 const reducedMotion = motionArg === 'motion' ? 'no-preference' : 'reduce';
 // source selector -> port selector
 const PAIRS = [
-  ['#top', '#who-top'], ['#glance', '#who-glance'], ['#purpose', '#purpose'], ['#role', '#role'], ['#principles', '#principles'],
-  ['#how', '#who-how'], ['#explore', '#who-explore'], ['#leadership', '#who-leadership'], ['#next', '#who-next'],
+  ['#top', '#who-top'], ['#glance', '#who-glance'], ['#purpose', '#purpose'], ['#story', '#story'], ['#words', '#who-words'], ['#role', '#role'], ['#principles', '#principles'],
+  ['#how', '#who-how'], ['#today', '#who-today'], ['#explore', '#who-explore'], ['#leadership', '#who-leadership'], ['#expect', '#who-expect'], ['#next', '#who-next'],
   ['footer.sft', 'footer.who-sft'], ['header.hdr', 'header.who-hdr'],
 ];
 const PROPS = ['display', 'position', 'font-family', 'font-size', 'font-weight', 'line-height', 'letter-spacing', 'color',

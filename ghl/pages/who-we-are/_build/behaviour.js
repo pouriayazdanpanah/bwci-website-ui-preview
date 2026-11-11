@@ -7,8 +7,8 @@ const { chromium } = require('playwright');
 const routeReact = require('./qa-routes');
 const url = process.argv[2];
 const label = process.argv[3] || url;
-// source selector, written once; the port's is the same with who- classes/ids (except #purpose/#role/#principles)
-const S = (sel) => sel + ', ' + sel.replace(/\.(?!gv-)([a-z][\w-]*)/g, '.who-$1').replace(/#(top|glance|how|explore|leadership|next)\b/g, '#who-$1');
+// source selector, written once; the port's is the same with who- classes/ids (except #purpose/#role/#principles/#story)
+const S = (sel) => sel + ', ' + sel.replace(/\.(?!gv-)([a-z][\w-]*)/g, '.who-$1').replace(/#(top|glance|how|explore|leadership|next|words|today|expect)\b/g, '#who-$1');
 
 const STYLE = ([sel, props, pseudo]) => {
   const el = document.querySelector(sel);
@@ -76,6 +76,12 @@ const CARD = ([i]) => {
     log('engine before ' + w, await page.evaluate((s) => document.querySelector(s).className.replace(/who-/g, ''), S('#how .lp')));
     await scrollTo(page, '#how .lp', 200); await page.waitForTimeout(1600);
     log('engine lit ' + w, [await page.evaluate((s) => document.querySelector(s).className.replace(/who-/g, ''), S('#how .lp')), await st(page, '.lp-n:nth-child(6) .lp-dot', ['border-top-color']), await st(page, '.lp-n:nth-child(6) .lp-dot', ['background-color', 'transform'], '::after'), await st(page, '.lp', ['box', 'height']), await st(page, '.lp-loopnote', ['display'])]);
+    // the four sections of export 505e162
+    log('story ' + w, [await st(page, '.st-g', ['box', 'grid-template-columns']), await st(page, '.st-since', ['box', 'grid-template-columns']), await st(page, '.st-body', ['box']), await st(page, '.st-body p:first-child', ['box'], '::before')]);
+    log('words ' + w, [await st(page, '.fw', ['box', 'grid-template-columns', 'padding']), await st(page, '.fw-mark', ['box', 'font-weight']), await st(page, '.fw blockquote', ['box', 'font-style']), await st(page, '.fw-by img', ['box', 'border-top-color'])]);
+    log('today ' + w, [await st(page, '.td-r', ['box', 'grid-template-columns']), await st(page, '.td-m--dev', ['box', 'background-image']), await st(page, '.td-as', ['box'])]);
+    await scrollTo(page, '#expect', -40); await page.evaluate(() => window.scrollBy(0, 300)); await page.waitForTimeout(300);
+    log('expect ' + w, [await st(page, '.cm-g', ['grid-template-columns']), await st(page, '.cm-side', ['box', 'position', 'top']), await st(page, '.cm-list li:nth-child(2)', ['box', 'grid-template-columns'])]);
     // explore rows
     await scrollTo(page, '#explore', 0);
     await page.locator(S('.ex-c')).nth(0).hover(); await page.waitForTimeout(700);
@@ -99,15 +105,7 @@ const CARD = ([i]) => {
     await page.close();
   }
 
-  /* ---- in-page anchor: "Our role ↓" ---- */
-  {
-    const page = await open({ viewport: { width: 1440, height: 900 } });
-    await page.evaluate(() => { window.__clicks = null; }); // let the anchor through
-    await page.locator(S('.hero-btn--solid')).click(); await page.waitForTimeout(1500);
-    log('anchor our role', await page.evaluate(() => ({ y: Math.round(scrollY), roleTop: Math.round(document.getElementById('role').getBoundingClientRect().top), hash: location.hash, focus: document.activeElement === document.body ? 'body' : document.activeElement.tagName })));
-    await page.close();
-  }
-
+  /* ---- hero: since the owner's live text (11 November 2026) "Our role →" opens the Our Role page; no in-page anchor ---- */
   /* ---- phone / narrow, mouse: carousel drag + snap ---- */
   for (const [w, h] of [[390, 844], [320, 640], [700, 900]]) {
     const page = await open({ viewport: { width: w, height: h } });
@@ -115,6 +113,7 @@ const CARD = ([i]) => {
     log('glance ' + w, [await st(page, '.gl-facts', ['box', 'grid-template-columns', 'margin-top']), await st(page, '.gl-f:nth-child(2)', ['box', 'grid-template-columns'])]);
     await scrollTo(page, '#how .lp', 200); await page.waitForTimeout(1400);
     log('engine ' + w, [await page.evaluate((s) => document.querySelector(s).className.replace(/who-/g, ''), S('#how .lp')), await st(page, '.lp', ['box']), await st(page, '.lp-n:nth-child(3) .lp-in', ['box', 'grid-template-columns'])]);
+    log('new sections ' + w, [await st(page, '.st-g', ['box', 'grid-template-columns']), await st(page, '.st-since', ['box', 'grid-template-columns']), await st(page, '.fw', ['box', 'grid-template-columns']), await st(page, '.fw-mark', ['box']), await st(page, '.fw-by img', ['box']), await st(page, '.td-r', ['box', 'grid-template-columns']), await st(page, '.cm-list li:nth-child(1)', ['box', 'grid-template-columns']), await st(page, '.cm-side', ['position'])]);
     await scrollTo(page, '#leadership .ld-g', 160);
     log('carousel ' + w, await page.evaluate(CAROUSEL, [S('.ld-g')]));
     const ul = await page.locator(S('.ld-g')).boundingBox();
@@ -152,7 +151,7 @@ const CARD = ([i]) => {
     const page = await open({ viewport: { width: 1440, height: 900 } });
     for (const w of [1100, 900, 700, 500, 1600]) {
       await page.setViewportSize({ width: w, height: 900 }); await page.waitForTimeout(400);
-      log('resize ' + w, [await st(page, '.hero-img img', ['box']), await st(page, '.gl-facts', ['grid-template-columns']), await page.evaluate(CAROUSEL, [S('.ld-g')]), await st(page, '.pr-g', ['grid-template-columns'])]);
+      log('resize ' + w, [await st(page, '.hero-img img', ['box']), await st(page, '.gl-facts', ['grid-template-columns']), await page.evaluate(CAROUSEL, [S('.ld-g')]), await st(page, '.pr-g', ['grid-template-columns']), await st(page, '.st-g', ['grid-template-columns']), await st(page, '.fw', ['grid-template-columns']), await st(page, '.td-r', ['grid-template-columns']), await st(page, '.cm-g', ['grid-template-columns'])]);
     }
     await page.close();
   }

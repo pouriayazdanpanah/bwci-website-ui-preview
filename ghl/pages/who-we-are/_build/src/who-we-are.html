@@ -6,21 +6,22 @@
        ============================================================ -->
 <!--chrome:header-->
 
-  <!-- Source: design/Who We Are.dc.html. Sections: hero, at a glance, purpose, role, principles, how we work,
-       explore, leadership (PersonCard from="leadership"; mobile drag carousel), next step.
-       #purpose, #role and #principles keep their source ids: every page's footer links to them.
+  <!-- Source: design/Who We Are.dc.html (export 505e162), with the owner's live-page text (11 November 2026).
+       Sections: hero, at a glance, purpose, our story, in his words, role, principles, how we work, where we are
+       today, explore, leadership (PersonCard from="leadership"; mobile drag carousel), what you can expect, next step.
+       #purpose, #role, #principles and #story keep their source ids: every page's footer links to them.
        Links: "links" in the config block; hero image: "whoWeAreHeroImage"; portraits: "peopleImages". -->
   <main id="who-main">
 
     <section class="who-hero" id="who-top" data-screen-label="01 Hero" style="min-height:500px">
-      <div class="who-hero-img" aria-hidden="true"><img data-who-asset="whoWeAreHeroImage" alt="" width="1448" height="1086"></div>
+      <div class="who-hero-img" aria-hidden="true"><img data-who-asset="whoWeAreHeroImage" alt="People at work on the production floor of a manufacturing business" width="1448" height="1086"></div>
       <div class="who-hero-inner" style="align-self:stretch">
         <div class="who-hero-copy">
 <!--chrome:breadcrumb-->
           <h1 class="who-h-display">An institution built to reconnect capital with the real economy</h1>
-          <p class="who-body-lg">Better World Capital Investments PLC is developing an integrated financial platform connecting capital, institutions and financial capability with productive businesses and projects.</p>
+          <p class="who-body-lg">Better World Capital Investments PLC exists so that finance follows the needs of the real economy. We design the financial architecture that lets capital, institutions and partners support productive businesses and projects.</p>
           <div class="who-hero-actions">
-            <a class="who-hero-btn who-hero-btn--solid" href="#role">Our role <span aria-hidden="true">↓</span></a>
+            <a class="who-hero-btn who-hero-btn--solid" href="#" data-who-link="ourRole">Our role <span aria-hidden="true">→</span></a>
             <a class="who-hero-btn who-hero-btn--ghost" href="#" data-who-link="startAConversation">Start a Conversation <span aria-hidden="true">→</span></a>
           </div>
         </div>
@@ -34,7 +35,7 @@
           <li class="who-gl-f"><span class="who-gl-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V10"></path><path d="M19 21V10"></path><path d="M9 21v-7"></path><path d="M15 21v-7"></path><path d="M12 3 3 8h18z"></path></svg></span><span class="who-gl-t">A UK public limited company building an integrated financial platform.</span></li>
           <li class="who-gl-f"><span class="who-gl-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"></path><path d="M5 4h11l-2 4 2 4H5"></path></svg></span><span class="who-gl-t">Incorporated in England and Wales</span></li>
           <li class="who-gl-f"><span class="who-gl-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M9 8h6"></path><path d="M9 12h6"></path><path d="M9 16h3"></path></svg></span><span class="who-gl-t">Company number 09881564</span></li>
-          <li class="who-gl-f"><span class="who-gl-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></span><span class="who-gl-t who-gl-t--ph">[Registered office]</span></li>
+          <li class="who-gl-f"><span class="who-gl-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></span><span class="who-gl-t">Registered office Address<br> 3 More London Riverside, London, SE1 2RE, United Kingdom</span></li>
         </ul>
         <div class="who-gl-st">
           <h3>Corporate &amp; regulatory statement</h3>
@@ -42,7 +43,6 @@
             <p>Better World Capital Investments PLC is a public limited company incorporated in England and Wales under company number 09881564. Where regulated financial services form part of the Better World ecosystem, those activities are carried out by the relevant authorised entity or regulated partner within the scope of its permissions.</p>
             <div class="who-gl-links">
               <a class="who-link" href="#" data-who-link="corporateIR">Corporate / IR <span class="who-ar" aria-hidden="true">→</span></a>
-              <a class="who-link" href="#" data-who-link="corporateIRRegulatory">Regulatory information <span class="who-ar" aria-hidden="true">→</span></a>
             </div>
           </div>
         </div>
@@ -53,13 +53,16 @@
       <div class="who-pat-dots" aria-hidden="true"></div>
       <div class="who-pu-rings" aria-hidden="true"></div>
       <div class="who-wrap">
-        <h2 class="who-h1 who-pu-h">Reconnecting capital with the real economy.</h2>
+        <h2 class="who-h1 who-pu-h">Why BWCI exists</h2>
         <div class="who-pu-g">
           <div class="who-pu-m">
             <span class="who-pu-lbl">Mission</span>
             <div class="who-pu-body">
-              <p>Better World Capital Investments PLC exists to improve how capital reaches productive economic activity. We develop and coordinate financial architecture that connects the needs of businesses and projects with appropriate capital, institutions, technology and strategic partners.</p>
-              <p>Our objective is to support productive growth, stronger and more resilient businesses, and measurable long-term economic impact by designing financial structures around the underlying economic need rather than starting with a predetermined financial product.</p>
+              <p>Our purpose is to improve how capital reaches productive activity. We start with what a business or project needs, then design financial architecture that matches it with capital, institutions, technology and partners. The aim is productive growth, resilient businesses and long-term impact.</p>
+            </div>
+            <span class="who-pu-lbl">What “Better World” means</span>
+            <div class="who-pu-body">
+              <p>“Better World” names a view about where impact belongs. Impact is often assessed after capital has already been allocated. Our approach considers it earlier: when capital is structured, owned and deployed.</p>
             </div>
           </div>
           <figure class="who-pu-q">
@@ -71,11 +74,48 @@
       </div>
     </section>
 
+    <!-- NEW · OUR STORY (design export 505e162; the footer's "Our story" link opens #story). Placeholder copy as in
+         the design, to be replaced with the supplied text. -->
+    <section class="who-sec" id="story" data-screen-label="NEW · Our story">
+      <div class="who-st-ring" aria-hidden="true"></div>
+      <div class="who-wrap">
+        <div class="who-st-g">
+          <div class="who-st-side">
+            <h2 class="who-h1">Our story</h2>
+            <p class="who-st-since"><span class="who-nw-k">Since</span><b>2015</b></p>
+          </div>
+          <div class="who-st-body">
+            <p><span class="who-st-lead">[Our story, paragraph 1: opening sentence.]</span> <span class="who-ph-copy">[The founding question. Supplied “Our story” copy to be inserted here exactly, without edits.]</span></p>
+            <p><span class="who-st-lead">[Paragraph 2: opening sentence.]</span> <span class="who-ph-copy">[The problem observed. Supplied copy continues here as one continuous narrative.]</span></p>
+            <p><span class="who-st-lead">[Paragraph 3: opening sentence.]</span> <span class="who-ph-copy">[The answer being built. Supplied copy closes the story here.]</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW · IN HIS WORDS (source prop founderQuote, default on: "showFounderQuote" in the config hides it until the
+         quote is approved). The portrait is "peopleImages"."farhad-reyazat". -->
+    <section class="who-sec" id="who-words" data-screen-label="NEW · In his words" data-who-quote>
+      <div class="who-wrap">
+        <figure class="who-fw">
+          <span class="who-fw-mark" aria-hidden="true">“</span>
+          <div class="who-fw-b">
+            <span class="who-nw-k">In his words</span>
+            <blockquote class="who-is-ph">[Founder quote to be supplied: two or three sentences on why he started Better World and what a better world means to him.]</blockquote>
+            <figcaption class="who-fw-by">
+              <img data-who-founder="farhad-reyazat" alt="" width="60" height="60" loading="lazy">
+              <span><b>Dr Farhad Reyazat</b><span>Founder and Chief Executive Officer</span></span>
+            </figcaption>
+          </div>
+        </figure>
+      </div>
+    </section>
+
     <section class="who-sec" id="role" data-screen-label="04 What we do">
       <div class="who-wrap">
         <div class="who-sec-head">
-          <h2 class="who-h1">BWCI’s role</h2>
-          <p class="who-lead">Better World Capital Investments PLC is the holding company and financial architecture layer of the Better World ecosystem.</p>
+          <h2 class="who-h1">Our role, in brief</h2>
+          <p class="who-lead">BWCI is the financial architecture layer of the Better World ecosystem: it designs financial structures, connects participants, coordinates their roles and develops the ecosystem. Any financial activity is delivered by the relevant operating or regulated entity.</p>
         </div>
         <div class="who-ro-g">
           <div>
@@ -85,14 +125,14 @@
               <li><span><b>design</b> appropriate financial architecture around those requirements;</span></li>
               <li><span><b>connect</b> businesses and projects with relevant sources of capital, institutions and capabilities;</span></li>
               <li><span><b>coordinate</b> participation between investors, financial institutions, operating entities and strategic partners;</span></li>
-              <li><span><b>develop, own and support</b> financial platforms and investment vehicles within the Better World ecosystem where appropriate;</span></li>
+              <li><span><b>develop and support</b> platforms and investment vehicles where appropriate;</span></li>
               <li><span><b>facilitate</b> the integration of capital, financial capability, technology and strategic relationships; and</span></li>
               <li><span><b>support</b> the development of long-term financial infrastructure serving productive economic activity.</span></li>
             </ol>
           </div>
           <aside class="who-ro-side" aria-label="Who does what">
             <p class="who-ro-lbl" style="margin:0">Who does what</p>
-            <p>BWCI architects, connects, coordinates and develops the financial ecosystem; the appropriate operating or regulated entity delivers the relevant financial activity.</p>
+            <p>BWCI architects, connects, coordinates and develops. The operating or regulated entity delivers the relevant financial activity.</p>
             <div class="who-ro-stack">
               <div class="who-ro-tier who-ro-tier--a">
                 <b>Better World Capital Investments PLC</b>
@@ -104,7 +144,6 @@
                 <span>Delivers the relevant financial activity</span>
               </div>
             </div>
-            <a class="who-link" href="#" data-who-link="ourRole" style="justify-self:start; margin-top:4px">Read about our role <span class="who-ar" aria-hidden="true">→</span></a>
           </aside>
         </div>
       </div>
@@ -113,15 +152,16 @@
     <section class="who-sec who-pr" id="principles" data-screen-label="05 Our principles">
       <div class="who-wrap">
         <div class="who-sec-head">
-          <h2 class="who-h1">[Principles heading]</h2>
+          <h2 class="who-h1">Our Principles</h2>
+          <p class="who-lead">Six principles describe how we work and what we expect to be held to.</p>
         </div>
         <ol class="who-pr-g">
-            <li class="who-pr-i"><span class="who-pr-n" aria-hidden="true">01</span><span class="who-pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v3"></path><path d="M12 19v3"></path><path d="M2 12h3"></path><path d="M19 12h3"></path></svg></span><h3>Need before product</h3><p>We begin with the economic requirement, not with a predetermined financial product.</p></li>
-            <li class="who-pr-i"><span class="who-pr-n" aria-hidden="true">02</span><span class="who-pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2.5"></circle><circle cx="19" cy="6" r="2.5"></circle><circle cx="19" cy="18" r="2.5"></circle><path d="M7.3 11 16.7 7"></path><path d="M7.3 13l9.4 4"></path></svg></span><h3>Connected, not consolidated</h3><p>Businesses, institutions and partners can participate in the ecosystem without necessarily giving up their independence or becoming part of a single corporate structure.</p></li>
-            <li class="who-pr-i"><span class="who-pr-n" aria-hidden="true">03</span><span class="who-pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="m9 14 2 2 4-4"></path></svg></span><h3>Evidence before claims</h3><p>We distinguish clearly between what exists today, what is being developed and what is proposed, and we support claims with evidence wherever possible.</p></li>
-            <li class="who-pr-i"><span class="who-pr-n" aria-hidden="true">04</span><span class="who-pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></span><h3>Impact built into the architecture of capital</h3><p>Impact should not be treated only as an assessment after capital is deployed. It should influence how capital is structured, allocated and managed from the outset.</p></li>
-            <li class="who-pr-i"><span class="who-pr-n" aria-hidden="true">05</span><span class="who-pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"></path><path d="m9 12 2 2 4-4"></path></svg></span><h3>Clear governance and accountability</h3><p>Ownership, responsibility, regulatory boundaries and decision-making should be transparent and appropriately governed.</p></li>
-            <li class="who-pr-i"><span class="who-pr-n" aria-hidden="true">06</span><span class="who-pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7v5l3 2"></path></svg></span><h3>Long-term stewardship and disciplined execution</h3><p>We focus on building durable institutions, productive businesses and resilient financial structures rather than pursuing short-term transactions in isolation.</p></li>
+            <li class="who-pr-i"><span class="who-pr-n" aria-hidden="true">01</span><span class="who-pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v3"></path><path d="M12 19v3"></path><path d="M2 12h3"></path><path d="M19 12h3"></path></svg></span><h3>Need before product</h3><p>We start with the economic requirement of a business or project, not with a predetermined financial product. The structure is then designed around that need.</p></li>
+            <li class="who-pr-i"><span class="who-pr-n" aria-hidden="true">02</span><span class="who-pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2.5"></circle><circle cx="19" cy="6" r="2.5"></circle><circle cx="19" cy="18" r="2.5"></circle><path d="M7.3 11 16.7 7"></path><path d="M7.3 13l9.4 4"></path></svg></span><h3>Connected, not consolidated</h3><p>Businesses, institutions and partners can take part in the Better World ecosystem without giving up their independence. Our Role explains how they connect and what the principle does not cover.</p></li>
+            <li class="who-pr-i"><span class="who-pr-n" aria-hidden="true">03</span><span class="who-pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="m9 14 2 2 4-4"></path></svg></span><h3>Evidence before claims</h3><p>We distinguish clearly between what is operating today, what is in development and what is proposed. Each claim we make about BWCI and the Better World ecosystem should be supported by evidence.</p></li>
+            <li class="who-pr-i"><span class="who-pr-n" aria-hidden="true">04</span><span class="who-pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg></span><h3>Impact built into the architecture of capital</h3><p>Impact should shape how capital is allocated and managed from the start. It belongs in the design of a structure, not only in a review afterwards.</p></li>
+            <li class="who-pr-i"><span class="who-pr-n" aria-hidden="true">05</span><span class="who-pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"></path><path d="m9 12 2 2 4-4"></path></svg></span><h3>Clear governance and accountability</h3><p>Ownership, responsibility, regulatory boundaries and decision-making should be transparent and well governed. Each participant’s role, and who answers for it, should be clear.</p></li>
+            <li class="who-pr-i"><span class="who-pr-n" aria-hidden="true">06</span><span class="who-pr-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7v5l3 2"></path></svg></span><h3>Long-term stewardship and disciplined execution</h3><p>We aim to build durable institutions and resilient structures, rather than isolated short-term deals. Each step should be planned and delivered with that long-term purpose in view.</p></li>
         </ol>
       </div>
     </section>
@@ -131,8 +171,8 @@
       <div class="who-wrap">
         <div class="who-hw-g">
           <div class="who-sec-head">
-            <h2 class="who-h1">[How we work]</h2>
-            <p class="who-lead">[One sentence introducing the Financial Engine]</p>
+            <h2 class="who-h1">From need to reinvestment</h2>
+            <p class="who-lead">Our purpose is put into practice through the Financial Engine, BWCI’s method for responding to an economic need.</p>
           </div>
         </div>
         <figure class="who-lp" data-who-engine>
@@ -152,6 +192,32 @@
         </figure>
         <p class="who-lp-loopnote" aria-hidden="true">↺ Reinvestment returns to Need</p>
         <a class="who-link" href="#" data-who-link="financialEngineHero" style="margin-top:clamp(24px,3vw,40px)">How the Financial Engine works <span class="who-ar" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- NEW · WHERE WE ARE TODAY (the "Next" row is the source prop nextRow, default on: "showNextRow") -->
+    <section class="who-sec" id="who-today" data-screen-label="NEW · Where we are today">
+      <div class="who-pat-dots" aria-hidden="true"></div>
+      <div class="who-wrap">
+        <div class="who-sec-head">
+          <h2 class="who-h1">Where we are today</h2>
+          <p class="who-lead">We believe in being clear about what exists and what we are building.</p>
+        </div>
+        <div class="who-td-rows">
+          <div class="who-td-r">
+            <div class="who-td-l"><span class="who-td-m who-td-m--now" aria-hidden="true"></span><h3>Today</h3></div>
+            <p>Better World Capital Investments PLC is the holding company. Providence Asset Management, the group's asset management company, is operating, and specialist capabilities are available through independent, authorised partners.</p>
+          </div>
+          <div class="who-td-r">
+            <div class="who-td-l"><span class="who-td-m who-td-m--dev" aria-hidden="true"></span><h3>In development</h3></div>
+            <p>The Private Capital Platform, the Trade Finance Platform and our shared Financial Infrastructure.</p>
+          </div>
+          <div class="who-td-r" data-who-next>
+            <div class="who-td-l"><span class="who-td-m who-td-m--next" aria-hidden="true"></span><h3>Next</h3></div>
+            <p class="who-ph-copy">[Two or three milestones leadership is happy to publish, with indicative timing.]</p>
+          </div>
+        </div>
+        <p class="who-td-as"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Status as at <span class="who-ph-copy">[date]</span>.</span></p>
       </div>
     </section>
 
@@ -177,7 +243,7 @@
 
     <section class="who-sec" id="who-leadership" data-screen-label="08 Leadership">
       <div class="who-wrap">
-        <div class="who-sec-head"><h2 class="who-h1">[Leadership &amp; governance]</h2></div>
+        <div class="who-sec-head"><h2 class="who-h1">Leadership &amp; governance</h2></div>
         <ul class="who-ld-g" data-who-drag>
           <li><div class="who-pc-host" style="display:block; width:100%">
 <!--person:alexander-alegria-saif-->
@@ -199,14 +265,34 @@
       </div>
     </section>
 
+    <!-- NEW · WHAT YOU CAN EXPECT FROM US -->
+    <section class="who-sec" id="who-expect" data-screen-label="NEW · What you can expect from us">
+      <div class="who-pat-dots" aria-hidden="true"></div>
+      <div class="who-wrap">
+        <div class="who-cm-g">
+          <div class="who-cm-side">
+            <i aria-hidden="true"></i>
+            <h2 class="who-h1">What you can expect from us</h2>
+          </div>
+          <ol class="who-cm-list">
+            <li><p><b>We listen first.</b> Every conversation starts with what you need, not with what we want to sell.</p></li>
+            <li><p><b>We tell you who does what.</b> You will always know which entity is responsible for any regulated activity.</p></li>
+            <li><p><b>We are honest about where we are.</b> We say clearly what is operating today and what is still being built.</p></li>
+            <li><p><b>We respect your independence.</b> Working with us does not require you to give up ownership or control.</p></li>
+            <li><p><b>We only claim what we can evidence,</b> including on impact.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
     <section class="who-section" id="who-next" data-screen-label="09 Next step">
       <div class="who-cta-pattern" aria-hidden="true"></div>
       <div class="who-container">
-        <h2 class="who-h1" style="color:#fff; margin-bottom:16px">[Next-step heading]</h2>
-        <p class="who-body-lg" style="color:var(--text-inverse-muted); max-width:560px; margin:0 auto 32px; text-wrap:pretty">[One line inviting the visitor to start a conversation]</p>
+        <h2 class="who-h1" style="color:#fff; margin-bottom:16px">Start a Conversation</h2>
+        <p class="who-body-lg" style="color:var(--text-inverse-muted); max-width:560px; margin:0 auto 32px; text-wrap:pretty">Whether you represent a business, a project, a capital provider or an institution, a conversation is the first step.</p>
         <a class="who-btn who-btn--inverse" href="#" data-who-link="startAConversation">Start a Conversation <span aria-hidden="true">→</span></a>
         <div class="who-nx-links">
-          <a class="who-hlink" href="#" data-who-link="platforms">Explore our platforms <span class="who-ar" aria-hidden="true">→</span></a>
+          <a class="who-hlink" href="#" data-who-link="platforms">Explore Platforms &amp; Institutions <span class="who-ar" aria-hidden="true">→</span></a>
           <a class="who-hlink" href="#" data-who-link="corporateIR">Corporate &amp; investor relations <span class="who-ar" aria-hidden="true">→</span></a>
         </div>
       </div>

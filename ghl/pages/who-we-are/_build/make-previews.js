@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Dev-only: wraps the built Custom Code block in host pages that emulate a GoHighLevel page.
 //   preview/plain.html   — bare host page (body margin 0), used for pixel comparison with the source
+//   preview/plain-props.html — the same with showFounderQuote and showNextRow false
 //   preview/hostile.html — host with aggressive global CSS (Bootstrap/normalize-like), a fixed-height
 //                          block above the widget and a duplicate script execution, used for isolation QA
 'use strict';
@@ -15,6 +16,11 @@ const head = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta n
 
 fs.writeFileSync(path.join(OUT, 'plain.html'),
   head + '<style>body{margin:0}</style></head><body>\n' + block + '\n</body></html>\n');
+// the founder quote and the "Next" row switched off (compare with MERGED_PROPS=founderQuote=false,nextRow=false)
+const propsBlock = block.replace('"showFounderQuote": true', '"showFounderQuote": false').replace('"showNextRow": true', '"showNextRow": false');
+if (propsBlock === block) throw new Error('switches not found in the config block');
+fs.writeFileSync(path.join(OUT, 'plain-props.html'),
+  head + '<style>body{margin:0}</style></head><body>\n' + propsBlock + '\n</body></html>\n');
 
 const hostileCss = `
   html{font-size:10px;scroll-behavior:auto}
