@@ -9,6 +9,8 @@
   },
   "showHeader": true,
   "showFooter": true,
+  "showFounderQuote": true,
+  "showNextRow": true,
   "footer": {
     "regulatoryLine": "",
     "registeredJurisdiction": "",
@@ -42,7 +44,6 @@
     "legalDisclosures": "{{ custom_values.bwci_url_disclosures }}",
     "legalAccessibility": "{{ custom_values.bwci_url_accessibility }}",
     "legalSitemap": "{{ custom_values.bwci_url_sitemap }}",
-    "corporateIRRegulatory": "{{ custom_values.bwci_url_corporate_ir_regulatory }}",
     "ourRole": "{{ custom_values.bwci_url_our_role }}",
     "financialEngineHero": "{{ custom_values.bwci_url_financial_engine }}#fe-hero",
     "profileAlexanderAlegriaSaif": "{{ custom_values.bwci_url_profile_alexander_alegria_saif }}",

@@ -2,7 +2,8 @@
    Replaces the Claude Design runtime (support.js + React) used by design/Who We Are.dc.html and its SiteHeader /
    Breadcrumb / PersonCard / SiteFooter components, bwci-people.js, image-slot.js and bwci-motion.js.
    Everything is scoped to #bwci-who-we-are. The page's own text/x-dc component lights the Financial Engine strip
-   once it is 45 % visible and lets a mouse or pen drag the mobile leadership carousel; both are reproduced below. */
+   once it is 45 % visible, lets a mouse or pen drag the mobile leadership carousel, and (export 505e162) shows the
+   founder quote and the "Next" row of "Where we are today" unless switched off; all are reproduced below. */
 (function () {
   'use strict';
 
@@ -49,6 +50,20 @@
     /* ---------- hero image (source: ./assets/hero-globe.png): the configured URL, else no image ---------- */
     qa('img[data-who-asset="whoWeAreHeroImage"]').forEach(function (img) {
       var url = cfg.whoWeAreHeroImage;
+      var valid = siteImageAvailable(url);
+      img.hidden = !valid;
+      if (valid) { if (img.getAttribute('src') !== url) img.src = url; }
+      else img.removeAttribute('src');
+    });
+
+    /* ---------- source props founderQuote / nextRow (default true; only a boolean false hides) ---------- */
+    function flag(key) { return cfg[key] !== false; }
+    qa('[data-who-quote]').forEach(function (el) { el.hidden = !flag('showFounderQuote'); });
+    qa('[data-who-next]').forEach(function (el) { el.hidden = !flag('showNextRow'); });
+
+    /* ---------- "In his words" portrait: the founder's peopleImages URL (the same portrait as his card), else none ---------- */
+    qa('img[data-who-founder]').forEach(function (img) {
+      var url = (cfg.peopleImages || {})[img.getAttribute('data-who-founder')];
       var valid = siteImageAvailable(url);
       img.hidden = !valid;
       if (valid) { if (img.getAttribute('src') !== url) img.src = url; }
