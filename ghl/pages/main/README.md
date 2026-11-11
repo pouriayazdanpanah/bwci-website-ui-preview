@@ -38,14 +38,22 @@ Configuration:
 - `today` (Main's own header/footer "The Platform Today") now uses the same `bwci_url_platform_today`, because the
   `#bwci-today` section it jumped to is gone. **Open (shared change, owner approval needed):** every other page's
   header and footer, and the global header, still link to Home + `#bwci-today`.
-- Removed (no longer used): `governanceCommittees`, `governanceCapital`, `governanceRisk`, `platformsRegisters`.
+- **Closing CTA routes (owner request, 11 November 2026):** "I run a business or project", "I invest or provide
+  capital", "I represent a bank or financial institution" and "I am a strategic partner" open the matching form on the
+  Start a Conversation page: `startAConversationSmes` / `Investors` / `Banks` / `Partners` → the
+  `bwci_url_start_a_conversation` value + `#smes` / `#investors` / `#banks` / `#partners` (the shared page sections
+  Contact's route buttons already use; added to Main's own copy of the section map). They are the one change to the
+  owner's markup beyond link addresses.
+- Removed (no longer used): `governanceCommittees`, `governanceCapital`, `governanceRisk`, `platformsRegisters`,
+  `smesEngage`, `investorsEngage`.
 
 Outputs: `main.ghl.html` and `main.inline.ghl.html` were edited together by the scripts in `qa/content-update-2026-11-11/` (with the owner markup), and
 `node ghl/global/_build/main-global.js` regenerated both global variants. No other page changes.
 
 Local QA (headless Chromium; not a published GHL page):
 - **Owner markup:** in all four outputs the sections from hero to CTA (the new section aside) equal the owner's markup
-  once link addresses are normalised.
+  once link addresses are normalised (before the CTA route keys changed; those four `data-bw-link` values are the only
+  later difference).
 - **"Why now, why us" against the design** (`qa/why.js`, the section on its own): 0.000 %, 0 differing rows at all 13
   widths with reduced motion (one capture of the source differed from itself at 1366/1920/2560 and re-captured to 0);
   the bridge trace (34 lines: drawn geometry at 1440 and 390, build progress at six scroll positions, no going back,
@@ -53,7 +61,8 @@ Local QA (headless Chromium; not a published GHL page):
   a sub-pixel offset).
 - **Content and links** (`qa/content-qa.js`): each Platforms tab renders the owner's cards, counts and summary, keeps
   `bw-platform-copy`, and "All" gives back the markup's text; desktop/phone copy switches at 768 px; the new links
-  resolve (and are marked unavailable while unset); `showWhyFlags` false hides the four badges, the string `"false"`
+  resolve (and are marked unavailable while unset); the four CTA routes give `…/start-a-conversation?v=1#smes`,
+  `#investors`, `#banks`, `#partners`, and a click on the bank route opens `start-a-conversation?v=1#banks`; `showWhyFlags` false hides the four badges, the string `"false"`
   keeps them; no horizontal overflow and no script errors at 13 widths.
 - **Behaviour regression** (`qa/behaviour.js`, main-branch block vs this block, 71/70 lines): hero facts, engine
   steps, Impact cards, anchors, keyboard and reduced motion unchanged; differences only where the content changed (the

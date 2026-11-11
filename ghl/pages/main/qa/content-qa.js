@@ -4,7 +4,8 @@
 //   and keeps the owner's bw-platform-copy class; returning to "All" gives back the static markup's cards.
 // - bw-copy-desktop / bw-copy-mobile: which copy is shown at 1440 and 390.
 // - Links: the new keys (profiles, Providence Asset Management, The Platform Today) with synthetic values, and the
-//   header/footer "The Platform Today" link now that the #bwci-today section is gone.
+//   header/footer "The Platform Today" link now that the #bwci-today section is gone, and the closing CTA's four routes
+//   (Start a Conversation page + #smes / #investors / #banks / #partners).
 // - showWhyFlags: default, false, and a non-boolean value.
 // - No horizontal overflow and no script errors at 13 widths.
 const { chromium } = require('playwright');
@@ -59,8 +60,18 @@ const page = (block) => '<!doctype html><html lang="en"><head><meta charset="utf
     const r = document.getElementById('bwci-main-page');
     const pick = (k) => [...r.querySelectorAll('a[data-bw-link="' + k + '"]')].map((a) => a.getAttribute('href')).join(' ');
     return { platformToday: pick('platformToday'), today: pick('today'), pam: pick('providenceAssetManagement'), alexander: pick('profileAlexanderAlegriaSaif'),
-      farhad: pick('profileFarhadReyazat'), gabriella: pick('profileGabriellaKarlova'), governancePerimeter: pick('governancePerimeter'), todayTarget: !!document.getElementById('bwci-today') };
+      farhad: pick('profileFarhadReyazat'), gabriella: pick('profileGabriellaKarlova'), governancePerimeter: pick('governancePerimeter'), todayTarget: !!document.getElementById('bwci-today'),
+      ctaRoutes: [...r.querySelectorAll('#bwci-cta .bw-route')].map((x) => x.textContent.replace(/\s+/g, ' ').trim().replace(' →', '') + ' = ' + x.getAttribute('href')) };
   }));
+  // the closing CTA's four routes open the matching form on the Start a Conversation page (owner request, 11 November)
+  await run('cta click', page(substitute(INLINE, URLS)), async (p) => {
+    await p.route(httpBase + 'start-a-conversation?v=1', (r) => r.fulfill({ contentType: 'text/html', body: 'sc' }));
+    const a = p.locator('#bwci-cta .bw-route').nth(2);
+    await a.scrollIntoViewIfNeeded(); await p.waitForTimeout(300);
+    await Promise.all([p.waitForURL('**/start-a-conversation?v=1#banks'), a.click()]);
+    return p.url().replace(httpBase, '');
+  });
+  await run('cta unset', page(INLINE), (p) => p.evaluate(() => [...document.querySelectorAll('#bwci-cta .bw-route')].map((a) => a.getAttribute('data-bw-link') + '=' + a.getAttribute('href') + (a.getAttribute('aria-disabled') ? '(off)' : '')).join(' ')));
   await run('links unset', page(INLINE), (p) => p.evaluate(() => [...document.querySelectorAll('#bwci-main-page #bwci-why a, #bwci-main-page .ld-p')].map((a) => a.getAttribute('data-bw-link') + '=' + a.getAttribute('href') + (a.getAttribute('aria-disabled') ? '(off)' : '')).join(' ')));
   const flags = (p) => p.evaluate(() => [...document.querySelectorAll('[data-bw-why-flag]')].map((e) => (e.hidden ? 'hidden' : 'shown')).join(','));
   await run('whyFlags default', page(INLINE), flags);

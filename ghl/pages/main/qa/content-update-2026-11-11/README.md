@@ -10,3 +10,7 @@
 
 Both were run once on `main.ghl.html` and `main.inline.ghl.html`, then `node ghl/global/_build/main-global.js`. Nothing
 here runs in GHL.
+
+Afterwards, by the owner's request, the closing CTA's four routes were pointed at the Start a Conversation forms
+(`startAConversationSmes` / `Investors` / `Banks` / `Partners`), a direct edit of both outputs not covered by these
+scripts; `owner-markup.html` keeps the owner's original keys.

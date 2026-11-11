@@ -61,14 +61,16 @@
     "investorsRoute": "{{ custom_values.bwci_url_investors_partners }}#inv-route",
     "governanceBoard": "{{ custom_values.bwci_url_governance_board }}",
     "governancePerimeter": "{{ custom_values.bwci_url_governance }}#gov-perimeter",
-    "smesEngage": "{{ custom_values.bwci_url_smes_projects }}#sme-engage",
-    "investorsEngage": "{{ custom_values.bwci_url_investors_partners }}#inv-engage",
     "betterWorldImpact": "{{ custom_values.bwci_url_better_world_impact }}",
     "profileAlexanderAlegriaSaif": "{{ custom_values.bwci_url_profile_alexander_alegria_saif }}",
     "profileFarhadReyazat": "{{ custom_values.bwci_url_profile_farhad_reyazat }}",
     "profileGabriellaKarlova": "{{ custom_values.bwci_url_profile_gabriella_karlova }}",
     "providenceAssetManagement": "{{ custom_values.bwci_url_providence_asset_management }}",
-    "platformToday": "{{ custom_values.bwci_url_platform_today }}"
+    "platformToday": "{{ custom_values.bwci_url_platform_today }}",
+    "startAConversationSmes": "{{ custom_values.bwci_url_start_a_conversation }}#smes",
+    "startAConversationInvestors": "{{ custom_values.bwci_url_start_a_conversation }}#investors",
+    "startAConversationBanks": "{{ custom_values.bwci_url_start_a_conversation }}#banks",
+    "startAConversationPartners": "{{ custom_values.bwci_url_start_a_conversation }}#partners"
   }
 }
 </script>
@@ -1955,10 +1957,10 @@
             <h2 class="bw-h1 rv">Start the right conversation.</h2>
             <p class="bw-lead rv" style="--d: 1;">Tell us a little about who you are and what you need. Your enquiry goes to the person best placed to help, and they will come back to you directly.</p>
             <div class="bw-cta-grid">
-                <a class="bw-route rv" href="#" data-bw-link="smesEngage" style="--d: 2;">I run a business or project <span class="bw-ar" aria-hidden="true">→</span></a>
-                <a class="bw-route rv" href="#" data-bw-link="investorsEngage" style="--d: 3;">I invest or provide capital <span class="bw-ar" aria-hidden="true">→</span></a>
-                <a class="bw-route rv" href="#" data-bw-link="investorsRoute" style="--d: 4;">I represent a bank or financial institution <span class="bw-ar" aria-hidden="true">→</span></a>
-                <a class="bw-route rv" href="#" data-bw-link="investorsRoute" style="--d: 5;">I am a strategic partner <span class="bw-ar" aria-hidden="true">→</span></a>
+                <a class="bw-route rv" href="#" data-bw-link="startAConversationSmes" style="--d: 2;">I run a business or project <span class="bw-ar" aria-hidden="true">→</span></a>
+                <a class="bw-route rv" href="#" data-bw-link="startAConversationInvestors" style="--d: 3;">I invest or provide capital <span class="bw-ar" aria-hidden="true">→</span></a>
+                <a class="bw-route rv" href="#" data-bw-link="startAConversationBanks" style="--d: 4;">I represent a bank or financial institution <span class="bw-ar" aria-hidden="true">→</span></a>
+                <a class="bw-route rv" href="#" data-bw-link="startAConversationPartners" style="--d: 5;">I am a strategic partner <span class="bw-ar" aria-hidden="true">→</span></a>
             </div>
             <div class="bw-cta-small rv">
                 <span>Corporate / investor information: <a href="#" data-bw-link="corporateIR">Corporate/IR</a></span>
@@ -2149,7 +2151,7 @@
   function siteResolveLinks(cfg) {
     var links = cfg.links;
     if (!links || typeof links !== 'object' || Array.isArray(links)) return;
-    var sections = {"whoPurpose":["whoWeAre","#purpose"],"whoRole":["whoWeAre","#role"],"whoPrinciples":["whoWeAre","#principles"],"whoStory":["whoWeAre","#story"],"governanceFramework":["governance","#gov-framework"],"governanceCommittees":["governance","#gov-committees"],"governanceCapital":["governance","#gov-capital"],"governanceRisk":["governance","#gov-risk"],"governancePerimeter":["governance","#gov-perimeter"],"impact":["home","#bwci-impact"],"today":["home","#bwci-today"],"explorePlatforms":["home","#bwci-platforms"],"financialEngineHero":["financialEngine","#fe-hero"],"ecosystemBlueprint":["ecosystem","#eco-blueprint"],"platformsDirectory":["platforms","#plt-directory"],"platformsRegisters":["platforms","#plt-registers"],"investorsEngage":["investors","#inv-engage"],"investorsParticipation":["investors","#inv-participation"],"investorsRoute":["investors","#inv-route"],"smesEngage":["smes","#sme-engage"],"smesProcess":["smes","#sme-process"],"smesSituation":["smes","#sme-situation"]};
+    var sections = {"whoPurpose":["whoWeAre","#purpose"],"whoRole":["whoWeAre","#role"],"whoPrinciples":["whoWeAre","#principles"],"whoStory":["whoWeAre","#story"],"governanceFramework":["governance","#gov-framework"],"governanceCommittees":["governance","#gov-committees"],"governanceCapital":["governance","#gov-capital"],"governanceRisk":["governance","#gov-risk"],"governancePerimeter":["governance","#gov-perimeter"],"impact":["home","#bwci-impact"],"today":["home","#bwci-today"],"explorePlatforms":["home","#bwci-platforms"],"financialEngineHero":["financialEngine","#fe-hero"],"ecosystemBlueprint":["ecosystem","#eco-blueprint"],"platformsDirectory":["platforms","#plt-directory"],"platformsRegisters":["platforms","#plt-registers"],"investorsEngage":["investors","#inv-engage"],"investorsParticipation":["investors","#inv-participation"],"investorsRoute":["investors","#inv-route"],"smesEngage":["smes","#sme-engage"],"smesProcess":["smes","#sme-process"],"smesSituation":["smes","#sme-situation"],"startAConversationSmes":["startAConversation","#smes"],"startAConversationInvestors":["startAConversation","#investors"],"startAConversationBanks":["startAConversation","#banks"],"startAConversationPartners":["startAConversation","#partners"]};
     function pageAvailable(value) {
       return typeof value === 'string' && siteLinkAvailable(value.trim()) && /^(?:https?:\/\/|\/(?!\/))/.test(value.trim());
     }
