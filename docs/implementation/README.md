@@ -37,6 +37,18 @@ header button keeps the design's current-page state on Contact, now while linkin
 Local QA PASS: [verification](../../ghl/shared/site-links/qa/start-a-conversation/verification.md). Live GHL NOT VERIFIED.
 This answers the Contact "Start a Conversation" question below.
 
+**Home (Main) content update (11 November, branch `feat/ghl-main`, PR to main open; not merged):** by the owner's
+instruction Main takes the owner's live Home markup (supplied 11 November) for every section from hero to CTA, plus
+export `04715d6`'s new "Why it matters now, and why us" section; CSS for the owner's `bw-copy-desktop/-mobile` and
+`bw-platform-copy` classes; the Platforms script data for the owner's five parts; new settings and links
+(`showWhyFlags`, three profile links, `providenceAssetManagement`, proposed `bwci_url_platform_today`); and, by the
+owner's request, the closing CTA's four routes open the matching Start a Conversation form (`#smes`, `#investors`,
+`#banks`, `#partners`). The live page
+has no "10 The Platform Today" section any more, so every page's header/footer "The Platform Today" link (Home +
+`#bwci-today`) has no target: Main's own now uses `bwci_url_platform_today`; the other pages and the global header
+need an owner-approved shared change. Only Main's four outputs change. Local QA: see the Main README; live GHL NOT
+VERIFIED.
+
 **November 9 review:** every production page in `design/` is ported and merged; no PR is open. The LegalNav update
 below merged in PR #53 (`2f13c21`). From that main, all 35 generated builders were re-run and reproduced their committed
 outputs byte-for-byte (clean working tree). Remaining work is outside the code: the owner creates the proposed Custom

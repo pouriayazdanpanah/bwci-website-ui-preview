@@ -68,6 +68,14 @@ so on. They hold the embed link (iframe `src`) of the owner's GHL forms. They si
 not `links`, and its build checks them against this mapping. They are resolved at build time; the 34 other generated
 pages rebuild byte-identical.
 
+The Home content update (11 November 2026, `feat/ghl-main`) proposes `platformToday` →
+`{{ custom_values.bwci_url_platform_today }}`: the URL of the installed The Platform Today page. Main uses it for the
+"The Platform Today →" link in its new "Why us" panel and, since the owner's live page removed Main's `#bwci-today`
+section, for Main's own header and footer "The Platform Today" links (Main's `today` setting). Every other page's
+header and footer, and the global header, still use `today` → Home + `#bwci-today`, which now has no target; moving
+them to `platformToday` is a shared change that needs the owner's approval. Only Main's blocks change; every generated
+page rebuilds byte-identical.
+
 ## Configuration and installation
 
 - Configure destination URLs centrally in the same GHL sub-account. All 43 used values in the

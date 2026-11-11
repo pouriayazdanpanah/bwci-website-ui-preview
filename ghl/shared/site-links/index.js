@@ -42,7 +42,9 @@ const sections={
 const proposed={ourRole:'our_role',providenceAssetManagement:'providence_asset_management',
  contactEmail:'contact_email',contactPhone:'contact_phone',mediaEmail:'media_email',
  // Start a Conversation: the embed link of each route's GHL form (an iframe src, kept under the page config's `forms`)
- formSmes:'form_smes',formInvestors:'form_investors',formBanks:'form_banks',formPartners:'form_partners'};
+ formSmes:'form_smes',formInvestors:'form_investors',formBanks:'form_banks',formPartners:'form_partners',
+ // The Platform Today page (Main's "Why us" card, and Main's own header/footer link since its #bwci-today section was removed)
+ platformToday:'platform_today'};
 // Values the owner created in GHL after the supplied export. They are not in the snapshot, so their fieldKey spelling
 // follows the owner's report and is not yet confirmed from a GHL export.
 // startAConversation: the Start a Conversation page. Every "Start a Conversation" button links to it (owner decision,
