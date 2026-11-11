@@ -1,6 +1,7 @@
 // Dev-only QA for the port's configuration: GHL Custom Value substitution (modelled as GHL's text replacement of
 // {{ custom_values.x }} in the pasted block), link availability, image priority/fallbacks, repeat execution,
-// a copied root with a changed config, and a hostile host.
+// a copied root with a changed config, a hostile host, and (export 505e162) the founder quote's portrait and the
+// showFounderQuote / showNextRow switches.
 //   NODE_PATH=$(npm root -g) node config-qa.js <httpBase>      e.g. http://localhost:8123/
 // (header, drawer, footer and re-render of the shared chrome: ghl/shared/site-chrome/qa/chrome-lifecycle.js)
 const { chromium } = require('playwright');
@@ -33,6 +34,9 @@ const STATE = () => {
     footerWho: a('footer a').filter((h) => /purpose|role|principles|story/.test(h)).join(' '),
     hero: img(r.querySelector('img[data-who-asset="whoWeAreHeroImage"]')),
     portraits: [...r.querySelectorAll('img[data-who-person]')].map(img).join(', '),
+    founder: img(r.querySelector('img[data-who-founder]')),
+    quote: r.querySelector('[data-who-quote]').hidden ? 'hidden' : 'shown',
+    nextRow: r.querySelector('[data-who-next]').hidden ? 'hidden' : 'shown',
     logo: img(r.querySelector('img[data-who-asset="logoImage"]')),
     raw: /\{\{|\}\}/.test([...r.querySelectorAll('a')].map((x) => x.getAttribute('href')).join('') + [...r.querySelectorAll('img')].map((x) => x.getAttribute('src') || '').join('')),
   };
@@ -103,6 +107,11 @@ const STATE = () => {
     await p.waitForTimeout(200);
     return { url: p.url().replace(httpBase, ''), title: await p.locator('a[data-who-link="ourRole"]').first().getAttribute('title') };
   });
+
+  // 7. the source props founderQuote / nextRow: off, and a non-boolean value (which keeps the default)
+  const withCfg = (block, edit) => block.replace(/(<script type="application\/json" id="bwci-who-we-are-config">)([\s\S]*?)(<\/script>)/, (m, a, json, c) => { const o = JSON.parse(json); edit(o); return a + '\n' + JSON.stringify(o, null, 2) + '\n' + c; });
+  await run('switches off', page(withCfg(INLINE, (c) => { c.showFounderQuote = false; c.showNextRow = false; })), async (p) => { const s = await state(p); return [s.quote, s.nextRow]; });
+  await run('switches "false" (string)', page(withCfg(INLINE, (c) => { c.showFounderQuote = 'false'; c.showNextRow = 'false'; })), async (p) => { const s = await state(p); return [s.quote, s.nextRow]; });
 
   console.log(JSON.stringify(res, null, 1));
   console.log('errors', JSON.stringify(errors));
