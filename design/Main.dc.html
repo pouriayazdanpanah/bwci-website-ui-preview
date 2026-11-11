@@ -879,6 +879,118 @@ button{ font-family:inherit; cursor:pointer; }
 }
 
 @media (min-width:1024px) and (max-height:860px){ .lp{ --R:84px; } .lpd-stack{ padding:24px 32px; } .lpd-h{ font-size:clamp(28px,2.8vw,36px); } }
+/* 02 why now, why us */
+.wy{ overflow:hidden; }
+/* soft hand-off between the grey sections and the white Problem section: no hard edge above or below it */
+#problem{ background:linear-gradient(180deg, var(--surface-subtle) 0, #fff clamp(96px,12vw,180px), #fff calc(100% - clamp(96px,12vw,180px)), var(--surface-subtle) 100%); }
+.wy-top{ display:flex; flex-wrap:wrap; align-items:center; gap:12px 18px; margin-bottom:clamp(36px,4.5vw,56px); }
+.wy-top .h1{ max-width:780px; }
+.wy-flag{ display:inline-flex; align-items:center; gap:6px; padding:2px 9px; border-radius:999px; background:var(--status-dev-bg); border:1px solid var(--status-dev-border); color:var(--status-dev-text); font-family:var(--font-mono); font-size:max(10.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; line-height:1.6; }
+.wy-flag::before{ content:''; width:5px; height:5px; border-radius:50%; background:var(--status-dev-mark); }
+.wy-blk + .wy-blk{ margin-top:clamp(48px,6vw,80px); padding-top:clamp(40px,5vw,64px); border-top:1px solid var(--border-default); }
+.wy-bh{ display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); gap:14px clamp(24px,4vw,64px); align-items:start; margin-bottom:clamp(28px,3.4vw,44px); }
+.wy-h{ display:flex; align-items:center; gap:14px; font-size:clamp(22px,2.2vw,28px); font-weight:700; letter-spacing:-.022em; line-height:1.2; }
+.wy-h::before{ content:''; flex:none; width:9px; height:9px; background:var(--accent-gold); transform:rotate(45deg); }
+.wy-lede{ max-width:760px; font-size:clamp(17px,1.5vw,20px); line-height:1.6; color:var(--text-secondary); text-wrap:pretty; }
+.wy-lede b{ font-weight:600; color:var(--brand-ink); }
+
+/* the bridge: two panels (need, capital) joined through BWCI by curved lines that meet at one point */
+.wy-br{ --lw:clamp(48px,6.4vw,96px); display:grid; grid-template-columns:minmax(0,1fr) var(--lw) minmax(220px,280px) var(--lw) minmax(0,1fr); grid-template-rows:auto 1fr; }
+.wy-k{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
+.wy-kl, .wy-kr{ grid-row:1; display:flex; align-items:center; gap:10px; padding:0 4px 14px; }
+.wy-kl::before, .wy-kr::before{ content:''; width:16px; height:1.5px; background:var(--accent-gold-dark); }
+.wy-kl{ grid-column:1; } .wy-kr{ grid-column:5; }
+.wy-list{ grid-row:2; display:grid; grid-auto-rows:1fr; overflow:hidden; border-radius:18px; background:#fff; border:1px solid var(--border-subtle); box-shadow:0 18px 40px -28px rgba(18,48,57,.28), var(--shadow-card); }
+.wy-list--need{ grid-column:1; } .wy-list--cap{ grid-column:5; }
+.wy-list li{ display:flex; align-items:center; gap:14px; min-height:76px; padding:14px 20px 14px 16px; font-size:clamp(15.5px,1.3vw,17px); font-weight:600; letter-spacing:-.01em; line-height:1.35; color:var(--brand-ink); transition:background-color .25s ease; }
+.wy-list li + li{ background-image:linear-gradient(90deg, transparent, var(--border-default) 7%, var(--border-default) 93%, transparent); background-size:100% 1px; background-repeat:no-repeat; }
+.wy-ic{ flex:none; display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:12px; background:var(--status-op-bg); color:var(--accent-emerald-dark); transition:background-color .25s ease, color .25s ease, transform .35s var(--ease-out); }
+.wy-ic svg{ width:21px; height:21px; }
+.wy-flow{ grid-row:2; position:relative; z-index:1; }
+.wy-flow--l{ grid-column:2; } .wy-flow--r{ grid-column:4; }
+.wy-flow svg{ position:absolute; inset:0; display:block; width:100%; height:100%; overflow:visible; }
+.wy-base{ fill:none; stroke-width:1.5; stroke-linecap:round; stroke-dasharray:1; stroke-dashoffset:0; }
+.wy-so{ fill:#fff; stroke:var(--border-strong); stroke-width:1.5; opacity:0; }
+.wy-port{ fill:#fff; stroke:var(--accent-emerald); stroke-width:2; opacity:0; }
+.is-geo .wy-so, .is-geo .wy-port{ opacity:1; }
+.wy-pulse{ fill:none; stroke:var(--accent-emerald); stroke-width:5; stroke-linecap:round; stroke-dasharray:.001 .999; stroke-dashoffset:1; opacity:0; filter:drop-shadow(0 0 3px rgba(18,131,107,.55)); }
+.is-geo .wy-pulse{ animation:wyPulseIn 3s cubic-bezier(.45,0,.55,1) infinite; animation-delay:calc(var(--k,0) * .5s); }
+.is-geo .wy-flow--r .wy-pulse{ animation-name:wyPulseBack; }
+@keyframes wyPulseIn{ 0%{ stroke-dashoffset:1; opacity:0; } 12%{ opacity:1; } 88%{ opacity:1; } 100%{ stroke-dashoffset:0; opacity:0; } }
+@keyframes wyPulseBack{ 0%{ stroke-dashoffset:0; opacity:0; } 12%{ opacity:1; } 88%{ opacity:1; } 100%{ stroke-dashoffset:1; opacity:0; } }
+.wy-core{ grid-column:3; grid-row:2; position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:26px 22px; border-radius:22px; text-align:center; color:#fff;
+  background:radial-gradient(ellipse 300px 220px at 50% -6%, rgba(18,131,107,.5), transparent 70%), radial-gradient(ellipse 260px 200px at 0% 110%, rgba(29,74,84,.55), transparent 70%), linear-gradient(165deg,#123039,#0A171B);
+  box-shadow:0 28px 56px -26px rgba(18,48,57,.6), inset 0 0 0 1px rgba(163,217,201,.14); }
+.wy-core::before{ content:''; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:22px 22px; -webkit-mask-image:radial-gradient(ellipse 85% 75% at 50% 0%, #000, transparent 78%); mask-image:radial-gradient(ellipse 85% 75% at 50% 0%, #000, transparent 78%); }
+.wy-core::after{ content:''; position:absolute; left:18%; right:18%; top:0; height:1px; background:linear-gradient(90deg, transparent, rgba(232,196,107,.75), transparent); }
+.wy-core > *{ position:relative; }
+.wy-emb{ display:flex; align-items:center; justify-content:center; width:64px; height:64px; margin-bottom:12px; border-radius:50%; background:rgba(185,143,45,.12); border:1px solid rgba(232,196,107,.42); color:#E8C46B; box-shadow:0 0 0 10px rgba(255,255,255,.04), 0 0 0 22px rgba(255,255,255,.022); }
+.wy-emb svg{ width:26px; height:26px; }
+.wy-core .wy-k{ color:#A3D9C9; }
+.wy-core b{ font-size:clamp(18px,1.6vw,21px); font-weight:700; line-height:1.3; letter-spacing:-.015em; text-wrap:balance; }
+@media (hover:hover) and (pointer:fine){
+  .wy-list li:hover{ background-color:rgba(18,131,107,.045); }
+  .wy-list li:hover .wy-ic{ background:linear-gradient(135deg,var(--brand-ink),var(--accent-emerald)); color:#fff; transform:scale(1.05); }
+}
+
+/* the bridge builds as you scroll: need → lines → bridge → lines → capital. Progress (--p, 0–1) follows the scroll and only moves forward, so nothing hides again on the way back up. Without JS or with reduced motion everything is simply shown. */
+.wy-br.wy-live{ --p:0; }
+.wy-live [data-s]{ --t:clamp(0, calc((var(--p) - var(--s)) / var(--w, .18)), 1); transition:opacity .25s linear, transform .3s var(--ease-out), stroke-dashoffset .25s linear; }
+.wy-live .wy-kl, .wy-live .wy-kr, .wy-live .wy-list, .wy-live .wy-flow svg{ opacity:var(--t); }
+.wy-live .wy-list--need li{ opacity:var(--t); transform:translateX(calc((1 - var(--t)) * -20px)); }
+.wy-live .wy-list--cap li{ opacity:var(--t); transform:translateX(calc((1 - var(--t)) * 20px)); }
+.wy-live .wy-base{ stroke-dashoffset:calc(1 - var(--t)); }
+.wy-live .wy-core{ opacity:var(--t); transform:scale(calc(.93 + .07 * var(--t))); }
+.wy-live:not(.is-done) .wy-pulse{ animation:none; opacity:0; }
+.wy-br.is-done .wy-core{ animation:wyGlow 1.1s var(--ease-out) 1; }
+@keyframes wyGlow{ from{ box-shadow:0 28px 56px -26px rgba(18,48,57,.6), inset 0 0 0 1px rgba(163,217,201,.14), 0 0 0 0 rgba(18,131,107,.45); } to{ box-shadow:0 28px 56px -26px rgba(18,48,57,.6), inset 0 0 0 1px rgba(163,217,201,.14), 0 0 0 18px rgba(18,131,107,0); } }
+
+/* why us: four credentials in one quiet 2×2 panel, split by fading hairlines */
+.wy-q{ position:relative; overflow:hidden; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-auto-rows:1fr; border-radius:20px; border:1px solid var(--border-subtle); box-shadow:var(--shadow-card);
+  background:linear-gradient(180deg, transparent, var(--border-default) 16%, var(--border-default) 84%, transparent) center / 1px 100% no-repeat, linear-gradient(90deg, transparent, var(--border-default) 10%, var(--border-default) 90%, transparent) center / 100% 1px no-repeat, #fff; }
+.wy-q::after{ content:''; position:absolute; left:50%; top:50%; z-index:2; width:10px; height:10px; margin:-5px 0 0 -5px; background:var(--accent-gold); transform:rotate(45deg); box-shadow:0 0 0 7px #fff; pointer-events:none; }
+.wy-q > li{ display:flex; }
+.wy-qc{ position:relative; display:flex; flex-direction:column; align-items:center; gap:14px; width:100%; padding:clamp(32px,3.6vw,48px) clamp(24px,4vw,56px); text-align:center; transition:background-color .3s ease; }
+.wy-qi{ display:flex; align-items:center; justify-content:center; width:64px; height:64px; margin-bottom:6px; border-radius:50%; background:var(--status-op-bg); color:var(--accent-emerald-dark); transition:background-color .3s ease, color .3s ease, transform .35s var(--ease-out); }
+.wy-qi svg{ width:28px; height:28px; }
+.wy-qt{ margin:0; font-size:clamp(20px,1.9vw,24px); font-weight:700; letter-spacing:-.02em; line-height:1.25; color:var(--brand-ink); }
+.wy-d{ max-width:440px; font-size:max(16px,var(--fs-floor-body,0px)); line-height:1.65; color:var(--text-secondary); text-wrap:pretty; }
+.wy-d b{ font-weight:600; color:var(--brand-ink); }
+.wy-qc .link{ margin-top:auto; }
+.wy-qc .wy-d{ margin-bottom:4px; }
+.wy-qc .link::after{ content:''; position:absolute; inset:0; }
+.wy-qc:active .wy-qi{ transform:scale(.95); }
+@media (hover:hover) and (pointer:fine){
+  .wy-qc:hover{ background-color:rgba(18,131,107,.04); }
+  .wy-qc:hover .wy-qi{ background:linear-gradient(135deg,var(--brand-ink),var(--accent-emerald)); color:#fff; transform:translateY(-3px); }
+  .wy-qc:hover .link{ color:var(--accent-emerald-dark); border-color:var(--accent-emerald-dark); }
+  .wy-qc:hover .link .ar{ transform:translateX(3px); }
+}
+@media (max-width:767px){
+  .wy-q{ grid-template-columns:minmax(0,1fr); grid-auto-rows:auto; background:#fff; }
+  .wy-q::after{ display:none; }
+  .wy-q > li + li{ background:linear-gradient(90deg, transparent, var(--border-default) 12%, var(--border-default) 88%, transparent) top / 100% 1px no-repeat; }
+  .wy-qc{ padding:32px 20px; }
+  .wy-qi{ width:56px; height:56px; }
+  .wy-qi svg{ width:24px; height:24px; }
+}
+@media (max-width:899px){
+  .wy-bh{ grid-template-columns:minmax(0,1fr); }
+  .wy-br{ --lw:52px; grid-template-columns:minmax(0,1fr); grid-template-rows:none; }
+  .wy-kl, .wy-kr, .wy-list--need, .wy-list--cap, .wy-flow--l, .wy-flow--r, .wy-core{ grid-column:1; grid-row:auto; }
+  .wy-flow{ height:var(--lw); }
+  .wy-x{ display:none; }
+  .wy-kr{ height:34px; margin-top:-34px; padding:0 4px; }
+  .wy-core{ padding:30px 20px; }
+  .wy-live .wy-list--need li, .wy-live .wy-list--cap li{ transform:translateY(calc((1 - var(--t)) * 12px)); }
+}
+@media (max-width:640px){ .wy-list li{ min-height:66px; } }
+@media (prefers-reduced-motion:reduce){
+  .is-geo .wy-pulse{ animation:none; opacity:0; }
+  .wy-br.is-done .wy-core{ animation:none; }
+  .wy-ic, .wy-list li:hover .wy-ic{ transform:none; }
+  .wy-qi, .wy-qc:hover .wy-qi, .wy-qc:active .wy-qi{ transform:none; }
+}
 </style>
 </helmet>
 
@@ -948,6 +1060,105 @@ button{ font-family:inherit; cursor:pointer; }
     </div>
   </section>
 
+
+  <!-- 02 WHY NOW, WHY US -->
+  <section class="sec sec--subtle wy" id="why" data-screen-label="02 Why now, why us">
+    <div class="pat-dots" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="wy-top rv">
+        <h2 class="h1">Why it matters now, and why us</h2>
+        <sc-if value="{{ whyFlags }}" hint-placeholder-val="{{ true }}"><span class="wy-flag">Awaiting sign-off</span></sc-if>
+      </div>
+
+      <!-- WHY NOW -->
+      <div class="wy-blk">
+        <div class="wy-bh rv">
+          <h3 class="wy-h">Why now</h3>
+          <p class="wy-lede">Small and mid-sized businesses, supply chains and the transition to cleaner, more circular production all need capital that is patient and well structured. Institutional investors increasingly want disciplined access to that real-economy activity, with impact they can see. <b>We are building the bridge between the two.</b></p>
+        </div>
+        <div class="wy-br">
+          <span class="wy-k wy-kl" id="wy-need" data-s style="--s:0; --w:.1">The need</span>
+          <ul class="wy-list wy-list--need" aria-labelledby="wy-need" data-s style="--s:0; --w:.1">
+            <li data-s style="--s:.03"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V8l6-4v17"></path><path d="M11 9h8v12"></path><path d="M8 10v.01M8 13v.01M8 16v.01M15 13v.01M15 16v.01"></path></svg></span>Small and mid-sized businesses</li>
+            <li data-s style="--s:.09"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"></path><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></svg></span>Supply chains</li>
+            <li data-s style="--s:.15"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-13.7 5.7"></path><path d="M4 12A8 8 0 0 1 17.7 6.3"></path><path d="M18 3v3.5h-3.5"></path><path d="M6 21v-3.5h3.5"></path></svg></span>Cleaner, more circular production</li>
+          </ul>
+          <div class="wy-flow wy-flow--l" aria-hidden="true"><svg viewBox="0 0 100 300" preserveAspectRatio="none" data-s style="--s:.22; --w:.1">
+            <defs><linearGradient id="wyGl" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="100" y2="0"><stop offset="0" stop-color="#B5C6C1"></stop><stop offset="1" stop-color="#12836B"></stop></linearGradient></defs>
+            <path class="wy-base" pathLength="1" stroke="url(#wyGl)" d="M0 50C56 50 44 150 100 150" data-s style="--s:.22; --w:.2"></path>
+            <path class="wy-base wy-x" pathLength="1" stroke="url(#wyGl)" d="M0 150H100" data-s style="--s:.26; --w:.2"></path>
+            <path class="wy-base wy-x" pathLength="1" stroke="url(#wyGl)" d="M0 250C56 250 44 150 100 150" data-s style="--s:.3; --w:.2"></path>
+            <path class="wy-pulse" pathLength="1" d="M0 50C56 50 44 150 100 150" style="--k:0"></path>
+            <path class="wy-pulse wy-x" pathLength="1" d="M0 150H100" style="--k:2"></path>
+            <path class="wy-pulse wy-x" pathLength="1" d="M0 250C56 250 44 150 100 150" style="--k:4"></path>
+            <circle class="wy-so" cx="0" cy="50" r="3.5"></circle>
+            <circle class="wy-so wy-x" cx="0" cy="150" r="3.5"></circle>
+            <circle class="wy-so wy-x" cx="0" cy="250" r="3.5"></circle>
+            <circle class="wy-port" cx="100" cy="150" r="4.5"></circle>
+          </svg></div>
+          <div class="wy-core" data-s style="--s:.42; --w:.2">
+            <span class="wy-emb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17h20"></path><path d="M5 17v-3a7 7 0 0 1 14 0v3"></path><path d="M9 17v-5.2"></path><path d="M12 17v-6"></path><path d="M15 17v-5.2"></path></svg></span>
+            <span class="wy-k">The bridge</span>
+            <b>Better World Capital Investments PLC</b>
+          </div>
+          <div class="wy-flow wy-flow--r" aria-hidden="true"><svg viewBox="0 0 100 300" preserveAspectRatio="none" data-s style="--s:.6; --w:.1">
+            <defs><linearGradient id="wyGr" gradientUnits="userSpaceOnUse" x1="100" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#B5C6C1"></stop><stop offset="1" stop-color="#12836B"></stop></linearGradient></defs>
+            <path class="wy-base" pathLength="1" stroke="url(#wyGr)" d="M0 150C56 150 44 50 100 50" data-s style="--s:.6; --w:.18"></path>
+            <path class="wy-base wy-x" pathLength="1" stroke="url(#wyGr)" d="M0 150H100" data-s style="--s:.64; --w:.18"></path>
+            <path class="wy-base wy-x" pathLength="1" stroke="url(#wyGr)" d="M0 150C56 150 44 250 100 250" data-s style="--s:.68; --w:.18"></path>
+            <path class="wy-pulse" pathLength="1" d="M0 150C56 150 44 50 100 50" style="--k:1"></path>
+            <path class="wy-pulse wy-x" pathLength="1" d="M0 150H100" style="--k:3"></path>
+            <path class="wy-pulse wy-x" pathLength="1" d="M0 150C56 150 44 250 100 250" style="--k:5"></path>
+            <circle class="wy-so" cx="100" cy="50" r="3.5"></circle>
+            <circle class="wy-so wy-x" cx="100" cy="150" r="3.5"></circle>
+            <circle class="wy-so wy-x" cx="100" cy="250" r="3.5"></circle>
+            <circle class="wy-port" cx="0" cy="150" r="4.5"></circle>
+          </svg></div>
+          <span class="wy-k wy-kr" id="wy-cap" data-s style="--s:.72; --w:.1">The capital</span>
+          <ul class="wy-list wy-list--cap" aria-labelledby="wy-cap" data-s style="--s:.72; --w:.1">
+            <li data-s style="--s:.76; --w:.14"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V10"></path><path d="M19 21V10"></path><path d="M9 21v-7"></path><path d="M15 21v-7"></path><path d="M12 3 3 8h18z"></path></svg></span>Institutional investors</li>
+            <li data-s style="--s:.81; --w:.14"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.5 3.2 8.2 7.5 9.5 4.3-1.3 7.5-5 7.5-9.5V6z"></path><path d="m9 12 2.2 2.2L15.5 10"></path></svg></span>Disciplined real-economy access</li>
+            <li data-s style="--s:.86; --w:.14"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"></path><circle cx="12" cy="12" r="3"></circle></svg></span>Impact they can see</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- WHY US -->
+      <div class="wy-blk">
+        <div class="wy-bh rv"><h3 class="wy-h">Why us</h3></div>
+        <ul class="wy-q">
+          <li class="rv" style="--d:0"><div class="wy-qc">
+            <span class="wy-qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m15.6 8.4-2.1 5.1-5.1 2.1 2.1-5.1z"></path></svg></span>
+            <h4 class="wy-qt">Experience</h4>
+            <p class="wy-d">Led by people who have done it: our founder has structured trade and project finance for SMEs across the UK and West Asia over a <b>25-year career</b> in banking, risk and investment.</p>
+            <sc-if value="{{ whyFlags }}" hint-placeholder-val="{{ true }}"><span class="wy-flag">Verify figure</span></sc-if>
+            <a class="link" href="Profile%20Farhad%20Reyazat.dc.html">Founder’s profile <span class="ar" aria-hidden="true">→</span></a>
+          </div></li>
+          <li class="rv" style="--d:1"><div class="wy-qc">
+            <span class="wy-qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.6 2.5 3.9 5.5 3.9 9s-1.300 6.500-3.900 9c-2.600-2.500-3.900-5.500-3.900-9s1.300-6.500 3.900-9z"></path></svg></span>
+            <h4 class="wy-qt">Track record</h4>
+            <p class="wy-d">Built and governed businesses in <b>11 countries</b>, including circular-economy and industrial-regeneration businesses, at Chairman level.</p>
+            <sc-if value="{{ whyFlags }}" hint-placeholder-val="{{ true }}"><span class="wy-flag">Verify figure</span></sc-if>
+            <a class="link" href="Profile%20Alexander%20Alegria%20Saif.dc.html">Chairman’s profile <span class="ar" aria-hidden="true">→</span></a>
+          </div></li>
+          <li class="rv" style="--d:2"><div class="wy-qc">
+            <span class="wy-qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.500c0 4.500 3.200 8.200 7.500 9.500 4.300-1.300 7.500-5 7.500-9.500V6z"></path><path d="m9 12 2.200 2.200L15.500 10"></path></svg></span>
+            <h4 class="wy-qt">Regulated capability</h4>
+            <p class="wy-d">An operating, regulated asset manager in the group today: Providence Asset Management, <b>FCA registered</b>.</p>
+            <sc-if value="{{ whyFlags }}" hint-placeholder-val="{{ true }}"><span class="wy-flag">Legal check</span></sc-if>
+            <a class="link" href="Providence%20Asset%20Management.dc.html">Providence Asset Management <span class="ar" aria-hidden="true">→</span></a>
+          </div></li>
+          <li class="rv" style="--d:3"><div class="wy-qc">
+            <span class="wy-qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16"></path><path d="M7 20h10"></path><path d="M5 8h14"></path><path d="m5 8-2.500 5.200a2.800 2.800 0 0 0 5 0z"></path><path d="m19 8-2.500 5.200a2.800 2.800 0 0 0 5 0z"></path></svg></span>
+            <h4 class="wy-qt">Governance</h4>
+            <p class="wy-d">A <b>UK public limited company</b> with clear governance and a published line between what operates today and what is being built.</p>
+            
+            <a class="link" href="Platform%20Today.dc.html">The Platform Today <span class="ar" aria-hidden="true">→</span></a>
+          </div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <!-- 03 PROBLEM -->
   <section class="sec" id="problem" data-screen-label="03 The Problem">
@@ -1213,7 +1424,7 @@ button{ font-family:inherit; cursor:pointer; }
   <dc-import name="SiteFooter" style="display:block; width:100%" hint-size="100%,420px"></dc-import>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;whyFlags&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Review&quot;}}">
 class Component extends DCLogic {
   state = { step: 0 };
   rootRef = React.createRef();
@@ -1226,6 +1437,7 @@ class Component extends DCLogic {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); this._io.unobserve(e.target); if (e.target.classList.contains('pfx')) this._pfxIn = true; } });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
     els.forEach(el => this._io.observe(el));
+    this.initBridge(root);
     this._tabsRO = new ResizeObserver(() => this.syncTabs());
     const tb0 = this.tabsEl(); if (tb0) this._tabsRO.observe(tb0);
     this._tbS = (e) => { if (e.target && e.target.classList && e.target.classList.contains('pf-tabs')) this.syncTabs(); };
@@ -1254,7 +1466,51 @@ class Component extends DCLogic {
     document.addEventListener('pointercancel', this._dUp);
     this.syncTabs();
   }
-  componentWillUnmount() { this._io && this._io.disconnect(); this._tabsRO && this._tabsRO.disconnect(); document.removeEventListener('scroll', this._tbS, true); window.removeEventListener('resize', this._tbW); document.removeEventListener('pointerdown', this._dDown); document.removeEventListener('pointermove', this._dMove); document.removeEventListener('pointerup', this._dUp); document.removeEventListener('pointercancel', this._dUp); }
+  // "Why now" bridge. 1) Draws the connecting curves to the real pixel size of the layout (and redraws on resize).
+  // 2) Scroll-linked build: progress runs 0 to 1 while the block travels up the viewport and never goes back.
+  initBridge(root) {
+    const br = root.querySelector('.wy-br'); if (!br) return;
+    const mq = window.matchMedia ? window.matchMedia('(max-width:899px)') : { matches: false };
+    const A = (el, o) => { if (el) for (const k in o) el.setAttribute(k, o[k]); };
+    const geo = () => {
+      const mob = mq.matches;
+      br.querySelectorAll('.wy-flow svg').forEach((sv) => {
+        const w = sv.clientWidth, h = sv.clientHeight; if (!w || !h) return;
+        const R = sv.parentNode.classList.contains('wy-flow--r');
+        A(sv, { viewBox: '0 0 ' + w + ' ' + h, preserveAspectRatio: 'xMidYMid meet' });
+        const c = h / 2, k = w * 0.56, ys = [h / 6, c, h * 5 / 6];
+        const ds = mob ? ['M' + (w / 2) + ' 0V' + h, 'M0 0', 'M0 0']
+          : ys.map((y) => (R ? 'M0 ' + c + 'C' + k + ' ' + c + ' ' + (w - k) + ' ' + y + ' ' + w + ' ' + y : 'M0 ' + y + 'C' + k + ' ' + y + ' ' + (w - k) + ' ' + c + ' ' + w + ' ' + c));
+        sv.querySelectorAll('.wy-base').forEach((p, i) => p.setAttribute('d', ds[i]));
+        sv.querySelectorAll('.wy-pulse').forEach((p, i) => p.setAttribute('d', ds[i]));
+        const so = sv.querySelectorAll('.wy-so'), port = sv.querySelector('.wy-port'), g = sv.querySelector('linearGradient');
+        if (mob) { A(so[0], { cx: w / 2, cy: R ? h : 0 }); A(port, { cx: w / 2, cy: R ? 0 : h }); A(g, { x1: 0, y1: R ? h : 0, x2: 0, y2: R ? 0 : h }); }
+        else { so.forEach((el, i) => A(el, { cx: R ? w : 0, cy: ys[i] })); A(port, { cx: R ? 0 : w, cy: c }); A(g, { x1: R ? w : 0, y1: 0, x2: R ? 0 : w, y2: 0 }); }
+      });
+      br.classList.add('is-geo');
+    };
+    if ('ResizeObserver' in window) { this._brRO = new ResizeObserver(geo); this._brRO.observe(br); }
+    geo();
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { br.classList.add('is-done'); return; }
+    br.classList.add('wy-live');
+    let p = 0, raf = 0;
+    const off = () => { document.removeEventListener('scroll', on, true); window.removeEventListener('resize', on); cancelAnimationFrame(raf); };
+    const calc = () => {
+      raf = 0;
+      const r = br.getBoundingClientRect(), vh = window.innerHeight || 800;
+      if (!r.height) return;
+      const se = document.scrollingElement || document.documentElement;
+      const v = se.scrollHeight <= vh + 4 ? 1 : Math.max(0, Math.min(1, (vh * 0.88 - r.top) / (r.height + vh * 0.26)));
+      if (v > p) { p = v; br.style.setProperty('--p', p.toFixed(3)); }
+      if (p >= 1) { off(); br.classList.add('is-done'); setTimeout(() => { br.classList.remove('wy-live'); br.style.removeProperty('--p'); }, 450); }
+    };
+    const on = () => { if (!raf) raf = requestAnimationFrame(calc); };
+    document.addEventListener('scroll', on, { capture: true, passive: true });
+    window.addEventListener('resize', on);
+    this._brOff = off;
+    calc(); setTimeout(on, 600);
+  }
+  componentWillUnmount() { this._brOff && this._brOff(); this._brRO && this._brRO.disconnect(); this._io && this._io.disconnect(); this._tabsRO && this._tabsRO.disconnect(); document.removeEventListener('scroll', this._tbS, true); window.removeEventListener('resize', this._tbW); document.removeEventListener('pointerdown', this._dDown); document.removeEventListener('pointermove', this._dMove); document.removeEventListener('pointerup', this._dUp); document.removeEventListener('pointercancel', this._dUp); }
   tabsRef = React.createRef();
   tabsEl() { const r = this.rootRef.current; return r ? r.querySelector('.pf-tabs') : null; }
   syncTabs() {
@@ -1350,7 +1606,7 @@ class Component extends DCLogic {
     const setIx = (v) => { if (this.state.ix !== v) this.setState({ ix: v }); };
     const ixCards = IX.map(([t, d, ph, bg], j) => ({ t, d, ph, bg: 'background:' + bg, n: String(j + 1).padStart(2, '0'), slot: 'home-impact-' + (j + 1), on: io === j, cls: 'ix-c' + (io === j ? ' on' : ''),
       enter: (e) => { if (!e || e.pointerType !== 'mouse') return; clearTimeout(this._ixT); this._ixT = setTimeout(() => setIx(j), 70); }, pick: () => setIx(j) }));
-    return { rootRef: this.rootRef, steps, platforms, pfChips, ixCards, ixLeave: () => clearTimeout(this._ixT), pfShown, pfShownLbl, pfPanelCls, pfxCls, cred, facts, factLeave, tabsRef: this.tabsRef, tabsSync: () => this.syncTabs(), tabsLeft: () => this.tabsBy(-1), tabsRight: () => this.tabsBy(1), pfTabsCls: 'pft' + (this.state.tbL ? ' can-l' : '') + (this.state.tbR ? ' can-r' : ''), factT: fo === null ? '' : FACTS[fo][0], factD: fo === null ? '' : FACTS[fo][1], hkCls: 'hk hi' + (fo === null ? '' : ' act'), crReset: () => this.setState({ cr: 0 }), progress: cur / (STEPS.length - 1), prev: () => go(cur - 1), next: () => go(cur + 1) };
+    return { whyFlags: this.props.whyFlags ?? true, rootRef: this.rootRef, steps, platforms, pfChips, ixCards, ixLeave: () => clearTimeout(this._ixT), pfShown, pfShownLbl, pfPanelCls, pfxCls, cred, facts, factLeave, tabsRef: this.tabsRef, tabsSync: () => this.syncTabs(), tabsLeft: () => this.tabsBy(-1), tabsRight: () => this.tabsBy(1), pfTabsCls: 'pft' + (this.state.tbL ? ' can-l' : '') + (this.state.tbR ? ' can-r' : ''), factT: fo === null ? '' : FACTS[fo][0], factD: fo === null ? '' : FACTS[fo][1], hkCls: 'hk hi' + (fo === null ? '' : ' act'), crReset: () => this.setState({ cr: 0 }), progress: cur / (STEPS.length - 1), prev: () => go(cur - 1), next: () => go(cur + 1) };
   }
 }
 </script>
