@@ -1,5 +1,72 @@
 # Main (Homepage) — GoHighLevel port
 
+## Content update — 11 November 2026 (branch `feat/ghl-main`, from main `505e162`)
+
+By the owner's instruction Main now combines:
+- **The owner's live Home markup** (the Custom Code markup supplied in the conversation on 11 November 2026, "the
+  source is correct"). It replaces every section from the hero to the closing CTA exactly; only link addresses go back
+  to `#` with their `data-bw-link` keys (the runtime fills them from the config), and the three leadership cards, which
+  the live markup hard-coded to `/alexander-alegria-seif` etc., get the profile keys `profileAlexanderAlegriaSaif`,
+  `profileFarhadReyazat` and `profileGabriellaKarlova`. What changed on the live page: new text throughout; the hero
+  eyebrow and the scrolling credibility ticker are gone; eyebrows on The problem, Our approach and Leadership &
+  Governance; the Financial Engine without its illustrative examples or their note; Platforms as five parts with three
+  tabs (All 5 · Operating now 2 · In development 3) and their descriptions; Impact with a new line and without the
+  "In development" badge; new audience cards with separate desktop and phone text; leadership names and profile links
+  and a new governance panel; new CTA labels; and **no "10 The Platform Today" section**.
+- **Design export `04715d6`'s new section "02 · Why it matters now, and why us"** (`#bwci-why`), inserted after the
+  hero: the "Why now" bridge (need → BWCI → capital, curves drawn to the layout's pixel size, built with the scroll
+  forward only, then pulses and a single glow; vertical below 900 px; everything shown at once with reduced motion) and
+  the "Why us" 2×2 credentials panel. The design's `#problem` background (soft hand-off to the grey sections) is
+  applied to `#bwci-problem`.
+
+What the live markup needed beyond markup:
+- **CSS for the owner's two new classes:** `bw-copy-desktop` / `bw-copy-mobile` (desktop text ≥768 px, phone text
+  below) and `bw-platform-copy` (the platform descriptions shown in the "All" view, which hid them before).
+- **Script data** for the parts the script redraws: the Platforms tabs re-render their cards from data, so the data,
+  tabs and card template are now the owner's five parts (badge, name, description; no icon, relation, entity or
+  stage track), and the block keeps `bw-platform-copy` when the filter changes. The tab summaries read "Parts
+  operating now" / "Parts in development" (a port choice; the owner's markup only shows the "All" view). The Financial
+  Engine data matches the owner's text, without the illustrative examples. The hero "At a glance" descriptions are
+  unchanged (not in the markup).
+
+Configuration:
+- New: `showWhyFlags` (source prop `whyFlags`, default `true`): the "Awaiting sign-off", "Verify figure" and
+  "Legal check" badges in the new section; only the boolean `false` hides them.
+- New links: the three profile keys above, `providenceAssetManagement` (proposed, `bwci_url_providence_asset_management`),
+  and `platformToday` → **proposed `{{ custom_values.bwci_url_platform_today }}`** (create it with the URL of the
+  installed The Platform Today page).
+- `today` (Main's own header/footer "The Platform Today") now uses the same `bwci_url_platform_today`, because the
+  `#bwci-today` section it jumped to is gone. **Open (shared change, owner approval needed):** every other page's
+  header and footer, and the global header, still link to Home + `#bwci-today`.
+- Removed (no longer used): `governanceCommittees`, `governanceCapital`, `governanceRisk`, `platformsRegisters`.
+
+Outputs: `main.ghl.html` and `main.inline.ghl.html` were edited together by the scripts in `qa/content-update-2026-11-11/` (with the owner markup), and
+`node ghl/global/_build/main-global.js` regenerated both global variants. No other page changes.
+
+Local QA (headless Chromium; not a published GHL page):
+- **Owner markup:** in all four outputs the sections from hero to CTA (the new section aside) equal the owner's markup
+  once link addresses are normalised.
+- **"Why now, why us" against the design** (`qa/why.js`, the section on its own): 0.000 %, 0 differing rows at all 13
+  widths with reduced motion (one capture of the source differed from itself at 1366/1920/2560 and re-captured to 0);
+  the bridge trace (34 lines: drawn geometry at 1440 and 390, build progress at six scroll positions, no going back,
+  completion with pulses and glow) is identical except one progress value in the third decimal (0.484 vs 0.485 at 390,
+  a sub-pixel offset).
+- **Content and links** (`qa/content-qa.js`): each Platforms tab renders the owner's cards, counts and summary, keeps
+  `bw-platform-copy`, and "All" gives back the markup's text; desktop/phone copy switches at 768 px; the new links
+  resolve (and are marked unavailable while unset); `showWhyFlags` false hides the four badges, the string `"false"`
+  keeps them; no horizontal overflow and no script errors at 13 widths.
+- **Behaviour regression** (`qa/behaviour.js`, main-branch block vs this block, 71/70 lines): hero facts, engine
+  steps, Impact cards, anchors, keyboard and reduced motion unchanged; differences only where the content changed (the
+  three tabs and their cards, shorter engine accordions without examples, no ticker, one strip-arrow step that no
+  longer applies with three tabs).
+- **Global rollout** (`ghl/global/qa/rollout.js main`): layout and pixels at 7 widths × 4 scroll positions, content
+  links, dropdown, drawer, hostile host, in-page jumps, no errors: PASS, except the header-state check at 390 and 1440:
+  the global header's "The Platform Today" still goes to `#bwci-today` while Main's own header goes to the Platform
+  Today page (the open shared decision above).
+- Shared unit tests (site-links, site-images, footer routes) PASS; every generated page rebuilds byte-identical.
+
+The owner's live page itself (its CSS and script) was not supplied; QA is against the supplied markup and the design.
+
 ## Global header/footer version (9 November 2026)
 
 `node ghl/global/_build/main-global.js` derives `main.global.ghl.html` and `main.global.inline.ghl.html` from the two

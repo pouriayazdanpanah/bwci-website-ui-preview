@@ -22,6 +22,7 @@
     "leaderFarhad": "{{ custom_values.bwci_img_profile_farhad_reyazat }}",
     "leaderGabriela": "{{ custom_values.bwci_img_profile_gabriella_karlova }}"
   },
+  "showWhyFlags": true,
   "links": {
     "leadership": "{{ custom_values.bwci_url_governance_leadership }}",
     "financialEngine": "{{ custom_values.bwci_url_financial_engine }}",
@@ -36,13 +37,14 @@
     "platformsDirectory": "{{ custom_values.bwci_url_platforms }}#plt-directory",
     "investorsRoute": "{{ custom_values.bwci_url_investors_partners }}#inv-route",
     "governanceBoard": "{{ custom_values.bwci_url_governance_board }}",
-    "governanceCommittees": "{{ custom_values.bwci_url_governance }}#gov-committees",
-    "governanceCapital": "{{ custom_values.bwci_url_governance }}#gov-capital",
-    "governanceRisk": "{{ custom_values.bwci_url_governance }}#gov-risk",
     "governancePerimeter": "{{ custom_values.bwci_url_governance }}#gov-perimeter",
-    "platformsRegisters": "{{ custom_values.bwci_url_platforms }}#plt-registers",
     "smesEngage": "{{ custom_values.bwci_url_smes_projects }}#sme-engage",
-    "investorsEngage": "{{ custom_values.bwci_url_investors_partners }}#inv-engage"
+    "investorsEngage": "{{ custom_values.bwci_url_investors_partners }}#inv-engage",
+    "profileAlexanderAlegriaSaif": "{{ custom_values.bwci_url_profile_alexander_alegria_saif }}",
+    "profileFarhadReyazat": "{{ custom_values.bwci_url_profile_farhad_reyazat }}",
+    "profileGabriellaKarlova": "{{ custom_values.bwci_url_profile_gabriella_karlova }}",
+    "providenceAssetManagement": "{{ custom_values.bwci_url_providence_asset_management }}",
+    "platformToday": "{{ custom_values.bwci_url_platform_today }}"
   }
 }
 </script>
@@ -774,495 +776,973 @@
 #bwci-main-page .bw-slot{ display:block; position:relative; width:100%; height:100%; aspect-ratio:3/2; font:13px/1.3 system-ui,-apple-system,sans-serif; }
 #bwci-main-page .bw-slot__frame{ position:absolute; inset:0; overflow:hidden; background:rgba(127,127,127,.08); }
 #bwci-main-page .bw-slot__frame img{ display:block; position:absolute; max-width:none; left:50%; top:50%; width:100%; height:100%; object-fit:cover; transform:translate(-50%,-50%); -webkit-user-drag:none; user-select:none; }
+/* owner's live page (11 November 2026): text shown on desktop or on a phone, and the platform descriptions shown in the
+   "All" view of the Platforms cards */
+#bwci-main-page .bw-copy-mobile{ display:none; }
+@media (max-width:767px){ #bwci-main-page .bw-copy-desktop{ display:none; } #bwci-main-page .bw-copy-mobile{ display:inline; } }
+#bwci-main-page .pfx.bw-platform-copy .pk-more{ display:block; }
+/* 02 why now, why us */
+#bwci-main-page .wy{ overflow:hidden; }
+/* soft hand-off between the grey sections and the white Problem section: no hard edge above or below it */
+#bwci-main-page #bwci-problem{ background:linear-gradient(180deg, var(--surface-subtle) 0, #fff clamp(96px,12vw,180px), #fff calc(100% - clamp(96px,12vw,180px)), var(--surface-subtle) 100%); }
+#bwci-main-page .wy-top{ display:flex; flex-wrap:wrap; align-items:center; gap:12px 18px; margin-bottom:clamp(36px,4.5vw,56px); }
+#bwci-main-page .wy-top .bw-h1{ max-width:780px; }
+#bwci-main-page .wy-flag{ display:inline-flex; align-items:center; gap:6px; padding:2px 9px; border-radius:999px; background:var(--status-dev-bg); border:1px solid var(--status-dev-border); color:var(--status-dev-text); font-family:var(--font-mono); font-size:max(10.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; line-height:1.6; }
+#bwci-main-page .wy-flag::before{ content:''; width:5px; height:5px; border-radius:50%; background:var(--status-dev-mark); }
+#bwci-main-page .wy-blk + .wy-blk{ margin-top:clamp(48px,6vw,80px); padding-top:clamp(40px,5vw,64px); border-top:1px solid var(--border-default); }
+#bwci-main-page .wy-bh{ display:grid; grid-template-columns:minmax(0,4fr) minmax(0,8fr); gap:14px clamp(24px,4vw,64px); align-items:start; margin-bottom:clamp(28px,3.4vw,44px); }
+#bwci-main-page .wy-h{ display:flex; align-items:center; gap:14px; font-size:clamp(22px,2.2vw,28px); font-weight:700; letter-spacing:-.022em; line-height:1.2; }
+#bwci-main-page .wy-h::before{ content:''; flex:none; width:9px; height:9px; background:var(--accent-gold); transform:rotate(45deg); }
+#bwci-main-page .wy-lede{ max-width:760px; font-size:clamp(17px,1.5vw,20px); line-height:1.6; color:var(--text-secondary); text-wrap:pretty; }
+#bwci-main-page .wy-lede b{ font-weight:600; color:var(--brand-ink); }
+
+/* the bridge: two panels (need, capital) joined through BWCI by curved lines that meet at one point */
+#bwci-main-page .wy-br{ --lw:clamp(48px,6.4vw,96px); display:grid; grid-template-columns:minmax(0,1fr) var(--lw) minmax(220px,280px) var(--lw) minmax(0,1fr); grid-template-rows:auto 1fr; }
+#bwci-main-page .wy-k{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--text-muted); }
+#bwci-main-page .wy-kl, #bwci-main-page .wy-kr{ grid-row:1; display:flex; align-items:center; gap:10px; padding:0 4px 14px; }
+#bwci-main-page .wy-kl::before, #bwci-main-page .wy-kr::before{ content:''; width:16px; height:1.5px; background:var(--accent-gold-dark); }
+#bwci-main-page .wy-kl{ grid-column:1; } #bwci-main-page .wy-kr{ grid-column:5; }
+#bwci-main-page .wy-list{ grid-row:2; display:grid; grid-auto-rows:1fr; overflow:hidden; border-radius:18px; background:#fff; border:1px solid var(--border-subtle); box-shadow:0 18px 40px -28px rgba(18,48,57,.28), var(--shadow-card); }
+#bwci-main-page .wy-list--need{ grid-column:1; } #bwci-main-page .wy-list--cap{ grid-column:5; }
+#bwci-main-page .wy-list li{ display:flex; align-items:center; gap:14px; min-height:76px; padding:14px 20px 14px 16px; font-size:clamp(15.5px,1.3vw,17px); font-weight:600; letter-spacing:-.01em; line-height:1.35; color:var(--brand-ink); transition:background-color .25s ease; }
+#bwci-main-page .wy-list li + li{ background-image:linear-gradient(90deg, transparent, var(--border-default) 7%, var(--border-default) 93%, transparent); background-size:100% 1px; background-repeat:no-repeat; }
+#bwci-main-page .wy-ic{ flex:none; display:flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:12px; background:var(--status-op-bg); color:var(--accent-emerald-dark); transition:background-color .25s ease, color .25s ease, transform .35s var(--ease-out); }
+#bwci-main-page .wy-ic svg{ width:21px; height:21px; }
+#bwci-main-page .wy-flow{ grid-row:2; position:relative; z-index:1; }
+#bwci-main-page .wy-flow--l{ grid-column:2; } #bwci-main-page .wy-flow--r{ grid-column:4; }
+#bwci-main-page .wy-flow svg{ position:absolute; inset:0; display:block; width:100%; height:100%; overflow:visible; }
+#bwci-main-page .wy-base{ fill:none; stroke-width:1.5; stroke-linecap:round; stroke-dasharray:1; stroke-dashoffset:0; }
+#bwci-main-page .wy-so{ fill:#fff; stroke:var(--border-strong); stroke-width:1.5; opacity:0; }
+#bwci-main-page .wy-port{ fill:#fff; stroke:var(--accent-emerald); stroke-width:2; opacity:0; }
+#bwci-main-page .is-geo .wy-so, #bwci-main-page .is-geo .wy-port{ opacity:1; }
+#bwci-main-page .wy-pulse{ fill:none; stroke:var(--accent-emerald); stroke-width:5; stroke-linecap:round; stroke-dasharray:.001 .999; stroke-dashoffset:1; opacity:0; filter:drop-shadow(0 0 3px rgba(18,131,107,.55)); }
+#bwci-main-page .is-geo .wy-pulse{ animation:bw-wyPulseIn 3s cubic-bezier(.45,0,.55,1) infinite; animation-delay:calc(var(--k,0) * .5s); }
+#bwci-main-page .is-geo .wy-flow--r .wy-pulse{ animation-name:bw-wyPulseBack; }
+@keyframes bw-wyPulseIn{ 0%{ stroke-dashoffset:1; opacity:0; } 12%{ opacity:1; } 88%{ opacity:1; } 100%{ stroke-dashoffset:0; opacity:0; } }
+@keyframes bw-wyPulseBack{ 0%{ stroke-dashoffset:0; opacity:0; } 12%{ opacity:1; } 88%{ opacity:1; } 100%{ stroke-dashoffset:1; opacity:0; } }
+#bwci-main-page .wy-core{ grid-column:3; grid-row:2; position:relative; overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:26px 22px; border-radius:22px; text-align:center; color:#fff;
+  background:radial-gradient(ellipse 300px 220px at 50% -6%, rgba(18,131,107,.5), transparent 70%), radial-gradient(ellipse 260px 200px at 0% 110%, rgba(29,74,84,.55), transparent 70%), linear-gradient(165deg,#123039,#0A171B);
+  box-shadow:0 28px 56px -26px rgba(18,48,57,.6), inset 0 0 0 1px rgba(163,217,201,.14); }
+#bwci-main-page .wy-core::before{ content:''; position:absolute; inset:0; pointer-events:none; background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1.6px); background-size:22px 22px; -webkit-mask-image:radial-gradient(ellipse 85% 75% at 50% 0%, #000, transparent 78%); mask-image:radial-gradient(ellipse 85% 75% at 50% 0%, #000, transparent 78%); }
+#bwci-main-page .wy-core::after{ content:''; position:absolute; left:18%; right:18%; top:0; height:1px; background:linear-gradient(90deg, transparent, rgba(232,196,107,.75), transparent); }
+#bwci-main-page .wy-core > *{ position:relative; }
+#bwci-main-page .wy-emb{ display:flex; align-items:center; justify-content:center; width:64px; height:64px; margin-bottom:12px; border-radius:50%; background:rgba(185,143,45,.12); border:1px solid rgba(232,196,107,.42); color:#E8C46B; box-shadow:0 0 0 10px rgba(255,255,255,.04), 0 0 0 22px rgba(255,255,255,.022); }
+#bwci-main-page .wy-emb svg{ width:26px; height:26px; }
+#bwci-main-page .wy-core .wy-k{ color:#A3D9C9; }
+#bwci-main-page .wy-core b{ font-size:clamp(18px,1.6vw,21px); font-weight:700; line-height:1.3; letter-spacing:-.015em; text-wrap:balance; }
+@media (hover:hover) and (pointer:fine){
+  #bwci-main-page .wy-list li:hover{ background-color:rgba(18,131,107,.045); }
+  #bwci-main-page .wy-list li:hover .wy-ic{ background:linear-gradient(135deg,var(--brand-ink),var(--accent-emerald)); color:#fff; transform:scale(1.05); }
+}
+
+/* the bridge builds as you scroll: need → lines → bridge → lines → capital. Progress (--p, 0–1) follows the scroll and only moves forward, so nothing hides again on the way back up. Without JS or with reduced motion everything is simply shown. */
+#bwci-main-page .wy-br.wy-live{ --p:0; }
+#bwci-main-page .wy-live [data-s]{ --t:clamp(0, calc((var(--p) - var(--s)) / var(--w, .18)), 1); transition:opacity .25s linear, transform .3s var(--ease-out), stroke-dashoffset .25s linear; }
+#bwci-main-page .wy-live .wy-kl, #bwci-main-page .wy-live .wy-kr, #bwci-main-page .wy-live .wy-list, #bwci-main-page .wy-live .wy-flow svg{ opacity:var(--t); }
+#bwci-main-page .wy-live .wy-list--need li{ opacity:var(--t); transform:translateX(calc((1 - var(--t)) * -20px)); }
+#bwci-main-page .wy-live .wy-list--cap li{ opacity:var(--t); transform:translateX(calc((1 - var(--t)) * 20px)); }
+#bwci-main-page .wy-live .wy-base{ stroke-dashoffset:calc(1 - var(--t)); }
+#bwci-main-page .wy-live .wy-core{ opacity:var(--t); transform:scale(calc(.93 + .07 * var(--t))); }
+#bwci-main-page .wy-live:not(.is-done) .wy-pulse{ animation:none; opacity:0; }
+#bwci-main-page .wy-br.is-done .wy-core{ animation:bw-wyGlow 1.1s var(--ease-out) 1; }
+@keyframes bw-wyGlow{ from{ box-shadow:0 28px 56px -26px rgba(18,48,57,.6), inset 0 0 0 1px rgba(163,217,201,.14), 0 0 0 0 rgba(18,131,107,.45); } to{ box-shadow:0 28px 56px -26px rgba(18,48,57,.6), inset 0 0 0 1px rgba(163,217,201,.14), 0 0 0 18px rgba(18,131,107,0); } }
+
+/* why us: four credentials in one quiet 2×2 panel, split by fading hairlines */
+#bwci-main-page .wy-q{ position:relative; overflow:hidden; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-auto-rows:1fr; border-radius:20px; border:1px solid var(--border-subtle); box-shadow:var(--shadow-card);
+  background:linear-gradient(180deg, transparent, var(--border-default) 16%, var(--border-default) 84%, transparent) center / 1px 100% no-repeat, linear-gradient(90deg, transparent, var(--border-default) 10%, var(--border-default) 90%, transparent) center / 100% 1px no-repeat, #fff; }
+#bwci-main-page .wy-q::after{ content:''; position:absolute; left:50%; top:50%; z-index:2; width:10px; height:10px; margin:-5px 0 0 -5px; background:var(--accent-gold); transform:rotate(45deg); box-shadow:0 0 0 7px #fff; pointer-events:none; }
+#bwci-main-page .wy-q > li{ display:flex; }
+#bwci-main-page .wy-qc{ position:relative; display:flex; flex-direction:column; align-items:center; gap:14px; width:100%; padding:clamp(32px,3.6vw,48px) clamp(24px,4vw,56px); text-align:center; transition:background-color .3s ease; }
+#bwci-main-page .wy-qi{ display:flex; align-items:center; justify-content:center; width:64px; height:64px; margin-bottom:6px; border-radius:50%; background:var(--status-op-bg); color:var(--accent-emerald-dark); transition:background-color .3s ease, color .3s ease, transform .35s var(--ease-out); }
+#bwci-main-page .wy-qi svg{ width:28px; height:28px; }
+#bwci-main-page .wy-qt{ margin:0; font-size:clamp(20px,1.9vw,24px); font-weight:700; letter-spacing:-.02em; line-height:1.25; color:var(--brand-ink); }
+#bwci-main-page .wy-d{ max-width:440px; font-size:max(16px,var(--fs-floor-body,0px)); line-height:1.65; color:var(--text-secondary); text-wrap:pretty; }
+#bwci-main-page .wy-d b{ font-weight:600; color:var(--brand-ink); }
+#bwci-main-page .wy-qc .bw-link{ margin-top:auto; }
+#bwci-main-page .wy-qc .wy-d{ margin-bottom:4px; }
+#bwci-main-page .wy-qc .bw-link::after{ content:''; position:absolute; inset:0; }
+#bwci-main-page .wy-qc:active .wy-qi{ transform:scale(.95); }
+@media (hover:hover) and (pointer:fine){
+  #bwci-main-page .wy-qc:hover{ background-color:rgba(18,131,107,.04); }
+  #bwci-main-page .wy-qc:hover .wy-qi{ background:linear-gradient(135deg,var(--brand-ink),var(--accent-emerald)); color:#fff; transform:translateY(-3px); }
+  #bwci-main-page .wy-qc:hover .bw-link{ color:var(--accent-emerald-dark); border-color:var(--accent-emerald-dark); }
+  #bwci-main-page .wy-qc:hover .bw-link .bw-ar{ transform:translateX(3px); }
+}
+@media (max-width:767px){
+  #bwci-main-page .wy-q{ grid-template-columns:minmax(0,1fr); grid-auto-rows:auto; background:#fff; }
+  #bwci-main-page .wy-q::after{ display:none; }
+  #bwci-main-page .wy-q > li + li{ background:linear-gradient(90deg, transparent, var(--border-default) 12%, var(--border-default) 88%, transparent) top / 100% 1px no-repeat; }
+  #bwci-main-page .wy-qc{ padding:32px 20px; }
+  #bwci-main-page .wy-qi{ width:56px; height:56px; }
+  #bwci-main-page .wy-qi svg{ width:24px; height:24px; }
+}
+@media (max-width:899px){
+  #bwci-main-page .wy-bh{ grid-template-columns:minmax(0,1fr); }
+  #bwci-main-page .wy-br{ --lw:52px; grid-template-columns:minmax(0,1fr); grid-template-rows:none; }
+  #bwci-main-page .wy-kl, #bwci-main-page .wy-kr, #bwci-main-page .wy-list--need, #bwci-main-page .wy-list--cap, #bwci-main-page .wy-flow--l, #bwci-main-page .wy-flow--r, #bwci-main-page .wy-core{ grid-column:1; grid-row:auto; }
+  #bwci-main-page .wy-flow{ height:var(--lw); }
+  #bwci-main-page .wy-x{ display:none; }
+  #bwci-main-page .wy-kr{ height:34px; margin-top:-34px; padding:0 4px; }
+  #bwci-main-page .wy-core{ padding:30px 20px; }
+  #bwci-main-page .wy-live .wy-list--need li, #bwci-main-page .wy-live .wy-list--cap li{ transform:translateY(calc((1 - var(--t)) * 12px)); }
+}
+@media (max-width:640px){ #bwci-main-page .wy-list li{ min-height:66px; } }
+@media (prefers-reduced-motion:reduce){
+  #bwci-main-page .is-geo .wy-pulse{ animation:none; opacity:0; }
+  #bwci-main-page .wy-br.is-done .wy-core{ animation:none; }
+  #bwci-main-page .wy-ic, #bwci-main-page .wy-list li:hover .wy-ic{ transform:none; }
+  #bwci-main-page .wy-qi, #bwci-main-page .wy-qc:hover .wy-qi, #bwci-main-page .wy-qc:active .wy-qi{ transform:none; }
+}
 </style>
 
 <div id="bwci-main-page" data-bwci-current="home" data-bwci-under-header>
 
 
   
-  <section class="bw-hero" id="bwci-hero" data-screen-label="01 Hero">
-    <svg width="0" height="0" aria-hidden="true" style="position: absolute;">
-      <defs>
-        <clipPath id="bwci-heroClip" clipPathUnits="objectBoundingBox"><path d="M0,1 L0,0.7375 Q0,0.7125 0.0205,0.7006 L0.5528,0.3922 Q0.5733,0.3804 0.5733,0.3554 L0.5733,0.2625 Q0.5733,0.2375 0.594,0.226 L0.9734,0.0148 Q1,0 1,0.0321 L1,1 Z"></path></clipPath>
-        <linearGradient id="bwci-hlGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="560"><stop offset="0" stop-color="#A8C2C8"></stop><stop offset=".55" stop-color="#A8C2C8"></stop><stop offset=".8" stop-color="#A8C2C8" stop-opacity="0"></stop></linearGradient>
-      </defs>
-    </svg>
-    <div class="bw-wrap">
-      <div class="bw-hero-grid">
-        <div style="max-width: 808px; min-width: 0px;">
-          <div class="bw-hero-eye bw-hi" style="--d: 0;">Better World Capital Investments PLC</div>
-          <h1 class="bw-h-display bw-hi" style="--d: 1; max-width: 702px;">Reconnecting capital with the real economy.</h1>
-          <p class="bw-lead bw-hero-sub bw-hi" style="--d: 2; max-width: 667px;">Better World Capital Investments PLC is developing an integrated financial platform connecting capital, institutions and financial capability with productive businesses and projects.</p>
-          <div class="bw-hero-actions bw-hi" style="--d: 3;">
-            <a class="bw-btn bw-btn--inverse" href="#" data-bw-link="financialEngine">Explore the Financial Engine <span class="bw-ar" aria-hidden="true">→</span></a>
-            <div class="bw-hero-links">
-              <a class="hlink" href="#" data-bw-link="smes">For SMEs &amp; Projects <span class="bw-ar" aria-hidden="true">→</span></a>
-              <a class="hlink" href="#" data-bw-link="investors">For Investors &amp; Partners <span class="bw-ar" aria-hidden="true">→</span></a>
+    <section class="bw-hero" id="bwci-hero" data-screen-label="01 Hero">
+        <svg width="0" height="0" aria-hidden="true" style="position: absolute;">
+            <defs>
+                <clipPath id="bwci-heroClip" clipPathUnits="objectBoundingBox">
+                    <path d="M0,1 L0,0.7375 Q0,0.7125 0.0205,0.7006 L0.5528,0.3922 Q0.5733,0.3804 0.5733,0.3554 L0.5733,0.2625 Q0.5733,0.2375 0.594,0.226 L0.9734,0.0148 Q1,0 1,0.0321 L1,1 Z"></path>
+                </clipPath>
+                <linearGradient id="bwci-hlGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="560">
+                    <stop offset="0" stop-color="#A8C2C8"></stop>
+                    <stop offset=".55" stop-color="#A8C2C8"></stop>
+                    <stop offset=".8" stop-color="#A8C2C8" stop-opacity="0"></stop>
+                </linearGradient>
+            </defs>
+        </svg>
+        <div class="bw-wrap">
+            <div class="bw-hero-grid">
+                <div style="max-width: 808px; min-width: 0px;">
+                    <h1 class="bw-h-display bw-hi" style="--d: 1; max-width: 702px;">Reconnecting capital with the real economy.</h1>
+                    <p class="bw-lead bw-hero-sub bw-hi" style="--d: 2; max-width: 667px;"><strong>Better capital for a better world.</strong><br> Better World Capital Investments PLC (BWCI)  structures long-term capital around the real needs of productive and regenerative businesses, and connects it with institutional investors and authorised partners whose mandates fit.</p>
+                    <div class="bw-hero-actions bw-hi" style="--d: 3;">
+                        <a class="bw-btn bw-btn--inverse" href="#" data-bw-link="financialEngine">Explore the Financial Engine <span class="bw-ar" aria-hidden="true">→</span></a>
+                        <div class="bw-hero-links">
+                            <a class="hlink" href="#" data-bw-link="smes">For SMEs &amp; Projects <span class="bw-ar" aria-hidden="true">→</span></a>
+                            <a class="hlink" href="#" data-bw-link="investors">For Investors &amp; Partners <span class="bw-ar" aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                    <div class="hk bw-hi" style="--d: 4;">
+                        <div class="hk-row" role="group" aria-label="At a glance">
+                            <button class="hk-i" type="button" aria-expanded="false" aria-controls="bwci-hk-desc"><span class="hk-t"><span class="bw-i">What we are</span></span></button>
+                            <button class="hk-i" type="button" aria-expanded="false" aria-controls="bwci-hk-desc"><span class="hk-t"><span class="bw-i">What we do</span></span></button>
+                            <button class="hk-i" type="button" aria-expanded="false" aria-controls="bwci-hk-desc"><span class="hk-t"><span class="bw-i">Where we sit</span></span></button>
+                            <button class="hk-i" type="button" aria-expanded="false" aria-controls="bwci-hk-desc"><span class="hk-t"><span class="bw-i">Why the engine</span></span></button>
+                        </div>
+                        <div class="hk-d" id="bwci-hk-desc" aria-live="polite">
+                            <b><span class="bw-i"></span></b>
+                            <p><span class="bw-i"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hm">
+                    <div class="hm-frame">
+                        <svg class="hm-lines" viewBox="0 0 600 560" aria-hidden="true">
+                            <path class="bw-hl" pathLength="1" d="M0,411 L0,402 Q0,393 7.917,388.719 L333.444,212.707 Q344,207 344,195 L344,139 Q344,127 354.649,121.468 L600,-6" style="--k: 0; stroke-opacity: 0.36;"></path>
+                            <path class="bw-hl" pathLength="1" d="M0,403 L0,394 Q0,385 7.917,380.719 L333.444,204.707 Q344,199 344,187 L344,131 Q344,119 354.649,113.468 L600,-14" style="--k: 1; stroke-opacity: 0.334;"></path>
+                            <path class="bw-hl" pathLength="1" d="M0,395 L0,386 Q0,377 7.917,372.719 L333.444,196.707 Q344,191 344,179 L344,123 Q344,111 354.649,105.468 L600,-22" style="--k: 2; stroke-opacity: 0.308;"></path>
+                            <path class="bw-hl" pathLength="1" d="M0,387 L0,378 Q0,369 7.917,364.719 L333.444,188.707 Q344,183 344,171 L344,115 Q344,103 354.649,97.468 L600,-30" style="--k: 3; stroke-opacity: 0.282;"></path>
+                            <path class="bw-hl" pathLength="1" d="M0,379 L0,370 Q0,361 7.917,356.719 L333.444,180.707 Q344,175 344,163 L344,107 Q344,95 354.649,89.468 L600,-38" style="--k: 4; stroke-opacity: 0.256;"></path>
+                            <path class="bw-hl" pathLength="1" d="M0,371 L0,362 Q0,353 7.917,348.719 L333.444,172.707 Q344,167 344,155 L344,99 Q344,87 354.649,81.468 L600,-46" style="--k: 5; stroke-opacity: 0.23;"></path>
+                            <path class="bw-hl" pathLength="1" d="M0,363 L0,354 Q0,345 7.917,340.719 L333.444,164.707 Q344,159 344,147 L344,91 Q344,79 354.649,73.468 L600,-54" style="--k: 6; stroke-opacity: 0.204;"></path>
+                            <path class="bw-hl" pathLength="1" d="M0,355 L0,346 Q0,337 7.917,332.719 L333.444,156.707 Q344,151 344,139 L344,83 Q344,71 354.649,65.468 L600,-62" style="--k: 7; stroke-opacity: 0.178;"></path>
+                        </svg>
+                        <div class="hm-clip hm-in">
+                            <img class="hm-img" data-bw-asset="heroImage" decoding="async" fetchpriority="high" alt="Container port and city skyline at dusk, with warehouses, trucks and freight trains in the foreground">
+                            <div class="hm-shade" aria-hidden="true"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="hk bw-hi" style="--d: 4;">
-            <div class="hk-row" role="group" aria-label="At a glance">
-              
-                <button class="hk-i" type="button" aria-expanded="false" aria-controls="bwci-hk-desc"><span class="hk-t"><span class="bw-i">What we are</span></span></button>
-              
-                <button class="hk-i" type="button" aria-expanded="false" aria-controls="bwci-hk-desc"><span class="hk-t"><span class="bw-i">What we do</span></span></button>
-              
-                <button class="hk-i" type="button" aria-expanded="false" aria-controls="bwci-hk-desc"><span class="hk-t"><span class="bw-i">Where we sit</span></span></button>
-              
-                <button class="hk-i" type="button" aria-expanded="false" aria-controls="bwci-hk-desc"><span class="hk-t"><span class="bw-i">Why the engine</span></span></button>
-              
-            </div>
-            <div class="hk-d" id="bwci-hk-desc" aria-live="polite"><b><span class="bw-i"></span></b><p><span class="bw-i"></span></p></div>
-          </div>
         </div>
-        <div class="hm">
-          <div class="hm-frame">
-          <svg class="hm-lines" viewBox="0 0 600 560" aria-hidden="true">
-            <path class="bw-hl" pathLength="1" d="M0,411 L0,402 Q0,393 7.917,388.719 L333.444,212.707 Q344,207 344,195 L344,139 Q344,127 354.649,121.468 L600,-6" style="--k: 0; stroke-opacity: 0.36;"></path>
-            <path class="bw-hl" pathLength="1" d="M0,403 L0,394 Q0,385 7.917,380.719 L333.444,204.707 Q344,199 344,187 L344,131 Q344,119 354.649,113.468 L600,-14" style="--k: 1; stroke-opacity: 0.334;"></path>
-            <path class="bw-hl" pathLength="1" d="M0,395 L0,386 Q0,377 7.917,372.719 L333.444,196.707 Q344,191 344,179 L344,123 Q344,111 354.649,105.468 L600,-22" style="--k: 2; stroke-opacity: 0.308;"></path>
-            <path class="bw-hl" pathLength="1" d="M0,387 L0,378 Q0,369 7.917,364.719 L333.444,188.707 Q344,183 344,171 L344,115 Q344,103 354.649,97.468 L600,-30" style="--k: 3; stroke-opacity: 0.282;"></path>
-            <path class="bw-hl" pathLength="1" d="M0,379 L0,370 Q0,361 7.917,356.719 L333.444,180.707 Q344,175 344,163 L344,107 Q344,95 354.649,89.468 L600,-38" style="--k: 4; stroke-opacity: 0.256;"></path>
-            <path class="bw-hl" pathLength="1" d="M0,371 L0,362 Q0,353 7.917,348.719 L333.444,172.707 Q344,167 344,155 L344,99 Q344,87 354.649,81.468 L600,-46" style="--k: 5; stroke-opacity: 0.23;"></path>
-            <path class="bw-hl" pathLength="1" d="M0,363 L0,354 Q0,345 7.917,340.719 L333.444,164.707 Q344,159 344,147 L344,91 Q344,79 354.649,73.468 L600,-54" style="--k: 6; stroke-opacity: 0.204;"></path>
-            <path class="bw-hl" pathLength="1" d="M0,355 L0,346 Q0,337 7.917,332.719 L333.444,156.707 Q344,151 344,139 L344,83 Q344,71 354.649,65.468 L600,-62" style="--k: 7; stroke-opacity: 0.178;"></path>
-          </svg>
-          <div class="hm-clip hm-in">
-            <img class="hm-img" data-bw-asset="heroImage" decoding="async" fetchpriority="high" alt="Container port and city skyline at dusk, with warehouses, trucks and freight trains in the foreground">
-            <div class="hm-shade" aria-hidden="true"></div>
+    </section>
+
+  <!-- 02 WHY NOW, WHY US (design export 04715d6; badges: "showWhyFlags") -->
+  <section class="bw-sec bw-sec--subtle wy" id="bwci-why" data-screen-label="02 Why now, why us">
+    <div class="pat-dots" aria-hidden="true"></div>
+    <div class="bw-wrap">
+      <div class="wy-top rv">
+        <h2 class="bw-h1">Why it matters now, and why us</h2>
+        <span class="wy-flag" data-bw-why-flag>Awaiting sign-off</span>
+      </div>
+
+      <!-- WHY NOW -->
+      <div class="wy-blk">
+        <div class="wy-bh rv">
+          <h3 class="wy-h">Why now</h3>
+          <p class="wy-lede">Small and mid-sized businesses, supply chains and the transition to cleaner, more circular production all need capital that is patient and well structured. Institutional investors increasingly want disciplined access to that real-economy activity, with impact they can see. <b>We are building the bridge between the two.</b></p>
+        </div>
+        <div class="wy-br">
+          <span class="wy-k wy-kl" id="bwci-wy-need" data-s style="--s:0; --w:.1">The need</span>
+          <ul class="wy-list wy-list--need" aria-labelledby="bwci-wy-need" data-s style="--s:0; --w:.1">
+            <li data-s style="--s:.03"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V8l6-4v17"></path><path d="M11 9h8v12"></path><path d="M8 10v.01M8 13v.01M8 16v.01M15 13v.01M15 16v.01"></path></svg></span>Small and mid-sized businesses</li>
+            <li data-s style="--s:.09"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"></path><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></svg></span>Supply chains</li>
+            <li data-s style="--s:.15"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-13.7 5.7"></path><path d="M4 12A8 8 0 0 1 17.7 6.3"></path><path d="M18 3v3.5h-3.5"></path><path d="M6 21v-3.5h3.5"></path></svg></span>Cleaner, more circular production</li>
+          </ul>
+          <div class="wy-flow wy-flow--l" aria-hidden="true"><svg viewBox="0 0 100 300" preserveAspectRatio="none" data-s style="--s:.22; --w:.1">
+            <defs><linearGradient id="bwci-wyGl" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="100" y2="0"><stop offset="0" stop-color="#B5C6C1"></stop><stop offset="1" stop-color="#12836B"></stop></linearGradient></defs>
+            <path class="wy-base" pathLength="1" stroke="url(#bwci-wyGl)" d="M0 50C56 50 44 150 100 150" data-s style="--s:.22; --w:.2"></path>
+            <path class="wy-base wy-x" pathLength="1" stroke="url(#bwci-wyGl)" d="M0 150H100" data-s style="--s:.26; --w:.2"></path>
+            <path class="wy-base wy-x" pathLength="1" stroke="url(#bwci-wyGl)" d="M0 250C56 250 44 150 100 150" data-s style="--s:.3; --w:.2"></path>
+            <path class="wy-pulse" pathLength="1" d="M0 50C56 50 44 150 100 150" style="--k:0"></path>
+            <path class="wy-pulse wy-x" pathLength="1" d="M0 150H100" style="--k:2"></path>
+            <path class="wy-pulse wy-x" pathLength="1" d="M0 250C56 250 44 150 100 150" style="--k:4"></path>
+            <circle class="wy-so" cx="0" cy="50" r="3.5"></circle>
+            <circle class="wy-so wy-x" cx="0" cy="150" r="3.5"></circle>
+            <circle class="wy-so wy-x" cx="0" cy="250" r="3.5"></circle>
+            <circle class="wy-port" cx="100" cy="150" r="4.5"></circle>
+          </svg></div>
+          <div class="wy-core" data-s style="--s:.42; --w:.2">
+            <span class="wy-emb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17h20"></path><path d="M5 17v-3a7 7 0 0 1 14 0v3"></path><path d="M9 17v-5.2"></path><path d="M12 17v-6"></path><path d="M15 17v-5.2"></path></svg></span>
+            <span class="wy-k">The bridge</span>
+            <b>Better World Capital Investments PLC</b>
           </div>
-          </div>
+          <div class="wy-flow wy-flow--r" aria-hidden="true"><svg viewBox="0 0 100 300" preserveAspectRatio="none" data-s style="--s:.6; --w:.1">
+            <defs><linearGradient id="bwci-wyGr" gradientUnits="userSpaceOnUse" x1="100" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#B5C6C1"></stop><stop offset="1" stop-color="#12836B"></stop></linearGradient></defs>
+            <path class="wy-base" pathLength="1" stroke="url(#bwci-wyGr)" d="M0 150C56 150 44 50 100 50" data-s style="--s:.6; --w:.18"></path>
+            <path class="wy-base wy-x" pathLength="1" stroke="url(#bwci-wyGr)" d="M0 150H100" data-s style="--s:.64; --w:.18"></path>
+            <path class="wy-base wy-x" pathLength="1" stroke="url(#bwci-wyGr)" d="M0 150C56 150 44 250 100 250" data-s style="--s:.68; --w:.18"></path>
+            <path class="wy-pulse" pathLength="1" d="M0 150C56 150 44 50 100 50" style="--k:1"></path>
+            <path class="wy-pulse wy-x" pathLength="1" d="M0 150H100" style="--k:3"></path>
+            <path class="wy-pulse wy-x" pathLength="1" d="M0 150C56 150 44 250 100 250" style="--k:5"></path>
+            <circle class="wy-so" cx="100" cy="50" r="3.5"></circle>
+            <circle class="wy-so wy-x" cx="100" cy="150" r="3.5"></circle>
+            <circle class="wy-so wy-x" cx="100" cy="250" r="3.5"></circle>
+            <circle class="wy-port" cx="0" cy="150" r="4.5"></circle>
+          </svg></div>
+          <span class="wy-k wy-kr" id="bwci-wy-cap" data-s style="--s:.72; --w:.1">The capital</span>
+          <ul class="wy-list wy-list--cap" aria-labelledby="bwci-wy-cap" data-s style="--s:.72; --w:.1">
+            <li data-s style="--s:.76; --w:.14"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V10"></path><path d="M19 21V10"></path><path d="M9 21v-7"></path><path d="M15 21v-7"></path><path d="M12 3 3 8h18z"></path></svg></span>Institutional investors</li>
+            <li data-s style="--s:.81; --w:.14"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.5 3.2 8.2 7.5 9.5 4.3-1.3 7.5-5 7.5-9.5V6z"></path><path d="m9 12 2.2 2.2L15.5 10"></path></svg></span>Disciplined real-economy access</li>
+            <li data-s style="--s:.86; --w:.14"><span class="wy-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"></path><circle cx="12" cy="12" r="3"></circle></svg></span>Impact they can see</li>
+          </ul>
         </div>
       </div>
-    </div>
-      <div class="bw-tk" id="bwci-credibility" role="region" aria-label="Institutional credibility">
-      <div class="tk-track">
-        <ul class="tk-list">
-          <li><i aria-hidden="true"></i><span class="bw-i">Better World Capital Investments PLC</span></li><li><i aria-hidden="true"></i><span class="bw-i">UK Public Limited Company</span></li><li><i aria-hidden="true"></i><span class="bw-i">Holding Company &amp; Capital Architecture</span></li><li><i aria-hidden="true"></i><span class="bw-i">Regulated capability through relevant operating entities</span></li><li><i aria-hidden="true"></i><span class="bw-i">Real-Economy Investment Focus</span></li><li><i aria-hidden="true"></i><span class="bw-i">Long-Term Institution Building</span></li>
+
+      <!-- WHY US -->
+      <div class="wy-blk">
+        <div class="wy-bh rv"><h3 class="wy-h">Why us</h3></div>
+        <ul class="wy-q">
+          <li class="rv" style="--d:0"><div class="wy-qc">
+            <span class="wy-qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m15.6 8.4-2.1 5.1-5.1 2.1 2.1-5.1z"></path></svg></span>
+            <h4 class="wy-qt">Experience</h4>
+            <p class="wy-d">Led by people who have done it: our founder has structured trade and project finance for SMEs across the UK and West Asia over a <b>25-year career</b> in banking, risk and investment.</p>
+            <span class="wy-flag" data-bw-why-flag>Verify figure</span>
+            <a class="bw-link" href="#" data-bw-link="profileFarhadReyazat">Founder’s profile <span class="bw-ar" aria-hidden="true">→</span></a>
+          </div></li>
+          <li class="rv" style="--d:1"><div class="wy-qc">
+            <span class="wy-qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.6 2.5 3.9 5.5 3.9 9s-1.300 6.500-3.900 9c-2.600-2.500-3.900-5.500-3.900-9s1.300-6.500 3.900-9z"></path></svg></span>
+            <h4 class="wy-qt">Track record</h4>
+            <p class="wy-d">Built and governed businesses in <b>11 countries</b>, including circular-economy and industrial-regeneration businesses, at Chairman level.</p>
+            <span class="wy-flag" data-bw-why-flag>Verify figure</span>
+            <a class="bw-link" href="#" data-bw-link="profileAlexanderAlegriaSaif">Chairman’s profile <span class="bw-ar" aria-hidden="true">→</span></a>
+          </div></li>
+          <li class="rv" style="--d:2"><div class="wy-qc">
+            <span class="wy-qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.500c0 4.500 3.200 8.200 7.500 9.500 4.300-1.300 7.500-5 7.500-9.500V6z"></path><path d="m9 12 2.200 2.200L15.500 10"></path></svg></span>
+            <h4 class="wy-qt">Regulated capability</h4>
+            <p class="wy-d">An operating, regulated asset manager in the group today: Providence Asset Management, <b>FCA registered</b>.</p>
+            <span class="wy-flag" data-bw-why-flag>Legal check</span>
+            <a class="bw-link" href="#" data-bw-link="providenceAssetManagement">Providence Asset Management <span class="bw-ar" aria-hidden="true">→</span></a>
+          </div></li>
+          <li class="rv" style="--d:3"><div class="wy-qc">
+            <span class="wy-qi" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16"></path><path d="M7 20h10"></path><path d="M5 8h14"></path><path d="m5 8-2.500 5.200a2.800 2.800 0 0 0 5 0z"></path><path d="m19 8-2.500 5.200a2.800 2.800 0 0 0 5 0z"></path></svg></span>
+            <h4 class="wy-qt">Governance</h4>
+            <p class="wy-d">A <b>UK public limited company</b> with clear governance and a published line between what operates today and what is being built.</p>
+
+            <a class="bw-link" href="#" data-bw-link="platformToday">The Platform Today <span class="bw-ar" aria-hidden="true">→</span></a>
+          </div></li>
         </ul>
-        <ul class="tk-list" aria-hidden="true">
-          <li><i></i><span class="bw-i">Better World Capital Investments PLC</span></li><li><i></i><span class="bw-i">UK Public Limited Company</span></li><li><i></i><span class="bw-i">Holding Company &amp; Capital Architecture</span></li><li><i></i><span class="bw-i">Regulated capability through relevant operating entities</span></li><li><i></i><span class="bw-i">Real-Economy Investment Focus</span></li><li><i></i><span class="bw-i">Long-Term Institution Building</span></li>
-        </ul>
       </div>
     </div>
   </section>
 
-
-  
-  <section class="bw-sec" id="bwci-problem" data-screen-label="03 The Problem">
-    <div class="bw-wrap">
-      <div class="bw-sec-head rv" style="max-width: 860px;">
-        <h2 class="bw-h1">Capital exists, but it does not always reach productive economic activity in the appropriate structure.</h2>
-      </div>
-      <div class="pb-grid">
-        <div class="pb-card rv" style="--d: 0;"><h3>Products come first</h3><p>Financial products are designed in advance, so businesses are asked to fit the product rather than the other way round.</p></div>
-        <div class="pb-card rv" style="--d: 1;"><h3>Capital is fragmented</h3><p>Capital, institutions and specialist capability sit in separate places and rarely arrive together.</p></div>
-        <div class="pb-card rv" style="--d: 2;"><h3>Structures don’t fit the activity</h3><p>Terms, timing and repayment are often set without reference to how the business actually earns.</p></div>
-      </div>
-      <div class="pb-foot rv"><a class="bw-link" href="#bwci-engine">See how the Financial Engine responds <span class="bw-ar" aria-hidden="true">→</span></a></div>
-    </div>
-  </section>
-
-  
-  <section class="bw-sec bw-sec--subtle" id="bwci-need" data-screen-label="04 Need, Not Product">
-    <div class="pat-dots" aria-hidden="true"></div>
-    <div class="bw-wrap">
-      <div class="bw-sec-head rv">
-        <h2 class="bw-h1">We start with the economic need, not the financial product</h2>
-        <p class="bw-lead">Two ways of connecting a business with capital, compared step by step.</p>
-      </div>
-      <div class="cmp rv" role="table" aria-label="Product-led compared with need-led">
-        <div class="cmp-h" aria-hidden="true"></div>
-        <div class="cmp-h cmp-h--prod"><small>The usual approach</small><b>Product-led</b></div>
-        <div class="cmp-h cmp-h--need"><small>How BWCI works</small><b>Need-led</b></div>
-        <div class="cmp-row">
-          <div class="cmp-l"><b>Starting point</b></div>
-          <div class="cmp-p"><span class="cmp-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="12" x2="18" y2="12"></line></svg></span><span class="cmp-tag">Product-led</span><span style="grid-column: 2;">A financial product, designed in advance</span></div>
-          <div class="cmp-n"><span class="cmp-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12.5 10 17 19 7"></polyline></svg></span><span class="cmp-tag">Need-led · BWCI</span><span style="grid-column: 2;">The business’s real need: its cash flows, contracts and constraints</span></div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-l"><b>How it’s shaped</b></div>
-          <div class="cmp-p"><span class="cmp-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="12" x2="18" y2="12"></line></svg></span><span class="cmp-tag">Product-led</span><span style="grid-column: 2;">The search is for a client who fits the product</span></div>
-          <div class="cmp-n"><span class="cmp-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12.5 10 17 19 7"></polyline></svg></span><span class="cmp-tag">Need-led · BWCI</span><span style="grid-column: 2;">A structure is designed around how the business actually earns</span></div>
-        </div>
-        <div class="cmp-row">
-          <div class="cmp-l"><b>Result</b></div>
-          <div class="cmp-p"><span class="cmp-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="12" x2="18" y2="12"></line></svg></span><span class="cmp-tag">Product-led</span><span style="grid-column: 2;">The business adapts to the terms on offer</span></div>
-          <div class="cmp-n"><span class="cmp-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12.5 10 17 19 7"></polyline></svg></span><span class="cmp-tag">Need-led · BWCI</span><span style="grid-column: 2;">Capital is matched to a structure that fits</span></div>
-        </div>
-        <div class="cmp-foot"><p>Need → structure → the right capital. The order matters: the structure comes before the capital.</p><a class="bw-btn bw-btn--secondary" href="#" data-bw-link="smesProcess">How we approach it <span class="bw-ar" aria-hidden="true">→</span></a></div>
-      </div>
-    </div>
-  </section>
-
-  
-  <section class="bw-sec" id="bwci-engine" data-screen-label="05 The Financial Engine">
-    <div class="pat-dots" aria-hidden="true"></div>
-    <div class="bw-wrap">
-      <div class="bw-sec-head rv">
-        <h2 class="bw-h1">The Financial Engine</h2>
-        <p class="bw-lead">Six steps, one loop: from economic need to productive activity, and back into reinvestment.</p>
-      </div>
-      <div class="rv">
-        <div class="lp" style="--p: 0;" data-bw-eng-lp>
-          <div class="lp-ring" aria-hidden="true"></div>
-          <div class="lp-prog" aria-hidden="true"></div>
-          <span class="lp-chev lp-chev--in" aria-hidden="true"></span><span class="lp-chev" style="left: calc(var(--R) + (100% - var(--R) * 2) * 0.1);"></span><span class="lp-chev" style="left: calc(var(--R) + (100% - var(--R) * 2) * 0.3);"></span><span class="lp-chev" style="left: calc(var(--R) + (100% - var(--R) * 2) * 0.5);"></span><span class="lp-chev" style="left: calc(var(--R) + (100% - var(--R) * 2) * 0.7);"></span><span class="lp-chev" style="left: calc(var(--R) + (100% - var(--R) * 2) * 0.9);"></span>
-          <span class="lp-chev lp-chev--ret" aria-hidden="true"></span>
-          <span class="lp-ret" aria-hidden="true">Reinvestment returns to need</span>
-          <div class="lp-nodes" role="tablist" aria-label="Financial Engine steps">
-            
-              <div class="lp-item is-on">
-              <button class="lp-n is-on" type="button" role="tab" aria-selected="true" aria-expanded="true" aria-label="Economic Need" data-bw-eng-step="0">
-                <span class="lp-in"><span class="lp-num"><span class="bw-i">01</span></span><span class="lp-dot"></span><span class="lp-t"><span class="lp-tn"><span class="bw-i">01</span></span><span class="bw-i">Need</span></span><span class="lp-s"><span class="bw-i">Economic Need</span></span><span class="lp-pm" aria-hidden="true"></span></span>
-              </button>
-              <div class="lp-acc"><div><p class="lpd-d"><span class="bw-i">A real business or project need is identified and understood: its cash flows, contracts and constraints.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">A regional food manufacturer wins a large export order. It needs working capital to buy inputs now, but the buyer pays in 120 days.</span></span></div></div></div>
-              </div>
-            
-              <div class="lp-item">
-              <button class="lp-n" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-label="Financial Architecture" data-bw-eng-step="1">
-                <span class="lp-in"><span class="lp-num"><span class="bw-i">02</span></span><span class="lp-dot"></span><span class="lp-t"><span class="lp-tn"><span class="bw-i">02</span></span><span class="bw-i">Architecture</span></span><span class="lp-s"><span class="bw-i">Financial Architecture</span></span><span class="lp-pm" aria-hidden="true"></span></span>
-              </button>
-              <div class="lp-acc"><div><p class="lpd-d"><span class="bw-i">A structure is designed around the need, with terms, timing and repayment matched to how the activity earns.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">The facility is sized to the order and repaid from the buyer’s payment, rather than through a standard term loan.</span></span></div></div></div>
-              </div>
-            
-              <div class="lp-item">
-              <button class="lp-n" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-label="Appropriate Institution / Delivery Capability" data-bw-eng-step="2">
-                <span class="lp-in"><span class="lp-num"><span class="bw-i">03</span></span><span class="lp-dot"></span><span class="lp-t"><span class="lp-tn"><span class="bw-i">03</span></span><span class="bw-i">Institution</span></span><span class="lp-s"><span class="bw-i">Appropriate Institution / Delivery Capability</span></span><span class="lp-pm" aria-hidden="true"></span></span>
-              </button>
-              <div class="lp-acc"><div><p class="lpd-d"><span class="bw-i">The structure is matched to the platform, group company or authorised partner able to deliver it.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">Delivery sits with the entity that holds the relevant capability and, where needed, the regulatory permission.</span></span></div></div></div>
-              </div>
-            
-              <div class="lp-item">
-              <button class="lp-n" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-label="Capital" data-bw-eng-step="3">
-                <span class="lp-in"><span class="lp-num"><span class="bw-i">04</span></span><span class="lp-dot"></span><span class="lp-t"><span class="lp-tn"><span class="bw-i">04</span></span><span class="bw-i">Capital</span></span><span class="lp-s"><span class="bw-i"></span></span><span class="lp-pm" aria-hidden="true"></span></span>
-              </button>
-              <div class="lp-acc"><div><p class="lpd-d"><span class="bw-i">Capital whose mandate fits the structure, risk and tenor is connected through the appropriate authorised vehicle.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">Capital providers looking for short-tenor, trade-linked exposure are matched to the facility.</span></span></div></div></div>
-              </div>
-            
-              <div class="lp-item">
-              <button class="lp-n" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-label="Productive Economic Activity" data-bw-eng-step="4">
-                <span class="lp-in"><span class="lp-num"><span class="bw-i">05</span></span><span class="lp-dot"></span><span class="lp-t"><span class="lp-tn"><span class="bw-i">05</span></span><span class="bw-i">Activity</span></span><span class="lp-s"><span class="bw-i">Productive Economic Activity</span></span><span class="lp-pm" aria-hidden="true"></span></span>
-              </button>
-              <div class="lp-acc"><div><p class="lpd-d"><span class="bw-i">Capital reaches the underlying activity and is put to productive use.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">The manufacturer buys its inputs, fulfils the order and keeps its workforce and suppliers busy.</span></span></div></div></div>
-              </div>
-            
-              <div class="lp-item">
-              <button class="lp-n" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-label="Performance / Learning / Reinvestment" data-bw-eng-step="5">
-                <span class="lp-in"><span class="lp-num"><span class="bw-i">06</span></span><span class="lp-dot"></span><span class="lp-t"><span class="lp-tn"><span class="bw-i">06</span></span><span class="bw-i">Reinvestment</span></span><span class="lp-s"><span class="bw-i">Performance / Learning / Reinvestment</span></span><span class="lp-pm" aria-hidden="true"></span></span>
-              </button>
-              <div class="lp-acc"><div><p class="lpd-d"><span class="bw-i">Performance is tracked, returns flow back, and what was learned informs the next structure.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">The buyer pays, the facility is repaid, and the engagement informs how the next order is structured.</span></span></div></div></div>
-              </div>
-            
-          </div>
-        </div>
-        <div class="lp-loopnote" style="display: none; margin-top: 8px; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: max(12px,var(--fs-floor-sm,0px)); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-gold-dark);">↑ Reinvestment returns to Need</div>
-        <div class="lpd">
-          <div class="lpd-stack">
-            
-              <div class="lpd-pane is-on" role="tabpanel" aria-hidden="false">
-                <div><span class="lpd-k">Step <span class="bw-i">01</span> of 06</span><div class="lpd-h"><span class="bw-i">Need</span></div></div>
-                <div><span class="lpd-full"><span class="bw-i">Economic Need</span></span><p class="lpd-d"><span class="bw-i">A real business or project need is identified and understood: its cash flows, contracts and constraints.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">A regional food manufacturer wins a large export order. It needs working capital to buy inputs now, but the buyer pays in 120 days.</span></span></div></div>
-              </div>
-            
-              <div class="lpd-pane" role="tabpanel" aria-hidden="true">
-                <div><span class="lpd-k">Step <span class="bw-i">02</span> of 06</span><div class="lpd-h"><span class="bw-i">Architecture</span></div></div>
-                <div><span class="lpd-full"><span class="bw-i">Financial Architecture</span></span><p class="lpd-d"><span class="bw-i">A structure is designed around the need, with terms, timing and repayment matched to how the activity earns.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">The facility is sized to the order and repaid from the buyer’s payment, rather than through a standard term loan.</span></span></div></div>
-              </div>
-            
-              <div class="lpd-pane" role="tabpanel" aria-hidden="true">
-                <div><span class="lpd-k">Step <span class="bw-i">03</span> of 06</span><div class="lpd-h"><span class="bw-i">Institution</span></div></div>
-                <div><span class="lpd-full"><span class="bw-i">Appropriate Institution / Delivery Capability</span></span><p class="lpd-d"><span class="bw-i">The structure is matched to the platform, group company or authorised partner able to deliver it.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">Delivery sits with the entity that holds the relevant capability and, where needed, the regulatory permission.</span></span></div></div>
-              </div>
-            
-              <div class="lpd-pane" role="tabpanel" aria-hidden="true">
-                <div><span class="lpd-k">Step <span class="bw-i">04</span> of 06</span><div class="lpd-h"><span class="bw-i">Capital</span></div></div>
-                <div><span class="lpd-full"><span class="bw-i">Capital</span></span><p class="lpd-d"><span class="bw-i">Capital whose mandate fits the structure, risk and tenor is connected through the appropriate authorised vehicle.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">Capital providers looking for short-tenor, trade-linked exposure are matched to the facility.</span></span></div></div>
-              </div>
-            
-              <div class="lpd-pane" role="tabpanel" aria-hidden="true">
-                <div><span class="lpd-k">Step <span class="bw-i">05</span> of 06</span><div class="lpd-h"><span class="bw-i">Activity</span></div></div>
-                <div><span class="lpd-full"><span class="bw-i">Productive Economic Activity</span></span><p class="lpd-d"><span class="bw-i">Capital reaches the underlying activity and is put to productive use.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">The manufacturer buys its inputs, fulfils the order and keeps its workforce and suppliers busy.</span></span></div></div>
-              </div>
-            
-              <div class="lpd-pane" role="tabpanel" aria-hidden="true">
-                <div><span class="lpd-k">Step <span class="bw-i">06</span> of 06</span><div class="lpd-h"><span class="bw-i">Reinvestment</span></div></div>
-                <div><span class="lpd-full"><span class="bw-i">Performance / Learning / Reinvestment</span></span><p class="lpd-d"><span class="bw-i">Performance is tracked, returns flow back, and what was learned informs the next structure.</span></p><div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span><span class="bw-i">The buyer pays, the facility is repaid, and the engagement informs how the next order is structured.</span></span></div></div>
-              </div>
-            
-          </div>
-          <div class="lpd-side">
-            <div class="lpd-ctrl">
-              <button type="button" aria-label="Previous step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="11 6 5 12 11 18"></polyline></svg></button>
-              <button type="button" aria-label="Next step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg></button>
+<section class="bw-sec" id="bwci-problem" data-screen-label="03 The Problem">
+        <div class="bw-wrap">
+            <div class="bw-sec-head rv" style="max-width: 860px;">
+                <span class="bw-eyebrow">The problem</span>
+                <h2 class="bw-h1">
+                    <span class="bw-copy-desktop">There is no shortage of capital. The challenge is getting it to productive businesses in the right shape.</span>
+                    <span class="bw-copy-mobile">There is no shortage of capital. The challenge is getting it to productive businesses in the right shape.</span>
+                </h2>
             </div>
-            <a class="bw-link" href="#" data-bw-link="financialEngine">How the Financial Engine works <span class="bw-ar" aria-hidden="true">→</span></a>
-          </div>
-        </div>
-        <p class="eng-note">Illustrative example only. It does not describe a specific transaction or offer.</p>
-      </div>
-    </div>
-  </section>
-
-  
-  <section class="bw-sec bw-sec--subtle" id="bwci-platforms" data-screen-label="06 Platforms &amp; Institutions">
-    <div class="pat-rings" aria-hidden="true"></div>
-    <div class="bw-wrap">
-      <div class="bw-sec-head rv">
-        <h2 class="bw-h1">Our platforms and institutions, and their status</h2>
-        <p class="bw-lead">Filter by status. Each card shows who is responsible, how it relates to BWCI, and how far along it is.</p>
-      </div>
-      <div class="pfx rv bw-is-all">
-        <div class="pfx-main">
-          <div class="pft">
-            <div class="pf-tabs" role="tablist" aria-label="Filter by status">
-              
-                <button class="pf-tab bw-on" type="button" role="tab" aria-selected="true" data-bw-pf="all"><i style="background: var(--brand-ink);"></i><span class="bw-i">All</span><em><span class="bw-i">6</span></em></button>
-              
-                <button class="pf-tab" type="button" role="tab" aria-selected="false" data-bw-pf="op"><i style="background: var(--status-op-mark);"></i><span class="bw-i">Operating</span><em><span class="bw-i">1</span></em></button>
-              
-                <button class="pf-tab" type="button" role="tab" aria-selected="false" data-bw-pf="dev"><i style="background: var(--status-dev-mark);"></i><span class="bw-i">In development</span><em><span class="bw-i">2</span></em></button>
-              
-                <button class="pf-tab" type="button" role="tab" aria-selected="false" data-bw-pf="pro"><i style="background: var(--status-pro-mark);"></i><span class="bw-i">Proposed</span><em><span class="bw-i">1</span></em></button>
-              
-                <button class="pf-tab" type="button" role="tab" aria-selected="false" data-bw-pf="par"><i style="background: var(--rel-partner-mark);"></i><span class="bw-i">Partner capability</span><em><span class="bw-i">1</span></em></button>
-              
+            <div class="pb-grid">
+                <div class="pb-card rv" style="--d: 0;">
+                    <h3>The product comes first</h3>
+                    <p>Too often a business is asked to fit the finance, when the finance should be shaped around the business.</p>
+                </div>
+                <div class="pb-card rv" style="--d: 1;">
+                    <h3>The pieces arrive separately</h3>
+                    <p>A company that needs working capital, equity and trade finance usually has to find, negotiate and fit them together on its own.</p>
+                </div>
+                <div class="pb-card rv" style="--d: 2;">
+                    <h3>The terms don't fit the work</h3>
+                    <p>Short-term money for a long-term asset, or rigid repayments for a seasonal harvest, can put real strain on an otherwise sound business. For investors, that mismatch is avoidable risk.</p>
+                </div>
             </div>
-            <button class="pft-arr pft-arr--l" type="button" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 6 9 12 15 18"></polyline></svg></button>
-            <button class="pft-arr pft-arr--r" type="button" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg></button>
-          </div>
-          <div class="pf-panel bw-first">
-            <div class="pc-grid">
-              
-                <a class="pk pk--own" href="#" data-bw-link="platformsDirectory" style="--d: 0; --c: var(--status-op-mark);">
-                  <span class="pk-bar" aria-hidden="true"></span>
-                  <div class="pk-top"><span class="pk-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v9h9"></path><path d="M20.5 15A9 9 0 1 1 9 3.5"></path></svg></span><span class="bw-badge bw-b-op"><i></i><span class="bw-i">Operating</span></span></div>
-                  <div class="pk-hd"><span class="pk-k"><span class="bw-i">Group company</span></span><h3><span class="bw-i">Asset Management</span></h3></div>
-                  <div class="pk-more">
-                    <div class="pk-row"><span>Responsible entity</span><b><span class="bw-i">Providence Asset Management Ltd*</span></b></div>
-                    <div class="pk-st"><span class="pk-sl">Stage</span><div class="pk-steps"><span class="pk-s bw-done"><i></i><span class="bw-i">Proposed</span></span><span class="pk-s bw-done"><i></i><span class="bw-i">In development</span></span><span class="pk-s bw-cur"><i></i><span class="bw-i">Operating</span></span></div></div>
-                    <p class="pk-reg"><span class="bw-i">Regulated activity is carried out by the entity, within its own permissions.</span></p>
-                  </div>
-                  <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>
+            <div class="pb-foot rv">
+                <a class="bw-link" href="#bwci-engine">See how we respond<span class="bw-ar" aria-hidden="true">→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bw-sec bw-sec--subtle" id="bwci-need" data-screen-label="04 Need, Not Product">
+        <div class="pat-dots" aria-hidden="true"></div>
+        <div class="bw-wrap">
+            <div class="bw-sec-head rv">
+                <span class="bw-eyebrow">Our approach</span>
+                <h2 class="bw-h1">We start with the economic need, not the financial product.</h2>
+                <p class="bw-lead">Before we talk about capital, we want to understand what is being built, how it earns and what support would genuinely help.</p>
+            </div>
+            <div class="cmp rv" role="table" aria-label="Product-led compared with need-led">
+                <div class="cmp-h" aria-hidden="true"></div>
+                <div class="cmp-h cmp-h--prod"><small>The usual approach</small><b>Product-led</b></div>
+                <div class="cmp-h cmp-h--need"><small>How BWCI works</small><b>Need-led</b></div>
+
+                <div class="cmp-row">
+                    <div class="cmp-l"><b>Starting point</b></div>
+                    <div class="cmp-p">
+<span class="cmp-ic" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="12" x2="18" y2="12"></line></svg>
+</span>
+                        <span class="cmp-tag">Product-led</span>
+                        <span style="grid-column: 2;">A product is designed first.</span>
+                    </div>
+                    <div class="cmp-n">
+<span class="cmp-ic" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12.5 10 17 19 7"></polyline></svg>
+</span>
+                        <span class="cmp-tag">Need-led, the BWCI way</span>
+                        <span style="grid-column: 2;">We start with the business or project.</span>
+                    </div>
+                </div>
+
+                <div class="cmp-row">
+                    <div class="cmp-l"><b>How it’s shaped</b></div>
+                    <div class="cmp-p">
+<span class="cmp-ic" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="12" x2="18" y2="12"></line></svg>
+</span>
+                        <span class="cmp-tag">Product-led</span>
+                        <span style="grid-column: 2;">Then a business is found to fit it.</span>
+                    </div>
+                    <div class="cmp-n">
+<span class="cmp-ic" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12.5 10 17 19 7"></polyline></svg>
+</span>
+                        <span class="cmp-tag">Need-led, the BWCI way</span>
+                        <span style="grid-column: 2;">We design a structure around how it actually earns.</span>
+                    </div>
+                </div>
+
+                <div class="cmp-row">
+                    <div class="cmp-l"><b>Result</b></div>
+                    <div class="cmp-p">
+<span class="cmp-ic" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="12" x2="18" y2="12"></line></svg>
+</span>
+                        <span class="cmp-tag">Product-led</span>
+                        <span style="grid-column: 2;">The business bends to the terms on offer.</span>
+                    </div>
+                    <div class="cmp-n">
+<span class="cmp-ic" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12.5 10 17 19 7"></polyline></svg>
+</span>
+                        <span class="cmp-tag">Need-led, the BWCI way</span>
+                        <span style="grid-column: 2;">We then match capital whose mandate, tenor and risk appetite fit that structure.</span>
+                    </div>
+                </div>
+
+                <div class="cmp-foot">
+                    <p>Need, then structure, then the right capital. That order is what protects both the business and the capital behind it.</p>
+                    <a class="bw-btn bw-btn--secondary" href="#" data-bw-link="smesProcess">How we approach it <span class="bw-ar" aria-hidden="true">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bw-sec" id="bwci-engine" data-screen-label="05 The Financial Engine">
+        <div class="pat-dots" aria-hidden="true"></div>
+        <div class="bw-wrap">
+            <div class="bw-sec-head rv">
+                <h2 class="bw-h1">The Financial Engine</h2>
+                <p class="bw-lead">Six steps, one loop: from economic need to productive activity, and back into reinvestment.</p>
+            </div>
+            <div class="rv">
+                <div class="lp" style="--p: 0;" data-bw-eng-lp>
+                    <div class="lp-ring" aria-hidden="true"></div>
+                    <div class="lp-prog" aria-hidden="true"></div>
+                    <span class="lp-chev lp-chev--in" aria-hidden="true"></span>
+                    <span class="lp-chev" style="left: calc(var(--R) + (100% - var(--R) * 2) * 0.1);"></span>
+                    <span class="lp-chev" style="left: calc(var(--R) + (100% - var(--R) * 2) * 0.3);"></span>
+                    <span class="lp-chev" style="left: calc(var(--R) + (100% - var(--R) * 2) * 0.5);"></span>
+                    <span class="lp-chev" style="left: calc(var(--R) + (100% - var(--R) * 2) * 0.7);"></span>
+                    <span class="lp-chev" style="left: calc(var(--R) + (100% - var(--R) * 2) * 0.9);"></span>
+                    <span class="lp-chev lp-chev--ret" aria-hidden="true"></span>
+                    <span class="lp-ret" aria-hidden="true">Reinvestment returns to need</span>
+
+                    <div class="lp-nodes" role="tablist" aria-label="Financial Engine steps">
+                        <div class="lp-item is-on">
+                            <button class="lp-n is-on" type="button" role="tab" aria-selected="true" aria-expanded="true" aria-label="Economic Need" data-bw-eng-step="0">
+<span class="lp-in">
+<span class="lp-num"><span class="bw-i">01</span></span>
+<span class="lp-dot"></span>
+<span class="lp-t"><span class="lp-tn"><span class="bw-i">01</span></span><span class="bw-i">Need</span></span>
+<span class="lp-s"><span class="bw-i">Economic Need</span></span>
+<span class="lp-pm" aria-hidden="true"></span>
+</span>
+                            </button>
+                            <div class="lp-acc">
+                                <div><p class="lpd-d"><span class="bw-i">We start with what an organization or project needs to grow, operate, or invest before considering any financial product.</span></p></div>
+                            </div>
+                        </div>
+
+                        <div class="lp-item">
+                            <button class="lp-n" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-label="Financial Architecture" data-bw-eng-step="1">
+<span class="lp-in">
+<span class="lp-num"><span class="bw-i">02</span></span>
+<span class="lp-dot"></span>
+<span class="lp-t"><span class="lp-tn"><span class="bw-i">02</span></span><span class="bw-i">Architecture</span></span>
+<span class="lp-s"><span class="bw-i">Financial Architecture</span></span>
+<span class="lp-pm" aria-hidden="true"></span>
+</span>
+                            </button>
+                            <div class="lp-acc">
+                                <div><p class="lpd-d"><span class="bw-i">We then design the financial structure around that need: the form, terms, and capital ownership that fit the activity.</span></p></div>
+                            </div>
+                        </div>
+
+                        <div class="lp-item">
+                            <button class="lp-n" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-label="Appropriate Institution / Delivery Capability" data-bw-eng-step="2">
+<span class="lp-in">
+<span class="lp-num"><span class="bw-i">03</span></span>
+<span class="lp-dot"></span>
+<span class="lp-t"><span class="lp-tn"><span class="bw-i">03</span></span><span class="bw-i">Institution</span></span>
+<span class="lp-s"><span class="bw-i">Appropriate Institution / Delivery Capability</span></span>
+<span class="lp-pm" aria-hidden="true"></span>
+</span>
+                            </button>
+                            <div class="lp-acc">
+                                <div><p class="lpd-d"><span class="bw-i">Next, we identify the institution or delivery capability best placed to provide that system, within the platform or through a partner.</span></p></div>
+                            </div>
+                        </div>
+
+                        <div class="lp-item">
+                            <button class="lp-n" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-label="Capital" data-bw-eng-step="3">
+<span class="lp-in">
+<span class="lp-num"><span class="bw-i">04</span></span>
+<span class="lp-dot"></span>
+<span class="lp-t"><span class="lp-tn"><span class="bw-i">04</span></span><span class="bw-i">Capital</span></span>
+<span class="lp-s"><span class="bw-i"></span></span>
+<span class="lp-pm" aria-hidden="true"></span>
+</span>
+                            </button>
+                            <div class="lp-acc">
+                                <div><p class="lpd-d"><span class="bw-i">Capital is then matched to the structure, from sources whose terms and time horizon suit the activity.</span></p></div>
+                            </div>
+                        </div>
+
+                        <div class="lp-item">
+                            <button class="lp-n" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-label="Productive Economic Activity" data-bw-eng-step="4">
+<span class="lp-in">
+<span class="lp-num"><span class="bw-i">05</span></span>
+<span class="lp-dot"></span>
+<span class="lp-t"><span class="lp-tn"><span class="bw-i">05</span></span><span class="bw-i">Activity</span></span>
+<span class="lp-s"><span class="bw-i">Productive Economic Activity</span></span>
+<span class="lp-pm" aria-hidden="true"></span>
+</span>
+                            </button>
+                            <div class="lp-acc">
+                                <div><p class="lpd-d"><span class="bw-i">The capital is put to work in productive activity: the business operates, trades, employs, and builds.</span></p></div>
+                            </div>
+                        </div>
+
+                        <div class="lp-item">
+                            <button class="lp-n" type="button" role="tab" aria-selected="false" aria-expanded="false" aria-label="Performance / Learning / Reinvestment" data-bw-eng-step="5">
+<span class="lp-in">
+<span class="lp-num"><span class="bw-i">06</span></span>
+<span class="lp-dot"></span>
+<span class="lp-t"><span class="lp-tn"><span class="bw-i">06</span></span><span class="bw-i">Reinvestment</span></span>
+<span class="lp-s"><span class="bw-i">Performance / Learning / Reinvestment</span></span>
+<span class="lp-pm" aria-hidden="true"></span>
+</span>
+                            </button>
+                            <div class="lp-acc">
+                                <div><p class="lpd-d"><span class="bw-i">Performance is reviewed, lessons are recorded, and capital and insight are reinvested to meet the next need.</span></p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lp-loopnote" style="display: none; margin-top: 8px; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: max(12px,var(--fs-floor-sm,0px)); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-gold-dark);">
+                    ↑ Reinvestment returns to Need
+                </div>
+
+                <div class="lpd">
+                    <div class="lpd-stack">
+                        <div class="lpd-pane is-on" role="tabpanel" aria-hidden="false">
+                            <div>
+                                <span class="lpd-k">Step <span class="bw-i">01</span> of 06</span>
+                                <div class="lpd-h"><span class="bw-i">Need</span></div>
+                            </div>
+                            <div>
+                                <span class="lpd-full"><span class="bw-i">Economic Need</span></span>
+                                <p class="lpd-d"><span class="bw-i">We start with what an organization or project needs to grow, operate, or invest before considering any financial product.</span></p>
+                            </div>
+                        </div>
+
+                        <div class="lpd-pane" role="tabpanel" aria-hidden="true">
+                            <div>
+                                <span class="lpd-k">Step <span class="bw-i">02</span> of 06</span>
+                                <div class="lpd-h"><span class="bw-i">Architecture</span></div>
+                            </div>
+                            <div>
+                                <span class="lpd-full"><span class="bw-i">Financial Architecture</span></span>
+                                <p class="lpd-d"><span class="bw-i">We then design the financial structure around that need: the form, terms, and capital ownership that fit the activity.</span></p>
+                            </div>
+                        </div>
+
+                        <div class="lpd-pane" role="tabpanel" aria-hidden="true">
+                            <div>
+                                <span class="lpd-k">Step <span class="bw-i">03</span> of 06</span>
+                                <div class="lpd-h"><span class="bw-i">Institution</span></div>
+                            </div>
+                            <div>
+                                <span class="lpd-full"><span class="bw-i">Appropriate Institution / Delivery Capability</span></span>
+                                <p class="lpd-d"><span class="bw-i">Next, we identify the institution or delivery capability best placed to provide that system, within the platform or through a partner.</span></p>
+                            </div>
+                        </div>
+
+                        <div class="lpd-pane" role="tabpanel" aria-hidden="true">
+                            <div>
+                                <span class="lpd-k">Step <span class="bw-i">04</span> of 06</span>
+                                <div class="lpd-h"><span class="bw-i">Capital</span></div>
+                            </div>
+                            <div>
+                                <span class="lpd-full"><span class="bw-i">Capital</span></span>
+                                <p class="lpd-d"><span class="bw-i">Capital is then matched to the structure, from sources whose terms and time horizon suit the activity.</span></p>
+                            </div>
+                        </div>
+
+                        <div class="lpd-pane" role="tabpanel" aria-hidden="true">
+                            <div>
+                                <span class="lpd-k">Step <span class="bw-i">05</span> of 06</span>
+                                <div class="lpd-h"><span class="bw-i">Activity</span></div>
+                            </div>
+                            <div>
+                                <span class="lpd-full"><span class="bw-i">Productive Economic Activity</span></span>
+                                <p class="lpd-d"><span class="bw-i">The capital is put to work in productive activity: the business operates, trades, employs, and builds.</span></p>
+                            </div>
+                        </div>
+
+                        <div class="lpd-pane" role="tabpanel" aria-hidden="true">
+                            <div>
+                                <span class="lpd-k">Step <span class="bw-i">06</span> of 06</span>
+                                <div class="lpd-h"><span class="bw-i">Reinvestment</span></div>
+                            </div>
+                            <div>
+                                <span class="lpd-full"><span class="bw-i">Performance / Learning / Reinvestment</span></span>
+                                <p class="lpd-d"><span class="bw-i">Performance is reviewed, lessons are recorded, and capital and insight are reinvested to meet the next need.</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lpd-side">
+                        <div class="lpd-ctrl">
+                            <button type="button" aria-label="Previous step">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                                    <polyline points="11 6 5 12 11 18"></polyline>
+                                </svg>
+                            </button>
+                            <button type="button" aria-label="Next step">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="13 6 19 12 13 18"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <a class="bw-link" href="#" data-bw-link="financialEngine">How the Financial Engine works <span class="bw-ar" aria-hidden="true">→</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bw-sec bw-sec--subtle" id="bwci-platforms" data-screen-label="06 Platforms &amp; Institutions">
+        <div class="pat-rings" aria-hidden="true"></div>
+        <div class="bw-wrap">
+            <div class="bw-sec-head rv">
+                <h2 class="bw-h1">The platform today, and what we are building</h2>
+                <p class="bw-lead">The Better World platform is being built in stages. Here is each part and where it stands today.</p>
+            </div>
+
+            <div class="pfx rv bw-is-all bw-platform-copy">
+                <div class="pfx-main">
+                    <div class="pft">
+                        <div class="pf-tabs" role="tablist" aria-label="Filter by status">
+                            <button class="pf-tab bw-on" type="button" role="tab" aria-selected="true" data-bw-pf="all">
+                                <i style="background: var(--brand-ink);"></i><span class="bw-i">All</span><em><span class="bw-i">5</span></em>
+                            </button>
+                            <button class="pf-tab" type="button" role="tab" aria-selected="false" data-bw-pf="op">
+                                <i style="background: var(--status-op-mark);"></i><span class="bw-i">Operating now</span><em><span class="bw-i">2</span></em>
+                            </button>
+                            <button class="pf-tab" type="button" role="tab" aria-selected="false" data-bw-pf="dev">
+                                <i style="background: var(--status-dev-mark);"></i><span class="bw-i">In development</span><em><span class="bw-i">3</span></em>
+                            </button>
+                        </div>
+                        <button class="pft-arr pft-arr--l" type="button" tabindex="-1" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 6 9 12 15 18"></polyline>
+                            </svg>
+                        </button>
+                        <button class="pft-arr pft-arr--r" type="button" tabindex="-1" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 6 15 12 9 18"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="pf-panel bw-first">
+                        <div class="pc-grid">
+                            <a class="pk pk--build" href="#" data-bw-link="platformsDirectory" style="--d: 0; --c: var(--status-op-mark);">
+                                <span class="pk-bar" aria-hidden="true"></span>
+                                <div class="pk-top"><span class="bw-badge bw-b-op"><i></i><span class="bw-i">Operating now</span></span></div>
+                                <div class="pk-hd"><h3><span class="bw-i">Providence Asset Management</span></h3></div>
+                                <div class="pk-more"><p class="pk-reg"><span class="bw-i">The group’s asset management company. Any investment management is carried out by this entity, within its regulatory permissions.</span></p></div>
+                                <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>
+                            </a>
+
+                            <a class="pk pk--build" href="#" data-bw-link="platformsDirectory" style="--d: 1; --c: var(--status-op-mark);">
+                                <span class="pk-bar" aria-hidden="true"></span>
+                                <div class="pk-top"><span class="bw-badge bw-b-op"><i></i><span class="bw-i">Operating now</span></span></div>
+                                <div class="pk-hd"><h3><span class="bw-i">Strategic Partner Capabilities</span></h3></div>
+                                <div class="pk-more"><p class="pk-reg"><span class="bw-i">Specialist financial, technical and operational capabilities provided by independent, authorised partner institutions.</span></p></div>
+                                <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>
+                            </a>
+
+                            <a class="pk pk--build" href="#" data-bw-link="platformsDirectory" style="--d: 2; --c: var(--status-dev-mark);">
+                                <span class="pk-bar" aria-hidden="true"></span>
+                                <div class="pk-top"><span class="bw-badge bw-b-dev"><i></i><span class="bw-i">In development</span></span></div>
+                                <div class="pk-hd"><h3><span class="bw-i">Private Capital Platform</span></h3></div>
+                                <div class="pk-more"><p class="pk-reg"><span class="bw-i">Being designed to structure private debt and growth capital for established businesses.</span></p></div>
+                                <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>
+                            </a>
+
+                            <a class="pk pk--build" href="#" data-bw-link="platformsDirectory" style="--d: 3; --c: var(--status-dev-mark);">
+                                <span class="pk-bar" aria-hidden="true"></span>
+                                <div class="pk-top"><span class="bw-badge bw-b-dev"><i></i><span class="bw-i">In development</span></span></div>
+                                <div class="pk-hd"><h3><span class="bw-i">Trade Finance Platform</span></h3></div>
+                                <div class="pk-more"><p class="pk-reg"><span class="bw-i">Designed to support trade flows and the working capital needs of productive businesses.</span></p></div>
+                                <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>
+                            </a>
+
+                            <a class="pk pk--build" href="#" data-bw-link="platformsDirectory" style="--d: 4; --c: var(--status-dev-mark);">
+                                <span class="pk-bar" aria-hidden="true"></span>
+                                <div class="pk-top"><span class="bw-badge bw-b-dev"><i></i><span class="bw-i">In development</span></span></div>
+                                <div class="pk-hd"><h3><span class="bw-i">Financial Infrastructure</span></h3></div>
+                                <div class="pk-more"><p class="pk-reg"><span class="bw-i">Long-term financial infrastructure serving productive economic activity.</span></p></div>
+                                <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="pfx-side">
+                    <div class="pfx-sum">
+                        <div><b><span class="bw-i">05</span></b><span><span class="bw-i">Shown in this view</span></span></div>
+                        <div><b>05</b><span>Parts of the platform in total</span></div>
+                    </div>
+                    <div class="pfx-dark">
+                        <b>Copy dated 20 October 2026</b>
+                        <p>Platform statuses are shown as provided in the overview dated 20 October 2026. Regulated activity is carried out only by the relevant authorised entity, within its permissions.</p>
+                        <a class="bw-link bw-link--inv" href="#" data-bw-link="platforms">See all platforms and institutions <span class="bw-ar" aria-hidden="true">→</span></a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="bw-sec" id="bwci-impact" data-screen-label="07 Better World / Impact">
+        <div class="bw-wrap">
+            <div class="im-head">
+                <div class="bw-left rv">
+                    <span class="bw-eyebrow">Better World</span>
+                    <h2 class="bw-h1">What “Better World” means in practice</h2>
+                </div>
+                <p class="bw-lead rv" style="--d: 1;">
+                    <span class="bw-copy-desktop">For us, a better world is not a label added at the end. It starts with practical questions asked at the beginning: who will this capital serve, how long does it need to stay, and what will it help to build or restore?</span>
+                    <span class="bw-copy-mobile">For us, a better world is not a label added at the end. It starts with practical questions asked at the beginning: who will this capital serve, how long does it need to stay, and what will it help to build or restore?</span>
+                </p>
+            </div>
+
+            <div class="im-quote rv">
+                <blockquote>“Impact should influence the <em>architecture of capital</em> itself.”</blockquote>
+                <p>So we bring impact in early, when capital is structured, owned and deployed. The result is investment designed around long-term productive and regenerative outcomes, not reported on afterwards.</p>
+            </div>
+            <p class="bw-lead rv">The approach is created to support four outcome areas.</p>
+
+            <div class="ix rv">
+                <div class="ix-c bw-on" tabindex="0" role="button" aria-expanded="true" style="background: radial-gradient(70% 60% at 20% 20%, rgb(29, 74, 84) 0%, transparent 70%), radial-gradient(80% 70% at 85% 90%, rgb(18, 131, 107) 0%, transparent 70%), rgb(18, 48, 57);">
+                    <div class="ix-media">
+                        <div>
+                            <div class="ix-img">
+                                <div class="bw-slot" data-bw-slot="home-impact-1">
+                                    <div class="bw-slot__frame"><img data-bw-asset="impact1" alt="" decoding="async"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ix-body">
+                        <span class="ix-n"><span class="bw-i">01</span></span>
+                        <h3><span class="bw-i">Productive enterprise</span></h3>
+                        <p><span class="bw-i">Capital that reaches SMEs and entrepreneurs, and the employment they create.</span></p>
+                    </div>
+                </div>
+
+                <div class="ix-c" tabindex="0" role="button" aria-expanded="false" style="background: radial-gradient(70% 60% at 85% 15%, rgb(185, 143, 45) 0%, transparent 70%), radial-gradient(80% 70% at 15% 90%, rgb(29, 74, 84) 0%, transparent 70%), rgb(18, 48, 57);">
+                    <div class="ix-media">
+                        <div>
+                            <div class="ix-img">
+                                <div class="bw-slot" data-bw-slot="home-impact-2">
+                                    <div class="bw-slot__frame"><img data-bw-asset="impact2" alt="" decoding="async"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ix-body">
+                        <span class="ix-n"><span class="bw-i">02</span></span>
+                        <h3><span class="bw-i">Resilient trade and supply chains</span></h3>
+                        <p><span class="bw-i">Finance structured around how goods and services actually move, so working capital supports trade instead of holding it back.</span></p>
+                    </div>
+                </div>
+
+                <div class="ix-c" tabindex="0" role="button" aria-expanded="false" style="background: radial-gradient(70% 60% at 80% 10%, rgba(163, 217, 201, 0.75) 0%, transparent 70%), radial-gradient(80% 70% at 20% 90%, rgb(18, 131, 107) 0%, transparent 70%), rgb(13, 110, 89);">
+                    <div class="ix-media">
+                        <div>
+                            <div class="ix-img">
+                                <div class="bw-slot" data-bw-slot="home-impact-3">
+                                    <div class="bw-slot__frame"><img data-bw-asset="impact3" alt="" decoding="async"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ix-body">
+                        <span class="ix-n"><span class="bw-i">03</span></span>
+                        <h3><span class="bw-i">Regenerative business and sustainable infrastructure</span></h3>
+                        <p><span class="bw-i">Patient, long-term capital for productive assets, and for businesses that restore rather than deplete.</span></p>
+                    </div>
+                </div>
+
+                <div class="ix-c" tabindex="0" role="button" aria-expanded="false" style="background: radial-gradient(70% 60% at 20% 25%, rgb(61, 90, 128) 0%, transparent 70%), radial-gradient(80% 70% at 85% 85%, rgba(168, 189, 215, 0.6) 0%, transparent 70%), rgb(37, 59, 87);">
+                    <div class="ix-media">
+                        <div>
+                            <div class="ix-img">
+                                <div class="bw-slot" data-bw-slot="home-impact-4">
+                                    <div class="bw-slot__frame"><img data-bw-asset="impact4" alt="" decoding="async"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ix-body">
+                        <span class="ix-n"><span class="bw-i">04</span></span>
+                        <h3><span class="bw-i">Stronger regional economies</span></h3>
+                        <p><span class="bw-i">Capital that circulates in the communities where it is earned, supporting local resilience together with, where relevant, financial inclusion.</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="im-foot rv">
+                <div class="bw-note">
+                    <span>We will only report outcomes we can evidence. Our Impact and Outcomes methodology, setting out what we will measure and how, is in development and will be published here.</span>
+                </div>
+                <a class="bw-btn bw-btn--primary" href="#" data-bw-link="ecosystem">Explore Better World &amp; Impact <span class="bw-ar" aria-hidden="true">→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bw-sec ww-sec" id="bwci-audiences" data-screen-label="08 Who We Work With">
+        <div class="ww-band" aria-hidden="true"></div>
+        <div class="bw-wrap">
+            <div class="ww-img ww-hero rv">
+                <div class="bw-slot" data-bw-slot="home-who-photo">
+                    <div class="bw-slot__frame"><img data-bw-asset="whoPhoto" alt="" decoding="async"></div>
+                </div>
+                <div class="ww-fade" aria-hidden="true"></div>
+                <div class="bw-sec-head ww-head">
+                    <h2 class="bw-h1">Who we work with</h2>
+                    <p class="bw-lead">Whoever you are, the conversation starts in the same place: what you are trying to achieve.</p>
+                </div>
+            </div>
+
+            <div class="ww-grid">
+                <a class="ww rv" href="#" data-bw-link="smes" style="--d: 0;">
+                    <div class="ww-top">
+<span class="ww-ic" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="10" width="7" height="10"></rect>
+<rect x="14" y="5" width="7" height="15"></rect>
+</svg>
+</span>
+                    </div>
+                    <h3>Businesses and projects</h3>
+                    <p>
+                        <span class="bw-copy-desktop">For businesses and project sponsors with a specific need. Start with what you are trying to do; we’ll then look at the framework and capital that fit.</span>
+                        <span class="bw-copy-mobile">Start with what you are trying to do.</span>
+                    </p>
+                    <span class="ww-go">Start with your need<b aria-hidden="true">→</b></span>
                 </a>
-              
-                <a class="pk pk--build" href="#" data-bw-link="platformsDirectory" style="--d: 1; --c: var(--status-dev-mark);">
-                  <span class="pk-bar" aria-hidden="true"></span>
-                  <div class="pk-top"><span class="pk-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l2 3h14l2-3"></path><path d="M5 17V9h6v8"></path><path d="M11 12h8v5"></path><line x1="8" y1="5" x2="8" y2="9"></line></svg></span><span class="bw-badge bw-b-dev"><i></i><span class="bw-i">In development</span></span></div>
-                  <div class="pk-hd"><span class="pk-k"><span class="bw-i">Group build</span></span><h3><span class="bw-i">Trade Finance</span></h3></div>
-                  <div class="pk-more">
-                    <div class="pk-row"><span>Responsible entity</span><b><span class="bw-i">No operating entity yet</span></b></div>
-                    <div class="pk-st"><span class="pk-sl">Stage</span><div class="pk-steps"><span class="pk-s bw-done"><i></i><span class="bw-i">Proposed</span></span><span class="pk-s bw-cur"><i></i><span class="bw-i">In development</span></span><span class="pk-s"><i></i><span class="bw-i">Operating</span></span></div></div>
-                    <p class="pk-reg"><span class="bw-i">Not currently offered as a service.</span></p>
-                  </div>
-                  <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>
+
+                <a class="ww rv" href="#" data-bw-link="investors" style="--d: 1;">
+                    <div class="ww-top">
+<span class="ww-ic" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<path d="M4 12a8 8 0 0 1 14-5"></path>
+<polyline points="18 3 18 7 14 7"></polyline>
+<path d="M20 12a8 8 0 0 1-14 5"></path>
+<polyline points="6 21 6 17 10 17"></polyline>
+</svg>
+</span>
+                    </div>
+                    <h3>Investors and capital providers</h3>
+                    <p>
+                        <span class="bw-copy-desktop">For institutional investors, private investors and family offices, and other capital providers who want to understand how capital is intended to be structured and deployed across the platform.</span>
+                        <span class="bw-copy-mobile">How capital is intended to be structured and deployed.</span>
+                    </p>
+                    <span class="ww-go">Why participate<b aria-hidden="true">→</b></span>
                 </a>
-              
-                <a class="pk pk--pro" href="#" data-bw-link="platformsDirectory" style="--d: 2; --c: var(--status-pro-mark);">
-                  <span class="pk-bar" aria-hidden="true"></span>
-                  <div class="pk-top"><span class="pk-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"></path><line x1="5" y1="10" x2="5" y2="18"></line><line x1="10" y1="10" x2="10" y2="18"></line><line x1="14" y1="10" x2="14" y2="18"></line><line x1="19" y1="10" x2="19" y2="18"></line><line x1="3" y1="21" x2="21" y2="21"></line></svg></span><span class="bw-badge bw-b-pro"><i></i><span class="bw-i">Proposed</span></span></div>
-                  <div class="pk-hd"><span class="pk-k"><span class="bw-i">Proposed</span></span><h3><span class="bw-i">Community Banking</span></h3></div>
-                  <div class="pk-more">
-                    <div class="pk-row"><span>Responsible entity</span><b><span class="bw-i">Proposed institution, not yet established</span></b></div>
-                    <div class="pk-st"><span class="pk-sl">Stage</span><div class="pk-steps"><span class="pk-s bw-cur"><i></i><span class="bw-i">Proposed</span></span><span class="pk-s"><i></i><span class="bw-i">In development</span></span><span class="pk-s"><i></i><span class="bw-i">Operating</span></span></div></div>
-                    <p class="pk-reg"><span class="bw-i">Not authorised. Would require PRA authorisation and FCA and PRA regulation.</span></p>
-                  </div>
-                  <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>
+
+                <a class="ww rv" href="#" data-bw-link="investorsRoute" style="--d: 2;">
+                    <div class="ww-top">
+<span class="ww-ic" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<rect x="4" y="10" width="16" height="10" rx="1"></rect>
+<path d="M6 10V7l6-4 6 4v3"></path>
+</svg>
+</span>
+                    </div>
+                    <h3>Banks and financial institutions</h3>
+                    <p>
+                        <span class="bw-copy-desktop">For banks and lenders interested in working alongside BWCI on finance for productive businesses and projects.</span>
+                        <span class="bw-copy-mobile">Working alongside BWCI on finance for productive businesses.</span>
+                    </p>
+                    <span class="ww-go">Work with us<b aria-hidden="true">→</b></span>
                 </a>
-              
-                <a class="pk pk--build" href="#" data-bw-link="platformsDirectory" style="--d: 3; --c: var(--status-dev-mark);">
-                  <span class="pk-bar" aria-hidden="true"></span>
-                  <div class="pk-top"><span class="pk-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 14 15 20 8"></polyline><polyline points="15 8 20 8 20 13"></polyline></svg></span><span class="bw-badge bw-b-dev"><i></i><span class="bw-i">In development</span></span></div>
-                  <div class="pk-hd"><span class="pk-k"><span class="bw-i">Group build</span></span><h3><span class="bw-i">Private Capital</span></h3></div>
-                  <div class="pk-more">
-                    <div class="pk-row"><span>Responsible entity</span><b><span class="bw-i">No operating entity yet</span></b></div>
-                    <div class="pk-st"><span class="pk-sl">Stage</span><div class="pk-steps"><span class="pk-s bw-done"><i></i><span class="bw-i">Proposed</span></span><span class="pk-s bw-cur"><i></i><span class="bw-i">In development</span></span><span class="pk-s"><i></i><span class="bw-i">Operating</span></span></div></div>
-                    <p class="pk-reg"><span class="bw-i">Not currently offered as a service.</span></p>
-                  </div>
-                  <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>
+
+                <a class="ww rv" href="#" data-bw-link="investorsRoute" style="--d: 3;">
+                    <div class="ww-top">
+<span class="ww-ic" aria-hidden="true">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="8" cy="9" r="3"></circle>
+<circle cx="17" cy="9" r="3"></circle>
+<path d="M2 20c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5"></path>
+<path d="M12 20c0-3 2.2-5 5-5s5 2 5 5"></path>
+</svg>
+</span>
+                    </div>
+                    <h3>Strategic partners</h3>
+                    <p>
+                        <span class="bw-copy-desktop">For corporate and strategic-level partners whose capabilities, networks, or supply chains connect with productive businesses and projects.</span>
+                        <span class="bw-copy-mobile">Capabilities and networks that connect with productive businesses.</span>
+                    </p>
+                    <span class="ww-go">Partner with us<b aria-hidden="true">→</b></span>
                 </a>
-              
-                <a class="pk pk--tbc" href="#" data-bw-link="platformsDirectory" style="--d: 4; --c: var(--border-strong);">
-                  <span class="pk-bar" aria-hidden="true"></span>
-                  <div class="pk-top"><span class="pk-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"></ellipse><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"></path><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"></path></svg></span><span class="bw-badge bw-b-tbc"><i></i><span class="bw-i">Status to confirm</span></span></div>
-                  <div class="pk-hd"><span class="pk-k"><span class="bw-i">To be confirmed</span></span><h3><span class="bw-i">Treasury &amp; Liquidity</span></h3></div>
-                  <div class="pk-more">
-                    <div class="pk-row"><span>Responsible entity</span><b><span class="bw-i">To be confirmed</span></b></div>
-                    <div class="pk-st"><span class="pk-sl">Stage</span><div class="pk-steps"><span class="pk-s"><i></i><span class="bw-i">Proposed</span></span><span class="pk-s"><i></i><span class="bw-i">In development</span></span><span class="pk-s"><i></i><span class="bw-i">Operating</span></span></div></div>
-                    <p class="pk-reg"><span class="bw-i">Regulatory position to be confirmed.</span></p>
-                  </div>
-                  <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>
-                </a>
-              
-                <a class="pk pk--par" href="#" data-bw-link="platformsDirectory" style="--d: 5; --c: var(--rel-partner-mark);">
-                  <span class="pk-bar" aria-hidden="true"></span>
-                  <div class="pk-top"><span class="pk-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"></rect><rect x="10" y="10" width="4" height="4"></rect><line x1="9" y1="2" x2="9" y2="6"></line><line x1="15" y1="2" x2="15" y2="6"></line><line x1="9" y1="18" x2="9" y2="22"></line><line x1="15" y1="18" x2="15" y2="22"></line><line x1="2" y1="9" x2="6" y2="9"></line><line x1="2" y1="15" x2="6" y2="15"></line><line x1="18" y1="9" x2="22" y2="9"></line><line x1="18" y1="15" x2="22" y2="15"></line></svg></span><span class="bw-badge bw-b-par"><i></i><span class="bw-i">Partner capability</span></span></div>
-                  <div class="pk-hd"><span class="pk-k"><span class="bw-i">Partner capability</span></span><h3><span class="bw-i">Financial Technology</span></h3></div>
-                  <div class="pk-more">
-                    <div class="pk-row"><span>Responsible entity</span><b><span class="bw-i">Independent partner, named at engagement</span></b></div>
-                    <div class="pk-st"><span class="pk-sl">Stage</span><div class="pk-steps"><span class="pk-s"><i></i><span class="bw-i">Proposed</span></span><span class="pk-s"><i></i><span class="bw-i">In development</span></span><span class="pk-s bw-cur"><i></i><span class="bw-i">Operating</span></span></div></div>
-                    <p class="pk-reg"><span class="bw-i">Provided by the partner entity under its own terms.</span></p>
-                  </div>
-                  <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>
-                </a>
-              
             </div>
-            <div class="pf-rel"><span>Top bar:</span>
-              <span class="bw-sw"><i class="bw-swb" style="background: var(--brand-ink);"></i>Group company</span>
-              <span class="bw-sw"><i class="bw-swb" style="background: var(--border-strong);"></i>Group build</span>
-              <span class="bw-sw"><i class="bw-swb" style="background: repeating-linear-gradient(90deg,var(--rel-partner-mark) 0 6px,transparent 6px 9px);"></i>Partner</span>
-              <span class="bw-sw"><i class="bw-swb" style="background: repeating-linear-gradient(90deg,var(--border-strong) 0 3px,transparent 3px 6px);"></i>Proposed</span>
+
+            <div class="ww-also rv">
+                <div class="bw-tags">
+                    <span style="padding: 0px; border: 0px; background: none; font-weight: 600;">Also:</span>
+                    <span>Family Offices</span>
+                    <span>Institutional</span>
+                    <span>Impact</span>
+                    <span>DFIs</span>
+                    <span>PE &amp; Co-investment</span>
+                    <span>Technology partners</span>
+                </div>
+                <a href="#" data-bw-link="investorsRoute">All audiences →</a>
             </div>
-          </div>
         </div>
-        <aside class="pfx-side">
-          <div class="pfx-sum">
-            <div><b><span class="bw-i">06</span></b><span><span class="bw-i">Shown in this view</span></span></div>
-            <div><b>06</b><span>Platforms &amp; institutions in total</span></div>
-          </div>
-          <div class="pfx-dark">
-            <b>As at September 2026</b>
-            <p>Every status is dated and reviewed as platforms progress. * Entity identity verified; scope of activities and regulatory permissions remain subject to verification.</p>
-            <a class="bw-link bw-link--inv" href="#" data-bw-link="platforms">See all platforms <span class="bw-ar" aria-hidden="true">→</span></a>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  
-  <section class="bw-sec" id="bwci-impact" data-screen-label="07 Better World / Impact">
-    <div class="bw-wrap">
-      <div class="im-head">
-        <div class="bw-left rv"><span class="bw-eyebrow">Better World</span><h2 class="bw-h1">What “Better World” means in practice</h2></div>
-        <p class="bw-lead rv" style="--d: 1;">Most financial organisations treat impact as a filter, applied after capital has already been allocated. Our approach starts earlier. At BWCI, the outcomes we intend to support shape how capital is structured, owned and deployed.</p>
-      </div>
-      <div class="im-quote rv">
-        <blockquote>“Impact should influence the <em>architecture of capital</em> itself.”</blockquote>
-        <p>That means designing investment structures, ownership and capital flows around long-term productive outcomes, not adding them as an afterthought.</p>
-      </div>
-      <div class="ix rv">
-        
-          <div class="ix-c bw-on" tabindex="0" role="button" aria-expanded="true" style="background: radial-gradient(70% 60% at 20% 20%, rgb(29, 74, 84) 0%, transparent 70%), radial-gradient(80% 70% at 85% 90%, rgb(18, 131, 107) 0%, transparent 70%), rgb(18, 48, 57);">
-            <div class="ix-media"><div><div class="ix-img"><div class="bw-slot" data-bw-slot="home-impact-1"><div class="bw-slot__frame"><img data-bw-asset="impact1" alt="" decoding="async"></div></div></div></div></div>
-            <div class="ix-body">
-              <span class="ix-n"><span class="bw-i">01</span></span>
-              <h3><span class="bw-i">Productive enterprise</span></h3>
-              <p><span class="bw-i">Capital that reaches SMEs and entrepreneurs, supporting the businesses that create employment.</span></p>
+    <section class="bw-sec" id="bwci-leadership" data-screen-label="09 Leadership &amp; Governance">
+        <div class="pat-grid" aria-hidden="true"></div>
+        <div class="bw-wrap">
+            <div class="bw-sec-head rv">
+                <span class="bw-eyebrow">Leadership &amp; Governance</span>
+                <h2 class="bw-h1">Leadership and governance</h2>
             </div>
-          </div>
-        
-          <div class="ix-c" tabindex="0" role="button" aria-expanded="false" style="background: radial-gradient(70% 60% at 85% 15%, rgb(185, 143, 45) 0%, transparent 70%), radial-gradient(80% 70% at 15% 90%, rgb(29, 74, 84) 0%, transparent 70%), rgb(18, 48, 57);">
-            <div class="ix-media"><div><div class="ix-img"><div class="bw-slot" data-bw-slot="home-impact-2"><div class="bw-slot__frame"><img data-bw-asset="impact2" alt="" decoding="async"></div></div></div></div></div>
-            <div class="ix-body">
-              <span class="ix-n"><span class="bw-i">02</span></span>
-              <h3><span class="bw-i">Resilient trade and supply chains</span></h3>
-              <p><span class="bw-i">Finance structured around how goods and services actually move, so working capital doesn’t become a bottleneck.</span></p>
-            </div>
-          </div>
-        
-          <div class="ix-c" tabindex="0" role="button" aria-expanded="false" style="background: radial-gradient(70% 60% at 80% 10%, rgba(163, 217, 201, 0.75) 0%, transparent 70%), radial-gradient(80% 70% at 20% 90%, rgb(18, 131, 107) 0%, transparent 70%), rgb(13, 110, 89);">
-            <div class="ix-media"><div><div class="ix-img"><div class="bw-slot" data-bw-slot="home-impact-3"><div class="bw-slot__frame"><img data-bw-asset="impact3" alt="" decoding="async"></div></div></div></div></div>
-            <div class="ix-body">
-              <span class="ix-n"><span class="bw-i">03</span></span>
-              <h3><span class="bw-i">Sustainable infrastructure and regenerative business</span></h3>
-              <p><span class="bw-i">Patient, long-term capital for productive assets and businesses that restore rather than deplete.</span></p>
-            </div>
-          </div>
-        
-          <div class="ix-c" tabindex="0" role="button" aria-expanded="false" style="background: radial-gradient(70% 60% at 20% 25%, rgb(61, 90, 128) 0%, transparent 70%), radial-gradient(80% 70% at 85% 85%, rgba(168, 189, 215, 0.6) 0%, transparent 70%), rgb(37, 59, 87);">
-            <div class="ix-media"><div><div class="ix-img"><div class="bw-slot" data-bw-slot="home-impact-4"><div class="bw-slot__frame"><img data-bw-asset="impact4" alt="" decoding="async"></div></div></div></div></div>
-            <div class="ix-body">
-              <span class="ix-n"><span class="bw-i">04</span></span>
-              <h3><span class="bw-i">Stronger local economies</span></h3>
-              <p><span class="bw-i">Capital that circulates in the communities where it is earned, supporting local resilience and, where relevant, financial inclusion.</span></p>
-            </div>
-          </div>
-        
-      </div>
-      <div class="im-foot rv">
-        <div class="bw-note"><span>We only report outcomes we can evidence. Our Impact &amp; Outcomes methodology sets out what we intend to measure and how.</span><span class="bw-badge bw-b-dev"><i></i>In development</span></div>
-        <a class="bw-btn bw-btn--primary" href="#" data-bw-link="ecosystem">Explore Better World &amp; Impact <span class="bw-ar" aria-hidden="true">→</span></a>
-      </div>
-    </div>
-  </section>
+            <div class="bw-ld">
+                <div>
+                    <div class="ld-k rv">Leadership</div>
+                    <div class="ld-grid">
+                        <a class="ld-p rv" href="#" data-bw-link="profileAlexanderAlegriaSaif" style="--d: 0;">
+                            <div class="ld-img">
+                                <img data-bw-asset="leaderAlexander" alt="" loading="lazy" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;">
+                                <div class="ld-ov"><span>View profile →</span></div>
+                            </div>
+                            <div class="ld-t"><b>Alexander Alegria-Seif</b><span>Chairman</span></div>
+                        </a>
 
-  
-  <section class="bw-sec ww-sec" id="bwci-audiences" data-screen-label="08 Who We Work With">
-    <div class="ww-band" aria-hidden="true"></div>
-    <div class="bw-wrap">
-      <div class="ww-img ww-hero rv"><div class="bw-slot" data-bw-slot="home-who-photo"><div class="bw-slot__frame"><img data-bw-asset="whoPhoto" alt="" decoding="async"></div></div><div class="ww-fade" aria-hidden="true"></div><div class="bw-sec-head ww-head"><h2 class="bw-h1">Who we work with</h2><p class="bw-lead">Choose the group closest to you to see how you can take part.</p></div></div>
-      <div class="ww-grid">
-        <a class="ww rv" href="#" data-bw-link="smes" style="--d: 0;"><div class="ww-top"><span class="ww-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="7" height="10"></rect><rect x="14" y="5" width="7" height="15"></rect></svg></span></div><h3>SMEs &amp; Projects</h3><p>Businesses and projects looking for capital structured around how they actually work.</p><span class="ww-go">Start with your need<b aria-hidden="true">→</b></span></a>
-        <a class="ww rv" href="#" data-bw-link="investors" style="--d: 1;"><div class="ww-top"><span class="ww-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5"></path><polyline points="18 3 18 7 14 7"></polyline><path d="M20 12a8 8 0 0 1-14 5"></path><polyline points="6 21 6 17 10 17"></polyline></svg></span></div><h3>Investors &amp; Capital Providers</h3><p>Institutional, wholesale and impact capital looking for pathways into the real economy.</p><span class="ww-go">Why participate<b aria-hidden="true">→</b></span></a>
-        <a class="ww rv" href="#" data-bw-link="investorsRoute" style="--d: 2;"><div class="ww-top"><span class="ww-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="1"></rect><path d="M6 10V7l6-4 6 4v3"></path></svg></span></div><h3>Banks &amp; Lenders</h3><p>Banks and regulated lenders exploring co-financing, referrals or structured collaboration.</p><span class="ww-go">Work with us<b aria-hidden="true">→</b></span></a>
-        <a class="ww rv" href="#" data-bw-link="investorsRoute" style="--d: 3;"><div class="ww-top"><span class="ww-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="3"></circle><circle cx="17" cy="9" r="3"></circle><path d="M2 20c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5"></path><path d="M12 20c0-3 2.2-5 5-5s5 2 5 5"></path></svg></span></div><h3>Strategic Corporate Partners</h3><p>Organisations bringing technology, infrastructure, distribution or specialist expertise.</p><span class="ww-go">Partner with us<b aria-hidden="true">→</b></span></a>
-      </div>
-      <div class="ww-also rv"><div class="bw-tags"><span style="padding: 0px; border: 0px; background: none; font-weight: 600;">Also:</span><span>Family Offices</span><span>Institutional</span><span>Impact</span><span>DFIs</span><span>PE &amp; Co-investment</span><span>Technology partners</span></div><a href="#" data-bw-link="investorsRoute">All audiences →</a></div>
-    </div>
-  </section>
+                        <a class="ld-p rv" href="#" data-bw-link="profileFarhadReyazat" style="--d: 1;">
+                            <div class="ld-img">
+                                <img data-bw-asset="leaderFarhad" alt="" loading="lazy" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;">
+                                <div class="ld-ov"><span>View profile →</span></div>
+                            </div>
+                            <div class="ld-t"><b>Dr Farhad Reyazat</b><span>Founder &amp; Chief Executive Officer</span></div>
+                        </a>
 
-  
-  <section class="bw-sec" id="bwci-leadership" data-screen-label="09 Leadership &amp; Governance">
-    <div class="pat-grid" aria-hidden="true"></div>
-    <div class="bw-wrap">
-      <div class="bw-sec-head rv"><h2 class="bw-h1">Accountable people. Clear oversight.</h2></div>
-      <div class="bw-ld">
-        <div>
-          <div class="ld-k rv">Leadership</div>
-          <div class="ld-grid">
-            <a class="ld-p rv" href="#" data-bw-link="leadership" style="--d: 0;"><div class="ld-img"><img data-bw-asset="leaderAlexander" alt="Alexander Alegria Saif" loading="lazy" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;"><div class="ld-ov"><span>View profile →</span></div></div><div class="ld-t"><b>Alexander Alegria Saif</b><span>Chairman</span></div></a>
-            <a class="ld-p rv" href="#" data-bw-link="leadership" style="--d: 1;"><div class="ld-img"><img data-bw-asset="leaderFarhad" alt="Farhad Reyazat" loading="lazy" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;"><div class="ld-ov"><span>View profile →</span></div></div><div class="ld-t"><b>Farhad Reyazat</b><span>Founder &amp; CEO</span></div></a>
-            <a class="ld-p rv" href="#" data-bw-link="leadership" style="--d: 2;"><div class="ld-img"><img data-bw-asset="leaderGabriela" alt="Gabriela Karlova" loading="lazy" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;"><div class="ld-ov"><span>View profile →</span></div></div><div class="ld-t"><b>Gabriela Karlova</b><span>Director</span></div></a>
-          </div>
-          <div class="ld-more rv"><a class="bw-link" href="#" data-bw-link="leadership">Meet our leadership <span class="bw-ar" aria-hidden="true">→</span></a></div>
+                        <a class="ld-p rv" href="#" data-bw-link="profileGabriellaKarlova" style="--d: 2;">
+                            <div class="ld-img">
+                                <img data-bw-asset="leaderGabriela" alt="" loading="lazy" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;">
+                                <div class="ld-ov"><span>View profile →</span></div>
+                            </div>
+                            <div class="ld-t"><b>Gabriela Karlova</b><span>Director</span></div>
+                        </a>
+                    </div>
+
+                    <div class="ld-more rv">
+                        <a class="bw-link" href="#" data-bw-link="leadership">Meet our leadership <span class="bw-ar" aria-hidden="true">→</span></a>
+                    </div>
+                </div>
+
+                <div class="bw-gv rv" style="--d: 2;">
+                    <div class="ld-k">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path>
+                        </svg>
+                        Governance
+                    </div>
+                    <h3>How we are governed</h3>
+                    <p>Clear lines of accountability matter to everyone who works with us. Our governance pages set out the role of the Board, our leadership team, and where the holding company ends and regulated activity begins.</p>
+                    <ul>
+                        <li><a href="#" data-bw-link="governanceBoard">Board of Directors<span class="bw-ar" aria-hidden="true">→</span></a></li>
+                        <li><a href="#" data-bw-link="leadership">Leadership<span class="bw-ar" aria-hidden="true">→</span></a></li>
+                        <li><a href="#" data-bw-link="governancePerimeter">Regulated and non-regulated activity<span class="bw-ar" aria-hidden="true">→</span></a></li>
+                        <li><a href="#" data-bw-link="governance">Governance framework<span class="bw-ar" aria-hidden="true">→</span></a></li>
+                    </ul>
+                    <a class="bw-link bw-link--inv" href="#" data-bw-link="governance">How we’re governed <span class="bw-ar" aria-hidden="true">→</span></a>
+                </div>
+            </div>
         </div>
-        <div class="bw-gv rv" style="--d: 2;">
-          <div class="ld-k"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"></path></svg>Governance</div>
-          <h3>How decisions are made, overseen and kept separate.</h3>
-          <ul><li><a href="#" data-bw-link="governanceBoard">Board of Directors<span class="bw-ar" aria-hidden="true">→</span></a></li><li><a href="#" data-bw-link="governanceCommittees">Board oversight &amp; committees<span class="bw-ar" aria-hidden="true">→</span></a></li><li><a href="#" data-bw-link="governanceCapital">Capital-allocation governance<span class="bw-ar" aria-hidden="true">→</span></a></li><li><a href="#" data-bw-link="governanceRisk">Risk, compliance &amp; conflicts<span class="bw-ar" aria-hidden="true">→</span></a></li><li><a href="#" data-bw-link="governancePerimeter">Regulated vs non-regulated activity<span class="bw-ar" aria-hidden="true">→</span></a></li></ul>
-          <a class="bw-link bw-link--inv" href="#" data-bw-link="governance">How we’re governed <span class="bw-ar" aria-hidden="true">→</span></a>
+    </section>
+
+    <section class="bw-cta" id="bwci-cta" data-screen-label="12 Final CTA">
+        <div class="bw-wrap">
+            <h2 class="bw-h1 rv">Start the right conversation.</h2>
+            <p class="bw-lead rv" style="--d: 1;">Tell us a little about who you are and what you need. Your enquiry goes to the person best placed to help, and they will come back to you directly.</p>
+            <div class="bw-cta-grid">
+                <a class="bw-route rv" href="#" data-bw-link="smesEngage" style="--d: 2;">I run a business or project <span class="bw-ar" aria-hidden="true">→</span></a>
+                <a class="bw-route rv" href="#" data-bw-link="investorsEngage" style="--d: 3;">I invest or provide capital <span class="bw-ar" aria-hidden="true">→</span></a>
+                <a class="bw-route rv" href="#" data-bw-link="investorsRoute" style="--d: 4;">I represent a bank or financial institution <span class="bw-ar" aria-hidden="true">→</span></a>
+                <a class="bw-route rv" href="#" data-bw-link="investorsRoute" style="--d: 5;">I am a strategic partner <span class="bw-ar" aria-hidden="true">→</span></a>
+            </div>
+            <div class="bw-cta-small rv">
+                <span>Corporate / investor information: <a href="#" data-bw-link="corporateIR">Corporate/IR</a></span>
+                <span>Received a message from us? <a href="#" data-bw-link="verify">Verify a Communication</a></span>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  
-  <section class="bw-sec bw-sec--subtle" id="bwci-today" data-screen-label="10 The Platform Today">
-    <div class="pat-dots" aria-hidden="true"></div>
-    <div class="bw-wrap">
-      <div class="bw-sec-head rv"><h2 class="bw-h1">What operates today, and what we’re building</h2><p class="bw-lead">Three stages, read left to right: what exists now, what is being built next, and what is planned for later.</p></div>
-      <div class="bw-pt">
-        <div class="pt-line" aria-hidden="true"></div>
-        <div class="pt-c pt-c--op rv" style="--d: 0;"><div class="pt-stage"><span class="pt-dot">01</span><div><small>Now</small><h3>Operating today</h3></div></div>
-          <div class="pt-box"><a class="pt-i" href="#" data-bw-link="platformsDirectory"><i style="background: var(--status-op-mark);"></i><b>Providence Asset Management Ltd*</b><span>Group company</span><span class="bw-ar" aria-hidden="true">→</span></a><a class="pt-i" href="#" data-bw-link="platformsDirectory"><i style="background: var(--rel-partner-mark);"></i><b>Partner capabilities</b><span>Independent, authorised partner institutions</span><span class="bw-ar" aria-hidden="true">→</span></a></div></div>
-        <div class="pt-c pt-c--dev rv" style="--d: 1;"><div class="pt-stage"><span class="pt-dot">02</span><div><small>Next</small><h3>Being developed</h3></div></div>
-          <div class="pt-box"><a class="pt-i" href="#" data-bw-link="platformsDirectory"><i style="background: var(--status-dev-mark);"></i><b>Private Capital Platform</b><span>Group build</span><span class="bw-ar" aria-hidden="true">→</span></a><a class="pt-i" href="#" data-bw-link="platformsDirectory"><i style="background: var(--status-dev-mark);"></i><b>Trade Finance Platform</b><span>Group build</span><span class="bw-ar" aria-hidden="true">→</span></a><a class="pt-i" href="#" data-bw-link="platformsDirectory"><i style="background: var(--status-dev-mark);"></i><b>Financial Infrastructure</b><span>Enabling layer</span><span class="bw-ar" aria-hidden="true">→</span></a></div></div>
-        <div class="pt-c pt-c--road rv" style="--d: 2;"><div class="pt-stage"><span class="pt-dot">03</span><div><small>Later</small><h3>Long-term roadmap</h3></div></div>
-          <div class="pt-box"><a class="pt-i" href="#" data-bw-link="platformsDirectory"><i style="border: 1.5px solid var(--status-pro-mark);"></i><b>Community Banking Institution</b><span>Proposed, subject to authorisation</span><span class="bw-ar" aria-hidden="true">→</span></a></div></div>
-      </div>
-      <div class="pt-foot rv">
-        <p>As at September 2026. Statuses are reviewed as platforms progress.</p>
-        <a class="bw-btn bw-btn--secondary" href="#" data-bw-link="platformsRegisters">See the platform today <span class="bw-ar" aria-hidden="true">→</span></a>
-      </div>
-    </div>
-  </section>
-
-
-  
-  <section class="bw-cta" id="bwci-cta" data-screen-label="12 Final CTA">
-    <div class="bw-wrap">
-      <h2 class="bw-h1 rv">Start the right conversation.</h2>
-      <p class="bw-lead rv" style="--d: 1;">Tell us who you are and we’ll route you to the right team.</p>
-      <div class="bw-cta-grid">
-        <a class="bw-route rv" href="#" data-bw-link="smesEngage" style="--d: 2;">I’m an SME or Project <span class="bw-ar" aria-hidden="true">→</span></a>
-        <a class="bw-route rv" href="#" data-bw-link="investorsEngage" style="--d: 3;">I’m an Investor or Capital Provider <span class="bw-ar" aria-hidden="true">→</span></a>
-        <a class="bw-route rv" href="#" data-bw-link="investorsRoute" style="--d: 4;">I’m a Bank / Financial Institution <span class="bw-ar" aria-hidden="true">→</span></a>
-        <a class="bw-route rv" href="#" data-bw-link="investorsRoute" style="--d: 5;">I’m a Strategic Partner <span class="bw-ar" aria-hidden="true">→</span></a>
-      </div>
-      <div class="bw-cta-small rv"><span>Corporate / investor information: <a href="#" data-bw-link="corporateIR">Corporate/IR</a></span><span>Received a message from us? <a href="#" data-bw-link="verify">Verify a Communication</a></span></div>
-    </div>
-  </section>
+    </section>
 
 </div>
 
@@ -1278,6 +1758,11 @@
 
   /* ======================= BEHAVIOUR (source values) ======================= */
   var OPTIONS = {
+    whyMq: '(max-width:899px)',  // "Why now" bridge: below this the lines run vertically between stacked panels
+    whyStart: 0.88,               // build progress 0 → 1 while the bridge's top moves from 88 % of the viewport...
+    whyTravel: 0.26,              // ...over its own height plus 26 % of the viewport; it never goes back
+    whyKick: 600,                 // ms after load: one more progress check
+    whyCleanup: 450,              // ms after completion: the scroll-linked state is removed
     revealMargin: '0px 0px -8% 0px', // .rv reveal: IntersectionObserver rootMargin / threshold
     revealThreshold: 0.08,
     engRevealMin: 1024,   // >= this width, picking a step scrolls the detail card fully into view
@@ -1297,33 +1782,24 @@
   /* VIEW:start — data and markup of the parts the script re-renders (source text/x-dc). The default
      markup in the page was generated from this part, so the static HTML and the script agree; edit both together. */
   var STEPS = [
-    ['Economic Need', 'A real business or project need is identified and understood: its cash flows, contracts and constraints.', 'A regional food manufacturer wins a large export order. It needs working capital to buy inputs now, but the buyer pays in 120 days.'],
-    ['Financial Architecture', 'A structure is designed around the need, with terms, timing and repayment matched to how the activity earns.', 'The facility is sized to the order and repaid from the buyer’s payment, rather than through a standard term loan.'],
-    ['Appropriate Institution / Delivery Capability', 'The structure is matched to the platform, group company or authorised partner able to deliver it.', 'Delivery sits with the entity that holds the relevant capability and, where needed, the regulatory permission.'],
-    ['Capital', 'Capital whose mandate fits the structure, risk and tenor is connected through the appropriate authorised vehicle.', 'Capital providers looking for short-tenor, trade-linked exposure are matched to the facility.'],
-    ['Productive Economic Activity', 'Capital reaches the underlying activity and is put to productive use.', 'The manufacturer buys its inputs, fulfils the order and keeps its workforce and suppliers busy.'],
-    ['Performance / Learning / Reinvestment', 'Performance is tracked, returns flow back, and what was learned informs the next structure.', 'The buyer pays, the facility is repaid, and the engagement informs how the next order is structured.']
+    ['Economic Need', 'We start with what an organization or project needs to grow, operate, or invest before considering any financial product.'],
+    ['Financial Architecture', 'We then design the financial structure around that need: the form, terms, and capital ownership that fit the activity.'],
+    ['Appropriate Institution / Delivery Capability', 'Next, we identify the institution or delivery capability best placed to provide that system, within the platform or through a partner.'],
+    ['Capital', 'Capital is then matched to the structure, from sources whose terms and time horizon suit the activity.'],
+    ['Productive Economic Activity', 'The capital is put to work in productive activity: the business operates, trades, employs, and builds.'],
+    ['Performance / Learning / Reinvestment', 'Performance is reviewed, lessons are recorded, and capital and insight are reinvested to meet the next need.']
   ];
   var SH = [['Need', 'Economic Need'], ['Architecture', 'Financial Architecture'], ['Institution', 'Appropriate Institution / Delivery Capability'], ['Capital', ''], ['Activity', 'Productive Economic Activity'], ['Reinvestment', 'Performance / Learning / Reinvestment']];
   var P = [
-    { v: 'own', name: 'Asset Management', entity: 'Providence Asset Management Ltd*', rel: 'Group company', b: 'op', status: 'Operating', reg: 'Regulated activity is carried out by the entity, within its own permissions.' },
-    { v: 'build', name: 'Trade Finance', entity: 'No operating entity yet', rel: 'Group build', b: 'dev', status: 'In development', reg: 'Not currently offered as a service.' },
-    { v: 'pro', name: 'Community Banking', entity: 'Proposed institution, not yet established', rel: 'Proposed', b: 'pro', status: 'Proposed', reg: 'Not authorised. Would require PRA authorisation and FCA and PRA regulation.' },
-    { v: 'build', name: 'Private Capital', entity: 'No operating entity yet', rel: 'Group build', b: 'dev', status: 'In development', reg: 'Not currently offered as a service.' },
-    { v: 'tbc', name: 'Treasury & Liquidity', entity: 'To be confirmed', rel: 'To be confirmed', b: 'tbc', status: 'Status to confirm', reg: 'Regulatory position to be confirmed.' },
-    { v: 'par', name: 'Financial Technology', entity: 'Independent partner, named at engagement', rel: 'Partner capability', b: 'par', status: 'Partner capability', reg: 'Provided by the partner entity under its own terms.' }
+    { name: 'Providence Asset Management', b: 'op', reg: 'The group’s asset management company. Any investment management is carried out by this entity, within its regulatory permissions.' },
+    { name: 'Strategic Partner Capabilities', b: 'op', reg: 'Specialist financial, technical and operational capabilities provided by independent, authorised partner institutions.' },
+    { name: 'Private Capital Platform', b: 'dev', reg: 'Being designed to structure private debt and growth capital for established businesses.' },
+    { name: 'Trade Finance Platform', b: 'dev', reg: 'Designed to support trade flows and the working capital needs of productive businesses.' },
+    { name: 'Financial Infrastructure', b: 'dev', reg: 'Long-term financial infrastructure serving productive economic activity.' }
   ];
-  var IC = {
-    'Asset Management': '<path d="M12 3v9h9"></path><path d="M20.5 15A9 9 0 1 1 9 3.5"></path>',
-    'Trade Finance': '<path d="M3 17l2 3h14l2-3"></path><path d="M5 17V9h6v8"></path><path d="M11 12h8v5"></path><line x1="8" y1="5" x2="8" y2="9"></line>',
-    'Community Banking': '<path d="M3 10l9-6 9 6"></path><line x1="5" y1="10" x2="5" y2="18"></line><line x1="10" y1="10" x2="10" y2="18"></line><line x1="14" y1="10" x2="14" y2="18"></line><line x1="19" y1="10" x2="19" y2="18"></line><line x1="3" y1="21" x2="21" y2="21"></line>',
-    'Private Capital': '<polyline points="4 17 10 11 14 15 20 8"></polyline><polyline points="15 8 20 8 20 13"></polyline>',
-    'Treasury & Liquidity': '<ellipse cx="12" cy="6" rx="7" ry="3"></ellipse><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"></path><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"></path>',
-    'Financial Technology': '<rect x="6" y="6" width="12" height="12" rx="2"></rect><rect x="10" y="10" width="4" height="4"></rect><line x1="9" y1="2" x2="9" y2="6"></line><line x1="15" y1="2" x2="15" y2="6"></line><line x1="9" y1="18" x2="9" y2="22"></line><line x1="15" y1="18" x2="15" y2="22"></line><line x1="2" y1="9" x2="6" y2="9"></line><line x1="2" y1="15" x2="6" y2="15"></line><line x1="18" y1="9" x2="22" y2="9"></line><line x1="18" y1="15" x2="22" y2="15"></line>'
-  };
-  var STG = { op: 2, dev: 1, pro: 0, par: -1, tbc: -2 };
-  var STAGE_C = { op: 'var(--status-op-mark)', dev: 'var(--status-dev-mark)', pro: 'var(--status-pro-mark)', par: 'var(--rel-partner-mark)', tbc: 'var(--border-strong)' };
-  var FIL = [['all', 'All', 'var(--brand-ink)'], ['op', 'Operating', 'var(--status-op-mark)'], ['dev', 'In development', 'var(--status-dev-mark)'], ['pro', 'Proposed', 'var(--status-pro-mark)'], ['par', 'Partner capability', 'var(--rel-partner-mark)']];
+  var STAGE_C = { op: 'var(--status-op-mark)', dev: 'var(--status-dev-mark)' };
+  var STATUS = { op: 'Operating now', dev: 'In development' };
+  var FIL = [['all', 'All', 'var(--brand-ink)'], ['op', 'Operating now', 'var(--status-op-mark)'], ['dev', 'In development', 'var(--status-dev-mark)']];
   var FACTS = [['What we are', 'A UK holding company (PLC)'], ['What we do', 'Structure and connect capital to productive enterprise'], ['Where we sit', 'Between capital providers and operating entities'], ['Why the engine', 'To start from the business need, then match the capital']];
 
   function esc(s) {
@@ -1336,7 +1812,7 @@
   var VIEW = {
     progress: function (cur) { return String(cur / (STEPS.length - 1)); },
     nodeCls: function (i, cur) { return 'lp-n' + (i === cur ? ' is-on' : i < cur ? ' is-past' : ''); },
-    ex: function (st) { return '<div class="lpd-ex"><span class="bw-badge bw-b-dev"><i></i>Illustrative example</span><span>' + ip(st[2]) + '</span></div>'; },
+    ex: function () { return ''; }, // the owner's page has no illustrative examples
     engNodes: function (cur) {
       return '\n            ' + STEPS.map(function (st, i) {
         var n = pad2(i + 1), on = i === cur;
@@ -1363,23 +1839,14 @@
         return '\n              \n                <button class="pf-tab' + (on ? ' bw-on' : '') + '" type="button" role="tab" aria-selected="' + on + '" data-bw-pf="' + f[0] + '"><i style="background: ' + f[2] + ';"></i>' + ip(f[1]) + '<em>' + ip(String(count)) + '</em></button>';
       }).join('') + '\n              \n            ';
     },
-    cardCls: function (p) { return 'pk pk--' + p.v; },
+    cardCls: function () { return 'pk pk--build'; },
     cardStyle: function (p, i) { return '--d: ' + i + '; --c: ' + STAGE_C[p.b] + ';'; },
     cardInner: function (p) {
-      var lv = STG[p.b];
-      var steps = ['Proposed', 'In development', 'Operating'].map(function (l, j) {
-        var c = lv >= 0 ? (j < lv ? ' bw-done' : j === lv ? ' bw-cur' : '') : (p.b === 'par' && j === 2 ? ' bw-cur' : '');
-        return '<span class="pk-s' + c + '"><i></i>' + ip(l) + '</span>';
-      }).join('');
-      return '\n                  <span class="pk-bar" aria-hidden="true"></span>\n' +
-        '                  <div class="pk-top"><span class="pk-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' + (IC[p.name] || '') + '</svg></span><span class="bw-badge bw-b-' + p.b + '"><i></i>' + ip(p.status) + '</span></div>\n' +
-        '                  <div class="pk-hd"><span class="pk-k">' + ip(p.rel) + '</span><h3>' + ip(p.name) + '</h3></div>\n' +
-        '                  <div class="pk-more">\n' +
-        '                    <div class="pk-row"><span>Responsible entity</span><b>' + ip(p.entity) + '</b></div>\n' +
-        '                    <div class="pk-st"><span class="pk-sl">Stage</span><div class="pk-steps">' + steps + '</div></div>\n' +
-        '                    <p class="pk-reg">' + ip(p.reg) + '</p>\n' +
-        '                  </div>\n' +
-        '                  <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>\n                ';
+      return '\n                                <span class="pk-bar" aria-hidden="true"></span>\n' +
+        '                                <div class="pk-top"><span class="bw-badge bw-b-' + p.b + '"><i></i>' + ip(STATUS[p.b]) + '</span></div>\n' +
+        '                                <div class="pk-hd"><h3>' + ip(p.name) + '</h3></div>\n' +
+        '                                <div class="pk-more"><p class="pk-reg">' + ip(p.reg) + '</p></div>\n' +
+        '                                <span class="pk-go">View in directory <span class="bw-ar" aria-hidden="true">→</span></span>\n                            ';
     },
     card: function (p, i, href) {
       return '<a class="' + VIEW.cardCls(p) + '" href="' + esc(href) + '" data-bw-link="platformsDirectory" style="' + VIEW.cardStyle(p, i) + '">' + VIEW.cardInner(p) + '</a>';
@@ -1390,8 +1857,7 @@
     shownCount: function (pf) { return pad2(shown(pf).length); },
     shownLabel: function (pf) {
       if (pf === 'all') return 'Shown in this view';
-      var f = FIL.filter(function (x) { return x[0] === pf; })[0];
-      return f[1] + (shown(pf).length === 1 ? ' platform' : ' platforms');
+      return pf === 'op' ? 'Parts operating now' : 'Parts in development';
     }
   };
   /* VIEW:end */
@@ -1894,6 +2360,68 @@
       observers.push(rvIO);
     }
 
+    /* ================= 02 · WHY NOW, WHY US (design export 04715d6) =================
+       Source prop whyFlags (default true): the "Awaiting sign-off" / "Verify figure" / "Legal check" badges; only a
+       boolean false hides them. The bridge (source initBridge): the connecting curves are drawn to the layout's real
+       pixel size (redrawn on resize), and the panels, lines and core build with the scroll, forward only; once complete,
+       pulses run along the lines and the core glows once. With reduced motion everything is shown at once. A copied
+       live root starts from the source's initial state. */
+    qa('[data-bw-why-flag]').forEach(function (el) { el.hidden = cfg.showWhyFlags === false; });
+    var br = q('.wy-br');
+    if (br) {
+      (function () {
+        br.classList.remove('is-geo', 'is-done', 'wy-live');
+        br.style.removeProperty('--p');
+        var mq = window.matchMedia ? window.matchMedia(OPTIONS.whyMq) : { matches: false };
+        function A(el, o) { if (el) Object.keys(o).forEach(function (k) { el.setAttribute(k, o[k]); }); }
+        function geo() {
+          var mob = mq.matches;
+          Array.prototype.forEach.call(br.querySelectorAll('.wy-flow svg'), function (sv) {
+            var w = sv.clientWidth, h = sv.clientHeight; if (!w || !h) return;
+            var R = sv.parentNode.classList.contains('wy-flow--r');
+            A(sv, { viewBox: '0 0 ' + w + ' ' + h, preserveAspectRatio: 'xMidYMid meet' });
+            var c = h / 2, k = w * 0.56, ys = [h / 6, c, h * 5 / 6];
+            var ds = mob ? ['M' + (w / 2) + ' 0V' + h, 'M0 0', 'M0 0'] : ys.map(function (y) {
+              return R ? 'M0 ' + c + 'C' + k + ' ' + c + ' ' + (w - k) + ' ' + y + ' ' + w + ' ' + y : 'M0 ' + y + 'C' + k + ' ' + y + ' ' + (w - k) + ' ' + c + ' ' + w + ' ' + c;
+            });
+            Array.prototype.forEach.call(sv.querySelectorAll('.wy-base'), function (p, i) { p.setAttribute('d', ds[i]); });
+            Array.prototype.forEach.call(sv.querySelectorAll('.wy-pulse'), function (p, i) { p.setAttribute('d', ds[i]); });
+            var so = sv.querySelectorAll('.wy-so'), port = sv.querySelector('.wy-port'), g = sv.querySelector('linearGradient');
+            if (mob) { A(so[0], { cx: w / 2, cy: R ? h : 0 }); A(port, { cx: w / 2, cy: R ? 0 : h }); A(g, { x1: 0, y1: R ? h : 0, x2: 0, y2: R ? 0 : h }); }
+            else { Array.prototype.forEach.call(so, function (el, i) { A(el, { cx: R ? w : 0, cy: ys[i] }); }); A(port, { cx: R ? 0 : w, cy: c }); A(g, { x1: R ? w : 0, y1: 0, x2: R ? 0 : w, y2: 0 }); }
+          });
+          br.classList.add('is-geo');
+        }
+        if (typeof ResizeObserver === 'function') { var bro = new ResizeObserver(geo); bro.observe(br); observers.push(bro); }
+        geo();
+        if (prefersReducedMotion()) { br.classList.add('is-done'); return; }
+        br.classList.add('wy-live');
+        var p = 0;
+        function off() {
+          document.removeEventListener('scroll', onScroll, true);
+          window.removeEventListener('resize', onScroll);
+          cancelAnimationFrame(timers.wyRaf); timers.wyRaf = 0;
+        }
+        function calc() {
+          timers.wyRaf = 0;
+          var r = br.getBoundingClientRect(), vh = window.innerHeight || 800;
+          if (!r.height) return;
+          var se = document.scrollingElement || document.documentElement;
+          var v = se.scrollHeight <= vh + 4 ? 1 : Math.max(0, Math.min(1, (vh * OPTIONS.whyStart - r.top) / (r.height + vh * OPTIONS.whyTravel)));
+          if (v > p) { p = v; br.style.setProperty('--p', p.toFixed(3)); }
+          if (p >= 1) {
+            off(); br.classList.add('is-done');
+            timers.wyDone = setTimeout(function () { br.classList.remove('wy-live'); br.style.removeProperty('--p'); }, OPTIONS.whyCleanup);
+          }
+        }
+        function onScroll() { if (!timers.wyRaf) timers.wyRaf = requestAnimationFrame(calc); }
+        on(document, 'scroll', onScroll, { capture: true, passive: true });
+        on(window, 'resize', onScroll);
+        calc();
+        timers.wyKick = setTimeout(onScroll, OPTIONS.whyKick);
+      })();
+    }
+
     /* ================= 01 · HERO "AT A GLANCE" FACTS ================= */
     var hk = q('.hk');
     if (hk) {
@@ -1998,8 +2526,8 @@
             b.classList.toggle('bw-on', isOn);
             b.setAttribute('aria-selected', String(isOn));
           });
-          // source className: 'pfx rv' + is-all + in (the reveal state is kept across filter changes)
-          pfx.className = 'pfx rv' + (pf === 'all' ? ' bw-is-all' : '') + (pfx.classList.contains('bw-in') ? ' bw-in' : '');
+          // source className: 'pfx rv' + is-all + in (the reveal state is kept across filter changes), plus the owner's bw-platform-copy
+          pfx.className = 'pfx rv' + (pf === 'all' ? ' bw-is-all' : '') + ' bw-platform-copy' + (pfx.classList.contains('bw-in') ? ' bw-in' : '');
           panel.classList.toggle('bw-first', pf === 'all');
           sumB.textContent = VIEW.shownCount(pf);
           sumL.textContent = VIEW.shownLabel(pf);
@@ -2113,8 +2641,9 @@
         if (ac) ac.abort();
         cleanups.forEach(function (fn) { fn(); });
         observers.forEach(function (o) { o.disconnect(); });
-        ['tabs', 'snap', 'dragClick', 'ix'].forEach(function (k) { clearTimeout(timers[k]); });
+        ['tabs', 'snap', 'dragClick', 'ix', 'wyKick', 'wyDone'].forEach(function (k) { clearTimeout(timers[k]); });
         cancelAnimationFrame(timers.engRaf);
+        cancelAnimationFrame(timers.wyRaf);
         delete root.dataset.bwInit;
         if (window[INSTANCE_KEY] === instance) window[INSTANCE_KEY] = null;
       }

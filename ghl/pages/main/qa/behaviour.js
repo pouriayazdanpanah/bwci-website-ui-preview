@@ -60,12 +60,14 @@ const STATE = () => {
     // platforms: tabs + cards
     await toTop(page, '#platforms, #bwci-platforms');
     log('platforms', [(await snap(page)).tabs, (await snap(page)).cards, (await snap(page)).pfx]);
-    for (const i of [2, 1, 0, 4, 2, 3]) {
+    // the sequence over the tabs that exist (five until 11 November 2026, three since): last, first-but-one, first, ...
+    const nTabs = await page.locator('.pf-tab').count();
+    for (const i of [2, 1, 0, 4, 2, 3].map((x) => x % nTabs)) {
       await page.locator('.pf-tab').nth(i).click(); await page.waitForTimeout(60);
       const s = await snap(page); log('tab ' + i, [s.tabs, s.cards, s.pfx]);
     }
     await page.locator('.pk').first().hover(); await page.waitForTimeout(400);
-    log('card hover', await page.evaluate(() => { const c = document.querySelector('.pk'); return getComputedStyle(c).transform + ' ' + getComputedStyle(c.querySelector('.pk-ic')).backgroundColor; }));
+    log('card hover', await page.evaluate(() => { const c = document.querySelector('.pk'); return getComputedStyle(c).transform + ' ' + (c.querySelector('.pk-ic') ? getComputedStyle(c.querySelector('.pk-ic')).backgroundColor : 'no icon'); }));
     // impact cards
     await toTop(page, '#impact, #bwci-impact');
     await page.locator('.ix-c').nth(2).hover(); await page.waitForTimeout(30); log('ix hover +30ms', (await snap(page)).ix);
@@ -93,7 +95,7 @@ const STATE = () => {
       await page.mouse.move(box.x + box.width - 90, box.y + box.height / 2, { steps: 6 }); await page.mouse.up(); await page.waitForTimeout(300);
       log('drag ' + w, [(await snap(page)).tabs, (await snap(page)).pfx]);
     } else {
-      await page.locator('.pf-tab').nth(4).tap(); await page.waitForTimeout(800); log('tap tab 4 ' + w, [(await snap(page)).tabs, (await snap(page)).cards]);
+      await page.locator('.pf-tab').last().tap(); await page.waitForTimeout(800); log('tap last tab ' + w, [(await snap(page)).tabs, (await snap(page)).cards]);
       await page.locator('.hk-i').nth(1).tap(); await page.waitForTimeout(80); log('tap fact 1 ' + w, (await snap(page)).hk);
       await page.locator('.hk-i').nth(1).tap(); await page.waitForTimeout(80); log('tap fact 1 again ' + w, (await snap(page)).hk);
       await toTop(page, '#engine, #bwci-engine');
@@ -107,7 +109,7 @@ const STATE = () => {
   /* ---- reduced motion ---- */
   {
     const page = await open({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' });
-    log('reduced motion', await page.evaluate(() => [getComputedStyle(document.querySelector('.tk-track')).animationName.replace(/^bw-/, ''), getComputedStyle(document.querySelectorAll('.tk-list')[1]).display, getComputedStyle(document.querySelector('.h-display, .bw-h-display')).animationName, getComputedStyle(document.querySelector('.rv')).transitionDuration]));
+    log('reduced motion', await page.evaluate(() => [document.querySelector('.tk-track') ? getComputedStyle(document.querySelector('.tk-track')).animationName.replace(/^bw-/, '') : 'no ticker', document.querySelector('.tk-track') ? getComputedStyle(document.querySelectorAll('.tk-list')[1]).display : '-', getComputedStyle(document.querySelector('.h-display, .bw-h-display')).animationName, getComputedStyle(document.querySelector('.rv')).transitionDuration]));
     await page.close();
   }
 
