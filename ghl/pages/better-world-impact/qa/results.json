@@ -1,0 +1,48 @@
+{
+  "frames": "Infinite decorative artwork drift captured at t=0 via screenshot animations:disabled; real motion checked separately",
+  "date": "2026-11-14T17:09:54.199Z",
+  "base": "http://127.0.0.1:8126",
+  "fonts": "NOT VERIFIED: remote font requests deliberately blocked; both references use identical fallback fonts",
+  "matrix": [],
+  "checks": [
+    {
+      "name": "Source content, static engine figure, launch defaults and empty data",
+      "status": "PASS"
+    },
+    {
+      "name": "Review flags, approach placeholders, engine copy override, invalid JSON and image defaults",
+      "status": "PASS"
+    },
+    {
+      "name": "Draw-in figures: armed below the fold, drawn in view, complete under reduced motion",
+      "status": "PASS"
+    },
+    {
+      "name": "Approved data templates, text safety, case route and cloned-root clearing",
+      "status": "PASS"
+    },
+    {
+      "name": "Configured Start a Conversation/Financial Engine links, unavailable feedback and copied footer/route",
+      "status": "PASS"
+    },
+    {
+      "name": "Scoped anchor, native scroll/wheel, live diagram breakpoint and header switches",
+      "status": "PASS"
+    },
+    {
+      "name": "Artwork bytes/composition, normal drift and reduced-motion stop",
+      "status": "PASS"
+    },
+    {
+      "name": "Hostile host, touch/menu, duplicate script, root replacement and teardown",
+      "status": "PASS"
+    },
+    {
+      "name": "No JS/console errors or unexpected network failures",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "unexpectedNetwork": []
+}
