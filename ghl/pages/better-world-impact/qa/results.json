@@ -1,254 +1,231 @@
 {
-  "date": "2026-10-26T18:37:53.653Z",
-  "baseline": "3d93dcf17f1d14c8325b679b6f6573ba1153d6ae",
-  "status": "PASS",
-  "scope": "Impact interaction correction only; unchanged source sections measured separately; local fallback fonts",
-  "behavior": {
-    "cases": [
+  "source": "design/Better World Impact.dc.html at 141ee23",
+  "branch": "feat/ghl-better-world-impact",
+  "fonts": "NOT VERIFIED: remote font requests deliberately blocked; both references use identical fallback fonts",
+  "matrix": {
+    "date": "2026-11-14T17:10:20.989Z",
+    "cases": 25,
+    "allPass": true,
+    "pixelDiff": "0 changed pixels in every source/inline and source/hosted pair (Pillow)",
+    "rows": [
       {
-        "name": "stages/controls/keyboard 320x900 inline",
-        "status": "PASS"
+        "width": 320,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 7822
       },
       {
-        "name": "stages/controls/keyboard 320x900 hosted",
-        "status": "PASS"
+        "width": 360,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 7407
       },
       {
-        "name": "stages/controls/keyboard 360x900 inline",
-        "status": "PASS"
+        "width": 375,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 7310
       },
       {
-        "name": "stages/controls/keyboard 360x900 hosted",
-        "status": "PASS"
+        "width": 390,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 7200
       },
       {
-        "name": "stages/controls/keyboard 375x900 inline",
-        "status": "PASS"
+        "width": 430,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 6944
       },
       {
-        "name": "stages/controls/keyboard 375x900 hosted",
-        "status": "PASS"
+        "width": 767,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5782
       },
       {
-        "name": "stages/controls/keyboard 390x900 inline",
-        "status": "PASS"
+        "width": 768,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5754
       },
       {
-        "name": "stages/controls/keyboard 390x900 hosted",
-        "status": "PASS"
+        "width": 1023,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 6020
       },
       {
-        "name": "stages/controls/keyboard 430x900 inline",
-        "status": "PASS"
+        "width": 1024,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 4697
       },
       {
-        "name": "stages/controls/keyboard 430x900 hosted",
-        "status": "PASS"
+        "width": 1280,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5023
       },
       {
-        "name": "stages/controls/keyboard 767x900 inline",
-        "status": "PASS"
+        "width": 1366,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5171
       },
       {
-        "name": "stages/controls/keyboard 767x900 hosted",
-        "status": "PASS"
+        "width": 1440,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5255
       },
       {
-        "name": "stages/controls/keyboard 768x900 inline",
-        "status": "PASS"
+        "width": 1600,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5255
       },
       {
-        "name": "stages/controls/keyboard 768x900 hosted",
-        "status": "PASS"
+        "width": 1920,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5255
       },
       {
-        "name": "stages/controls/keyboard 1023x900 inline",
-        "status": "PASS"
+        "width": 2560,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5255
       },
       {
-        "name": "stages/controls/keyboard 1023x900 hosted",
-        "status": "PASS"
+        "width": 390,
+        "height": 600,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 7200
       },
       {
-        "name": "stages/controls/keyboard 1024x900 inline",
-        "status": "PASS"
+        "width": 1024,
+        "height": 1200,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 4697
       },
       {
-        "name": "stages/controls/keyboard 1024x900 hosted",
-        "status": "PASS"
+        "width": 1440,
+        "height": 600,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5255
       },
       {
-        "name": "stages/controls/keyboard 1280x900 inline",
-        "status": "PASS"
+        "width": 390,
+        "height": 900,
+        "motion": true,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 7200
       },
       {
-        "name": "stages/controls/keyboard 1280x900 hosted",
-        "status": "PASS"
+        "width": 1440,
+        "height": 900,
+        "motion": true,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5255
       },
       {
-        "name": "stages/controls/keyboard 1366x900 inline",
-        "status": "PASS"
+        "width": 390,
+        "height": 900,
+        "motion": false,
+        "scenario": "review",
+        "status": "PASS",
+        "pageHeight": 7260
       },
       {
-        "name": "stages/controls/keyboard 1366x900 hosted",
-        "status": "PASS"
+        "width": 768,
+        "height": 900,
+        "motion": false,
+        "scenario": "review",
+        "status": "PASS",
+        "pageHeight": 5900
       },
       {
-        "name": "stages/controls/keyboard 1440x900 inline",
-        "status": "PASS"
+        "width": 1440,
+        "height": 900,
+        "motion": false,
+        "scenario": "review",
+        "status": "PASS",
+        "pageHeight": 5276
       },
       {
-        "name": "stages/controls/keyboard 1440x900 hosted",
-        "status": "PASS"
+        "width": 390,
+        "height": 900,
+        "motion": false,
+        "scenario": "approved-data",
+        "status": "PASS",
+        "pageHeight": 8146
       },
       {
-        "name": "stages/controls/keyboard 1600x900 inline",
-        "status": "PASS"
-      },
-      {
-        "name": "stages/controls/keyboard 1600x900 hosted",
-        "status": "PASS"
-      },
-      {
-        "name": "stages/controls/keyboard 1920x900 inline",
-        "status": "PASS"
-      },
-      {
-        "name": "stages/controls/keyboard 1920x900 hosted",
-        "status": "PASS"
-      },
-      {
-        "name": "stages/controls/keyboard 2560x900 inline",
-        "status": "PASS"
-      },
-      {
-        "name": "stages/controls/keyboard 2560x900 hosted",
-        "status": "PASS"
-      },
-      {
-        "name": "varied height 390x600 inline",
-        "status": "PASS"
-      },
-      {
-        "name": "varied height 390x600 hosted",
-        "status": "PASS"
-      },
-      {
-        "name": "varied height 1024x600 inline",
-        "status": "PASS"
-      },
-      {
-        "name": "varied height 1024x600 hosted",
-        "status": "PASS"
-      },
-      {
-        "name": "varied height 1440x600 inline",
-        "status": "PASS"
-      },
-      {
-        "name": "varied height 1440x600 hosted",
-        "status": "PASS"
-      },
-      {
-        "name": "varied height 1440x1200 inline",
-        "status": "PASS"
-      },
-      {
-        "name": "varied height 1440x1200 hosted",
-        "status": "PASS"
-      },
-      {
-        "name": "hostile host 320 inline",
-        "status": "PASS"
-      },
-      {
-        "name": "hostile host 320 hosted",
-        "status": "PASS"
-      },
-      {
-        "name": "hostile host 390 inline",
-        "status": "PASS"
-      },
-      {
-        "name": "hostile host 390 hosted",
-        "status": "PASS"
-      },
-      {
-        "name": "hostile host 1024 inline",
-        "status": "PASS"
-      },
-      {
-        "name": "hostile host 1024 hosted",
-        "status": "PASS"
-      },
-      {
-        "name": "hostile host 1440 inline",
-        "status": "PASS"
-      },
-      {
-        "name": "hostile host 1440 hosted",
-        "status": "PASS"
-      },
-      {
-        "name": "normal motion/touch 390 inline",
-        "status": "PASS"
-      },
-      {
-        "name": "normal motion/touch 390 hosted",
-        "status": "PASS"
-      },
-      {
-        "name": "normal motion/touch 1024 inline",
-        "status": "PASS"
-      },
-      {
-        "name": "normal motion/touch 1024 hosted",
-        "status": "PASS"
-      },
-      {
-        "name": "lifecycle/resize 390 inline",
-        "status": "PASS"
-      },
-      {
-        "name": "lifecycle/resize 390 hosted",
-        "status": "PASS"
-      },
-      {
-        "name": "lifecycle/resize 1440 inline",
-        "status": "PASS"
-      },
-      {
-        "name": "lifecycle/resize 1440 hosted",
-        "status": "PASS"
-      },
-      {
-        "name": "delayed bootstrap / hover / reveal",
-        "status": "PASS"
-      },
-      {
-        "name": "mobile link contrast across eight widths and both variants",
-        "status": "PASS"
+        "width": 1440,
+        "height": 900,
+        "motion": false,
+        "scenario": "approved-data",
+        "status": "PASS",
+        "pageHeight": 6964
       }
     ],
-    "status": "PASS",
-    "recovery": [
-      {
-        "name": "stages/controls/keyboard 1023x900 inline",
-        "initial": "page.goto: Timeout 30000ms exceeded.",
-        "resolution": "Wait for DOMContentLoaded and actual owner mount instead of the whole load event; complete targeted case PASS. No runtime change."
-      }
-    ],
-    "contrast": "Manual screenshot inspection caught dark text on the new dark mobile link. Corrected root scoping, then tested white label/arrow over dark background plus next-stage interaction at eight narrow widths in both variants (16 subcases)."
+    "errors": [],
+    "consoleErrors": [],
+    "unexpectedNetwork": []
   },
-  "pageChecks": {
-    "status": "PASS",
-    "checks": [
+  "checks": {
+    "date": "2026-11-14T17:26:28.345Z",
+    "results": [
       {
-        "name": "Source content, required six-stage controls and empty launch data",
+        "name": "Source content, static engine figure, launch defaults and empty data",
         "status": "PASS"
       },
       {
-        "name": "Methodology switch, malformed JSON and invalid image/data defaults",
+        "name": "Review flags, approach placeholders, engine copy override, invalid JSON and image defaults",
+        "status": "PASS"
+      },
+      {
+        "name": "Draw-in figures: armed below the fold, drawn in view, complete under reduced motion",
         "status": "PASS"
       },
       {
@@ -256,7 +233,7 @@
         "status": "PASS"
       },
       {
-        "name": "Configured Contact/Financial Engine links, unavailable feedback and copied footer/route",
+        "name": "Configured Start a Conversation/Financial Engine links, unavailable feedback and copied footer/route",
         "status": "PASS"
       },
       {
@@ -275,1182 +252,9 @@
         "name": "No JS/console errors or unexpected network failures",
         "status": "PASS"
       }
-    ]
-  },
-  "visual": {
-    "status": "PASS",
-    "cases": [
-      {
-        "name": "unchanged source sections 320",
-        "status": "PASS"
-      },
-      {
-        "name": "unchanged source sections 360",
-        "status": "PASS"
-      },
-      {
-        "name": "unchanged source sections 375",
-        "status": "PASS"
-      },
-      {
-        "name": "unchanged source sections 390",
-        "status": "PASS"
-      },
-      {
-        "name": "unchanged source sections 430",
-        "status": "PASS"
-      },
-      {
-        "name": "unchanged source sections 767",
-        "status": "PASS"
-      },
-      {
-        "name": "unchanged source sections 768",
-        "status": "PASS"
-      },
-      {
-        "name": "unchanged source sections 1023",
-        "status": "PASS"
-      },
-      {
-        "name": "unchanged source sections 1024",
-        "status": "PASS"
-      },
-      {
-        "name": "unchanged source sections 1280",
-        "status": "PASS"
-      },
-      {
-        "name": "unchanged source sections 1366",
-        "status": "PASS"
-      },
-      {
-        "name": "unchanged source sections 1440",
-        "status": "PASS"
-      },
-      {
-        "name": "unchanged source sections 1600",
-        "status": "PASS"
-      },
-      {
-        "name": "unchanged source sections 1920",
-        "status": "PASS"
-      },
-      {
-        "name": "unchanged source sections 2560",
-        "status": "PASS"
-      }
     ],
-    "captures": 45,
-    "sourceCases": 15,
-    "sectionPairs": 120,
-    "pixelExact": 60,
-    "maxChangedOver24Percent": 2.2672672672672673,
-    "interpretation": "All four unchanged sections match source text and dimensions. Hero/approach pairs are exact. Added engine details change the fractional document Y position of later sections; raw methodology/CTA crops include vertical raster differences, reported without normalizing source CSS or pixels.",
-    "pixels": [
-      {
-        "width": 320,
-        "height": 900,
-        "variant": "inline",
-        "section": "hero",
-        "pixels": 209920,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 320,
-        "height": 900,
-        "variant": "inline",
-        "section": "approach",
-        "pixels": 427200,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 320,
-        "height": 900,
-        "variant": "inline",
-        "section": "methodology",
-        "pixels": 103040,
-        "changedAny": 2,
-        "changedOver24": 0
-      },
-      {
-        "width": 320,
-        "height": 900,
-        "variant": "inline",
-        "section": "cta",
-        "pixels": 90240,
-        "changedAny": 6981,
-        "changedOver24": 0
-      },
-      {
-        "width": 320,
-        "height": 900,
-        "variant": "hosted",
-        "section": "hero",
-        "pixels": 209920,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 320,
-        "height": 900,
-        "variant": "hosted",
-        "section": "approach",
-        "pixels": 427200,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 320,
-        "height": 900,
-        "variant": "hosted",
-        "section": "methodology",
-        "pixels": 103040,
-        "changedAny": 2,
-        "changedOver24": 0
-      },
-      {
-        "width": 320,
-        "height": 900,
-        "variant": "hosted",
-        "section": "cta",
-        "pixels": 90240,
-        "changedAny": 6981,
-        "changedOver24": 0
-      },
-      {
-        "width": 360,
-        "height": 900,
-        "variant": "inline",
-        "section": "hero",
-        "pixels": 227520,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 360,
-        "height": 900,
-        "variant": "inline",
-        "section": "approach",
-        "pixels": 443160,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 360,
-        "height": 900,
-        "variant": "inline",
-        "section": "methodology",
-        "pixels": 106560,
-        "changedAny": 3230,
-        "changedOver24": 2416
-      },
-      {
-        "width": 360,
-        "height": 900,
-        "variant": "inline",
-        "section": "cta",
-        "pixels": 101520,
-        "changedAny": 88914,
-        "changedOver24": 1614
-      },
-      {
-        "width": 360,
-        "height": 900,
-        "variant": "hosted",
-        "section": "hero",
-        "pixels": 227520,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 360,
-        "height": 900,
-        "variant": "hosted",
-        "section": "approach",
-        "pixels": 443160,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 360,
-        "height": 900,
-        "variant": "hosted",
-        "section": "methodology",
-        "pixels": 106560,
-        "changedAny": 3230,
-        "changedOver24": 2416
-      },
-      {
-        "width": 360,
-        "height": 900,
-        "variant": "hosted",
-        "section": "cta",
-        "pixels": 101520,
-        "changedAny": 88914,
-        "changedOver24": 1614
-      },
-      {
-        "width": 375,
-        "height": 900,
-        "variant": "inline",
-        "section": "hero",
-        "pixels": 239625,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 375,
-        "height": 900,
-        "variant": "inline",
-        "section": "approach",
-        "pixels": 461625,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 375,
-        "height": 900,
-        "variant": "inline",
-        "section": "methodology",
-        "pixels": 111000,
-        "changedAny": 1700,
-        "changedOver24": 1300
-      },
-      {
-        "width": 375,
-        "height": 900,
-        "variant": "inline",
-        "section": "cta",
-        "pixels": 105750,
-        "changedAny": 84114,
-        "changedOver24": 851
-      },
-      {
-        "width": 375,
-        "height": 900,
-        "variant": "hosted",
-        "section": "hero",
-        "pixels": 239625,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 375,
-        "height": 900,
-        "variant": "hosted",
-        "section": "approach",
-        "pixels": 461625,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 375,
-        "height": 900,
-        "variant": "hosted",
-        "section": "methodology",
-        "pixels": 111000,
-        "changedAny": 1700,
-        "changedOver24": 1300
-      },
-      {
-        "width": 375,
-        "height": 900,
-        "variant": "hosted",
-        "section": "cta",
-        "pixels": 105750,
-        "changedAny": 84114,
-        "changedOver24": 851
-      },
-      {
-        "width": 390,
-        "height": 900,
-        "variant": "inline",
-        "section": "hero",
-        "pixels": 253110,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 390,
-        "height": 900,
-        "variant": "inline",
-        "section": "approach",
-        "pixels": 469560,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 390,
-        "height": 900,
-        "variant": "inline",
-        "section": "methodology",
-        "pixels": 115440,
-        "changedAny": 3273,
-        "changedOver24": 2407
-      },
-      {
-        "width": 390,
-        "height": 900,
-        "variant": "inline",
-        "section": "cta",
-        "pixels": 109980,
-        "changedAny": 97563,
-        "changedOver24": 781
-      },
-      {
-        "width": 390,
-        "height": 900,
-        "variant": "hosted",
-        "section": "hero",
-        "pixels": 253110,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 390,
-        "height": 900,
-        "variant": "hosted",
-        "section": "approach",
-        "pixels": 469560,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 390,
-        "height": 900,
-        "variant": "hosted",
-        "section": "methodology",
-        "pixels": 115440,
-        "changedAny": 3273,
-        "changedOver24": 2407
-      },
-      {
-        "width": 390,
-        "height": 900,
-        "variant": "hosted",
-        "section": "cta",
-        "pixels": 109980,
-        "changedAny": 97563,
-        "changedOver24": 781
-      },
-      {
-        "width": 430,
-        "height": 900,
-        "variant": "inline",
-        "section": "hero",
-        "pixels": 291970,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 430,
-        "height": 900,
-        "variant": "inline",
-        "section": "approach",
-        "pixels": 481600,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 430,
-        "height": 900,
-        "variant": "inline",
-        "section": "methodology",
-        "pixels": 114810,
-        "changedAny": 2879,
-        "changedOver24": 2155
-      },
-      {
-        "width": 430,
-        "height": 900,
-        "variant": "inline",
-        "section": "cta",
-        "pixels": 121260,
-        "changedAny": 108748,
-        "changedOver24": 907
-      },
-      {
-        "width": 430,
-        "height": 900,
-        "variant": "hosted",
-        "section": "hero",
-        "pixels": 291970,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 430,
-        "height": 900,
-        "variant": "hosted",
-        "section": "approach",
-        "pixels": 481600,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 430,
-        "height": 900,
-        "variant": "hosted",
-        "section": "methodology",
-        "pixels": 114810,
-        "changedAny": 2879,
-        "changedOver24": 2155
-      },
-      {
-        "width": 430,
-        "height": 900,
-        "variant": "hosted",
-        "section": "cta",
-        "pixels": 121260,
-        "changedAny": 108748,
-        "changedOver24": 907
-      },
-      {
-        "width": 767,
-        "height": 900,
-        "variant": "inline",
-        "section": "hero",
-        "pixels": 380432,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 767,
-        "height": 900,
-        "variant": "inline",
-        "section": "approach",
-        "pixels": 717912,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 767,
-        "height": 900,
-        "variant": "inline",
-        "section": "methodology",
-        "pixels": 184847,
-        "changedAny": 2346,
-        "changedOver24": 1748
-      },
-      {
-        "width": 767,
-        "height": 900,
-        "variant": "inline",
-        "section": "cta",
-        "pixels": 216294,
-        "changedAny": 201257,
-        "changedOver24": 1242
-      },
-      {
-        "width": 767,
-        "height": 900,
-        "variant": "hosted",
-        "section": "hero",
-        "pixels": 380432,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 767,
-        "height": 900,
-        "variant": "hosted",
-        "section": "approach",
-        "pixels": 717912,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 767,
-        "height": 900,
-        "variant": "hosted",
-        "section": "methodology",
-        "pixels": 184847,
-        "changedAny": 2346,
-        "changedOver24": 1748
-      },
-      {
-        "width": 767,
-        "height": 900,
-        "variant": "hosted",
-        "section": "cta",
-        "pixels": 216294,
-        "changedAny": 201257,
-        "changedOver24": 1242
-      },
-      {
-        "width": 768,
-        "height": 900,
-        "variant": "inline",
-        "section": "hero",
-        "pixels": 490752,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 768,
-        "height": 900,
-        "variant": "inline",
-        "section": "approach",
-        "pixels": 698880,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 768,
-        "height": 900,
-        "variant": "inline",
-        "section": "methodology",
-        "pixels": 189696,
-        "changedAny": 3924,
-        "changedOver24": 3034
-      },
-      {
-        "width": 768,
-        "height": 900,
-        "variant": "inline",
-        "section": "cta",
-        "pixels": 235776,
-        "changedAny": 142115,
-        "changedOver24": 2339
-      },
-      {
-        "width": 768,
-        "height": 900,
-        "variant": "hosted",
-        "section": "hero",
-        "pixels": 490752,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 768,
-        "height": 900,
-        "variant": "hosted",
-        "section": "approach",
-        "pixels": 698880,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 768,
-        "height": 900,
-        "variant": "hosted",
-        "section": "methodology",
-        "pixels": 189696,
-        "changedAny": 3924,
-        "changedOver24": 3034
-      },
-      {
-        "width": 768,
-        "height": 900,
-        "variant": "hosted",
-        "section": "cta",
-        "pixels": 235776,
-        "changedAny": 142115,
-        "changedOver24": 2339
-      },
-      {
-        "width": 1023,
-        "height": 900,
-        "variant": "inline",
-        "section": "hero",
-        "pixels": 690525,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1023,
-        "height": 900,
-        "variant": "inline",
-        "section": "approach",
-        "pixels": 943206,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1023,
-        "height": 900,
-        "variant": "inline",
-        "section": "methodology",
-        "pixels": 289509,
-        "changedAny": 7,
-        "changedOver24": 0
-      },
-      {
-        "width": 1023,
-        "height": 900,
-        "variant": "inline",
-        "section": "cta",
-        "pixels": 359073,
-        "changedAny": 194711,
-        "changedOver24": 721
-      },
-      {
-        "width": 1023,
-        "height": 900,
-        "variant": "hosted",
-        "section": "hero",
-        "pixels": 690525,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1023,
-        "height": 900,
-        "variant": "hosted",
-        "section": "approach",
-        "pixels": 943206,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1023,
-        "height": 900,
-        "variant": "hosted",
-        "section": "methodology",
-        "pixels": 289509,
-        "changedAny": 7,
-        "changedOver24": 0
-      },
-      {
-        "width": 1023,
-        "height": 900,
-        "variant": "hosted",
-        "section": "cta",
-        "pixels": 359073,
-        "changedAny": 194711,
-        "changedOver24": 721
-      },
-      {
-        "width": 1024,
-        "height": 900,
-        "variant": "inline",
-        "section": "hero",
-        "pixels": 512000,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1024,
-        "height": 900,
-        "variant": "inline",
-        "section": "approach",
-        "pixels": 697344,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1024,
-        "height": 900,
-        "variant": "inline",
-        "section": "methodology",
-        "pixels": 289792,
-        "changedAny": 6880,
-        "changedOver24": 5506
-      },
-      {
-        "width": 1024,
-        "height": 900,
-        "variant": "inline",
-        "section": "cta",
-        "pixels": 359424,
-        "changedAny": 28220,
-        "changedOver24": 2346
-      },
-      {
-        "width": 1024,
-        "height": 900,
-        "variant": "hosted",
-        "section": "hero",
-        "pixels": 512000,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1024,
-        "height": 900,
-        "variant": "hosted",
-        "section": "approach",
-        "pixels": 697344,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1024,
-        "height": 900,
-        "variant": "hosted",
-        "section": "methodology",
-        "pixels": 289792,
-        "changedAny": 6880,
-        "changedOver24": 5506
-      },
-      {
-        "width": 1024,
-        "height": 900,
-        "variant": "hosted",
-        "section": "cta",
-        "pixels": 359424,
-        "changedAny": 28220,
-        "changedOver24": 2346
-      },
-      {
-        "width": 1280,
-        "height": 900,
-        "variant": "inline",
-        "section": "hero",
-        "pixels": 656640,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1280,
-        "height": 900,
-        "variant": "inline",
-        "section": "approach",
-        "pixels": 899840,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1280,
-        "height": 900,
-        "variant": "inline",
-        "section": "methodology",
-        "pixels": 414720,
-        "changedAny": 6186,
-        "changedOver24": 5295
-      },
-      {
-        "width": 1280,
-        "height": 900,
-        "variant": "inline",
-        "section": "cta",
-        "pixels": 517120,
-        "changedAny": 494319,
-        "changedOver24": 6565
-      },
-      {
-        "width": 1280,
-        "height": 900,
-        "variant": "hosted",
-        "section": "hero",
-        "pixels": 656640,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1280,
-        "height": 900,
-        "variant": "hosted",
-        "section": "approach",
-        "pixels": 899840,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1280,
-        "height": 900,
-        "variant": "hosted",
-        "section": "methodology",
-        "pixels": 414720,
-        "changedAny": 6186,
-        "changedOver24": 5295
-      },
-      {
-        "width": 1280,
-        "height": 900,
-        "variant": "hosted",
-        "section": "cta",
-        "pixels": 517120,
-        "changedAny": 494319,
-        "changedOver24": 6565
-      },
-      {
-        "width": 1366,
-        "height": 900,
-        "variant": "inline",
-        "section": "hero",
-        "pixels": 759496,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1366,
-        "height": 900,
-        "variant": "inline",
-        "section": "approach",
-        "pixels": 982154,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1366,
-        "height": 900,
-        "variant": "inline",
-        "section": "methodology",
-        "pixels": 461708,
-        "changedAny": 6184,
-        "changedOver24": 5296
-      },
-      {
-        "width": 1366,
-        "height": 900,
-        "variant": "inline",
-        "section": "cta",
-        "pixels": 573720,
-        "changedAny": 409758,
-        "changedOver24": 6862
-      },
-      {
-        "width": 1366,
-        "height": 900,
-        "variant": "hosted",
-        "section": "hero",
-        "pixels": 759496,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1366,
-        "height": 900,
-        "variant": "hosted",
-        "section": "approach",
-        "pixels": 982154,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1366,
-        "height": 900,
-        "variant": "hosted",
-        "section": "methodology",
-        "pixels": 461708,
-        "changedAny": 6184,
-        "changedOver24": 5296
-      },
-      {
-        "width": 1366,
-        "height": 900,
-        "variant": "hosted",
-        "section": "cta",
-        "pixels": 573720,
-        "changedAny": 409758,
-        "changedOver24": 6862
-      },
-      {
-        "width": 1440,
-        "height": 900,
-        "variant": "inline",
-        "section": "hero",
-        "pixels": 800640,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1440,
-        "height": 900,
-        "variant": "inline",
-        "section": "approach",
-        "pixels": 1044000,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1440,
-        "height": 900,
-        "variant": "inline",
-        "section": "methodology",
-        "pixels": 493920,
-        "changedAny": 2956,
-        "changedOver24": 2337
-      },
-      {
-        "width": 1440,
-        "height": 900,
-        "variant": "inline",
-        "section": "cta",
-        "pixels": 613440,
-        "changedAny": 272248,
-        "changedOver24": 5082
-      },
-      {
-        "width": 1440,
-        "height": 900,
-        "variant": "hosted",
-        "section": "hero",
-        "pixels": 800640,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1440,
-        "height": 900,
-        "variant": "hosted",
-        "section": "approach",
-        "pixels": 1044000,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1440,
-        "height": 900,
-        "variant": "hosted",
-        "section": "methodology",
-        "pixels": 493920,
-        "changedAny": 2956,
-        "changedOver24": 2337
-      },
-      {
-        "width": 1440,
-        "height": 900,
-        "variant": "hosted",
-        "section": "cta",
-        "pixels": 613440,
-        "changedAny": 272248,
-        "changedOver24": 5082
-      },
-      {
-        "width": 1600,
-        "height": 900,
-        "variant": "inline",
-        "section": "hero",
-        "pixels": 889600,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1600,
-        "height": 900,
-        "variant": "inline",
-        "section": "approach",
-        "pixels": 1160000,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1600,
-        "height": 900,
-        "variant": "inline",
-        "section": "methodology",
-        "pixels": 548800,
-        "changedAny": 2989,
-        "changedOver24": 2337
-      },
-      {
-        "width": 1600,
-        "height": 900,
-        "variant": "inline",
-        "section": "cta",
-        "pixels": 681600,
-        "changedAny": 287098,
-        "changedOver24": 5080
-      },
-      {
-        "width": 1600,
-        "height": 900,
-        "variant": "hosted",
-        "section": "hero",
-        "pixels": 889600,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1600,
-        "height": 900,
-        "variant": "hosted",
-        "section": "approach",
-        "pixels": 1160000,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1600,
-        "height": 900,
-        "variant": "hosted",
-        "section": "methodology",
-        "pixels": 548800,
-        "changedAny": 2989,
-        "changedOver24": 2337
-      },
-      {
-        "width": 1600,
-        "height": 900,
-        "variant": "hosted",
-        "section": "cta",
-        "pixels": 681600,
-        "changedAny": 287098,
-        "changedOver24": 5080
-      },
-      {
-        "width": 1920,
-        "height": 900,
-        "variant": "inline",
-        "section": "hero",
-        "pixels": 1067520,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1920,
-        "height": 900,
-        "variant": "inline",
-        "section": "approach",
-        "pixels": 1392000,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1920,
-        "height": 900,
-        "variant": "inline",
-        "section": "methodology",
-        "pixels": 658560,
-        "changedAny": 2956,
-        "changedOver24": 2337
-      },
-      {
-        "width": 1920,
-        "height": 900,
-        "variant": "inline",
-        "section": "cta",
-        "pixels": 817920,
-        "changedAny": 310640,
-        "changedOver24": 5076
-      },
-      {
-        "width": 1920,
-        "height": 900,
-        "variant": "hosted",
-        "section": "hero",
-        "pixels": 1067520,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1920,
-        "height": 900,
-        "variant": "hosted",
-        "section": "approach",
-        "pixels": 1392000,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 1920,
-        "height": 900,
-        "variant": "hosted",
-        "section": "methodology",
-        "pixels": 658560,
-        "changedAny": 2956,
-        "changedOver24": 2337
-      },
-      {
-        "width": 1920,
-        "height": 900,
-        "variant": "hosted",
-        "section": "cta",
-        "pixels": 817920,
-        "changedAny": 310640,
-        "changedOver24": 5076
-      },
-      {
-        "width": 2560,
-        "height": 900,
-        "variant": "inline",
-        "section": "hero",
-        "pixels": 1423360,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 2560,
-        "height": 900,
-        "variant": "inline",
-        "section": "approach",
-        "pixels": 1856000,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 2560,
-        "height": 900,
-        "variant": "inline",
-        "section": "methodology",
-        "pixels": 878080,
-        "changedAny": 2968,
-        "changedOver24": 2337
-      },
-      {
-        "width": 2560,
-        "height": 900,
-        "variant": "inline",
-        "section": "cta",
-        "pixels": 1090560,
-        "changedAny": 357673,
-        "changedOver24": 5078
-      },
-      {
-        "width": 2560,
-        "height": 900,
-        "variant": "hosted",
-        "section": "hero",
-        "pixels": 1423360,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 2560,
-        "height": 900,
-        "variant": "hosted",
-        "section": "approach",
-        "pixels": 1856000,
-        "changedAny": 0,
-        "changedOver24": 0
-      },
-      {
-        "width": 2560,
-        "height": 900,
-        "variant": "hosted",
-        "section": "methodology",
-        "pixels": 878080,
-        "changedAny": 2968,
-        "changedOver24": 2337
-      },
-      {
-        "width": 2560,
-        "height": 900,
-        "variant": "hosted",
-        "section": "cta",
-        "pixels": 1090560,
-        "changedAny": 357673,
-        "changedOver24": 5078
-      }
-    ]
-  },
-  "static": {
-    "status": "PASS",
-    "description": "Both native blocks; six controls, two sets of accessible panels, source titles/descriptions/examples, empty evidence/cases, unchanged config/images and outside-engine markup"
-  },
-  "shared": {
-    "status": "PASS",
-    "contexts": 22,
-    "description": "Current shared generator contexts against merged main 3d93dcf; shared/design/assets/other22outputs unchanged"
-  },
-  "reproducibility": {
-    "status": "PASS",
-    "outputs": 2
-  },
-  "errors": [],
-  "console": [],
-  "network": [],
-  "notVerified": [
-    "Live GHL installation",
-    "Actual Google Fonts delivery/layout",
-    "Published routes/approved evidence and cases",
-    "Physical devices",
-    "Stage 9 final website-wide regression"
-  ]
+    "errors": [],
+    "consoleErrors": [],
+    "unexpectedNetwork": []
+  }
 }

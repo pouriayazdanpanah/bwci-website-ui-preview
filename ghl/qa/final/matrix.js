@@ -32,7 +32,9 @@ async function snapshot(p){return p.evaluate(()=>{
     const screenshot=kind+'-'+job.width+'-'+job.height+'.png';await p.screenshot({path:path.join(dir,screenshot),fullPage:true,animations:'disabled',timeout:60000});capture.variants.push({kind,...data,screenshot});
    }
    const a=capture.variants[0];for(const v of capture.variants.slice(1)){assert.equal(v.heading,a.heading,'heading');
-    const text=x=>x.sections.filter(s=>row.slug!=='better-world-impact'||!s.id.endsWith('engine')).map(s=>s.text);
+    // Impact (export 141ee23): the source renders its review defaults (flags on, approach placeholders); the port launches
+    // with flags off and the design's "current site copy". Compare everything else; _build/qa.js covers both modes.
+    const impact=row.slug==='better-world-impact',text=x=>x.sections.filter(s=>!impact||!s.id.endsWith('approach')).map(s=>impact?s.text.replace(/\s*(Copy to come|Awaiting alignment|Leadership approval)\s*/g,' ').replace(/\s+/g,' ').trim():s.text);
     assert.deepEqual(text(v),text(a),v.kind+' section content');
    }
   }catch(e){capture.status='FAIL';capture.error=e.message;}report.cases.push(capture);fs.writeFileSync(path.join(dir,'results.json'),JSON.stringify(report,null,2)+'\n');console.log(capture.status+' matrix '+row.slug+' '+job.width+'x'+job.height+(capture.error?' '+capture.error.split('\n')[0]:''));

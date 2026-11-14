@@ -1,5 +1,17 @@
 # Better World & Impact — GoHighLevel port
 
+## Design export 141ee23 (14 November 2026)
+
+The page follows the new design: between the unchanged hero and closing CTA it now has **What we mean by
+regeneration** (`#bwi-regeneration`), **Our approach** as a stepped "When capital is …" sequence (`#bwi-approach`),
+**Regeneration is part of the cycle, not an add-on** with the design's **static** Financial Engine figure in a white
+panel (`#bwi-engine`), and **Three returns from every cycle** with **How we will measure them** (`#bwi-returns`,
+`#bwi-measure`). The old three-column approach, the interactive engine (PR #36) and the methodology notice are gone:
+owner decision, 14 November 2026, "keep it static, as shown in the new design". Content, SVGs, layout, breakpoints and
+draw-in animations are ported from the design; the design's two review props are config settings (below).
+QA: [`qa/verification.md`](qa/verification.md). The interactive-engine record is kept under `qa/history/interactive-engine/`.
+All four outputs (regular, inline, global, global inline) need re-pasting. Live GHL NOT VERIFIED.
+
 ## Global header/footer version (9 November 2026)
 
 `node ghl/pages/better-world-impact/_build/build.js --global` also writes `better-world-impact.global.ghl.html` and
@@ -34,7 +46,7 @@ older route/default tables below. The [local verification report](../../shared/s
 records this migration's checks; older QA remains historical. Actual GHL substitution inside JSON and
 published navigation are **NOT VERIFIED**; no page was published or account setting changed.
 
-## Final local regression — October 27, 2026
+## Final local regression — October 27, 2026 (historical: interactive engine, before export 141ee23)
 
 Current evidence: [verification report](../../qa/final/verification.md) and
 [machine-readable results](../../qa/final/results.json), from merged PR #36 (`7ddc04f`).
@@ -62,9 +74,9 @@ Edit `_build/src/better-world-impact.{html,css,js,config.json}`, then run
 `node ghl/pages/better-world-impact/_build/build.js`. Paste **one entire output** into one GHL Website
 Builder Custom Code element in a full-width, zero-padding section/row/column.
 
-- `better-world-impact.ghl.html`: about 116KB, with hosted image placeholders. Upload the supplied
+- `better-world-impact.ghl.html`: about 128KB, with hosted image placeholders. Upload the supplied
   page artwork and shared `ghl/shared/site-chrome/assets/bwci-logo.png`, then set the two image URLs.
-- `better-world-impact.inline.ghl.html`: about 3.55MiB; embeds both original PNGs. Font stylesheets
+- `better-world-impact.inline.ghl.html`: about 3.56MiB; embeds both original PNGs. Font stylesheets
   remain external. Large Custom Code pastes need live GHL verification.
 - `assets/impact-hero-ribbons.png`: unchanged 2022×778 RGBA artwork, 2,665,353 bytes, byte-identical
   to the design asset. No replacement, compression, flattening or baked-in crop.
@@ -76,38 +88,30 @@ Root/config: `bwci-better-world-impact` / `bwci-better-world-impact-config`; pre
 `breadcrumb="impact"`. Both variants share identical markup/styles/runtime and differ in image config
 and their explanatory banner. GitHub Pages publishes design previews, not these GHL blocks.
 
-## Source coverage and required interaction
+## Source coverage
 
-Source order is preserved: hero with original artwork, copy and breadcrumb; Our approach with the
-Structured / Owned / Deployed columns; Financial Engine; optional methodology notice; conditional
-Evidence and Case studies; final CTA with source desktop/mobile copy.
+Source order is preserved: hero with original artwork, copy and breadcrumb; What we mean by regeneration; Our
+approach; Regeneration and the Financial Engine; Three returns and How we will measure them; conditional Evidence and
+Case studies; final CTA with source desktop/mobile copy. All text is verbatim from the design.
 
-The actual exported engine is static and its `STEPS`, selection, previous/next and detail styles are
-unused. The original user request explicitly requires the six-stage interaction. This correction
-intentionally replaces that static figure with controls using those retained source definitions and
-the established Main/Financial Engine pattern. `design/` remains unchanged. This is a documented
-requirement-driven difference, not a claim that the source figure was interactive.
+- **Regeneration:** renewal motif SVG (three arcs, arrow tips, numbered nodes, Natural/Economic/Social labels,
+  dotted core; gradient pattern id `bwi-rg-dots`), three numbered rows on a coloured rail, the capital-structure
+  paragraph and the "For example:" box. The motif sits beside the copy at 768–1023px and under it on phones.
+- **Our approach:** three moments staggered as steps on desktop, a vertical timeline below 1024px. The `#bwi-approach`
+  hero anchor still lands here.
+- **Financial Engine:** the design's static figure (`figure.bwi-lp--static`, `role="img"` with the design's label),
+  no stage controls and no "Impact considered" tags. Ring geometry at ≥1024px, vertical list with the return note below.
+  "How the Financial Engine works →" uses `links.financialEngineHero`; on phones it is the design's full-width dark button.
+  The design's bracketed supporting-copy placeholder is shown unless `engineSupportingCopy` is set.
+- **Three returns:** hub icon with branch curves, three icon columns, dotted ties into the tinted measurement panel
+  ("In development" status). Below 1024px the columns stack with icons on the left; branch and ties are hidden on phones.
+- **Draw-in:** as the design's `componentDidMount`, the five `[data-bwi-draw]` figures that start below 90% of the
+  viewport are armed (`bwi-is-armed`) and drawn once 15% visible (`bwi-is-in`). Without IntersectionObserver or under
+  reduced motion nothing is armed, so every figure is complete without the script.
 
-- Six native stage buttons, default **Need**; clicking selects a stage. Arrow keys move selection and
-  focus, Home/End select first/last, and native Enter/Space activate the focused button.
-- Previous/next wrap from first to last and last to first. Source progress is `index / 5`; an accessible
-  stage count and active/past markers update together. Controls remain available on phones.
-- At >=1024px, source ring geometry and detail-card styles are used. Buttons have actual hit boxes,
-  preserving node centres. Selecting a node reveals the desktop card within source scroll limits;
-  no wheel/touch scrolling is trapped. Source shorter-height geometry applies at <=860px.
-- Below 1024px, one stage's description/example expands under its own button. Re-selecting it keeps
-  that stage open, as in the established site pattern. Crossing the breakpoint preserves selection
-  and updates controlled regions; inactive/duplicate panels are inaccessible (`aria-hidden`/`inert`).
-- Architecture, Institution and Reinvestment retain persistent **Impact considered** labels,
-  independently of selected stage. The return-loop copy remains intact.
-- All six titles, descriptions and illustrative examples come verbatim from the source's `STEPS`.
-  Examples are labelled **Example**; they are not published evidence or case studies. No facts,
-  metrics, outcomes, approvals, case studies or URLs were invented.
-- Source hover/focus treatment is retained. Reduced motion disables engine transitions and uses
-  immediate desktop reveal scrolling. Mobile link text/arrow stay white on the source dark button.
-
-All other section markup, original config/image strings and assets remain unchanged from `3d93dcf`.
-No shared generator/runtime, design source or other 22 page outputs are modified by this correction.
+Known design traits kept as designed (owner: "follow the design"): the motif's SVG labels scale with the figure (about
+10px desktop, 8px phones; decorative, `aria-hidden`, same words in the rows), and the measurement panel's dot pattern
+reaches the start of its text on phones.
 
 ## Configuration and approved data
 
@@ -115,7 +119,9 @@ No shared generator/runtime, design source or other 22 page outputs are modified
 |---|---|
 | `impactHeroImage`, `logoImage` | Hosted placeholders; inline output embeds original PNGs |
 | `showHeader`, `showFooter` | `true`; false uses host-provided chrome |
-| `showMethodology` | `true`; false hides the source future-publication notice |
+| `reviewFlags` | `false`. The design's "Review flags" prop (design default `true`): `true` shows the review badges "Copy to come" (approach, placeholders only), "Awaiting alignment" (engine, while no `engineSupportingCopy`) and "Leadership approval" |
+| `approachCopy` | `"current site copy"` (the design option with the live wording, in the markup) or `"placeholders"` (the design default: bracketed "[Explanation to come …]" text, dashed boxes) |
+| `engineSupportingCopy` | `""`. Empty shows the design's "[Supporting copy to come …]" placeholder; text replaces it with a normal lead paragraph |
 | `evidence` | `[]`; complete records use value, label, date, source |
 | `cases` | `[]`; complete records use label, title, summary, href, img, alt |
 | `footer` | Existing optional regulatory/registration wording |
@@ -140,41 +146,30 @@ port also stops that drift for reduced motion, a deliberate difference from the 
 responsive typography/gutters, hero layout at 1024px and phone crop/final-CTA copy at 768px remain.
 
 The shared owner reuses one instance during duplicate execution, waits for late markup and handles
-root/ancestor replacement without scroll/resize. Replacement resets the engine to Need and removes
-old handlers, media-query listeners and pending reveal frames. Explicit teardown restores exact host
+root/ancestor replacement without scroll/resize. Replacement disconnects the draw-in observer, clears copied
+`bwi-is-armed`/`bwi-is-in` classes and re-reads the config. Explicit teardown restores exact host
 body overflow and removes status/shared listeners. No polling or continuous JS animation loop is added.
 
 ## Current verification
 
 Current evidence: [`qa/verification.md`](qa/verification.md), [`qa/results.json`](qa/results.json).
-Current interaction checks cover 56 scenarios, both variants, the 13 required widths plus 767/1023px,
-varied heights, normal/reduced motion, touch, keyboard/focus, hover, hostile CSS and lifecycle. Eight
-page/config/motion checks pass. Unchanged-section source comparison covers 15 widths / 45 captures /
-120 section pairs; geometry/text match, with raw pixel differences documented in the report.
-
-Historical initial-static-page evidence is preserved under `qa/history/static-port/`. Shared sync
-PR #35 evidence remains in `../../shared/site-chrome/qa/sync/`; it does not pass this correction.
+Historical: initial static page `qa/history/static-port/`, interactive engine (PR #36) `qa/history/interactive-engine/`.
 
 ```sh
 node ghl/pages/better-world-impact/_build/build.js
+node ghl/pages/better-world-impact/_build/build.js --global
 node ghl/pages/better-world-impact/_build/static-checks.js
 node ghl/pages/better-world-impact/_build/make-previews.js
 python3 -m http.server 8124 --bind 127.0.0.1
 # Another terminal, with Playwright/Chromium and Pillow:
-node ghl/pages/better-world-impact/_build/interaction-qa.js http://127.0.0.1:8124 --behavior-only
-node ghl/pages/better-world-impact/_build/interaction-qa.js http://127.0.0.1:8124 --visual-only
 node ghl/pages/better-world-impact/_build/qa.js http://127.0.0.1:8124 --checks-only
-python3 ghl/pages/better-world-impact/_build/interaction-diff.py
-node ghl/pages/better-world-impact/_build/shared-regression.js
-node ghl/pages/better-world-impact/_build/interaction-results.js
+node ghl/pages/better-world-impact/_build/qa.js http://127.0.0.1:8124 --matrix-only
+python3 ghl/pages/better-world-impact/_build/diff.py
 ```
 
-If Node cannot spawn Git, export `3d93dcf:ghl/shared/site-chrome/site-chrome.js` to a temporary file and
-pass its path to `shared-regression.js`. `CHROMIUM_PATH` overrides `/usr/bin/chromium`. Raw captures
-and fixtures stay ignored under `_build/qa-output/`. `--only=<case name>` runs a focused scenario;
-aggregate recovery must be newer than the main behavior run. Older full-page static capture/diff
-commands are historical because the engine is now intentionally different.
+`qa.js` renders the source with the port's launch settings (`reviewFlags` false, `approachCopy` "current site copy")
+through its data-props; its `review` scenario renders both with the design's own defaults. `CHROMIUM_PATH` overrides
+Playwright's browser. Raw captures stay ignored under `_build/qa-output/`.
 
 Live GHL, actual web-font delivery/layout, final URLs/SEO, approved evidence/case content and physical
-devices remain **NOT VERIFIED**. After this corrective PR is reviewed and merged, run stage 9 current
-full-site regression. Stop at manual PR review; never merge automatically.
+devices remain **NOT VERIFIED**. Stop at manual PR review; never merge automatically.

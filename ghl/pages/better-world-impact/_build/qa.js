@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-// Page configuration/motion QA (--checks-only). Static full-page captures are historical; use
-// interaction-qa.js for current interactive acceptance and unchanged-section comparisons.
+// Source/port QA for design export 141ee23 (static Financial Engine, Regeneration / Approach / Engine / Three returns).
+// The source is rendered with the port's launch defaults (reviewFlags false, approachCopy "current site copy");
+// the "review" scenario renders both with the design's own defaults (flags on, placeholders).
 // Local browser QA. Requires Playwright and Chromium; no QA dependency is shipped in the GHL blocks.
 // First run build.js and make-previews.js, then serve the repo on loopback:
 // python3 -m http.server 8123 --bind 127.0.0.1
@@ -16,6 +17,7 @@ const out = path.join(__dirname, 'qa-output');
 const preview = base + '/ghl/pages/better-world-impact/_build/preview/';
 const source = base + '/design/Better%20World%20Impact.dc.html';
 const root = '#bwci-better-world-impact';
+const LAUNCH={reviewFlags:false,approachCopy:'current site copy'},REVIEW={reviewFlags:true,approachCopy:'placeholders'};
 const fixture={evidence:[{value:'QA-only value',label:'Local fixture only',date:'[QA date]',source:'Local QA fixture'}],cases:[{label:'QA ONLY',title:'Local QA case fixture',summary:'Local fixture. Not a published case study.',href:base+'/__qa__/case',img:base+'/design/assets/bwci-logo.png',alt:'Local QA image'}]};
 const widths = [320,360,375,390,430,767,768,1023,1024,1280,1366,1440,1600,1920,2560];
 const results = { frames: 'Infinite decorative artwork drift captured at t=0 via screenshot animations:disabled; real motion checked separately', date: new Date().toISOString(), base, fonts: 'NOT VERIFIED: remote font requests deliberately blocked; both references use identical fallback fonts', matrix: [], checks: [], errors: [], consoleErrors: [], unexpectedNetwork: [] };
@@ -37,7 +39,7 @@ async function pageFor(width = 1440, height = 900, opts = {}) {
       const response=await r.fetch();
       const body=(await response.text()).replace(/data-props="([^"]*)"/,(_,encoded)=>{
         const props=JSON.parse(encoded.replace(/&quot;/g,'"').replace(/&amp;/g,'&'));
-        for(const key of ['showMethodology'])if(Object.hasOwn(opts.sourceConfig,key))props[key].default=opts.sourceConfig[key];
+        for(const key of ['reviewFlags','approachCopy'])if(Object.hasOwn(opts.sourceConfig,key))props[key].default=opts.sourceConfig[key];
         return 'data-props="'+JSON.stringify(props).replace(/&/g,'&amp;').replace(/"/g,'&quot;')+'"';
       });
       const adjusted=body.replace('const evidence = [];','const evidence = '+JSON.stringify(opts.sourceConfig.evidence||[])+';').replace('const cases = [].map','const cases = '+JSON.stringify(opts.sourceConfig.cases||[])+'.map');
@@ -112,17 +114,17 @@ async function check(name, fn) {
   catch(e) { results.checks.push({name,status:'FAIL',error:e.message}); console.log('FAIL '+name+': '+e.message); }
 }
 async function capture(width,height=900,motion=false,scenario='default') {
-  const state=scenario==='method-off'?{showMethodology:false}:scenario==='approved-data'?fixture:{};
+  const state=scenario==='review'?REVIEW:scenario==='approved-data'?fixture:{};
   const suffix=(motion?'-motion':'')+(scenario==='default'?'':'-'+scenario);
   const row={width,height,motion,scenario,status:'PASS',variants:[]};let reference;
   for(const kind of ['source','plain','hosted']) {
-    const p=await pageFor(width,height,{motion,sourceConfig:scenario==='default'?undefined:state,config:kind==='hosted'?{...state,logoImage:base+'/design/assets/bwci-logo.png',impactHeroImage:base+'/design/assets/impact-hero-ribbons.png'}:scenario==='default'?undefined:state});
+    const p=await pageFor(width,height,{motion,sourceConfig:{...LAUNCH,...state},config:kind==='hosted'?{...state,logoImage:base+'/design/assets/bwci-logo.png',impactHeroImage:base+'/design/assets/impact-hero-ribbons.png'}:scenario==='default'?undefined:state});
     try {
       await p.goto(kind==='source'?source:preview+kind+'.html',{waitUntil:'domcontentloaded'});await settle(p);
       const g=await geometry(p,kind!=='source');if(g.docW>width)throw Error('Horizontal overflow '+kind+' '+width);
       if(kind==='source')reference=g;else assert.deepEqual(g,reference,'Section geometry '+kind+' '+width+'x'+height);
       if(kind!=='source'){
-        assert.equal(await p.locator('main section:visible').count(),scenario==='method-off'?4:scenario==='approved-data'?7:5);
+        assert.equal(await p.locator('main section:visible').count(),scenario==='approved-data'?8:6);
         assert.equal(await p.locator('[data-bwi-asset]').evaluateAll(xs=>xs.every(x=>x.complete&&x.naturalWidth>0)),true);
       }
       const filename=`${kind}-${width}-${height}${suffix}.png`;await p.screenshot({path:path.join(out,filename),fullPage:true,animations:'disabled'});
@@ -132,24 +134,40 @@ async function capture(width,height=900,motion=false,scenario='default') {
   results.matrix.push(row);console.log('PASS matrix '+width+'x'+height+' '+scenario+(motion?' motion':''));
 }
 (async()=>{
- fs.mkdirSync(out,{recursive:true});browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});
- let jobs=widths.map(w=>[w,900,false]).concat([[390,600,false],[1024,1200,false],[1440,600,false],[390,900,true],[1440,900,true],[390,900,false,'method-off'],[1440,900,false,'method-off'],[390,900,false,'approved-data'],[1440,900,false,'approved-data']]);
+ fs.mkdirSync(out,{recursive:true});browser=await chromium.launch({...(process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{})});
+ let jobs=widths.map(w=>[w,900,false]).concat([[390,600,false],[1024,1200,false],[1440,600,false],[390,900,true],[1440,900,true],[390,900,false,'review'],[768,900,false,'review'],[1440,900,false,'review'],[390,900,false,'approved-data'],[1440,900,false,'approved-data']]);
  const recapture=process.argv.find(a=>a.startsWith('--recapture='));if(recapture)jobs=jobs.filter(j=>j.join('x')===recapture.slice('--recapture='.length));
  if(!process.argv.includes('--checks-only'))for(const job of jobs)await check('capture '+job.join('x'),()=>capture(...job));
  if(!process.argv.includes('--matrix-only')){
- await check('Source content, required six-stage controls and empty launch data',async()=>{
+ await check('Source content, static engine figure, launch defaults and empty data',async()=>{
   const p=await pageFor();await p.goto(preview+'plain.html');assert.equal(await p.locator('h1').innerText(),'Impact should influence the architecture of capital itself.');
-  assert.equal(await p.locator('main section:visible').count(),5);assert.equal(await p.locator('#bwi-evidence').isVisible(),false);assert.equal(await p.locator('#bwi-cases').isVisible(),false);
-  assert.equal(await p.locator('[data-bwi-engine-step]').count(),6);assert.equal(await p.locator('[data-bwi-engine-step].bwi-is-on').count(),1);
-  assert.equal(await p.locator('.bwi-lp-tag').count(),3);assert.equal(await p.locator('[data-bwi-engine-count]').textContent(),'Step 1 of 6: Need');
+  assert.equal(await p.locator('main section:visible').count(),6);assert.equal(await p.locator('#bwi-evidence').isVisible(),false);assert.equal(await p.locator('#bwi-cases').isVisible(),false);
+  assert.deepEqual(await p.locator('main section:visible').evaluateAll(xs=>xs.map(x=>x.id)),['bwi-top','bwi-regeneration','bwi-approach','bwi-engine','bwi-returns','bwi-next']);
+  assert.equal(await p.locator('#bwi-engine button, #bwi-engine [tabindex]').count(),0);assert.equal(await p.locator('#bwi-engine figure[role="img"] .bwi-lp-n').count(),6);assert.equal(await p.locator('.bwi-lp-tag').count(),0);
+  assert.equal(await p.locator('.bwi-im-flag:visible').count(),0);assert.equal(await p.locator('.bwi-is-ph').count(),0);assert.equal(await p.locator('[data-bwi-engine-ph]').isVisible(),true);
+  assert.match(await p.locator('[data-bwi-moment="owned"]').innerText(),/^Ownership decides/);
   assert.equal(await p.locator('a[data-bwi-link="betterWorldImpact"][aria-current="page"]').count(),2);assert.equal(await p.locator('x-dc,sc-if,sc-for,dc-import').count(),0);
   assert.equal(await p.locator('[aria-label="Breadcrumb"] [aria-current="page"]').innerText(),'Better World & Impact');await p.close();
  });
- await check('Methodology switch, malformed JSON and invalid image/data defaults',async()=>{
-  const p=await pageFor(390,900,{config:{showMethodology:false,evidence:[{value:'Incomplete'}],cases:[{title:'Incomplete'}],impactHeroImage:'javascript:alert(1)'}});await p.goto(preview+'plain.html');
-  assert.equal(await p.locator('#bwi-methodology').isVisible(),false);assert.equal(await p.locator('#bwi-evidence').isVisible(),false);assert.equal(await p.locator('#bwi-cases').isVisible(),false);assert.equal(await p.locator('[data-bwi-asset="impactHeroImage"]').getAttribute('src'),null);await p.close();
-  const q=await pageFor();await q.route('**/preview/plain.html',async r=>{const response=await r.fetch();await r.fulfill({response,body:(await response.text()).replace(/("showMethodology":) true/,'$1 INVALID')});});await q.goto(preview+'plain.html');
-  assert.equal(await q.locator('#bwi-methodology').isVisible(),true);assert.equal(await q.locator('#bwi-cases').isVisible(),false);await q.close();
+ await check('Review flags, approach placeholders, engine copy override, invalid JSON and image defaults',async()=>{
+  const p=await pageFor(390,900,{config:{...REVIEW,evidence:[{value:'Incomplete'}],cases:[{title:'Incomplete'}],impactHeroImage:'javascript:alert(1)'}});await p.goto(preview+'plain.html');
+  assert.equal(await p.locator('.bwi-im-flag:visible').count(),5);assert.equal(await p.locator('.bwi-am-d.bwi-is-ph').count(),3);
+  assert.equal(await p.locator('[data-bwi-moment="deployed"]').innerText(),'[Explanation to come: what we do when capital is deployed. Final copy may run to two or three sentences.]');
+  assert.equal(await p.locator('#bwi-evidence').isVisible(),false);assert.equal(await p.locator('#bwi-cases').isVisible(),false);assert.match(await p.locator('[data-bwi-asset="impactHeroImage"]').getAttribute('src'),/^data:image\/png;base64,/); // unsafe value -> inline fallback
+  await p.evaluate(()=>{const c=document.getElementById('bwci-better-world-impact-config'),v=JSON.parse(c.textContent);v.reviewFlags=false;v.approachCopy='current site copy';v.engineSupportingCopy='QA final engine copy';c.textContent=JSON.stringify(v);const el=document.getElementById('bwci-better-world-impact');el.replaceWith(el.cloneNode(true));});await p.waitForTimeout(200);
+  assert.equal(await p.locator('.bwi-im-flag:visible').count(),0);assert.equal(await p.locator('.bwi-is-ph').count(),0);assert.match(await p.locator('[data-bwi-moment="structured"]').innerText(),/^When we design a financing structure/);
+  assert.equal(await p.locator('[data-bwi-engine-ph]').isVisible(),false);assert.equal(await p.locator('[data-bwi-engine-copy]').innerText(),'QA final engine copy');await p.close();
+  const q=await pageFor();await q.route('**/preview/plain.html',async r=>{const response=await r.fetch();await r.fulfill({response,body:(await response.text()).replace(/("reviewFlags":) false/,'$1 INVALID')});});await q.goto(preview+'plain.html');
+  assert.equal(await q.locator('.bwi-im-flag:visible').count(),0);assert.equal(await q.locator('#bwi-cases').isVisible(),false);assert.equal(await q.locator('.bwi-rg-r').count(),3);await q.close();
+ });
+ await check('Draw-in figures: armed below the fold, drawn in view, complete under reduced motion',async()=>{
+  const p=await pageFor(1440,900,{motion:true});await p.goto(preview+'plain.html');await p.waitForTimeout(300);
+  const below=await p.locator('[data-bwi-draw]').evaluateAll(xs=>xs.filter(x=>x.getBoundingClientRect().top>innerHeight*.9).length);assert(below>=4);
+  assert.equal(await p.locator('[data-bwi-draw].bwi-is-armed').count(),below);assert.equal(await p.locator('.bwi-am.bwi-is-armed').count(),1);
+  for(const el of await p.locator('[data-bwi-draw]').all()){await el.evaluate(e=>e.scrollIntoView({block:'center',behavior:'instant'}));await p.waitForTimeout(250);}
+  assert.equal(await p.locator('[data-bwi-draw].bwi-is-in').count(),below);await p.waitForTimeout(2200);
+  assert.equal(await p.locator('.bwi-rg-arc').first().evaluate(e=>getComputedStyle(e).strokeDashoffset),'0px');await p.close();
+  const q=await pageFor(1440,900);await q.goto(preview+'plain.html');assert.equal(await q.locator('.bwi-is-armed').count(),0);assert.equal(await q.locator('.bwi-rg-nd').first().evaluate(e=>getComputedStyle(e).opacity),'1');await q.close();
  });
  await check('Approved data templates, text safety, case route and cloned-root clearing',async()=>{
   const payload='<img src=x onerror="window.__bwiInjected=true">';const p=await pageFor(390,900,{config:{...fixture,evidence:[{...fixture.evidence[0],label:payload}]}});
@@ -159,12 +177,12 @@ async function capture(width,height=900,motion=false,scenario='default') {
   await p.goto(preview+'plain.html');await p.evaluate(()=>{const c=document.getElementById('bwci-better-world-impact-config'),v=JSON.parse(c.textContent);v.evidence=[];v.cases=[];c.textContent=JSON.stringify(v);const el=document.getElementById('bwci-better-world-impact');el.replaceWith(el.cloneNode(true));});await p.waitForTimeout(200);
   assert.equal(await p.locator('#bwi-evidence').isVisible(),false);assert.equal(await p.locator('#bwi-cases').isVisible(),false);assert.equal(await p.locator('[data-bwi-cases-list] > a').count(),0);await p.close();
  });
- await check('Configured Contact/Financial Engine links, unavailable feedback and copied footer/route',async()=>{
-  const p=await pageFor();await p.goto(preview+'plain.html');const c=p.locator('.bwi-hero-actions [data-bwi-link="contact"]');await c.focus();await p.keyboard.press('Enter');assert.equal(new URL(p.url()).hash,'');assert.equal(await p.locator('.bwi-status').innerText(),'This destination is not yet available.');assert.equal(await c.evaluate(e=>getComputedStyle(e).outlineWidth),'2px');await p.close();
-  const links={contact:base+'/__qa__/contact',financialEngineHero:base+'/__qa__/engine',betterWorldImpact:base+'/__qa__/impact'};
+ await check('Configured Start a Conversation/Financial Engine links, unavailable feedback and copied footer/route',async()=>{
+  const p=await pageFor();await p.goto(preview+'plain.html');const c=p.locator('.bwi-hero-actions [data-bwi-link="startAConversation"]');await c.focus();await p.keyboard.press('Enter');assert.equal(new URL(p.url()).hash,'');assert.equal(await p.locator('.bwi-status').innerText(),'This destination is not yet available.');assert.equal(await c.evaluate(e=>getComputedStyle(e).outlineWidth),'2px');await p.close();
+  const links={startAConversation:base+'/__qa__/start',financialEngineHero:base+'/__qa__/engine',betterWorldImpact:base+'/__qa__/impact'};
   const q=await pageFor(1440,900,{config:{links,footer:{regulatoryLine:'QA footer wording'}}});await q.route('**/__qa__/**',r=>r.fulfill({body:'<!doctype html><title>QA destination</title>',contentType:'text/html'}));
-  for(const selector of ['.bwi-hero-actions [data-bwi-link="contact"]','#bwi-next [data-bwi-link="contact"]','#bwi-engine [data-bwi-link="financialEngineHero"]']){await q.goto(preview+'plain.html');const url=await q.locator(selector).getAttribute('href');await q.locator(selector).click();await q.waitForURL(url);}
-  await q.goto(preview+'plain.html');await q.locator('.bwi-hdr__trigger[aria-current="page"]').click();await q.locator('.bwi-hdr__panel:not([hidden]) a[data-bwi-link="betterWorldImpact"]').click();await q.waitForURL(links.betterWorldImpact);await q.goto(preview+'plain.html');assert.equal(await q.locator('.bwi-sft__reg').count(),1);await q.evaluate(()=>{const el=document.getElementById('bwci-better-world-impact');el.replaceWith(el.cloneNode(true));});await q.waitForTimeout(200);assert.equal(await q.locator('.bwi-sft__reg').count(),1);assert.equal(await q.locator('.bwi-hero-actions [data-bwi-link="contact"]').getAttribute('aria-disabled'),null);await q.close();
+  for(const selector of ['.bwi-hero-actions [data-bwi-link="startAConversation"]','#bwi-next [data-bwi-link="startAConversation"]','#bwi-engine [data-bwi-link="financialEngineHero"]']){await q.goto(preview+'plain.html');const url=await q.locator(selector).getAttribute('href');await q.locator(selector).click();await q.waitForURL(url);}
+  await q.goto(preview+'plain.html');await q.locator('.bwi-hdr__trigger[aria-current="page"]').click();await q.locator('.bwi-hdr__panel:not([hidden]) a[data-bwi-link="betterWorldImpact"]').click();await q.waitForURL(links.betterWorldImpact);await q.goto(preview+'plain.html');assert.equal(await q.locator('.bwi-sft__reg').count(),1);await q.evaluate(()=>{const el=document.getElementById('bwci-better-world-impact');el.replaceWith(el.cloneNode(true));});await q.waitForTimeout(200);assert.equal(await q.locator('.bwi-sft__reg').count(),1);assert.equal(await q.locator('.bwi-hero-actions [data-bwi-link="startAConversation"]').getAttribute('aria-disabled'),null);await q.close();
  });
  await check('Scoped anchor, native scroll/wheel, live diagram breakpoint and header switches',async()=>{
   const p=await pageFor(390,600);await p.goto(preview+'plain.html');await p.locator('.bwi-hero-actions a[href="#bwi-approach"]').click();assert.equal(new URL(p.url()).hash,'#bwi-approach');assert((await p.locator('#bwi-approach').boundingBox()).y>=0);
