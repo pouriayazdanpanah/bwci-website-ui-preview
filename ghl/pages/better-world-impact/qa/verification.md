@@ -22,8 +22,8 @@ design's own defaults (flags on, approach placeholders).
 | Hostile host (390px) | PASS | Generic host CSS, content above and below, script executed twice: rendering matches the design by eye; no overflow |
 | Live GHL, real fonts, physical devices | NOT VERIFIED | |
 
-The matrix ran on  minus the teardown change in the same commit (un-arming undrawn figures on destroy); that
-change does not affect rendering, and the page checks were re-run on the final build () and pass 9/9.
+The matrix ran on the build of `73a84eb` before its teardown change (un-arming undrawn figures on destroy); that
+change does not affect rendering, and the page checks were re-run on the final build (`73a84eb`) and pass 9/9.
 
 ## Fixed during QA
 
