@@ -125,7 +125,8 @@ function makeBlock(o) {
   // link config: every key in the markup, as its existing Custom Value reference
   const keys = [...new Set([...markup.matchAll(new RegExp('data-' + o.prefix + '-link="([^"]+)"', 'g'))].map((m) => m[1]))];
   const links = {};
-  keys.forEach((k) => { links[k] = siteLinks.reference(k, 'global'); });
+  // The Platform Today is a standalone page; the old Home #bwci-today section no longer exists.
+  keys.forEach((k) => { links[k] = siteLinks.reference(k === 'today' ? 'platformToday' : k, 'global'); });
   const htmlCode = markup.replace(/<!--[\s\S]*?-->/g, '');
   const jsCode = js.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
   [/\.dc\.html/, /\.\/assets\//, /\/vendor\//, /support\.js/, /localhost/, /file:\/\//, /\{\{/, /unpkg\.com/].forEach((re) => {
