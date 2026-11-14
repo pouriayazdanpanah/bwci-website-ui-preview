@@ -10,7 +10,7 @@ assert.equal((c.breadcrumb.match(/<li /g)||[]).length,2);
 for(const variant of ['better-world-impact.ghl.html','better-world-impact.inline.ghl.html']){
   const html=fs.readFileSync(path.join(page,variant),'utf8');
   const cfg=JSON.parse(html.match(/<script type="application\/json"[^>]*>([\s\S]*?)<\/script>/)[1]);
-  assert.equal(cfg.showMethodology,true);assert.deepEqual(cfg.evidence,[]);assert.deepEqual(cfg.cases,[]);assert(!Object.hasOwn(cfg,'showGroup'));assert(!Object.hasOwn(cfg,'documents'));assert(!Object.hasOwn(cfg,'reportDocuments'));
+  assert.deepEqual(cfg.evidence,[]);assert.deepEqual(cfg.cases,[]);assert(!Object.hasOwn(cfg,'showGroup'));assert(!Object.hasOwn(cfg,'documents'));assert(!Object.hasOwn(cfg,'reportDocuments'));
   const markup=html.slice(html.indexOf('<div id="bwci-better-world-impact"'),html.lastIndexOf('<script>'));
   const runtime=html.slice(html.lastIndexOf('<script>')+8,html.lastIndexOf('</script>'));
   new vm.Script(runtime);
@@ -21,17 +21,19 @@ for(const variant of ['better-world-impact.ghl.html','better-world-impact.inline
   assert.equal((markup.match(/<main\b/g)||[]).length,1);assert.equal((markup.match(/<h1\b/g)||[]).length,1);
   for(const m of markup.matchAll(/class="([^"]*)"/g))assert(m[1].split(/\s+/).every(c=>c.startsWith('bwi-')),m[1]);
   for(const m of markup.matchAll(/data-bwi-link="([^"]+)"/g))assert(Object.hasOwn(cfg.links,m[1]),m[1]);
-  assert.equal((markup.match(/data-bwi-engine-step=/g)||[]).length,6);
-  assert.equal((markup.match(/class="bwi-lp-tag"/g)||[]).length,3);
-  assert(!markup.includes('bwi-lp--static'));
-  for(let i=1;i<=6;i++)for(const kind of ['step','panel','mobile'])assert(markup.includes('id="bwi-engine-'+kind+'-'+i+'"'));
-  assert.equal((markup.match(/data-bwi-engine-prev/g)||[]).length,1);assert.equal((markup.match(/data-bwi-engine-next/g)||[]).length,1);
+  // Export 141ee23: static engine figure (no controls), the design's five new sections and every source text verbatim.
+  assert(!/data-bwi-engine-(?:step|prev|next|details|count)|bwi-lp-tag|<button[^>]*bwi-lp-n/.test(markup));
+  assert.equal((markup.match(/class="bwi-lp bwi-lp--static" role="img"/g)||[]).length,1);assert.equal((markup.match(/class="bwi-lp-n"/g)||[]).length,6);
+  for(const id of ['bwi-regeneration','bwi-approach','bwi-engine','bwi-returns','bwi-measure'])assert(markup.includes('id="'+id+'"'),id);
+  assert.equal(cfg.reviewFlags,false);assert.equal(cfg.approachCopy,'current site copy');assert.equal(cfg.engineSupportingCopy,'');assert(!Object.hasOwn(cfg,'showMethodology'));
   const source=fs.readFileSync(path.resolve(__dirname,'../../../../design/Better World Impact.dc.html'),'utf8');
-  const steps=vm.runInNewContext(source.match(/const STEPS = (\[[\s\S]*?\n    \]);/)[1]);
-  const escape=v=>v.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#x27;');
-  for(const step of steps)for(const value of step)assert(markup.includes(escape(value)),'Original step content preserved: '+value);
-  assert.equal(cfg.links.contact,'#');assert.equal(cfg.links.betterWorldImpact,'#');assert.equal(cfg.links.financialEngineHero,'/financial-engine#fe-hero');
-
+  const main=source.slice(source.indexOf('<!-- 02 '),source.indexOf('<sc-if value="{{ hasEvidence }}"')).replace(/<sc-for[\s\S]*?<\/sc-for>/,'');
+  const texts=[...main.matchAll(/>([^<>{}]+)</g)].map(m=>m[1].trim()).filter(t=>t&&!/^\[Explanation/.test(t));
+  for(const t of texts)assert(markup.includes('>'+t+'<')||markup.includes(t),'Source text preserved: '+t);
+  const mom=vm.runInNewContext(source.match(/const MOM = (\[[\s\S]*?\n    \]);/)[1]);
+  for(const [w,text] of mom){assert(markup.includes('>'+w+'<'));assert(markup.includes(text),'Approach copy: '+w);}
+  assert(code.includes("'[Explanation to come: what we do when capital is ' + w + '. Final copy may run to two or three sentences.]'"));
+  assert.match(cfg.links.financialEngineHero,/#fe-hero$/);
 }
 // Verify safe JSON embedding without editing source settings or writing fixture outputs.
 const fixture=JSON.parse(fs.readFileSync(path.join(__dirname,'src/better-world-impact.config.json'),'utf8'));
@@ -46,4 +48,4 @@ for(const block of written.values()){
   const json=block.match(/<script type="application\/json"[^>]*>([\s\S]*?)<\/script>/)[1];
   assert(!json.includes('</script>'));assert(json.includes('\\u003c/script>'));assert.equal(JSON.parse(json).footer.registeredOffice,payload);
 }
-console.log('PASS Impact-only blocks, empty launch data, six-stage controls/source step content, independent routes, unique prefixes, JS syntax, logo/breadcrumb and escaped JSON');
+console.log('PASS Impact-only blocks, empty launch data, static engine figure/source section text, independent routes, unique prefixes, JS syntax, logo/breadcrumb and escaped JSON');

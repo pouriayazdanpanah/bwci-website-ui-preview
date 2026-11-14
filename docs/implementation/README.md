@@ -2,9 +2,22 @@
 
 This guide turns a finished Claude Design page in design/ into one pasteable GoHighLevel Website Builder Custom Code block. CLAUDE.md holds project-wide rules. pages/<slug>.md is a brief for a page not yet ported; ghl/pages/<slug>/README.md is the durable record for a completed port.
 
-## Current status — November 11, 2026
+## Current status — November 14, 2026
 
-**Who We Are content update (11 November, branch `feat/ghl-who-we-are`, PR to main open; not merged):** by the
+**Better World & Impact, design export `141ee23` (14 November, branch `feat/ghl-better-world-impact`, PR to main open;
+not merged):** the page follows the new design: What we mean by regeneration, Our approach (stepped "When capital is …"),
+Regeneration and the Financial Engine, Three returns with How we will measure them. By owner decision the Financial
+Engine is the design's **static** figure (the PR #36 interactive engine is removed) and the rest follows the design.
+The design's review props become settings: `reviewFlags` (launch `false`), `approachCopy` (launch `"current site copy"`;
+`"placeholders"` is the design default) and `engineSupportingCopy` (empty shows the design's bracketed placeholder);
+`showMethodology` is removed with the methodology notice. No new Custom Values; only the four Better World & Impact
+blocks change. Local QA PASS ([verification](../../ghl/pages/better-world-impact/qa/verification.md)); live GHL NOT VERIFIED.
+Earlier work since 11 November: Who We Are content update merged in PR #57 (`2aa2f1e`); Home (Main) live text and
+"Why it matters now, and why us" merged in PR #58 (`7445174`).
+
+## Status — November 11, 2026
+
+**Who We Are content update (11 November, branch `feat/ghl-who-we-are`; merged in PR #57, `2aa2f1e`):** by the
 owner's instruction the page takes its text from the owner's live GHL page (supplied rendered, "the source is correct")
 and its layout from design export `505e162`, which adds four sections (Our story, In his words, Where we are today,
 What you can expect from us). Leadership card names and roles follow the live page on this page only. Two new
@@ -334,7 +347,7 @@ the Main fit correction; it merged in PR #37 (`a41c1ae`). No GHL publication is 
 | Same source, `#shareholders` | `corporate-ir-shareholders` — merged in PR #31; current QA in its README; live GHL NOT VERIFIED | 4 merged |
 | Same source, `#regulatory` | `corporate-ir-regulatory` — merged in PR #32; current QA in its README; live GHL NOT VERIFIED | 5 merged |
 | Same source, `#legal-notices` | `corporate-ir-legal-notices` — merged in PR #33; current QA in its README; live GHL NOT VERIFIED | 6 merged |
-| `Better World Impact.dc.html` + supplied `assets/impact-hero-ribbons.png` | `better-world-impact` — initial port merged in PR #34; required six-stage engine correction merged in PR #36; hero, approach, methodology, evidence/cases and CTA delivered | 7 and correction merged; 9 local PASS |
+| `Better World Impact.dc.html` + supplied `assets/impact-hero-ribbons.png` | `better-world-impact` — initial port merged in PR #34; six-stage engine correction merged in PR #36; export `141ee23` (regeneration, stepped approach, static engine, three returns/measurement) on `feat/ghl-better-world-impact`, PR open | 7 and correction merged; 9 local PASS |
 | `Main.dc.html` CTA background/dot-field changes | Both direct-edit Main variants synchronized; no build folder added; 16 local source/port viewport cases and 32 pixel-exact image pairs | 8 merged, PR #35 |
 | Header/Footer new independent Impact link | All 23 blocks now consume `betterWorldImpact` (`#` pending verified URL); all original `impact` values preserved as inactive compatibility settings | 8 merged, PR #35 |
 | Breadcrumb new Impact trail and labelled Corporate / IR subpage trail | All seven new consumers preserve their correct trails; older/profile trails unchanged by synchronization | Per-page work merged; 8 verification recorded |
@@ -408,7 +421,7 @@ Implementation, merge and publication are separate states. A generated block or 
 
 - Corporate / IR Legal Notices: ghl/pages/corporate-ir-legal-notices/README.md. Only `#legal-notices` content; hosted/inline blocks, labelled breadcrumb, seven notice rows, source summaries/date placeholders and two owner-review notes. Each policy has a separate configurable URL, default `#`; policy content is not invented. Reuses copied link/footer/option normalization. Merged through PR #33; published GHL NOT VERIFIED.
 
-- Better World & Impact: ghl/pages/better-world-impact/README.md. Supplied PNG hero, three approach columns, accessible interactive six-stage engine, methodology notice, empty-by-default approved evidence/case templates and responsive final CTA. Hosted and embedded images are generated from `_build/src/`; reduced motion stops decorative artwork drift. Initial port merged in PR #34; required engine interaction merged in PR #36. Current local regression passed. Published GHL NOT VERIFIED.
+- Better World & Impact: ghl/pages/better-world-impact/README.md. Supplied PNG hero, regeneration motif and rows, stepped approach, static six-step Financial Engine figure, three returns and measurement panel (export `141ee23`; review flags/approach copy as settings), empty-by-default approved evidence/case templates and responsive final CTA. Hosted and embedded images are generated from `_build/src/`; reduced motion stops decorative drift and draw-ins. Initial port merged in PR #34; interactive engine (PR #36) replaced by the design's static figure on `feat/ghl-better-world-impact` (PR open). Local QA passed. Published GHL NOT VERIFIED.
 
 - Who We Are: ghl/pages/who-we-are/README.md. Hosted/inline outputs generated from _build/src/; nine source sections, sticky role aside, lit Financial Engine strip, explore rows and the four-card leadership carousel with mouse drag and snap. `#purpose`/`#role`/`#principles` keep their source ids for the shared footer links. Proposed values `bwci_img_who_we_are_hero` and `bwci_url_our_role`. Merged through PR #41; published GHL NOT VERIFIED.
 

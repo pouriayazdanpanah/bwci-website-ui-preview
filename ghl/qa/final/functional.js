@@ -8,7 +8,6 @@ const jobs=[
  ['feature-traces', ['ghl/qa/final/traces.js',base,'--slugs=platforms,smes-projects,investors-partners,governance,governance-board,governance-leadership']],
  ['profiles', ['ghl/qa/final/profiles.js',base]],
  ...['corporate-ir','corporate-ir-company-information','corporate-ir-reports-documents','corporate-ir-shareholders','corporate-ir-regulatory','corporate-ir-legal-notices'].map(s=>[s,['ghl/pages/'+s+'/_build/qa.js',base,'--checks-only']]),
- ['impact-interaction',['ghl/pages/better-world-impact/_build/interaction-qa.js',base,'--behavior-only']],
  ['impact-page',['ghl/pages/better-world-impact/_build/qa.js',base,'--checks-only']],
  ['shared-92',['ghl/shared/site-chrome/qa/sync/browser.js',base]],
  ['deferred-23',['ghl/shared/site-chrome/qa/sync/deferred.js',base]],
