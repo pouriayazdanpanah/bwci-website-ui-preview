@@ -1,0 +1,115 @@
+/* ================= REVIEW PROTOTYPE: regeneration sections (appended to the page CSS; scoped by the build) ========
+   Uses the page's own tokens, type scale and components (.bwi-sec, .bwi-wrap, .bwi-eyebrow, .bwi-h1, .bwi-lead). */
+
+/* placeholder for copy that has not been supplied or approved: dashed outline, labelled, no fixed height */
+.bwi-ph{ display:grid; gap:6px; padding:16px 18px; border:1px dashed var(--border-strong); border-radius:var(--radius-lg); background:rgba(255,255,255,.55); }
+.bwi-ph-k{ font-family:var(--font-mono); font-size:max(11.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; line-height:1.4; text-transform:uppercase; color:var(--status-dev-text); }
+.bwi-ph-t{ font-size:max(15px,var(--fs-floor-body,0px)); line-height:1.55; font-weight:500; color:var(--text-muted); text-wrap:pretty; }
+
+/* ---------- 1 · What we mean by regeneration ---------- */
+.bwi-rg-grid, .bwi-rg-foot{ display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); column-gap:clamp(48px,7vw,112px); align-items:start; }
+.bwi-rg-head{ display:grid; gap:16px; justify-items:start; }
+.bwi-rg-intro{ max-width:440px; font-size:clamp(17px,1.5vw,20px); line-height:1.55; font-weight:500; color:var(--text-primary); text-wrap:pretty; }
+.bwi-rg-mark{ display:block; width:clamp(150px,15vw,200px); height:auto; margin-top:clamp(12px,2.4vw,32px); }
+.bwi-rg-list{ border-top:1px solid var(--brand-ink); }
+.bwi-rg-row{ display:grid; grid-template-columns:44px minmax(110px,.4fr) minmax(0,1fr); gap:6px 24px; align-items:baseline; padding:clamp(22px,2.4vw,30px) 0; border-bottom:1px solid var(--border-default); }
+.bwi-rg-n{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:700; letter-spacing:.1em; color:var(--accent-gold-dark); }
+.bwi-rg-t{ font-size:clamp(22px,2vw,26px); font-weight:700; letter-spacing:-.02em; line-height:1.2; color:var(--brand-ink); }
+.bwi-rg-d{ font-size:clamp(16px,1.3vw,18px); line-height:1.6; color:var(--text-secondary); text-wrap:pretty; }
+.bwi-rg-foot{ row-gap:28px; margin-top:clamp(40px,5vw,64px); }
+.bwi-rg-foot > *{ grid-column:2; }
+.bwi-rg-cap{ font-size:clamp(18px,1.6vw,22px); line-height:1.5; letter-spacing:-.01em; font-weight:500; color:var(--brand-ink); text-wrap:pretty; }
+.bwi-rg-ex{ padding-left:20px; border-left:2px solid var(--accent-emerald); font-size:max(15px,var(--fs-floor-body,0px)); line-height:1.65; color:var(--text-secondary); text-wrap:pretty; }
+.bwi-rg-exk{ display:block; margin-bottom:4px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-emerald-dark); }
+
+/* ---------- 2 · Our approach: three earlier moments, drawn as a descending staircase ---------- */
+.bwi-apx{ --apx-gap:clamp(28px,3.5vw,56px); --apx-step:clamp(40px,5vw,72px); }
+.bwi-apx-head{ display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:20px clamp(40px,6vw,96px); align-items:end; margin-bottom:clamp(48px,6vw,80px); }
+.bwi-apx-title{ display:grid; gap:16px; justify-items:start; }
+.bwi-apx-head .bwi-lead{ max-width:440px; color:var(--text-primary); }
+.bwi-apx-steps{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:var(--apx-gap); align-items:start; }
+.bwi-apx-step{ position:relative; display:grid; align-content:start; gap:14px; padding-top:26px; border-top:1px solid var(--brand-ink); }
+.bwi-apx-step:nth-child(2){ margin-top:var(--apx-step); }
+.bwi-apx-step:nth-child(3){ margin-top:calc(var(--apx-step) * 2); }
+/* the rule steps down into the next moment; the last one ends in an arrow */
+.bwi-apx-step:not(:last-child)::after{ content:''; position:absolute; top:-1px; left:100%; width:var(--apx-gap); height:calc(var(--apx-step) + 1px); border-top:1px solid var(--brand-ink); border-right:1px solid var(--brand-ink); }
+.bwi-apx-step:last-child::after{ content:''; position:absolute; top:-5px; right:0; width:8px; height:8px; border-top:1.5px solid var(--brand-ink); border-right:1.5px solid var(--brand-ink); transform:rotate(45deg); }
+.bwi-apx-n{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:700; letter-spacing:.1em; color:var(--accent-gold-dark); }
+.bwi-apx-node{ position:absolute; left:0; top:-6px; width:11px; height:11px; border-radius:50%; background:var(--surface-subtle); border:1.5px solid var(--brand-ink); }
+.bwi-apx-step:first-child .bwi-apx-node{ background:var(--accent-emerald); border-color:var(--accent-emerald-dark); }
+.bwi-apx-t{ font-size:clamp(22px,2vw,26px); font-weight:700; letter-spacing:-.02em; line-height:1.25; color:var(--brand-ink); text-wrap:balance; }
+
+/* ---------- 3 · Regeneration and the Financial Engine (component unchanged; section kept light) ---------- */
+.bwi-fxs-head{ display:grid; grid-template-columns:minmax(0,6fr) minmax(0,5fr); gap:24px clamp(40px,6vw,96px); align-items:end; }
+.bwi-fxs-title{ display:grid; gap:16px; justify-items:start; }
+
+/* ---------- 4 · Three returns, 5 · How we will measure them ---------- */
+.bwi-rt{ --rt-pad:clamp(24px,3vw,44px); }
+.bwi-rt-head{ display:grid; gap:16px; justify-items:start; max-width:780px; margin-bottom:clamp(40px,5vw,64px); }
+.bwi-rt-head .bwi-lead{ color:var(--text-primary); }
+.bwi-rt-cols{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); border-top:1px solid var(--brand-ink); }
+.bwi-rt-col{ position:relative; display:grid; align-content:start; gap:12px; padding:34px var(--rt-pad) 6px; }
+.bwi-rt-col:first-child{ padding-left:0; }
+.bwi-rt-col:last-child{ padding-right:0; }
+.bwi-rt-col + .bwi-rt-col{ border-left:1px solid var(--border-default); }
+.bwi-rt-node{ position:absolute; top:-6px; left:var(--rt-pad); width:11px; height:11px; border-radius:50%; background:var(--surface-subtle); border:1.5px solid var(--brand-ink); }
+.bwi-rt-col:first-child .bwi-rt-node{ left:0; }
+.bwi-rt-t{ font-size:clamp(22px,2.1vw,28px); font-weight:700; letter-spacing:-.02em; line-height:1.2; color:var(--brand-ink); }
+.bwi-rt-d{ max-width:340px; font-size:clamp(16px,1.3vw,18px); line-height:1.6; color:var(--text-secondary); text-wrap:pretty; }
+
+.bwi-ms{ position:relative; overflow:hidden; display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:20px clamp(40px,6vw,96px); margin-top:clamp(56px,7vw,96px); padding:clamp(28px,4vw,52px); border-radius:16px; background:#EAF2EF; border:1px solid #D6E5DF; }
+.bwi-ms-dots{ position:absolute; left:0; bottom:0; width:34%; height:46%; pointer-events:none; background-image:radial-gradient(rgba(18,48,57,.16) 1px, transparent 1.6px); background-size:18px 18px;
+  -webkit-mask-image:radial-gradient(ellipse 90% 90% at 0% 100%, #000 10%, transparent 72%); mask-image:radial-gradient(ellipse 90% 90% at 0% 100%, #000 10%, transparent 72%); }
+.bwi-ms-head, .bwi-ms-body{ position:relative; z-index:1; }
+.bwi-ms-head{ display:grid; gap:14px; justify-items:start; align-content:start; }
+.bwi-ms-badge{ display:inline-flex; align-items:center; gap:8px; padding:4px 12px 4px 10px; border-radius:var(--radius-full); border:1px solid var(--status-dev-border); background:var(--status-dev-bg); font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.06em; line-height:1.4; text-transform:uppercase; color:var(--status-dev-text); white-space:nowrap; }
+.bwi-ms-badge i{ width:7px; height:7px; border-radius:50%; background:var(--status-dev-mark); flex:none; }
+.bwi-ms-h{ font-size:clamp(24px,2.4vw,32px); font-weight:700; letter-spacing:-.02em; line-height:1.2; color:var(--brand-ink); }
+.bwi-ms-body{ display:grid; gap:14px; align-content:start; }
+.bwi-ms-body p{ font-size:clamp(16px,1.35vw,18px); line-height:1.6; color:var(--text-primary); text-wrap:pretty; }
+.bwi-ms-body p + p{ color:var(--text-secondary); }
+
+/* ---------- tablet ---------- */
+@media (max-width:1023px){
+  .bwi-rg-grid, .bwi-rg-foot{ grid-template-columns:minmax(0,1fr); }
+  .bwi-rg-grid{ row-gap:40px; }
+  .bwi-rg-foot > *{ grid-column:1; }
+  .bwi-rg-foot{ max-width:720px; }
+  .bwi-rg-head{ grid-template-columns:minmax(0,1fr) auto; column-gap:32px; }
+  .bwi-rg-head > :not(.bwi-rg-mark){ grid-column:1; }
+  .bwi-rg-mark{ grid-column:2; grid-row:1 / span 3; align-self:end; width:120px; margin:0; }
+
+  .bwi-apx-head, .bwi-fxs-head{ grid-template-columns:minmax(0,1fr); align-items:start; }
+  .bwi-apx-steps{ position:relative; grid-template-columns:minmax(0,1fr); row-gap:0; }
+  .bwi-apx-steps::before{ content:''; position:absolute; left:5px; top:10px; bottom:12px; width:1px; background:var(--brand-ink); }
+  .bwi-apx-step, .bwi-apx-step:nth-child(2), .bwi-apx-step:nth-child(3){ margin-top:0; padding:0 0 36px 36px; border-top:0; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); column-gap:32px; }
+  .bwi-apx-step:last-child{ padding-bottom:0; }
+  .bwi-apx-step::after, .bwi-apx-step:not(:last-child)::after, .bwi-apx-step:last-child::after{ content:none; }
+  .bwi-apx-n{ grid-column:1 / -1; }
+  .bwi-apx-node{ top:4px; }
+  .bwi-apx .bwi-ph{ align-self:start; }
+
+  .bwi-rt-cols{ grid-template-columns:minmax(0,1fr); }
+  .bwi-rt-col, .bwi-rt-col:first-child, .bwi-rt-col:last-child{ grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); column-gap:32px; align-items:baseline; padding:28px 0 28px 32px; }
+  .bwi-rt-col + .bwi-rt-col{ border-left:0; border-top:1px solid var(--border-default); }
+  .bwi-rt-node, .bwi-rt-col:first-child .bwi-rt-node{ left:0; top:35px; }
+  .bwi-rt-col:first-child .bwi-rt-node{ top:35px; }
+  .bwi-rt-d{ max-width:none; }
+
+  .bwi-ms{ grid-template-columns:minmax(0,1fr); }
+  .bwi-ms-dots{ display:none; }
+}
+
+/* ---------- phone ---------- */
+@media (max-width:767px){
+  .bwi-rg-head{ grid-template-columns:minmax(0,1fr); }
+  .bwi-rg-mark{ display:none; }
+  .bwi-rg-row{ grid-template-columns:36px minmax(0,1fr); }
+  .bwi-rg-d{ grid-column:2; }
+
+  .bwi-apx-step, .bwi-apx-step:nth-child(2), .bwi-apx-step:nth-child(3){ grid-template-columns:minmax(0,1fr); padding-left:32px; }
+
+  .bwi-rt-col, .bwi-rt-col:first-child, .bwi-rt-col:last-child{ grid-template-columns:minmax(0,1fr); gap:8px; padding:24px 0 24px 28px; }
+  .bwi-rt-node, .bwi-rt-col:first-child .bwi-rt-node{ top:32px; }
+  .bwi-ms{ padding:28px 22px; }
+}
