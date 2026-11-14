@@ -1,48 +1,260 @@
 {
-  "frames": "Infinite decorative artwork drift captured at t=0 via screenshot animations:disabled; real motion checked separately",
-  "date": "2026-11-14T17:09:54.199Z",
-  "base": "http://127.0.0.1:8126",
+  "source": "design/Better World Impact.dc.html at 141ee23",
+  "branch": "feat/ghl-better-world-impact",
   "fonts": "NOT VERIFIED: remote font requests deliberately blocked; both references use identical fallback fonts",
-  "matrix": [],
-  "checks": [
-    {
-      "name": "Source content, static engine figure, launch defaults and empty data",
-      "status": "PASS"
-    },
-    {
-      "name": "Review flags, approach placeholders, engine copy override, invalid JSON and image defaults",
-      "status": "PASS"
-    },
-    {
-      "name": "Draw-in figures: armed below the fold, drawn in view, complete under reduced motion",
-      "status": "PASS"
-    },
-    {
-      "name": "Approved data templates, text safety, case route and cloned-root clearing",
-      "status": "PASS"
-    },
-    {
-      "name": "Configured Start a Conversation/Financial Engine links, unavailable feedback and copied footer/route",
-      "status": "PASS"
-    },
-    {
-      "name": "Scoped anchor, native scroll/wheel, live diagram breakpoint and header switches",
-      "status": "PASS"
-    },
-    {
-      "name": "Artwork bytes/composition, normal drift and reduced-motion stop",
-      "status": "PASS"
-    },
-    {
-      "name": "Hostile host, touch/menu, duplicate script, root replacement and teardown",
-      "status": "PASS"
-    },
-    {
-      "name": "No JS/console errors or unexpected network failures",
-      "status": "PASS"
-    }
-  ],
-  "errors": [],
-  "consoleErrors": [],
-  "unexpectedNetwork": []
+  "matrix": {
+    "date": "2026-11-14T17:10:20.989Z",
+    "cases": 25,
+    "allPass": true,
+    "pixelDiff": "0 changed pixels in every source/inline and source/hosted pair (Pillow)",
+    "rows": [
+      {
+        "width": 320,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 7822
+      },
+      {
+        "width": 360,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 7407
+      },
+      {
+        "width": 375,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 7310
+      },
+      {
+        "width": 390,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 7200
+      },
+      {
+        "width": 430,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 6944
+      },
+      {
+        "width": 767,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5782
+      },
+      {
+        "width": 768,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5754
+      },
+      {
+        "width": 1023,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 6020
+      },
+      {
+        "width": 1024,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 4697
+      },
+      {
+        "width": 1280,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5023
+      },
+      {
+        "width": 1366,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5171
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5255
+      },
+      {
+        "width": 1600,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5255
+      },
+      {
+        "width": 1920,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5255
+      },
+      {
+        "width": 2560,
+        "height": 900,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5255
+      },
+      {
+        "width": 390,
+        "height": 600,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 7200
+      },
+      {
+        "width": 1024,
+        "height": 1200,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 4697
+      },
+      {
+        "width": 1440,
+        "height": 600,
+        "motion": false,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5255
+      },
+      {
+        "width": 390,
+        "height": 900,
+        "motion": true,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 7200
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "motion": true,
+        "scenario": "default",
+        "status": "PASS",
+        "pageHeight": 5255
+      },
+      {
+        "width": 390,
+        "height": 900,
+        "motion": false,
+        "scenario": "review",
+        "status": "PASS",
+        "pageHeight": 7260
+      },
+      {
+        "width": 768,
+        "height": 900,
+        "motion": false,
+        "scenario": "review",
+        "status": "PASS",
+        "pageHeight": 5900
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "motion": false,
+        "scenario": "review",
+        "status": "PASS",
+        "pageHeight": 5276
+      },
+      {
+        "width": 390,
+        "height": 900,
+        "motion": false,
+        "scenario": "approved-data",
+        "status": "PASS",
+        "pageHeight": 8146
+      },
+      {
+        "width": 1440,
+        "height": 900,
+        "motion": false,
+        "scenario": "approved-data",
+        "status": "PASS",
+        "pageHeight": 6964
+      }
+    ],
+    "errors": [],
+    "consoleErrors": [],
+    "unexpectedNetwork": []
+  },
+  "checks": {
+    "date": "2026-11-14T17:26:28.345Z",
+    "results": [
+      {
+        "name": "Source content, static engine figure, launch defaults and empty data",
+        "status": "PASS"
+      },
+      {
+        "name": "Review flags, approach placeholders, engine copy override, invalid JSON and image defaults",
+        "status": "PASS"
+      },
+      {
+        "name": "Draw-in figures: armed below the fold, drawn in view, complete under reduced motion",
+        "status": "PASS"
+      },
+      {
+        "name": "Approved data templates, text safety, case route and cloned-root clearing",
+        "status": "PASS"
+      },
+      {
+        "name": "Configured Start a Conversation/Financial Engine links, unavailable feedback and copied footer/route",
+        "status": "PASS"
+      },
+      {
+        "name": "Scoped anchor, native scroll/wheel, live diagram breakpoint and header switches",
+        "status": "PASS"
+      },
+      {
+        "name": "Artwork bytes/composition, normal drift and reduced-motion stop",
+        "status": "PASS"
+      },
+      {
+        "name": "Hostile host, touch/menu, duplicate script, root replacement and teardown",
+        "status": "PASS"
+      },
+      {
+        "name": "No JS/console errors or unexpected network failures",
+        "status": "PASS"
+      }
+    ],
+    "errors": [],
+    "consoleErrors": [],
+    "unexpectedNetwork": []
+  }
 }

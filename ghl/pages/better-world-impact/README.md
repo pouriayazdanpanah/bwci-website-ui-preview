@@ -152,7 +152,7 @@ body overflow and removes status/shared listeners. No polling or continuous JS a
 
 ## Current verification
 
-Current evidence: [`qa/verification.md`](qa/verification.md), [`qa/results.json`](qa/results.json) (page checks).
+Current evidence: [`qa/verification.md`](qa/verification.md), [`qa/results.json`](qa/results.json).
 Historical: initial static page `qa/history/static-port/`, interactive engine (PR #36) `qa/history/interactive-engine/`.
 
 ```sh
