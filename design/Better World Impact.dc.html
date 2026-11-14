@@ -292,6 +292,178 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
 }
 
 @media (min-width:1024px) and (max-height:860px){ .lp{ --R:84px; } .lpd-stack{ padding:24px 32px; } .lpd-h{ font-size:clamp(28px,2.8vw,36px); } }
+
+/* ===== shared: review flag (Tweaks › Review › Review flags) ===== */
+.im-flag{ display:inline-flex; align-items:center; gap:6px; width:max-content; padding:2px 9px; border-radius:999px; background:var(--status-dev-bg); border:1px solid var(--status-dev-border); color:var(--status-dev-text); font-family:var(--font-mono); font-size:max(10.5px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; line-height:1.6; }
+.im-flag::before{ content:''; width:5px; height:5px; border-radius:50%; background:var(--status-dev-mark); }
+.is-ph{ color:var(--text-muted) !important; font-style:italic; }
+
+/* ===== 02 · WHAT WE MEAN BY REGENERATION ===== */
+.rg{ overflow:hidden; }
+.rg-g{ position:relative; display:grid; grid-template-columns:minmax(0,5fr) minmax(0,7fr); gap:clamp(40px,6vw,104px); align-items:start; }
+.rg-side{ display:grid; gap:20px; align-content:start; }
+.rg-side .eyebrow{ margin-bottom:-4px; }
+.rg-intro{ max-width:420px; font-size:clamp(20px,1.9vw,25px); font-weight:500; line-height:1.4; letter-spacing:-.015em; color:var(--brand-ink); text-wrap:pretty; }
+.rg-motif{ width:100%; max-width:380px; margin-top:clamp(8px,1.5vw,20px); }
+.rg-motif svg{ display:block; width:100%; height:auto; overflow:visible; }
+.rg-nd text{ font-family:var(--font-mono); font-size:10.5px; font-weight:700; letter-spacing:.04em; fill:var(--brand-ink); text-anchor:middle; }
+.rg-lb{ font-family:var(--font-mono); font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; fill:var(--text-muted); }
+.rg-arc{ stroke-dasharray:1; stroke-dashoffset:0; }
+.rg-motif.is-armed .rg-arc{ stroke-dashoffset:1; }
+.rg-motif.is-armed .rg-tip, .rg-motif.is-armed .rg-nd{ opacity:0; }
+.rg-motif.is-in .rg-arc{ stroke-dashoffset:0; transition:stroke-dashoffset 1.1s var(--ease-out) calc(var(--i) * .32s + .1s); }
+.rg-motif.is-in .rg-nd{ opacity:1; transition:opacity .4s ease calc(var(--i) * .32s); }
+.rg-motif.is-in .rg-tip{ opacity:1; transition:opacity .3s ease calc(var(--i) * .32s + .9s); }
+
+.rg-main{ --nd:34px; --col:56px; --gx:24px; --rp:clamp(26px,3vw,36px); --cm:clamp(36px,4vw,52px); display:grid; gap:0; padding-top:clamp(4px,1vw,12px); }
+.rg-rows{ border-top:1.5px solid var(--brand-ink); }
+/* rail: one segment per row, node centre to the next node (last one runs into the narrative) */
+.rg-r{ --c:var(--accent-emerald); --c2:var(--accent-gold); --j:0; position:relative; display:grid; grid-template-columns:var(--col) minmax(140px,190px) minmax(0,1fr); gap:8px var(--gx); align-items:baseline; padding:var(--rp) 0;
+  background:linear-gradient(90deg, var(--border-subtle), var(--border-subtle) 85%, transparent) calc(var(--col) + var(--gx)) 100% / calc(100% - var(--col) - var(--gx)) 1px no-repeat; }
+.rg-r--eco{ --c:var(--accent-gold); --c2:var(--brand-teal); --j:1; } .rg-r--soc{ --c:var(--brand-teal); --c2:var(--accent-gold); --j:2; }
+.rg-r::before{ content:''; position:absolute; left:calc(var(--nd) / 2 - .75px); top:calc(var(--rp) + var(--nd) / 2); bottom:calc((var(--rp) + var(--nd) / 2) * -1); width:1.5px; background:linear-gradient(180deg, var(--c), var(--c2)); opacity:.55; transform-origin:top; }
+.rg-r:last-child::before{ bottom:calc((var(--cm) + 17px) * -1); }
+.rg-n{ position:relative; z-index:1; align-self:start; display:flex; align-items:center; justify-content:center; width:var(--nd); height:var(--nd); margin-top:-3px; border-radius:50%; background:#fff; border:1.5px solid var(--c); box-shadow:0 0 0 5px #fff; font-family:var(--font-mono); font-size:max(11.5px,var(--fs-floor-sm,0px)); font-weight:700; letter-spacing:.02em; color:var(--brand-ink); transition:background-color .3s ease, color .3s ease; }
+.rg-k{ font-size:clamp(22px,2.1vw,28px); font-weight:700; letter-spacing:-.025em; line-height:1.15; color:var(--brand-ink); }
+@media (hover:hover) and (pointer:fine){ .rg-r:hover .rg-n{ background:var(--c); color:#fff; } }
+.rg-main.is-armed .rg-r::before{ transform:scaleY(0); }
+.rg-main.is-in .rg-r::before{ transform:none; transition:transform .6s var(--ease-out) calc(var(--j) * .3s + .35s); }
+.rg-r p{ font-size:clamp(16px,1.4vw,18px); line-height:1.6; color:var(--text-secondary); text-wrap:pretty; }
+
+.rg-cap{ position:relative; display:grid; gap:26px; margin-top:var(--cm); padding-left:calc(var(--col) + var(--gx)); }
+.rg-cap::after{ content:''; position:absolute; left:calc(var(--nd) / 2 - 6px); top:11px; width:12px; height:12px; background:var(--accent-gold); transform:rotate(45deg); box-shadow:0 0 0 6px #fff, 0 0 0 7px var(--status-dev-border); }
+.rg-cap-p{ font-size:clamp(18px,1.6vw,21px); line-height:1.6; letter-spacing:-.005em; color:var(--brand-ink); text-wrap:pretty; max-width:640px; }
+.rg-ex{ display:grid; grid-template-columns:auto minmax(0,1fr); gap:6px 14px; align-items:baseline; max-width:640px; padding:18px 20px; border-radius:12px; background:var(--surface-subtle); border:1px solid var(--border-subtle); font-size:max(15px,var(--fs-floor-body,0px)); line-height:1.6; color:var(--text-secondary); text-wrap:pretty; }
+.rg-ex b{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-gold-dark); white-space:nowrap; }
+
+/* ===== 03 · OUR APPROACH — stepped sequence ===== */
+.am-sec{ background:linear-gradient(90deg, transparent, var(--border-default) 18%, var(--border-default) 82%, transparent) top / 100% 1px no-repeat; }
+.am-head{ display:grid; grid-template-columns:minmax(0,7fr) minmax(0,5fr); gap:20px clamp(32px,6vw,96px); align-items:end; margin-bottom:clamp(44px,5.5vw,72px); }
+.am-head > div{ display:grid; gap:16px; }
+.am-head .lead{ max-width:440px; padding-bottom:6px; }
+.am{ --step:clamp(40px,4.6vw,64px); position:relative; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); counter-reset:am; }
+.am-i{ position:relative; display:grid; align-content:start; justify-items:start; gap:14px; margin-top:calc(var(--k) * var(--step)); padding:34px clamp(24px,3vw,48px) 0 0; }
+.am-i::before{ content:''; position:absolute; left:0; right:0; top:0; height:1.5px; background:var(--brand-ink); transform-origin:left; }
+.am-i::after{ content:''; position:absolute; left:-6px; top:-5.25px; width:12px; height:12px; border-radius:50%; background:#fff; border:2px solid var(--accent-emerald); }
+.am-j{ position:absolute; right:-.75px; top:0; width:1.5px; height:var(--step); background:var(--brand-ink); transform-origin:top; }
+.am-i:last-child .am-j{ display:none; }
+.am-i:last-child::before{ right:clamp(24px,3vw,48px); }
+.am-i:last-child .am-n::after{ content:''; position:absolute; right:calc(clamp(24px,3vw,48px) - 1px); top:-4.5px; width:9px; height:9px; border-top:1.5px solid var(--brand-ink); border-right:1.5px solid var(--brand-ink); transform:rotate(45deg); }
+.am-n{ font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:700; letter-spacing:.1em; color:var(--accent-gold-dark); }
+.am-t{ display:grid; gap:2px; }
+.am-pre{ font-size:max(15px,var(--fs-floor-body,0px)); font-weight:500; color:var(--text-muted); letter-spacing:0; }
+.am-w{ font-size:clamp(28px,2.8vw,38px); font-weight:700; letter-spacing:-.03em; line-height:1.1; color:var(--brand-ink); }
+.am-d{ max-width:360px; font-size:max(15px,var(--fs-floor-body,0px)); line-height:1.65; color:var(--text-secondary); text-wrap:pretty; }
+.am-d.is-ph{ width:100%; padding:14px 16px; border:1px dashed var(--border-strong); border-radius:10px; background:rgba(247,249,248,.7); }
+.am.is-armed .am-i::before{ transform:scaleX(0); }
+.am.is-armed .am-j{ transform:scaleY(0); }
+.am.is-in .am-i::before{ transform:none; transition:transform .55s var(--ease-out) calc(var(--k) * .5s); }
+.am.is-in .am-j{ transform:none; transition:transform .3s ease-in-out calc(var(--k) * .5s + .5s); }
+
+/* ===== 04 · REGENERATION AND THE FINANCIAL ENGINE ===== */
+.en{ overflow:hidden; }
+.en .pat-dots{ -webkit-mask-image:radial-gradient(ellipse 45% 55% at 100% 0%, #000 10%, transparent 70%); mask-image:radial-gradient(ellipse 45% 55% at 100% 0%, #000 10%, transparent 70%); }
+.en-head{ display:grid; grid-template-columns:minmax(0,6fr) minmax(0,6fr); gap:20px clamp(32px,6vw,96px); align-items:end; margin-bottom:clamp(32px,4vw,48px); }
+.en-h{ display:grid; gap:16px; }
+.en-h .h1{ max-width:560px; }
+.en-copy{ display:grid; gap:16px; max-width:520px; padding-bottom:6px; }
+.en-ph{ display:grid; gap:10px; justify-items:start; padding-left:16px; border-left:2px dashed var(--status-dev-border); }
+.en-ph p{ font-size:max(15px,var(--fs-floor-body,0px)); line-height:1.6; font-style:italic; color:var(--text-muted); }
+.en-panel{ position:relative; padding:clamp(20px,3vw,40px) clamp(24px,4vw,56px) clamp(16px,2vw,28px); border-radius:20px; background:#fff; border:1px solid var(--border-subtle); }
+.en .lp--static{ --R:84px; margin-top:0; }
+.en .lp--static .lp-s{ max-width:140px; }
+.bw a.en-link{ margin-top:clamp(24px,3vw,36px); }
+
+/* ===== 05 · THREE RETURNS + MEASUREMENT ===== */
+.rt-head{ display:grid; justify-items:center; gap:16px; max-width:720px; margin:0 auto; text-align:center; }
+.rt-branch{ position:relative; height:112px; margin:clamp(20px,2.5vw,32px) auto 0; }
+.rt-hub{ position:absolute; left:50%; top:0; z-index:1; display:flex; align-items:center; justify-content:center; width:40px; height:40px; margin-left:-20px; border-radius:50%; background:#fff; border:1.5px solid var(--accent-gold-dark); color:var(--accent-gold-dark); }
+.rt-hub svg{ width:18px; height:18px; }
+.rt-lines{ display:block; width:100%; height:100%; overflow:visible; }
+.rt-branch .rt-lines{ position:absolute; left:0; right:0; top:40px; height:72px; }
+.rt-lines path{ stroke:var(--border-strong); stroke-width:1.5; vector-effect:non-scaling-stroke; }
+.rt-ties .rt-lines path{ stroke:var(--accent-gold); stroke-opacity:.6; stroke-dasharray:3 5; }
+.rt-branch.is-armed .rt-lines, .rt-ties.is-armed .rt-lines{ clip-path:inset(0 0 100% 0); }
+.rt-branch.is-in .rt-lines, .rt-ties.is-in .rt-lines{ clip-path:inset(0 0 0 0); transition:clip-path .8s var(--ease-out) .2s; }
+.rt-cols{ position:relative; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); }
+.rt-c{ position:relative; display:grid; justify-items:center; align-content:start; gap:14px; padding:8px clamp(20px,3.5vw,52px) 4px; text-align:center; }
+.rt-c + .rt-c::before{ content:''; position:absolute; left:0; top:0; bottom:0; width:1px; background:linear-gradient(180deg, transparent, var(--border-default) 22%, var(--border-default) 78%, transparent); }
+.rt-i{ display:flex; align-items:center; justify-content:center; width:60px; height:60px; margin-bottom:4px; border-radius:50%; background:var(--status-op-bg); color:var(--accent-emerald-dark); box-shadow:0 0 0 8px #fff, 0 0 0 9px var(--border-subtle); }
+.rt-i svg{ width:26px; height:26px; }
+.rt-t{ font-size:clamp(21px,1.9vw,25px); font-weight:700; letter-spacing:-.022em; line-height:1.2; color:var(--brand-ink); }
+.rt-c p{ max-width:300px; font-size:clamp(16px,1.35vw,17.5px); line-height:1.6; color:var(--text-secondary); text-wrap:pretty; }
+.rt-ties{ height:64px; margin-top:clamp(20px,2.5vw,32px); }
+
+.ms{ position:relative; overflow:hidden; display:grid; grid-template-columns:minmax(0,4fr) minmax(0,7fr); gap:20px clamp(32px,5vw,80px); align-items:start; padding:clamp(32px,4vw,52px) clamp(24px,4.5vw,64px); border-radius:20px; border:1px solid var(--border-subtle);
+  background:radial-gradient(ellipse 480px 320px at 0% 0%, rgba(18,131,107,.08), transparent 70%), linear-gradient(160deg, #F2F7F5 0%, var(--surface-subtle) 100%); }
+.ms .pat-dots{ -webkit-mask-image:radial-gradient(ellipse 30% 55% at 0% 100%, #000 10%, transparent 70%); mask-image:radial-gradient(ellipse 30% 55% at 0% 100%, #000 10%, transparent 70%); }
+.ms > div:not(.pat-dots){ position:relative; }
+.ms-h{ display:grid; justify-items:start; gap:14px; }
+.ms-h h3{ font-size:clamp(24px,2.3vw,30px); font-weight:700; letter-spacing:-.025em; line-height:1.15; color:var(--brand-ink); }
+.ms-st{ display:inline-flex; align-items:center; gap:8px; padding:5px 12px 5px 10px; border-radius:999px; background:var(--status-dev-bg); border:1px solid var(--status-dev-border); color:var(--status-dev-text); font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.06em; text-transform:uppercase; line-height:1.4; }
+.ms-st i{ width:9px; height:9px; border-radius:50%; border:2px solid var(--status-dev-mark); background:linear-gradient(90deg, var(--status-dev-mark) 50%, transparent 50%); }
+.ms-b{ display:grid; gap:16px; max-width:680px; }
+.ms-b p{ font-size:clamp(16px,1.4vw,18px); line-height:1.7; color:var(--text-secondary); text-wrap:pretty; }
+.ms-b b{ font-weight:600; color:var(--brand-ink); }
+
+/* ===== responsive ===== */
+@media (max-width:1023px){
+  .rg-g{ grid-template-columns:minmax(0,1fr); gap:36px; }
+  .rg-side{ grid-template-columns:minmax(0,1fr) 220px; column-gap:32px; }
+  .rg-side > :not(.rg-motif){ grid-column:1; }
+  .rg-motif{ grid-column:2; grid-row:1 / span 4; align-self:end; margin:0; }
+  .am-head, .en-head{ grid-template-columns:minmax(0,1fr); align-items:start; }
+  .am{ grid-template-columns:minmax(0,1fr); max-width:680px; }
+  .am-i{ margin-top:0; grid-template-columns:minmax(0,1fr); padding:0 0 clamp(32px,5vw,44px) 40px; }
+  .am-i::before{ left:5px; right:auto; top:8px; bottom:0; width:1.5px; height:auto; transform-origin:top; }
+  .am-i::after{ left:0; top:2px; }
+  .am-i:last-child{ padding-bottom:0; }
+  .am-i:last-child::before{ display:none; }
+  .am-i:last-child .am-n::after{ display:none; }
+  .am-j{ display:none; }
+  .am.is-armed .am-i::before{ transform:scaleY(0); }
+  .am.is-in .am-i::before{ transform:none; }
+  .am-d{ max-width:560px; }
+  .rt-cols{ grid-template-columns:minmax(0,1fr); max-width:620px; margin:0 auto; }
+  .rt-branch{ height:auto; display:flex; justify-content:center; margin-bottom:8px; }
+  .rt-hub{ position:static; margin:0; }
+  .rt-branch .rt-lines, .rt-ties{ display:none; }
+  .rt-c{ grid-template-columns:60px minmax(0,1fr); justify-items:start; column-gap:20px; row-gap:6px; padding:26px 0; text-align:left; }
+  .rt-c + .rt-c::before{ left:0; right:0; top:0; bottom:auto; width:auto; height:1px; background:linear-gradient(90deg, transparent, var(--border-default) 12%, var(--border-default) 88%, transparent); }
+  .rt-i{ grid-row:1 / span 2; margin:0; }
+  .rt-c p{ grid-column:2; max-width:none; }
+  .ms{ grid-template-columns:minmax(0,1fr); margin-top:24px; }
+}
+@media (max-width:767px){
+  .rg-side{ grid-template-columns:minmax(0,1fr); }
+  .rg-motif{ grid-column:1; grid-row:auto; max-width:300px; justify-self:center; margin-top:8px; }
+  .rg-main{ --nd:30px; --col:30px; --gx:16px; --rp:22px; --cm:32px; }
+  .rg-r{ grid-template-columns:var(--col) minmax(0,1fr); gap:8px var(--gx); }
+  .rg-k{ align-self:center; }
+  .rg-r p{ grid-column:2; }
+  .rg-cap{ gap:20px; }
+  .rg-ex{ grid-template-columns:minmax(0,1fr); padding:16px; }
+  .am-w{ font-size:clamp(26px,7.4vw,30px); }
+  .en-panel{ padding:16px 18px 18px; border-radius:16px; }
+  .bw a.en-link{ display:flex; justify-content:center; min-height:52px; padding:0 20px; border:0; border-radius:var(--radius-md); background:var(--brand-ink); color:#fff; align-items:center; }
+  .bw a.en-link:hover{ color:#fff; background:var(--brand-teal); }
+  .en .lp--static .lp-s{ max-width:none; }
+  .rt-branch{ display:none; }
+  .rt-head{ justify-items:start; text-align:left; }
+  .rt-branch{ justify-content:flex-start; }
+  .rt-c{ grid-template-columns:52px minmax(0,1fr); column-gap:16px; }
+  .rt-i{ width:52px; height:52px; box-shadow:none; }
+  .rt-i svg{ width:23px; height:23px; }
+  .ms{ padding:28px 20px; border-radius:16px; }
+}
+@media (max-width:360px){ .rg-ex b{ white-space:normal; } }
+@media (prefers-reduced-motion:reduce){
+  .rg-motif.is-armed .rg-arc{ stroke-dashoffset:0; }
+  .rg-main.is-armed .rg-r::before{ transform:none; }
+  .rt-branch.is-armed .rt-lines, .rt-ties.is-armed .rt-lines{ clip-path:none; }
+  .rg-motif.is-armed .rg-tip, .rg-motif.is-armed .rg-nd{ opacity:1; }
+  .am.is-armed .am-i::before, .am.is-armed .am-j{ transform:none; }
+}
 </style>
 <link rel="stylesheet" href="./bwci-system.css">
 <script src="./bwci-motion.js"></script>
@@ -315,60 +487,159 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
       </div>
     </section>
 
-    <section class="sec" id="approach" data-screen-label="02 Our approach">
+    <!-- 02 · WHAT WE MEAN BY REGENERATION -->
+    <section class="sec rg" id="regeneration" data-screen-label="02 What we mean by regeneration">
       <div class="wrap">
-        <div class="sec-head">
-          <span class="eyebrow">Our approach</span>
-          <h2 class="h1">Our approach: impact built into the architecture of capital</h2>
-          <p class="lead">Impact is often assessed after capital has already been allocated. Our approach considers it earlier: when capital is structured, owned, and deployed.</p>
-        </div>
-        <div class="ap">
-          <div class="ap-b"><span class="ap-n">01</span><h3>Structured</h3><p>When we design a financing structure, we set its form, terms, and time horizon. At this stage, we consider the intended outcome so the structure fits the activity it supports.</p></div>
-          <div class="ap-b"><span class="ap-n">02</span><h3>Owned</h3><p>Ownership decides who holds an interest in an activity and who is accountable for it. We consider impact here by setting ownership and governance arrangements that keep the intended outcomes in view while the capital is committed.</p></div>
-          <div class="ap-b"><span class="ap-n">03</span><h3>Deployed</h3><p>Deployment is where capital reaches productive economic activity: a business trading, or a project being built. We measure impact here by providing capital in a form the activity can use and recording what happens to inform the next decision.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="sec sec--subtle" id="engine" data-screen-label="03 Financial Engine">
-      <div class="pat-dots" aria-hidden="true"></div>
-      <div class="wrap">
-        <div class="sec-head">
-          <span class="eyebrow">Financial Engine</span>
-          <h2 class="h1">How this connects to the Financial Engine</h2>
-          <p class="lead">The Financial Engine outlines how BWCI responds to an economic need in six steps, from Need to Reinvestment. The approach above runs through it: capital is structured at Architecture, owned through Institution, and deployed through Capital and Activity. At Reinvestment, what we learn informs the next need.</p>
-        </div>
-        <figure class="lp lp--static" role="img" aria-label="The six steps of the Financial Engine: Need, Architecture, Institution, Capital, Activity and Reinvestment, with reinvestment returning to need. Architecture, Institution and Reinvestment are marked Impact considered.">
-          <div class="lp-ring" aria-hidden="true"></div>
-          <span class="lp-chev lp-chev--in" aria-hidden="true"></span><span class="lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.1)"></span><span class="lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.3)"></span><span class="lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.5)"></span><span class="lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.7)"></span><span class="lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.9)"></span>
-          <span class="lp-chev lp-chev--ret" aria-hidden="true"></span>
-          <span class="lp-ret" aria-hidden="true">Reinvestment returns to need</span>
-          <ol class="lp-nodes" aria-hidden="true" style="margin:0; padding:0; list-style:none">
-            <li class="lp-n"><span class="lp-in"><span class="lp-num">01</span><span class="lp-dot"></span><span class="lp-t">Need</span><span class="lp-s">Economic Need</span></span></li>
-            <li class="lp-n is-on"><span class="lp-in"><span class="lp-num">02</span><span class="lp-dot"></span><span class="lp-t">Architecture</span><span class="lp-s">Financial Architecture</span><span class="lp-tag">Impact considered</span></span></li>
-            <li class="lp-n is-on"><span class="lp-in"><span class="lp-num">03</span><span class="lp-dot"></span><span class="lp-t">Institution</span><span class="lp-s">Appropriate Institution / Delivery Capability</span><span class="lp-tag">Impact considered</span></span></li>
-            <li class="lp-n"><span class="lp-in"><span class="lp-num">04</span><span class="lp-dot"></span><span class="lp-t">Capital</span></span></li>
-            <li class="lp-n"><span class="lp-in"><span class="lp-num">05</span><span class="lp-dot"></span><span class="lp-t">Activity</span><span class="lp-s">Productive Economic Activity</span></span></li>
-            <li class="lp-n is-on"><span class="lp-in"><span class="lp-num">06</span><span class="lp-dot"></span><span class="lp-t">Reinvestment</span><span class="lp-s">Performance / Learning / Reinvestment</span><span class="lp-tag">Impact considered</span></span></li>
-          </ol>
-        </figure>
-        <div class="lp-loopnote" aria-hidden="true" style="display:none; margin-top:8px; align-items:center; gap:8px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-gold-dark)">↑ Reinvestment returns to Need</div>
-        <a class="link" href="FinancialEngine.dc.html#hero" style="margin-top:clamp(24px,3vw,40px)">How the Financial Engine works <span class="ar" aria-hidden="true">→</span></a>
-      </div>
-    </section>
-
-    <sc-if value="{{ showMethod }}" hint-placeholder-val="{{ true }}">
-      <section class="sec" id="methodology" data-screen-label="04 Methodology">
-        <div class="wrap">
-          <div class="mt">
-            <div style="display:grid; gap:8px">
-              <h2>Impact &amp; Outcomes methodology</h2>
-              <p>Our Impact &amp; Outcomes methodology will be published here.</p>
+        <div class="rg-g">
+          <div class="rg-side">
+            <span class="eyebrow">Regeneration</span>
+            <h2 class="h1">What we mean by regeneration</h2>
+            <p class="rg-intro">A regenerative business restores more than it takes:</p>
+            <div class="rg-motif" aria-hidden="true" data-draw>
+              <svg viewBox="0 0 400 350" fill="none">
+                <defs><pattern id="rgDots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="1.1" fill="rgba(18,48,57,.16)"></circle></pattern></defs>
+                <circle cx="200" cy="175" r="84" fill="url(#rgDots)"></circle>
+                <circle cx="200" cy="175" r="84" stroke="var(--border-subtle)"></circle>
+                <circle class="rg-base" cx="200" cy="175" r="118" stroke="var(--border-subtle)" stroke-width="1.5"></circle>
+                <path class="rg-arc" style="--i:0" pathLength="1" d="M220.5 58.8 A118 118 0 0 1 310.9 215.4" stroke="var(--accent-emerald)" stroke-width="2.5" stroke-linecap="round"></path>
+                <path class="rg-arc" style="--i:1" pathLength="1" d="M290.4 250.8 A118 118 0 0 1 109.6 250.8" stroke="var(--accent-gold)" stroke-width="2.5" stroke-linecap="round"></path>
+                <path class="rg-arc" style="--i:2" pathLength="1" d="M89.1 215.4 A118 118 0 0 1 179.5 58.8" stroke="var(--brand-teal)" stroke-width="2.5" stroke-linecap="round"></path>
+                <path class="rg-tip" style="--i:0" d="M318.5 210.6 L310.9 215.4 L308.1 206.8" stroke="var(--accent-emerald)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path class="rg-tip" style="--i:1" d="M109.9 259.8 L109.6 250.8 L118.4 252.7" stroke="var(--accent-gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path class="rg-tip" style="--i:2" d="M171.6 54.6 L179.5 58.8 L173.5 65.5" stroke="var(--brand-teal)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                <g class="rg-nd" style="--i:0"><circle cx="220.5" cy="58.8" r="14" fill="#fff" stroke="var(--accent-emerald)" stroke-width="1.5"></circle><text x="220.5" y="62.6">01</text></g>
+                <g class="rg-nd" style="--i:1"><circle cx="290.4" cy="250.8" r="14" fill="#fff" stroke="var(--accent-gold)" stroke-width="1.5"></circle><text x="290.4" y="254.6">02</text></g>
+                <g class="rg-nd" style="--i:2"><circle cx="89.1" cy="215.4" r="14" fill="#fff" stroke="var(--brand-teal)" stroke-width="1.5"></circle><text x="89.1" y="219.2">03</text></g>
+                <text class="rg-lb" x="332" y="101" text-anchor="start">Natural</text>
+                <text class="rg-lb" x="200" y="334" text-anchor="middle">Economic</text>
+                <text class="rg-lb" x="68" y="101" text-anchor="end">Social</text>
+                <rect x="194" y="169" width="12" height="12" transform="rotate(45 200 175)" fill="var(--accent-gold)"></rect>
+              </svg>
+            </div>
+          </div>
+          <div class="rg-main" data-draw>
+            <ol class="rg-rows">
+              <li class="rg-r rg-r--nat"><span class="rg-n">01</span><h3 class="rg-k">Natural</h3><p>natural resources, such as soil, water and materials kept in use;</p></li>
+              <li class="rg-r rg-r--eco"><span class="rg-n">02</span><h3 class="rg-k">Economic</h3><p>economic resources, such as local supply chains, skills and jobs;</p></li>
+              <li class="rg-r rg-r--soc"><span class="rg-n">03</span><h3 class="rg-k">Social</h3><p>social resources, such as the strength of the communities around it.</p></li>
+            </ol>
+            <div class="rg-cap">
+              <p class="rg-cap-p">We favour capital structures that reward that kind of business: patient enough for long payback periods, shaped around real cash flows, and governed so the intended outcomes stay in view while the capital is committed.</p>
+              <p class="rg-ex"><b>For example:</b> <span>circular manufacturing that recovers and reuses materials, regenerative land use, cleaner energy and the regional suppliers that keep production close to home.</span></p>
             </div>
           </div>
         </div>
-      </section>
-    </sc-if>
+      </div>
+    </section>
+
+    <!-- 03 · OUR APPROACH -->
+    <section class="sec am-sec" id="approach" data-screen-label="03 Our approach">
+      <div class="wrap">
+        <div class="am-head">
+          <div>
+            <span class="eyebrow">Our approach</span>
+            <h2 class="h1">Our approach: impact built into the architecture of capital</h2>
+          </div>
+          <p class="lead">Most impact is measured after the money has gone out. We bring it in at three earlier moments.</p>
+        </div>
+        <ol class="am" data-draw>
+          <sc-for list="{{ moments }}" as="m" hint-placeholder-count="3">
+            <li class="am-i" style="{{ m.style }}">
+              <span class="am-j" aria-hidden="true"></span>
+              <span class="am-n">{{ m.n }}</span>
+              <h3 class="am-t"><span class="am-pre">When capital is</span> <span class="am-w">{{ m.w }}</span></h3>
+              <sc-if value="{{ m.flag }}" hint-placeholder-val="{{ true }}"><span class="im-flag">Copy to come</span></sc-if>
+              <p class="{{ m.cls }}">{{ m.text }}</p>
+            </li>
+          </sc-for>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 04 · REGENERATION AND THE FINANCIAL ENGINE -->
+    <section class="sec sec--subtle en" id="engine" data-screen-label="04 Financial Engine">
+      <div class="pat-dots" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="en-head">
+          <div class="en-h">
+            <span class="eyebrow">Financial Engine</span>
+            <h2 class="h1">Regeneration is part of the cycle, not an add-on</h2>
+          </div>
+          <div class="en-copy">
+            <p class="lead">The Financial Engine outlines how BWCI responds to an economic need in six steps, from Need to Reinvestment.</p>
+            <div class="en-ph">
+              <sc-if value="{{ flags }}" hint-placeholder-val="{{ true }}"><span class="im-flag">Awaiting alignment</span></sc-if>
+              <p>[Supporting copy to come, aligned with the approved six-step model before it is used.]</p>
+            </div>
+          </div>
+        </div>
+        <div class="en-panel">
+          <figure class="lp lp--static" role="img" aria-label="The six steps of the Financial Engine: Need, Architecture, Institution, Capital, Activity and Reinvestment, with reinvestment returning to need.">
+            <div class="lp-ring" aria-hidden="true"></div>
+            <span class="lp-chev lp-chev--in" aria-hidden="true"></span><span class="lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.1)"></span><span class="lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.3)"></span><span class="lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.5)"></span><span class="lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.7)"></span><span class="lp-chev" style="left:calc(var(--R) + (100% - var(--R) * 2) * 0.9)"></span>
+            <span class="lp-chev lp-chev--ret" aria-hidden="true"></span>
+            <span class="lp-ret" aria-hidden="true">Reinvestment returns to need</span>
+            <ol class="lp-nodes" aria-hidden="true" style="margin:0; padding:0; list-style:none">
+              <li class="lp-n"><span class="lp-in"><span class="lp-num">01</span><span class="lp-dot"></span><span class="lp-t">Need</span><span class="lp-s">Economic Need</span></span></li>
+              <li class="lp-n"><span class="lp-in"><span class="lp-num">02</span><span class="lp-dot"></span><span class="lp-t">Architecture</span><span class="lp-s">Financial Architecture</span></span></li>
+              <li class="lp-n"><span class="lp-in"><span class="lp-num">03</span><span class="lp-dot"></span><span class="lp-t">Institution</span><span class="lp-s">Appropriate Institution / Delivery Capability</span></span></li>
+              <li class="lp-n"><span class="lp-in"><span class="lp-num">04</span><span class="lp-dot"></span><span class="lp-t">Capital</span></span></li>
+              <li class="lp-n"><span class="lp-in"><span class="lp-num">05</span><span class="lp-dot"></span><span class="lp-t">Activity</span><span class="lp-s">Productive Economic Activity</span></span></li>
+              <li class="lp-n"><span class="lp-in"><span class="lp-num">06</span><span class="lp-dot"></span><span class="lp-t">Reinvestment</span><span class="lp-s">Performance / Learning / Reinvestment</span></span></li>
+            </ol>
+          </figure>
+          <div class="lp-loopnote" aria-hidden="true" style="display:none; margin-top:8px; align-items:center; gap:8px; font-family:var(--font-mono); font-size:max(12px,var(--fs-floor-sm,0px)); font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-gold-dark)">↑ Reinvestment returns to Need</div>
+        </div>
+        <a class="link en-link" href="FinancialEngine.dc.html#hero">How the Financial Engine works <span class="ar" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- 05 · THREE RETURNS FROM EVERY CYCLE + HOW WE WILL MEASURE THEM -->
+    <section class="sec rt" id="returns" data-screen-label="05 Three returns">
+      <div class="wrap">
+        <div class="rt-head">
+          <span class="eyebrow">Outcomes</span>
+          <h2 class="h1">Three returns from every cycle</h2>
+          <p class="lead">Every cycle is designed to return three things:</p>
+        </div>
+        <div class="rt-branch" aria-hidden="true" data-draw>
+          <span class="rt-hub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.34-5.66"></path><path d="M20 4v5h-5"></path></svg></span>
+          <svg class="rt-lines" viewBox="0 0 600 80" preserveAspectRatio="none" fill="none"><path d="M300 0 C300 46 100 34 100 80"></path><path d="M300 0 V80"></path><path d="M300 0 C300 46 500 34 500 80"></path></svg>
+        </div>
+        <ul class="rt-cols">
+          <li class="rt-c">
+            <span class="rt-i" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="2.8"></ellipse><path d="M5 6v6c0 1.55 3.13 2.8 7 2.8s7-1.25 7-2.8V6"></path><path d="M5 12v6c0 1.55 3.13 2.8 7 2.8s7-1.25 7-2.8v-6"></path></svg></span>
+            <h3 class="rt-t">Financial return</h3>
+            <p>For the investors whose capital made it possible.</p>
+          </li>
+          <li class="rt-c">
+            <span class="rt-i" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V11l5-3v13"></path><path d="M10 21V5l9 4v12"></path><path d="M13.5 12h2.5M13.5 16h2.5"></path></svg></span>
+            <h3 class="rt-t">Economic return</h3>
+            <p>For the business and its region, in trade, jobs and resilience.</p>
+          </li>
+          <li class="rt-c">
+            <span class="rt-i" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8.5 5.5-13.5 14-14 0 8.5-5 14-13 14"></path><path d="M5 19l7.5-7.5"></path></svg></span>
+            <h3 class="rt-t">Regenerative return</h3>
+            <p>For the natural, economic and social resources the business depends on.</p>
+          </li>
+        </ul>
+        <div class="rt-ties" aria-hidden="true" data-draw>
+          <svg class="rt-lines" viewBox="0 0 600 64" preserveAspectRatio="none" fill="none"><path d="M100 0 C100 36 300 28 300 64"></path><path d="M300 0 V64"></path><path d="M500 0 C500 36 300 28 300 64"></path></svg>
+        </div>
+        <div class="ms" id="measure">
+          <div class="pat-dots" aria-hidden="true"></div>
+          <div class="ms-h">
+            <span class="ms-st"><i aria-hidden="true"></i>In development</span>
+            <h3>How we will measure them</h3>
+            <sc-if value="{{ flags }}" hint-placeholder-val="{{ true }}"><span class="im-flag">Leadership approval</span></sc-if>
+          </div>
+          <div class="ms-b">
+            <p>Our Impact and Outcomes methodology is in development. It will set out how we measure all three returns and how we report them, and it will be published here.</p>
+            <p><b>Until then, we will not make impact claims we cannot evidence.</b> Case studies will be added as platforms become operational and outcomes can be verified.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <sc-if value="{{ hasEvidence }}" hint-placeholder-val="{{ false }}">
       <section class="sec sec--subtle" id="evidence" data-screen-label="05 Evidence">
@@ -421,10 +692,18 @@ button{ font-family:inherit; cursor:pointer; background:none; border:none; paddi
   <dc-import name="SiteFooter" style="display:block; width:100%" hint-size="100%,420px"></dc-import>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script="" data-props="{&quot;showMethodology&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Launch&quot;}}">
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;reviewFlags&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Review&quot;},&quot;approachCopy&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;placeholders&quot;,&quot;current site copy&quot;],&quot;default&quot;:&quot;placeholders&quot;,&quot;tsType&quot;:&quot;\&quot;placeholders\&quot; | \&quot;current site copy\&quot;&quot;,&quot;section&quot;:&quot;Review&quot;}}">
 class Component extends DCLogic {
   state = { step: 0 };
   rootRef = React.createRef();
+  componentDidMount() {
+    const root = this.rootRef.current; if (!root || !('IntersectionObserver' in window)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const els = [...root.querySelectorAll('[data-draw]')].filter(el => el.getBoundingClientRect().top > window.innerHeight * 0.9);
+    this._dio = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; this._dio.unobserve(e.target); e.target.classList.add('is-in'); }), { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
+    els.forEach(el => { el.classList.add('is-armed'); this._dio.observe(el); });
+  }
+  componentWillUnmount() { this._dio && this._dio.disconnect(); }
   renderVals() {
     const STEPS = [
       ['Economic Need', 'A real business or project need is identified and understood: its cash flows, contracts and constraints.', 'A regional food manufacturer wins a large export order. It needs working capital to buy inputs now, but the buyer pays in 120 days.'],
@@ -442,13 +721,25 @@ class Component extends DCLogic {
       cls: 'lp-n' + (i === cur ? ' is-on' : i < cur ? ' is-past' : ''),
       pane: 'lpd-pane' + (i === cur ? ' is-on' : ''), item: 'lp-item' + (i === cur ? ' is-on' : ''), pick: () => { go(i); lpdReveal(); }
     }));
+    const flags = this.props.reviewFlags ?? true;
+    const useCurrent = this.props.approachCopy === 'current site copy';
+    const MOM = [
+      ['structured', 'When we design a financing structure, we set its form, terms, and time horizon. At this stage, we consider the intended outcome so the structure fits the activity it supports.'],
+      ['owned', 'Ownership decides who holds an interest in an activity and who is accountable for it. We consider impact here by setting ownership and governance arrangements that keep the intended outcomes in view while the capital is committed.'],
+      ['deployed', 'Deployment is where capital reaches productive economic activity: a business trading, or a project being built. We measure impact here by providing capital in a form the activity can use and recording what happens to inform the next decision.']
+    ];
+    const moments = MOM.map(([w, cur], i) => ({
+      n: String(i + 1).padStart(2, '0'), w, style: { '--k': i },
+      text: useCurrent ? cur : '[Explanation to come: what we do when capital is ' + w + '. Final copy may run to two or three sentences.]',
+      cls: 'am-d' + (useCurrent ? '' : ' is-ph'), flag: flags && !useCurrent
+    }));
     const evidence = [];
     const cases = [].map(c => ({ ...c, imgStyle: { width: '100%', aspectRatio: '16/10', background: 'center/cover no-repeat url("' + c.img + '")' } }));
     return {
       rootRef: this.rootRef,
       steps, progress: cur / (STEPS.length - 1),
       prev: () => go(cur - 1), next: () => go(cur + 1),
-      showMethod: this.props.showMethodology ?? true,
+      flags, moments,
       evidence, cases, hasEvidence: evidence.length > 0, hasCases: cases.length > 0,
     };
   }
